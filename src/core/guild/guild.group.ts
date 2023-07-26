@@ -6,8 +6,6 @@ import {
   PermissionsBitField,
   Role,
 } from 'discord.js';
-import { Command } from '~/discord/decorators/command.decorator';
-import { Group } from '~/discord/decorators/group.decorator';
 import {
   ArgBoolean,
   ArgGuildMember,
@@ -23,6 +21,8 @@ import { Guild, Guild as GuildEntity } from './guild.entity';
 import e from 'express';
 import { AdminNeeded } from '~/discord/exceptions';
 import { GuildService } from './guild.service';
+import { Command } from '~/discord/decorators/command.decorator';
+import { Group } from '~/discord/decorators/group.decorator';
 
 @Injectable()
 @Group({

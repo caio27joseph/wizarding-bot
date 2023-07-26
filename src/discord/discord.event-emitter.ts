@@ -111,6 +111,7 @@ export class DiscordEventEmitter implements OnModuleInit {
     );
     this.groups = handlers.map((handler) => new GroupContext(handler));
     this.groupsMap = {};
+
     for (const group of this.groups) {
       this.groupsMap[group.options.name] = group;
     }
