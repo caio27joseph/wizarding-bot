@@ -5,12 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
-      - .:/usr/src/app
-      - db_data:/usr/src/app/data
-    environment:
-      - DB_PATH=/usr/src/app/data/mydatabase.db
+      - ./data:/usr/src/app/data
 
 volumes:
-  db_data:
+  data:
