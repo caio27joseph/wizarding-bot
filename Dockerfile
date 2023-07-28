@@ -19,5 +19,8 @@ RUN npm run build
 # Expose port 3000 for the server
 EXPOSE 3000
 
+# Define a volume mount point for the SQLite database data
+VOLUME /usr/src/app/data
+
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
