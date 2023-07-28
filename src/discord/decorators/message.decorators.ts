@@ -46,7 +46,7 @@ export const ArgMentionable = factory<InteractionOptions>(argOptionHandler, {
 export const ArgNumber = factory<InteractionOptions>(argOptionHandler, {
   type: InteractionOptionEnum.Number,
 });
-export const ArgRole = factory<InteractionOptions>(
+export const ArgRole = factory<InteractionOptions | string>(
   (interaction, { parameter }) => {
     const paramName =
       typeof parameter.options === 'string'
@@ -61,9 +61,31 @@ export const ArgRole = factory<InteractionOptions>(
     type: InteractionOptionEnum.Role,
   },
 );
-export const ArgString = factory<InteractionOptions>(argOptionHandler, {
-  type: InteractionOptionEnum.String,
-});
-export const ArgUser = factory<InteractionOptions>(argOptionHandler, {
-  type: InteractionOptionEnum.User,
-});
+export const ArgString = factory<InteractionOptions | string>(
+  argOptionHandler,
+  {
+    type: InteractionOptionEnum.String,
+  },
+);
+export const ArgUser = factory<InteractionOptions | string>(
+  async (interaction, { parameter }) => {
+    const paramName =
+      typeof parameter.options === 'string'
+        ? (parameter.options as string).toLowerCase()
+        : parameter.options.name.toLowerCase();
+    const details = interaction.options.data[0].options.find(
+      (data) => data.name === paramName,
+    );
+    const userFromCache = interaction.guild.members.cache.get(
+      details?.value as any,
+    );
+    if (userFromCache) return userFromCache;
+    const user = (await interaction.guild.members.fetch()).get(
+      details?.value as any,
+    );
+    return user;
+  },
+  {
+    type: InteractionOptionEnum.User,
+  },
+);

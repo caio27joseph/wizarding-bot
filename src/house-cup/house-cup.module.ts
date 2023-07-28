@@ -4,6 +4,7 @@ import { HouseCupGroup } from './house-cup.group';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { HouseCup, PointLog } from './house-cup.entity';
 import { CoreModule } from '~/core/core.module';
+import { Guild } from 'discord.js';
 
 @Module({
   imports: [TypeOrmModule.forFeature([HouseCup, PointLog]), CoreModule],

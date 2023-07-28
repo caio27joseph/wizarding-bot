@@ -5,9 +5,10 @@ import {
   Client as DiscordClient,
   Events,
   GatewayIntentBits,
-  InteractionReplyOptions,
+  Interaction,
   InteractionResponse,
   MessageContextMenuCommandInteraction,
+  MessagePayload,
   SlashCommandBuilder,
   SlashCommandSubcommandBuilder,
 } from 'discord.js';
@@ -23,16 +24,18 @@ import {
   Parameter,
 } from './parameter_metadata_handler';
 import { GuildService } from '~/core/guild/guild.service';
-import { AdminNeeded, GuildSetupNeeded } from './exceptions';
+import {
+  AdminNeeded,
+  DiscordSimpleError,
+  EntityAlreadyExists,
+  GuildSetupNeeded,
+} from './exceptions';
 import {
   GroupOptions,
   getGroupOptions,
   getTargetGroups,
 } from './decorators/group.decorator';
-
-export interface DiscordEntityVieable {
-  discordView: () => InteractionReplyOptions;
-}
+import { DiscordEntityVieable } from './types';
 
 export interface Command<T> {
   keys: string[];
@@ -257,42 +260,69 @@ export class DiscordEventEmitter implements OnModuleInit {
           (interaction.options as any).getSubcommand(),
         );
         if (!command) return;
-        const args = command.parameters.map((p) =>
-          p.handler(interaction, {
-            parameter: p,
-            command: command,
-          }),
-        );
+        const args = [];
+        for (const p of command.parameters) {
+          args.push(
+            await p.handler(interaction, {
+              parameter: p,
+              command: command,
+            }),
+          );
+        }
+
         try {
-          const result = await command.target[command.key](...args);
-          await this.handleResult(interaction, result);
+          const result: DiscordEntityVieable | undefined = await command.target[
+            command.key
+          ](...args);
+          if (result && !result?.reply) {
+            await interaction.reply(
+              `Todo: ${typeof result} needs to implement the reply method`,
+            );
+          } else {
+            await interaction.reply(result.reply(interaction));
+          }
         } catch (error) {
-          await this.handleErrors(interaction, error);
+          try {
+            const result = await this.handleErrors(interaction, error);
+            await interaction.reply(result);
+          } catch (error) {}
         }
       },
     );
   }
-  async handleResult<T extends DiscordEntityVieable>(
-    interaction: CommandInteraction,
-    result: T,
-  ) {
-    if (!result?.discordView) return;
-    await interaction.reply(result.discordView());
-  }
   async handleErrors<T extends Error>(
-    interaction: CommandInteraction,
+    interaction: Interaction,
     error: T,
-  ) {
-    let res: InteractionResponse<boolean>;
+  ): Promise<MessagePayload> {
+    const message = error?.message;
     if (error instanceof GuildSetupNeeded) {
-      const res = await interaction.reply(
-        'Use o comando guild setup para configurar',
-      );
+      const res = new MessagePayload(interaction, {
+        content: message || 'Use o comando guild setup para configurar',
+      });
       return res;
     }
     if (error instanceof AdminNeeded) {
-      const res = await interaction.reply('Voce precisa ser um administrador');
+      const res = new MessagePayload(interaction, {
+        content: message || 'Voce precisa ser um administrador',
+      });
       return res;
     }
+    if (error instanceof EntityAlreadyExists) {
+      const res = new MessagePayload(interaction, {
+        content: message || 'Essa entidade ja existe no sistema',
+      });
+      return res;
+    }
+    if (error instanceof DiscordSimpleError) {
+      const res = new MessagePayload(interaction, {
+        content: message || 'Erro inesperado!',
+      });
+      return res;
+    }
+    const res = new MessagePayload(interaction, {
+      content: `Unexpected Error ${error?.message}`,
+      ephemeral: true,
+    });
+    return res;
   }
 }

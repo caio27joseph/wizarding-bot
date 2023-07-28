@@ -1,7 +1,12 @@
 import { Global, Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Guild } from './guild.entity';
-import { Repository } from 'typeorm';
+import {
+  FindOptionsRelations,
+  FindOptionsSelect,
+  FindOptionsSelectByString,
+  Repository,
+} from 'typeorm';
 import {
   ButtonInteraction,
   CommandInteraction,
@@ -10,18 +15,46 @@ import {
   Message,
 } from 'discord.js';
 import { GuildSetupNeeded } from '~/discord/exceptions';
+import { relative } from 'path';
 
 @Injectable()
 export class GuildService {
-  constructor(@InjectRepository(Guild) private repo: Repository<Guild>) {}
+  constructor(@InjectRepository(Guild) public repo: Repository<Guild>) {}
 
-  get<T extends { guild: DiscordGuild }>(data: T) {
-    return this.repo.findOneBy({
-      discordId: data.guild.id,
+  async loadGuildAsMod(
+    interaction: CommandInteraction,
+    relations?: FindOptionsRelations<Guild>,
+  ) {
+    const guild = await this.repo.findOne({
+      where: {
+        discordId: interaction.guild.id,
+      },
+      relations,
     });
+    if (!guild) throw new GuildSetupNeeded();
+    const isMod = await this.isMod(interaction.member as GuildMember, guild);
+    if (!isMod) throw interaction.reply('Not Allowed');
+
+    return guild;
   }
-  async isMod(member: GuildMember) {
-    const guild = await this.get(member);
+  async get<T extends { guild: DiscordGuild }>(
+    data: T,
+    relations: FindOptionsRelations<Guild> = {},
+    throwIfNotFound = true,
+  ) {
+    const guild = await this.repo.findOne({
+      where: {
+        discordId: data.guild.id,
+      },
+      relations,
+    });
+    if (!guild && throwIfNotFound) throw new GuildSetupNeeded();
+    return guild;
+  }
+  async isMod(member: GuildMember, guild?: Guild) {
+    if (!guild) {
+      const guild = await this.get(member);
+    }
     if (!guild) {
       throw new GuildSetupNeeded();
     }

@@ -1,5 +1,6 @@
 export interface DiscordEntityVieable {
-  discordView: () => InteractionReplyOptions;
+  toEmbeds(): EmbedBuilder;
+  reply(interaction: Interaction): MessagePayload;
 }
 
 export interface Command<T> {

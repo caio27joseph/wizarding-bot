@@ -58,7 +58,7 @@ export class GuildGroup {
     if (!isAdmin) {
       throw new AdminNeeded();
     }
-    let guild = await this.service.get(member);
+    let guild = await this.service.get(member, {}, false);
     if (guild) {
       return await interaction.reply('Guild ja configurada');
     }
@@ -70,14 +70,4 @@ export class GuildGroup {
     guild = await this.repo.save(data);
     return await interaction.reply('Guild configurada com sucesso');
   }
-  @Command({
-    name: 'setup2',
-    description: 'Teste 2',
-  })
-  public async setup2() {}
-  @Command({
-    name: 'setup3',
-    description: 'Teste 3',
-  })
-  public async setup3() {}
 }
