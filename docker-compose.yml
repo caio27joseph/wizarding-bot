@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/app
+      - db_data:/usr/src/app/data
+    environment:
+      - DB_PATH=/usr/src/app/data/mydatabase.db
+
+volumes:
+  db_data:

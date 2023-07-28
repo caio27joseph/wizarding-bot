@@ -38,4 +38,5 @@ lerna-debug.log*
 .env
 
 #Database
-*.db
+wizard.db
+data/*
