@@ -1,3 +1,4 @@
+
 # Base image
 FROM node:18
 
@@ -15,6 +16,10 @@ COPY . .
 
 # Creates a "dist" folder with the production build
 RUN npm run build
+
+# Expose port 3000 for the server
+# Added this line to expose the port 3000
+EXPOSE 3000
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
