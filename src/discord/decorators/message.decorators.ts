@@ -12,7 +12,7 @@ export const ArgInteraction = simpleFactory<any>(
   (interaction, opt) => interaction,
 );
 
-export const ArgGuildMember = simpleFactory<any>(
+export const ArgAuthorMember = simpleFactory<any>(
   (interaction, opt) => interaction.member,
 );
 

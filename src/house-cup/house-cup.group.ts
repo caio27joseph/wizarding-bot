@@ -12,7 +12,7 @@ import { GuildService } from '~/core/guild/guild.service';
 import { HouseCup, HousePointResult, PointLog } from './house-cup.entity';
 import {
   ArgInteraction,
-  ArgGuildMember,
+  ArgAuthorMember,
   ArgString,
   ArgInteger,
   ArgUser,
@@ -45,7 +45,7 @@ export class HouseCupGroup {
   })
   public async startCup(
     @ArgInteraction() interaction: CommandInteraction,
-    @ArgGuildMember() author: GuildMember,
+    @ArgAuthorMember() author: GuildMember,
     @ArgString({
       name: 'name',
       description: 'O nome da taca das casas, exemplo: Taca de 1999',
@@ -71,7 +71,7 @@ export class HouseCupGroup {
   })
   public async addPoints(
     @ArgInteraction() interaction: CommandInteraction,
-    @ArgGuildMember() author: GuildMember,
+    @ArgAuthorMember() author: GuildMember,
     @ArgInteger({
       name: 'Quantidade',
       description:
@@ -88,7 +88,7 @@ export class HouseCupGroup {
 
     const cup = await this.service.getActiveCup({ guild });
 
-    const player = await this.playerService.getByMember(guild, target);
+    const player = await this.playerService.getOrCreateByMember(guild, target);
     const log = await this.service.addPoints(cup, player, value);
     return log;
   }

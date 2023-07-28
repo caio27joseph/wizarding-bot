@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { CoreService } from './core.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Player } from './core.entity';
-import { PlayerGroup } from './player.group';
+import { PlayerGroup } from './player/player.group';
 import { GuildGroup } from './guild/guild.group';
 import { GuildService } from './guild/guild.service';
 import { HouseService } from './house/house.service';

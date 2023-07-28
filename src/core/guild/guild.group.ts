@@ -8,7 +8,7 @@ import {
 } from 'discord.js';
 import {
   ArgBoolean,
-  ArgGuildMember,
+  ArgAuthorMember,
   ArgInteraction,
   ArgRole,
   ArgString,
@@ -44,7 +44,7 @@ export class GuildGroup {
   public async setup(
     @ArgInteraction()
     interaction: CommandInteraction,
-    @ArgGuildMember()
+    @ArgAuthorMember()
     member: GuildMember,
     @ArgRole({
       name: 'mod',

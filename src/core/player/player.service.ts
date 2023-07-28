@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Player } from '../core.entity';
-import { Repository } from 'typeorm';
+import { FindOptionsRelations, Repository } from 'typeorm';
 import { GuildMember } from 'discord.js';
 import { Guild } from '../guild/guild.entity';
 import { HouseService } from '../house/house.service';
 import { GuildSetupNeeded } from '~/discord/exceptions';
+import { CreatePlayerDto } from './player.dto';
 
 @Injectable()
 export class PlayerService {
@@ -14,7 +15,40 @@ export class PlayerService {
     private readonly houseService: HouseService,
   ) {}
 
-  async getByMember(guild: Guild, member: GuildMember) {
+  get(
+    guild: Guild,
+    discordId: string,
+    relations?: FindOptionsRelations<Player>,
+  ) {
+    return this.repo.findOne({
+      where: {
+        discordId,
+        guild: {
+          id: guild.id,
+        },
+      },
+      relations,
+    });
+  }
+  async getOrCreateUpdate(dto: CreatePlayerDto, update = false) {
+    let player = await this.repo.findOne({
+      where: {
+        guild: {
+          id: dto.guild.id,
+        },
+        discordId: dto.discordId,
+      },
+    });
+    if (player && !update) return player;
+    if (player && update) {
+      const result = this.repo.update(player.id, dto);
+      return this.repo.findOneBy({ id: player.id });
+    }
+    const data = this.repo.create(dto);
+    return this.repo.save(data);
+  }
+
+  async getOrCreateByMember(guild: Guild, member: GuildMember) {
     let player = await this.repo.findOne({
       where: {
         discordId: member.id,
