@@ -137,4 +137,27 @@ export class HouseCupGroup {
     );
     await interaction.reply(message);
   }
+
+  @Command({
+    name: 'playerLog',
+    description: 'Lista de pontos de determinado player',
+  })
+  public async playerLog(
+    @ArgInteraction() interaction: CommandInteraction,
+
+    @ArgUser({
+      name: 'jogador',
+      description: 'Verifica o total de pontos',
+    })
+    target: GuildMember,
+  ) {
+    const guild = await this.guildService.loadGuildAsMod(interaction);
+    const player = await this.playerService.getOrCreateByMember(guild, target, {
+      pointLogs: true,
+    });
+    const logs = player.pointLogs;
+    await interaction.reply({
+      embeds: logs.map((h) => h.toEmbeds()),
+    });
+  }
 }

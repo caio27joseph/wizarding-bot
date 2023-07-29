@@ -81,20 +81,21 @@ export class PointLog implements DiscordEntityVieable {
   createdAt: Date;
 
   toEmbeds() {
-    return new EmbedBuilder({
+    const embeds = new EmbedBuilder({
       color: this.house.color,
     })
-      .setTitle(
-        `${this.house.title || 'Casa'} - ${this.value.toString()} Pontos `,
-      )
-      .addFields({
-        name: this.player?.name || 'Jogador',
-        value: this.value.toString(),
-        inline: true,
+      .setAuthor({
+        name: this.player.name || 'Jogador sem nome',
+        iconURL:
+          this.player.avatarUrl ||
+          'https://media.discordapp.net/attachments/1134366574149648404/1134673167831539753/harry-potter.png?width=192&height=192',
       })
+      .setTitle(`${this.value.toString()} pontos para ${this.house.title}!`)
       .setFooter({
-        text: this.id,
+        text: this.createdAt.toLocaleString('pt-BR'),
       });
+    if (this.house?.imageUrl) embeds.setImage(this.house.imageUrl);
+    return embeds;
   }
   reply(interaction: Interaction): MessagePayload {
     const reply = new MessagePayload(interaction, {

@@ -32,7 +32,9 @@ export class Player implements DiscordEntityVieable {
   @ManyToOne((type) => Guild, (guild) => guild.players)
   guild?: Guild;
 
-  @ManyToOne((type) => House, (house) => house.players)
+  @ManyToOne((type) => House, (house) => house.players, {
+    eager: true,
+  })
   house?: House;
 
   @OneToMany((type) => PointLog, (log) => log.player)

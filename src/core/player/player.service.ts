@@ -48,7 +48,11 @@ export class PlayerService {
     return this.repo.save(data);
   }
 
-  async getOrCreateByMember(guild: Guild, member: GuildMember) {
+  async getOrCreateByMember(
+    guild: Guild,
+    member: GuildMember,
+    relations?: FindOptionsRelations<Player>,
+  ) {
     let player = await this.repo.findOne({
       where: {
         discordId: member.id,
@@ -56,9 +60,7 @@ export class PlayerService {
           id: guild.id,
         },
       },
-      relations: {
-        house: true,
-      },
+      relations,
     });
     if (!player) {
       const data = this.repo.create({
