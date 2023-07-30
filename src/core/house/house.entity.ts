@@ -7,7 +7,6 @@ import {
   OneToMany,
 } from 'typeorm';
 import { Guild } from '../guild/guild.entity';
-import { PointLog } from '~/house-cup/house-cup.entity';
 import { Player } from '../core.entity';
 import {
   CommandInteraction,
@@ -18,6 +17,7 @@ import {
   MessagePayload,
 } from 'discord.js';
 import { DiscordEntityVieable } from '~/discord/types';
+import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
 
 @Entity()
 export class House implements DiscordEntityVieable {

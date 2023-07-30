@@ -1,15 +1,8 @@
-import { Injectable, UseGuards } from '@nestjs/common';
-import { HouseCupService } from './house-cup.service';
-import {
-  CommandInteraction,
-  GuildMember,
-  Interaction,
-  discordSort,
-} from 'discord.js';
+import { Injectable } from '@nestjs/common';
+import { CommandInteraction, GuildMember, Interaction } from 'discord.js';
 
-import { ModGuard } from '~/core/guards/mod.guard';
 import { GuildService } from '~/core/guild/guild.service';
-import { HouseCup, HousePointResult, PointLog } from './house-cup.entity';
+import { HouseCup, HousePointResult } from './entities/house-cup.entity';
 import {
   ArgInteraction,
   ArgAuthorMember,
@@ -19,13 +12,12 @@ import {
 } from '~/discord/decorators/message.decorators';
 import { Command } from '~/discord/decorators/command.decorator';
 import { Group } from '~/discord/decorators/group.decorator';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Guild } from '~/core/guild/guild.entity';
-import { Repository } from 'typeorm';
 import { DiscordSimpleError, GuildSetupNeeded } from '~/discord/exceptions';
 import { PlayerService } from '~/core/player/player.service';
 import { House } from '~/core/house/house.entity';
-import { Player } from '~/core/core.entity';
+import { PointLog } from '../point-logs/entities/point-log.entity';
+import { HouseCupService } from './house-cup.service';
+import { PointLogsService } from '../point-logs/point-logs.service';
 
 @Group({
   name: 'taca',
@@ -35,6 +27,7 @@ import { Player } from '~/core/core.entity';
 export class HouseCupGroup {
   constructor(
     private readonly service: HouseCupService,
+    private readonly pointLogsService: PointLogsService,
     private readonly playerService: PlayerService,
     private guildService: GuildService,
   ) {}
@@ -89,7 +82,7 @@ export class HouseCupGroup {
     const cup = await this.service.getActiveCup({ guild });
 
     const player = await this.playerService.getOrCreateByMember(guild, target);
-    const log = await this.service.addPoints(cup, player, value);
+    const log = await this.pointLogsService.addPoints(cup, player, value);
     return log;
   }
   @Command({

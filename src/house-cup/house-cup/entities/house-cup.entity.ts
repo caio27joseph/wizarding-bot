@@ -1,3 +1,4 @@
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 import {
   MessagePayload,
   EmbedBuilder,
@@ -16,87 +17,38 @@ import { Player } from '~/core/core.entity';
 import { Guild } from '~/core/guild/guild.entity';
 import { House } from '~/core/house/house.entity';
 import { DiscordEntityVieable } from '~/discord/types';
+import { PointLog } from '../../point-logs/entities/point-log.entity';
 
+@ObjectType()
 @Entity()
 export class HouseCup implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')
+  @Field((type) => ID)
   id: string;
 
   @Column()
+  @Field()
   name: string;
 
   @Column()
+  @Field()
   active: boolean;
 
   @ManyToOne((type) => Guild, (guild) => guild.cups)
   guild: Guild;
 
   @Column()
+  @Field()
   guildId: string;
 
   @OneToMany((type) => PointLog, (log) => log.cup)
+  @Field((type) => [PointLog])
   pointLogs: PointLog[];
 
   toEmbeds() {
     return new EmbedBuilder().setTitle(this.name);
   }
   // todo: make method to calculate the current value of each house
-  reply(interaction: Interaction): MessagePayload {
-    const reply = new MessagePayload(interaction, {
-      content: 'Taca das Casas',
-      embeds: [this.toEmbeds()],
-    });
-    return reply;
-  }
-}
-
-@Entity()
-export class PointLog implements DiscordEntityVieable {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column()
-  value: number;
-
-  @ManyToOne((type) => Player, (player) => player.pointLogs, {
-    eager: true,
-  })
-  player: Player;
-
-  @Column()
-  playerId: string;
-
-  @ManyToOne((type) => House, (house) => house.pointLogs, {
-    eager: true,
-  })
-  house: House;
-
-  @Column({ nullable: true })
-  houseId: string;
-
-  @ManyToOne((type) => HouseCup, (cup) => cup.pointLogs)
-  cup: HouseCup;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  toEmbeds() {
-    const embeds = new EmbedBuilder({
-      color: this.house.color,
-    })
-      .setAuthor({
-        name: this.player.name || 'Jogador sem nome',
-        iconURL:
-          this.player.avatarUrl ||
-          'https://media.discordapp.net/attachments/1134366574149648404/1134673167831539753/harry-potter.png?width=192&height=192',
-      })
-      .setTitle(`${this.value.toString()} pontos para ${this.house.title}!`)
-      .setFooter({
-        text: this.createdAt.toLocaleString('pt-BR'),
-      });
-    if (this.house?.imageUrl) embeds.setImage(this.house.imageUrl);
-    return embeds;
-  }
   reply(interaction: Interaction): MessagePayload {
     const reply = new MessagePayload(interaction, {
       content: 'Taca das Casas',

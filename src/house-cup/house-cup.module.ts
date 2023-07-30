@@ -1,14 +1,18 @@
 import { Module } from '@nestjs/common';
-import { HouseCupService } from './house-cup.service';
-import { HouseCupGroup } from './house-cup.group';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { HouseCup, PointLog } from './house-cup.entity';
+import { HouseCup } from './house-cup/entities/house-cup.entity';
 import { CoreModule } from '~/core/core.module';
-import { Guild } from 'discord.js';
+import { PointLogsModule } from './point-logs/point-logs.module';
+import { PointLog } from './point-logs/entities/point-log.entity';
+import { HouseCupModule as CupModule } from './house-cup/house-cup.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([HouseCup, PointLog]), CoreModule],
+  imports: [
+    TypeOrmModule.forFeature([HouseCup, PointLog]),
+    PointLogsModule,
+    CupModule,
+  ],
   controllers: [],
-  providers: [HouseCupService, HouseCupGroup],
+  providers: [],
 })
 export class HouseCupModule {}

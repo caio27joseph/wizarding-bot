@@ -7,9 +7,7 @@ import {
 } from 'typeorm';
 import { Player } from '../core.entity';
 import { House } from '../house/house.entity';
-import { HouseCup } from '~/house-cup/house-cup.entity';
-import { DiscordEntityVieable } from '~/discord/types';
-import { EmbedBuilder, Interaction, MessagePayload } from 'discord.js';
+import { HouseCup } from '~/house-cup/house-cup/entities/house-cup.entity';
 
 @Entity()
 export class Guild {

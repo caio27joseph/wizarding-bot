@@ -8,11 +8,11 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Guild } from './guild/guild.entity';
-import { PointLog } from '~/house-cup/house-cup.entity';
 import { House } from './house/house.entity';
 import { DiscordEntityVieable } from '~/discord/types';
 import { EmbedBuilder } from '@discordjs/builders';
 import { Interaction, MessagePayload } from 'discord.js';
+import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
 
 @Entity()
 export class Player implements DiscordEntityVieable {

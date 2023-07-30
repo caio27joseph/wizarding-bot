@@ -1,26 +1,46 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import {
+  CreateHouseCupInput,
+  UpdateHouseCupInput,
+} from './entities/house-cup.input';
+import { Interaction, EmbedBuilder, MessagePayload } from 'discord.js';
+import {
+  FindManyOptions,
+  FindOneOptions,
+  FindOptionsRelations,
+  Repository,
+} from 'typeorm';
 import { Player } from '~/core/core.entity';
 import { House } from '~/core/house/house.entity';
-import { HouseCup, HousePointResult, PointLog } from './house-cup.entity';
-import { FindOptionsRelations, Repository } from 'typeorm';
+import { DiscordSimpleError } from '~/discord/exceptions';
+import { HouseCup, HousePointResult } from './entities/house-cup.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Guild } from '~/core/guild/guild.entity';
-import { GuildService } from '~/core/guild/guild.service';
-import {
-  CommandInteraction,
-  EmbedBuilder,
-  GuildMember,
-  Interaction,
-  MessagePayload,
-} from 'discord.js';
-import { DiscordSimpleError, GuildSetupNeeded } from '~/discord/exceptions';
 
 @Injectable()
 export class HouseCupService {
-  constructor(
-    @InjectRepository(PointLog) private pointLogRepo: Repository<PointLog>,
-    @InjectRepository(HouseCup) private repo: Repository<HouseCup>,
-  ) {}
+  constructor(@InjectRepository(HouseCup) private repo: Repository<HouseCup>) {}
+
+  create(createHouseCupInput: CreateHouseCupInput) {
+    return 'This action adds a new pointLog';
+  }
+
+  findAll(options?: FindManyOptions<HouseCup>) {
+    return this.repo.find(options);
+  }
+
+  findOne(options: FindOneOptions<HouseCup>) {
+    return this.repo.findOne(options);
+  }
+
+  update(id: number, updateHouseCupInput: UpdateHouseCupInput) {
+    return `This action updates a #${id} pointLog`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} pointLog`;
+  }
+
   async activateCup(cup: HouseCup) {
     cup.active = true;
     return await this.repo.save(cup);
@@ -34,18 +54,6 @@ export class HouseCupService {
     });
     const cup = await this.repo.save(data);
     return cup;
-  }
-  addPoints(cup: HouseCup, player: Player, value: number) {
-    if (!cup.active)
-      throw new DiscordSimpleError('Voce precisa iniciar a taca das casas');
-
-    const data = this.pointLogRepo.create({
-      cup,
-      player,
-      house: player.house,
-      value: value,
-    });
-    return this.pointLogRepo.save(data);
   }
   calculate_player_points(player: Player) {}
   calculate_house_points(house: House) {}

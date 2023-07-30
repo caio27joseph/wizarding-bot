@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type HouseCup {
+  id: ID!
+  name: String!
+  active: Boolean!
+  guildId: String!
+  pointLogs: [PointLog!]!
+}
+
+type PointLog {
+  id: ID!
+  value: Float!
+  playerId: String!
+  houseId: String!
+  cup: HouseCup!
+  cupId: String!
+  createdAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  pointLogs(input: FindAllPointLogInput!): [PointLog!]!
+  pointLog(houseId: String!): PointLog!
+  houseCup: [HouseCup!]!
+}
+
+input FindAllPointLogInput {
+  houseId: ID
+  cupId: ID
+  playerId: ID
+}
+
+type Mutation {
+  createHouseCup(createHouseCupInput: CreateHouseCupInput!): HouseCup!
+  updateHouseCup(updateHouseCupInput: UpdateHouseCupInput!): HouseCup!
+  removeHouseCup(id: Int!): HouseCup!
+}
+
+input CreateHouseCupInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateHouseCupInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
