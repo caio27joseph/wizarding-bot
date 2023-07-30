@@ -1,43 +1,60 @@
+import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { EmbedBuilder, Interaction, MessagePayload } from 'discord.js';
 import {
-  Column,
   Entity,
+  PrimaryGeneratedColumn,
+  Column,
   Index,
-  ManyToMany,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Guild } from './guild/guild.entity';
-import { House } from './house/house.entity';
+import { Guild } from '~/core/guild/guild.entity';
+import { House } from '~/core/house/entities/house.entity';
 import { DiscordEntityVieable } from '~/discord/types';
-import { EmbedBuilder } from '@discordjs/builders';
-import { Interaction, MessagePayload } from 'discord.js';
 import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
 
+@ObjectType()
 @Entity()
 export class Player implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')
+  @Field((type) => ID)
   id: string;
 
   @Column({ length: 500, nullable: true })
+  @Field({ nullable: true })
   name?: string;
 
   @Column({ nullable: true })
+  @Field({ nullable: true })
   avatarUrl?: string;
 
   @Index()
   @Column()
+  @Field()
   discordId: string;
 
   @ManyToOne((type) => Guild, (guild) => guild.players)
   guild?: Guild;
 
+  @Column()
+  @Field(() => ID)
+  guildId: string;
+
   @ManyToOne((type) => House, (house) => house.players, {
+    nullable: true,
     eager: true,
   })
+  @Field((type) => House)
   house?: House;
 
+  @Column({
+    nullable: true,
+  })
+  @Field(() => ID, { nullable: true })
+  houseId?: string;
+
   @OneToMany((type) => PointLog, (log) => log.player)
+  @Field((type) => [PointLog])
   pointLogs?: PointLog[];
 
   toEmbeds() {

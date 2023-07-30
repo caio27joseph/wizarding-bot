@@ -8,10 +8,8 @@ import {
   Role,
 } from 'discord.js';
 import { Repository } from 'typeorm';
-import { House } from './house.entity';
 import { Group } from '~/discord/decorators/group.decorator';
 import { Command } from '~/discord/decorators/command.decorator';
-import { HouseService } from './house.service';
 import {
   ArgInteraction,
   ArgRole,
@@ -19,6 +17,7 @@ import {
 } from '~/discord/decorators/message.decorators';
 import { GuildService } from '../guild/guild.service';
 import { DiscordSimpleError, GuildSetupNeeded } from '~/discord/exceptions';
+import { HouseService } from './house.service';
 
 @Injectable()
 @Group({
@@ -52,50 +51,50 @@ export class HouseGroup {
     return house;
   }
 
-  @Command({
-    name: 'remover',
-    description: 'Remove uma casa existente na mesa',
-  })
-  async removeHouse(
-    @ArgInteraction() interaction: CommandInteraction,
-    @ArgRole('cargo')
-    role: Role,
-  ) {
-    const guild = await this.guildService.loadGuildAsMod(interaction, {
-      cups: true,
-    });
-    const result = await this.service.remove({
-      guild,
-      role,
-    });
-    await interaction.reply(`${result.affected} Casa(s) delatada(s)`);
-  }
+  // @Command({
+  //   name: 'remover',
+  //   description: 'Remove uma casa existente na mesa',
+  // })
+  // async removeHouse(
+  //   @ArgInteraction() interaction: CommandInteraction,
+  //   @ArgRole('cargo')
+  //   role: Role,
+  // ) {
+  //   const guild = await this.guildService.loadGuildAsMod(interaction, {
+  //     cups: true,
+  //   });
+  //   const result = await this.service.remove({
+  //     guild,
+  //     role,
+  //   });
+  //   await interaction.reply(`${result.affected} Casa(s) delatada(s)`);
+  // }
 
-  @Command({
-    name: 'atualizar',
-    description: 'Atualiza uma casa existente na mesa',
-  })
-  async updateHouse(
-    @ArgInteraction() interaction: CommandInteraction,
-    @ArgRole('cargo')
-    role: Role,
-    @ArgString({ name: 'titulo', required: false })
-    title: string,
-    @ArgString({ name: 'image_url', required: false })
-    imageUrl: string,
-  ) {
-    const guild = await this.guildService.loadGuildAsMod(interaction);
+  // @Command({
+  //   name: 'atualizar',
+  //   description: 'Atualiza uma casa existente na mesa',
+  // })
+  // async updateHouse(
+  //   @ArgInteraction() interaction: CommandInteraction,
+  //   @ArgRole('cargo')
+  //   role: Role,
+  //   @ArgString({ name: 'titulo', required: false })
+  //   title: string,
+  //   @ArgString({ name: 'image_url', required: false })
+  //   imageUrl: string,
+  // ) {
+  //   const guild = await this.guildService.loadGuildAsMod(interaction);
 
-    const house = await this.service.get({ guild, role });
-    if (!house) throw new DiscordSimpleError('Casa nao encontrada');
+  //   const house = await this.service.get({ guild, role });
+  //   if (!house) throw new DiscordSimpleError('Casa nao encontrada');
 
-    const updated = await this.service.update(house, {
-      title,
-      imageUrl,
-      color: role.color,
-    });
-    return updated;
-  }
+  //   const updated = await this.service.update(house, {
+  //     title,
+  //     imageUrl,
+  //     color: role.color,
+  //   });
+  //   return updated;
+  // }
 
   @Command({
     name: 'lista',
@@ -110,19 +109,19 @@ export class HouseGroup {
     });
   }
 
-  @Command({
-    name: 'mostrar',
-    description: 'Mostra detalhes de uma casa',
-  })
-  async showHouse(
-    @ArgInteraction() interaction: CommandInteraction,
-    @ArgRole('Casa')
-    role: Role,
-  ) {
-    const guild = await this.guildService.get(interaction);
-    const house = await this.service.get({ guild, role });
-    if (!house)
-      throw new DiscordSimpleError('Nao consegui encontrar a casa em questao');
-    return house;
-  }
+  // @Command({
+  //   name: 'mostrar',
+  //   description: 'Mostra detalhes de uma casa',
+  // })
+  // async showHouse(
+  //   @ArgInteraction() interaction: CommandInteraction,
+  //   @ArgRole('Casa')
+  //   role: Role,
+  // ) {
+  //   const guild = await this.guildService.get(interaction);
+  //   const house = await this.service.get({ guild, role });
+  //   if (!house)
+  //     throw new DiscordSimpleError('Nao consegui encontrar a casa em questao');
+  //   return house;
+  // }
 }

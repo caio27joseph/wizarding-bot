@@ -4,7 +4,7 @@ import { PointLog } from './entities/point-log.entity';
 import { FindAllPointLogInput } from './entities/point-log.input';
 import { HouseCup } from '../house-cup/entities/house-cup.entity';
 import { HouseCupService } from '../house-cup/house-cup.service';
-import { Player } from '~/core/core.entity';
+import { Player } from '~/core/player/entities/player.entity';
 import { PlayerService } from '~/core/player/player.service';
 
 @Resolver(() => PointLog)

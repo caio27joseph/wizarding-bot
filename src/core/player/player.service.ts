@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
+import { CreatePlayerInput, UpdatePlayerInput } from './entities/player.input';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Player } from '../core.entity';
-import { FindOptionsRelations, Repository } from 'typeorm';
-import { GuildMember } from 'discord.js';
+import { Repository, FindManyOptions, FindOneOptions } from 'typeorm';
+import { Player } from './entities/player.entity';
 import { Guild } from '../guild/guild.entity';
 import { HouseService } from '../house/house.service';
+import { GuildMember } from 'discord.js';
 import { GuildSetupNeeded } from '~/discord/exceptions';
-import { CreatePlayerDto } from './player.dto';
 
 @Injectable()
 export class PlayerService {
@@ -15,67 +15,50 @@ export class PlayerService {
     private readonly houseService: HouseService,
   ) {}
 
-  get(
-    guild: Guild,
-    discordId: string,
-    relations?: FindOptionsRelations<Player>,
-  ) {
-    return this.repo.findOne({
-      where: {
-        discordId,
-        guild: {
-          id: guild.id,
-        },
-      },
-      relations,
-    });
-  }
-  async getOrCreateUpdate(dto: CreatePlayerDto, update = false) {
+  async getOrCreateUpdate(input: CreatePlayerInput, update = false) {
     let player = await this.repo.findOne({
       where: {
-        guild: {
-          id: dto.guild.id,
-        },
-        discordId: dto.discordId,
+        discordId: input.discordId,
+        guildId: input.guildId,
       },
     });
     if (player && !update) return player;
     if (player && update) {
-      const result = this.repo.update(player.id, dto);
+      const result = await this.repo.update(player.id, input);
       return this.repo.findOneBy({ id: player.id });
     }
-    const data = this.repo.create(dto);
+    const data = this.repo.create(input);
     return this.repo.save(data);
   }
 
-  async getOrCreateByMember(
-    guild: Guild,
-    member: GuildMember,
-    relations?: FindOptionsRelations<Player>,
-  ) {
-    let player = await this.repo.findOne({
+  create(createPlayerInput: CreatePlayerInput) {
+    return this.repo.save(createPlayerInput);
+  }
+
+  findAll(options?: FindManyOptions<Player>) {
+    return this.repo.find(options);
+  }
+
+  findOne(options: FindOneOptions<Player>) {
+    return this.repo.findOne(options);
+  }
+
+  update(id: number, updatePlayerInput: UpdatePlayerInput) {
+    return this.repo.update(id, updatePlayerInput);
+  }
+
+  remove(id: number) {
+    return this.repo.delete(id);
+  }
+
+  async definePlayerHouse(guild: Guild, player: Player, member: GuildMember) {
+    const houses = await this.houseService.findAll({
       where: {
-        discordId: member.id,
         guild: {
           id: guild.id,
         },
       },
-      relations,
     });
-    if (!player) {
-      const data = this.repo.create({
-        discordId: member.id,
-        guild,
-      });
-      data.name = member.nickname;
-      player = await this.repo.save(data);
-    }
-    if (!player.house) await this.definePlayerHouse(guild, player, member);
-
-    return player;
-  }
-  async definePlayerHouse(guild: Guild, player: Player, member: GuildMember) {
-    const houses = await this.houseService.getGuildHouses(guild);
     if (!houses || houses.length === 0)
       throw new GuildSetupNeeded('Nao existe casas definida na mesa');
 

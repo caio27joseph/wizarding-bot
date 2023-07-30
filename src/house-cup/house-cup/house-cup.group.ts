@@ -13,11 +13,11 @@ import {
 import { Command } from '~/discord/decorators/command.decorator';
 import { Group } from '~/discord/decorators/group.decorator';
 import { DiscordSimpleError, GuildSetupNeeded } from '~/discord/exceptions';
-import { PlayerService } from '~/core/player/player.service';
-import { House } from '~/core/house/house.entity';
 import { PointLog } from '../point-logs/entities/point-log.entity';
 import { HouseCupService } from './house-cup.service';
 import { PointLogsService } from '../point-logs/point-logs.service';
+import { House } from '~/core/house/entities/house.entity';
+import { PlayerService } from '~/core/player/player.service';
 
 @Group({
   name: 'taca',
@@ -81,10 +81,22 @@ export class HouseCupGroup {
 
     const cup = await this.service.getActiveCup({ guild });
 
-    const player = await this.playerService.getOrCreateByMember(guild, target);
+    let player = await this.playerService.getOrCreateUpdate({
+      discordId: target.user.id,
+      guildId: guild.id,
+      name: target.nickname || target.displayName || target.user.username,
+    });
+    if (!player.house) {
+      player = await this.playerService.definePlayerHouse(
+        guild,
+        player,
+        target,
+      );
+    }
     const log = await this.pointLogsService.addPoints(cup, player, value);
     return log;
   }
+
   @Command({
     name: 'total',
     description: 'Adiciona ou retira pontos de algum jogador',
@@ -93,7 +105,14 @@ export class HouseCupGroup {
     const guild = await this.guildService.get(interaction, {
       houses: true,
     });
-    const cup = await this.service.getActiveCup({ guild }, { pointLogs: true });
+    const cup = await this.service.getActiveCup(
+      { guild },
+      {
+        pointLogs: {
+          player: true,
+        },
+      },
+    );
     if (!cup)
       throw new DiscordSimpleError('Não existe uma taca ativa no momento');
     if (guild.houses.length === 0)
@@ -131,26 +150,26 @@ export class HouseCupGroup {
     await interaction.reply(message);
   }
 
-  @Command({
-    name: 'playerLog',
-    description: 'Lista de pontos de determinado player',
-  })
-  public async playerLog(
-    @ArgInteraction() interaction: CommandInteraction,
+  // @Command({
+  //   name: 'playerLog',
+  //   description: 'Lista de pontos de determinado player',
+  // })
+  // public async playerLog(
+  //   @ArgInteraction() interaction: CommandInteraction,
 
-    @ArgUser({
-      name: 'jogador',
-      description: 'Verifica o total de pontos',
-    })
-    target: GuildMember,
-  ) {
-    const guild = await this.guildService.loadGuildAsMod(interaction);
-    const player = await this.playerService.getOrCreateByMember(guild, target, {
-      pointLogs: true,
-    });
-    const logs = player.pointLogs;
-    await interaction.reply({
-      embeds: logs.map((h) => h.toEmbeds()),
-    });
-  }
+  //   @ArgUser({
+  //     name: 'jogador',
+  //     description: 'Verifica o total de pontos',
+  //   })
+  //   target: GuildMember,
+  // ) {
+  //   const guild = await this.guildService.loadGuildAsMod(interaction);
+  //   const player = await this.playerService.getOrCreateByMember(guild, target, {
+  //     pointLogs: true,
+  //   });
+  //   const logs = player.pointLogs;
+  //   await interaction.reply({
+  //     embeds: logs.map((h) => h.toEmbeds()),
+  //   });
+  // }
 }

@@ -10,8 +10,7 @@ import {
   FindOptionsRelations,
   Repository,
 } from 'typeorm';
-import { Player } from '~/core/core.entity';
-import { House } from '~/core/house/house.entity';
+import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { HouseCup, HousePointResult } from './entities/house-cup.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -55,9 +54,6 @@ export class HouseCupService {
     const cup = await this.repo.save(data);
     return cup;
   }
-  calculate_player_points(player: Player) {}
-  calculate_house_points(house: House) {}
-
   async getActiveCup(
     { guild }: { guild: Guild },
     relations?: FindOptionsRelations<HouseCup>,

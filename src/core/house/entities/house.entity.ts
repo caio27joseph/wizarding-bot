@@ -6,8 +6,6 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { Guild } from '../guild/guild.entity';
-import { Player } from '../core.entity';
 import {
   CommandInteraction,
   Embed,
@@ -18,28 +16,41 @@ import {
 } from 'discord.js';
 import { DiscordEntityVieable } from '~/discord/types';
 import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
+import { Guild } from '~/core/guild/guild.entity';
+import { Player } from '~/core/player/entities/player.entity';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
+@ObjectType()
 @Entity()
 export class House implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')
+  @Field((type) => ID)
   id: string;
 
   @Column({ nullable: true })
+  @Field({ nullable: true })
   title?: string;
 
   @Column({ nullable: true })
+  @Field({ nullable: true })
   imageUrl?: string;
 
   @Column()
+  @Field()
   discordRoleId: string;
 
   @Column()
+  @Field({ nullable: true })
   color?: number;
 
   @ManyToOne((type) => Guild, (guild) => guild.players)
+  // @Field((type) => Guild)
   guild: Guild;
+  @Field(() => ID)
+  guildId: string;
 
   @OneToMany((type) => PointLog, (log) => log.player)
+  @Field((type) => [PointLog])
   pointLogs: PointLog[];
 
   @OneToMany((type) => Player, (player) => player.guild)

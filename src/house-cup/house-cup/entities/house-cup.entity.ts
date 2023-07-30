@@ -13,11 +13,11 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Player } from '~/core/core.entity';
+import { Player } from '~/core/player/entities/player.entity';
 import { Guild } from '~/core/guild/guild.entity';
-import { House } from '~/core/house/house.entity';
 import { DiscordEntityVieable } from '~/discord/types';
 import { PointLog } from '../../point-logs/entities/point-log.entity';
+import { House } from '~/core/house/entities/house.entity';
 
 @ObjectType()
 @Entity()

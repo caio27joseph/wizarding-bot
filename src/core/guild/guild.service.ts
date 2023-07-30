@@ -38,13 +38,13 @@ export class GuildService {
     return guild;
   }
   async get<T extends { guild: DiscordGuild }>(
-    data: T,
+    target: T,
     relations: FindOptionsRelations<Guild> = {},
     throwIfNotFound = true,
   ) {
     const guild = await this.repo.findOne({
       where: {
-        discordId: data.guild.id,
+        discordId: target.guild.id,
       },
       relations,
     });

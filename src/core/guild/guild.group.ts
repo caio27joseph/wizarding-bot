@@ -13,8 +13,6 @@ import {
   ArgRole,
   ArgString,
 } from '~/discord/decorators/message.decorators';
-import { HouseService } from '../house/house.service';
-import { House } from '../house/house.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Guild, Guild as GuildEntity } from './guild.entity';
@@ -23,6 +21,8 @@ import { AdminNeeded } from '~/discord/exceptions';
 import { GuildService } from './guild.service';
 import { Command } from '~/discord/decorators/command.decorator';
 import { Group } from '~/discord/decorators/group.decorator';
+import { House } from '../house/entities/house.entity';
+import { HouseService } from '../house/house.service';
 
 @Injectable()
 @Group({

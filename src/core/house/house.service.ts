@@ -1,80 +1,34 @@
 import { Injectable } from '@nestjs/common';
+import { CreateHouseInput, UpdateHouseInput } from './entities/house.input';
 import { InjectRepository } from '@nestjs/typeorm';
-import { House } from './house.entity';
-import { Repository } from 'typeorm';
-import { Guild } from '../guild/guild.entity';
-import {
-  CommandInteraction,
-  EmbedBuilder,
-  Interaction,
-  MessagePayload,
-  Role,
-} from 'discord.js';
-import { EntityAlreadyExists } from '~/discord/exceptions';
-import { CreateHouseDto, UpdateHouseDto } from './house.dto';
+import { House } from './entities/house.entity';
+import { FindManyOptions, Repository } from 'typeorm';
 
 @Injectable()
 export class HouseService {
   constructor(
-    @InjectRepository(House) private readonly repo: Repository<House>,
+    @InjectRepository(House)
+    private readonly repo: Repository<House>,
   ) {}
 
-  getGuildHouses(guild: Guild) {
-    return this.repo.findBy({
-      guild: {
-        id: guild.id,
-      },
-    });
-  }
-
-  async get({ guild, role }: { guild: Guild; role: Role }) {
-    const house = await this.repo.findOne({
-      where: { guild: { id: guild.id }, discordRoleId: role.id },
-    });
-    return house;
-  }
-  async create({ guild, ...dto }: CreateHouseDto) {
-    const exists = await this.repo.findOneBy({
-      guild: { id: guild.id },
-      discordRoleId: dto.discordRoleId,
-    });
-    if (exists)
-      throw new EntityAlreadyExists(
-        "Casa ja existente, use '/casa atualizar' para atualizar a casa",
-      );
-    const data = this.repo.create({
-      guild,
-      ...dto,
-    });
+  create(createHouseInput: CreateHouseInput) {
+    const data = this.repo.create(createHouseInput);
     return this.repo.save(data);
   }
-  async remove({ guild, role }: { guild: Guild; role: Role }) {
-    const deleted = await this.repo.delete({
-      guild: { id: guild.id },
-      discordRoleId: role.id,
-    });
-    return deleted;
-  }
-  async list({ guild }: { guild: Guild }) {
-    const houses = await this.repo.findBy({
-      guild: { id: guild.id },
-    });
-    return houses;
+
+  findAll(options?: FindManyOptions<House>) {
+    return this.repo.find(options);
   }
 
-  async update(house: House, dto: UpdateHouseDto) {
-    const updated = await this.repo.update(house.id, dto);
-    const newHouse = await this.repo.findOneBy({ id: house.id });
-    return newHouse;
+  findOne(id: number) {
+    return `This action returns a #${id} house`;
   }
 
-  listPayload(interaction: CommandInteraction, houses: House[]) {
-    return new MessagePayload(interaction as Interaction, {
-      embeds: houses.map((h) =>
-        new EmbedBuilder({
-          color: h.color,
-        }).setTitle('Casa'),
-      ),
-    });
+  update(id: number, updateHouseInput: UpdateHouseInput) {
+    return `This action updates a #${id} house`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} house`;
   }
 }

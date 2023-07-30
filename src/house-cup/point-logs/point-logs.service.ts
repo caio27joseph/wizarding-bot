@@ -7,7 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, FindOneOptions, Repository } from 'typeorm';
 import { PointLog } from './entities/point-log.entity';
 import { HouseCup } from '../house-cup/entities/house-cup.entity';
-import { Player } from '~/core/core.entity';
+import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 
 @Injectable()
@@ -40,7 +40,6 @@ export class PointLogsService {
   addPoints(cup: HouseCup, player: Player, value: number) {
     if (!cup.active)
       throw new DiscordSimpleError('Voce precisa iniciar a taca das casas');
-
     const data = this.repo.create({
       cup,
       player,

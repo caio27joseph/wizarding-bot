@@ -1,28 +1,24 @@
 import { Module } from '@nestjs/common';
 import { CoreService } from './core.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Player } from './core.entity';
 import { PlayerGroup } from './player/player.group';
 import { GuildGroup } from './guild/guild.group';
 import { GuildService } from './guild/guild.service';
-import { HouseService } from './house/house.service';
-import { House } from './house/house.entity';
 import { Guild } from './guild/guild.entity';
-import { PlayerService } from './player/player.service';
 import { HouseGroup } from './house/house.group';
+import { HouseModule } from './house/house.module';
+import { House } from './house/entities/house.entity';
+import { PlayerModule } from './player/player.module';
+import { Player } from './player/entities/player.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Player, House, Guild])],
-  controllers: [],
-  providers: [
-    CoreService,
-    PlayerGroup,
-    PlayerService,
-    GuildGroup,
-    GuildService,
-    HouseService,
-    HouseGroup,
+  imports: [
+    TypeOrmModule.forFeature([Player, House, Guild]),
+    HouseModule,
+    PlayerModule,
   ],
-  exports: [GuildService, PlayerService],
+  controllers: [],
+  providers: [CoreService, PlayerGroup, GuildGroup, GuildService, HouseGroup],
+  exports: [GuildService, PlayerModule],
 })
 export class CoreModule {}

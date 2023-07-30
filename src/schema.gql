@@ -2,11 +2,24 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type HouseCup {
+type House {
   id: ID!
-  name: String!
-  active: Boolean!
-  guildId: String!
+  title: String
+  imageUrl: String
+  discordRoleId: String!
+  color: Float
+  guildId: ID!
+  pointLogs: [PointLog!]!
+}
+
+type Player {
+  id: ID!
+  name: String
+  avatarUrl: String
+  discordId: String!
+  guildId: ID!
+  house: House!
+  houseId: ID
   pointLogs: [PointLog!]!
 }
 
@@ -25,10 +38,25 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type HouseCup {
+  id: ID!
+  name: String!
+  active: Boolean!
+  guildId: String!
+  pointLogs: [PointLog!]!
+}
+
 type Query {
+  players(input: FindAllPlayerInput!): [Player!]!
+  player(id: ID!): Player!
   pointLogs(input: FindAllPointLogInput!): [PointLog!]!
   pointLog(houseId: String!): PointLog!
   houseCup: [HouseCup!]!
+}
+
+input FindAllPlayerInput {
+  name: String
+  houseId: ID
 }
 
 input FindAllPointLogInput {

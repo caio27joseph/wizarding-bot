@@ -1,17 +1,14 @@
-import { Controller, Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Player } from '../core.entity';
-import { Repository } from 'typeorm';
+import { Injectable } from '@nestjs/common';
 import { Group } from '~/discord/decorators/group.decorator';
+import { GuildService } from '../guild/guild.service';
+import { PlayerService } from './player.service';
+import { CommandInteraction, GuildMember } from 'discord.js';
 import { Command } from '~/discord/decorators/command.decorator';
 import {
-  ArgAuthorMember,
   ArgInteraction,
+  ArgAuthorMember,
   ArgString,
 } from '~/discord/decorators/message.decorators';
-import { CommandInteraction, GuildMember } from 'discord.js';
-import { PlayerService } from './player.service';
-import { GuildService } from '../guild/guild.service';
 
 @Group({
   name: 'pj',
@@ -21,7 +18,7 @@ import { GuildService } from '../guild/guild.service';
 export class PlayerGroup {
   constructor(
     private readonly service: PlayerService,
-    private readonly guildService: GuildService,
+    private guildService: GuildService,
   ) {}
 
   @Command({
@@ -42,7 +39,7 @@ export class PlayerGroup {
     const player = await this.service.getOrCreateUpdate(
       {
         discordId: author.id,
-        guild,
+        guildId: guild.id,
         avatarUrl,
         name,
       },

@@ -7,8 +7,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Player } from '~/core/core.entity';
-import { House } from '~/core/house/house.entity';
+import { Player } from '~/core/player/entities/player.entity';
+import { House } from '~/core/house/entities/house.entity';
 import { HouseCup } from '~/house-cup/house-cup/entities/house-cup.entity';
 
 @ObjectType()
