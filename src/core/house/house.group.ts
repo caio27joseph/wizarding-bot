@@ -42,7 +42,7 @@ export class HouseGroup {
       cups: true,
     });
     const house = this.service.create({
-      guild,
+      guildId: guild.id,
       discordRoleId: role.id,
       color: role.color,
       imageUrl: role.iconURL(),
@@ -51,50 +51,60 @@ export class HouseGroup {
     return house;
   }
 
-  // @Command({
-  //   name: 'remover',
-  //   description: 'Remove uma casa existente na mesa',
-  // })
-  // async removeHouse(
-  //   @ArgInteraction() interaction: CommandInteraction,
-  //   @ArgRole('cargo')
-  //   role: Role,
-  // ) {
-  //   const guild = await this.guildService.loadGuildAsMod(interaction, {
-  //     cups: true,
-  //   });
-  //   const result = await this.service.remove({
-  //     guild,
-  //     role,
-  //   });
-  //   await interaction.reply(`${result.affected} Casa(s) delatada(s)`);
-  // }
+  @Command({
+    name: 'remover',
+    description: 'Remove uma casa existente na mesa',
+  })
+  async removeHouse(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgRole('cargo')
+    role: Role,
+  ) {
+    const guild = await this.guildService.loadGuildAsMod(interaction, {
+      cups: true,
+    });
+    const result = await this.service.remove({
+      guildId: guild.id,
+      discordRoleId: role.id,
+    });
+    await interaction.reply(`${result.affected} Casa(s) delatada(s)`);
+  }
 
-  // @Command({
-  //   name: 'atualizar',
-  //   description: 'Atualiza uma casa existente na mesa',
-  // })
-  // async updateHouse(
-  //   @ArgInteraction() interaction: CommandInteraction,
-  //   @ArgRole('cargo')
-  //   role: Role,
-  //   @ArgString({ name: 'titulo', required: false })
-  //   title: string,
-  //   @ArgString({ name: 'image_url', required: false })
-  //   imageUrl: string,
-  // ) {
-  //   const guild = await this.guildService.loadGuildAsMod(interaction);
+  @Command({
+    name: 'atualizar',
+    description: 'Atualiza uma casa existente na mesa',
+  })
+  async updateHouse(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgRole('cargo')
+    role: Role,
+    @ArgString({ name: 'titulo', required: false })
+    title: string,
+    @ArgString({ name: 'image_url', required: false })
+    imageUrl: string,
+  ) {
+    const guild = await this.guildService.loadGuildAsMod(interaction);
 
-  //   const house = await this.service.get({ guild, role });
-  //   if (!house) throw new DiscordSimpleError('Casa nao encontrada');
+    const house = await this.service.findOne({
+      where: {
+        guildId: guild.id,
+        discordRoleId: role.id,
+      },
+    });
+    if (!house) throw new DiscordSimpleError('Casa nao encontrada');
 
-  //   const updated = await this.service.update(house, {
-  //     title,
-  //     imageUrl,
-  //     color: role.color,
-  //   });
-  //   return updated;
-  // }
+    const updated = await this.service.update(
+      {
+        id: house.id,
+      },
+      {
+        title,
+        imageUrl,
+        color: role.color,
+      },
+    );
+    return await this.service.findOne({ where: { id: house.id } });
+  }
 
   @Command({
     name: 'lista',
@@ -109,19 +119,24 @@ export class HouseGroup {
     });
   }
 
-  // @Command({
-  //   name: 'mostrar',
-  //   description: 'Mostra detalhes de uma casa',
-  // })
-  // async showHouse(
-  //   @ArgInteraction() interaction: CommandInteraction,
-  //   @ArgRole('Casa')
-  //   role: Role,
-  // ) {
-  //   const guild = await this.guildService.get(interaction);
-  //   const house = await this.service.get({ guild, role });
-  //   if (!house)
-  //     throw new DiscordSimpleError('Nao consegui encontrar a casa em questao');
-  //   return house;
-  // }
+  @Command({
+    name: 'mostrar',
+    description: 'Mostra detalhes de uma casa',
+  })
+  async showHouse(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgRole('Casa')
+    role: Role,
+  ) {
+    const guild = await this.guildService.get(interaction);
+    const house = await this.service.findOne({
+      where: {
+        guildId: guild.id,
+        discordRoleId: role.id,
+      },
+    });
+    if (!house)
+      throw new DiscordSimpleError('Nao consegui encontrar a casa em questao');
+    return house;
+  }
 }

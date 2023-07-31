@@ -43,18 +43,19 @@ export class House implements DiscordEntityVieable {
   @Field({ nullable: true })
   color?: number;
 
-  @ManyToOne((type) => Guild, (guild) => guild.players)
+  @ManyToOne((type) => Guild, (guild) => guild.houses)
   // @Field((type) => Guild)
-  guild: Guild;
+  guild?: Guild;
   @Field(() => ID)
+  @Column()
   guildId: string;
 
-  @OneToMany((type) => PointLog, (log) => log.player)
+  @OneToMany((type) => PointLog, (log) => log.house)
   @Field((type) => [PointLog])
-  pointLogs: PointLog[];
+  pointLogs?: PointLog[];
 
-  @OneToMany((type) => Player, (player) => player.guild)
-  players: Player[];
+  @OneToMany((type) => Player, (player) => player.house)
+  players?: Player[];
 
   toEmbeds(): EmbedBuilder {
     return new EmbedBuilder({

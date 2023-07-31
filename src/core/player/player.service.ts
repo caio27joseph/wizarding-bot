@@ -43,11 +43,11 @@ export class PlayerService {
     return this.repo.findOne(options);
   }
 
-  update(id: number, updatePlayerInput: UpdatePlayerInput) {
+  update(id: string, updatePlayerInput: UpdatePlayerInput) {
     return this.repo.update(id, updatePlayerInput);
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.repo.delete(id);
   }
 

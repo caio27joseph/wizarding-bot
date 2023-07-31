@@ -47,11 +47,17 @@ type HouseCup {
 }
 
 type Query {
+  houses(where: FindAllHouseInput!): [House!]!
+  house(id: ID!): House!
   players(input: FindAllPlayerInput!): [Player!]!
   player(id: ID!): Player!
   pointLogs(input: FindAllPointLogInput!): [PointLog!]!
   pointLog(houseId: String!): PointLog!
   houseCup: [HouseCup!]!
+}
+
+input FindAllHouseInput {
+  guildId: ID!
 }
 
 input FindAllPlayerInput {
@@ -66,9 +72,28 @@ input FindAllPointLogInput {
 }
 
 type Mutation {
+  createHouse(input: CreateHouseInput!): House!
+  updateHouse(id: ID!, input: UpdateHouseInput!): House!
+  removeHouse(id: ID!): House!
   createHouseCup(createHouseCupInput: CreateHouseCupInput!): HouseCup!
   updateHouseCup(updateHouseCupInput: UpdateHouseCupInput!): HouseCup!
   removeHouseCup(id: Int!): HouseCup!
+}
+
+input CreateHouseInput {
+  title: String
+  imageUrl: String
+  color: Float
+  discordRoleId: ID!
+  guildId: ID!
+}
+
+input UpdateHouseInput {
+  title: String
+  imageUrl: String
+  color: Float
+  discordRoleId: ID
+  guildId: ID
 }
 
 input CreateHouseCupInput {

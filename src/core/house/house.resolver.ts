@@ -1,34 +1,41 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Int, ID } from '@nestjs/graphql';
 import { HouseService } from './house.service';
 import { House } from './entities/house.entity';
-import { CreateHouseInput, UpdateHouseInput } from './entities/house.input';
+import {
+  CreateHouseInput,
+  FindAllHouseInput,
+  UpdateHouseInput,
+} from './entities/house.input';
 
 @Resolver(() => House)
 export class HouseResolver {
   constructor(private readonly houseService: HouseService) {}
 
-  // @Mutation(() => House)
-  // createHouse(@Args('createHouseInput') createHouseInput: CreateHouseInput) {
-  //   return this.houseService.create(createHouseInput);
-  // }
+  @Mutation(() => House)
+  createHouse(@Args('input') input: CreateHouseInput) {
+    return this.houseService.create(input);
+  }
 
-  // @Query(() => [House], { name: 'house' })
-  // findAll() {
-  //   return this.houseService.findAll();
-  // }
+  @Query(() => [House], { name: 'houses' })
+  findAll(@Args('where') where: FindAllHouseInput) {
+    return this.houseService.findAll({ where });
+  }
 
-  // @Query(() => House, { name: 'house' })
-  // findOne(@Args('id', { type: () => Int }) id: number) {
-  //   return this.houseService.findOne(id);
-  // }
+  @Query(() => House, { name: 'house' })
+  findOne(@Args('id', { type: () => ID }) id: string) {
+    return this.houseService.findOne({ where: { id } });
+  }
 
-  // @Mutation(() => House)
-  // updateHouse(@Args('updateHouseInput') updateHouseInput: UpdateHouseInput) {
-  //   return this.houseService.update(updateHouseInput.id, updateHouseInput);
-  // }
+  @Mutation(() => House)
+  updateHouse(
+    @Args('id', { type: () => ID }) id: string,
+    @Args('input') input: UpdateHouseInput,
+  ) {
+    return this.houseService.update({ id }, input);
+  }
 
-  // @Mutation(() => House)
-  // removeHouse(@Args('id', { type: () => Int }) id: number) {
-  //   return this.houseService.remove(id);
-  // }
+  @Mutation(() => House)
+  removeHouse(@Args('id', { type: () => ID }) id: string) {
+    return this.houseService.remove({ id });
+  }
 }
