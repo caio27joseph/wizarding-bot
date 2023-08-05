@@ -29,5 +29,8 @@ export class FindAllPlayerInput {
   name?: string;
 
   @Field(() => ID, { nullable: true })
-  houseId: string;
+  houseId?: string;
+
+  @Field(() => ID)
+  guildId: string;
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable, forwardRef } from '@nestjs/common';
 import { CommandInteraction, GuildMember, Interaction } from 'discord.js';
 
 import { GuildService } from '~/core/guild/guild.service';

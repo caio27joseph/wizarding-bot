@@ -11,17 +11,15 @@ import {
 export class PlayerResolver {
   constructor(private readonly playerService: PlayerService) {}
 
-  // @Mutation(() => Player)
-  // createPlayer(
-  //   @Args('createPlayerInput') createPlayerInput: CreatePlayerInput,
-  // ) {
-  //   return this.playerService.create(createPlayerInput);
-  // }
+  @Mutation(() => Player)
+  createPlayer(@Args('input') input: CreatePlayerInput) {
+    return this.playerService.create(input);
+  }
 
   @Query(() => [Player], { name: 'players' })
-  findAll(@Args('input') input: FindAllPlayerInput) {
+  findAll(@Args('where') where: FindAllPlayerInput) {
     return this.playerService.findAll({
-      where: input,
+      where,
     });
   }
 
@@ -34,15 +32,16 @@ export class PlayerResolver {
     });
   }
 
-  // @Mutation(() => Player)
-  // updatePlayer(
-  //   @Args('updatePlayerInput') updatePlayerInput: UpdatePlayerInput,
-  // ) {
-  //   return this.playerService.update(updatePlayerInput.id, updatePlayerInput);
-  // }
+  @Mutation(() => Player)
+  updatePlayer(
+    @Args('id', { type: () => ID }) id: string,
+    @Args('input') input: UpdatePlayerInput,
+  ) {
+    return this.playerService.update(id, input);
+  }
 
-  // @Mutation(() => Player)
-  // removePlayer(@Args('id', { type: () => Int }) id: number) {
-  //   return this.playerService.remove(id);
-  // }
+  @Mutation(() => Player)
+  removePlayer(@Args('id', { type: () => ID }) id: string) {
+    return this.playerService.remove(id);
+  }
 }

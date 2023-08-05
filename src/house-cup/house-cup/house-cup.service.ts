@@ -32,12 +32,12 @@ export class HouseCupService {
     return this.repo.findOne(options);
   }
 
-  update(id: number, updateHouseCupInput: UpdateHouseCupInput) {
-    return `This action updates a #${id} pointLog`;
+  update(id: string, updateHouseCupInput: UpdateHouseCupInput) {
+    return this.repo.update({ id }, updateHouseCupInput);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} pointLog`;
+  remove(id: string) {
+    return this.repo.delete({ id });
   }
 
   async activateCup(cup: HouseCup) {

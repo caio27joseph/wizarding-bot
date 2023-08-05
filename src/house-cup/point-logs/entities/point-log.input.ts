@@ -15,6 +15,8 @@ export class UpdatePointLogInput extends PartialType(CreatePointLogInput) {
 @InputType()
 export class FindAllPointLogInput {
   @Field(() => ID, { nullable: true })
+  guildId?: string;
+  @Field(() => ID, { nullable: true })
   houseId?: string;
   @Field(() => ID, { nullable: true })
   cupId?: string;

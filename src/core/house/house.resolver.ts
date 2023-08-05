@@ -6,6 +6,7 @@ import {
   FindAllHouseInput,
   UpdateHouseInput,
 } from './entities/house.input';
+import { DeleteResult, UpdateResult } from '~/graphql.result';
 
 @Resolver(() => House)
 export class HouseResolver {
@@ -26,7 +27,7 @@ export class HouseResolver {
     return this.houseService.findOne({ where: { id } });
   }
 
-  @Mutation(() => House)
+  @Mutation(() => UpdateResult)
   updateHouse(
     @Args('id', { type: () => ID }) id: string,
     @Args('input') input: UpdateHouseInput,
@@ -34,7 +35,7 @@ export class HouseResolver {
     return this.houseService.update({ id }, input);
   }
 
-  @Mutation(() => House)
+  @Mutation(() => DeleteResult)
   removeHouse(@Args('id', { type: () => ID }) id: string) {
     return this.houseService.remove({ id });
   }

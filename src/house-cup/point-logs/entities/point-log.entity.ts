@@ -10,6 +10,7 @@ import {
 import { Player } from '~/core/player/entities/player.entity';
 import { House } from '~/core/house/entities/house.entity';
 import { HouseCup } from '~/house-cup/house-cup/entities/house-cup.entity';
+import { Guild } from '~/core/guild/guild.entity';
 
 @ObjectType()
 @Entity()
@@ -23,6 +24,7 @@ export class PointLog {
   value: number;
 
   @ManyToOne((type) => Player, (player) => player.pointLogs)
+  @Field((type) => Player)
   player: Player;
 
   @Column()
@@ -30,6 +32,7 @@ export class PointLog {
   playerId: string;
 
   @ManyToOne((type) => House, (house) => house.pointLogs)
+  @Field((type) => House)
   house: House;
 
   @Column()

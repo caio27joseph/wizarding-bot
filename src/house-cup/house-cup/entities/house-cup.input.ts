@@ -2,14 +2,14 @@ import { InputType, Int, Field, PartialType, ID } from '@nestjs/graphql';
 
 @InputType()
 export class CreateHouseCupInput {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+  @Field()
+  name?: string;
 }
 
 @InputType()
 export class UpdateHouseCupInput extends PartialType(CreateHouseCupInput) {
-  @Field(() => Int)
-  id: number;
+  @Field(() => ID)
+  id: string;
 }
 
 @InputType()

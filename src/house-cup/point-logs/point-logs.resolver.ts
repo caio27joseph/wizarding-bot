@@ -6,12 +6,15 @@ import { HouseCup } from '../house-cup/entities/house-cup.entity';
 import { HouseCupService } from '../house-cup/house-cup.service';
 import { Player } from '~/core/player/entities/player.entity';
 import { PlayerService } from '~/core/player/player.service';
+import { HouseService } from '~/core/house/house.service';
+import { Inject, forwardRef } from '@nestjs/common';
 
 @Resolver(() => PointLog)
 export class PointLogsResolver {
   constructor(
     private readonly pointLogsService: PointLogsService,
     private readonly cupService: HouseCupService,
+    private readonly houseService: HouseService,
     private readonly playerService: PlayerService,
   ) {}
 
@@ -21,6 +24,14 @@ export class PointLogsResolver {
     return this.cupService.findOne({
       where: {
         id: pointLog.cupId,
+      },
+    });
+  }
+  @ResolveField(() => HouseCup)
+  async house(@Parent() pointLog: PointLog) {
+    return this.houseService.findOne({
+      where: {
+        id: pointLog.houseId,
       },
     });
   }
@@ -41,9 +52,12 @@ export class PointLogsResolver {
   // }
 
   @Query(() => [PointLog], { name: 'pointLogs' })
-  findAll(@Args('input') input: FindAllPointLogInput) {
+  findAll(@Args('where') where: FindAllPointLogInput) {
     return this.pointLogsService.findAll({
-      where: input,
+      where,
+      relations: {
+        player: true,
+      },
     });
   }
 

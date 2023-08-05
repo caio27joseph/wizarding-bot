@@ -31,26 +31,6 @@ export class PlayerService {
     return this.repo.save(data);
   }
 
-  create(createPlayerInput: CreatePlayerInput) {
-    return this.repo.save(createPlayerInput);
-  }
-
-  findAll(options?: FindManyOptions<Player>) {
-    return this.repo.find(options);
-  }
-
-  findOne(options: FindOneOptions<Player>) {
-    return this.repo.findOne(options);
-  }
-
-  update(id: string, updatePlayerInput: UpdatePlayerInput) {
-    return this.repo.update(id, updatePlayerInput);
-  }
-
-  remove(id: string) {
-    return this.repo.delete(id);
-  }
-
   async definePlayerHouse(guild: Guild, player: Player, member: GuildMember) {
     const houses = await this.houseService.findAll({
       where: {
@@ -70,5 +50,25 @@ export class PlayerService {
 
     player.house = house;
     return await this.repo.save(player);
+  }
+
+  create(createPlayerInput: CreatePlayerInput) {
+    return this.repo.save(createPlayerInput);
+  }
+
+  findAll(options?: FindManyOptions<Player>) {
+    return this.repo.find(options);
+  }
+
+  findOne(options: FindOneOptions<Player>) {
+    return this.repo.findOne(options);
+  }
+
+  update(id: string, updatePlayerInput: UpdatePlayerInput) {
+    return this.repo.update(id, updatePlayerInput);
+  }
+
+  remove(id: string) {
+    return this.repo.delete(id);
   }
 }

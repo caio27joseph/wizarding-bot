@@ -26,7 +26,9 @@ type Player {
 type PointLog {
   id: ID!
   value: Float!
+  player: Player!
   playerId: String!
+  house: House!
   houseId: String!
   cup: HouseCup!
   cupId: String!
@@ -46,14 +48,22 @@ type HouseCup {
   pointLogs: [PointLog!]!
 }
 
+type UpdateResult {
+  affected: Float!
+}
+
+type DeleteResult {
+  affected: Float!
+}
+
 type Query {
   houses(where: FindAllHouseInput!): [House!]!
   house(id: ID!): House!
-  players(input: FindAllPlayerInput!): [Player!]!
+  players(where: FindAllPlayerInput!): [Player!]!
   player(id: ID!): Player!
-  pointLogs(input: FindAllPointLogInput!): [PointLog!]!
+  pointLogs(where: FindAllPointLogInput!): [PointLog!]!
   pointLog(houseId: String!): PointLog!
-  houseCup: [HouseCup!]!
+  houseCup(id: ID!): HouseCup!
 }
 
 input FindAllHouseInput {
@@ -63,9 +73,11 @@ input FindAllHouseInput {
 input FindAllPlayerInput {
   name: String
   houseId: ID
+  guildId: ID!
 }
 
 input FindAllPointLogInput {
+  guildId: ID
   houseId: ID
   cupId: ID
   playerId: ID
@@ -73,11 +85,14 @@ input FindAllPointLogInput {
 
 type Mutation {
   createHouse(input: CreateHouseInput!): House!
-  updateHouse(id: ID!, input: UpdateHouseInput!): House!
-  removeHouse(id: ID!): House!
+  updateHouse(id: ID!, input: UpdateHouseInput!): UpdateResult!
+  removeHouse(id: ID!): DeleteResult!
+  createPlayer(input: CreatePlayerInput!): Player!
+  updatePlayer(id: ID!, input: UpdatePlayerInput!): Player!
+  removePlayer(id: ID!): Player!
   createHouseCup(createHouseCupInput: CreateHouseCupInput!): HouseCup!
-  updateHouseCup(updateHouseCupInput: UpdateHouseCupInput!): HouseCup!
-  removeHouseCup(id: Int!): HouseCup!
+  updateHouseCup(id: ID!, updateHouseCupInput: UpdateHouseCupInput!): HouseCup!
+  removeHouseCup(id: ID!): HouseCup!
 }
 
 input CreateHouseInput {
@@ -96,13 +111,27 @@ input UpdateHouseInput {
   guildId: ID
 }
 
+input CreatePlayerInput {
+  name: String
+  avatarUrl: String
+  discordId: String!
+  guildId: ID!
+  houseId: ID
+}
+
+input UpdatePlayerInput {
+  name: String
+  avatarUrl: String
+  discordId: String
+  guildId: ID
+  houseId: ID
+}
+
 input CreateHouseCupInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
 }
 
 input UpdateHouseCupInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  name: String
+  id: ID!
 }

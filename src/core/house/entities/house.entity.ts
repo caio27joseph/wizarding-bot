@@ -2,18 +2,10 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  Index,
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import {
-  CommandInteraction,
-  Embed,
-  EmbedBuilder,
-  Interaction,
-  InteractionReplyOptions,
-  MessagePayload,
-} from 'discord.js';
+import { EmbedBuilder, Interaction, MessagePayload } from 'discord.js';
 import { DiscordEntityVieable } from '~/discord/types';
 import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
 import { Guild } from '~/core/guild/guild.entity';
