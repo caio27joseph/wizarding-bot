@@ -8,6 +8,7 @@ import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { CombatModule } from './combat/combat.module';
+import { SpellModule } from './spell/spell.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { CombatModule } from './combat/combat.module';
     DatabaseModule,
     HouseCupModule,
     CombatModule,
+    SpellModule,
   ],
   controllers: [],
   providers: [],
