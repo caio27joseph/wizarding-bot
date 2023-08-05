@@ -1,12 +1,10 @@
 import { ConsoleLogger, Injectable, OnModuleInit } from '@nestjs/common';
 import {
   Client,
-  CommandInteraction,
   Client as DiscordClient,
   Events,
   GatewayIntentBits,
   Interaction,
-  InteractionResponse,
   MessageContextMenuCommandInteraction,
   MessagePayload,
   SlashCommandBuilder,
@@ -260,17 +258,19 @@ export class DiscordEventEmitter implements OnModuleInit {
           (interaction.options as any).getSubcommand(),
         );
         if (!command) return;
-        const args = [];
-        for (const p of command.parameters) {
-          args.push(
-            await p.handler(interaction, {
-              parameter: p,
-              command: command,
-            }),
-          );
-        }
-
         try {
+          const args = [];
+          const guild = await this.guildService.get(interaction);
+          for (const p of command.parameters) {
+            args.push(
+              await p.handler(interaction, {
+                parameter: p,
+                command: command,
+                guild,
+              }),
+            );
+          }
+
           const result: DiscordEntityVieable | undefined = await command.target[
             command.key
           ](...args);
@@ -298,24 +298,28 @@ export class DiscordEventEmitter implements OnModuleInit {
     if (error instanceof GuildSetupNeeded) {
       const res = new MessagePayload(interaction, {
         content: message || 'Use o comando guild setup para configurar',
+        ephemeral: true,
       });
       return res;
     }
     if (error instanceof AdminNeeded) {
       const res = new MessagePayload(interaction, {
         content: message || 'Voce precisa ser um administrador',
+        ephemeral: true,
       });
       return res;
     }
     if (error instanceof EntityAlreadyExists) {
       const res = new MessagePayload(interaction, {
         content: message || 'Essa entidade ja existe no sistema',
+        ephemeral: true,
       });
       return res;
     }
     if (error instanceof DiscordSimpleError) {
       const res = new MessagePayload(interaction, {
         content: message || 'Erro inesperado!',
+        ephemeral: true,
       });
       return res;
     }

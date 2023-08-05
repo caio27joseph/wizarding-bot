@@ -3,7 +3,13 @@ import {
   CreateHouseCupInput,
   UpdateHouseCupInput,
 } from './entities/house-cup.input';
-import { Interaction, EmbedBuilder, MessagePayload } from 'discord.js';
+import {
+  Interaction,
+  EmbedBuilder,
+  MessagePayload,
+  MessagePayloadOption,
+  InteractionReplyOptions,
+} from 'discord.js';
 import {
   FindManyOptions,
   FindOneOptions,
@@ -69,7 +75,11 @@ export class HouseCupService {
     });
   }
 
-  getTotalDisplay(interaction: Interaction, results: HousePointResult[]) {
+  getTotalDisplay(
+    interaction: Interaction,
+    results: HousePointResult[],
+    options?: InteractionReplyOptions,
+  ) {
     //champions
     // sort results by total
     const sortedTotal = results.sort((a, b) => b.total - a.total);
@@ -85,6 +95,7 @@ export class HouseCupService {
     }
     return new MessagePayload(interaction, {
       embeds,
+      ...options,
     });
   }
 }

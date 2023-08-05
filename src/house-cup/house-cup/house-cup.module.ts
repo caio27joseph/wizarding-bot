@@ -6,12 +6,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { HouseCup } from './entities/house-cup.entity';
 import { CoreModule } from '~/core/core.module';
 import { PointLogsModule } from '../point-logs/point-logs.module';
+import { HouseModule } from '~/core/house/house.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([HouseCup]),
     CoreModule,
     forwardRef(() => PointLogsModule),
+    HouseModule,
   ],
   providers: [HouseCupResolver, HouseCupService, HouseCupGroup],
   exports: [HouseCupService],

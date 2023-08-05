@@ -9,6 +9,7 @@ import {
   ArgString,
   ArgInteger,
   ArgUser,
+  ArgGuild,
 } from '~/discord/decorators/message.decorators';
 import { Command } from '~/discord/decorators/command.decorator';
 import { Group } from '~/discord/decorators/group.decorator';
@@ -18,6 +19,9 @@ import { HouseCupService } from './house-cup.service';
 import { PointLogsService } from '../point-logs/point-logs.service';
 import { House } from '~/core/house/entities/house.entity';
 import { PlayerService } from '~/core/player/player.service';
+import { Guild } from '~/core/guild/guild.entity';
+import { getPriority } from 'os';
+import { HouseService } from '~/core/house/house.service';
 
 @Group({
   name: 'taca',
@@ -29,12 +33,13 @@ export class HouseCupGroup {
     private readonly service: HouseCupService,
     private readonly pointLogsService: PointLogsService,
     private readonly playerService: PlayerService,
-    private guildService: GuildService,
+    private readonly houseService: HouseService,
   ) {}
 
   @Command({
     name: 'iniciar',
     description: 'Inicia uma nova taca das casas',
+    mod: true,
   })
   public async startCup(
     @ArgInteraction() interaction: CommandInteraction,
@@ -44,16 +49,16 @@ export class HouseCupGroup {
       description: 'O nome da taca das casas, exemplo: Taca de 1999',
     })
     name: string,
+    @ArgGuild()
+    guild: Guild,
   ) {
-    const guild = await this.guildService.loadGuildAsMod(interaction, {
-      cups: true,
-    });
-
-    let cup: HouseCup;
-    if (!guild?.cups || guild.cups.length === 0) {
-      cup = await this.service.createCup(name, guild);
+    let cup = await this.service.getActiveCup({ guild });
+    if (cup) {
+      throw new DiscordSimpleError(
+        'Ja existe uma taca ativa, finalize ela antes de iniciar uma nova',
+      );
     } else {
-      cup = guild.cups.at(-1);
+      cup = await this.service.createCup(name, guild);
     }
     return this.service.activateCup(cup);
   }
@@ -61,6 +66,7 @@ export class HouseCupGroup {
   @Command({
     name: 'pts',
     description: 'Adiciona ou retira pontos de algum jogador',
+    mod: true,
   })
   public async addPoints(
     @ArgInteraction() interaction: CommandInteraction,
@@ -76,9 +82,8 @@ export class HouseCupGroup {
       description: 'Verifica o total de pontos',
     })
     target: GuildMember,
+    @ArgGuild() guild: Guild,
   ) {
-    const guild = await this.guildService.loadGuildAsMod(interaction);
-
     const cup = await this.service.getActiveCup({ guild });
 
     let player = await this.playerService.getOrCreateUpdate({
@@ -101,10 +106,18 @@ export class HouseCupGroup {
     name: 'total',
     description: 'Adiciona ou retira pontos de algum jogador',
   })
-  public async totalPoints(@ArgInteraction() interaction: CommandInteraction) {
-    const guild = await this.guildService.get(interaction, {
-      houses: true,
+  public async totalPoints(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgGuild() guild: Guild,
+  ) {
+    const houses = await this.houseService.findAll({
+      where: {
+        guildId: guild.id,
+      },
     });
+    if (houses.length === 0)
+      throw new GuildSetupNeeded('Você precisa configurar as casas primeiro');
+
     const cup = await this.service.getActiveCup(
       { guild },
       {
@@ -115,15 +128,13 @@ export class HouseCupGroup {
     );
     if (!cup)
       throw new DiscordSimpleError('Não existe uma taca ativa no momento');
-    if (guild.houses.length === 0)
-      throw new GuildSetupNeeded('Você precisa configurar as casas primeiro');
 
     const housesById: { [k: string]: House } = {};
     const logsByHouseId: { [key: string]: PointLog[] } = {};
     const totalToCalculate: { [key: string]: number } = {};
     // group log by player
 
-    for (const house of guild.houses) {
+    for (const house of houses) {
       housesById[house.id] = house;
       logsByHouseId[house.id] = [];
       totalToCalculate[house.id] = 0;
@@ -136,7 +147,7 @@ export class HouseCupGroup {
 
     const results: HousePointResult[] = [];
     // now separe by HousePointResult
-    for (const house of guild.houses) {
+    for (const house of houses) {
       results.push(new HousePointResult(house, logsByHouseId[house.id]));
     }
 
@@ -146,6 +157,9 @@ export class HouseCupGroup {
     const message = this.service.getTotalDisplay(
       interaction as Interaction,
       results,
+      {
+        ephemeral: true,
+      },
     );
     await interaction.reply(message);
   }

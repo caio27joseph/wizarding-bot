@@ -6,6 +6,7 @@ import {
 } from 'discord.js';
 import { DISCORD_PARAMETERS_METADATA_KEY } from './discord.constants';
 import { Command } from './discord.event-emitter';
+import { Guild } from '~/core/guild/guild.entity';
 
 export enum InteractionOptionEnum {
   Boolean = 'Boolean',
@@ -20,11 +21,19 @@ export enum InteractionOptionEnum {
 
 export type CommandDecoratorHandler<Opt> = (
   message: DiscordMessage<boolean> | Interaction<CacheType>,
-  options: { command: Command<InteractionOptions>; parameter: Parameter<Opt> },
+  options: {
+    command: Command<InteractionOptions>;
+    parameter: Parameter<Opt>;
+    guild?: Guild;
+  },
 ) => any;
 export type SlashCommandDecoratorHandler<Opt> = (
   interaction: CommandInteraction<CacheType>,
-  options: { command: Command<InteractionOptions>; parameter: Parameter<Opt> },
+  options: {
+    command: Command<InteractionOptions>;
+    parameter: Parameter<Opt>;
+    guild?: Guild;
+  },
 ) => any;
 
 export interface InteractionOptions {

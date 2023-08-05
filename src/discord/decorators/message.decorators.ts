@@ -1,3 +1,4 @@
+import { GuildMember } from 'discord.js';
 import {
   InteractionOptionEnum,
   InteractionOptions,
@@ -5,6 +6,7 @@ import {
   interactionDecoratorFactory as factory,
   SlashCommandDecoratorHandler,
 } from '../parameter_metadata_handler';
+import { GuildSetupNeeded } from '../exceptions';
 
 // CREATE A DECORATOR FOR EACH KIND OF SLASH OPTION
 
@@ -15,6 +17,16 @@ export const ArgInteraction = simpleFactory<any>(
 export const ArgAuthorMember = simpleFactory<any>(
   (interaction, opt) => interaction.member,
 );
+
+export const ArgGuild = simpleFactory((interaction, opt) => {
+  if (!opt.guild) {
+    throw new GuildSetupNeeded();
+  }
+  if (!opt.command.options.mod) {
+    return opt.guild;
+  }
+  return opt.guild.verifyMod(interaction.member as GuildMember);
+});
 
 const argOptionHandler: SlashCommandDecoratorHandler<any> = (
   interaction,

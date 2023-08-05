@@ -7,6 +7,7 @@ import { HouseCupModule } from './house-cup/house-cup.module';
 import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
+import { CombatModule } from './combat/combat.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { join } from 'path';
     CoreModule,
     DatabaseModule,
     HouseCupModule,
+    CombatModule,
   ],
   controllers: [],
   providers: [],

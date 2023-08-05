@@ -3,20 +3,19 @@ import {
   Entity,
   Index,
   OneToMany,
+  PrimaryColumn,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { HouseCup } from '~/house-cup/house-cup/entities/house-cup.entity';
 import { House } from '../house/entities/house.entity';
 import { Player } from '../player/entities/player.entity';
+import { GuildMember } from 'discord.js';
+import { AdminNeeded } from '~/discord/exceptions';
 
 @Entity()
 export class Guild {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn()
   id: string;
-
-  @Column()
-  @Index()
-  discordId: string;
 
   @Column()
   modRoleId: string;
@@ -32,4 +31,9 @@ export class Guild {
 
   @OneToMany((type) => HouseCup, (cup) => cup.guild)
   cups: HouseCup[];
+
+  async verifyMod(member: GuildMember) {
+    if (member.roles.cache.has(this.modRoleId)) return this;
+    throw new AdminNeeded();
+  }
 }

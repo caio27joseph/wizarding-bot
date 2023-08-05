@@ -6,6 +6,7 @@ import {
 export class CommandOptions {
   name?: string;
   aliases?: string[];
+  mod?: boolean;
   description?: string;
   placeholder?: string;
 }

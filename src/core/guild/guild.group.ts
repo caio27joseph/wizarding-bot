@@ -33,7 +33,6 @@ export class GuildGroup {
   constructor(
     private houseService: HouseService,
     @InjectRepository(House) private houseRepo: Repository<House>,
-    @InjectRepository(Guild) private repo: Repository<Guild>,
     private service: GuildService,
   ) {}
 
@@ -58,16 +57,15 @@ export class GuildGroup {
     if (!isAdmin) {
       throw new AdminNeeded();
     }
-    let guild = await this.service.get(member, {}, false);
+    let guild = await this.service.get(member);
     if (guild) {
       return await interaction.reply('Guild ja configurada');
     }
-    const data = this.repo.create({
-      discordId: member.guild.id,
+    guild = await this.service.create({
       modRoleId: role.id,
+      id: member.guild.id,
       prefix: prefix || '!',
     });
-    guild = await this.repo.save(data);
     return await interaction.reply('Guild configurada com sucesso');
   }
 }

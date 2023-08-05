@@ -6,12 +6,13 @@ import {
 export class CommandOptions {
   name: string;
   description: string;
+  mod?: boolean;
   aliases?: string[];
   placeholder?: string;
 }
 
 export class DiscordCommandMetadataHandler {
-  constructor(public readonly target: any) { }
+  constructor(public readonly target: any) {}
 
   getMethodKeys(): string[] {
     const commands =

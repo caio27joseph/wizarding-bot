@@ -11,6 +11,7 @@ import { Repository } from 'typeorm';
 import { Group } from '~/discord/decorators/group.decorator';
 import { Command } from '~/discord/decorators/command.decorator';
 import {
+  ArgGuild,
   ArgInteraction,
   ArgRole,
   ArgString,
@@ -32,15 +33,15 @@ export class HouseGroup {
   @Command({
     name: 'adicionar',
     description: 'Adiciona uma nova Casa a mesa',
+    mod: true,
   })
   async addHouse(
     @ArgInteraction() interaction: CommandInteraction,
     @ArgRole('cargo')
     role: Role,
+    @ArgGuild()
+    guild: Guild,
   ) {
-    const guild = await this.guildService.loadGuildAsMod(interaction, {
-      cups: true,
-    });
     const house = this.service.create({
       guildId: guild.id,
       discordRoleId: role.id,
@@ -54,15 +55,14 @@ export class HouseGroup {
   @Command({
     name: 'remover',
     description: 'Remove uma casa existente na mesa',
+    mod: true,
   })
   async removeHouse(
     @ArgInteraction() interaction: CommandInteraction,
     @ArgRole('cargo')
     role: Role,
+    @ArgGuild() guild: Guild,
   ) {
-    const guild = await this.guildService.loadGuildAsMod(interaction, {
-      cups: true,
-    });
     const result = await this.service.remove({
       guildId: guild.id,
       discordRoleId: role.id,
@@ -73,6 +73,7 @@ export class HouseGroup {
   @Command({
     name: 'atualizar',
     description: 'Atualiza uma casa existente na mesa',
+    mod: true,
   })
   async updateHouse(
     @ArgInteraction() interaction: CommandInteraction,
@@ -82,9 +83,8 @@ export class HouseGroup {
     title: string,
     @ArgString({ name: 'image_url', required: false })
     imageUrl: string,
+    @ArgGuild() guild: Guild,
   ) {
-    const guild = await this.guildService.loadGuildAsMod(interaction);
-
     const house = await this.service.findOne({
       where: {
         guildId: guild.id,
@@ -110,12 +110,19 @@ export class HouseGroup {
     name: 'lista',
     description: 'Mostra a lista de casas na mesa',
   })
-  async listHouse(@ArgInteraction() interaction: CommandInteraction) {
-    const guild = await this.guildService.get(interaction, { houses: true });
-
-    if (!guild.houses) throw new GuildSetupNeeded('Sem casas registradas');
+  async listHouse(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgGuild() guild: Guild,
+  ) {
+    const houses = await this.service.findAll({
+      where: {
+        guildId: guild.id,
+      },
+    });
+    if (!houses) throw new GuildSetupNeeded('Sem casas registradas');
     await interaction.reply({
-      embeds: guild.houses.map((h) => h.toEmbeds()),
+      embeds: houses.map((h) => h.toEmbeds()),
+      ephemeral: true,
     });
   }
 
