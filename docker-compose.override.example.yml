@@ -6,3 +6,5 @@ services:
       - .:/usr/src/app
       # Overriding node_modules volume to avoid host node_modules overlaying container ones
       - /usr/src/app/node_modules
+    ports:
+      - "9229:9229"

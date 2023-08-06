@@ -41,3 +41,6 @@ lerna-debug.log*
 wizard.db
 data/*
 
+docker-compose.override.yml
+```
+
