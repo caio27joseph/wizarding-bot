@@ -157,6 +157,7 @@ export class SpellGroup {
         currentPage + 1
       } of ${totalPages}):\n${displaySpellsForPage(currentPage)}`,
       components: [...spellButtonRows, createNavigationRow()],
+      ephemeral: true,
     });
 
     const collector = message.createMessageComponentCollector({
