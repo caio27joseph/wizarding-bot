@@ -3,7 +3,7 @@
     "category": "Transmutação",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.786811",
+    "updatedAt": "2023-08-06T15:18:07.740554",
     "title": "Destransfiguração Geral",
     "level": 1,
     "actionType": "Completa",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Reparifarge de forma não-verbal, o que lhe permite desfazer qualquer tipo de Transformação, exceto Transformação Humana, sem precisar recitar palavras. Esse alto nível de domínio do feitiço torna o bruxo extremamente habilidoso em desfazer transfigurações complexas e é um sinal de seu conhecimento e experiência avançados em Transfiguração."
         }
-    ]
+    ],
+    "id": "d5531ce3-92c3-43fe-888f-0182111af4e7"
 }

@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.686811",
+    "updatedAt": "2023-08-06T15:18:07.562698",
     "title": "Azaração das Pernas Bambas",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Locomotor Wibbly de forma silenciosa, realizando a conjuração sem a necessidade de pronunciar palavras em voz alta."
         }
-    ]
+    ],
+    "id": "87083e80-b25d-42e9-a2c7-4f523b8ebc95"
 }

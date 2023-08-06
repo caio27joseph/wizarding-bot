@@ -3,7 +3,7 @@
     "category": "Ilusão",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.429809",
+    "updatedAt": "2023-08-06T15:18:07.195641",
     "title": "Feitiço de Revelação",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,6 @@
             "name": "Mestre",
             "description": "Com o Aparecium em seu mais alto nível de domínio, você pode retirar temporariamente os efeitos de uma Capa da Invisibilidade, tornando o portador visível. Além disso, você pode desfazer a condição   \"Invisível\" de uma criatura, revelando-a aos olhos de todos. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
-    ]
+    ],
+    "id": "a3069039-9330-4c2d-a853-89e95b3aabd1"
 }

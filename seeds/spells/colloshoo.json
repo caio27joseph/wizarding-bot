@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.517808",
+    "updatedAt": "2023-08-06T15:18:07.319640",
     "title": "Azaração dos Pés Grudentos",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Como mestre de Colloshoo, ao lançar a azaração de forma silenciosa, você pode escolher aprimorá-la para fazer o alvo tropeçar ao ser atingido. Além de ficar Enredada, a criatura também é considerada Caída, ficando vulnerável e deitada no chão."
         }
-    ]
+    ],
+    "id": "88ac554c-b7bb-4b44-98cd-0b9a14a1c4bd"
 }

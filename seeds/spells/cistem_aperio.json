@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.501809",
+    "updatedAt": "2023-08-06T15:18:07.297639",
     "title": "Feitiço de Arrombamento",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Como mestre de Cistem Aperio, você pode lançar a variação mais avançada do feitiço, conhecida como Annihilare, ou o Feitiço de Demolição. Nessa forma poderosa, você cria uma explosão com força suficiente para derrubar até mesmo uma porta de metal reforçado. Essa opção é ideal para situações que exijam um arrombamento extremamente rápido e efetivo."
         }
-    ]
+    ],
+    "id": "65e1555d-bf06-45a5-84ca-a53bfa98ece5"
 }

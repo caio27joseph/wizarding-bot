@@ -3,7 +3,7 @@
     "category": "Necromancia",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.569807",
+    "updatedAt": "2023-08-06T15:18:07.409695",
     "title": "Feitiço de Bandagem",
     "level": 1,
     "actionType": "Completa",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "A rolagem de cura diária do seu Ferula alcança seu ápice, aumentando para 4d4+4, oferecendo uma cura ainda mais robusta. Além disso quando em combate a cada 2 rodadas recupera 1d4 de vida."
         }
-    ]
+    ],
+    "id": "9f6ea7f3-cd01-4695-9811-7c0125588e51"
 }

@@ -3,7 +3,7 @@
     "category": "Adivinhação",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.725808",
+    "updatedAt": "2023-08-06T15:18:07.650553",
     "title": "Azaração do Tropeço",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Offendo Maxima. Nessa variação, você emite um pulso esverdeado a partir da ponta da varinha que ainda é considerado um lampejo. Qualquer número de criaturas à sua escolha que estejam a 6 metros de distância de você levam 1d3 de dano de queda e são consideradas Caídas  . Esse feitiço não funciona em criaturas que já estejam Caídas  ."
         }
-    ]
+    ],
+    "id": "a03945da-716f-4bd5-8661-70f2b5fc1d0a"
 }

@@ -3,7 +3,7 @@
     "category": "Ilusão",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.586808",
+    "updatedAt": "2023-08-06T15:18:07.429695",
     "title": "Feitiço do Desenho de Fogo",
     "level": 1,
     "actionType": "Livre",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Você se torna mais habilidoso em revelar mensagens escondidas por meio de feitiços. Feitiços que revelam mensagens escondidas precisam ter 2 Sucessos a mais no teste para revelar o Flagrate ativável. Isso torna suas mensagens ainda mais seguras e difíceis de serem descobertas sem a devida habilidade para tal."
         }
-    ]
+    ],
+    "id": "85b2d370-963b-4c75-8a2f-549aca1f54e0"
 }

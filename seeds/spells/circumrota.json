@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.492812",
+    "updatedAt": "2023-08-06T15:18:07.287640",
     "title": "Feitiço de Rotação",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Como mestre do Circumrota, você pode lançar uma versão avançada do feitiço que afeta seres vivos. Ao lançar essa variação, uma criatura afetada começa a girar rapidamente ao redor de seu próprio eixo sem sair do lugar, ficando Paralisada. O efeito pode ser útil para controlar o movimento de adversários e situações que requerem imobilização temporária."
         }
-    ]
+    ],
+    "id": "b150b9b4-cc50-4420-b0e6-f5d35c5d29b8"
 }

@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.560811",
+    "updatedAt": "2023-08-06T15:18:07.392695",
     "title": "Feitiço da Força Rodopiante",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,6 @@
             "name": "Mestre",
             "description": "Quando você acerta Everte Statum em sua forma não-verbal, o alvo é arremessado a até (número de Sucessos x3) metros na direção contrária do conjurador, ampliando consideravelmente a distância que a vítima é lançada."
         }
-    ]
+    ],
+    "id": "0054b090-dc9f-4fca-976f-e017ffdce85c"
 }

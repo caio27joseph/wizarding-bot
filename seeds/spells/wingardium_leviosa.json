@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Médio",
     "description": " Se o objeto estiver sendo segurado por uma criatura, você pode realizar um teste resistido desse feitiço contra Força + Esportes do alvo. Caso você seja bem-sucedido nesse teste, seu feitiço é forte o suficiente para arrancar à força o objeto das mãos do personagem. ",
-    "createdAt": "2023-08-06T14:37:37.859811",
+    "updatedAt": "2023-08-06T15:18:07.832553",
     "title": "Feitiço de Levitação",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Wingardium Leviosa para levitar qualquer objeto, independente de seu peso, o que inclui até mesmo veículos e outros objetos pesados. Essa versão avançada amplia consideravelmente as possibilidades de uso desse feitiço e permite que você manipule objetos maiores e mais pesados com facilidade."
         }
-    ]
+    ],
+    "id": "afde92c5-2220-40bf-97e7-d20cbb1ca76d"
 }

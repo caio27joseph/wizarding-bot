@@ -3,7 +3,7 @@
     "category": "Transmutação",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.525811",
+    "updatedAt": "2023-08-06T15:18:07.333639",
     "title": "Azaração do Dente que Cresce",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,6 @@
             "name": "Mestre",
             "description": "Como mestre de Densaugeo, ao lançar a azaração de forma silenciosa, você pode executá-la sem fazer nenhum som."
         }
-    ]
+    ],
+    "id": "4c804a3f-7777-46e2-8f54-a3032d263b5d"
 }

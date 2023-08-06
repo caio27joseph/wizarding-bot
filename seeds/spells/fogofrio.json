@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Muito Difícil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.604808",
+    "updatedAt": "2023-08-06T15:18:07.453697",
     "title": "Chamas de Jacinto",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "O seu Fogofrio agora pode atingir alvos seletivamente, permitindo que você decida o que pode ser queimado no momento da conjuração. Essa versão avançada do feitiço lhe concede um controle preciso sobre quais alvos serão afetados."
         }
-    ]
+    ],
+    "id": "434f149b-3598-47da-ab5b-b6e06755c74d"
 }

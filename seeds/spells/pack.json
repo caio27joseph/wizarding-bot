@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.733811",
+    "updatedAt": "2023-08-06T15:18:07.664553",
     "title": "Feitiço de Empacotar",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Pack em múltiplas malas ao mesmo tempo."
         }
-    ]
+    ],
+    "id": "1f904872-0295-42e9-8cf6-2b481094cece"
 }

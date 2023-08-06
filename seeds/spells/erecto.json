@@ -3,7 +3,7 @@
     "category": "Transmutação",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.551807",
+    "updatedAt": "2023-08-06T15:18:07.383695",
     "title": "Feitiço de Construção Instantânea",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Seu domínio sobre o Erecto atinge seu ápice. Você pode lançar Erecto Animus (Feitiço da Construção Automatizada) como um feitiço de \"Execução: Ação padrão\" e \"Duração: Especial\". Nesta variação, a magia se estende para os materiais de construção, permitindo que se auto-construam. Após lançar o feitiço, você não precisa mais manter a concentração, pois os materiais serão encantados para se auto-construir, e a magia se dissipará somente quando a estrutura ou obra ficar completa."
         }
-    ]
+    ],
+    "id": "74b78ecf-69d2-49a8-80d7-15c422751671"
 }

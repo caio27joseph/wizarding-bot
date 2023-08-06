@@ -3,7 +3,7 @@
     "category": "Convocação",
     "difficulty": "Médio",
     "description": " Uma vez conjurada, a serpente entra em combate de forma independente, fazendo seu próprio teste de Iniciativa. Ela ataca a criatura mais próxima usando suas armas naturais, que incluem suas mordidas, rajada de veneno e constricção. O controle da serpente em combate fica a cargo do Narrador, que pode direcionar seus ataques de acordo com sua discrição.  Após a duração do feitiço, que é de 1 hora, a cobra desaparece magicamente, retornando ao lugar de onde foi invocada. ",
-    "createdAt": "2023-08-06T14:37:37.815807",
+    "updatedAt": "2023-08-06T15:18:07.774552",
     "title": "Feitiço de Conjuração de Cobras",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,6 @@
             "name": "Mestre",
             "description": "Quando lança Serpensortia, você pode escolher conjurar serpentes de tamanho Miúdo e/ou Médio, aumentando a diversidade e o poder das criaturas conjuradas. Suas serpentes causam +1d4 de dano de veneno, para rajada de veneno."
         }
-    ]
+    ],
+    "id": "e86b277d-76e1-4166-90bf-438b12cb8013"
 }

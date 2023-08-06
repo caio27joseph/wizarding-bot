@@ -3,7 +3,7 @@
     "category": "Necromancia",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.616811",
+    "updatedAt": "2023-08-06T15:18:07.469696",
     "title": "Azaração do Furúnculo",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Furnunculus de forma silenciosa, tornando o lançamento do feitiço ainda mais discreto e evitando que o alvo perceba facilmente a origem do feitiço."
         }
-    ]
+    ],
+    "id": "d993693c-4582-45ac-932f-240aa1bac477"
 }

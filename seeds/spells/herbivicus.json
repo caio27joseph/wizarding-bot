@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.635811",
+    "updatedAt": "2023-08-06T15:18:07.493696",
     "title": "Feitiço de Jardinagem",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Herbivicus Duo (Feitiço de Jardinagem Mágica). Nessa variação, o feitiço também pode afetar plantas mágicas, acelerando seu crescimento."
         }
-    ]
+    ],
+    "id": "57ff314b-9486-4470-b3d7-36dcbfd8cb72"
 }

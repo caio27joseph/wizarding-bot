@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.667807",
+    "updatedAt": "2023-08-06T15:18:07.543695",
     "title": "Feitiço de Impermeabilidade",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Impervius Totalum (Feitiço da Barreira Impermeável). Nessa variação, também como uma ação completa e com duração permanente, você pode estender a proteção para cobrir um cômodo, um edifício ou uma grande área de até 500m². A barreira invisível criada é capaz de repelir chuvas, tempestades, nevascas e ventanias."
         }
-    ]
+    ],
+    "id": "0c18ff2c-48b9-4ae8-991d-6ff0d12066ba"
 }

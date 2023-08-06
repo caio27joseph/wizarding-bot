@@ -3,7 +3,7 @@
     "category": "Ilusão",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.644807",
+    "updatedAt": "2023-08-06T15:18:07.508697",
     "title": "Feitiço do Texto Embaralhado",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Illegibilus Animus (Feitiço do Texto Inteligente). Nessa variação, sempre que alguém tentar desfazer o Illegibilus e obtiver menos de 6 Sucessos, uma mensagem pré-determinada aparecerá no lugar. Essa mensagem pode ter uma \"personalidade\" atribuída, podendo elogiar ou insultar o bruxo que falhar em revelá-la, ou ainda elaborar respostas específicas para pessoas específicas."
         }
-    ]
+    ],
+    "id": "0edcd86e-366a-4c14-b4d8-870b90bf9432"
 }

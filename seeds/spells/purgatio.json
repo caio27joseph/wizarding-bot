@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.762807",
+    "updatedAt": "2023-08-06T15:18:07.703552",
     "title": "Feitiço Limpeza",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Purgatio de forma focada e aprimorada. Nessa variação, o feitiço é capaz de limpar uma sala inteira com apenas um movimento de varinha, além de deixar um perfume agradável e refrescante no ambiente, tornando a experiência de limpeza ainda mais prazerosa e satisfatória."
         }
-    ]
+    ],
+    "id": "9fb64608-d8c5-458e-b332-a44c619e1f11"
 }

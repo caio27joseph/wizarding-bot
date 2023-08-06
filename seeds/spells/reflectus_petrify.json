@@ -3,7 +3,7 @@
     "category": "Abjuração",
     "difficulty": "Difícil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.769810",
+    "updatedAt": "2023-08-06T15:18:07.716551",
     "title": "Feitiço Anti-Paralisia",
     "level": 1,
     "actionType": "Reação",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "O seu Reflectus Petrify é extremamente poderoso e quase impenetrável por um Petrificus Totalus adversário, a menos que você tire uma Falha ou Falha Crítica na jogada de defesa, garantindo a sua segurança contra a paralisia indesejada."
         }
-    ]
+    ],
+    "id": "679a4ba6-7632-4484-8043-7b7b32882eee"
 }

@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.476812",
+    "updatedAt": "2023-08-06T15:18:07.265639",
     "title": "Feitiço da Bolha",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Como mestre do Bublio, você tem controle total sobre o tamanho da bolha, podendo criar uma esfera do tamanho de um pequeno cômodo. Essa bolha flutua a até 5 metros do chão e pode acomodar até três pessoas sem perder altitude. Você pode direcionar a bolha para qualquer direção, desde que não ultrapasse sua altitude máxima. Porém, ela flutua lentamente, como uma bolha gigante, e estoura se receber 5 ou mais pontos de dano de qualquer fonte."
         }
-    ]
+    ],
+    "id": "3e235ba5-ed73-4fc4-9d69-581476ba96de"
 }

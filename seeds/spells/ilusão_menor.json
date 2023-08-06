@@ -3,7 +3,7 @@
     "category": "Ilusão",
     "difficulty": "Médio",
     "description": " Se preferir criar uma imagem de um objeto, como uma cadeira, pegadas enlameadas ou um baú pequeno, ela não deve ser maior que um cubo de 2 metros. A imagem não pode criar som, luz, cheiro ou qualquer outro efeito sensorial. A interação física com a imagem revela que ela é uma ilusão, pois as coisas podem passar por ela. ",
-    "createdAt": "2023-08-06T14:37:37.653811",
+    "updatedAt": "2023-08-06T15:18:07.519694",
     "title": "Ilusão Menor",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Suas ilusões ganham ainda mais veracidade. As imagens criadas podem agora interagir com o ambiente de forma limitada, como movendo-se lentamente ou emitindo sons leves ao serem tocadas. Diminui a necessidade de sucessos em -1."
         }
-    ]
+    ],
+    "id": "60dc220d-740a-4437-9e72-7253cc18686b"
 }

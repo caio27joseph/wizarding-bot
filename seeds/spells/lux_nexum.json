@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Difícil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.701810",
+    "updatedAt": "2023-08-06T15:18:07.590697",
     "title": "Feitiço da conexão da luz",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,6 @@
             "name": "Mestre",
             "description": "Nesta variação poderosa de Lux Nexum, quando o feitiço atinge um segundo inimigo, ele também fica paralisado, mas apenas por 1 rodada."
         }
-    ]
+    ],
+    "id": "5a0685fe-edac-4fc3-b270-651fca0c4a86"
 }

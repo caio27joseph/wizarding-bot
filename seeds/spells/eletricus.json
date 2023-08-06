@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Muito Difícil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.542811",
+    "updatedAt": "2023-08-06T15:18:07.372700",
     "title": "Feitiço Conjuratório Cinético",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode conjurar uma variação (Electrica Tonitrui) quando estiver em céu aberto, a onde um trovão caira em cima do inimigo causando 2d8 de dano."
         }
-    ]
+    ],
+    "id": "19565fef-16b7-4a66-8f18-716ed987e28f"
 }

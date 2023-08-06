@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.595807",
+    "updatedAt": "2023-08-06T15:18:07.440698",
     "title": "Azaração do Empurrão",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Flipendo Maxima (Azaração do Arremesso). Essa variação potencializa o feitiço, aumentando o dano para 1d8 quando conjurado de forma verbal e para 2d6 quando lançado de forma não-verbal. Com essa versão avançada do feitiço, seu poder destrutivo é notavelmente maior."
         }
-    ]
+    ],
+    "id": "4091e69e-6a94-49fa-900e-19bbc559c57b"
 }

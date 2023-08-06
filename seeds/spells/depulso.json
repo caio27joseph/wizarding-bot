@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.533807",
+    "updatedAt": "2023-08-06T15:18:07.346639",
     "title": "Feitiço Expulsório",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Como mestre de Depulso, você pode lançá-lo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta."
         }
-    ]
+    ],
+    "id": "90e37059-cfff-48ab-bbf4-1d6c02581ac9"
 }

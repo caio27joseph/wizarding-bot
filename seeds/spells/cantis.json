@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.484807",
+    "updatedAt": "2023-08-06T15:18:07.275639",
     "title": "Azaração do Canto Descontrolado",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Como mestre da Cantis, você pode lançá-la de forma silenciosa, sem fazer qualquer som ou gesto que denuncie o feitiço. Essa habilidade avançada torna o lançamento da Cantis ainda mais sutil e surpreendente para o alvo."
         }
-    ]
+    ],
+    "id": "747e39dc-0f01-43c5-a115-ded00787a5c8"
 }

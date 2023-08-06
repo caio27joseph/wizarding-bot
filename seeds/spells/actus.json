@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": " Além disso, objetos que são ferramentas de ofício, como pincéis, martelos e agulhas de tricô, também podem ser encantados com o Actus, permitindo a mecanização temporária de suas funções, embora sem a capacidade de produzir obras-primas. ",
-    "createdAt": "2023-08-06T14:37:37.398800",
+    "updatedAt": "2023-08-06T15:18:07.161641",
     "title": "Feitiço da Função",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,6 @@
             "name": "Mestre",
             "description": "Com a variação Actus Totalum (Feitiço Multi-Função), você pode realizar essa magia em qualquer número de objetos em um raio de até 30 metros de distância, tornando-se excepcionalmente eficiente em atividades que exigem o uso de vários objetos simultaneamente.- Passa a conseguir ativar a função de objetos de combate tambem. (Espadas, Arcos e Flechas e outros.) que lutam sozinhos por 2 rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
-    ]
+    ],
+    "id": "60021012-412c-403f-aef2-8d3039f42ac9"
 }

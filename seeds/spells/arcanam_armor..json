@@ -3,7 +3,7 @@
     "category": "Abjuração",
     "difficulty": "Difícil",
     "description": " A magia da Armadura Arcana se manterá ativa durante toda a sua duração, protegendo você das ameaças. O feitiço pode ser lançado como uma Ação Padrão, permitindo-lhe conjurar a armadura rapidamente em situações de emergência. Alternativamente, se você preferir, pode realizar um ritual de 30 minutos para invocar a Armadura Arcana antes de se aventurar em desafios mais perigosos. ",
-    "createdAt": "2023-08-06T14:37:37.450807",
+    "updatedAt": "2023-08-06T15:18:07.228642",
     "title": "Feitiço da armadura magica",
     "level": 1,
     "actionType": "Padrão ou Reação",
@@ -37,5 +37,6 @@
             "name": "Mestre",
             "description": "Sua Armadura Arcana é aprimorada ainda mais, permitindo que ela impeça completamente o dano mágico que você receberia. Além disso, a redução de dano contra ataques físicos aumenta para 12 pontos, tornando você quase impenetrável enquanto a armadura estiver ativa. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
-    ]
+    ],
+    "id": "c82c4894-2eb3-461f-b8dd-19595eb9da8a"
 }

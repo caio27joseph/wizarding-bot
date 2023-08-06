@@ -3,7 +3,7 @@
     "category": "Adivinhação",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.437812",
+    "updatedAt": "2023-08-06T15:18:07.218639",
     "title": "Feitiço dos Quatro Pontos",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,6 @@
             "name": "Mestre",
             "description": "Com o Apontare Homenum, você pode fazer com que sua varinha aponte na direção de uma pessoa conhecida, auxiliando em missões de busca ou resgate. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
-    ]
+    ],
+    "id": "3f6b28b5-6af1-4554-a119-83113e48396e"
 }

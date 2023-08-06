@@ -3,7 +3,7 @@
     "category": "Abjuração",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.509812",
+    "updatedAt": "2023-08-06T15:18:07.306642",
     "title": "Feitiço de Bloqueio",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Como mestre de Colloportus, você pode aprimorar o feitiço de bloqueio de forma única e personalizada. Ao lançar Colloportus de forma não-verbal, você pode selecionar cinco feitiços entre \"Alohomora\", \"Alohomora Peculiari\", \"Alohomora Duo\", \"Aberto\", \"Abra-te-Sésamo\", \"Liberare\", \"Cistem Aperio\", \"Dunamis\", \"Annihilare\", \"Reducto\", \"Relashio\" e \"Bombarda\". Esses feitiços escolhidos nunca funcionarão contra o seu Colloportus, tornando a proteção ainda mais sólida e impenetrável. É importante notar que esse efeito não pode ser acumulado várias vezes sobre a mesma fechadura."
         }
-    ]
+    ],
+    "id": "a9f23705-dc0d-479d-a476-4e8e07825052"
 }

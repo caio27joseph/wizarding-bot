@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.803810",
+    "updatedAt": "2023-08-06T15:18:07.765554",
     "title": "Feitiço de Cócegas",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Rictusempra de forma silenciosa, o que permite lançar o feitiço sem a necessidade de proferir palavras em voz alta, tornando-o mais discreto e surpreendente para o alvo."
         }
-    ]
+    ],
+    "id": "6d900533-e31f-4f99-9b9e-0ec0757450ee"
 }

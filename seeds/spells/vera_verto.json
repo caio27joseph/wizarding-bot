@@ -3,7 +3,7 @@
     "category": "Transmutação",
     "difficulty": "Médio",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.851807",
+    "updatedAt": "2023-08-06T15:18:07.824552",
     "title": "Transformação de Animal em Objeto",
     "level": 1,
     "actionType": "Completa",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Vera Verto de forma não-verbal. Quando conjura Vera Verto em sua forma não-verbal, você pode transformar qualquer animal em qualquer objeto, independentemente da massa ser ou não similar. Essa habilidade avançada amplia ainda mais as possibilidades e os resultados das transfigurações. No entanto, é preciso ter cautela ao usar essa forma, pois mudanças radicais podem ter consequências imprevisíveis."
         }
-    ]
+    ],
+    "id": "5bcdae77-9cf6-4d17-a726-f3da0296facf"
 }

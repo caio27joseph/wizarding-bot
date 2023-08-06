@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.716810",
+    "updatedAt": "2023-08-06T15:18:07.637553",
     "title": "Feitiço de Desiluminação da Varinha",
     "level": 1,
     "actionType": "Livre",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Nox Domum como um feitiço de \"Feitiço de Proteção\", \"Execução: Ação completa\" e \"Duração: Permanente\". Nessa variação, você cria uma barreira invisível que cobre um cômodo ou área de até 500m². Todos os feitiços Lumos lançados dentro dessa barreira falham automaticamente, mantendo o ambiente sem iluminação mágica. Isso pode ser útil para garantir a segurança e o sigilo dentro de uma determinada área."
         }
-    ]
+    ],
+    "id": "9a1c81a1-16e5-4ce0-97a8-26a8e1052901"
 }

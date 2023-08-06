@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Difícil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.677808",
+    "updatedAt": "2023-08-06T15:18:07.551696",
     "title": "Feitiço de Ignição",
     "level": 1,
     "actionType": "Padrão",
@@ -34,5 +34,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Lacarnum Ignotus (Chamas de Combate) como um feitiço de \"Lampejo: Laranja\". Nessa variação, você conjura dois lampejos de chamas que são projetados contra dois alvos diferentes em uma única conjuração. Se o feitiço acertar um alvo, ele sofrerá 1d6 de dano de queimadura e ficará em chamas com o efeito \"Queimando\". Cada alvo não pode estar a mais de 5 metros de distância um do outro ou atrás/nas laterais do conjurador."
         }
-    ]
+    ],
+    "id": "551c4551-a62b-497a-8302-0ec1403cba7b"
 }

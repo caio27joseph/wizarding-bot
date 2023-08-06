@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Fácil",
     "description": "",
-    "createdAt": "2023-08-06T14:37:37.843810",
+    "updatedAt": "2023-08-06T15:18:07.813552",
     "title": "Azaração do Projétil",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,6 @@
             "name": "Mestre",
             "description": "Você pode lançar Uediuósi de forma silenciosa. Quando conjura Uediuósi de forma silenciosa, o mesmo objeto é catapultado na direção do alvo a cada turno, como se fosse um projétil contínuo, aumentando suas chances de acertar o alvo repetidamente."
         }
-    ]
+    ],
+    "id": "52c36503-d244-405f-bfb8-38a891d321ed"
 }
