@@ -1,5 +1,6 @@
 import { ConsoleLogger, Injectable, OnModuleInit } from '@nestjs/common';
 import {
+  APIApplicationCommandOptionChoice,
   Client,
   Client as DiscordClient,
   Events,
@@ -46,7 +47,7 @@ export interface Command<T> {
 }
 class GroupContext {
   public readonly options: GroupOptions;
-  public readonly commands: Command<any>[];
+  public readonly commands: Command<InteractionOptions>[];
   private readonly _commands_map: { [key: string]: Command<any> };
   constructor(private readonly handler: DiscordCommandMetadataHandler) {
     this.options = getGroupOptions(this.handler.target);
@@ -188,12 +189,24 @@ export class DiscordEventEmitter implements OnModuleInit {
           );
           break;
         case InteractionOptionEnum.String:
-          cmd.addStringOption((option) =>
+          cmd.addStringOption((option) => {
             option
               .setName(name)
               .setDescription(description)
-              .setRequired(required),
-          );
+              .setRequired(required);
+            if (typeof param.options === 'string') return option;
+            if (param.options?.choices) {
+              const choices: APIApplicationCommandOptionChoice<string>[] = [];
+              for (const choice of param.options.choices) {
+                choices.push({
+                  name: choice,
+                  value: choice,
+                });
+              }
+              option.setChoices(...choices);
+            }
+            return option;
+          });
           break;
         case InteractionOptionEnum.Mentionable:
           cmd.addMentionableOption((option) =>
@@ -225,23 +238,30 @@ export class DiscordEventEmitter implements OnModuleInit {
     }
   }
   async registerSlashCommands(client: Client<true>) {
-    await client.application.commands.set([]);
+    const commands: SlashCommandBuilder[] = [];
+    let added_commands = 0;
     for (const group of this.groups) {
+      this.logger.debug(`Registering group '${group.options.name}'`);
       const groupCmd = new SlashCommandBuilder();
       groupCmd
         .setName(group.options.name)
         .setDescription(group.options.description);
       for (const command of group.commands) {
+        this.logger.debug(
+          `Registering command '${command.options.name}' from group '${group.options.name}'`,
+        );
         const cmd = new SlashCommandSubcommandBuilder()
           .setName(command.options.name)
           .setDescription(command.options.description);
         groupCmd.addSubcommand(cmd);
 
         this.registerCommandParameters(cmd, command.parameters);
+        added_commands++;
       }
-
-      await client.application.commands.create(groupCmd);
+      commands.push(groupCmd);
     }
+    await client.application?.commands.set(commands);
+    this.logger.debug(`${added_commands} commands registered`);
   }
   private getGroup(key: string) {
     return this.groupsMap[key];

@@ -12,7 +12,7 @@ import { CreateGuildInput } from './guild.input';
 
 @Injectable()
 export class GuildService implements OnModuleInit {
-  private guilds: Map<string, Guild> = new Map();
+  public readonly guilds: Map<string, Guild> = new Map();
 
   constructor(@InjectRepository(Guild) public repo: Repository<Guild>) {}
 

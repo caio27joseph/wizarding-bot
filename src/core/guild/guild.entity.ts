@@ -11,6 +11,7 @@ import { House } from '../house/entities/house.entity';
 import { Player } from '../player/entities/player.entity';
 import { GuildMember } from 'discord.js';
 import { AdminNeeded } from '~/discord/exceptions';
+import { Spell } from '~/spell/entities/spell.entity';
 
 @Entity()
 export class Guild {
@@ -23,6 +24,11 @@ export class Guild {
   @Column()
   prefix: string;
 
+  @Column({
+    default: true,
+  })
+  importSpells: boolean;
+
   @OneToMany((type) => Player, (player) => player.guild)
   players: Player[];
 
@@ -31,6 +37,9 @@ export class Guild {
 
   @OneToMany((type) => HouseCup, (cup) => cup.guild)
   cups: HouseCup[];
+
+  @OneToMany((type) => Spell, (spell) => spell.guild)
+  spells: Spell[];
 
   async verifyMod(member: GuildMember) {
     if (member.roles.cache.has(this.modRoleId)) return this;
