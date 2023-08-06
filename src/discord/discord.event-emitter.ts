@@ -225,6 +225,7 @@ export class DiscordEventEmitter implements OnModuleInit {
     }
   }
   async registerSlashCommands(client: Client<true>) {
+    await client.application.commands.set([]);
     for (const group of this.groups) {
       const groupCmd = new SlashCommandBuilder();
       groupCmd

@@ -9,6 +9,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { CombatModule } from './combat/combat.module';
 import { SpellModule } from './spell/spell.module';
+import { SeederModule } from './seeder/seeder.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { SpellModule } from './spell/spell.module';
     HouseCupModule,
     CombatModule,
     SpellModule,
+    SeederModule,
   ],
   controllers: [],
   providers: [],
