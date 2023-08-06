@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": "Com o Circumrota, você pode fazer um objeto que tenha capacidade de girar rotacionar ao redor de seu eixo até atingir a posição desejada. Isso é útil para alinhar objetos, ajustar sua direção ou prepará-los para uma utilização específica. No entanto, é importante destacar que o feitiço somente funcionará em objetos que possam girar naturalmente. ",
-    "updatedAt": "2023-08-06T16:18:13.071388",
+    "updatedAt": "2023-08-06T18:58:04.984889",
     "title": "Feitiço de Rotação",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,5 @@
             "description": "Como mestre do Circumrota, você pode lançar uma versão avançada do feitiço que afeta seres vivos. Ao lançar essa variação, uma criatura afetada começa a girar rapidamente ao redor de seu próprio eixo sem sair do lugar, ficando Paralisada. O efeito pode ser útil para controlar o movimento de adversários e situações que requerem imobilização temporária."
         }
     ],
-    "id": "7b9af90f-9d67-484e-9cc0-67cb682faea0"
+    "identifier": "7c9285ba-34b2-4caf-bb8d-bcabbb5a7448"
 }

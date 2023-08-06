@@ -3,7 +3,7 @@
     "category": "Abjuração",
     "difficulty": "Difícil",
     "description": "Faz com que a vítima junte os braços rente ao corpo e depois caia Paralisada   no chão. A cada turno em que fica Paralisada   ou quando recebe qualquer quantidade de dano, a vítima pode fazer um teste de Vigor (dificuldade 7). Com 3 Sucessos ou mais, a duração de Petrificus Totalus é reduzida em 1 rodada. A criatura atingida por esse feitiço também é considerada Caída  . ",
-    "updatedAt": "2023-08-06T16:18:13.261903",
+    "updatedAt": "2023-08-06T18:58:05.237554",
     "title": "Maldição do Corpo Preso",
     "level": 1,
     "actionType": "Padrão",
@@ -38,5 +38,5 @@
             "description": "Você pode lançar Petrificus Totalus como um feitiço de \"Duração: 15 minutos\". Nessa variação, um teste bem-sucedido de Vigor retira 1 minuto do total da duração, e a vítima só pode fazer esse teste caso receba alguma forma de dano durante o período de paralisia. Essa versão estendida da maldição pode ser particularmente útil para situações que requerem uma imobilização prolongada do alvo."
         }
     ],
-    "id": "0dc66803-851a-461c-929e-57807b39173e"
+    "identifier": "df48a8ac-a8ce-47cc-ab89-1fe99b4910b5"
 }

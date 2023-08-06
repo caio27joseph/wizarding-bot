@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Médio",
     "description": "O feitiço Impervius cria uma proteção mágica que torna um objeto repelente a líquidos e névoa. Esse encantamento pode ser aplicado, por exemplo, em óculos para melhorar a visibilidade em climas densos, ou em peças de roupa para impedir que fiquem molhadas. É uma magia amplamente utilizada por jogadores de quadribol em dias chuvosos, garantindo que a chuva não atrapalhe o desempenho durante a partida. ",
-    "updatedAt": "2023-08-06T16:18:13.201908",
+    "updatedAt": "2023-08-06T18:58:05.166502",
     "title": "Feitiço de Impermeabilidade",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,5 @@
             "description": "Você pode lançar Impervius Totalum (Feitiço da Barreira Impermeável). Nessa variação, também como uma ação completa e com duração permanente, você pode estender a proteção para cobrir um cômodo, um edifício ou uma grande área de até 500m². A barreira invisível criada é capaz de repelir chuvas, tempestades, nevascas e ventanias."
         }
     ],
-    "id": "18f42435-edeb-480b-bbf2-a69f7401f326"
+    "identifier": "49e7c81f-8b95-449f-a001-e99829d328d2"
 }

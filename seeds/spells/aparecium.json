@@ -3,7 +3,7 @@
     "category": "Ilusão",
     "difficulty": "Médio",
     "description": "Ao lançar o Aparecium, você pode fazer com que tinta invisível e mensagens ocultas se tornem visíveis, revelando assim informações escondidas em pergaminhos e outros documentos mágicos. Além disso, esse feitiço também pode ser utilizado para forçar objetos ou passagens magicamente escondidas a se revelarem, desde que você saiba da existência deles. ",
-    "updatedAt": "2023-08-06T16:18:13.011385",
+    "updatedAt": "2023-08-06T18:58:04.924944",
     "title": "Feitiço de Revelação",
     "level": 1,
     "actionType": "Padrão",
@@ -38,5 +38,5 @@
             "description": "Com o Aparecium em seu mais alto nível de domínio, você pode retirar temporariamente os efeitos de uma Capa da Invisibilidade, tornando o portador visível. Além disso, você pode desfazer a condição   \"Invisível\" de uma criatura, revelando-a aos olhos de todos. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
-    "id": "95dcc5fe-b21d-485c-99c4-67742b2e26bb"
+    "identifier": "ecac24ac-0bd0-4055-a43f-c50bd66d05f7"
 }

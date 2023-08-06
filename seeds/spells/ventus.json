@@ -1,0 +1,40 @@
+{
+    "name": "Ventus",
+    "category": "Evocação",
+    "difficulty": "Médio",
+    "description": "Ao conjurar Ventus, uma rajada de ar em forma de linha com 12 metros de alcance é criada, tendo como ponto de partida a frente do bruxo ou qualquer espaço até 5 metros ao seu redor. O primeiro obstáculo na área de efeito, que pode ser um objeto ou uma criatura, é lentamente carregado até o fim da linha, arrastando todos os outros que estiverem atrás. Caso seja pressionado contra uma superfície sólida, como uma parede, o primeiro obstáculo desse feitiço é afligido pela condição Enredado até se desvencilhar do vendaval. Nesse nível, Ventus produz um vento forte. ",
+    "updatedAt": "2023-08-06T20:47:38.976903",
+    "title": "Feitiço Vendaval",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "Concentração",
+    "requirements": "Evocação 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Ventus."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Siccum Vestimentum (Feitiço Secador) como um feitiço de \"Duração: Instantânea\". Nessa variação, você conjura uma rajada inofensiva de ar morno capaz de evaporar a umidade de peças de roupas em apenas alguns segundos."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Ventus de forma focada."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Ventus como um feitiço de \"Execução: Reação\" e \"Duração: Instantânea\". Nessa variação, você projeta um escudo de vento súbito da ponta da varinha que deflete projéteis físicos, como as cordas de um Incarcerous, para as suas laterais."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Ventus de forma não-verbal. Quando conjura Ventus em sua forma não-verbal, ele é considerado como tendo a força de um vendaval. Criaturas que são Enredadas por um Ventus não-verbal recebem 3d6 de dano contusivo, por terem sido violentamente arremessadas."
+        }
+    ],
+    "identifier": "25649a3b-fc3c-491f-aa1d-9831fd9b2821"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Consilio pellis",
+    "category": "Ilusão",
+    "difficulty": "Difícil",
+    "description": "O Consilio Pellis é um feitiço usado para criar tatuagens místicas na pele do alvo. O bruxo pressiona a varinha contra a pele e materializa uma imagem desejada, que se torna uma tatuagem mágica de alta qualidade. A tatuagem pode ser animada para parecer ter vida própria e desenvolver personalidade, se assim o bruxo desejar.  Para reproduzir uma peça de arte, o bruxo deve fazer um teste de Ofícios (Pintura), sendo que a quantidade de sucessos necessária varia de acordo com a complexidade do desenho. Desenhar algo simples, como o Bob Esponja (2 Sucessos), requer menos sucessos do que tentar replicar a obra de arte Mona Lisa (8 Sucessos). ",
+    "updatedAt": "2023-08-06T20:47:38.554906",
+    "title": "Feitiço da Tatuagem Mística",
+    "level": 2,
+    "actionType": "Completa",
+    "duration": "Permanente",
+    "antiSpell": "Extingue Coloris",
+    "requirements": "ilusão 2 transmutação 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Consilio Pellis."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Consilio Pellis de forma não-verbal, tornando a tatuagem imune a feitiços de desfazimento, como o Extingue Coloris."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Quando você lança Consilio Pellis de forma não-verbal, você pode conceder ao alvo uma Tatuagem Mística permanentemente. A Tatuagem Mística oferece ao personagem uma nova qualidade escolhida entre as seguintes opções: Ambidestro, Brigão, Písceo, Equilíbrio Perfeito, Resistência ao Álcool, Apoiador, Beleza Surreal, Fisionomia Agradável, Inofensivo, Líder Nato, Noção Exata do Tempo, Senso Climático ou Senso de Direção. Cada personagem pode possuir apenas 1 Tatuagem Mística no corpo, e ela não pode ser removida por feitiços. Caso a tatuagem seja de alguma forma removida, o personagem perderá a qualidade associada a ela."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você adquire a habilidade de dissipar qualquer Tatuagem Mística criada por você, simplesmente pressionando sua varinha contra a pele do alvo."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "As Tatuagens Místicas criadas por você agora podem ser interligadas. Para fazer isso, você deve lançar novamente o Consilio Pellis em ambos os personagens que desejam ter uma ligação. Quando um personagem com uma Tatuagem Mística interligada se concentra em sua própria tatuagem, ele pode enviar um aviso mental para aqueles que compartilham da mesma ligação. Os outros personagens com a tatuagem podem então usar uma ação completa para aparatar ao lado do remetente da mensagem, desde que não haja obstáculos para aparatar. É possível aparatar mesmo sem saber exatamente onde o remetente está, contanto que tenham recebido o aviso mental."
+        }
+    ],
+    "identifier": "0b81861e-0e6c-4379-83f2-6a0e87ec4209"
+}

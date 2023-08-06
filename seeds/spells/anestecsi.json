@@ -1,0 +1,40 @@
+{
+    "name": "Anestecsi",
+    "category": "Evocação",
+    "difficulty": "Médio",
+    "description": "Ao escolher uma criatura viva a até 18 metros de distância e lançar esse feitiço, você anula todas as penalidades causadas pela condição Agonizando ou quaisquer outros efeitos debilitantes provenientes de dor. Esse feitiço não previne dano, mas permite que a criatura afetada suporte melhor a dor e funcione normalmente apesar dela. ",
+    "updatedAt": "2023-08-06T20:47:38.351906",
+    "title": "Feitiço Anestésico",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "Concentração",
+    "requirements": "Evocação 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Anestecsi."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Anestecsi de forma focada, aumentando sua precisão e eficácia."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Anestecsi como um feitiço de \"Lampejo: Esmeralda\" e \"Duração: 2 rodadas\". Nessa variação, você atira um lampejo anestésico que, caso acerte uma criatura, aplica a condição Inconsciente pela duração. Essa versão do feitiço é mais útil para situações em que é necessário incapacitar temporariamente um alvo sem causar-lhe danos permanentes."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Enquanto se concentra em seu Anestecsi, você pode abrir mão de sua ação de movimento para curar 2 Pontos de Vitalidade do alvo. Essa capacidade de cura adicional torna o feitiço ainda mais valioso para ajudar a aliviar a dor e tratar ferimentos."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Anestecsi de forma não-verbal, executando o feitiço sem a necessidade de proferir palavras. Além disso, quando conjura Anestecsi em sua forma não-verbal, a cura aumenta para 1d6, proporcionando uma cura ainda mais significativa ao alvo. Essa é a forma mais avançada do feitiço, dominada apenas pelos bruxos mais experientes."
+        }
+    ],
+    "identifier": "aa724b76-7873-43f2-b8b6-079da6b1e351"
+}

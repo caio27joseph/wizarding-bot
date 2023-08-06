@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": "Faz com que os objetos desejados flutuem para uma mala de qualquer tipo ou forma, que se auto-empacota e/ou auto-organiza de acordo com a vontade do conjurador. Funciona apenas para guardar roupas e acessórios. Feito isso, a mala é fechada e trancada. ",
-    "updatedAt": "2023-08-06T16:18:13.256903",
+    "updatedAt": "2023-08-06T18:58:05.228553",
     "title": "Feitiço de Empacotar",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,5 @@
             "description": "Você pode lançar Pack em múltiplas malas ao mesmo tempo."
         }
     ],
-    "id": "3e7b673c-b125-41ef-8ff2-fde2b4fd2151"
+    "identifier": "5a4a69d9-d00f-457e-bc13-a83404961c6a"
 }

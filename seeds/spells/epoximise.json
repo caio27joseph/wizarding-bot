@@ -1,0 +1,41 @@
+{
+    "name": "Epoximise",
+    "category": "Transmutação",
+    "difficulty": "Difícil",
+    "description": "O feitiço Epoximise torna o alvo extremamente adesivo e elástico, assemelhando-se a uma geléia grudenta. Pode ser lançado sobre um único objeto, independentemente do tamanho, ou sobre uma superfície de até 6 metros quadrados. Se Epoximise for lançado em um objeto, criaturas que tentarem pegá-lo ou tocá-lo não conseguirão soltá-lo por meios convencionais. Se for lançado em uma área, qualquer criatura que pisar, caminhar ou se apoiar na superfície ficará Enredada até sair da área ou até o feitiço ser desfeito. Vale ressaltar que esse feitiço é considerado uma Transfiguração. ",
+    "updatedAt": "2023-08-06T20:47:38.632902",
+    "title": "Feitiço Adesivo",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "30 minutos",
+    "light": "Azul",
+    "requirements": "Transfigurações1 evocação 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Epoximise."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Epoximise de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Epoximise de forma não-verbal. Nessa variação, você pode enfeitiçar uma área de até 12m² sem a necessidade de proferir palavras."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Astrictus (Feitiço da Colagem) como uma variação permanente do feitiço. Dessa forma, você pode magicamente colar dois objetos um ao outro. Essa variação não funciona em seres vivos, mas é muito eficiente em manter portas e janelas fechadas."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Astrictus Maxima (Feitiço da Colagem Permanente) como um feitiço de \"Duração: Instantânea\". Nessa variação, você funde molecularmente dois objetos que já estejam previamente em contato um com o outro. Objetos atingidos por esse feitiço não podem ser destransfigurados nem descolados por nenhum meio não destrutivo conhecido, ficando permanentemente grudados."
+        }
+    ],
+    "identifier": "6e6ddc27-22bd-4639-8475-b5f4db7569c1"
+}

@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Fácil",
     "description": "O Feitiço de Desiluminação da Varinha, conhecido como Nox, é usado para dissipar a luz criada através de um feitiço Lumos. Nox só funciona para apagar a luz proveniente do Lumos lançado pelo próprio conjurador e atua instantaneamente. ",
-    "updatedAt": "2023-08-06T16:18:13.240903",
+    "updatedAt": "2023-08-06T18:58:05.211553",
     "title": "Feitiço de Desiluminação da Varinha",
     "level": 1,
     "actionType": "Livre",
@@ -35,5 +35,5 @@
             "description": "Você pode lançar Nox Domum como um feitiço de \"Feitiço de Proteção\", \"Execução: Ação completa\" e \"Duração: Permanente\". Nessa variação, você cria uma barreira invisível que cobre um cômodo ou área de até 500m². Todos os feitiços Lumos lançados dentro dessa barreira falham automaticamente, mantendo o ambiente sem iluminação mágica. Isso pode ser útil para garantir a segurança e o sigilo dentro de uma determinada área."
         }
     ],
-    "id": "f4734fcd-ebf7-4257-adf7-100a6f5582a8"
+    "identifier": "a8ec7e03-469e-4d80-a87f-57dfd879f6ea"
 }

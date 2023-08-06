@@ -1,0 +1,42 @@
+{
+    "name": "Capilaris",
+    "category": "Transmutação",
+    "difficulty": "Difícil",
+    "description": "Ao conjurar Carpe Retractum, você cria uma corda púrpura ou alaranjada feita de energia mágica que pode se agarrar a uma superfície, objeto ou criatura. Após agarrar um alvo, a corda exerce um efeito de \"tração\". Faça um teste disputado de Força contra o seu alvo; caso você vença, o alvo é rapidamente puxado em sua direção. Se você perder o teste, você será puxado em direção ao alvo. Enquanto se mantiver concentrado, você pode continuar pendurado e/ou puxando o alvo. ",
+    "updatedAt": "2023-08-06T20:47:38.463903",
+    "title": "Azaração que faz o cabelo crescer.",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "30 minutos",
+    "light": "Amarelo",
+    "antiSpell": "Calvorio.",
+    "requirements": "Transmutação 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Capilaris."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Capilaris de forma focada, tornando o crescimento do cabelo mais controlado e uniforme."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Capilaris como um feitiço de \"Duração: Instantânea\". Nessa variação, o cabelo cresce rapidamente até o comprimento desejado."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Capilaris de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. Além disso, com esse controle, você pode escolher afetar todos os pelos do corpo simultaneamente, incluindo sobrancelhas, barba, etc."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Capilaris Collore, que além de fazer o cabelo crescer, também permite alterar a cor dos pelos, cabelos ou qualquer outra parte do corpo para a cor ou forma desejada. Esse efeito de mudança de cor é temporário e dura a mesma duração do feitiço original."
+        }
+    ],
+    "identifier": "c75c3a6b-70bd-45f7-8bb7-e7c3947ace21"
+}

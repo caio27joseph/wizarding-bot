@@ -3,7 +3,7 @@
     "category": "Adivinhação",
     "difficulty": "Médio",
     "description": "O feitiço Offendo é uma poderosa Azaração que provoca um efeito cômico e desestabilizador em seu alvo. Ao ser lançado, a vítima é subitamente tomada por uma sensação de desequilíbrio, como se tivesse esbarrado em algo invisível. Desajeitada, a pessoa tropeça sozinha e perde momentaneamente o controle sobre seus movimentos, culminando em uma queda desajeitada. O alvo da Azaração do Tropeço sofre 1d3 de dano de queda e é considerado Caído durante a rodada afetada. A duração do efeito é instantânea, mas a lembrança do tropeço pode persistir na memória do alvo, gerando embaraço ou tornando-o mais suscetível a novos ataques. ",
-    "updatedAt": "2023-08-06T16:18:13.251906",
+    "updatedAt": "2023-08-06T18:58:05.221553",
     "title": "Azaração do Tropeço",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Você pode lançar Offendo Maxima. Nessa variação, você emite um pulso esverdeado a partir da ponta da varinha que ainda é considerado um lampejo. Qualquer número de criaturas à sua escolha que estejam a 6 metros de distância de você levam 1d3 de dano de queda e são consideradas Caídas  . Esse feitiço não funciona em criaturas que já estejam Caídas  ."
         }
     ],
-    "id": "57c6810f-0e4b-4d33-a757-48fb2b87d671"
+    "identifier": "b89e3532-1e96-4c43-a1ad-16f1baebe5a2"
 }

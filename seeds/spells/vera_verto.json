@@ -3,7 +3,7 @@
     "category": "Transmutação",
     "difficulty": "Médio",
     "description": "Ao executar o feitiço Vera Verto, você toca três vezes com a ponta da varinha no alvo, realizando a transfiguração de um animal de porte Pequeno (ou menor) em um objeto de massa similar. Os animais Pequenos incluem aves, serpentes, ratos, morcegos, corujas, gatos, entre outros. É importante notar que esse feitiço é considerado uma Transformação, o que implica em alterações permanentes e irreversíveis. ",
-    "updatedAt": "2023-08-06T16:18:13.334907",
+    "updatedAt": "2023-08-06T18:58:05.326845",
     "title": "Transformação de Animal em Objeto",
     "level": 1,
     "actionType": "Completa",
@@ -35,5 +35,5 @@
             "description": "Você pode lançar Vera Verto de forma não-verbal. Quando conjura Vera Verto em sua forma não-verbal, você pode transformar qualquer animal em qualquer objeto, independentemente da massa ser ou não similar. Essa habilidade avançada amplia ainda mais as possibilidades e os resultados das transfigurações. No entanto, é preciso ter cautela ao usar essa forma, pois mudanças radicais podem ter consequências imprevisíveis."
         }
     ],
-    "id": "3d84af67-9ba9-4dff-96ba-1a54c14ad2da"
+    "identifier": "c3337c45-f727-4222-9785-9a5d1803cb37"
 }

@@ -3,7 +3,7 @@
     "category": "Ilusão",
     "difficulty": "Fácil",
     "description": "Flagrate é um feitiço que permite que o bruxo crie um rastro de energia vermelha no ar quando risca o ar com a varinha. Com essa energia, o conjurador pode \"desenhar\" ou \"escrever\" mensagens no espaço. O bruxo tem total controle sobre os desenhos e pode rearranjar sua posição com o movimento da mão ou da varinha, além de poder modificá-los conforme desejar. ",
-    "updatedAt": "2023-08-06T16:18:13.144915",
+    "updatedAt": "2023-08-06T18:58:05.085753",
     "title": "Feitiço do Desenho de Fogo",
     "level": 1,
     "actionType": "Livre",
@@ -35,5 +35,5 @@
             "description": "Você se torna mais habilidoso em revelar mensagens escondidas por meio de feitiços. Feitiços que revelam mensagens escondidas precisam ter 2 Sucessos a mais no teste para revelar o Flagrate ativável. Isso torna suas mensagens ainda mais seguras e difíceis de serem descobertas sem a devida habilidade para tal."
         }
     ],
-    "id": "03978afc-869b-4de4-9076-2a8621480bff"
+    "identifier": "fba260eb-95e4-4f6b-99df-85ab7fa98da0"
 }

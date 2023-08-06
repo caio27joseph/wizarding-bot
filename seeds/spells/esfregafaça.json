@@ -1,0 +1,39 @@
+{
+    "name": "Esfregafaça",
+    "category": "Transmutação",
+    "difficulty": "Fácil",
+    "description": "O feitiço Esfregafaça transmuta magicamente a sujeira em água, limpando instantaneamente o alvo. Pode ser utilizado em objetos, peças de roupa, superfícies e até mesmo criaturas, mas deixará o alvo molhado onde antes estava sujo. Poeira, sangue seco, bebidas derramadas, secreções, lama e terra são exemplos de materiais que podem ser transfigurados com Esfregafaça. Vale ressaltar que esse feitiço é considerado uma Transformação. ",
+    "updatedAt": "2023-08-06T20:47:38.647904",
+    "title": "Feitiço de Limpeza",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Esfregafaça."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Esfregafaça de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Tergeo (Feitiço Aspirador) como uma variação do feitiço. Nessa forma, a sujeira é meramente sugada em direção à ponta da varinha e permanece ali, podendo ser expelida posteriormente com outra conjuração de Tergeo. Criaturas vulneráveis a feitiços de limpeza ou com menos de 10 centímetros podem ser absorvidas e depois expelidas intactas por esse feitiço."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Esfregafaça de forma não-verbal. Nessa variação, você transfigura a sujeira em vapor, deixando o alvo apenas levemente úmido, mas não completamente molhado."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Esfregafaça como uma Azaração com duração de 1 minuto e lampejo ciano. Nessa variação, você faz com que sabão preencha completamente a boca do alvo, deixando-o Silenciado pela duração do feitiço. Isso impede que o alvo possa falar ou proferir qualquer som com a boca."
+        }
+    ],
+    "identifier": "adaba9bb-75d5-42ac-b34b-1ec4dd19c2c3"
+}

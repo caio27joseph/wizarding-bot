@@ -1,0 +1,41 @@
+{
+    "name": "Espongifaça",
+    "category": "Transmutação",
+    "difficulty": "Médio",
+    "description": "O feitiço Espongifaça faz com que o alvo adquira a textura e elasticidade de uma esponja ao toque. Pode ser lançado sobre um único objeto, independentemente do tamanho, ou sobre uma superfície de até 6 metros quadrados. Com esse feitiço, você pode, por exemplo, fazer com que o chão se comporte como um trampolim ou transformar uma lâmina real em uma espada de borracha. Importante notar que esse feitiço é considerado uma Transformação. ",
+    "updatedAt": "2023-08-06T20:47:38.659903",
+    "title": "Feitiço para Esponjar",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "Permanente",
+    "light": "Laranja",
+    "requirements": "Transfigurações 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Espongifaça."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Espongifaça de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Espongifaça de forma não-verbal. Quando conjura Espongifaça em sua forma não-verbal, a área coberta pelo feitiço é aumentada em até 12 metros."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Quando você lança Espongifaça sobre uma área, você pode escolher torná-la movediça em vez de esponjosa. Qualquer criatura que pise, corra ou caminhe sobre a superfície encantada fica Enredada, até que saia da área ou até que o feitiço seja desfeito. Adicionalmente, a cada minuto preso na área encantada, o corpo da criatura afunda 10 centímetros abaixo da superfície. Apesar de ser indetectável ao olho nu, essa variação não é diferente de um banco de areia movediça comum."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Espongifaça Maxima (Feitiço para Esponjar Superior). Nessa variação, você conjura um pulso mágico com 5 metros de raio e 10 metros de diâmetro a partir da ponta da varinha. Com esse pulso, você afeta qualquer número de objetos dentro dessa área simultaneamente, transformando-os em esponjas."
+        }
+    ],
+    "identifier": "728cea86-9712-4551-813b-6010a25ec033"
+}

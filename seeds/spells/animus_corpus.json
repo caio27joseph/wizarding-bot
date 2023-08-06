@@ -1,0 +1,40 @@
+{
+    "name": "Animus corpus",
+    "category": "Encantamento",
+    "difficulty": "Muito Difícil",
+    "description": "Ao tocar com a ponta da varinha um objeto miúdo (até 40cm), não mágico, que não esteja atrelado a outro objeto ou superfície e que não esteja sendo carregado por alguém, você o magicamente anima, concedendo-lhe a habilidade de movimentar-se e agir como se tivesse vida própria. O objeto pode ganhar pequenos braços e pernas (do mesmo material do objeto) de acordo com a sua vontade.  Para fins de estatísticas, o objeto é considerado um construto de Forma Evasiva, Miúdo e Terrestre/Alado, de acordo com o desejo do bruxo e da forma do alvo (veja \"A Sua Forma Animal\" no NPC 0.0.6 - Antecedentes). No entanto, possui nenhuma Qualidade exceto \"Voo\", \"Aderência\" e \"Respiração Aquática\". Um objeto encantado por essa magia é imune as condições Abalado  , Agonizando  , Alucinando  , Apavorado  , Inebriado  , Cego  , Adormecido  , Enfurecido  , Enjoado  , Envenenado  , Exausto  , Fascinado  , Fatigado  , Ofuscado  , Petrificado  , Sangrando  , Silenciado   e Surdo  . Além disso, não pode se comunicar verbalmente.  Durante a concentração do conjurador, ele pode mentalmente comandar o objeto animado para realizar uma ação ou tarefa. O comando pode ser específico ou geral, como \"pegar uma chave\", \"ficar de guarda\" ou \"voar ao redor do castelo\". Caso o objeto não receba nenhum comando, ele permanecerá inativo, a menos que seja atacado por criaturas hostis, momento em que se defenderá automaticamente. Se o construto cair a 0 Pontos de Vitalidade, ele retornará à sua forma original, encerrando o efeito. ",
+    "updatedAt": "2023-08-06T20:47:38.373901",
+    "title": "Feitiço de Animação Senciente",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "1 minuto",
+    "requirements": "Encantamentos 2 transmutação 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Animus Corpus. Nesse nível, você pode manter apenas 1 objeto encantado por vez."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Animus Corpus de forma focada, permitindo manter 2 objetos encantados simultaneamente."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Animus Corpus como um feitiço de \"Lampejo: Bronze\" e \"Duração: 1 hora\", possibilitando a animação de até 3 objetos ao mesmo tempo."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode encantar um objeto Pequeno (até 1,5 metros) com esse feitiço. As estatísticas do construto mudam para \"Pequeno\" em vez de \"Miúdo\", e agora você pode manter até 4 objetos encantados simultaneamente."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Animus Corpus de forma não-verbal. Quando conjura Animus Corpus em sua forma não-verbal, você emite um pulso mágico com 5 metros de raio e 10 metros de diâmetro a partir da ponta da varinha. Com isso, pode animar até 5 objetos de tamanho miúdo ou pequeno simultaneamente, mantendo-os animados pela duração do feitiço ou até serem destruídos. Essa é a forma mais avançada do feitiço, permitindo ao bruxo controlar múltiplos objetos animados de forma eficiente."
+        }
+    ],
+    "identifier": "bc17b155-2e97-4113-aa0b-df9865299f9f"
+}

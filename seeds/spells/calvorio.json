@@ -1,0 +1,42 @@
+{
+    "name": "Calvorio",
+    "category": "Necromancia",
+    "difficulty": "Difícil",
+    "description": "Ao lançar Calvório sobre uma vítima, ela começa a sofrer perda capilar ao longo de toda a duração do feitiço, perdendo tufos de cabelo a cada 1 minuto decorrido. Caso a vítima não trate a queda a tempo, ficará completamente careca. ",
+    "updatedAt": "2023-08-06T20:47:38.446903",
+    "title": "Azaração da Queda de Cabelo",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "30 minutos",
+    "light": "Amarelo",
+    "antiSpell": "Capilaris.",
+    "requirements": "Necromancia 2 transmutação 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Calvorio."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Calvório de forma focada, aumentando a efetividade do feitiço."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Calvório como um feitiço de \"Duração: Instantânea\". Nessa variação, todo o cabelo da vítima cai instantaneamente."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Calvório de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. Além disso, com esse controle, você pode escolher afetar todos os pelos do corpo simultaneamente, incluindo sobrancelhas, barba, etc."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Calvório como um feitiço de \"Maldição\" e \"Duração: Permanente\". Essa variação não pode ser desfeita por Finite Incantatem, tornando a calvície permanente para a vítima."
+        }
+    ],
+    "identifier": "61e20ad8-65fd-4643-a13e-360f7f289692"
+}

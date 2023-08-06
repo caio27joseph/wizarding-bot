@@ -1,0 +1,39 @@
+{
+    "name": "Carpe retractum",
+    "category": "Encantamento",
+    "difficulty": "Fácil",
+    "description": "Conjura uma corda púrpura ou alaranjada feita de energia mágica que se agarra a uma superfície, objeto ou criatura. Após agarrar um alvo, a corda irá criar um efeito de \"tração\". Faça um teste disputado de Força contra seu alvo; caso você vença, o alvo é rapidamente puxado para sua direção. Caso você perca, em vez disso você é lançado na direção do alvo. Você pode continuar pendurado e/ou puxando desde que consiga se manter concentrado. ",
+    "updatedAt": "2023-08-06T20:47:38.473902",
+    "title": "Feitiço de Agarrar e Puxar",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "Concentração",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Carpe Retractum."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Carpe Retractum de forma focada, permitindo que a corda seja mais precisa e ágil em agarrar o alvo."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode escolher receber um bônus de -1 na dificuldade do teste de Força para puxar o seu alvo."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Carpe Retractum de forma não-verbal, tornando a execução do feitiço mais rápida e discreta."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode escolher receber um bônus de -2 na dificuldade do teste de Força para puxar o seu alvo, tornando o feitiço ainda mais eficaz em agarrar e puxar objetos e criaturas."
+        }
+    ],
+    "identifier": "16aa045b-1de5-4a04-af9e-a5e75e53076a"
+}

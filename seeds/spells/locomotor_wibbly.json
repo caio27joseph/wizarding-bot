@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Médio",
     "description": "Faz com que as pernas da vítima colapsem, como se tivessem se transformado em geleia. O alvo fica Lento pela duração do feitiço, o que dificulta seus movimentos e ações. Toda vez que a vítima tentar se mover, incluindo realizar Aparatação, ela deve ser bem-sucedida em um teste de Destreza, obtendo no mínimo 3 Sucessos. Caso falhe nesse teste, a vítima fica Caída, incapaz de se movimentar adequadamente. ",
-    "updatedAt": "2023-08-06T16:18:13.212903",
+    "updatedAt": "2023-08-06T18:58:05.180503",
     "title": "Azaração das Pernas Bambas",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Você pode lançar Locomotor Wibbly de forma silenciosa, realizando a conjuração sem a necessidade de pronunciar palavras em voz alta."
         }
     ],
-    "id": "58f5435e-c7ce-4a1a-ac28-f5a400944adc"
+    "identifier": "cec58888-f2d5-475a-97ae-d03ed86d25f2"
 }

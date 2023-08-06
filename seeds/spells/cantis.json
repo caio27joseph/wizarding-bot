@@ -3,7 +3,7 @@
     "category": "Encantamento",
     "difficulty": "Fácil",
     "description": "Ao lançar a Cantis, você faz com que o alvo comece a cantar de forma descontrolada. Mesmo que a criatura seja habilidosa em música, ela não terá controle sobre sua performance e será compelida a cantar em uma situação humilhante. Durante a duração da azaração, o alvo não conseguirá parar de cantar, e todas as tentativas de interromper a melodia serão em vão. ",
-    "updatedAt": "2023-08-06T16:18:13.065386",
+    "updatedAt": "2023-08-06T18:58:04.975889",
     "title": "Azaração do Canto Descontrolado",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Como mestre da Cantis, você pode lançá-la de forma silenciosa, sem fazer qualquer som ou gesto que denuncie o feitiço. Essa habilidade avançada torna o lançamento da Cantis ainda mais sutil e surpreendente para o alvo."
         }
     ],
-    "id": "bf714567-ba78-4fee-9d42-6cb38773cdfb"
+    "identifier": "f4ca4756-5249-4074-8d7d-01cba3abc3fb"
 }

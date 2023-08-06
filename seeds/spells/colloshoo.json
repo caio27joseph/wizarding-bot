@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Médio",
     "description": "Colloshoo é um feitiço que tem como objetivo imobilizar o alvo, fazendo com que seus pés grudem no chão. Quando lançado com sucesso, o Colloshoo deixa os pés da criatura afetada completamente presos ao solo, tornando-a incapaz de se mover e a deixando vulnerável a ataques. ",
-    "updatedAt": "2023-08-06T16:18:13.094384",
+    "updatedAt": "2023-08-06T18:58:05.008753",
     "title": "Azaração dos Pés Grudentos",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Como mestre de Colloshoo, ao lançar a azaração de forma silenciosa, você pode escolher aprimorá-la para fazer o alvo tropeçar ao ser atingido. Além de ficar Enredada, a criatura também é considerada Caída, ficando vulnerável e deitada no chão."
         }
     ],
-    "id": "2555c51e-463a-46b3-9d15-455e0d07a757"
+    "identifier": "659f149d-0c41-466a-9e7f-54e8fc9fade0"
 }

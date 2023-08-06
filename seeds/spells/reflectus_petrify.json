@@ -3,7 +3,7 @@
     "category": "Abjuração",
     "difficulty": "Difícil",
     "description": "Projeta um escudo invisível na frente do conjurador que anula qualquer quantidade de lampejos provenientes de um Petrificus Totalus. O escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 3 a sua rolagem de Reflectus Petrify. ",
-    "updatedAt": "2023-08-06T16:18:13.282902",
+    "updatedAt": "2023-08-06T18:58:05.251845",
     "title": "Feitiço Anti-Paralisia",
     "level": 1,
     "actionType": "Reação",
@@ -36,5 +36,5 @@
             "description": "O seu Reflectus Petrify é extremamente poderoso e quase impenetrável por um Petrificus Totalus adversário, a menos que você tire uma Falha ou Falha Crítica na jogada de defesa, garantindo a sua segurança contra a paralisia indesejada."
         }
     ],
-    "id": "fc771ef0-8968-40fd-b819-8e23e4581d74"
+    "identifier": "d7ca8abf-c4f5-48cb-873a-c8dd7fded2e2"
 }

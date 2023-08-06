@@ -1,0 +1,42 @@
+{
+    "name": "Reducto",
+    "category": "Transmutação",
+    "difficulty": "Difícil",
+    "description": "EO Reducto é uma maldição redutora que tem o poder de explodir objetos sólidos em pedaços, produzindo um estrondo audível. Esse feitiço pode afetar várias coisas ao mesmo tempo ou todo o corpo de um único objeto. Por exemplo, em uma única conjuração, o Reducto é capaz de destruir uma estante junto com todos os livros dispostos nela. No entanto, esse feitiço não afeta seres vivos. ",
+    "updatedAt": "2023-08-06T20:47:38.902904",
+    "title": "Maldição Redutora",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "light": "Azul",
+    "antiSpell": "Reparo",
+    "requirements": "transmutação 2 evocação 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Reducto."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Reducto de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Seu Reducto é forte o suficiente para pulverizar objetos, em vez de apenas destruí-los em pedaços. Quando você usa essa variação, o objeto atingido pelo feitiço é completamente desintegrado e não pode ser recuperado por meio de Reparo ou qualquer outro feitiço similar"
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Reducto de forma não-verbal."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Seu Reducto pode ser utilizado em paredes ou obstáculos, independentemente do material (desde que seja não-mágico). Ao conjurar o Reducto dessa forma, você abre um buraco no alvo grande o suficiente para permitir que você o atravesse ou quebre sua estrutura. Essa variação é particularmente útil para escapar de ambientes trancados ou destruir obstáculos que bloqueiam o caminho."
+        }
+    ],
+    "identifier": "a6b7d0c4-d554-4217-9482-42726c980dfe"
+}

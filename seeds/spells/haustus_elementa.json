@@ -1,0 +1,39 @@
+{
+    "name": "Haustus elementa",
+    "category": "Evocação",
+    "difficulty": "Médio",
+    "description": "O feitiço Absorver Elementos captura parte da energia do dano elemental recebido, diminuindo seu efeito sobre você e armazenando-a para seu próximo ataque corpo a corpo ou feitiço que envolva o elemento. Quando você conjura este feitiço em reação a receber dano de algum elemento, você ganha resistência ao tipo de dano desencadeante até o início do seu próximo turno.  Você ganha resistência ao tipo de dano desencadeante até o início do seu próximo turno, reduzindo pela metade o dano recebido.  Além disso, na primeira vez que você acertar com um ataque corpo a corpo ou feitiço relacionado ao elemento em seu próximo turno, o alvo sofre 1d6 de dano extra do tipo de dano desencadeador e o feitiço termina. ",
+    "updatedAt": "2023-08-06T20:47:38.766902",
+    "title": "Feitiço Absorver Elementos",
+    "level": 2,
+    "actionType": "Reação",
+    "duration": "1 rodada",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Absorver Elementos."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Absorver Elementos de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Absorver Elementos de forma não-verbal."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode armazenar a energia absorvida por Absorver Elementos por até 3 rodadas."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode conjurar Absorver Elementos em reação ao dano de qualquer tipo de fonte, não apenas de elementos. Além disso, o dano extra causado pelo feitiço na próxima vez que acertar com um ataque corpo a corpo ou feitiço que envolva o elemento é aumentado para 2d6."
+        }
+    ],
+    "identifier": "b17423ad-cdc3-4fe5-81d4-2aaed7a4824d"
+}

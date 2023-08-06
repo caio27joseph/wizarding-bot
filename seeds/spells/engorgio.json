@@ -1,0 +1,41 @@
+{
+    "name": "Engorgio",
+    "category": "Transmutação",
+    "difficulty": "Fácil",
+    "description": "O Engorgio é um feitiço que faz com que o alvo cresça de tamanho ou infle imensamente. Pode ser utilizado em objetos e animais normalmente. No entanto, se utilizado em humanos e seres humanóides, eles inflarão como balões gigantes e podem flutuar para além do alcance. É importante ressaltar que criaturas infladas por esse feitiço além de um certo limite (cerca de cinco conjurações consecutivas) explodem violentamente. ",
+    "updatedAt": "2023-08-06T20:47:38.600902",
+    "title": "Feitiço de Ingorgitamento",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "30 minutos",
+    "light": "Azul claro",
+    "antiSpell": "Reducio",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Engorgio."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Engorgio de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Engorgio de forma não-verbal."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Engorgio Skullus (Feitiço de Ingorgitamento da Cabeça) como uma \"Maldição\" com duração de 1 hora. Nessa variação, apenas a cabeça da vítima cresce de forma ridícula e desproporcional. Além do desconforto e dor, a vítima fica Fatigada enquanto permanecer com a cabeça inchada."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Engorgio como um feitiço de \"Duração: Permanente\". Nessa variação, o efeito de crescimento ou inflação do alvo se torna permanente e não pode ser revertido com Reducio."
+        }
+    ],
+    "identifier": "fb507fad-ea11-464f-9bde-e39457f5c4f5"
+}

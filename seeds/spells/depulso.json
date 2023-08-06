@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Médio",
     "description": "Depulso é um feitiço que causa o efeito oposto ao feitiço \"Accio\". Ao ser lançado, empurra o alvo para longe do conjurador. O alvo é arremessado a uma distância igual ao número de Sucessos obtidos no teste multiplicado por dois metros, na direção contrária à do conjurador. Caso o alvo colida com uma parede ou obstáculo durante o trajeto, sofre dano contusivo de 1d4 para cada 5 metros que tenha sido arrastado, apenas se for empurrado por essa distância. ",
-    "updatedAt": "2023-08-06T16:18:13.104386",
+    "updatedAt": "2023-08-06T18:58:05.028752",
     "title": "Feitiço Expulsório",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Como mestre de Depulso, você pode lançá-lo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta."
         }
     ],
-    "id": "1fbec5e6-ece9-4909-9616-1135e59d7356"
+    "identifier": "dd1b183a-b973-45c9-a668-23ae3bf696e5"
 }

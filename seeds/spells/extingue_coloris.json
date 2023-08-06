@@ -1,0 +1,40 @@
+{
+    "name": "Extingue coloris",
+    "category": "Ilusão",
+    "difficulty": "Difícil",
+    "description": "O feitiço Extingue Coloris tem o poder de magicamente remover todas as camadas de tinta que existem sobre uma superfície, restaurar uma pintura à sua forma original ou desfazer os efeitos de um feitiço de mudança de cor e estilo. Ele também é capaz de desfazer desenhos mágicos ou de energia mágica, como os criados pelos feitiços \"Flagrate\" e \"Baubillious\". ",
+    "updatedAt": "2023-08-06T20:47:38.674902",
+    "title": "Feitiço de Descoloração",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "requirements": "ilusão 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Extingue Coloris."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Extingue Coloris de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Extingue Coloris de forma não-verbal."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Extingue Coloris em uma Tatuagem Mística para torná-la inativa, pressionando a ponta de sua varinha contra a pele do alvo. Uma Tatuagem Mística inativa perde todas as suas propriedades mágicas e aparece ligeiramente \"apagada\" sobre a pele."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Extingue Coloris em uma Tatuagem Mística todos os dias, por 1 mês, para removê-la completamente. Com o passar dos dias, a tatuagem vai desaparecendo gradualmente até que não reste mais nenhum traço dela sobre a pele."
+        }
+    ],
+    "identifier": "ddaff38b-9b23-4529-860e-ada9d4dfad81"
+}

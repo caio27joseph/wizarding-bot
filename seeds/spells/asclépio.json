@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Fácil",
     "description": "Ao conjurar o Asclépio, o bruxo consegue fazer com que pequenos ferimentos desapareçam instantaneamente, ajudando o paciente a recuperar-se mais rapidamente. O número de Pontos de Vitalidade (PVs) recuperados pelo alvo é determinado por 1d4 + Medibruxaria + o número de Sucessos obtidos no teste da magia. Para realizar o feitiço com eficácia, o alvo deve possuir metade de seus PVs ou mais. ",
-    "updatedAt": "2023-08-06T16:18:13.031386",
+    "updatedAt": "2023-08-06T18:58:04.944942",
     "title": "Feitiço da Cicatrização",
     "level": 1,
     "actionType": "Padrão",
@@ -38,5 +38,5 @@
             "description": "Quando lança o Asclépio não-verbalmente, seu poder de cura atinge o auge, e o dado de cura aumenta para 4d4, permitindo que você cure ferimentos de forma ainda mais eficiente. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
-    "id": "d370d6a3-f40c-43db-ae57-91bec254d860"
+    "identifier": "b2f7ef09-c94c-4f9c-8b08-a6e6b785ccbe"
 }

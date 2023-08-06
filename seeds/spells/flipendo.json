@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Médio",
     "description": "Flipendo é um feitiço que empurra o alvo para longe do conjurador e o faz cair no chão. Ao ser atingido, o alvo é lançado a até (número de Sucessos x2) metros na direção contrária à do conjurador, sofrendo 1d4 de dano contusivo para cada 5 metros arrastados por esse feitiço, com um mínimo de 1d4. Além disso, a vítima começa seu próximo turno caída. ",
-    "updatedAt": "2023-08-06T16:18:13.149903",
+    "updatedAt": "2023-08-06T18:58:05.094502",
     "title": "Azaração do Empurrão",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Você pode lançar Flipendo Maxima (Azaração do Arremesso). Essa variação potencializa o feitiço, aumentando o dano para 1d8 quando conjurado de forma verbal e para 2d6 quando lançado de forma não-verbal. Com essa versão avançada do feitiço, seu poder destrutivo é notavelmente maior."
         }
     ],
-    "id": "e2882952-1f13-47d6-85a5-cd98af2256c3"
+    "identifier": "af771dc9-4878-43c1-847b-e24b312a3c0a"
 }

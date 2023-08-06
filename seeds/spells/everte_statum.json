@@ -3,7 +3,7 @@
     "category": "Evocação",
     "difficulty": "Médio",
     "description": "Everte Statum é um feitiço poderoso que causa um arremesso violento no alvo, fazendo-o rodopiar diversas vezes no ar e causando uma dor latejante de cabeça. Ao ser atingido, o alvo é jogado a até (número de Sucessos x2) metros na direção contrária do conjurador, recebendo 1d4 de dano contusivo para cada 5 metros que tenha sido arrastado por esse feitiço, mínimo de 1d4. Além disso, a vítima começa seu próximo turno Caída e fica Enjoada por 1 rodada. Esse feitiço não funciona em objetos. ",
-    "updatedAt": "2023-08-06T16:18:13.123385",
+    "updatedAt": "2023-08-06T18:58:05.054753",
     "title": "Feitiço da Força Rodopiante",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,5 @@
             "description": "Quando você acerta Everte Statum em sua forma não-verbal, o alvo é arremessado a até (número de Sucessos x3) metros na direção contrária do conjurador, ampliando consideravelmente a distância que a vítima é lançada."
         }
     ],
-    "id": "7cd74ba9-febe-4f2f-a3a4-2c9255b01fec"
+    "identifier": "8e92a64f-0a30-461d-9352-5fbed14c428a"
 }

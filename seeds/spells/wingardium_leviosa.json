@@ -3,7 +3,7 @@
     "category": "Universal",
     "difficulty": "Médio",
     "description": "Ao lançar o feitiço Wingardium Leviosa, você pode escolher um objeto de até 5 kg que esteja ao seu alcance visual e que não esteja sendo vestido ou carregado por uma criatura. Com sua magia, você é capaz de levitar e movimentar telecineticamente esse objeto em qualquer direção, porém, a levitação é feita de forma lenta e controlada.  Se o objeto estiver sendo segurado por uma criatura, você pode realizar um teste resistido desse feitiço contra Força + Esportes do alvo. Caso você seja bem-sucedido nesse teste, seu feitiço é forte o suficiente para arrancar à força o objeto das mãos do personagem. ",
-    "updatedAt": "2023-08-06T16:18:13.340904",
+    "updatedAt": "2023-08-06T18:58:05.336848",
     "title": "Feitiço de Levitação",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,5 @@
             "description": "Você pode lançar Wingardium Leviosa para levitar qualquer objeto, independente de seu peso, o que inclui até mesmo veículos e outros objetos pesados. Essa versão avançada amplia consideravelmente as possibilidades de uso desse feitiço e permite que você manipule objetos maiores e mais pesados com facilidade."
         }
     ],
-    "id": "38b77c63-df75-4bdc-aaed-d6a9d56f3e96"
+    "identifier": "2c6d3881-48b6-4ef0-829b-352c7e52e434"
 }

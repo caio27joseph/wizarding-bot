@@ -1,0 +1,41 @@
+{
+    "name": "Anteoculatia",
+    "category": "Necromancia",
+    "difficulty": "Muito Difícil",
+    "description": "Ao lançar esse feitiço sobre o alvo, galhadas começam a brotar no topo da sua cabeça. Embora o feitiço não imponha penalidades sobre a criatura, ele causa muito desconforto e pontadas de dor. As galhadas crescem naturalmente ao longo da duração do feitiço e podem variar em tamanho e formato. ",
+    "updatedAt": "2023-08-06T20:47:38.385902",
+    "title": "Azaração da Galhada",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "6 horas",
+    "light": "Bronze",
+    "requirements": "Necromancia 2, Transfigurações 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Anteoculatia."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Anteoculatia de forma focada, permitindo maior precisão no crescimento e formato das galhadas."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Anteoculatia de forma não-verbal, tornando sua execução mais rápida e discreta."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Cornibulus (Feitiço do Crescimento do Chifre). Nessa variação, você tem o poder de conjurar chifres de diferentes formatos e tamanhos na cabeça do alvo, podendo até mesmo moldá-los de forma mais específica."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Anteoculatia e/ou Cornibulus como um feitiço de \"Maldição\" e \"Duração: Permanente\". Essa forma avançada do feitiço torna as galhadas ou chifres permanentes, e eles não podem ser desfeitos por meio de magias como Finite Incantatem. Essa maldição pode ser removida apenas por magias muito poderosas ou rituais complexos."
+        }
+    ],
+    "identifier": "bd919a3f-bf48-4f05-bf84-6c2ebc10b4fd"
+}

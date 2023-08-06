@@ -1,0 +1,40 @@
+{
+    "name": "Descendo",
+    "category": "Transmutação",
+    "difficulty": "Fácil",
+    "description": "Faz com que um objeto ou um grupo de objetos caiam, desmoronem ou se movam para baixo. Esse feitiço pode forçar um mecanismo a trincar para que a queda seja possível (por exemplo, fazendo um lustre se desprender do teto). No entanto, ele não afeta estruturas estáveis ou grandes demais, como escadarias de pedra ou edifícios. Adicionalmente, Descendo pode ativar plataformas da mesma maneira que Ascendio ●●●○○ faz, mas para descer em vez de subir. Não funciona em seres vivos.  Quando um objeto cai sobre uma criatura, o dano varia de acordo com o tamanho do objeto. Um objeto de tamanho médio (como uma escrivaninha) causa 1d6 de dano a cada 4 metros de queda. Um objeto grande (como um armário) causa 1d8, e um pequeno (como uma cadeira) causa 1d4. Importante notar que o objeto também receberá a mesma quantidade de dano que causou à criatura. Caso o objeto perca 6 ou mais pontos de vida, ele é destruído em vários pedaços. ",
+    "updatedAt": "2023-08-06T20:47:38.586902",
+    "title": "Feitiço de Queda",
+    "level": 2,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "light": "Branco",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Descendo."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Descendo de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Descendo em um ser vivo. Nessa variação, você faz com que o alvo bata violentamente contra o chão, causando 2d6 de dano e fazendo com que ele comece seu próximo turno Caído."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Descendo de forma não-verbal."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Descendo em uma estrutura estável e ainda afetá-la. Por exemplo, você pode colapsar pontes, fazer elevadores despencarem ou destruir uma escadaria. Além disso, você também pode dar início a um pequeno desmoronamento, avalanche ou colapso de uma barragem."
+        }
+    ],
+    "identifier": "2254c460-8c39-48b5-8171-c2d8850ab4de"
+}

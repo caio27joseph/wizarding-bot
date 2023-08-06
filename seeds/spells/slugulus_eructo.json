@@ -3,7 +3,7 @@
     "category": "Necromancia",
     "difficulty": "Médio",
     "description": "Ao ser lançada, a Necromancia da Cara-de-Lesma (Slugulus Eructo) aflige a vítima, fazendo-a regurgitar lesmas a cada 30 segundos durante a duração do feitiço. Além disso, a pessoa atingida permanece no estado de Enjoo pela duração do efeito. Enquanto estiver vomitando lesmas, a vítima fica extremamente vulnerável e, portanto, Desprevenida. ",
-    "updatedAt": "2023-08-06T16:18:13.319903",
+    "updatedAt": "2023-08-06T18:58:05.299845",
     "title": "Maldição da Cara-de-Lesma",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,5 @@
             "description": "Você pode lançar Slugulus Eructo como um feitiço de \"Duração: 8 horas\". Essa variação é especialmente poderosa, não podendo ser desfeita por meios convencionais, como o feitiço Finite Incantatem. A vítima fica presa na maldição até que a duração se esgote, causando grande aflição e desconforto durante esse período."
         }
     ],
-    "id": "394e7a24-9e01-4031-a27e-750049414f18"
+    "identifier": "8302833f-5047-445b-80fb-c1ec8f7110ed"
 }

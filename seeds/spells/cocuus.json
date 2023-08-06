@@ -1,0 +1,40 @@
+{
+    "name": "Cocuus",
+    "category": "Universal",
+    "difficulty": "Muito Difícil",
+    "description": "O Cocuus é capaz de realizar magicamente a preparação, assamento, cozimento, montagem, arranjo e/ou construção de uma refeição. No entanto, é fundamental que o bruxo possua conhecimento da receita que deseja preparar e tenha todos os ingredientes necessários à disposição. ",
+    "updatedAt": "2023-08-06T20:47:38.507904",
+    "title": "Feitiço da Cozinha",
+    "level": 2,
+    "actionType": "Completa",
+    "duration": "Instantânea",
+    "requirements": "Universal 2 conjuração 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Cocuus."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Cocuus de forma acelerada, reduzindo o tempo necessário para conjurá-lo."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Cocuus de forma não-verbal."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Quando um indivíduo ou criatura come uma porção inteira do seu Cocuus ou Cocuus Vitae, ele recupera 1d6+3 Pontos de Vitalidade, sendo magicamente curado de suas feridas. A cura proveniente desse feitiço só pode ser ativada uma vez por dia, independentemente da quantidade de porções (de diferentes fontes ou não) que a criatura tenha consumido."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Cocuus Vitae (Feitiço do Bom Fruto) como um \"Feitiço de Cura\" e com \"Duração: 8 horas\". Nessa variação, o bruxo infunde magia em todas as porções da refeição, tornando-a especialmente benéfica. Ao comer o prato encantado, um indivíduo ganha 1 ponto de Força de Vontade temporário, que deve ser utilizado até o fim do dia em que a refeição foi consumida. Se o ponto temporário de Força de Vontade não for gasto até o amanhecer do próximo dia, ele desaparece."
+        }
+    ],
+    "identifier": "2986c814-7f27-47a4-b18d-bea724c9eb9b"
+}

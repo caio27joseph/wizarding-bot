@@ -3,7 +3,7 @@
     "category": "Necromancia",
     "difficulty": "Fácil",
     "description": "Ferula é um poderoso feitiço de cura que conjura ataduras esterilizadas que se materializam da ponta da varinha e cobrem um ferimento, recuperando automaticamente 2 Ponto de Vitalidade do alvo. Essas ataduras são mágicas e irão limpar e fechar uma ferida assim que enfaixá-la. Além disso, o paciente pode jogar 1d4+1 uma vez a cada 24 horas que permanecer enfaixado por uma bandagem conjurada pelo Ferula, curando esse valor em Pontos de Vitalidade. ",
-    "updatedAt": "2023-08-06T16:18:13.129386",
+    "updatedAt": "2023-08-06T18:58:05.064752",
     "title": "Feitiço de Bandagem",
     "level": 1,
     "actionType": "Completa",
@@ -36,5 +36,5 @@
             "description": "A rolagem de cura diária do seu Ferula alcança seu ápice, aumentando para 4d4+4, oferecendo uma cura ainda mais robusta. Além disso quando em combate a cada 2 rodadas recupera 1d4 de vida."
         }
     ],
-    "id": "dc379a81-9db4-4a37-8ae4-539c67f6e7f3"
+    "identifier": "27334f1a-0518-45e8-989a-8c65cffe7805"
 }
