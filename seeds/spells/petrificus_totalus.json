@@ -1,0 +1,41 @@
+{
+    "name": "Petrificus totalus",
+    "category": "Abjuração",
+    "difficulty": "Difícil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.746808",
+    "title": "Maldição do Corpo Preso",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "3 rodadas",
+    "light": "Branco",
+    "antiSpell": "Reflectus Petrify",
+    "requirements": "Abjuração 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Petrificus Totalus."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Petrificus Totalus de forma focada, aumentando suas chances de sucesso."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Petrificus Totalus de forma não-verbal, tornando o lançamento do feitiço mais sutil e veloz."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Petrificus Totalus como um feitiço de \"Duração: 6 rodadas\", prolongando o tempo de paralisia do alvo."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Petrificus Totalus como um feitiço de \"Duração: 15 minutos\". Nessa variação, um teste bem-sucedido de Vigor retira 1 minuto do total da duração, e a vítima só pode fazer esse teste caso receba alguma forma de dano durante o período de paralisia. Essa versão estendida da maldição pode ser particularmente útil para situações que requerem uma imobilização prolongada do alvo."
+        }
+    ]
+}

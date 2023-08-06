@@ -1,0 +1,38 @@
+{
+    "name": "Flagrate",
+    "category": "Ilusão",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.586808",
+    "title": "Feitiço do Desenho de Fogo",
+    "level": 1,
+    "actionType": "Livre",
+    "duration": "1 hora (D)",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Flagrate para criar rastros de energia vermelha que permitem desenhar ou escrever mensagens temporárias no ar."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Flagrate de forma não-verbal, permitindo criar suas mensagens sem a necessidade de proferir palavras."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Flagrate Collore (Feitiço do Desenho Colorido). Essa variação do feitiço permite que o rastro de energia criado seja de qualquer cor desejada, permitindo ao bruxo fazer desenhos coloridos e ainda mais atrativos."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Flagrate como um feitiço de \"Duração: Ativável\". Nessa variação, você pode deixar uma mensagem com Flagrate normalmente em um local específico. Porém, essa mensagem só será revelada em um determinado horário, dia ou quando alguma condição específica for cumprida. Por exemplo, a mensagem pode se revelar quando alguém se aproximar, ou quando uma pessoa falar a palavra \"caput draconis\". Após ser revelada, o feitiço se desfaz."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você se torna mais habilidoso em revelar mensagens escondidas por meio de feitiços. Feitiços que revelam mensagens escondidas precisam ter 2 Sucessos a mais no teste para revelar o Flagrate ativável. Isso torna suas mensagens ainda mais seguras e difíceis de serem descobertas sem a devida habilidade para tal."
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "name": "Asclépio",
+    "category": "Evocação",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.458811",
+    "title": "Feitiço da Cicatrização",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "requirements": "Evocação  1 e Competência Medibruxo 1",
+    "distance": "Toque",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o Asclépio, realizando a cura com a varinha em contato direto com a pele do paciente."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar o Asclépio de forma focada, aprimorando sua habilidade em curar ferimentos menores."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Com o Asclépio não-verbal, seu poder de cura é ampliado, e o dado de cura passa a ser 2d4 em vez de 1d4."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Com o Asclépio na forma de \"Lampejo: Transparente\", você pode atingir alvos à distância, proporcionando cura àqueles que não podem ser tocados fisicamente. O Feitiço passa a ser de alcance curto."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Quando lança o Asclépio não-verbalmente, seu poder de cura atinge o auge, e o dado de cura aumenta para 4d4, permitindo que você cure ferimentos de forma ainda mais eficiente. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        }
+    ]
+}

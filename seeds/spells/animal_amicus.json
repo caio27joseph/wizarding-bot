@@ -1,0 +1,41 @@
+{
+    "name": "Animal amicus",
+    "category": "Adivinhação",
+    "difficulty": "Muito Difícil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.421812",
+    "title": "Feitiço da Amizade com animais.",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "2 rodadas",
+    "requirements": "Adivinhação 1 e Magizoologia 1.",
+    "distance": "Curto",
+    "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Animal Amicus."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Seu feitiço agora aumenta em +1 a dificuldade do teste de Força de Vontade das criaturas alvo, tornando mais difícil resistir ao encantamento."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "A duração do Animal Amicus é prolongada para +1 rodada, permitindo que a amizade com as criaturas dure por mais tempo. Além disso, você pode encantar até 2 criaturas ao mesmo tempo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar o Animal Amicus de forma focada, aumentando a precisão e eficácia do feitiço. Aumenta o Alvo de criatura para +1 | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Seu Animal Amicus agora afeta criaturas com Consciência de nível 4 ou superior, permitindo que você conquiste a amizade de bestas ainda mais poderosas e sábias. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        }
+    ]
+}

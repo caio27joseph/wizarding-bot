@@ -1,0 +1,38 @@
+{
+    "name": "Impervius",
+    "category": "Encantamento",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.667807",
+    "title": "Feitiço de Impermeabilidade",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "3 horas",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Impervius, criando a proteção mágica com duração de 3 horas."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Impervius como um feitiço de \"Duração: 1 dia\", prolongando o efeito para um período mais longo."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Impervius de forma não-verbal, tornando o processo de conjuração mais discreto e ágil. Nessa forma, o encantamento é permanente até que seja desfeito."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Impervius Maxima (Feitiço Impertubável). Nessa variação, ao lançar o feitiço como uma ação completa e com duração permanente, você cria uma barreira invisível ao redor de um objeto, como uma porta. Qualquer coisa que tente tocar o objeto encantado é repelida ou empurrada para trás, e nenhum som é capaz de atravessar essa barreira."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Impervius Totalum (Feitiço da Barreira Impermeável). Nessa variação, também como uma ação completa e com duração permanente, você pode estender a proteção para cobrir um cômodo, um edifício ou uma grande área de até 500m². A barreira invisível criada é capaz de repelir chuvas, tempestades, nevascas e ventanias."
+        }
+    ]
+}

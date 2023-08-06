@@ -1,0 +1,41 @@
+{
+    "name": "Arcanam armor.",
+    "category": "Abjuração",
+    "difficulty": "Difícil",
+    "description": " A magia da Armadura Arcana se manterá ativa durante toda a sua duração, protegendo você das ameaças. O feitiço pode ser lançado como uma Ação Padrão, permitindo-lhe conjurar a armadura rapidamente em situações de emergência. Alternativamente, se você preferir, pode realizar um ritual de 30 minutos para invocar a Armadura Arcana antes de se aventurar em desafios mais perigosos. ",
+    "createdAt": "2023-08-06T14:37:37.450807",
+    "title": "Feitiço da armadura magica",
+    "level": 1,
+    "actionType": "Padrão ou Reação",
+    "duration": "1 rodadas..(Adiciona +1 rodada por Maestria)",
+    "requirements": "Abjuração 2",
+    "distance": "Toque",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Armadura Arcana."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Seu feitiço agora também bloqueia dano mágico, proporcionando metade da redução que oferece contra dano físico. Agora bloqueaia 2 pontos de dano mágico por ataque."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Seu feitiço agora dura por mais tempo, podendo proteger +1 pessoa adicional a cada lançamento do feitiço. - Feitiço passa a ter alcance Curto. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Armadura Arcana Aprimorada, recebendo um bônus de +2 dados de bloqueio, tornando sua proteção ainda mais resistente."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Sua Armadura Arcana é aprimorada ainda mais, permitindo que ela impeça completamente o dano mágico que você receberia. Além disso, a redução de dano contra ataques físicos aumenta para 12 pontos, tornando você quase impenetrável enquanto a armadura estiver ativa. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        }
+    ]
+}

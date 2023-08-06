@@ -1,0 +1,38 @@
+{
+    "name": "Bublio",
+    "category": "Evocação",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.476812",
+    "title": "Feitiço da Bolha",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Permanente; até 1 hora (D)",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o Bublio, conjurando as pequenas bolhas translúcidas."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Com o domínio intermediário, você pode lançar o Bublio Collore, alterando a cor das bolhas conjuradas para qualquer cor de sua escolha."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Com o Bublio não-verbal, você pode conjurar o feitiço sem a necessidade de pronunciar as palavras mágicas em voz alta."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "O Ebublio é uma variação poderosa do Bublio, que permite criar uma bolha ao redor de um alvo atingido, deixando-o paralisado. Essa bolha não pode ser estourada por dentro, mas se receber 5 ou mais pontos de dano, ela se desfaz."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Como mestre do Bublio, você tem controle total sobre o tamanho da bolha, podendo criar uma esfera do tamanho de um pequeno cômodo. Essa bolha flutua a até 5 metros do chão e pode acomodar até três pessoas sem perder altitude. Você pode direcionar a bolha para qualquer direção, desde que não ultrapasse sua altitude máxima. Porém, ela flutua lentamente, como uma bolha gigante, e estoura se receber 5 ou mais pontos de dano de qualquer fonte."
+        }
+    ]
+}

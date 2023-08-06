@@ -1,0 +1,39 @@
+{
+    "name": "Locomotor wibbly",
+    "category": "Universal",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.686811",
+    "title": "Azaração das Pernas Bambas",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "2 rodadas",
+    "light": "Transparente",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Locomotor Wibbly."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Locomotor Wibbly de forma focada, tornando sua aplicação mais precisa e controlada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Locomotor Wibbly de forma não-verbal, como um feitiço de \"Duração: 3 rodadas\". Nessa variação, além do efeito de tornar o alvo lento, o feitiço também causa 1d6 de dano quando acerta."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Locomotor Wibbly como um feitiço de \"Necromancia\" e \"Duração: Permanente\". Essa variação não pode ser desfeita por Finite Incantatem, tornando seus efeitos duradouros e mais difíceis de serem revertidos."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Locomotor Wibbly de forma silenciosa, realizando a conjuração sem a necessidade de pronunciar palavras em voz alta."
+        }
+    ]
+}

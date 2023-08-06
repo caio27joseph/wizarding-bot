@@ -1,0 +1,41 @@
+{
+    "name": "Aparecium",
+    "category": "Ilusão",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.429809",
+    "title": "Feitiço de Revelação",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "30 minutos - (2 Rodadas)",
+    "requirements": "Ilusão 1",
+    "distance": "Curto",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o Aparecium para revelar tinta invisível ou mensagens escondidas por ilusões de nível 1 e 2."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar o Aparecium para revelar passagens magicamente escondidas, desvendando locais secretos e escondidos."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar o Aparecium para desfazer ilusões de ocultação de nível 4 a 5, revelando objetos ou informações previamente ocultas."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Com o Aparecium, você pode desfazer um Feitiço Desilusório, trazendo à tona criaturas ou objetos que estavam ocultos pela ilusão de invisibilidade."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Com o Aparecium em seu mais alto nível de domínio, você pode retirar temporariamente os efeitos de uma Capa da Invisibilidade, tornando o portador visível. Além disso, você pode desfazer a condição   \"Invisível\" de uma criatura, revelando-a aos olhos de todos. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        }
+    ]
+}

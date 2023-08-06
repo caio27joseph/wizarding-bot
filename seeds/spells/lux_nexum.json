@@ -1,0 +1,41 @@
+{
+    "name": "Lux nexum",
+    "category": "Evocação",
+    "difficulty": "Difícil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.701810",
+    "title": "Feitiço da conexão da luz",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "2 rodadas",
+    "light": "Amarelo ou Branco luminoso.",
+    "antiSpell": "Reflectus Lucis",
+    "requirements": "Evocação 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Lux Nexum na sua forma padrão."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Lux Nexum de forma focada, tornando seu lançamento mais preciso e controlado."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Lux Nexum de forma não-verbal, como um feitiço de \"Duração: 3 rodadas\". Nessa variação, o feitiço causa +4 de dano ao acertar o alvo."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Lux Nexum mais potente, produzindo um feixe de luz tão intenso que é capaz de Ofuscar seu alvo até o fim da cena. O alvo tem a opção de gastar uma reação e fazer um teste disputado usando Raciocínio + Percepção para evitar ficar Ofuscado."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Nesta variação poderosa de Lux Nexum, quando o feitiço atinge um segundo inimigo, ele também fica paralisado, mas apenas por 1 rodada."
+        }
+    ]
+}

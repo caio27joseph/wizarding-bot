@@ -1,0 +1,40 @@
+{
+    "name": "Finite incantatem",
+    "category": "Abjuração",
+    "difficulty": "Difícil",
+    "description": " a) Transfigurações, Feitiços de Proteção e Feitiços de Cura não podem ser desfeitos por Finite Incantatem. b) Feitiços de duração Instantânea não podem ser desfeitos por Finite Incantatem. c) Feitiços que têm Contrafeitiço não podem ser desfeitos por Finite Incantatem. d) Efeitos de poções não podem ser desfeitos por Finite Incantatem. e) Feitiços de alteração atmosférica (que alterem o clima e/ou a temperatura) não podem ser desfeitos por Finite Incantatem. f) As condições Abalado  , Apavorado  , Enfurecido  , Fascinado  , Inconsciente  , Invisível   e Petrificado   não podem ser desfeitas por Finite Incantatem. g) Artefatos mágicos, ingredientes e poções não perdem a magia (e efeitos) ao serem atingidos por Finite Incantatem. ",
+    "createdAt": "2023-08-06T14:37:37.578807",
+    "title": "Contrafeitiço Geral",
+    "level": 1,
+    "actionType": "Completa",
+    "duration": "Instantânea",
+    "light": "Violeta",
+    "requirements": "Abjuração 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Finite Incantatem para desfazer feitiços de Nível 5 ou abaixo, conforme o efeito básico descrito acima."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Finite Incantatem de forma acelerada, tornando o encantamento mais veloz. O feitiço acelerado passa a ser chamado de Finite. Isso permite que você dissipe os efeitos mágicos com mais rapidez."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Finite Incantatem de forma silenciosa. Quando conjura Finite Incantatem de forma silenciosa, você faz um teste disputado contra o feitiço alvo e precisa manter uma margem de 1 Sucesso ou mais, a cada turno, para anular seus efeitos. O Finite Incantatem silencioso só pode ser usado para anular outros feitiços silenciosos, tornando-o uma ferramenta útil em duelos."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Finite Incantatem para desfazer Feitiços de Proteção. Para isso, o número de Sucessos do seu Finite Incantatem deve ser superior à quantidade de Sucessos obtidos na criação da barreira por uma margem de 3. Por exemplo, para desfazer um Colloportus de 3 Sucessos, você deve obter 6 Sucessos em seu Finite Incantatem. Isso torna possível desfazer proteções mais poderosas."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Finite Incantatem de forma não-verbal. Quando conjura Finite Incantatem em sua forma não-verbal, você pode dissipar feitiços até Nível 7, 8 9 e 10. Isso aumenta a versatilidade e eficácia do feitiço, tornando-o capaz de desfazer magias mais complexas e poderosas."
+        }
+    ]
+}

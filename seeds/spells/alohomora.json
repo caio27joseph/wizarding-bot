@@ -1,0 +1,40 @@
+{
+    "name": "Alohomora",
+    "category": "Encantamento",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.411808",
+    "title": "Feitiço de Desbloqueio",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "distance": "Curto",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o Alohomora, desbloqueando portas comuns."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar o Alohomora de forma focada, aumentando sua precisão ao mirar na fechadura."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar o Alohomora de forma não-verbal, realizando a magia sem proferir palavras."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Com a variação Alohomora Peculiari (Feitiço de Desbloqueio Forte), você é capaz de desbloquear cofres e trancas de mecanismos complexos, permitindo acesso a segredos mais bem guardados."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Com as variações Alohomora Duo (Feitiço de Desbloqueio Rápido), Aberto (Feitiço de Abertura), Abra-te-Sésamo (Feitiço do Ladino) ou Liberare (Feitiço da Destranca), você adquire habilidades especiais para lidar com portas trancadas magicamente. Nessas variações, você ganha um bônus de -1 na dificuldade para abrir portas, tornando-se ainda mais eficiente na execução do feitiço. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        }
+    ]
+}

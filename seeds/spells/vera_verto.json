@@ -1,0 +1,38 @@
+{
+    "name": "Vera verto",
+    "category": "Transmutação",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.851807",
+    "title": "Transformação de Animal em Objeto",
+    "level": 1,
+    "actionType": "Completa",
+    "duration": "Permanente",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Vera Verto."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Vera Verto de forma acelerada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Vera Verto como um feitiço de \"Execução: Ação padrão\" e \"Lampejo: Transparente\". Nessa variação, você não precisa tocar o alvo com a varinha, tornando o processo mais rápido e prático."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Seu Vera Verto pode transfigurar animais de porte Médio ou menor em objetos de massa similar. Isso abre um leque maior de possibilidades para a transformação de criaturas maiores."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Vera Verto de forma não-verbal. Quando conjura Vera Verto em sua forma não-verbal, você pode transformar qualquer animal em qualquer objeto, independentemente da massa ser ou não similar. Essa habilidade avançada amplia ainda mais as possibilidades e os resultados das transfigurações. No entanto, é preciso ter cautela ao usar essa forma, pois mudanças radicais podem ter consequências imprevisíveis."
+        }
+    ]
+}

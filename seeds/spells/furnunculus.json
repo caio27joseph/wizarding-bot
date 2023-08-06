@@ -1,0 +1,39 @@
+{
+    "name": "Furnunculus",
+    "category": "Necromancia",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.616811",
+    "title": "Azaração do Furúnculo",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "6 horas",
+    "light": "Amarelo",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Furnunculus, causando as erupções de furúnculos no alvo por 6 horas."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Furnunculus de forma focada, aumentando a precisão e eficácia do feitiço."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Furnunculus de forma não-verbal, tornando o lançamento do feitiço mais discreto e rápido."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Furnunculus como uma \"Maldição\" com \"Duração: Permanente\". Essa variação aprimorada torna os furúnculos uma condição crônica e persistente no alvo, não podendo ser desfeita por Finite Incantatem."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Furnunculus de forma silenciosa, tornando o lançamento do feitiço ainda mais discreto e evitando que o alvo perceba facilmente a origem do feitiço."
+        }
+    ]
+}

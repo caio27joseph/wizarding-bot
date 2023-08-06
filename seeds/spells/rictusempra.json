@@ -1,0 +1,40 @@
+{
+    "name": "Rictusempra",
+    "category": "Encantamento",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.803810",
+    "title": "Feitiço de Cócegas",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "1 minuto",
+    "light": "Vermelho",
+    "requirements": "Encantamentos 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Rictusempra para fazer alguém sentir cócegas."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Rictusempra de forma focada, aumentando a intensidade das cócegas e tornando mais difícil para o alvo resistir ao feitiço."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Rictusempra de forma não-verbal, tornando mais difícil para o alvo resistir ao efeito, com uma dificuldade de teste de Vigor de 7."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Rictusempra como um feitiço de \"Azaração\" e estender sua duração para até 3 horas, mantendo o alvo sob o efeito das cócegas por um período prolongado."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Rictusempra de forma silenciosa, o que permite lançar o feitiço sem a necessidade de proferir palavras em voz alta, tornando-o mais discreto e surpreendente para o alvo."
+        }
+    ]
+}

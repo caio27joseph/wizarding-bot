@@ -1,0 +1,38 @@
+{
+    "name": "Illegibilus",
+    "category": "Ilusão",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.644807",
+    "title": "Feitiço do Texto Embaralhado",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "1 dia (D)",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Illegibilus, criando um texto embaralhado temporário."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Illegibilus como um feitiço de \"Duração: Permanente (D)\", tornando o texto ilegível permanentemente, a menos que seja desfeito por alguém que saiba a contra-senha."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Illegibilus de forma não-verbal. Além de embaralhar o texto, quando conjura Illegibilus em sua forma não-verbal, você também torna o alvo invisível. Ambas as camadas de encantamentos devem ser desfeitas para tornar o texto legível novamente."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode atribuir uma \"senha\" e \"contra-senha\" ao seu texto encantado. Sempre que alguém falar a senha, o efeito é desfeito e o texto se torna legível. Por outro lado, se alguém falar a contra-senha, o efeito é re-aplicado e o texto volta a ser ilegível."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Illegibilus Animus (Feitiço do Texto Inteligente). Nessa variação, sempre que alguém tentar desfazer o Illegibilus e obtiver menos de 6 Sucessos, uma mensagem pré-determinada aparecerá no lugar. Essa mensagem pode ter uma \"personalidade\" atribuída, podendo elogiar ou insultar o bruxo que falhar em revelá-la, ou ainda elaborar respostas específicas para pessoas específicas."
+        }
+    ]
+}

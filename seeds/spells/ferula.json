@@ -1,0 +1,39 @@
+{
+    "name": "Ferula",
+    "category": "Necromancia",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.569807",
+    "title": "Feitiço de Bandagem",
+    "level": 1,
+    "actionType": "Completa",
+    "duration": "Permanente",
+    "requirements": "Necromancia 1, Conjuração 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Ferula, realizando o efeito básico descrito acima."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "A rolagem de cura diária do seu Ferula aumenta para 2d4+2, proporcionando uma cura mais substancial."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "A rolagem de cura diária do seu Ferula aumenta ainda mais para 3d4+3, tornando-o ainda mais eficiente em curar ferimentos."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Ferula de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso, quando conjura Ferula em sua forma não-verbal, você encerra efeitos de Sangramento não-mágicos, auxiliando na recuperação do alvo."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "A rolagem de cura diária do seu Ferula alcança seu ápice, aumentando para 4d4+4, oferecendo uma cura ainda mais robusta. Além disso quando em combate a cada 2 rodadas recupera 1d4 de vida."
+        }
+    ]
+}

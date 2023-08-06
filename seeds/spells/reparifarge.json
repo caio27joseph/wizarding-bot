@@ -1,0 +1,39 @@
+{
+    "name": "Reparifarge",
+    "category": "Transmutação",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.786811",
+    "title": "Destransfiguração Geral",
+    "level": 1,
+    "actionType": "Completa",
+    "duration": "Instantânea",
+    "light": "Branco",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Reparifarge para desfazer Transformações incompletas ou parciais."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Reparifarge de forma acelerada, reduzindo o tempo necessário para realizar a destransfiguração."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Reparifarge para desfazer qualquer tipo de Transformação, mesmo que ela tenha sido completa, desde que envolva apenas objetos sendo transformados em outros objetos."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Reparifarge para desfazer Transformações que envolvam animais sendo transformados em objetos ou objetos sendo transformados em animais, mesmo que a Transformação tenha sido completa."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Reparifarge de forma não-verbal, o que lhe permite desfazer qualquer tipo de Transformação, exceto Transformação Humana, sem precisar recitar palavras. Esse alto nível de domínio do feitiço torna o bruxo extremamente habilidoso em desfazer transfigurações complexas e é um sinal de seu conhecimento e experiência avançados em Transfiguração."
+        }
+    ]
+}

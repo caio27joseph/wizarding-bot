@@ -1,0 +1,40 @@
+{
+    "name": "Densaugeo",
+    "category": "Transmutação",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.525811",
+    "title": "Azaração do Dente que Cresce",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "6 horas",
+    "light": "Rosa",
+    "requirements": "Necromancia 2, Transfigurações 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Densaugeo, fazendo com que os dentes dianteiros do alvo cresçam exponencialmente."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Com domínio intermediário, você pode lançar Densaugeo de forma focada, aumentando a precisão do feitiço e a chance de sucesso."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Nessa variação, você pode lançar Densaugeo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Agora você pode lançar Densaugeo como um feitiço de \"Maldição\", tornando-o permanente. Essa versão não pode ser desfeita por Finite Incantatem ou outros meios convencionais de dissipar maldições."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Como mestre de Densaugeo, ao lançar a azaração de forma silenciosa, você pode executá-la sem fazer nenhum som."
+        }
+    ]
+}

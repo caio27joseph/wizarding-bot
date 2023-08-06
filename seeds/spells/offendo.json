@@ -1,0 +1,39 @@
+{
+    "name": "Offendo",
+    "category": "Adivinhação",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.725808",
+    "title": "Azaração do Tropeço",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "light": "Verde",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Offendo."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Offendo de forma focada. Com a habilidade de focalizar o poder do feitiço, o bruxo pode escolher um ponto específico para o qual a vítima será atraída antes de tropeçar."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Offendo de forma não-verbal. Quando conjura Offendo em sua forma não-verbal, o seu dado de dano vira 1d6. Nessa variação avançada, o feitiço pode ser executado sem a necessidade de pronunciar palavras, tornando-o mais difícil de ser detectado e evitado pelo alvo."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Offendo Tria. Nessa variação, você conjura três lampejos que são projetados contra três alvos diferentes em uma única conjuração. Cada alvo não pode estar a mais de 5 metros de distância um do outro, ou atrás/nas laterais do conjurador."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Offendo Maxima. Nessa variação, você emite um pulso esverdeado a partir da ponta da varinha que ainda é considerado um lampejo. Qualquer número de criaturas à sua escolha que estejam a 6 metros de distância de você levam 1d3 de dano de queda e são consideradas Caídas  . Esse feitiço não funciona em criaturas que já estejam Caídas  ."
+        }
+    ]
+}

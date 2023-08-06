@@ -1,0 +1,39 @@
+{
+    "name": "Fogofrio",
+    "category": "Evocação",
+    "difficulty": "Muito Difícil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.604808",
+    "title": "Chamas de Jacinto",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "1 dia (D)",
+    "requirements": "Evocação 2, Conjuração 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Fogofrio, criando um pequeno foco de fogo frio que dura por 1 dia."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Fogofrio como um feitiço de \"Execução: Ação padrão\" e \"Duração: Instantânea\". Nessa variação, um jato de fogo de até 9 metros é lançado em cone a partir da ponta da varinha. Ele possui as mesmas propriedades anteriores, mas agora pode queimar plantas e plantas mágicas. Caso atinja uma planta, Fogofrio causa dano de queimadura igual a 1d8 + o número de Sucessos obtidos no teste da magia."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Fogofrio de forma focada, aumentando a precisão e controle sobre as chamas frias."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Fogofrio de forma não-verbal. Ao conjurar Fogofrio sem a necessidade de proferir palavras, você aumenta o dano do feitiço para 2d8, tornando-o mais poderoso. Além disso, caso cause 8 ou mais de dano em uma única conjuração de Fogofrio, o alvo fica Queimando."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "O seu Fogofrio agora pode atingir alvos seletivamente, permitindo que você decida o que pode ser queimado no momento da conjuração. Essa versão avançada do feitiço lhe concede um controle preciso sobre quais alvos serão afetados."
+        }
+    ]
+}

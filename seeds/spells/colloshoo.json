@@ -1,0 +1,39 @@
+{
+    "name": "Colloshoo",
+    "category": "Evocação",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.517808",
+    "title": "Azaração dos Pés Grudentos",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "1 minuto",
+    "light": "Laranja",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Colloshoo, fazendo com que os pés do alvo grudem no chão e o imobilizando."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Com domínio intermediário, você pode lançar Colloshoo de forma focada, aumentando a precisão do feitiço e a chance de sucesso."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Nessa variação, você pode lançar Colloshoo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta para imobilizar o alvo."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Agora você pode lançar Colloshoo de forma silenciosa, permitindo que a magia seja executada sem fazer nenhum som."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Como mestre de Colloshoo, ao lançar a azaração de forma silenciosa, você pode escolher aprimorá-la para fazer o alvo tropeçar ao ser atingido. Além de ficar Enredada, a criatura também é considerada Caída, ficando vulnerável e deitada no chão."
+        }
+    ]
+}

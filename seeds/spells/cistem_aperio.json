@@ -1,0 +1,39 @@
+{
+    "name": "Cistem aperio",
+    "category": "Universal",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.501809",
+    "title": "Feitiço de Arrombamento",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "light": "Branco",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Cistem Aperio, realizando o arrombamento da fechadura com eficácia."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Com domínio intermediário, você pode lançar Cistem Aperio de forma focada, aumentando a precisão do feitiço e tornando-o menos suscetível a erros."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Nessa variação, você pode lançar Dunamis, também conhecido como o Feitiço da Rachadura. Com essa opção, você tem a habilidade de criar uma pequena rachadura na fechadura, sem gerar o barulho explosivo. É uma opção mais sutil para abrir a tranca sem chamar a atenção."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Com domínio experiente, você pode lançar Cistem Aperio de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta para realizar o arrombamento."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Como mestre de Cistem Aperio, você pode lançar a variação mais avançada do feitiço, conhecida como Annihilare, ou o Feitiço de Demolição. Nessa forma poderosa, você cria uma explosão com força suficiente para derrubar até mesmo uma porta de metal reforçado. Essa opção é ideal para situações que exijam um arrombamento extremamente rápido e efetivo."
+        }
+    ]
+}

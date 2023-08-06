@@ -1,0 +1,39 @@
+{
+    "name": "Reflectus petrify",
+    "category": "Abjuração",
+    "difficulty": "Difícil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.769810",
+    "title": "Feitiço Anti-Paralisia",
+    "level": 1,
+    "actionType": "Reação",
+    "duration": "Instantânea",
+    "requirements": "Abjuração 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Reflectus Petrify, anulando lampejos de Petrificus Totalus com eficiência."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "O seu escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 4 a sua rolagem de Reflectus Petrify, tornando a sua proteção ainda mais resistente."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "O seu escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 5 a sua rolagem de Reflectus Petrify, oferecendo uma defesa ainda mais sólida."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Reflectus Petrify de forma não-verbal, permitindo que você reaja rapidamente aos ataques e proteja-se contra os lampejos de Petrificus Totalus rebatendo-os de volta para o seu conjurador."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "O seu Reflectus Petrify é extremamente poderoso e quase impenetrável por um Petrificus Totalus adversário, a menos que você tire uma Falha ou Falha Crítica na jogada de defesa, garantindo a sua segurança contra a paralisia indesejada."
+        }
+    ]
+}

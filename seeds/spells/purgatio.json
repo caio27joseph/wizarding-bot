@@ -1,0 +1,39 @@
+{
+    "name": "Purgatio",
+    "category": "Universal",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.762807",
+    "title": "Feitiço Limpeza",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "light": "Transparente",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Purgatio, removendo sujeiras pequenas e pó de superfícies e objetos."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Purgatio de forma focada, aumentando a precisão do feitiço e possibilitando a limpeza de áreas específicas com mais detalhes."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Purgatio de forma não-verbal, tornando o lançamento do feitiço mais sutil e veloz, sendo ideal para situações em que é necessário agir rapidamente."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Agora, seu Purgatio pode lidar com sujeiras de tamanho médio, permitindo que objetos maiores e áreas mais extensas possam ser limpos com facilidade."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Purgatio de forma focada e aprimorada. Nessa variação, o feitiço é capaz de limpar uma sala inteira com apenas um movimento de varinha, além de deixar um perfume agradável e refrescante no ambiente, tornando a experiência de limpeza ainda mais prazerosa e satisfatória."
+        }
+    ]
+}

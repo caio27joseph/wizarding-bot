@@ -1,0 +1,39 @@
+{
+    "name": "Cantis",
+    "category": "Encantamento",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.484807",
+    "title": "Azaração do Canto Descontrolado",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "1 hora",
+    "light": "Branco",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar a Cantis, afetando o alvo com a azaração do canto descontrolado."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Com o domínio intermediário, você pode lançar a Cantis de forma focada, aumentando a precisão e eficácia da azaração."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Com a Cantis não-verbal, você pode lançar o feitiço sem a necessidade de pronunciar as palavras mágicas em voz alta. Além disso, o alvo sofrerá os efeitos de estar Silenciado, mas, em vez de ficar mudo, ele cantará especificamente (e somente!) os versos que você escolher até o fim da duração."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "A Cantis pode ser aprimorada para ter uma duração mais longa de 6 horas, prolongando o período de afetação do alvo."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Como mestre da Cantis, você pode lançá-la de forma silenciosa, sem fazer qualquer som ou gesto que denuncie o feitiço. Essa habilidade avançada torna o lançamento da Cantis ainda mais sutil e surpreendente para o alvo."
+        }
+    ]
+}

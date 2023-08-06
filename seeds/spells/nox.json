@@ -1,0 +1,38 @@
+{
+    "name": "Nox",
+    "category": "Evocação",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.716810",
+    "title": "Feitiço de Desiluminação da Varinha",
+    "level": 1,
+    "actionType": "Livre",
+    "duration": "Instantânea",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Nox, permitindo que você desilumine sua varinha e apague a luz criada pelo Lumos que você mesmo lançou."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Nox de forma não-verbal como um feitiço de \"Execução: Ação padrão\". Ao conjurar Nox de forma não-verbal, você pode apagar qualquer fonte de iluminação não-natural para a qual sua varinha aponta: luminárias, tochas, lareiras e outras fontes de luz criadas por magia."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Nox de forma focada, o que provavelmente permite maior precisão e rapidez ao desiluminar sua varinha."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Nox como um feitiço de \"Lampejo: Transparente\" e \"Execução: Ação padrão\". Nessa variação, você tem a capacidade de dissipar o Lumos de outros conjuradores, não importando qual variação de Lumos eles tenham lançado."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Nox Domum como um feitiço de \"Feitiço de Proteção\", \"Execução: Ação completa\" e \"Duração: Permanente\". Nessa variação, você cria uma barreira invisível que cobre um cômodo ou área de até 500m². Todos os feitiços Lumos lançados dentro dessa barreira falham automaticamente, mantendo o ambiente sem iluminação mágica. Isso pode ser útil para garantir a segurança e o sigilo dentro de uma determinada área."
+        }
+    ]
+}

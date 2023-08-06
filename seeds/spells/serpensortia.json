@@ -1,0 +1,40 @@
+{
+    "name": "Serpensortia",
+    "category": "Convocação",
+    "difficulty": "Médio",
+    "description": " Uma vez conjurada, a serpente entra em combate de forma independente, fazendo seu próprio teste de Iniciativa. Ela ataca a criatura mais próxima usando suas armas naturais, que incluem suas mordidas, rajada de veneno e constricção. O controle da serpente em combate fica a cargo do Narrador, que pode direcionar seus ataques de acordo com sua discrição.  Após a duração do feitiço, que é de 1 hora, a cobra desaparece magicamente, retornando ao lugar de onde foi invocada. ",
+    "createdAt": "2023-08-06T14:37:37.815807",
+    "title": "Feitiço de Conjuração de Cobras",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "1 hora",
+    "antiSpell": "Vipera Evanesca",
+    "requirements": "Convocação 1 e Magizoologia 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Serpensortia, convocando uma serpente constritora."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Serpensortia de forma focada, aumentando a precisão e a velocidade da conjuração."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Serpensortia de forma não-verbal, permitindo convocar serpentes sem a necessidade de pronunciar palavras em voz alta."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Serpensortia como um feitiço de \"Lampejo: Transparente\", transformando um objeto em uma serpente com as mesmas características descritas anteriormente."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Quando lança Serpensortia, você pode escolher conjurar serpentes de tamanho Miúdo e/ou Médio, aumentando a diversidade e o poder das criaturas conjuradas. Suas serpentes causam +1d4 de dano de veneno, para rajada de veneno."
+        }
+    ]
+}

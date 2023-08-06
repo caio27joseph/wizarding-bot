@@ -1,0 +1,38 @@
+{
+    "name": "Pack",
+    "category": "Encantamento",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.733811",
+    "title": "Feitiço de Empacotar",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Pack. Essa é a versão básica do feitiço, permitindo ao bruxo empacotar roupas e acessórios em uma mala."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Pack para guardar utensílios e objetos de higiene pessoal."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Pack de forma não-verbal sem receber penalidades."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Pack para guardar qualquer objeto pessoal."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Pack em múltiplas malas ao mesmo tempo."
+        }
+    ]
+}

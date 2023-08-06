@@ -1,0 +1,41 @@
+{
+    "name": "Baubillious",
+    "category": "Evocação",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.467808",
+    "title": "Faíscas Brancas",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "requirements": "Evocação  1",
+    "distance": "Médio",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o Baubillious, conjurando o jato de luz branca e as faíscas."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Com o domínio intermediário, você pode aprender variações do feitiço, conjurando faíscas de cores diferentes, como Vermillious (Faíscas Vermelhas), Viridillious (Faíscas Verdes), Flavumillious (Faíscas Douradas) e Ceruleamillious (Faíscas Azuis)."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Com o Baubillious avançado, você pode escolher fazer as faíscas formarem uma imagem ou símbolo da cor do feitiço ao explodirem, adicionando um toque especial às suas demonstrações."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Com o Baubillious não-verbal, você pode conjurar o feitiço sem precisar dizer as palavras mágicas em voz alta, aumentando sua eficiência em combate. O dado de dano do feitiço vira 2d4 ao usar essa forma."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Como mestre do Baubillious, você tem acesso a mais variações de cores para as faíscas. Agora, você pode conjurar faíscas Pretas (Nigreomillious), Violetas (Purpuramillious), Laranjas (Orangemillious), Rosadas (Pinkimillious), Cianas (Ciamillious), Turquesas (Carbunculumillious) e Olivas (Olivaemillious), tornando seu repertório ainda mais impressionante e versátil."
+        }
+    ]
+}

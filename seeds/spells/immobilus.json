@@ -1,0 +1,39 @@
+{
+    "name": "Immobilus",
+    "category": "Encantamento",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.663807",
+    "title": "Feitiço de Congelamento",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "2 rodadas",
+    "requirements": "Encantamentos 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Immobilus, criando o pulso de congelamento com duração de 2 rodadas."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Immobilus de forma focada, aumentando a precisão e a eficácia do feitiço."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Immobilus de forma não-verbal. Quando conjura Immobilus em sua forma não-verbal, a duração do efeito é estendida para 1 minuto."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Immobilus como um feitiço de \"Lampejo: Branco\". Nessa variação, além de afetar criaturas, você também pode fazer com que objetos inanimados, como relógios ou alarmes, parem de funcionar durante a duração do efeito."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Immobilus como um feitiço de \"Evocação\" e \"Lampejo: Branco\". Nessa variação, o feitiço é aprimorado para atingir qualquer ser vivo, independentemente do tamanho, incluindo bruxos, plantas e criaturas mágicas. O alvo fica completamente paralisado durante a duração do efeito."
+        }
+    ]
+}

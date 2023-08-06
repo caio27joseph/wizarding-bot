@@ -1,0 +1,39 @@
+{
+    "name": "Uediuósi",
+    "category": "Universal",
+    "difficulty": "Fácil",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.843810",
+    "title": "Azaração do Projétil",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "requirements": "universal 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Uediuósi."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Uediuósi de forma focada. Nessa forma, você é capaz de escolher um objeto de até +10 kg, e o dano do impacto aumenta em +1d6."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Uediuósi como um feitiço de \"Duração: 3 turnos\". Nessa variação, você pode afetar um agrupamento de objetos inofensivos, como folhas de papéis, cadernos, tralhas, bolas de gude, etc. Esses objetos são lançados simultaneamente contra o alvo, e a vítima atingida fica considerada Lenta e Ofuscada pela duração."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Uediuósi de forma não-verbal. Quando conjura Uediuósi de forma não-verbal, você pode escolher um objeto de até +25 kg, e o dano do impacto aumenta em +2d6."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Uediuósi de forma silenciosa. Quando conjura Uediuósi de forma silenciosa, o mesmo objeto é catapultado na direção do alvo a cada turno, como se fosse um projétil contínuo, aumentando suas chances de acertar o alvo repetidamente."
+        }
+    ]
+}

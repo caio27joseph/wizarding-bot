@@ -1,0 +1,40 @@
+{
+    "name": "Everte statum",
+    "category": "Evocação",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.560811",
+    "title": "Feitiço da Força Rodopiante",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "light": "Transparente",
+    "requirements": "Evocação 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Everte Statum com o efeito básico descrito acima."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Everte Statum de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Everte Statum de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Seu controle sobre o feitiço aprimora-se ainda mais. Caso Everte Statum cause 8 ou mais pontos de dano em uma única conjuração, o alvo fica Atordoado, e a duração do Enjôo aumenta para 2 rodadas."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Quando você acerta Everte Statum em sua forma não-verbal, o alvo é arremessado a até (número de Sucessos x3) metros na direção contrária do conjurador, ampliando consideravelmente a distância que a vítima é lançada."
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "name": "Slugulus eructo",
+    "category": "Necromancia",
+    "difficulty": "Médio",
+    "description": "",
+    "createdAt": "2023-08-06T14:37:37.827809",
+    "title": "Maldição da Cara-de-Lesma",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "15 minutos",
+    "light": "Verde",
+    "requirements": "Necromancia 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Slugulus Eructo, provocando esse efeito nas vítimas."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Slugulus Eructo de forma focada, aumentando a precisão e o controle sobre o feitiço."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Slugulus Eructo de forma não-verbal, executando a maldição sem a necessidade de pronunciar palavras em voz alta."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode lançar Slugulus Eructo como um feitiço de \"Duração: 4 horas\", prolongando o tormento da vítima."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Slugulus Eructo como um feitiço de \"Duração: 8 horas\". Essa variação é especialmente poderosa, não podendo ser desfeita por meios convencionais, como o feitiço Finite Incantatem. A vítima fica presa na maldição até que a duração se esgote, causando grande aflição e desconforto durante esse período."
+        }
+    ]
+}
