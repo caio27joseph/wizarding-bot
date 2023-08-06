@@ -2,8 +2,8 @@
     "name": "Furnunculus",
     "category": "Necromancia",
     "difficulty": "Médio",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.469696",
+    "description": "Furnunculus é um feitiço poderoso que causa diversas erupções no rosto e corpo do alvo. Essas espinhas constantemente explodem em pús, causando grande desconforto e deixando a vítima Enjoada pela duração do efeito. O Furúnculo é extremamente desagradável e pode ser bastante constrangedor para o afetado. ",
+    "updatedAt": "2023-08-06T16:18:13.165902",
     "title": "Azaração do Furúnculo",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Você pode lançar Furnunculus de forma silenciosa, tornando o lançamento do feitiço ainda mais discreto e evitando que o alvo perceba facilmente a origem do feitiço."
         }
     ],
-    "id": "d993693c-4582-45ac-932f-240aa1bac477"
+    "id": "0176f7ab-3546-45a5-a8ef-b5d3609a01e1"
 }

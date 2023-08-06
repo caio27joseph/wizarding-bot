@@ -2,8 +2,8 @@
     "name": "Finite incantatem",
     "category": "Abjuração",
     "difficulty": "Difícil",
-    "description": " a) Transfigurações, Feitiços de Proteção e Feitiços de Cura não podem ser desfeitos por Finite Incantatem. b) Feitiços de duração Instantânea não podem ser desfeitos por Finite Incantatem. c) Feitiços que têm Contrafeitiço não podem ser desfeitos por Finite Incantatem. d) Efeitos de poções não podem ser desfeitos por Finite Incantatem. e) Feitiços de alteração atmosférica (que alterem o clima e/ou a temperatura) não podem ser desfeitos por Finite Incantatem. f) As condições Abalado  , Apavorado  , Enfurecido  , Fascinado  , Inconsciente  , Invisível   e Petrificado   não podem ser desfeitas por Finite Incantatem. g) Artefatos mágicos, ingredientes e poções não perdem a magia (e efeitos) ao serem atingidos por Finite Incantatem. ",
-    "updatedAt": "2023-08-06T15:18:07.420696",
+    "description": "Finite Incantatem é um poderoso contrafeitiço geral que faz com que a energia imbuída por um feitiço seja dissipada, desfazendo seus efeitos. Para ser bem-sucedido, o bruxo deve obter 3 ou mais Sucessos na rolagem de Finite Incantatem. Caso falhe, o efeito do feitiço alvo permanece em curso e o bruxo é incapaz de repetir a jogada até o fim da cena. No entanto, Finite Incantatem possui algumas exceções em que não funcionará, independentemente da quantidade de Sucessos obtidos. Estas exceções são:  a) Transfigurações, Feitiços de Proteção e Feitiços de Cura não podem ser desfeitos por Finite Incantatem. b) Feitiços de duração Instantânea não podem ser desfeitos por Finite Incantatem. c) Feitiços que têm Contrafeitiço não podem ser desfeitos por Finite Incantatem. d) Efeitos de poções não podem ser desfeitos por Finite Incantatem. e) Feitiços de alteração atmosférica (que alterem o clima e/ou a temperatura) não podem ser desfeitos por Finite Incantatem. f) As condições Abalado  , Apavorado  , Enfurecido  , Fascinado  , Inconsciente  , Invisível   e Petrificado   não podem ser desfeitas por Finite Incantatem. g) Artefatos mágicos, ingredientes e poções não perdem a magia (e efeitos) ao serem atingidos por Finite Incantatem. ",
+    "updatedAt": "2023-08-06T16:18:13.139390",
     "title": "Contrafeitiço Geral",
     "level": 1,
     "actionType": "Completa",
@@ -37,5 +37,5 @@
             "description": "Você pode lançar Finite Incantatem de forma não-verbal. Quando conjura Finite Incantatem em sua forma não-verbal, você pode dissipar feitiços até Nível 7, 8 9 e 10. Isso aumenta a versatilidade e eficácia do feitiço, tornando-o capaz de desfazer magias mais complexas e poderosas."
         }
     ],
-    "id": "b4c8f80d-6b92-4873-a856-89b50e7e56d4"
+    "id": "28ddc118-dccc-41fd-8874-c25a53b8b986"
 }

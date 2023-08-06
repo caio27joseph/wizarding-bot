@@ -2,8 +2,8 @@
     "name": "Apontare",
     "category": "Adivinhação",
     "difficulty": "Fácil",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.218639",
+    "description": "O efeito principal do Apontare é permitir que o bruxo descubra a direção do norte magnético, o que pode ser especialmente útil em situações de exploração ou quando ele precisa se orientar em ambientes desconhecidos. Além disso, o feitiço possui variações que o tornam ainda mais versátil. ",
+    "updatedAt": "2023-08-06T16:18:13.019386",
     "title": "Feitiço dos Quatro Pontos",
     "level": 1,
     "actionType": "Padrão",
@@ -38,5 +38,5 @@
             "description": "Com o Apontare Homenum, você pode fazer com que sua varinha aponte na direção de uma pessoa conhecida, auxiliando em missões de busca ou resgate. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
-    "id": "3f6b28b5-6af1-4554-a119-83113e48396e"
+    "id": "abcbf5ad-04b4-484d-b958-33aeb1a639f0"
 }

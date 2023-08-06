@@ -2,8 +2,8 @@
     "name": "Herbivicus",
     "category": "Encantamento",
     "difficulty": "Fácil",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.493696",
+    "description": "Herbivicus é um encantamento que acelera o crescimento de formas de vida vegetal. Cada 1 minuto de concentração nesse feitiço corresponde a 1 mês do tempo de vida do alvo. No entanto, esse feitiço possui limitações: não é possível fazer as plantas crescerem além de sua fase adulta, e ele não afeta plantas mágicas. É importante ressaltar que Herbivicus é uma magia arriscada, pois caso o bruxo tire uma Falha ou Falha Crítica no teste, a planta alvo pode morrer. ",
+    "updatedAt": "2023-08-06T16:18:13.176902",
     "title": "Feitiço de Jardinagem",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Você pode lançar Herbivicus Duo (Feitiço de Jardinagem Mágica). Nessa variação, o feitiço também pode afetar plantas mágicas, acelerando seu crescimento."
         }
     ],
-    "id": "57ff314b-9486-4470-b3d7-36dcbfd8cb72"
+    "id": "4eb32d99-7bae-4d9c-95c5-0267c42d48cf"
 }

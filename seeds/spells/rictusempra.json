@@ -2,8 +2,8 @@
     "name": "Rictusempra",
     "category": "Encantamento",
     "difficulty": "Fácil",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.765554",
+    "description": "Faz com que o alvo sinta cócegas em todos os pontos vulneráveis de seu corpo pela duração do efeito. Em combate, a vítima deve fazer um teste de Vigor (dificuldade 6) e obter ao menos 2 Sucessos. Caso falhe, o alvo começará a rir e só poderá realizar uma ação padrão ou de movimento (não ambas) naquele turno. ",
+    "updatedAt": "2023-08-06T16:18:13.302910",
     "title": "Feitiço de Cócegas",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,5 @@
             "description": "Você pode lançar Rictusempra de forma silenciosa, o que permite lançar o feitiço sem a necessidade de proferir palavras em voz alta, tornando-o mais discreto e surpreendente para o alvo."
         }
     ],
-    "id": "6d900533-e31f-4f99-9b9e-0ec0757450ee"
+    "id": "98894312-0d3b-4069-9cf0-ce9dc24d7c5b"
 }

@@ -2,8 +2,8 @@
     "name": "Ilusão menor",
     "category": "Ilusão",
     "difficulty": "Médio",
-    "description": " Se preferir criar uma imagem de um objeto, como uma cadeira, pegadas enlameadas ou um baú pequeno, ela não deve ser maior que um cubo de 2 metros. A imagem não pode criar som, luz, cheiro ou qualquer outro efeito sensorial. A interação física com a imagem revela que ela é uma ilusão, pois as coisas podem passar por ela. ",
-    "updatedAt": "2023-08-06T15:18:07.519694",
+    "description": "Com o Feitiço de Ilusão Menor, você pode criar um som ou uma imagem de um objeto dentro do alcance que dura pela duração da sua concentração. A ilusão também termina se você a descartar com uma ação ou conjurar esta magia novamente. Se você optar por criar um som, seu volume pode variar de um sussurro a um grito, podendo ser sua voz, a voz de outra pessoa, o rugido de um leão, uma batida de tambores ou qualquer outro som de sua escolha. O som criado persiste durante toda a duração, ou você pode fazer sons discretos em momentos diferentes antes do fim da magia.  Se preferir criar uma imagem de um objeto, como uma cadeira, pegadas enlameadas ou um baú pequeno, ela não deve ser maior que um cubo de 2 metros. A imagem não pode criar som, luz, cheiro ou qualquer outro efeito sensorial. A interação física com a imagem revela que ela é uma ilusão, pois as coisas podem passar por ela. ",
+    "updatedAt": "2023-08-06T16:18:13.190903",
     "title": "Ilusão Menor",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Suas ilusões ganham ainda mais veracidade. As imagens criadas podem agora interagir com o ambiente de forma limitada, como movendo-se lentamente ou emitindo sons leves ao serem tocadas. Diminui a necessidade de sucessos em -1."
         }
     ],
-    "id": "60dc220d-740a-4437-9e72-7253cc18686b"
+    "id": "b8b91fe1-18f2-4801-bf0e-7d8299cc75dc"
 }

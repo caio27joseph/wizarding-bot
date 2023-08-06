@@ -2,8 +2,8 @@
     "name": "Alohomora",
     "category": "Encantamento",
     "difficulty": "Fácil",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.170638",
+    "description": "Ao lançar o Alohomora em uma porta trancada, ela se destrancará instantaneamente, permitindo que você a abra e acesse o que está do outro lado. No entanto, é importante notar que esse feitiço só funciona em portas comuns e não é eficaz contra cofres ou trancas de mecanismos complexos, que exigem magias mais avançadas. ",
+    "updatedAt": "2023-08-06T16:18:12.999385",
     "title": "Feitiço de Desbloqueio",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,5 @@
             "description": "Com as variações Alohomora Duo (Feitiço de Desbloqueio Rápido), Aberto (Feitiço de Abertura), Abra-te-Sésamo (Feitiço do Ladino) ou Liberare (Feitiço da Destranca), você adquire habilidades especiais para lidar com portas trancadas magicamente. Nessas variações, você ganha um bônus de -1 na dificuldade para abrir portas, tornando-se ainda mais eficiente na execução do feitiço. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
-    "id": "9b0a0a6c-77d7-4d6f-9bba-f4e9d5af6d57"
+    "id": "2a68535d-addf-4320-b299-41524c86acc3"
 }

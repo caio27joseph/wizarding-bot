@@ -2,8 +2,8 @@
     "name": "Eletricus",
     "category": "Evocação",
     "difficulty": "Muito Difícil",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.372700",
+    "description": "Eletricus é um feitiço que conjura energia na ponta da varinha e lança raios contra um alvo, causando eletrocução. O dano causado depende do sucesso no teste da magia. Caso atinja uma criatura, Eletricus causa dano de queimadura igual a 1d4 + o número de Sucessos obtidos no teste. No entanto, o dano pode ser amplificado em certas circunstâncias: ",
+    "updatedAt": "2023-08-06T16:18:13.109387",
     "title": "Feitiço Conjuratório Cinético",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Você pode conjurar uma variação (Electrica Tonitrui) quando estiver em céu aberto, a onde um trovão caira em cima do inimigo causando 2d8 de dano."
         }
     ],
-    "id": "19565fef-16b7-4a66-8f18-716ed987e28f"
+    "id": "47533376-bdad-4896-a560-90b819357206"
 }

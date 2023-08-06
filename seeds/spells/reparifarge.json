@@ -2,8 +2,8 @@
     "name": "Reparifarge",
     "category": "Transmutação",
     "difficulty": "Médio",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.740554",
+    "description": "Reverte os efeitos de uma Transformação incompleta ou parcial. Você deve ter em mente a forma original do alvo transfigurado para poder destransfigurá-lo. Caso não saiba (ou tenha apenas uma ideia geral de como ele era), deve obter 5 Sucessos ou mais na rolagem desse feitiço, ou falhará na destransfiguração. ",
+    "updatedAt": "2023-08-06T16:18:13.293903",
     "title": "Destransfiguração Geral",
     "level": 1,
     "actionType": "Completa",
@@ -36,5 +36,5 @@
             "description": "Você pode lançar Reparifarge de forma não-verbal, o que lhe permite desfazer qualquer tipo de Transformação, exceto Transformação Humana, sem precisar recitar palavras. Esse alto nível de domínio do feitiço torna o bruxo extremamente habilidoso em desfazer transfigurações complexas e é um sinal de seu conhecimento e experiência avançados em Transfiguração."
         }
     ],
-    "id": "d5531ce3-92c3-43fe-888f-0182111af4e7"
+    "id": "d7e71fd4-cefd-40b7-a0c5-96ccaec88a64"
 }

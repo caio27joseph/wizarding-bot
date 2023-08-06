@@ -2,8 +2,8 @@
     "name": "Maledicere",
     "category": "Necromancia",
     "difficulty": "Difícil",
-    "description": " Primeira opção: O alvo tem desvantagem em testes de atributo perde um dado Segunda opção: O alvo tem desvantagem nas jogadas de ataque contra você perde 1 dado Terceira opção: O alvo perde +1 de sua reação quando a utiliza.  Durante a duração do feitiço, o alvo fica sob o efeito da maldição escolhida, que afeta suas ações e habilidades de combate de acordo com a opção selecionada. ",
-    "updatedAt": "2023-08-06T15:18:07.603698",
+    "description": "Ao lançar o Feitiço de Conceder Maldição, você toca uma criatura e a amaldiçoa durante a duração do feitiço. Ao conjurá-lo, você pode escolher entre as seguintes opções para a natureza da maldição:  Primeira opção: O alvo tem desvantagem em testes de atributo perde um dado Segunda opção: O alvo tem desvantagem nas jogadas de ataque contra você perde 1 dado Terceira opção: O alvo perde +1 de sua reação quando a utiliza.  Durante a duração do feitiço, o alvo fica sob o efeito da maldição escolhida, que afeta suas ações e habilidades de combate de acordo com a opção selecionada. ",
+    "updatedAt": "2023-08-06T16:18:13.229903",
     "title": "Feitiço de Conceder Maldição",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,5 @@
             "description": "Ao atingir o Domínio Mestre, você aperfeiçoa a arte da maldição. O alvo agora sofre os efeitos de duas opções de maldição simultaneamente, sendo possível escolher duas diferentes ou repetir a mesma opção para aumentar ainda mais a penalidade. As penalidades somam-se caso a mesma habilidade seja escolhida mais de uma vez, mas o efeito de redução de dano não é cumulativo."
         }
     ],
-    "id": "48baf586-8431-44ea-bc20-f79682648865"
+    "id": "09379d61-1e03-48f7-baa2-0f8265dd4fce"
 }

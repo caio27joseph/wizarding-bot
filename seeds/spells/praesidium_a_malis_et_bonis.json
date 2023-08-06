@@ -2,8 +2,8 @@
     "name": "Praesidium a malis et bonis",
     "category": "Abjuração",
     "difficulty": "Médio",
-    "description": " 1-Criaturas dos tipos mencionados têm desvantagem nas jogadas de ataque contra o alvo. (Perdem 2 dados) 2-O alvo fica imune a ser enfeitiçado, amedrontado ou possuído por essas criaturas. 3-Se o alvo já estiver enfeitiçado, amedrontado ou possuído por uma dessas criaturas, ele tem vantagem em qualquer novo teste de resistência contra o efeito relevante. (ganha 2 dados) ",
-    "updatedAt": "2023-08-06T15:18:07.682557",
+    "description": "Com o Feitiço Proteção contra o Mal e o Bem, você toca uma criatura voluntária, concedendo-lhe proteção contra certos tipos de criaturas: aberrações, celestiais, elementais, feéricos, demoníacos e mortos-vivos. Enquanto a magia estiver ativa, o alvo estará protegido de várias maneiras.  1-Criaturas dos tipos mencionados têm desvantagem nas jogadas de ataque contra o alvo. (Perdem 2 dados) 2-O alvo fica imune a ser enfeitiçado, amedrontado ou possuído por essas criaturas. 3-Se o alvo já estiver enfeitiçado, amedrontado ou possuído por uma dessas criaturas, ele tem vantagem em qualquer novo teste de resistência contra o efeito relevante. (ganha 2 dados) ",
+    "updatedAt": "2023-08-06T16:18:13.267904",
     "title": "Feitiço Proteção contra o Mal e o Bem",
     "level": 1,
     "actionType": "Padrão",
@@ -37,5 +37,5 @@
             "description": "A abrangência da Proteção contra o Mal e o Bem é ampliada para um grupo de criaturas voluntárias tocadas simultaneamente."
         }
     ],
-    "id": "fd51eea7-6180-4577-89fe-f2151bd59682"
+    "id": "9b5c2382-ce4c-45c8-bdc3-5b864cd4cc01"
 }

@@ -2,8 +2,8 @@
     "name": "Illegibilus",
     "category": "Ilusão",
     "difficulty": "Médio",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.508697",
+    "description": "O feitiço Illegibilus é capaz de tornar qualquer tipo de texto, gravura ou símbolo completamente ilegível. Ao ser atingido por esse encantamento, o texto se embaralha e emaranha, tornando-se impossível de ser lido. Cada vez que alguém tenta ler, as palavras e linhas se reorganizam de forma desconexa, formando frases sem sentido. Esse feitiço pode ser aplicado em uma página específica, um verso ou até mesmo em uma coletânea inteira, desde que todas as partes façam parte da mesma entidade, como um livro, por exemplo. ",
+    "updatedAt": "2023-08-06T16:18:13.183904",
     "title": "Feitiço do Texto Embaralhado",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,5 @@
             "description": "Você pode lançar Illegibilus Animus (Feitiço do Texto Inteligente). Nessa variação, sempre que alguém tentar desfazer o Illegibilus e obtiver menos de 6 Sucessos, uma mensagem pré-determinada aparecerá no lugar. Essa mensagem pode ter uma \"personalidade\" atribuída, podendo elogiar ou insultar o bruxo que falhar em revelá-la, ou ainda elaborar respostas específicas para pessoas específicas."
         }
     ],
-    "id": "0edcd86e-366a-4c14-b4d8-870b90bf9432"
+    "id": "eea8463f-ba0a-4754-bced-f59d2619393f"
 }

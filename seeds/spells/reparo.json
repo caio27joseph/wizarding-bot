@@ -2,8 +2,8 @@
     "name": "Reparo",
     "category": "Transmutação",
     "difficulty": "Médio",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.755554",
+    "description": "Magicamente conserta um objeto que tenha sido quebrado, juntando as peças e remendando suas partes. Pode ser usado de duas formas: formulando o feitiço e nomeando o objeto desejado (Óculos Reparo!), ou apontando a varinha na direção do objeto. Esse feitiço não funciona em varinhas, artefatos mágicos, pedras preciosas, peças de roupa ou objetos que tenham sido desintegrados/ pulverizados/ desconjurados. ",
+    "updatedAt": "2023-08-06T16:18:13.298902",
     "title": "Feitiço Reparador",
     "level": 1,
     "actionType": "Completa",
@@ -36,5 +36,5 @@
             "description": "Você pode lançar Reparo de forma não-verbal, o que lhe permite consertar qualquer número de objetos danificados em um raio de até 50 metros ao seu redor. Essa habilidade de consertar múltiplos objetos simultaneamente demonstra um domínio excepcional do feitiço e é um sinal de grande perícia em Transfiguração."
         }
     ],
-    "id": "01a25dce-8c5b-4b71-b7d6-cad9f5e5b7e3"
+    "id": "2cbc53fd-93a5-47ac-aa07-b7c530676d82"
 }

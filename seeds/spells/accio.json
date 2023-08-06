@@ -1,42 +1,42 @@
 {
-  "name": "Accio",
-  "category": "Convocação",
-  "difficulty": "Fácil",
-  "description": "",
-  "updatedAt": "2023-08-06T15:18:26.351070",
-  "title": "Feitiço Convocatório",
-  "level": 1,
-  "actionType": "Padrão",
-  "duration": "Instantânea",
-  "requirements": "Convocação 1",
-  "distance": "Médio",
-  "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
-  "maestry": [
-    {
-      "level": 1,
-      "name": "Inicial",
-      "description": "Você pode lançar Accio."
-    },
-    {
-      "level": 2,
-      "name": "Intermediário",
-      "description": "Você pode lançar Accio de forma focada, aumentando a precisão da convocação."
-    },
-    {
-      "level": 3,
-      "name": "Avançado",
-      "description": "Você pode lançar Accio de forma não-verbal, tornando sua magia mais discreta e rápida."
-    },
-    {
-      "level": 4,
-      "name": "Especialista",
-      "description": "Seu Accio tem a capacidade de convocar artefatos mágicos, exceto varinhas, ampliando as possibilidades de uso."
-    },
-    {
-      "level": 5,
-      "name": "Mestre",
-      "description": "Seu Accio é tão habilidoso que você pode convocar criaturas diminutas, de até 1m de tamanho, sem causar nenhum dano a elas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
-    }
-  ],
-  "id": "c30c14e3-55ef-4434-ad56-e9d5f951597a"
+    "name": "Accio",
+    "category": "Convocação",
+    "difficulty": "Fácil",
+    "description": "Puxa um objeto para a mão do conjurador. Para ser bem-sucedido, o bruxo precisa ter em mente a localização e/ou aparência do objeto para convocá-lo. Caso convocado, o objeto voará rapidamente na direção do conjurador evitando quaisquer obstáculos em seu caminho. Com ele, um bruxo pode puxar um objeto para a sua mão, desde que esteja dentro de um alcance razoável e não se trate de seres vivos, objetos trancados, edifícios, ou artefatos mágicos, como varinhas. O bruxo deve conhecer a localização ou aparência do objeto que deseja convocar para que o feitiço funcione corretamente. Pode ser usado de duas formas: formulando o feitiço e nomeando o objeto desejado (Accio Medalhão!), ou apontando a varinha na direção do objeto para atraí-lo até si. ",
+    "updatedAt": "2023-08-06T16:18:12.987385",
+    "title": "Feitiço Convocatório",
+    "level": 1,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "requirements": "Convocação 1",
+    "distance": "Médio",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Accio."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Accio de forma focada, aumentando a precisão da convocação."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Accio de forma não-verbal, tornando sua magia mais discreta e rápida."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Seu Accio tem a capacidade de convocar artefatos mágicos, exceto varinhas, ampliando as possibilidades de uso."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Seu Accio é tão habilidoso que você pode convocar criaturas diminutas, de até 1m de tamanho, sem causar nenhum dano a elas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+        }
+    ],
+    "id": "4e5423c8-01d6-48e9-bdb0-5592421bb356"
 }

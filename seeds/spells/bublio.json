@@ -2,8 +2,8 @@
     "name": "Bublio",
     "category": "Evocação",
     "difficulty": "Fácil",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.265639",
+    "description": "Ao lançar o Bublio, você conjura pequenas bolhas translúcidas que saem da ponta da sua varinha. Essas bolhas podem ter diversos usos: decoração, diversão ou até mesmo para prender criaturas miúdas. Caso sejam usadas para decoração, as bolhas permanecem indefinidamente até serem intencionalmente estouradas. Por outro lado, caso sejam utilizadas para prender uma criatura miúda, a bolha durará até 1 hora. Criaturas miúdas com 16cm ou mais podem facilmente estourar a bolha através de suas armas naturais, enquanto pequenas criaturas e insetos com 15cm ou menos ficam paralisados caso sejam capturados. ",
+    "updatedAt": "2023-08-06T16:18:13.051389",
     "title": "Feitiço da Bolha",
     "level": 1,
     "actionType": "Padrão",
@@ -35,5 +35,5 @@
             "description": "Como mestre do Bublio, você tem controle total sobre o tamanho da bolha, podendo criar uma esfera do tamanho de um pequeno cômodo. Essa bolha flutua a até 5 metros do chão e pode acomodar até três pessoas sem perder altitude. Você pode direcionar a bolha para qualquer direção, desde que não ultrapasse sua altitude máxima. Porém, ela flutua lentamente, como uma bolha gigante, e estoura se receber 5 ou mais pontos de dano de qualquer fonte."
         }
     ],
-    "id": "3e235ba5-ed73-4fc4-9d69-581476ba96de"
+    "id": "01dda6a3-f1cd-4635-8aab-aa8f94daa375"
 }

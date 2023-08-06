@@ -2,8 +2,8 @@
     "name": "Cistem aperio",
     "category": "Universal",
     "difficulty": "Médio",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.297639",
+    "description": "O Cistem Aperio é um feitiço que permite ao bruxo arrombar uma fechadura de maneira rápida e eficiente. Ao ser conjurado, o feitiço faz com que a fechadura da tranca exploda, gerando um barulho alto e destravando o objeto. É uma habilidade útil para ganhar acesso a locais trancados ou para abrir portas com rapidez em situações de emergência. Porém, é importante ressaltar que o Cistem Aperio deixa sinais óbvios de arrombamento, sendo perceptível que a tranca foi forçada. ",
+    "updatedAt": "2023-08-06T16:18:13.079389",
     "title": "Feitiço de Arrombamento",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Como mestre de Cistem Aperio, você pode lançar a variação mais avançada do feitiço, conhecida como Annihilare, ou o Feitiço de Demolição. Nessa forma poderosa, você cria uma explosão com força suficiente para derrubar até mesmo uma porta de metal reforçado. Essa opção é ideal para situações que exijam um arrombamento extremamente rápido e efetivo."
         }
     ],
-    "id": "65e1555d-bf06-45a5-84ca-a53bfa98ece5"
+    "id": "16cd9e22-f4cd-4b22-a4ee-7a06040a1d47"
 }

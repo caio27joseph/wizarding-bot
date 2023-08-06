@@ -2,8 +2,8 @@
     "name": "Relidor",
     "category": "Necromancia",
     "difficulty": "Médio",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.725558",
+    "description": "Previne que o alvo sinta dor pela duração do efeito. Qualquer penalidade ou Condição proveniente de ferimentos leves/ médios que for aplicada sobre um personagem sob efeito de Relidor é anulada. Além disso, penalidades ou Condições do mesmo tipo que já estiverem em efeito são retiradas no lançamento desse feitiço. Relidor não afeta a condição Agonizando  , nem retira penalidades provenientes de ferimentos graves (a critério do Mestre). Nesses casos, Relidor apenas alivia a dor. ",
+    "updatedAt": "2023-08-06T16:18:13.288903",
     "title": "Feitiço Morfínico",
     "level": 1,
     "actionType": "Completa",
@@ -37,5 +37,5 @@
             "description": "Você pode lançar Relidor Inconscius como um feitiço de \"Duração: 8 horas\". Nessa variação, além dos efeitos normais do Relidor, você também coloca o paciente em um estado de Inconsciência pela duração do feitiço. Durante esse período, o alvo não sentirá dor alguma, a menos que sofra dano o suficiente para ser levado a 0 ou menos de Pontos de Vitalidade. Nesse caso, o paciente pode acordar, voltando à consciência para lidar com sua situação. Essa versão do feitiço é útil em casos em que é necessário proteger o paciente de uma dor insuportável ou permitir que ele descanse e se recupere sem sentir o desconforto de suas lesões."
         }
     ],
-    "id": "ea40bd9e-9fe7-4117-ba31-a7504e27442f"
+    "id": "048ddd18-c53d-4c7b-ad05-5a076c2dd54e"
 }

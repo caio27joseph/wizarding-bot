@@ -2,8 +2,8 @@
     "name": "Uediuósi",
     "category": "Universal",
     "difficulty": "Fácil",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.813552",
+    "description": "Você escolhe um objeto de até 5 kg que esteja ao seu alcance visual e que não esteja sendo vestido ou carregado por uma criatura. O objeto é impulsionado em alta velocidade e em linha reta, voando até 18 metros na direção que você escolher antes de cair no chão. Caso atinja uma criatura ou uma superfície sólida, o objeto causa 2d6 de dano de contusão. ",
+    "updatedAt": "2023-08-06T16:18:13.329903",
     "title": "Azaração do Projétil",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "Você pode lançar Uediuósi de forma silenciosa. Quando conjura Uediuósi de forma silenciosa, o mesmo objeto é catapultado na direção do alvo a cada turno, como se fosse um projétil contínuo, aumentando suas chances de acertar o alvo repetidamente."
         }
     ],
-    "id": "52c36503-d244-405f-bfb8-38a891d321ed"
+    "id": "19c89679-a336-4b5f-94a0-80990f9f92b3"
 }

@@ -2,8 +2,8 @@
     "name": "Fogofrio",
     "category": "Evocação",
     "difficulty": "Muito Difícil",
-    "description": "",
-    "updatedAt": "2023-08-06T15:18:07.453697",
+    "description": "Fogofrio é um poderoso feitiço que cria um foco de fogo frio a partir de uma faísca conjurada pela varinha. Essas chamas possuem características especiais que as tornam únicas: elas brilham em um tom azul brilhante, não queimam material orgânico, são capazes de sobreviver sob/debaixo d'água e não se alastram em grandes proporções. Além disso, o fogo frio não precisa de combustível, queimando até o fim de sua duração ou ser apagado. Ele também pode ser manipulado, segurado e transferido para outras superfícies sem ferir seu portador (embora queimará roupas). ",
+    "updatedAt": "2023-08-06T16:18:13.156904",
     "title": "Chamas de Jacinto",
     "level": 1,
     "actionType": "Padrão",
@@ -36,5 +36,5 @@
             "description": "O seu Fogofrio agora pode atingir alvos seletivamente, permitindo que você decida o que pode ser queimado no momento da conjuração. Essa versão avançada do feitiço lhe concede um controle preciso sobre quais alvos serão afetados."
         }
     ],
-    "id": "434f149b-3598-47da-ab5b-b6e06755c74d"
+    "id": "8146abd9-3954-438a-b51d-9fe7feaddd89"
 }
