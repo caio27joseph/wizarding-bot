@@ -1,4 +1,4 @@
-import { Inject, Injectable, forwardRef } from '@nestjs/common';
+import { ConsoleLogger, Inject, Injectable, forwardRef } from '@nestjs/common';
 import {
   CommandInteraction,
   GuildMember,
@@ -40,6 +40,7 @@ import { CupShowCase } from './entities/cup-show-case.entity';
 @Injectable()
 export class HouseCupGroup {
   constructor(
+    private readonly logger: ConsoleLogger,
     private readonly service: HouseCupService,
     private readonly pointLogsService: PointLogsService,
     private readonly playerService: PlayerService,
@@ -66,10 +67,13 @@ export class HouseCupGroup {
     const channel = fetchedChannel as TextChannel;
 
     if (lastMessageId) {
-      try {
       const message = await channel.messages.fetch(lastMessageId);
+      try {
       await message.delete();
-      } catch (e) {}
+      } catch (e) {
+        debugger;
+        this.logger.error(e);
+      }
     }
     const payload = this.service.getTotalDisplay(results);
 
@@ -87,19 +91,11 @@ export class HouseCupGroup {
   @Cron('0 5 * * *')
   @Cron('0 15 * * *')
   async updateShowcase() {
+    this.logger.debug('Updating showcase');
     const cups = await this.service.findAll({
       where: {
         active: true,
         showCaseId: Not(IsNull()),
-      },
-      relations: {
-        guild: true,
-        pointLogs: true,
-      },
-    });
-    const allCups = await this.service.findAll({
-      where: {
-        active: true,
       },
       relations: {
         guild: true,
@@ -244,7 +240,10 @@ export class HouseCupGroup {
     @ArgGuild() guild: Guild,
   ) {
     const cup = await this.service.getActiveCup({ guild });
-
+    if (!cup)
+      throw new DiscordSimpleError(
+        'Nenhuma taça ativa, crie usando /taca iniciar',
+      );
     let player = await this.playerService.getOrCreateUpdate({
       discordId: target.user.id,
       guildId: guild.id,

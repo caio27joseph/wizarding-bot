@@ -1,4 +1,4 @@
-import { Module, forwardRef } from '@nestjs/common';
+import { ConsoleLogger, Module, forwardRef } from '@nestjs/common';
 import { HouseCupService } from './house-cup.service';
 import { HouseCupResolver } from './house-cup.resolver';
 import { HouseCupGroup } from './house-cup.group';
@@ -21,6 +21,7 @@ import { DiscordModule } from '~/discord/discord.module';
   ],
   providers: [
     HouseCupResolver,
+    ConsoleLogger,
     HouseCupService,
     HouseCupGroup,
     CupShowCaseService,
