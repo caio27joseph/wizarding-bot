@@ -15,8 +15,6 @@ RUN npm install
 # Make sure that the .dockerignore file excludes unnecessary files
 COPY . .
 
-# Install app dependencies
-RUN npm install
 
 # Creates a "dist" folder with the production build
 RUN npm run build
