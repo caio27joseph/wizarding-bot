@@ -38,7 +38,7 @@ export class SpellGroup {
     description: 'Adiciona um feitiço',
     mod: true,
   })
-  addSpell() {}
+  addSpell(@ArgGuild() guild: Guild) {}
 
   @Command({
     name: 'set',

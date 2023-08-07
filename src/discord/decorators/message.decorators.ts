@@ -22,10 +22,7 @@ export const ArgGuild = simpleFactory((interaction, opt) => {
   if (!opt.guild) {
     throw new GuildSetupNeeded();
   }
-  if (!opt.command.options.mod) {
-    return opt.guild;
-  }
-  return opt.guild.verifyMod(interaction.member as GuildMember);
+  opt.guild;
 });
 
 const argOptionHandler: SlashCommandDecoratorHandler<any> = (

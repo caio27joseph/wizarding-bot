@@ -5,6 +5,7 @@ import {
   Client as DiscordClient,
   Events,
   GatewayIntentBits,
+  GuildMember,
   Interaction,
   MessageContextMenuCommandInteraction,
   MessagePayload,
@@ -282,6 +283,12 @@ export class DiscordEventEmitter implements OnModuleInit {
         try {
           const args = [];
           const guild = await this.guildService.get(interaction);
+          if (command.options.mod) {
+            if (!guild) {
+              throw new GuildSetupNeeded();
+            }
+            guild.verifyMod(interaction.member as GuildMember);
+          }
           for (const p of command.parameters) {
             args.push(
               await p.handler(interaction, {
