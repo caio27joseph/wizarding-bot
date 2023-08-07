@@ -66,8 +66,10 @@ export class HouseCupGroup {
     const channel = fetchedChannel as TextChannel;
 
     if (lastMessageId) {
+      try {
       const message = await channel.messages.fetch(lastMessageId);
       await message.delete();
+      } catch (e) {}
     }
     const payload = this.service.getTotalDisplay(results);
 

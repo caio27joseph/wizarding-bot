@@ -38,7 +38,7 @@ export class PointLogsService {
   }
 
   addPoints(cup: HouseCup, player: Player, value: number) {
-    if (!cup.active)
+    if (!cup?.active)
       throw new DiscordSimpleError('Voce precisa iniciar a taca das casas');
     const data = this.repo.create({
       cup,
