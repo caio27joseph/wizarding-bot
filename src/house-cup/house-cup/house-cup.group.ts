@@ -57,7 +57,7 @@ export class HouseCupGroup {
     const newPodium = await this.showcaseService.getPodiums(results);
     const samePodium = this.showcaseService.isEqual(podiums || [], newPodium);
 
-    if (false) return;
+    if (samePodium) return;
 
     const fetchedChannel = await this.discordEmitter.client.channels.fetch(
       channelId,
