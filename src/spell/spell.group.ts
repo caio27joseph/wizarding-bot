@@ -27,7 +27,7 @@ import { EntityNotFound } from '~/discord/exceptions';
 
 @Injectable()
 @Group({
-  name: 's',
+  name: 'spell',
   description: 'Comandos relacionados a feitiços',
 })
 export class SpellGroup {
@@ -48,7 +48,7 @@ export class SpellGroup {
   setSpell() {}
 
   @Command({
-    name: 'get',
+    name: 'ver',
     description: 'Pega informações de um feitiço',
   })
   async getSpell(
@@ -71,7 +71,7 @@ export class SpellGroup {
   }
 
   @Command({
-    name: 'all',
+    name: 'todos',
     description: 'Lista os feiticos um feitiço',
   })
   async listSpells(
