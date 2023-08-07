@@ -290,7 +290,7 @@ export class DiscordEventEmitter implements OnModuleInit {
             if (!guild) {
               throw new GuildSetupNeeded();
             }
-            guild.verifyMod(interaction.member as GuildMember);
+            await guild.verifyMod(interaction.member as GuildMember);
           }
           for (const p of command.parameters) {
             args.push(
