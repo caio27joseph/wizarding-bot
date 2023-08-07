@@ -75,6 +75,7 @@ export class SpellGroup {
     description: 'Lista os feiticos um feitiço',
   })
   async listSpells(
+    @ArgGuild() guild: Guild,
     @ArgInteraction() interaction: CommandInteraction,
     @ArgInteger({
       name: 'Ano',
@@ -93,7 +94,7 @@ export class SpellGroup {
     const ITEMS_PER_PAGE = 8;
 
     const spells = await this.service.findAll({
-      where: { level, category },
+      where: { level, category, guildId: guild.id },
     });
 
     const totalPages = Math.ceil(spells.length / ITEMS_PER_PAGE);
