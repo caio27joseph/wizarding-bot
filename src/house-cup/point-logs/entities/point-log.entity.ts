@@ -23,7 +23,9 @@ export class PointLog {
   @Field()
   value: number;
 
-  @ManyToOne((type) => Player, (player) => player.pointLogs)
+  @ManyToOne((type) => Player, (player) => player.pointLogs, {
+    eager: true,
+  })
   @Field((type) => Player)
   player: Player;
 

@@ -109,9 +109,11 @@ export class HouseCupGroup {
       const showcase = await this.showcaseService.findOne({
         where: { id: cup.showCaseId },
       });
+      if (!showcase) continue;
       const houses = await this.houseService.findAll({
         where: { guildId: cup.guildId },
       });
+      if (houses.length === 0) continue;
       await this.handleShowCase(showcase, cup.pointLogs, houses);
     }
   }
