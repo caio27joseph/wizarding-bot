@@ -9,6 +9,7 @@ services:
       - "3000:3000"
     volumes:
       - ./seeds:/usr/src/app/seeds
+      - ./data:/usr/src/app/data
     networks:
       - postgres
   db:
