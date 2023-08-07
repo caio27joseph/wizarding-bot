@@ -119,6 +119,7 @@ export class HouseCupGroup {
   @Command({
     name: 'showcase',
     description: 'Define esse canal para receber os showcases',
+    mod: true,
   })
   public async showcase(
     @ArgInteraction() interaction: CommandInteraction,
