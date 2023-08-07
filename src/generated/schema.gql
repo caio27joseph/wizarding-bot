@@ -40,10 +40,27 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type HousePodium {
+  position: Float!
+  houseId: String!
+  total: Float!
+}
+
+type CupShowCase {
+  id: ID!
+  message: String
+  cupId: String!
+  podiums: [HousePodium!]
+  channelId: String!
+  lastMessageId: String
+}
+
 type HouseCup {
   id: ID!
   name: String!
   active: Boolean!
+  showCase: CupShowCase
+  showCaseId: String
   guildId: String!
   pointLogs: [PointLog!]!
 }
@@ -133,5 +150,6 @@ input CreateHouseCupInput {
 
 input UpdateHouseCupInput {
   name: String
-  id: ID!
+  active: Boolean
+  showCaseId: String
 }

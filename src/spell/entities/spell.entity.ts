@@ -189,7 +189,7 @@ export class Spell implements DiscordEntityVieable {
     return message;
   }
 
-  toEmbeds() {
+  toEmbed() {
     const embed = new EmbedBuilder();
     embed.setTitle(this.name);
     embed.setDescription(this.description);
@@ -207,7 +207,7 @@ export class Spell implements DiscordEntityVieable {
     }
     if (this.meta) {
       fields.push({
-        name: 'Metamágica',
+        name: 'Meta',
         value: this.meta,
         inline: true,
       });
@@ -253,11 +253,12 @@ export class Spell implements DiscordEntityVieable {
   }
   reply(interaction: Interaction) {
     return new MessagePayload(interaction, {
-      embeds: [this.toEmbeds()],
+      embeds: [this.toEmbed()],
     });
   }
 }
 
+@ObjectType()
 export class Maestry {
   level: number;
   @Field((type) => MaestryNameEnum)

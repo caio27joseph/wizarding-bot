@@ -7,15 +7,24 @@ import { HouseCup } from './entities/house-cup.entity';
 import { CoreModule } from '~/core/core.module';
 import { PointLogsModule } from '../point-logs/point-logs.module';
 import { HouseModule } from '~/core/house/house.module';
+import { CupShowCaseService } from './cup-show-case.service';
+import { CupShowCase } from './entities/cup-show-case.entity';
+import { DiscordModule } from '~/discord/discord.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([HouseCup]),
+    TypeOrmModule.forFeature([HouseCup, CupShowCase]),
     CoreModule,
     forwardRef(() => PointLogsModule),
     HouseModule,
+    DiscordModule,
   ],
-  providers: [HouseCupResolver, HouseCupService, HouseCupGroup],
+  providers: [
+    HouseCupResolver,
+    HouseCupService,
+    HouseCupGroup,
+    CupShowCaseService,
+  ],
   exports: [HouseCupService],
 })
 export class HouseCupModule {}

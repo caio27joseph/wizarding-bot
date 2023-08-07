@@ -11,6 +11,7 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Player } from '~/core/player/entities/player.entity';
@@ -18,6 +19,7 @@ import { Guild } from '~/core/guild/guild.entity';
 import { DiscordEntityVieable } from '~/discord/types';
 import { PointLog } from '../../point-logs/entities/point-log.entity';
 import { House } from '~/core/house/entities/house.entity';
+import { CupShowCase } from './cup-show-case.entity';
 
 @ObjectType()
 @Entity()
@@ -34,6 +36,22 @@ export class HouseCup implements DiscordEntityVieable {
   @Field()
   active: boolean;
 
+  @OneToOne(() => CupShowCase, (showCase) => showCase.cup, {
+    nullable: true,
+  })
+  @Field((type) => CupShowCase, {
+    nullable: true,
+  })
+  showCase?: CupShowCase;
+
+  @Column({
+    nullable: true,
+  })
+  @Field({
+    nullable: true,
+  })
+  showCaseId?: string;
+
   @ManyToOne((type) => Guild, (guild) => guild.cups)
   guild: Guild;
 
@@ -45,14 +63,14 @@ export class HouseCup implements DiscordEntityVieable {
   @Field((type) => [PointLog])
   pointLogs: PointLog[];
 
-  toEmbeds() {
+  toEmbed() {
     return new EmbedBuilder().setTitle(this.name);
   }
   // todo: make method to calculate the current value of each house
   reply(interaction: Interaction): MessagePayload {
     const reply = new MessagePayload(interaction, {
       content: 'Taca das Casas',
-      embeds: [this.toEmbeds()],
+      embeds: [this.toEmbed()],
     });
     return reply;
   }
@@ -103,7 +121,49 @@ export class HousePointResult {
     );
   }
 
-  toEmbeds(): EmbedBuilder {
+  toShortEmbed(): EmbedBuilder {
+    const embed = new EmbedBuilder()
+      .setAuthor({ name: `${this.total} pontos` })
+      .setColor(this.house.color);
+
+    if (this.house?.imageUrl) {
+      embed.setThumbnail(this.house.imageUrl);
+    }
+    if (this.house?.title) {
+      embed.setTitle(this.house.title);
+    }
+    const top1 = this.sortedPlayerResults.at(0);
+    if (top1 && top1.total > 0) {
+      embed.addFields({
+        name: `${top1.player?.name || 'Jogador sem Nome'}`,
+        value: `${top1.total} pontos`,
+        inline: false,
+      });
+    }
+    const whorstPlayer = this.sortedPlayerResults.at(-1);
+    if (whorstPlayer && whorstPlayer.total < 0) {
+      embed.addFields({
+        name: `Pior jogador`,
+        value: `${whorstPlayer.player?.name || 'Jogador sem Nome'} com ${
+          whorstPlayer.total
+        } pontos`,
+        inline: false,
+      });
+    }
+    const lastThree = this.logs.slice(-3);
+    if (!lastThree.length)
+      return embed.setDescription('Nenhum ponto registrado ainda');
+    let message = 'Ultimos 3 a Pontuarem:\n';
+    for (const log of lastThree) {
+      // Date BR Format - Name: value
+      message += `${log.createdAt.toLocaleDateString('pt-BR')} - ${
+        log.player?.name || 'Jogador sem Nome'
+      }: ${log.value}\n`;
+    }
+    return embed.setDescription(message);
+  }
+
+  toEmbed(): EmbedBuilder {
     const embed = new EmbedBuilder()
       .setAuthor({ name: `${this.total} pontos` })
       .setColor(this.house.color);
@@ -113,7 +173,9 @@ export class HousePointResult {
     if (this.house?.title) {
       embed.setTitle(this.house.title);
     }
-    const top3 = this.sortedPlayerResults.slice(0, 3);
+    const top3 = this.sortedPlayerResults
+      .filter((p) => p.total > 0)
+      .slice(0, 3);
     for (const [i, playerResult] of top3.entries()) {
       embed.addFields({
         name: `${i + 1}º ${playerResult.player?.name || 'Jogador sem Nome'}`,

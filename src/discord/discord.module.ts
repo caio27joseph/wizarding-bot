@@ -19,6 +19,6 @@ import { CoreModule } from '~/core/core.module';
     },
     DiscordEventEmitter,
   ],
-  exports: [],
+  exports: [DiscordEventEmitter],
 })
-export class DiscordModule { }
+export class DiscordModule {}

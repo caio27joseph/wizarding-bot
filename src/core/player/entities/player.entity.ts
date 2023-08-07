@@ -57,7 +57,7 @@ export class Player implements DiscordEntityVieable {
   @Field((type) => [PointLog])
   pointLogs?: PointLog[];
 
-  toEmbeds() {
+  toEmbed() {
     const embeds = new EmbedBuilder();
     embeds.setTitle(this?.name || 'Defina nome usando /pj atualizar');
     if (this.avatarUrl) embeds.setImage(this.avatarUrl);
@@ -72,7 +72,7 @@ export class Player implements DiscordEntityVieable {
   }
   reply(interaction: Interaction) {
     return new MessagePayload(interaction, {
-      embeds: [this.toEmbeds()],
+      embeds: [this.toEmbed()],
     });
   }
 }

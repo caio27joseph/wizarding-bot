@@ -1,5 +1,5 @@
 export interface DiscordEntityVieable {
-  toEmbeds(): EmbedBuilder;
+  toEmbed(): EmbedBuilder;
   reply(interaction: Interaction): MessagePayload;
 }
 

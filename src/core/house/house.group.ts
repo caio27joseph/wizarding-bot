@@ -121,7 +121,7 @@ export class HouseGroup {
     });
     if (!houses) throw new GuildSetupNeeded('Sem casas registradas');
     await interaction.reply({
-      embeds: houses.map((h) => h.toEmbeds()),
+      embeds: houses.map((h) => h.toEmbed()),
       ephemeral: true,
     });
   }

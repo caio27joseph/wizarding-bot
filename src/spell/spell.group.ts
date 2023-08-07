@@ -65,7 +65,7 @@ export class SpellGroup {
     });
     if (!spell) throw new EntityNotFound('Feitiço', name);
     await interaction.reply({
-      embeds: [spell.toEmbeds()],
+      embeds: [spell.toEmbed()],
       ephemeral: true,
     });
   }
@@ -175,7 +175,7 @@ export class SpellGroup {
           // Do something with the selected spell, e.g., display more details.
 
           const newSpell = await i.reply({
-            embeds: [selectedSpell.toEmbeds()],
+            embeds: [selectedSpell.toEmbed()],
             ephemeral: true,
           });
           if (currentSpellResponse) {

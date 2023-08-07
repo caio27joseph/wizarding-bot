@@ -49,7 +49,7 @@ export class House implements DiscordEntityVieable {
   @OneToMany((type) => Player, (player) => player.house)
   players?: Player[];
 
-  toEmbeds(): EmbedBuilder {
+  toEmbed(): EmbedBuilder {
     return new EmbedBuilder({
       title: this?.title,
       footer: {
@@ -60,7 +60,7 @@ export class House implements DiscordEntityVieable {
   }
   reply(interaction: Interaction) {
     return new MessagePayload(interaction, {
-      embeds: [this.toEmbeds()],
+      embeds: [this.toEmbed()],
     });
   }
 }

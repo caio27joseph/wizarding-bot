@@ -8,8 +8,11 @@ export class CreateHouseCupInput {
 
 @InputType()
 export class UpdateHouseCupInput extends PartialType(CreateHouseCupInput) {
-  @Field(() => ID)
-  id: string;
+  @Field(() => Boolean, { nullable: true })
+  active?: boolean;
+
+  @Field({ nullable: true })
+  showCaseId?: string;
 }
 
 @InputType()

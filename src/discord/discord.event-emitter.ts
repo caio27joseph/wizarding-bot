@@ -6,6 +6,7 @@ import {
   Events,
   GatewayIntentBits,
   GuildMember,
+  IntentsBitField,
   Interaction,
   MessageContextMenuCommandInteraction,
   MessagePayload,
@@ -89,7 +90,7 @@ class GroupContext {
 }
 @Injectable()
 export class DiscordEventEmitter implements OnModuleInit {
-  private client: DiscordClient;
+  public readonly client: DiscordClient;
   private groups: GroupContext[];
   private groupsMap: { [key: string]: GroupContext };
   constructor(
@@ -102,7 +103,9 @@ export class DiscordEventEmitter implements OnModuleInit {
         GatewayIntentBits.GuildMessages |
           GatewayIntentBits.MessageContent |
           GatewayIntentBits.Guilds |
-          GatewayIntentBits.GuildMembers,
+          GatewayIntentBits.GuildMembers |
+          GatewayIntentBits.GuildMessageReactions |
+          IntentsBitField.Flags.GuildMessages,
       ],
     });
   }

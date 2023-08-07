@@ -10,9 +10,11 @@ import { join } from 'path';
 import { CombatModule } from './combat/combat.module';
 import { SpellModule } from './spell/spell.module';
 import { SeederModule } from './seeder/seeder.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/generated/schema.gql'),
