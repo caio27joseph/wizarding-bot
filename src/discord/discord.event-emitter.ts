@@ -1,6 +1,7 @@
 import { ConsoleLogger, Injectable, OnModuleInit } from '@nestjs/common';
 import {
   APIApplicationCommandOptionChoice,
+  CDN,
   Client,
   Client as DiscordClient,
   Events,
@@ -37,6 +38,7 @@ import {
   getTargetGroups,
 } from './decorators/group.decorator';
 import { DiscordEntityVieable } from './types';
+import { PlayerService } from '~/core/player/player.service';
 
 export interface Command<T> {
   keys: string[];
@@ -47,6 +49,15 @@ export interface Command<T> {
   childKeys: string[];
   parameters: Parameter<T>[];
 }
+
+function normalizeForDiscordParam(inputStr) {
+  // Normalize the string to remove diacritics
+  let normalized = inputStr.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  // Convert to lowercase and replace spaces with underscores
+  return normalized.toLowerCase().replace(/\s+/g, '_').toLowerCase();
+}
+
 class GroupContext {
   public readonly options: GroupOptions;
   public readonly commands: Command<InteractionOptions>[];
@@ -97,6 +108,7 @@ export class DiscordEventEmitter implements OnModuleInit {
     private readonly options: DiscordOptions,
     private readonly logger: ConsoleLogger,
     private readonly guildService: GuildService,
+    private readonly playerService: PlayerService,
   ) {
     this.client = new DiscordClient({
       intents: [
@@ -144,13 +156,14 @@ export class DiscordEventEmitter implements OnModuleInit {
       if (!Object.values(InteractionOptionEnum).includes(param?.type as any)) {
         continue;
       }
+
       let name: string, description: string, required: boolean;
       if (typeof param.options === 'string') {
-        name = param.options.toLowerCase();
+        name = normalizeForDiscordParam(param.options);
         description = 'Sem descricao';
         required = true;
       } else {
-        name = param.options.name.toLowerCase();
+        name = normalizeForDiscordParam(param.options.name);
         description = (
           param.options?.description || 'sem descricao'
         ).toLowerCase();
@@ -177,12 +190,24 @@ export class DiscordEventEmitter implements OnModuleInit {
           );
           break;
         case InteractionOptionEnum.Integer:
-          cmd.addIntegerOption((option) =>
+          cmd.addIntegerOption((option) => {
             option
               .setName(name)
               .setDescription(description)
-              .setRequired(required),
-          );
+              .setRequired(required);
+            if (typeof param.options === 'string') return option;
+            if (param.options?.choices) {
+              const choices: APIApplicationCommandOptionChoice<number>[] = [];
+              for (const choice of param.options.choices) {
+                choices.push({
+                  name: choice.toString(),
+                  value: choice,
+                });
+              }
+              option.setChoices(...choices);
+            }
+            return option;
+          });
           break;
         case InteractionOptionEnum.Channel:
           cmd.addChannelOption((option) =>
@@ -250,6 +275,17 @@ export class DiscordEventEmitter implements OnModuleInit {
       groupCmd
         .setName(group.options.name)
         .setDescription(group.options.description);
+      if (
+        group.commands.length === 1 &&
+        group.commands[0].options.name === 'default'
+      ) {
+        const command = group.commands[0];
+        this.registerCommandParameters(groupCmd, command.parameters);
+        commands.push(groupCmd);
+        added_commands++;
+        continue;
+      }
+
       for (const command of group.commands) {
         this.logger.debug(
           `Registering command '${command.options.name}' from group '${group.options.name}'`,
@@ -257,6 +293,7 @@ export class DiscordEventEmitter implements OnModuleInit {
         const cmd = new SlashCommandSubcommandBuilder()
           .setName(command.options.name)
           .setDescription(command.options.description);
+
         groupCmd.addSubcommand(cmd);
 
         this.registerCommandParameters(cmd, command.parameters);
@@ -276,12 +313,21 @@ export class DiscordEventEmitter implements OnModuleInit {
       Events.InteractionCreate,
       async (interaction: MessageContextMenuCommandInteraction) => {
         if (!interaction.isCommand()) return;
+
         const { commandName } = interaction;
         const group = this.getGroup(commandName);
         if (!group) return;
-        const command = group.getCommand(
-          (interaction.options as any).getSubcommand(),
-        );
+        let command: Command<any>;
+        if (
+          group.commands.length === 1 &&
+          group.commands[0].options.name === 'default'
+        ) {
+          command = group.commands[0];
+        } else {
+          command = group.getCommand(
+            (interaction.options as any).getSubcommand(),
+          );
+        }
         if (!command) return;
         try {
           const args = [];
@@ -298,6 +344,7 @@ export class DiscordEventEmitter implements OnModuleInit {
                 parameter: p,
                 command: command,
                 guild,
+                playerService: this.playerService,
               }),
             );
           }

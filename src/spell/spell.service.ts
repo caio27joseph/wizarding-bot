@@ -42,6 +42,7 @@ export class SpellService {
     if (existingSpell) {
       return this.update({ id: existingSpell.id }, input);
     }
-    return this.repo.save(input);
+    const data = this.repo.create(input);
+    return await this.repo.save(data);
   }
 }

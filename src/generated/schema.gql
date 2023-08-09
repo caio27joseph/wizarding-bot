@@ -21,6 +21,9 @@ type Player {
   house: House!
   houseId: ID
   pointLogs: [PointLog!]!
+  attributesId: ID!
+  abilitiesId: ID!
+  competencesId: ID!
 }
 
 type PointLog {

@@ -7,11 +7,15 @@ import {
   Index,
   ManyToOne,
   OneToMany,
+  OneToOne,
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { House } from '~/core/house/entities/house.entity';
 import { DiscordEntityVieable } from '~/discord/types';
 import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
+import { Abilities } from '~/player-system/abilities/entities/abilities.entity';
+import { Attributes } from '~/player-system/attribute/entities/attributes.entity';
+import { Competences } from '~/player-system/competences/entities/competences.entity';
 
 @ObjectType()
 @Entity()
@@ -56,6 +60,39 @@ export class Player implements DiscordEntityVieable {
   @OneToMany((type) => PointLog, (log) => log.player)
   @Field((type) => [PointLog])
   pointLogs?: PointLog[];
+
+  @OneToOne((type) => Attributes, (attribute) => attribute.player, {
+    nullable: true,
+  })
+  attributes?: Attributes;
+
+  @Column({
+    nullable: true,
+  })
+  @Field(() => ID)
+  attributesId?: string;
+
+  @OneToOne((type) => Abilities, (abilities) => abilities.player, {
+    nullable: true,
+  })
+  abilities: Abilities;
+
+  @Column({
+    nullable: true,
+  })
+  @Field(() => ID)
+  abilitiesId?: string;
+
+  @OneToOne((type) => Competences, (competences) => competences.player, {
+    nullable: true,
+  })
+  competences: Competences;
+
+  @Column({
+    nullable: true,
+  })
+  @Field(() => ID)
+  competencesId?: string;
 
   toEmbed() {
     const embeds = new EmbedBuilder();
