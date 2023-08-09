@@ -8,6 +8,7 @@ import {
 } from '../parameter_metadata_handler';
 import { DiscordSimpleError, GuildSetupNeeded } from '../exceptions';
 import { IOERR } from 'sqlite3';
+import { normalizedName } from '../discord.event-emitter';
 
 // CREATE A DECORATOR FOR EACH KIND OF SLASH OPTION
 
@@ -58,9 +59,9 @@ const argOptionHandler: SlashCommandDecoratorHandler<any> = (
 ) => {
   const paramName =
     typeof parameter.options === 'string'
-      ? parameter.options.toLowerCase()
-      : parameter.options.name.toLowerCase();
-  const commandName = command.options.name.toLowerCase();
+      ? normalizedName(parameter.options)
+      : normalizedName(parameter.options.name);
+  const commandName = normalizedName(command.options.name);
   return getInteractionArgValue(interaction, paramName, commandName);
 };
 
@@ -84,8 +85,8 @@ export const ArgRole = factory<InteractionOptions | string>(
   (interaction, { parameter }) => {
     const paramName =
       typeof parameter.options === 'string'
-        ? (parameter.options as string).toLowerCase()
-        : parameter.options.name.toLowerCase();
+        ? normalizedName(parameter.options)
+        : normalizedName(parameter.options.name);
     const details = interaction.options.data[0].options.find(
       (data) => data.name === paramName,
     );
@@ -105,10 +106,9 @@ export const ArgUser = factory<InteractionOptions | string>(
   async (interaction, { parameter, command }) => {
     const paramName =
       typeof parameter.options === 'string'
-        ? (parameter.options as string).toLowerCase()
-        : parameter.options.name.toLowerCase();
-
-    const commandName = command.options.name.toLowerCase();
+        ? normalizedName(parameter.options)
+        : normalizedName(parameter.options.name);
+    const commandName = normalizedName(command.options.name);
     const value = getInteractionArgValue(interaction, paramName, commandName);
     const userFromCache = interaction.guild.members.cache.get(value);
     if (userFromCache) return userFromCache;

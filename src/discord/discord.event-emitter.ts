@@ -50,7 +50,7 @@ export interface Command<T> {
   parameters: Parameter<T>[];
 }
 
-function normalizeForDiscordParam(inputStr) {
+export function normalizedName(inputStr) {
   // Normalize the string to remove diacritics
   let normalized = inputStr.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
@@ -159,11 +159,11 @@ export class DiscordEventEmitter implements OnModuleInit {
 
       let name: string, description: string, required: boolean;
       if (typeof param.options === 'string') {
-        name = normalizeForDiscordParam(param.options);
+        name = normalizedName(param.options);
         description = 'Sem descricao';
         required = true;
       } else {
-        name = normalizeForDiscordParam(param.options.name);
+        name = normalizedName(param.options.name);
         description = (
           param.options?.description || 'sem descricao'
         ).toLowerCase();

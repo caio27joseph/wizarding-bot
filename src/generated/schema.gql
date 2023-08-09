@@ -24,6 +24,7 @@ type Player {
   attributesId: ID!
   abilitiesId: ID!
   competencesId: ID!
+  witchPredilectionsId: ID!
 }
 
 type PointLog {
