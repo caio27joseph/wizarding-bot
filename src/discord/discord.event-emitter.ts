@@ -287,9 +287,6 @@ export class DiscordEventEmitter implements OnModuleInit {
       }
 
       for (const command of group.commands) {
-        this.logger.debug(
-          `Registering command '${command.options.name}' from group '${group.options.name}'`,
-        );
         const cmd = new SlashCommandSubcommandBuilder()
           .setName(command.options.name)
           .setDescription(command.options.description);

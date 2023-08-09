@@ -16,6 +16,7 @@ import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
 import { Abilities } from '~/player-system/abilities/entities/abilities.entity';
 import { Attributes } from '~/player-system/attribute/entities/attributes.entity';
 import { Competences } from '~/player-system/competences/entities/competences.entity';
+import { NonConvPredilections } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { WitchPredilections } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 @ObjectType()
@@ -109,6 +110,20 @@ export class Player implements DiscordEntityVieable {
   })
   @Field(() => ID)
   witchPredilectionsId?: string;
+  @OneToOne(
+    (type) => NonConvPredilections,
+    (nonConvPredilections) => nonConvPredilections.player,
+    {
+      nullable: true,
+    },
+  )
+  nonConvPredilections: NonConvPredilections;
+
+  @Column({
+    nullable: true,
+  })
+  @Field(() => ID)
+  nonConvPredilectionsId?: string;
 
   toEmbed() {
     const embeds = new EmbedBuilder();
