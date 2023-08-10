@@ -193,7 +193,13 @@ export class Rolls10Group {
 
       await interaction.reply({
         content: `${interaction.member}`,
-        embeds: [roll.toEmbed().setFooter({ text: expression })],
+        embeds: [
+          roll
+            .toEmbed()
+            .setFooter({
+              text: `${expression} = ${dices}d10, diff: ${diff || 6}`,
+            }),
+        ],
       });
       return;
     }
