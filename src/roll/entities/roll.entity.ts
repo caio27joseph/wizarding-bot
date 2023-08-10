@@ -100,6 +100,9 @@ export class RollsD10 {
     const embed = new EmbedBuilder();
     const fields: APIEmbedField[] = [];
     let total = this.success;
+    embed.setAuthor({
+      name: 'Dificuldade: ' + this.diff.toString(),
+    });
 
     fields.push({
       name: 'Sucessos',
