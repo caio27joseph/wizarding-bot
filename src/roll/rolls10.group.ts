@@ -54,6 +54,12 @@ export class Rolls10Group {
     })
     bonus?: number,
     @ArgInteger({
+      name: 'Automático',
+      description: 'Sucessos automáticos a ser adicionado ao rolamento',
+      required: false,
+    })
+    autoSuccess?: number,
+    @ArgInteger({
       name: 'Dificuldade',
       description: 'Dificuldade do rolamento',
       required: false,
@@ -187,24 +193,24 @@ export class Rolls10Group {
       if (expression.length > 0) expression += ' + ';
       expression += `${bonus}`;
     }
-
-    if (dices > 0) {
-      const roll = new RollsD10(dices, diff || 6);
-
+    if (dices + (autoSuccess || 0) <= 0) {
       await interaction.reply({
-        content: `${interaction.member}`,
-        embeds: [
-          roll
-            .toEmbed()
-            .setFooter({
-              text: `${expression} = ${dices}d10, diff: ${diff || 6}`,
-            }),
-        ],
+        content: `${interaction.member} - FALHA AUTOMATICA - ${
+          expression || 0
+        }`,
       });
       return;
     }
+
+    const roll = new RollsD10(dices, diff || 6, autoSuccess || 0);
+
     await interaction.reply({
-      content: `${interaction.member} - FALHA AUTOMATICA - ${expression || 0}`,
+      content: `${interaction.member}`,
+      embeds: [
+        roll.toEmbed().setFooter({
+          text: `${expression} = ${dices}d10, diff: ${diff || 6}`,
+        }),
+      ],
     });
   }
 }

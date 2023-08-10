@@ -20,7 +20,9 @@ export class RollsD10 {
   private rolls = [];
   private critical_f: boolean;
   private critical_s: number;
-  constructor(amount: number, public diff = 6, public success = 0) {
+  public success: number;
+  constructor(amount: number, public diff = 6, public autoSuccess = 0) {
+    this.success = 0;
     this.doRolls(amount, diff);
   }
 
@@ -52,6 +54,10 @@ export class RollsD10 {
       easterEggs += ' :slot_machine:'; // Jackpot for 777
       foundEasterEgg = true;
     }
+    for (let index = 0; index < this.autoSuccess; index++) {
+      emojiStr += ':dart: ';
+    }
+
     if (
       rollStr.includes('8') &&
       this.rolls.filter((r) => r === 8).length === 1
@@ -117,10 +123,17 @@ export class RollsD10 {
         value: (this.critical_s * 2).toString(),
         inline: true,
       });
-    } else if (this.success > 0) {
+    } else if (this.success > 0 || this.autoSuccess > 0) {
       embed.setTitle('Sucesso').setColor('#00FF00'); // Green
     } else {
       embed.setTitle('Falha').setColor('#8B0000'); // Dark Red
+    }
+    if (this.autoSuccess > 0) {
+      fields.push({
+        name: 'Sucessos Automáticos',
+        value: this.autoSuccess.toString(),
+        inline: true,
+      });
     }
 
     fields.push({
