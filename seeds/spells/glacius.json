@@ -1,14 +1,19 @@
 {
     "name": "Glacius",
-    "category": "Evocação",
+    "category": [
+        "Evocação"
+    ],
     "difficulty": "Difícil",
-    "description": "Glacius é um poderoso feitiço de congelação que dispara um jato de ar frio da ponta da varinha. Esse jato de ar frio é capaz de congelar qualquer matéria que entre em contato com ele. Caso atinja uma criatura, o feitiço causa dano de frio igual a 1d6 + o número de Sucessos obtidos no teste da magia. Além disso, uma camada fina de gelo cobre a superfície do corpo do alvo, tornando-o Lento pela duração do feitiço ou até que ele se descongele através do calor, de acordo com o critério do Mestre. Glacius também pode ser utilizado para extinguir chamas e resfriar criaturas como salamandras-de-fogo. ",
-    "updatedAt": "2023-08-06T18:58:05.134502",
+    "description": "Glacius é um poderoso feitiço de congelação que dispara um jato de ar frio da ponta da varinha. Esse jato de ar frio é capaz de congelar qualquer matéria que entre em contato com ele. Caso atinja uma criatura, o feitiço causa dano de frio igual a 1d6 + Controle + o número de Sucessos obtidos no teste da magia. Além disso, uma camada fina de gelo cobre a superfície do corpo do alvo, tornando-o Lento pela duração do feitiço ou até que ele se descongele através do calor, de acordo com o critério do Mestre. Glacius também pode ser utilizado para extinguir chamas e resfriar criaturas como salamandras-de-fogo. ",
+    "updatedAt": "2023-08-10T18:09:24.372358",
     "title": "Feitiço de Congelação",
     "level": 1,
     "actionType": "Padrão",
-    "duration": "3 horas",
-    "requirements": "Evocação 2",
+    "duration": "3 horas | 3 Rodadas",
+    "distance": "Curto",
+    "requirements": "Evocação 1",
+    "resistence": "Salvaguarda Físico Reduz a metade.",
+    "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,17 +28,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Glacius de forma não-verbal, tornando o lançamento do feitiço mais discreto e rápido. Seu dado de dano aumenta para 2d4 nessa forma."
+            "description": "Você pode lançar Glacius de forma não-verbal, tornando o lançamento do feitiço mais discreto e rápido. Seu dado de dano aumenta para 2d6+1 nessa forma. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Glacius Duo (Feitiço da Prisão de Gelo) com um lampejo na cor ciano. Quando causar 8 ou mais pontos de dano com o Glacius Duo, em vez de tornar o alvo Lento, ele ficará Congelado por um período de tempo."
+            "description": "Você pode lançar Glacius Duo (Feitiço da Prisão de Gelo) com um lampejo na cor ciano. Quando causar 10 ou mais pontos de dano com o Glacius Duo, em vez de tornar o alvo Lento, ele ficará Congelado por um período de tempo."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Glacius Tria (Feitiço do Cacife de Gelo) com um lampejo na cor ciano e duração de 6 horas. Quando causar 4 ou mais pontos de dano com o Glacius Tria, em vez de tornar o alvo Lento, ele ficará Congelado por um período de tempo."
+            "description": "Você pode lançar Glacius Tria (Feitiço do Cacife de Gelo) com um lampejo na cor ciano e duração de 6 horas - 6 Rodadas. Quando causar 8 ou mais pontos de dano com o Glacius Tria, em vez de tornar o alvo Lento, ele ficará Congelado por um período de tempo. E leve +1d4 de dano de todas as fontes. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "58779ac2-2eb9-48bc-9c93-9d1820f636eb"

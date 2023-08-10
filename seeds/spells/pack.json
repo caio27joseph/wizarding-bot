@@ -1,13 +1,17 @@
 {
     "name": "Pack",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Fácil",
     "description": "Faz com que os objetos desejados flutuem para uma mala de qualquer tipo ou forma, que se auto-empacota e/ou auto-organiza de acordo com a vontade do conjurador. Funciona apenas para guardar roupas e acessórios. Feito isso, a mala é fechada e trancada. ",
-    "updatedAt": "2023-08-06T18:58:05.228553",
+    "updatedAt": "2023-08-10T18:01:58.146362",
     "title": "Feitiço de Empacotar",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
+    "distance": "Curto",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,

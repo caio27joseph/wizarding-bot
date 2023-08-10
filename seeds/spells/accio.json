@@ -1,15 +1,19 @@
 {
     "name": "Accio",
-    "category": "Convocação",
+    "category": [
+        "Convocação"
+    ],
     "difficulty": "Fácil",
     "description": "Puxa um objeto para a mão do conjurador. Para ser bem-sucedido, o bruxo precisa ter em mente a localização e/ou aparência do objeto para convocá-lo. Caso convocado, o objeto voará rapidamente na direção do conjurador evitando quaisquer obstáculos em seu caminho. Com ele, um bruxo pode puxar um objeto para a sua mão, desde que esteja dentro de um alcance razoável e não se trate de seres vivos, objetos trancados, edifícios, ou artefatos mágicos, como varinhas. O bruxo deve conhecer a localização ou aparência do objeto que deseja convocar para que o feitiço funcione corretamente. Pode ser usado de duas formas: formulando o feitiço e nomeando o objeto desejado (Accio Medalhão!), ou apontando a varinha na direção do objeto para atraí-lo até si. ",
-    "updatedAt": "2023-08-06T18:58:04.891944",
+    "updatedAt": "2023-08-10T18:09:23.933290",
     "title": "Feitiço Convocatório",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
     "requirements": "Convocação 1",
     "distance": "Médio",
+    "antiSpell": "Depulso",
+    "resistence": "Salvaguarda Físico Anula",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
@@ -35,7 +39,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Seu Accio é tão habilidoso que você pode convocar criaturas diminutas, de até 1m de tamanho, sem causar nenhum dano a elas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Seu Accio é tão habilidoso que você pode convocar seres de tamanho Medio que possa ver, sem causar nenhum dano a elas."
         }
     ],
     "identifier": "99a36048-f049-46cd-bb9d-8543c68dff32"

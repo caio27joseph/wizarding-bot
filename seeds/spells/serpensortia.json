@@ -1,15 +1,19 @@
 {
     "name": "Serpensortia",
-    "category": "Convocação",
+    "category": [
+        "Convocação"
+    ],
     "difficulty": "Médio",
-    "description": "Conjura uma serpente constritora a partir da ponta da varinha que pode ser lançada até 5 metros em qualquer direção. Essa serpente possui Forma Evasiva, Pequena e Terrestre (veja \"A Sua Forma Animal\" em (0.0.6 - Antecedentes), mas não possui PV. Ao entrar em combate, a serpente faz seu próprio teste de Iniciativa e ataca a criatura mais próxima com suas armas naturais, sendo controlada pelo Narrador. Após o término da duração, a cobra desaparece.  Uma vez conjurada, a serpente entra em combate de forma independente, fazendo seu próprio teste de Iniciativa. Ela ataca a criatura mais próxima usando suas armas naturais, que incluem suas mordidas, rajada de veneno e constricção. O controle da serpente em combate fica a cargo do Narrador, que pode direcionar seus ataques de acordo com sua discrição.  Após a duração do feitiço, que é de 1 hora, a cobra desaparece magicamente, retornando ao lugar de onde foi invocada. ",
-    "updatedAt": "2023-08-06T18:58:05.290845",
+    "description": "Conjura uma serpente constritora a partir da ponta da varinha que pode ser lançada até 5 metros em qualquer direção. Essa serpente possui Forma Evasiva, Pequena e Terrestre (veja \"A Sua Forma Animal\" em (0.0.6 - Antecedentes), e possui um pv mediano Ao entrar em combate, a serpente faz seu próprio teste de Iniciativa e ataca a criatura mais próxima com suas armas naturais, sendo controlada pelo Narrador. Após o término da duração, a cobra desaparece.  Uma vez conjurada, a serpente entra em combate de forma independente, fazendo seu próprio teste de Iniciativa. Ela ataca a criatura mais próxima usando suas armas naturais, que incluem suas mordidas, rajada de veneno e constricção. O controle da serpente em combate fica a cargo do Narrador, que pode direcionar seus ataques de acordo com sua discrição.  Após a duração do feitiço, que é de 5 rodadas a cobra desaparece magicamente, retornando ao lugar de onde foi invocada. ",
+    "updatedAt": "2023-08-10T18:01:58.333763",
     "title": "Feitiço de Conjuração de Cobras",
     "level": 1,
     "actionType": "Padrão",
-    "duration": "1 hora",
+    "duration": "5 Rodadas.",
     "antiSpell": "Vipera Evanesca",
     "requirements": "Convocação 1 e Magizoologia 2",
+    "distance": "Curto",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -24,17 +28,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Serpensortia de forma não-verbal, permitindo convocar serpentes sem a necessidade de pronunciar palavras em voz alta."
+            "description": "Você pode lançar Serpensortia de forma não-verbal, permitindo convocar serpentes sem a necessidade de pronunciar palavras em voz alta. Pode conjurar 1 + Controle/2 de serpentes  de uma vez."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Serpensortia como um feitiço de \"Lampejo: Transparente\", transformando um objeto em uma serpente com as mesmas características descritas anteriormente."
+            "description": "Você pode lançar Serpensortia como um feitiço de \"Lampejo: Transparente\", transformando um objeto em uma serpente com as mesmas características descritas anteriormente. Adiciona +Controle de vida na Serpente"
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Quando lança Serpensortia, você pode escolher conjurar serpentes de tamanho Miúdo e/ou Médio, aumentando a diversidade e o poder das criaturas conjuradas. Suas serpentes causam +1d4 de dano de veneno, para rajada de veneno."
+            "description": "Quando lança Serpensortia, você pode escolher conjurar serpentes de tamanho Miúdo e/ou Médio, aumentando a diversidade e o poder das criaturas conjuradas. Suas serpentes causam +1d4 de dano de veneno, para rajada de veneno. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "5eb3204c-bc8e-4cce-8e0f-eddabe0229b7"

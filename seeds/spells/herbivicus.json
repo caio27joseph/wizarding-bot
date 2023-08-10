@@ -1,14 +1,18 @@
 {
     "name": "Herbivicus",
-    "category": "Encantamento",
-    "difficulty": "Fácil",
+    "category": [
+        "Encantamento"
+    ],
+    "difficulty": "Difícil",
     "description": "Herbivicus é um encantamento que acelera o crescimento de formas de vida vegetal. Cada 1 minuto de concentração nesse feitiço corresponde a 1 mês do tempo de vida do alvo. No entanto, esse feitiço possui limitações: não é possível fazer as plantas crescerem além de sua fase adulta, e ele não afeta plantas mágicas. É importante ressaltar que Herbivicus é uma magia arriscada, pois caso o bruxo tire uma Falha ou Falha Crítica no teste, a planta alvo pode morrer. ",
-    "updatedAt": "2023-08-06T18:58:05.139503",
+    "updatedAt": "2023-08-10T18:01:57.984361",
     "title": "Feitiço de Jardinagem",
     "level": 1,
     "actionType": "Padrão",
+    "distance": "Curto",
     "duration": "Concentração",
-    "requirements": "Encantamentos 1",
+    "requirements": "Encantamentos 1 e Herbologia 1",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,17 +27,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Herbivicus de forma não-verbal, tornando o lançamento mais discreto e rápido. Nessa forma, apenas Falhas Críticas causam a morte da planta, em vez de Falhas normais."
+            "description": "Você pode lançar Herbivicus de forma não-verbal, tornando o lançamento mais discreto e rápido. Nessa forma, apenas Falhas Críticas causam a morte da planta, em vez de Falhas normais. Adicionalmente, o bruxo pode influenciar o formato ou direção do crescimento das plantas afetadas, moldando-as de acordo com sua vontade. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Agora, cada 1 minuto de concentração nesse feitiço corresponde a 1 ano do tempo de vida do alvo, permitindo um crescimento ainda mais rápido das plantas."
+            "description": "Agora, cada 1 minuto de concentração nesse feitiço corresponde a 1 ano do tempo de vida do alvo, permitindo um crescimento ainda mais rápido das plantas. Além disso, o bruxo pode escolher acelerar o crescimento de múltiplas (1 + Herbologia) plantas simultaneamente, desde que estejam dentro de seu campo de visão."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Herbivicus Duo (Feitiço de Jardinagem Mágica). Nessa variação, o feitiço também pode afetar plantas mágicas, acelerando seu crescimento."
+            "description": "Você pode lançar Herbivicus Duo (Feitiço de Jardinagem Mágica). Nessa variação, o feitiço também pode afetar plantas mágicas, acelerando seu crescimento. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "1338c124-6bfa-4a54-8930-fe760194be27"

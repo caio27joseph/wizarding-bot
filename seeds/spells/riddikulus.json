@@ -1,15 +1,19 @@
 {
     "name": "Riddikulus",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Médio",
     "description": "O Riddikulus é um feitiço que força uma criatura metamórfica a assumir uma forma hilariante aos olhos do conjurador. Essa azaração é especialmente útil para combater Bichos-Papões, uma vez que eles são vulneráveis a risadas. Além disso, o Riddikulus pode ser usado para prender qualquer tipo de criatura metamórfica em uma única forma, como Ghouls Camaleões, Cavalos-do-lago e Esconde-escondes. No entanto, o feitiço só funciona se a criatura tiver a capacidade de se transformar na forma desejada. Tenha em mente que o Riddikulus não tem efeito sobre humanos. ",
-    "updatedAt": "2023-08-06T20:47:38.933903",
+    "updatedAt": "2023-08-10T18:10:58.027076",
     "title": "Azaração para Rebater Bicho-Papão",
     "level": 2,
     "actionType": "Padrão",
-    "duration": "5 rodadas",
+    "duration": "1hora - 6 rodadas",
     "light": "Branco",
     "requirements": "Encantamento 1",
+    "distance": "Curto",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -34,7 +38,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Riddikulus como um feitiço de \"Duração: 10 minutos\"."
+            "description": "Você pode lançar Riddikulus como um feitiço de \"Duração: 3 Horas - 12 Rodadas.\". | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "e967bda1-f9f2-4ef3-bc53-d06f25cb7145"

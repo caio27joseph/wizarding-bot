@@ -1,14 +1,18 @@
 {
     "name": "Fogofrio",
-    "category": "Evocação",
-    "difficulty": "Muito Difícil",
+    "category": [
+        "Evocação"
+    ],
+    "difficulty": "Difícil",
     "description": "Fogofrio é um poderoso feitiço que cria um foco de fogo frio a partir de uma faísca conjurada pela varinha. Essas chamas possuem características especiais que as tornam únicas: elas brilham em um tom azul brilhante, não queimam material orgânico, são capazes de sobreviver sob/debaixo d'água e não se alastram em grandes proporções. Além disso, o fogo frio não precisa de combustível, queimando até o fim de sua duração ou ser apagado. Ele também pode ser manipulado, segurado e transferido para outras superfícies sem ferir seu portador (embora queimará roupas). ",
-    "updatedAt": "2023-08-06T18:58:05.114503",
+    "updatedAt": "2023-08-10T18:01:57.915361",
     "title": "Chamas de Jacinto",
     "level": 1,
     "actionType": "Padrão",
-    "duration": "1 dia (D)",
-    "requirements": "Evocação 2, Conjuração 1",
+    "duration": "Instantânea | 2  Rodadas | 1 Hora",
+    "distance": "Médio",
+    "requirements": "Evocação 1, Conjuração 1",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -18,22 +22,22 @@
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Fogofrio como um feitiço de \"Execução: Ação padrão\" e \"Duração: Instantânea\". Nessa variação, um jato de fogo de até 9 metros é lançado em cone a partir da ponta da varinha. Ele possui as mesmas propriedades anteriores, mas agora pode queimar plantas e plantas mágicas. Caso atinja uma planta, Fogofrio causa dano de queimadura igual a 1d8 + o número de Sucessos obtidos no teste da magia."
+            "description": "Você pode lançar Fogofrio como um feitiço de \"Execução: Ação padrão\" e \"Duração: Instantânea\". Nessa variação, um jato de fogo de até 9 metros é lançado em cone a partir da ponta da varinha. Ele possui as mesmas propriedades anteriores, mas agora pode queimar plantas e plantas mágicas. Caso atinja uma planta, Fogofrio causa dano de queimadura igual a 1d8 + Controle +  o número de Sucessos obtidos no teste da magia."
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Fogofrio de forma focada, aumentando a precisão e controle sobre as chamas frias."
+            "description": "Você pode lançar Fogofrio de forma focada, aumentando a precisão e controle sobre as chamas frias. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Fogofrio de forma não-verbal. Ao conjurar Fogofrio sem a necessidade de proferir palavras, você aumenta o dano do feitiço para 2d8, tornando-o mais poderoso. Além disso, caso cause 8 ou mais de dano em uma única conjuração de Fogofrio, o alvo fica Queimando."
+            "description": "Você pode lançar Fogofrio de forma não-verbal. Ao conjurar Fogofrio sem a necessidade de proferir palavras, você aumenta o dano do feitiço para 2d8 + Controle + O Numero de Sucessos obtido, tornando-o mais poderoso. Além disso, caso cause 10 ou mais de dano em uma única conjuração de Fogofrio, o alvo fica Queimando."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "O seu Fogofrio agora pode atingir alvos seletivamente, permitindo que você decida o que pode ser queimado no momento da conjuração. Essa versão avançada do feitiço lhe concede um controle preciso sobre quais alvos serão afetados."
+            "description": "O seu Fogofrio agora pode atingir alvos seletivamente, permitindo que você decida o que pode ser queimado no momento da conjuração. Essa versão avançada do feitiço lhe concede um controle preciso sobre quais alvos serão afetados. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "8ab919de-56f0-4017-ad6d-2e706e9fa6fb"

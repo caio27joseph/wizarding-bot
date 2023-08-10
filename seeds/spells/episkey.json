@@ -1,14 +1,18 @@
 {
     "name": "Episkey",
-    "category": "Evocação",
+    "category": [
+        "Evocação"
+    ],
     "difficulty": "Médio",
-    "description": "Ao tocar o alvo com a ponta da varinha, o feitiço Episkey faz pequenos machucados e hematomas desaparecerem. Ele é eficaz para tratar ferimentos superficiais, mas não é capaz de curar lesões profundas, como músculos distendidos, nariz quebrado ou ossos fraturados. O alvo recupera um número de Pontos de Vitalidade igual a 1d6 + o número de Sucessos obtidos no teste da magia, além de aliviar a dor no local afetado. Adicionalmente, o Episkey pode reverter os efeitos do Petrificus Totalus, libertando uma pessoa petrificada. ",
-    "updatedAt": "2023-08-06T20:47:38.617902",
+    "description": "Ao tocar o alvo com a ponta da varinha, o feitiço Episkey faz pequenos machucados e hematomas desaparecerem. Ele é eficaz para tratar ferimentos superficiais, mas não é capaz de curar lesões profundas, como músculos distendidos, nariz quebrado ou ossos fraturados. O alvo recupera um número de Pontos de Vitalidade igual a 1d6 + Medibruxaria + o número de Sucessos obtidos no teste da magia, além de aliviar a dor no local afetado. Adicionalmente, o Episkey pode reverter os efeitos do Petrificus Totalus, libertando uma pessoa petrificada. ",
+    "updatedAt": "2023-08-10T18:10:57.464072",
     "title": "Feitiço Curativo",
     "level": 2,
     "actionType": "Padrão",
     "duration": "Instantânea",
-    "requirements": "Evocação 2",
+    "requirements": "Evocação 2 e Medibruxaria 3",
+    "distance": "Toque",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -18,22 +22,22 @@
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Episkey de forma focada."
+            "description": "Você pode lançar Episkey de forma focada. Além disso consegue nesta versão curar 2 pessoas."
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Episkey como um feitiço com \"Lampejo: Transparente\". Nessa variação, você pode atingir um alvo à distância com o feitiço curativo."
+            "description": "Você pode lançar Episkey como um feitiço com \"Lampejo: Transparente\". Nessa variação, você pode atingir um alvo à distância com o feitiço curativo. Alcance curto."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Episkey de forma não-verbal. Ao conjurar o Episkey de forma não-verbal, a cura aumenta para 2d6."
+            "description": "Você pode lançar Episkey de forma não-verbal. Ao conjurar o Episkey de forma não-verbal, a cura aumenta para 2d6 + Medibruxaria. + Sucessos."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Quando você lança o Episkey de forma não-verbal, a cura aumenta ainda mais, sendo agora 3d6."
+            "description": "A cura aumenta ainda mais, sendo agora 3d6 + Medibruxaria + Sucesso. Além disso a cura passa a ser em area de Controle (Valor) de Metros | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "b496029e-867a-4715-8b9d-c1c886433ec0"

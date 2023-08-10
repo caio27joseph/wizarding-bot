@@ -1,15 +1,19 @@
 {
     "name": "Relidor",
-    "category": "Necromancia",
+    "category": [
+        "Necromancia"
+    ],
     "difficulty": "Médio",
-    "description": "Previne que o alvo sinta dor pela duração do efeito. Qualquer penalidade ou Condição proveniente de ferimentos leves/ médios que for aplicada sobre um personagem sob efeito de Relidor é anulada. Além disso, penalidades ou Condições do mesmo tipo que já estiverem em efeito são retiradas no lançamento desse feitiço. Relidor não afeta a condição Agonizando  , nem retira penalidades provenientes de ferimentos graves (a critério do Mestre). Nesses casos, Relidor apenas alivia a dor. ",
-    "updatedAt": "2023-08-06T18:58:05.261845",
+    "description": "Previne que o alvo sinta dor pela duração do efeito. Qualquer penalidade ou Condição proveniente de ferimentos leves/médios que for aplicada sobre um personagem sob efeito de Relidor é anulada. Além disso, penalidades ou Condições do mesmo tipo que já estiverem em efeito são retiradas no lançamento desse feitiço. Relidor não afeta a condição Agonizando  , nem retira penalidades provenientes de ferimentos graves (a critério do Mestre). Nesses casos, Relidor apenas alivia a dor. ",
+    "updatedAt": "2023-08-10T18:01:58.266761",
     "title": "Feitiço Morfínico",
     "level": 1,
     "actionType": "Completa",
-    "duration": "5 minutos",
+    "duration": "5 minutos - 2 Rodadas",
+    "distance": "Toque",
     "light": "Lima",
-    "requirements": "Necromancia 1",
+    "requirements": "Necromancia 1 e Medibruxaria 2.",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -24,17 +28,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Relidor de forma não-verbal. Quando conjura Relidor em sua forma não-verbal, você cura 1d3 Pontos de Vitalidade do alvo, proporcionando uma cura adicional."
+            "description": "Você pode lançar Relidor de forma não-verbal. Quando conjura Relidor em sua forma não-verbal, você cura 1d4 Pontos de Vitalidade do alvo, proporcionando uma cura adicional."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Quando conjura Relidor em sua forma não-verbal, você cura 1d6 Pontos de Vitalidade do alvo, oferecendo uma cura mais significativa."
+            "description": "Quando conjura Relidor em sua forma não-verbal, você cura 1d6 +2  Pontos de Vitalidade do alvo, oferecendo uma cura mais significativa."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Relidor Inconscius como um feitiço de \"Duração: 8 horas\". Nessa variação, além dos efeitos normais do Relidor, você também coloca o paciente em um estado de Inconsciência pela duração do feitiço. Durante esse período, o alvo não sentirá dor alguma, a menos que sofra dano o suficiente para ser levado a 0 ou menos de Pontos de Vitalidade. Nesse caso, o paciente pode acordar, voltando à consciência para lidar com sua situação. Essa versão do feitiço é útil em casos em que é necessário proteger o paciente de uma dor insuportável ou permitir que ele descanse e se recupere sem sentir o desconforto de suas lesões."
+            "description": "Você pode lançar Relidor Inconscius como um feitiço de \"Duração: 8 horas - 6 Rodadas\". Nessa variação, além dos efeitos normais do Relidor, você também coloca o paciente em um estado de Inconsciência pela duração do feitiço. Durante esse período, o alvo não sentirá dor alguma, a menos que sofra dano o suficiente para ser levado a 0 ou menos de Pontos de Vitalidade. Nesse caso, o paciente pode acordar, voltando à consciência para lidar com sua situação. Essa versão do feitiço é útil em casos em que é necessário proteger o paciente de uma dor insuportável ou permitir que ele descanse e se recupere sem sentir o desconforto de suas lesões. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "fbac3bb1-2fde-4aeb-94a6-c10e82a6b0eb"

@@ -1,13 +1,17 @@
 {
     "name": "Exumai",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Fácil",
-    "description": "O feitiço Exumai emite uma luz intensa a partir da ponta da varinha, capaz de lançar para longe um tipo de animal. A luz é inofensiva contra criaturas que não sejam o alvo pretendido, podendo ser projetada através de um humano, por exemplo, sem causar nenhum efeito colateral nele. Ao ser atingido, o alvo é jogado até (número de Sucessos x2) metros na direção contrária à do conjurador, recebendo 1d4 de dano contusivo para cada 5 metros que tenha sido arrastado por esse feitiço, com um mínimo de 1d4 de dano. O animal atingido começa seu próximo turno caído e fica abalado até o fim da cena.  O bruxo deve nomear a criatura em latim para que esse feitiço seja bem-sucedido, seguido do sufixo \"Exumai\". Por exemplo: \"Arania Exumai\" para espantar aranhas e acromântulas, \"Equus Exumai\" para espantar equinos e cavalos alados, \"Felis Exumai\" para espantar felinos, etc. Esse feitiço funciona apenas em animais e feras. Seres e espíritos são imunes. ",
-    "updatedAt": "2023-08-06T20:47:38.689902",
+    "description": "O feitiço Exumai emite uma luz intensa a partir da ponta da varinha, capaz de lançar para longe um tipo de animal. A luz é inofensiva contra criaturas que não sejam o alvo pretendido, podendo ser projetada através de um humano, por exemplo, sem causar nenhum efeito colateral nele. Ao ser atingido, o alvo é jogado até (número de Sucessos x3) metros na direção contrária à do conjurador, recebendo 1d8 de dano contusivo para cada 5 metros que tenha sido arrastado por esse feitiço, com um mínimo de 1d8 de dano. O animal atingido começa seu próximo turno caído e fica abalado até o fim da cena.  O bruxo deve nomear a criatura em latim para que esse feitiço seja bem-sucedido, seguido do sufixo \"Exumai\". Por exemplo: \"Arania Exumai\" para espantar aranhas e acromântulas, \"Equus Exumai\" para espantar equinos e cavalos alados, \"Felis Exumai\" para espantar felinos, etc. Esse feitiço funciona apenas em animais e feras. Seres e espíritos são imunes. ",
+    "updatedAt": "2023-08-10T18:10:57.536072",
     "title": "Feitiço para Espantar",
     "level": 2,
     "actionType": "Padrão",
     "duration": "Instantânea",
+    "distance": "Curto",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -32,7 +36,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Quando você acerta Exumai em sua forma não-verbal, o alvo é arremessado até (número de Sucessos x3) metros na direção contrária do conjurador. Isso torna o feitiço ainda mais potente ao afastar o animal atingido."
+            "description": "Quando você acerta Exumai em sua forma não-verbal, o alvo é arremessado até (número de Sucessos x4) metros na direção contrária do conjurador. Isso torna o feitiço ainda mais potente ao afastar o animal atingido."
         }
     ],
     "identifier": "8f0ff37d-dae9-49c4-8fe4-17b8d76b5d77"

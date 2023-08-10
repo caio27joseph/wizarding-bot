@@ -1,13 +1,17 @@
 {
     "name": "Ascendio",
-    "category": "Abjuração",
+    "category": [
+        "Abjuração"
+    ],
     "difficulty": "Fácil",
     "description": "Ao lançar este feitiço, o conjurador é propulsionado para cima, como se tivesse dado um grande pulo. Se utilizado em terra firme, o feitiço lança o bruxo para cima, permitindo que ele alcance uma altura de até 5 metros, equivalente a um andar. Já se usado debaixo d'água, o feitiço levará o bruxo diretamente para a superfície. ",
-    "updatedAt": "2023-08-06T20:47:38.409905",
+    "updatedAt": "2023-08-10T18:10:57.269072",
     "title": "Feitiço de Elevação",
     "level": 2,
     "actionType": "Padrão",
     "duration": "Instantânea",
+    "distance": "Pessoal",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,

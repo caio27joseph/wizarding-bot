@@ -1,14 +1,19 @@
 {
     "name": "Sternius",
-    "category": "Necromancia",
+    "category": [
+        "Necromancia"
+    ],
     "difficulty": "Médio",
-    "description": "Ao lançar a Azaração do Espirro (Sternius), a vítima é afligida por crises constantes de espirros durante toda a duração do feitiço. Em combate, a vítima deve fazer um teste de Vigor (dificuldade 6) e obter ao menos 2 Sucessos. Caso falhe, o alvo começará a espirrar incontrolavelmente e só poderá realizar uma ação padrão ou de movimento (não ambas) naquele turno. ",
-    "updatedAt": "2023-08-06T18:58:05.305845",
+    "description": "Ao lançar a Azaração do Espirro (Sternius), a vítima é afligida por crises constantes de espirros durante toda a duração do feitiço. Em combate, a vítima deve fazer um teste de Salvaguarda Fisica para anular. Caso falhe, o alvo começará a espirrar incontrolavelmente e só poderá realizar uma ação padrão ou de movimento (não ambas) naquele turno. ",
+    "updatedAt": "2023-08-10T18:09:24.715104",
     "title": "Azaração do Espirro",
     "level": 1,
     "actionType": "Padrão",
     "duration": "1 minuto",
     "light": "Verde",
+    "distance": "Curto",
+    "resistence": "Salvaguarda Fisica Anula",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -33,7 +38,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Sternius como um feitiço de \"Maldição\" e \"Duração: 8 horas\". Essa variação é especialmente poderosa, não podendo ser desfeita por meios convencionais, como o feitiço Finite Incantatem. A vítima fica presa na maldição até que a duração se esgote, sofrendo com os espirros constantes durante esse período."
+            "description": "Você pode lançar Sternius como um feitiço de \"Maldição\" e \"Duração: 8 horas\". Essa variação é especialmente poderosa, não podendo ser desfeita por meios convencionais, como o feitiço Finite Incantatem. A vítima fica presa na maldição até que a duração se esgote, sofrendo com os espirros constantes durante esse período. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "34ff63cd-fafa-40d9-bfa1-4e1a01dde20e"

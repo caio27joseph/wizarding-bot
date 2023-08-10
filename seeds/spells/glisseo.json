@@ -1,14 +1,18 @@
 {
     "name": "Glisseo",
-    "category": "Transmutação",
+    "category": [
+        "Transmutação"
+    ],
     "difficulty": "Médio",
-    "description": "Ao lançar Glisseo, você transforma uma escadaria em uma rampa suave. Qualquer indivíduo que estiver na escada durante a transformação deve ser bem-sucedido em um teste de Destreza + Esportes (dificuldade 7), sendo necessário um mínimo de 3 Sucessos, para permanecer em pé. Caso contrário, perderá o equilíbrio e deslizará até a base da rampa. Uma pessoa Desprevenida ou Surpreendida falha nesse teste automaticamente.  Esse feitiço é considerado Transformação e é útil para tornar escadarias mais acessíveis, permitindo que pessoas com dificuldades de mobilidade, carrinhos ou cadeiras de rodas, por exemplo, possam subir ou descer com mais facilidade. ",
-    "updatedAt": "2023-08-06T20:47:38.757902",
+    "description": "Ao lançar Glisseo, você transforma uma escadaria em uma rampa suave. Qualquer indivíduo que estiver na escada durante a transformação deve ser bem-sucedido em um teste de Destreza + Esportes (dificuldade 5 Sucessos), para permanecer em pé. Caso contrário, perderá o equilíbrio e deslizará até a base da rampa. Uma pessoa Desprevenida ou Surpreendida falha nesse teste automaticamente.  Esse feitiço é considerado Transformação e é útil para tornar escadarias mais acessíveis, permitindo que pessoas com dificuldades de mobilidade, carrinhos ou cadeiras de rodas, por exemplo, possam subir ou descer com mais facilidade. ",
+    "updatedAt": "2023-08-10T18:12:01.263352",
     "title": "Feitiço do Deslize",
     "level": 2,
     "actionType": "Padrão",
     "duration": "Permanente",
     "requirements": "Transmutações 2",
+    "distance": "Curto",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -28,12 +32,12 @@
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Glisseo com a intenção de ser mais repentino que o normal. Os degraus desaparecem repentinamente, sem tempo para ajuste, e nenhum teste é necessário. Qualquer pessoa pega nessa variação automaticamente cai até a base da rampa, recebendo 1d4 de dano de queda para cada 3 metros percorridos. Adicionalmente, os indivíduos começam seu próximo turno Caídos."
+            "description": "Você pode lançar Glisseo com a intenção de ser mais repentino que o normal. Os degraus desaparecem repentinamente, sem tempo para ajuste, e nenhum teste é necessário. Qualquer pessoa pega nessa variação automaticamente cai até a base da rampa, recebendo 1d4+2  de dano de queda para cada 3 metros percorridos. Adicionalmente, os indivíduos começam seu próximo turno Caídos."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode afetar qualquer número de escadas, simultaneamente, com apenas uma conjuração de Glisseo. Você deve ser capaz de ver todas elas e o efeito permanece permanente em todas as escadas afetadas."
+            "description": "Você pode afetar qualquer número de escadas, simultaneamente, com apenas uma conjuração de Glisseo. Você deve ser capaz de ver todas elas e o efeito permanece permanente em todas as escadas afetadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "979fa1b0-0ad2-45d5-bf6b-6db4690d6b02"

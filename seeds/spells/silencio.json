@@ -1,14 +1,19 @@
 {
     "name": "Silencio",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Fácil",
-    "description": "Ao emitir um pulso transparente com 5 metros de raio e 10 metros de diâmetro a partir da ponta da varinha, você pode afetar uma criatura à sua escolha (exceto Espíritos) dentro desse raio com a condição Silenciado por uma quantidade de turnos igual ao número de Sucessos obtidos no teste desse feitiço. Este pulso não é considerado um lampejo. (Nota: Caso você falhe ou obtenha uma falha crítica nesse feitiço, uma reação mágica muito assustadora ocorrerá, onde a vítima terá seu pescoço inchado e começará a emitir gritos e sons ensurdecedores.) ",
-    "updatedAt": "2023-08-06T20:47:38.952902",
+    "description": "Ao emitir um pulso transparente com 5 metros de raio e 10 metros de diâmetro a partir da ponta da varinha, você pode afetar uma criatura à sua escolha (exceto Espíritos) dentro desse raio com a condição Silenciado por uma quantidade de rodadas igual ao número de Sucessos obtidos no teste desse feitiço. Este pulso não é considerado um lampejo. ",
+    "updatedAt": "2023-08-10T18:10:58.047074",
     "title": "Feitiço Silenciador",
     "level": 2,
     "actionType": "Padrão",
-    "duration": "Especial (D)",
+    "duration": "Especial (D) (1 Hora - 4 rodadas)",
     "requirements": "Encantamentos 1",
+    "antiSpell": "Dicere",
+    "distance": "Curto",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,7 +28,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Travalíngua (Azaração de Travar a Língua) como um feitiço de \"Azaração\", \"Duração: 1 hora\" e \"Lampejo: Vermelho\". Nessa variação, você lança um lampejo que aplica a condição Silenciado pela duração. Essa variação funciona em Espíritos e quadros."
+            "description": "Você pode lançar Travalíngua (Azaração de Travar a Língua) como um feitiço de \"Azaração\", \"Duração: 4 hora - 6 rodadas.\" e \"Lampejo: Vermelho\". Nessa variação, você lança um lampejo que aplica a condição Silenciado pela duração. Essa variação funciona em Espíritos e quadros."
         },
         {
             "level": 4,

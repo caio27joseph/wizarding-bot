@@ -1,15 +1,20 @@
 {
     "name": "Epoximise",
-    "category": "Transmutação",
+    "category": [
+        "Transmutação"
+    ],
     "difficulty": "Difícil",
     "description": "O feitiço Epoximise torna o alvo extremamente adesivo e elástico, assemelhando-se a uma geléia grudenta. Pode ser lançado sobre um único objeto, independentemente do tamanho, ou sobre uma superfície de até 6 metros quadrados. Se Epoximise for lançado em um objeto, criaturas que tentarem pegá-lo ou tocá-lo não conseguirão soltá-lo por meios convencionais. Se for lançado em uma área, qualquer criatura que pisar, caminhar ou se apoiar na superfície ficará Enredada até sair da área ou até o feitiço ser desfeito. Vale ressaltar que esse feitiço é considerado uma Transfiguração. ",
-    "updatedAt": "2023-08-06T20:47:38.632902",
+    "updatedAt": "2023-08-10T18:10:57.474072",
     "title": "Feitiço Adesivo",
     "level": 2,
     "actionType": "Padrão",
-    "duration": "30 minutos",
+    "duration": "1 hora - 3 Rodadas.",
     "light": "Azul",
-    "requirements": "Transfigurações1 evocação 2",
+    "requirements": "Transfigurações 2",
+    "distance": "Curto",
+    "resistence": "Salvaguarda Fisica Anula.",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -24,7 +29,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Epoximise de forma não-verbal. Nessa variação, você pode enfeitiçar uma área de até 12m² sem a necessidade de proferir palavras."
+            "description": "Você pode lançar Epoximise de forma não-verbal. Nessa variação, você pode enfeitiçar uma área de até 12m² sem a necessidade de proferir palavras. Os inimigos na area perdem 2 dados. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
@@ -34,7 +39,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Astrictus Maxima (Feitiço da Colagem Permanente) como um feitiço de \"Duração: Instantânea\". Nessa variação, você funde molecularmente dois objetos que já estejam previamente em contato um com o outro. Objetos atingidos por esse feitiço não podem ser destransfigurados nem descolados por nenhum meio não destrutivo conhecido, ficando permanentemente grudados."
+            "description": "Você pode lançar Astrictus Maxima (Feitiço da Colagem Permanente) como um feitiço de \"Duração: Instantânea\". Nessa variação, você funde molecularmente dois objetos que já estejam previamente em contato um com o outro. Objetos atingidos por esse feitiço não podem ser destransfigurados nem descolados por nenhum meio não destrutivo conhecido, ficando permanentemente grudados. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "6e6ddc27-22bd-4639-8475-b5f4db7569c1"

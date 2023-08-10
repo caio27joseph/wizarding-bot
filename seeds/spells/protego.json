@@ -1,14 +1,18 @@
 {
     "name": "Protego",
-    "category": "Abjuração",
+    "category": [
+        "Abjuração"
+    ],
     "difficulty": "Médio",
-    "description": "Ao lançar Protego, o bruxo conjura um escudo invisível à sua frente, capaz de dissipar a magia contida em um lampejo ao ser atingido por ele. O escudo torna-se aparente quando reflete a luz das magias defendidas. Para ser bem-sucedido, o usuário deve obter ao menos 1 Sucesso na rolagem de Protego. O feitiço tem diferentes efeitos dependendo do nível do lampejo atacante:  Lampejo de Nível 1: É imediatamente absorvido e dissipado pelo escudo. Lampejo de Nível 2, Nível 3 e Nível 4: É dissipado caso o número de Sucessos obtido na rolagem de Protego seja igual ou superior à rolagem do feitiço adversário. Lampejo de Nível 5, Nível 6 e Nível 7 e outros: É dissipado caso o número de Sucessos obtidos na rolagem de Protego seja superior à rolagem do feitiço adversário. ",
-    "updatedAt": "2023-08-06T20:49:00.259154",
+    "description": "Ao lançar Protego, o bruxo conjura um escudo invisível à sua frente, capaz de dissipar a magia contida em um lampejo ao ser atingido por ele. O escudo torna-se aparente quando reflete a luz das magias defendidas. Para ser bem-sucedido, o usuário deve seguir as regras abaixo. O feitiço tem diferentes efeitos dependendo do nível do lampejo atacante:  Lampejo de Nível 1,  Nível 2, Nível 3, Nível 4, Nível 5, : É dissipado caso o número de Sucessos obtido na rolagem de Protego seja igual ou superior à rolagem do feitiço adversário. Lampejo de Nível 6, Nível 7, Nível 8, Nível 9 e Nível 10: É dissipado caso o número de Sucessos obtidos na rolagem de Protego seja superior à rolagem do feitiço adversário. ",
+    "updatedAt": "2023-08-10T18:10:57.938072",
     "title": "Feitiço Escudo",
     "level": 2,
     "actionType": "Reação",
     "duration": "Instantânea",
     "requirements": "Abjuração 1",
+    "distance": "Pessoal",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,7 +27,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Seu Protego básico defende automaticamente qualquer lampejo de Nível 1 e Nível 2, desde que obtenha 1 ou mais Sucessos na rolagem de defesa. Feitiços de Nível 3 são dissipados caso o número de Sucessos seja igual ou superior à rolagem do feitiço adversário; feitiços de Nível 4 são dissipados caso o número de Sucessos obtidos na rolagem de Protego seja superior à rolagem do feitiço adversário."
+            "description": "Seu Protego básico defende automaticamente qualquer lampejo de Nível 1 e Nível 2, desde que obtenha 5 Sucessos na rolagem de defesa."
         },
         {
             "level": 4,
@@ -33,7 +37,7 @@
         {
             "level": 8,
             "name": "Mestre",
-            "description": "Você pode lançar Protego Duo (Feitiço Escudo Superior) como um feitiço de \"Execução: Ação livre\", \"Duração: Concentração\" e \"Pré-Requisitos: Feitiços de Proteção 5\". Nessa variação, você conjura uma orbe ao seu redor pela duração de sua Concentração que dissipa tanto os lampejos lançados contra você (como descrito na Variação ●●●), quanto possui 2d8+4 de PV por Sucesso. A cada turno em que o bruxo se concentra, os PV's máximos de Protego Duo são recuperados (sem necessidade de rolagem!). Essa variação cria uma defesa mágica e física simultaneamente, protegendo o usuário da maioria dos feitiços conhecidos. No entanto, enquanto se concentra, o bruxo não pode gastar Reações para lançar outras variações de Protego."
+            "description": "Você pode lançar Protego Duo (Feitiço Escudo Superior) como um feitiço de \"Execução: Ação livre\", \"Duração: Concentração\" e \"Pré-Requisitos: Abjuração 4\". Nessa variação, você conjura uma orbe ao seu redor pela duração de sua Concentração que dissipa tanto os lampejos lançados contra você (como descrito na Variação ●●●) - (OBS: Ainda precisa passar nos sucessos para dissipar. So que diminui o sucesso dos inimigos em seus ataques em 1), quanto possui 2d8+4 de PV por Sucesso. A cada turno em que o bruxo se concentra, os PV's máximos de Protego Duo são recuperados (sem necessidade de rolagem!). Essa variação cria uma defesa mágica e física simultaneamente, protegendo o usuário da maioria dos feitiços conhecidos. No entanto, enquanto se concentra, o bruxo não pode gastar Reações para lançar outras variações de Protego. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "b254dcb5-9e05-440a-ac18-201861b11a57"

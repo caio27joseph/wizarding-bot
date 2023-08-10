@@ -1,9 +1,11 @@
 {
     "name": "Arcanam armor.",
-    "category": "Abjuração",
+    "category": [
+        "Abjuração"
+    ],
     "difficulty": "Difícil",
     "description": "Ao lançar o Feitiço da Armadura Mágica, você cria uma poderosa aura mágica ao seu redor que o protege contra danos físicos e mágicos. Essa armadura mágica lhe permite bloquear até 4 pontos de dano físico ou magico por ataque,  A magia da Armadura Arcana se manterá ativa durante toda a sua duração, protegendo você das ameaças. O feitiço pode ser lançado como uma Ação Padrão, permitindo-lhe conjurar a armadura rapidamente em situações de emergência. Alternativamente, se você preferir, pode realizar um ritual de 30 minutos para invocar a Armadura Arcana antes de se aventurar em desafios mais perigosos. ",
-    "updatedAt": "2023-08-06T18:58:04.938942",
+    "updatedAt": "2023-08-10T18:01:04.423229",
     "title": "Feitiço da armadura magica",
     "level": 1,
     "actionType": "Padrão ou Reação",

@@ -1,13 +1,17 @@
 {
     "name": "Circumrota",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Fácil",
     "description": "Com o Circumrota, você pode fazer um objeto que tenha capacidade de girar rotacionar ao redor de seu eixo até atingir a posição desejada. Isso é útil para alinhar objetos, ajustar sua direção ou prepará-los para uma utilização específica. No entanto, é importante destacar que o feitiço somente funcionará em objetos que possam girar naturalmente. ",
-    "updatedAt": "2023-08-06T18:58:04.984889",
+    "updatedAt": "2023-08-10T18:01:57.625361",
     "title": "Feitiço de Rotação",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
+    "distance": "Médio",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -22,7 +26,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Com essa variação do Circumrota, você pode lançá-lo com a cor de lampejo laranja e uma duração de 1 minuto. Nessa versão, o objeto afetado gira rapidamente ao redor de seu eixo, tornando-se perigoso para quem estiver próximo. Qualquer pessoa que começar seu turno adjacente ao objeto sofre 1d4 de dano contusivo ou mais, dependendo do critério do mestre. Tome cuidado com essa versão, pois ela pode ser letal se aplicada a lâminas giratórias ou objetos perigosos."
+            "description": "Com essa variação do Circumrota, você pode lançá-lo com a cor de lampejo laranja e uma duração de 1 minuto. Nessa versão, o objeto afetado gira rapidamente ao redor de seu eixo, tornando-se perigoso para quem estiver próximo. Qualquer pessoa que começar seu turno adjacente ao objeto sofre 1d4 + Controle de dano contusivo ou mais, dependendo do critério do mestre. Tome cuidado com essa versão, pois ela pode ser letal se aplicada a lâminas giratórias ou objetos perigosos."
         },
         {
             "level": 4,
@@ -32,7 +36,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre do Circumrota, você pode lançar uma versão avançada do feitiço que afeta seres vivos. Ao lançar essa variação, uma criatura afetada começa a girar rapidamente ao redor de seu próprio eixo sem sair do lugar, ficando Paralisada. O efeito pode ser útil para controlar o movimento de adversários e situações que requerem imobilização temporária."
+            "description": "Como mestre do Circumrota, você pode lançar uma versão avançada do feitiço que afeta seres vivos. Ao lançar essa variação, uma criatura afetada começa a girar rapidamente ao redor de seu próprio eixo sem sair do lugar, ficando Paralisada. O efeito pode ser útil para controlar o movimento de adversários e situações que requerem imobilização temporária. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "7c9285ba-34b2-4caf-bb8d-bcabbb5a7448"

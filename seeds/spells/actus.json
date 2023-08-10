@@ -1,9 +1,11 @@
 {
     "name": "Actus",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Fácil",
     "description": "Ao lançar o Actus em um objeto, ele ativará sua função principal instantaneamente. Para objetos com funções simples, o efeito será rápido e durará apenas um instante. Por exemplo, um archote se acenderá imediatamente após ser encantado. No entanto, para objetos com funções mais complexas ou que demandem um período maior de tempo, o feitiço pode ter uma duração de até 4 horas (D), durante as quais o objeto executará sua tarefa. Por exemplo, uma vassoura pode continuar varrendo até que toda a área esteja limpa ou até que a duração do feitiço expire.  Além disso, objetos que são ferramentas de ofício, como pincéis, martelos e agulhas de tricô, também podem ser encantados com o Actus, permitindo a mecanização temporária de suas funções, embora sem a capacidade de produzir obras-primas. ",
-    "updatedAt": "2023-08-06T18:58:04.898942",
+    "updatedAt": "2023-08-10T18:01:57.379361",
     "title": "Feitiço da Função",
     "level": 1,
     "actionType": "Padrão",
@@ -34,7 +36,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Com a variação Actus Totalum (Feitiço Multi-Função), você pode realizar essa magia em qualquer número de objetos em um raio de até 30 metros de distância, tornando-se excepcionalmente eficiente em atividades que exigem o uso de vários objetos simultaneamente.- Passa a conseguir ativar a função de objetos de combate tambem. (Espadas, Arcos e Flechas e outros.) que lutam sozinhos por 2 rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Com a variação Actus Totalum (Feitiço Multi-Função), você pode realizar essa magia em qualquer número de objetos em um raio de até 30 metros de distância, tornando-se excepcionalmente eficiente em atividades que exigem o uso de vários objetos simultaneamente.- Passa a conseguir ativar a função de objetos de combate tambem. (Espadas, Arcos e Flechas e outros.) que lutam sozinhos por 1d4+2 rodadas."
         }
     ],
     "identifier": "93f3acd6-dc7e-4858-b126-5e450647d128"

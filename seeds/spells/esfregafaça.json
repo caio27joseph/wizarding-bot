@@ -1,13 +1,17 @@
 {
     "name": "Esfregafaça",
-    "category": "Transmutação",
+    "category": [
+        "Transmutação"
+    ],
     "difficulty": "Fácil",
     "description": "O feitiço Esfregafaça transmuta magicamente a sujeira em água, limpando instantaneamente o alvo. Pode ser utilizado em objetos, peças de roupa, superfícies e até mesmo criaturas, mas deixará o alvo molhado onde antes estava sujo. Poeira, sangue seco, bebidas derramadas, secreções, lama e terra são exemplos de materiais que podem ser transfigurados com Esfregafaça. Vale ressaltar que esse feitiço é considerado uma Transformação. ",
-    "updatedAt": "2023-08-06T20:47:38.647904",
+    "updatedAt": "2023-08-10T18:10:57.489074",
     "title": "Feitiço de Limpeza",
     "level": 2,
     "actionType": "Padrão",
     "duration": "Instantânea",
+    "distance": "Curto",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -17,7 +21,7 @@
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Esfregafaça de forma focada."
+            "description": "Você pode lançar Esfregafaça de forma focada. Pode limpar 1 + Controle ao mesmo tempo."
         },
         {
             "level": 3,
@@ -32,7 +36,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Esfregafaça como uma Azaração com duração de 1 minuto e lampejo ciano. Nessa variação, você faz com que sabão preencha completamente a boca do alvo, deixando-o Silenciado pela duração do feitiço. Isso impede que o alvo possa falar ou proferir qualquer som com a boca."
+            "description": "Você pode lançar Esfregafaça como uma Azaração com duração de 3 horas e lampejo ciano. Nessa variação, você faz com que sabão preencha completamente a boca do alvo, deixando-o Silenciado pela duração do feitiço. Isso impede que o alvo possa falar ou proferir qualquer som com a boca."
         }
     ],
     "identifier": "adaba9bb-75d5-42ac-b34b-1ec4dd19c2c3"

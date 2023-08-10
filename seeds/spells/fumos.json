@@ -1,14 +1,18 @@
 {
     "name": "Fumos",
-    "category": "Transmutação",
+    "category": [
+        "Evocação"
+    ],
     "difficulty": "Médio",
-    "description": "Ao lançar Fumos, você conjura uma nuvem de vapor a partir da ponta da varinha, obscurecendo a visão de todos dentro dela. Criaturas dentro da névoa até 3 metros de altura ficam Camufladas, o que significa que estão parcialmente escondidas e recebem um bônus em testes de Furtividade para se esconder. Criaturas com 45 cm ou menos ficam Ocultas, o que significa que estão completamente escondidas e não podem ser alvo de ataques diretos, a menos que seus atacantes adivinhem corretamente sua localização.  Essa nuvem cobre um cômodo inteiro ou uma área com um raio de 6 metros e altura de 6 metros. A duração da nuvem é de 10 minutos em um interior fechado ou 4 turnos em área aberta. Um vento forte dispersa a névoa em 4 turnos, e um vendaval a dispersa em 1 turno. No entanto, esta magia não funciona sob a água. ",
-    "updatedAt": "2023-08-06T20:47:38.739902",
+    "description": "Ao lançar Fumos, você conjura uma nuvem de vapor a partir da ponta da varinha, obscurecendo a visão de todos dentro dela. Criaturas dentro da névoa até 5 metros de altura ficam Camufladas, o que significa que estão parcialmente escondidas e recebem um bônus em testes de Furtividade para se esconder. Criaturas com 1,70m ou menos ficam Ocultas, o que significa que estão completamente escondidas e não podem ser alvo de ataques diretos, a menos que seus atacantes adivinhem corretamente sua localização.  Essa nuvem cobre um cômodo inteiro ou uma área com um raio de 6 metros e altura de 6 metros. A duração da nuvem é de 1 hora em um interior fechado ou 6 Rodadas em área aberta. Um vento forte dispersa a névoa em 4 Rodadas, e um vendaval a dispersa em 1 Rodada. No entanto, esta magia não funciona sob a água. ",
+    "updatedAt": "2023-08-10T18:10:57.627071",
     "title": "Feitiço da Cortina de Fumaça",
     "level": 2,
     "actionType": "Completa",
     "duration": "Ver descrição",
-    "antiSpell": "Meteolojinx Recanto",
+    "antiSpell": "Ventus",
+    "distance": "Médio",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,17 +27,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Fumos de forma não-verbal."
+            "description": "Você pode lançar Fumos de forma não-verbal. Nesta versão, você pode lançar um gas venenoso que causa Controle + Evocação de dano aos inimigos a cada 2 rodadas lá dentro. (teste de Salvaguarda fisica reduz a metade)"
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Quando conjura Fumos em sua forma não-verbal, você pode escolher deixar a fumaça mais densa. Criaturas dentro da névoa até 3 metros de altura ficam Ocultas, e criaturas com 45 cm ou menos ficam Invisíveis."
+            "description": "Quando conjura Fumos em sua forma não-verbal, você pode escolher deixar a fumaça mais densa. Criaturas dentro da névoa até 3 metros de altura ficam Ocultas, e criaturas com  1.70m ou menos ficam Invisíveis."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Fumos com uma área de 12 metros de raio e 12 metros de altura, proporcionando uma cobertura ainda maior e mais densa para camuflagem e ocultação."
+            "description": "Você pode lançar Fumos com uma área de 12 metros de raio e 12 metros de altura, proporcionando uma cobertura ainda maior e mais densa para camuflagem e ocultação. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "181acb11-a9ae-4c4f-b738-327b7b3fc37d"

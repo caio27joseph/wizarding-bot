@@ -1,14 +1,19 @@
 {
     "name": "Eletricus",
-    "category": "Evocação",
+    "category": [
+        "Evocação"
+    ],
     "difficulty": "Muito Difícil",
-    "description": "Eletricus é um feitiço que conjura energia na ponta da varinha e lança raios contra um alvo, causando eletrocução. O dano causado depende do sucesso no teste da magia. Caso atinja uma criatura, Eletricus causa dano de queimadura igual a 1d4 + o número de Sucessos obtidos no teste. No entanto, o dano pode ser amplificado em certas circunstâncias: ",
-    "updatedAt": "2023-08-06T18:58:05.038753",
+    "description": "Eletricus é um feitiço que conjura energia na ponta da varinha e lança raios contra um alvo, causando eletrocução. O dano causado depende do sucesso no teste da magia. Caso atinja uma criatura, Eletricus causa dano de queimadura igual a 1d4 + Evocação + o número de Sucessos obtidos no teste. No entanto, o jogador tem o direito a um teste de Salvaguarda Fisica que Reduz a metade, caso passe no teste o inimigo levara apenas metade do dano. ",
+    "updatedAt": "2023-08-10T18:09:24.195291",
     "title": "Feitiço Conjuratório Cinético",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
     "requirements": "Evocação 2",
+    "distance": "Médio",
+    "resistence": "Salvaguarda Físico Reduz a Metade.",
+    "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -18,22 +23,22 @@
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Seu Eletricus fica mais potente, e caso uma criatura receba 10 ou mais de dano em uma única conjuração, ela fica Pasma, ficando temporariamente atordoada e incapaz de realizar ações."
+            "description": "Seu Eletricus fica mais potente, e caso uma criatura receba 12 ou mais de dano em uma única conjuração, ela fica Pasma, ficando temporariamente atordoada e incapaz de realizar ações."
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Eletricus de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso pode usar o mesmo em sua forma focada."
+            "description": "Você pode lançar Eletricus de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso pode usar o mesmo em sua forma focada. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Os dados de dano do Eletricus aumentam. O dano básico vira 1d6, e caso o alvo esteja molhado ou com peça de metal, o dano aumenta para 1d8. Se o alvo estiver submerso em líquido ou usando armaduras ou peças de metal, o dano é ainda maior, aumentando para 2d8."
+            "description": "Os dados de dano do Eletricus aumentam. O dano básico vira 1d6, e caso o alvo esteja molhado ou com peça de metal, o dano aumenta para 1d8. Se o alvo estiver submerso em líquido ou usando armaduras ou peças de metal, o dano é ainda maior, aumentando para 2d8. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode conjurar uma variação (Electrica Tonitrui) quando estiver em céu aberto, a onde um trovão caira em cima do inimigo causando 2d8 de dano."
+            "description": "Você pode conjurar uma variação (Electrica Tonitrui) quando estiver em céu aberto, a onde um trovão caira em cima do inimigo causando 2d8 de dano. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "667940c2-bb74-404b-9935-d64679c520e6"

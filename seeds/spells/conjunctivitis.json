@@ -1,14 +1,18 @@
 {
     "name": "Conjunctivitis",
-    "category": "Necromancia",
+    "category": [
+        "Necromancia"
+    ],
     "difficulty": "Fácil",
     "description": "O Conjunctivitis é uma maldição que irrita severamente os olhos da vítima, ao ponto de forçá-la a fechá-los. Durante a duração desse feitiço, o alvo fica sob os efeitos das condições \"Cego\" e \"Desprevenido\". ",
-    "updatedAt": "2023-08-06T20:47:38.535902",
+    "updatedAt": "2023-08-10T18:10:57.387072",
     "title": "Maldição da Conjuntivite",
     "level": 2,
     "actionType": "Padrão",
-    "duration": "1 minuto",
+    "duration": "1 hora - 2 Rodadas.",
     "light": "Rosa",
+    "distance": "Curto",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,7 +27,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Conjunctivitis de forma não-verbal."
+            "description": "Você pode lançar Conjunctivitis de forma não-verbal. Nesta forma o afetado recebe 1d4 + Controle de dano."
         },
         {
             "level": 4,

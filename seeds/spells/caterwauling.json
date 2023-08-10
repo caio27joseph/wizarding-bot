@@ -1,14 +1,18 @@
 {
     "name": "Caterwauling",
-    "category": "Abjuração",
+    "category": [
+        "Abjuração"
+    ],
     "difficulty": "Difícil",
     "description": "Com o Caterwauling, você coloca um alarme mágico para detectar intrusos desavisados. Escolha uma porta, uma janela ou uma área que não seja maior que 6 metros cúbicos. Durante a duração do feitiço, um alarme é acionado sempre que uma criatura de porte miúdo ou maior tocar ou entrar na área protegida. Ao lançar o feitiço, você pode designar criaturas específicas que não acionarão o alarme. Quando ativado, um miado desafinado e agudo, que lembra um grito, será repetidamente emitido a partir da área encantada. O som do alarme é ouvido nitidamente por qualquer indivíduo em até 1 quilômetro de distância e persiste por 5 minutos ininterruptos ou até ser dissipado. ",
-    "updatedAt": "2023-08-06T20:47:38.484903",
+    "updatedAt": "2023-08-10T18:10:57.337072",
     "title": "Feitiço do Miado",
     "level": 2,
     "actionType": "Completa",
     "duration": "24 horas (D)",
     "requirements": "Abjuração 2",
+    "distance": "Curto",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,7 +27,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Caterwauling de forma não-verbal. Com a execução não-verbal, a área de proteção aumenta em até 500 metros."
+            "description": "Você pode lançar Caterwauling de forma não-verbal. Com a execução não-verbal, a área de proteção aumenta em até 500 metros. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
@@ -33,7 +37,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Caterwauling como um feitiço de \"Duração: Permanente\", tornando o alarme constante e duradouro. Entretanto, essa versão permanente exigirá mais poder e habilidade mágica para ser realizada."
+            "description": "Você pode lançar Caterwauling como um feitiço de \"Duração: Permanente\", tornando o alarme constante e duradouro. Entretanto, essa versão permanente exigirá mais poder e habilidade mágica para ser realizada. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "fade1a1a-ce03-4eed-9bc9-f4a406016239"

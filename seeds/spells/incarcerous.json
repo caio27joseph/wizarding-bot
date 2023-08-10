@@ -1,14 +1,19 @@
 {
     "name": "Incarcerous",
-    "category": "Necromancia",
+    "category": [
+        "Necromancia"
+    ],
     "difficulty": "Médio",
     "description": "Ao lançar Incarcerous, você conjura cordas ou correntes a partir da ponta da varinha, que são lançadas como projéteis em direção ao alvo. Uma vez atingido, o alvo tem todo o seu corpo amarrado pelas cordas invocadas, ficando Paralisado até conseguir se desvencilhar delas. ",
-    "updatedAt": "2023-08-06T20:47:38.797902",
+    "updatedAt": "2023-08-10T18:10:57.744080",
     "title": "Feitiço Incarcerous",
     "level": 2,
     "actionType": "Padrão",
     "duration": "Instantânea",
     "requirements": "Necromancia 2",
+    "distance": "Curto",
+    "resistence": "Salvaguarda Fisica Anula.",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -33,7 +38,7 @@
         {
             "level": 9,
             "name": "Mestre",
-            "description": "Você pode lançar Incarcerous Nerus (Maldição das Cordas Negras) como um feitiço de \"Maldição\" e \"Pré-Requisitos: Necromancia 3 e Afinidade 5 ou mais\". Nessa variação, as cordas de Incarcerous queimam intensamente a pele da vítima, causando 2d4 de dano automático a cada turno em que ela permanece em contato com o alvo. Incarcerous Nerus pode ser combinado com a variação Incarcerous ●●●●, causando 3d6 + 2d4 de dano automático e mantendo a paralisia."
+            "description": "Você pode lançar Incarcerous Nerus (Maldição das Cordas Negras) como um feitiço de \"Maldição\" e \"Pré-Requisitos: Necromancia 3 e Afinidade 5 ou mais\". Nessa variação, as cordas de Incarcerous queimam intensamente a pele da vítima, causando 2d4 de dano automático a cada turno em que ela permanece em contato com o alvo. Incarcerous Nerus pode ser combinado com a variação Incarcerous ●●●●, causando 3d6 + 2d4 de dano automático e mantendo a paralisia. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "51661ace-6e30-40ea-978b-b1323ce662fb"

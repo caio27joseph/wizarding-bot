@@ -1,13 +1,18 @@
 {
     "name": "Lacarnum inflamari",
-    "category": "Evocação",
-    "difficulty": "Difícil",
-    "description": "O feitiço Lacarnum Inflamari conjura uma chama que atinge um alvo ao alcance do toque ou adjacente. Essa chama se alastra como fogo normal, deixando o alvo em chamas e causando o efeito \"Queimando\". Essa magia é frequentemente utilizada para acender archotes, lamparinas ou incinerar pequenos objetos. ",
-    "updatedAt": "2023-08-06T18:58:05.170503",
+    "category": [
+        "Evocação"
+    ],
+    "difficulty": "Médio",
+    "description": "O feitiço Lacarnum Inflamari conjura uma chama que atinge um alvo ao alcance do toque ou adjacente. Essa chama se alastra como fogo normal, deixando o alvo em chamas e causando o efeito \"Queimando\" e Causando 2d4 + 2 de dano. Essa magia é frequentemente utilizada para acender archotes, lamparinas ou incinerar pequenos objetos. ",
+    "updatedAt": "2023-08-10T18:09:24.483450",
     "title": "Feitiço de Ignição",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
+    "distance": "Curto",
+    "resistence": "Salvaguarda Físico Reduz a metade.",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -22,7 +27,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Lacarnum Inflamari de forma não-verbal, tornando o processo de conjuração mais discreto e ágil."
+            "description": "Você pode lançar Lacarnum Inflamari de forma não-verbal, tornando o processo de conjuração mais discreto e ágil. Ganha +1d4 de dano."
         },
         {
             "level": 4,
@@ -32,7 +37,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Lacarnum Ignotus (Chamas de Combate) como um feitiço de \"Lampejo: Laranja\". Nessa variação, você conjura dois lampejos de chamas que são projetados contra dois alvos diferentes em uma única conjuração. Se o feitiço acertar um alvo, ele sofrerá 1d6 de dano de queimadura e ficará em chamas com o efeito \"Queimando\". Cada alvo não pode estar a mais de 5 metros de distância um do outro ou atrás/nas laterais do conjurador."
+            "description": "Você pode lançar Lacarnum Ignotus (Chamas de Combate) como um feitiço de \"Lampejo: Laranja\". Nessa variação, você conjura dois lampejos de chamas que são projetados contra dois alvos diferentes em uma única conjuração. Se o feitiço acertar um alvo, ele sofrerá 2d6 + 4 de dano de queimadura e ficará em chamas com o efeito \"Queimando\". Cada alvo não pode estar a mais de 5"
         }
     ],
     "identifier": "e3ae127b-7470-4450-9ecd-08e65c0c16f9"

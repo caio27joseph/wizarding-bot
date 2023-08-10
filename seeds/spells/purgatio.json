@@ -1,9 +1,11 @@
 {
     "name": "Purgatio",
-    "category": "Universal",
+    "category": [
+        "Universal"
+    ],
     "difficulty": "Fácil",
     "description": "Usado para limpar pessoas, objetos e lugares. Ao lançar o Feitiço de Limpeza, conhecido como Purgatio, o bruxo libera um lampejo mágico transparente que tem o poder de destruir e fazer desaparecer o pó e sujeiras simples presentes no alvo. Esse feitiço é especialmente utilizado para limpar pessoas, objetos e lugares de forma rápida e eficiente. ",
-    "updatedAt": "2023-08-06T18:58:05.247553",
+    "updatedAt": "2023-08-10T18:01:04.776245",
     "title": "Feitiço Limpeza",
     "level": 1,
     "actionType": "Padrão",

@@ -1,39 +1,41 @@
 {
-    "name": "Aguamenti",
-    "category": "Evocação",
-    "difficulty": "Fácil",
-    "description": "Ao lançar o Aguamenti, você é capaz de conjurar uma quantidade moderada de água potável dentro de um contêiner ou sobre uma superfície próxima. No entanto, esse feitiço não funciona para criar grandes corpos aquosos, como lagos ou rios. ",
-    "updatedAt": "2023-08-06T20:47:38.326903",
-    "title": "Feitiço de Criação de Água",
-    "level": 2,
-    "actionType": "Padrão",
-    "duration": "Instantânea",
-    "maestry": [
-        {
-            "level": 1,
-            "name": "Inicial",
-            "description": "Você pode lançar Aguamenti."
-        },
-        {
-            "level": 2,
-            "name": "Intermediário",
-            "description": "Você pode lançar Aguamenti de forma focada, aumentando a precisão e o controle sobre a quantidade de água criada."
-        },
-        {
-            "level": 3,
-            "name": "Avançado",
-            "description": "Você pode lançar Aguamenti como um feitiço de \"Duração: Concentração\". Nessa variação, você conjura um jato d'água a partir da ponta da varinha que pode ser usado para apagar incêndios. O jato de água causa 1d4 pontos de dano de contusão caso acerte uma criatura, tornando-o útil para defesa e combate."
-        },
-        {
-            "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Refilius (Feitiço do Refil). Essa variação especial permite que você encha um copo ou contêiner com uma bebida ou líquido que já estava presente, essencialmente multiplicando sua quantidade. No entanto, deve existir pelo menos uma gota restante do líquido no contêiner para que ele possa receber um refil."
-        },
-        {
-            "level": 5,
-            "name": "Mestre",
-            "description": "Você pode lançar Aguamenti de forma não-verbal, aprimorando ainda mais seu controle sobre a água que conjura. Com essa habilidade, você pode criar até 2.000 litros de água potável (aproximadamente o valor de uma caixa d'água doméstica) e distribuí-la entre vários contêineres na sua linha de visão ou sobre uma superfície próxima, facilitando o abastecimento de água em diversas situações. Além disso seu jato de água e mais potente causando 2d4+Sucessos de dano."
-        }
-    ],
-    "identifier": "b143eea8-7651-420a-8cab-7c221919c007"
+  "name": "Aguamenti",
+  "category": ["Evocação"],
+  "difficulty": "Fácil",
+  "description": "Ao lançar o Aguamenti, você é capaz de conjurar uma quantidade moderada de água potável dentro de um contêiner ou sobre uma superfície próxima. No entanto, esse feitiço não funciona para criar grandes corpos aquosos, como lagos ou rios. ",
+  "updatedAt": "2023-08-10T18:10:57.194072",
+  "title": "Feitiço de Criação de Água",
+  "level": 2,
+  "actionType": "Padrão",
+  "duration": "Instantânea",
+  "distance": "Médio",
+  "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+  "maestry": [
+    {
+      "level": 1,
+      "name": "Inicial",
+      "description": "Você pode lançar Aguamenti."
+    },
+    {
+      "level": 2,
+      "name": "Intermediário",
+      "description": "Você pode lançar Aguamenti de forma focada, aumentando a precisão e o controle sobre a quantidade de água criada."
+    },
+    {
+      "level": 3,
+      "name": "Avançado",
+      "description": "Você pode lançar Aguamenti como um feitiço de \"Duração: Concentração\". Nessa variação, você conjura um jato d'água a partir da ponta da varinha que pode ser usado para apagar incêndios. O jato de água causa 1d4 pontos de dano de contusão caso acerte uma criatura, tornando-o útil para defesa e combate."
+    },
+    {
+      "level": 4,
+      "name": "Especialista",
+      "description": "Você pode lançar Refilius (Feitiço do Refil). Essa variação especial permite que você encha um copo ou contêiner com uma bebida ou líquido que já estava presente, essencialmente multiplicando sua quantidade. No entanto, deve existir pelo menos uma gota restante do líquido no contêiner para que ele possa receber um refil."
+    },
+    {
+      "level": 5,
+      "name": "Mestre",
+      "description": "Você pode lançar Aguamenti de forma não-verbal, aprimorando ainda mais seu controle sobre a água que conjura. Com essa habilidade, você pode criar até 2.000 litros de água potável (aproximadamente o valor de uma caixa d'água doméstica) e distribuí-la entre vários contêineres na sua linha de visão ou sobre uma superfície próxima, facilitando o abastecimento de água em diversas situações. Além disso seu jato de água e mais potente causando 2d4+Evocação+Sucessos de dano."
+    }
+  ],
+  "identifier": "b143eea8-7651-420a-8cab-7c221919c007"
 }

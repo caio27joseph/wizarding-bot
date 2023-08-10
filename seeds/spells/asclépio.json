@@ -1,16 +1,18 @@
 {
     "name": "Asclépio",
-    "category": "Evocação",
-    "difficulty": "Fácil",
+    "category": [
+        "Evocação"
+    ],
+    "difficulty": "Médio",
     "description": "Ao conjurar o Asclépio, o bruxo consegue fazer com que pequenos ferimentos desapareçam instantaneamente, ajudando o paciente a recuperar-se mais rapidamente. O número de Pontos de Vitalidade (PVs) recuperados pelo alvo é determinado por 1d4 + Medibruxaria + o número de Sucessos obtidos no teste da magia. Para realizar o feitiço com eficácia, o alvo deve possuir metade de seus PVs ou mais. ",
-    "updatedAt": "2023-08-06T18:58:04.944942",
+    "updatedAt": "2023-08-10T18:01:57.521361",
     "title": "Feitiço da Cicatrização",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
-    "requirements": "Evocação  1 e Competência Medibruxo 1",
+    "requirements": "Evocação 1 e Competência Medibruxo 1",
     "distance": "Toque",
-    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -30,7 +32,7 @@
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Com o Asclépio na forma de \"Lampejo: Transparente\", você pode atingir alvos à distância, proporcionando cura àqueles que não podem ser tocados fisicamente. O Feitiço passa a ser de alcance curto."
+            "description": "Com o Asclépio na forma de \"Lampejo: Transparente\", você pode atingir alvos à distância, proporcionando cura àqueles que não podem ser tocados fisicamente."
         },
         {
             "level": 5,

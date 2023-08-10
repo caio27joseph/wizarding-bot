@@ -112,6 +112,14 @@ export class Spell implements DiscordEntityVieable {
   @Field({
     nullable: true,
   })
+  resistence: string;
+
+  @Column({
+    nullable: true,
+  })
+  @Field({
+    nullable: true,
+  })
   antiSpell?: string;
 
   @Column({
@@ -151,12 +159,12 @@ export class Spell implements DiscordEntityVieable {
   description: string;
 
   // Create the enum
-  @Column({
-    type: 'enum',
-    enum: SpellCategoryEnum,
+  @Field((type) => [SpellCategoryEnum])
+  @Column('text', {
+    array: true,
+    nullable: true,
   })
-  @Field((type) => SpellCategoryEnum)
-  category: SpellCategoryEnum;
+  category: SpellCategoryEnum[];
 
   @Column()
   updatedAt: Date;

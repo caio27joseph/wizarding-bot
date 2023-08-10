@@ -1,15 +1,19 @@
 {
     "name": "Rictusempra",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Fácil",
-    "description": "Faz com que o alvo sinta cócegas em todos os pontos vulneráveis de seu corpo pela duração do efeito. Em combate, a vítima deve fazer um teste de Vigor (dificuldade 6) e obter ao menos 2 Sucessos. Caso falhe, o alvo começará a rir e só poderá realizar uma ação padrão ou de movimento (não ambas) naquele turno. ",
-    "updatedAt": "2023-08-06T18:58:05.279846",
+    "description": "Faz com que o alvo sinta cócegas em todos os pontos vulneráveis de seu corpo pela duração do efeito. Em combate, a vítima deve fazer um teste de Salvaguarda Fisico e obter ao menos 4 Sucessos. Caso falhe, o alvo começará a rir e só poderá realizar uma ação padrão ou de movimento (não ambas) naquele turno. ",
+    "updatedAt": "2023-08-10T18:01:58.307762",
     "title": "Feitiço de Cócegas",
     "level": 1,
     "actionType": "Padrão",
-    "duration": "1 minuto",
+    "duration": "3 minuto",
     "light": "Vermelho",
     "requirements": "Encantamentos 1",
+    "distance": "Curto",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -24,7 +28,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Rictusempra de forma não-verbal, tornando mais difícil para o alvo resistir ao efeito, com uma dificuldade de teste de Vigor de 7."
+            "description": "Você pode lançar Rictusempra de forma não-verbal, tornando mais difícil para o alvo resistir ao efeito, com uma dificuldade de teste de Salvaguarda fisica de 7."
         },
         {
             "level": 4,
@@ -34,7 +38,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Rictusempra de forma silenciosa, o que permite lançar o feitiço sem a necessidade de proferir palavras em voz alta, tornando-o mais discreto e surpreendente para o alvo."
+            "description": "Você pode lançar Rictusempra de forma silenciosa, o que permite lançar o feitiço sem a necessidade de proferir palavras em voz alta, tornando-o mais discreto e surpreendente para o alvo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "33753c57-0075-4083-a448-2312de8e3a09"

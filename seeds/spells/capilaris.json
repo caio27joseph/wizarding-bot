@@ -1,16 +1,20 @@
 {
     "name": "Capilaris",
-    "category": "Transmutação",
+    "category": [
+        "Transmutação"
+    ],
     "difficulty": "Difícil",
-    "description": "Ao conjurar Carpe Retractum, você cria uma corda púrpura ou alaranjada feita de energia mágica que pode se agarrar a uma superfície, objeto ou criatura. Após agarrar um alvo, a corda exerce um efeito de \"tração\". Faça um teste disputado de Força contra o seu alvo; caso você vença, o alvo é rapidamente puxado em sua direção. Se você perder o teste, você será puxado em direção ao alvo. Enquanto se mantiver concentrado, você pode continuar pendurado e/ou puxando o alvo. ",
-    "updatedAt": "2023-08-06T20:47:38.463903",
+    "description": "O Feitiço Capilaris permite controlar e acelerar o crescimento dos cabelos de um bruxo de forma direcionada e temporária. Ao executar o Feitiço Capilaris, você assume o comando sobre o crescimento dos cabelos, podendo determinar o comprimento desejado de forma precisa e controlada. Os fios se alongam gradualmente, obedecendo ao seu desejo. Uma suave tonalidade amarela envolve o alvo durante a aplicação do feitiço, indicando a transformação em andamento. ",
+    "updatedAt": "2023-08-10T18:10:57.317072",
     "title": "Azaração que faz o cabelo crescer.",
     "level": 2,
     "actionType": "Padrão",
     "duration": "30 minutos",
     "light": "Amarelo",
     "antiSpell": "Calvorio.",
+    "distance": "Curto",
     "requirements": "Transmutação 2",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -25,7 +29,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Capilaris como um feitiço de \"Duração: Instantânea\". Nessa variação, o cabelo cresce rapidamente até o comprimento desejado."
+            "description": "Você pode lançar Capilaris como um feitiço de \"Duração: Instantânea\". Nessa variação, o cabelo cresce rapidamente até o comprimento desejado. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
@@ -35,7 +39,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Capilaris Collore, que além de fazer o cabelo crescer, também permite alterar a cor dos pelos, cabelos ou qualquer outra parte do corpo para a cor ou forma desejada. Esse efeito de mudança de cor é temporário e dura a mesma duração do feitiço original."
+            "description": "Você pode lançar Capilaris Collore, que além de fazer o cabelo crescer, também permite alterar a cor dos pelos, cabelos ou qualquer outra parte do corpo para a cor ou forma desejada. Esse efeito de mudança de cor é temporário e dura a mesma duração do feitiço original. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "c75c3a6b-70bd-45f7-8bb7-e7c3947ace21"

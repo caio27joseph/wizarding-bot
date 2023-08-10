@@ -1,13 +1,17 @@
 {
     "name": "Carpe retractum",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Fácil",
     "description": "Conjura uma corda púrpura ou alaranjada feita de energia mágica que se agarra a uma superfície, objeto ou criatura. Após agarrar um alvo, a corda irá criar um efeito de \"tração\". Faça um teste disputado de Força contra seu alvo; caso você vença, o alvo é rapidamente puxado para sua direção. Caso você perca, em vez disso você é lançado na direção do alvo. Você pode continuar pendurado e/ou puxando desde que consiga se manter concentrado. ",
-    "updatedAt": "2023-08-06T20:47:38.473902",
+    "updatedAt": "2023-08-10T18:10:57.327072",
     "title": "Feitiço de Agarrar e Puxar",
     "level": 2,
     "actionType": "Padrão",
     "duration": "Concentração",
+    "distance": "Médio",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -22,7 +26,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode escolher receber um bônus de -1 na dificuldade do teste de Força para puxar o seu alvo."
+            "description": "Você pode escolher receber um bônus de -1 na dificuldade do teste de Força para puxar o seu alvo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
@@ -32,7 +36,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode escolher receber um bônus de -2 na dificuldade do teste de Força para puxar o seu alvo, tornando o feitiço ainda mais eficaz em agarrar e puxar objetos e criaturas."
+            "description": "Você pode escolher receber um bônus de -2 na dificuldade do teste de Força para puxar o seu alvo, tornando o feitiço ainda mais eficaz em agarrar e puxar objetos e criaturas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "16aa045b-1de5-4a04-af9e-a5e75e53076a"

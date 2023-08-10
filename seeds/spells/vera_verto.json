@@ -1,13 +1,17 @@
 {
     "name": "Vera verto",
-    "category": "Transmutação",
+    "category": [
+        "Transmutação"
+    ],
     "difficulty": "Médio",
     "description": "Ao executar o feitiço Vera Verto, você toca três vezes com a ponta da varinha no alvo, realizando a transfiguração de um animal de porte Pequeno (ou menor) em um objeto de massa similar. Os animais Pequenos incluem aves, serpentes, ratos, morcegos, corujas, gatos, entre outros. É importante notar que esse feitiço é considerado uma Transformação, o que implica em alterações permanentes e irreversíveis. ",
-    "updatedAt": "2023-08-06T18:58:05.326845",
+    "updatedAt": "2023-08-10T18:01:58.397762",
     "title": "Transformação de Animal em Objeto",
     "level": 1,
     "actionType": "Completa",
     "duration": "Permanente",
+    "distance": "Toque",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -32,7 +36,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Vera Verto de forma não-verbal. Quando conjura Vera Verto em sua forma não-verbal, você pode transformar qualquer animal em qualquer objeto, independentemente da massa ser ou não similar. Essa habilidade avançada amplia ainda mais as possibilidades e os resultados das transfigurações. No entanto, é preciso ter cautela ao usar essa forma, pois mudanças radicais podem ter consequências imprevisíveis."
+            "description": "Você pode lançar Vera Verto de forma não-verbal. Quando conjura Vera Verto em sua forma não-verbal, você pode transformar qualquer animal em qualquer objeto, independentemente da massa ser ou não similar. Essa habilidade avançada amplia ainda mais as possibilidades e os resultados das transfigurações. No entanto, é preciso ter cautela ao usar essa forma, pois mudanças radicais podem ter consequências imprevisíveis. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "c3337c45-f727-4222-9785-9a5d1803cb37"

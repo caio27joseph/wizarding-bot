@@ -1,15 +1,22 @@
 {
     "name": "Densaugeo",
-    "category": "Transmutação",
+    "category": [
+        "Transmutação",
+        "Necromancia"
+    ],
     "difficulty": "Médio",
     "description": "Densaugeo é um feitiço que afeta os dentes dianteiros do alvo, fazendo com que eles cresçam exponencialmente até atingirem até 50 cm. Embora não imponha penalidades à criatura afetada, o feitiço causa um grande desconforto e pontadas de dor. ",
-    "updatedAt": "2023-08-06T18:58:05.017752",
+    "updatedAt": "2023-08-10T18:09:24.163289",
     "title": "Azaração do Dente que Cresce",
     "level": 1,
     "actionType": "Padrão",
-    "duration": "6 horas",
+    "duration": "2 horas - 4 rodadas",
     "light": "Rosa",
-    "requirements": "Necromancia 2, Transfigurações 1",
+    "distance": "Curto",
+    "antiSpell": "Densrefugit",
+    "resistence": "Salvaguarda Físico Anula",
+    "requirements": "Necromancia 2 e Transfigurações 1",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -29,12 +36,12 @@
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Agora você pode lançar Densaugeo como um feitiço de \"Maldição\", tornando-o permanente. Essa versão não pode ser desfeita por Finite Incantatem ou outros meios convencionais de dissipar maldições."
+            "description": "Agora você pode lançar Densaugeo como um feitiço de \"Maldição\", tornando-o permanente. Essa versão não pode ser desfeita por Finite Incantatem ou outros meios convencionais de dissipar maldições. (pode ser defeita com poções, rituais ou runas."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre de Densaugeo, ao lançar a azaração de forma silenciosa, você pode executá-la sem fazer nenhum som."
+            "description": "Como mestre de Densaugeo, ao lançar a azaração de forma silenciosa, você pode executá-la sem fazer nenhum som.| Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "a9c8bf09-df4a-42ff-b113-deeee3378c20"

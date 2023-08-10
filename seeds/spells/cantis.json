@@ -1,14 +1,20 @@
 {
     "name": "Cantis",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Fácil",
     "description": "Ao lançar a Cantis, você faz com que o alvo comece a cantar de forma descontrolada. Mesmo que a criatura seja habilidosa em música, ela não terá controle sobre sua performance e será compelida a cantar em uma situação humilhante. Durante a duração da azaração, o alvo não conseguirá parar de cantar, e todas as tentativas de interromper a melodia serão em vão. ",
-    "updatedAt": "2023-08-06T18:58:04.975889",
+    "updatedAt": "2023-08-10T18:09:24.065291",
     "title": "Azaração do Canto Descontrolado",
     "level": 1,
     "actionType": "Padrão",
-    "duration": "1 hora",
+    "duration": "2 hora | 4 Rodadas",
     "light": "Branco",
+    "distance": "Curto",
+    "resistence": "Salvaguarda Mental Anula",
+    "antiSpell": "Angularis",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -28,12 +34,12 @@
         {
             "level": 4,
             "name": "Especialista",
-            "description": "A Cantis pode ser aprimorada para ter uma duração mais longa de 6 horas, prolongando o período de afetação do alvo."
+            "description": "A Cantis pode ser aprimorada para ter uma duração mais longa de 6 horas - 12 Rodadas, prolongando o período de afetação do alvo."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre da Cantis, você pode lançá-la de forma silenciosa, sem fazer qualquer som ou gesto que denuncie o feitiço. Essa habilidade avançada torna o lançamento da Cantis ainda mais sutil e surpreendente para o alvo."
+            "description": "Como mestre da Cantis, você pode lançá-la de forma silenciosa, sem fazer qualquer som ou gesto que denuncie o feitiço. Essa habilidade avançada torna o lançamento da Cantis ainda mais sutil e surpreendente para o alvo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "f4ca4756-5249-4074-8d7d-01cba3abc3fb"

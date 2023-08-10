@@ -1,14 +1,17 @@
 {
     "name": "Lumos",
-    "category": "Evocação",
+    "category": [
+        "Evocação"
+    ],
     "difficulty": "Fácil",
-    "description": "O Feitiço de Iluminação da Varinha, conhecido como Lumos, encanta a varinha do bruxo para emitir uma luz radial de sua ponta, funcionando como uma lanterna. A luz permanece acesa enquanto o bruxo estiver consciente e segurando a varinha. No entanto, se o bruxo ficar inconsciente, a luz se apaga automaticamente. Esse feitiço é muito útil em situações de escuridão, ajudando a iluminar o caminho e revelar áreas obscuras.  Além disso, seres etéreos, como fantasmas e gytrashes, precisam fazer um teste de Coragem (dificuldade 5) ou serão repelidos pela luz do Lumos. Esse efeito não afeta não-seres. ",
-    "updatedAt": "2023-08-06T18:58:05.185501",
+    "description": "O Feitiço de Iluminação da Varinha, conhecido como Lumos, encanta a varinha do bruxo para emitir uma luz radial de sua ponta, funcionando como uma lanterna. A luz permanece acesa enquanto o bruxo estiver consciente e segurando a varinha. No entanto, se o bruxo ficar inconsciente, a luz se apaga automaticamente. Esse feitiço é muito útil em situações de escuridão, ajudando a iluminar o caminho e revelar áreas obscuras.  Além disso, seres etéreos, como fantasmas e gytrashes, precisam fazer um teste de Coragem (dificuldade 6 Sucessos) ou serão repelidos pela luz do Lumos. Esse efeito não afeta não-seres. ",
+    "updatedAt": "2023-08-10T18:01:58.079361",
     "title": "Feitiço de Iluminação da Varinha",
     "level": 1,
     "actionType": "Livre",
     "duration": "Permanente",
     "antiSpell": "Nox",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -33,7 +36,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Lumos Maxima (Feitiço de Criação de Luz) como um feitiço de \"Execução: Ação padrão\". Nessa variação, a luz emitida de sua varinha ou orbe é forte o suficiente para iluminar uma grande caverna ou salão. Assim como em Lumos Solem, seres etéreos e/ou plantas sensíveis à luz precisam ser bem-sucedidos em um teste de Coragem (dificuldade 8) ou serão repelidos pela luz do Lumos. O feitiço não afeta não-seres."
+            "description": "Você pode lançar Lumos Maxima (Feitiço de Criação de Luz) como um feitiço de \"Execução: Ação padrão\". Nessa variação, a luz emitida de sua varinha ou orbe é forte o suficiente para iluminar uma grande caverna ou salão. Assim como em Lumos Solem, seres etéreos e/ou plantas sensíveis à luz precisam ser bem-sucedidos em um teste de Coragem (dificuldade 8) ou serão repelidos pela luz do Lumos. O feitiço não afeta não-seres. Causa 2 + Evocação de dano a cada 2 rodadas nestas criaturas caso não se afastem ou fiquem no ambiente iluminado."
         }
     ],
     "identifier": "3284fd1b-aa94-4ed6-a898-b13685dfb317"

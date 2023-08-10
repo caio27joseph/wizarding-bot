@@ -48,8 +48,8 @@ export class CreateSpellInput {
   @Field()
   description: string;
 
-  @Field((type) => SpellCategoryEnum)
-  category: SpellCategoryEnum;
+  @Field((type) => [SpellCategoryEnum])
+  category: SpellCategoryEnum[];
   updatedAt: Date;
 
   @Field(() => [Maestry])

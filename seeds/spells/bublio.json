@@ -1,13 +1,17 @@
 {
     "name": "Bublio",
-    "category": "Evocação",
+    "category": [
+        "Evocação"
+    ],
     "difficulty": "Fácil",
-    "description": "Ao lançar o Bublio, você conjura pequenas bolhas translúcidas que saem da ponta da sua varinha. Essas bolhas podem ter diversos usos: decoração, diversão ou até mesmo para prender criaturas miúdas. Caso sejam usadas para decoração, as bolhas permanecem indefinidamente até serem intencionalmente estouradas. Por outro lado, caso sejam utilizadas para prender uma criatura miúda, a bolha durará até 1 hora. Criaturas miúdas com 16cm ou mais podem facilmente estourar a bolha através de suas armas naturais, enquanto pequenas criaturas e insetos com 15cm ou menos ficam paralisados caso sejam capturados. ",
-    "updatedAt": "2023-08-06T18:58:04.970888",
+    "description": "Ao lançar o Bublio, você conjura pequenas bolhas translúcidas que saem da ponta da sua varinha. Essas bolhas podem ter diversos usos: decoração, diversão ou até mesmo para prender criaturas miúdas. Caso sejam usadas para decoração, as bolhas permanecem indefinidamente até serem intencionalmente estouradas. Por outro lado, caso sejam utilizadas para prender uma criatura miúda, a bolha durará até 1 hora. Criaturas miúdas com 16cm ou mais podem facilmente estourar a bolha através de suas armas naturais, enquanto pequenas criaturas e insetos com 20cm ou menos ficam paralisados caso sejam capturados. ",
+    "updatedAt": "2023-08-10T18:01:57.562361",
     "title": "Feitiço da Bolha",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Permanente; até 1 hora (D)",
+    "distance": "Curto",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -27,12 +31,12 @@
         {
             "level": 4,
             "name": "Especialista",
-            "description": "O Ebublio é uma variação poderosa do Bublio, que permite criar uma bolha ao redor de um alvo atingido, deixando-o paralisado. Essa bolha não pode ser estourada por dentro, mas se receber 5 ou mais pontos de dano, ela se desfaz."
+            "description": "O Ebublio é uma variação poderosa do Bublio, que permite criar uma bolha ao redor de um alvo atingido, deixando-o paralisado. Essa bolha não pode ser estourada por dentro, mas se receber 10 ou mais pontos de dano, ela se desfaz. - Duração 1d4+2 Rodadas."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre do Bublio, você tem controle total sobre o tamanho da bolha, podendo criar uma esfera do tamanho de um pequeno cômodo. Essa bolha flutua a até 5 metros do chão e pode acomodar até três pessoas sem perder altitude. Você pode direcionar a bolha para qualquer direção, desde que não ultrapasse sua altitude máxima. Porém, ela flutua lentamente, como uma bolha gigante, e estoura se receber 5 ou mais pontos de dano de qualquer fonte."
+            "description": "Como mestre do Bublio, você tem controle total sobre o tamanho da bolha, podendo criar uma esfera do tamanho de um pequeno cômodo. Essa bolha flutua a até 9 metros do chão e pode acomodar até três pessoas sem perder altitude. Você pode direcionar a bolha para qualquer direção, desde que não ultrapasse sua altitude máxima. Porém, ela flutua lentamente, como uma bolha gigante, e estoura se receber 15 ou mais pontos de dano de qualquer fonte. - Duração 1d4+2 Rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "5883e3ea-cd94-4dd7-97d8-c8306e94a832"

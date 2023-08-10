@@ -1,16 +1,20 @@
 {
     "name": "Bombarda",
-    "category": "Evocação",
+    "category": [
+        "Evocação"
+    ],
     "difficulty": "Muito Difícil",
-    "description": "Ao conjurar Bombarda, uma explosão é projetada no alvo, podendo quebrar trancas, janelas e portas. Esse feitiço causa 5d6 de dano em objetos inanimados, construtos e estruturas, mas apenas 2d6 de dano caso utilizado em seres vivos. ",
-    "updatedAt": "2023-08-06T20:47:38.430903",
+    "description": "Ao conjurar Bombarda, uma explosão é projetada no alvo, podendo quebrar trancas, janelas e portas. Esse feitiço causa 5d6 + Evocação de dano em objetos inanimados, construtos e estruturas, mas apenas 2d6 + Evocação de dano caso utilizado em seres vivos. ",
+    "updatedAt": "2023-08-10T18:10:57.288072",
     "title": "Feitiço de Explosão",
     "level": 2,
     "actionType": "Padrão",
     "distance": "Curto.",
     "duration": "Instantânea",
     "light": "Branco",
-    "requirements": "Evocação 2 universal 2",
+    "resistence": "Salvaguarda Físico Reduz para Metade.",
+    "requirements": "Evocação 3.",
+    "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -25,17 +29,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Expulso (Maldição Expulso) como um feitiço de \"Maldição\" e \"Lampejo: Azul\". Nessa variação, o feitiço causa 3d6 de dano em criaturas. Se a conjuração causar 9 ou mais de dano em um único ataque, o alvo ficará sob efeito da condição Agonizando, que permanecerá até ser tratada ou por 1 minuto."
+            "description": "Você pode lançar Expulso (Maldição Expulso) como um feitiço de \"Maldição\" e \"Lampejo: Azul\". Nessa variação, o feitiço causa 3d6 + Controle de dano em criaturas. Se a conjuração causar 12 ou mais de dano em um único ataque, o alvo ficará sob efeito da condição Agonizando, que permanecerá até ser tratada ou por 4 rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Bombarda de forma não-verbal, tornando a execução do feitiço mais rápida e discreta."
+            "description": "Você pode lançar Bombarda de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Bombarda Maxima (Feitiço da Grande Explosão) como um feitiço de \"Execução: Ação completa\". Nessa variação, quando o lampejo entra em contato com uma superfície, ocorre uma explosão com um raio de 4,5 metros e um diâmetro de 9 metros. Criaturas, objetos e estruturas no ponto de impacto recebem 8d6 de dano. Esse dado é reduzido para 4d6 em alvos adjacentes ao ponto de impacto e para 2d6 na borda do raio. Após utilizar Bombarda Maxima, o conjurador fica Fatigado até o fim da cena. Esse feitiço é capaz de abrir buracos significativos em paredes de pedra e madeira, bem como comprometer estruturas inteiras. No entanto, metal reforçado é capaz de resistir aos efeitos deste feitiço."
+            "description": "Você pode lançar Bombarda Maxima (Feitiço da Grande Explosão) como um feitiço de \"Execução: Ação completa\". Nessa variação, quando o lampejo entra em contato com uma superfície, ocorre uma explosão com um raio de 5 metros e um diâmetro de 9 metros. Criaturas, objetos e estruturas no ponto de impacto recebem 8d6 de dano. Esse dado é reduzido para 4d6 em alvos adjacentes ao ponto de impacto e para 2d6 + Controle na borda do raio. Após utilizar Bombarda Maxima, o conjurador fica Fatigado até o fim da cena. Esse feitiço é capaz de abrir buracos significativos em paredes de pedra e madeira, bem como comprometer estruturas inteiras. No entanto, metal reforçado é capaz de resistir aos efeitos deste feitiço. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "077e7884-e0b0-4ec2-8938-f95ffd1846f6"

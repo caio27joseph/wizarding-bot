@@ -1,14 +1,19 @@
 {
     "name": "Locomotor wibbly",
-    "category": "Universal",
+    "category": [
+        "Universal"
+    ],
     "difficulty": "Médio",
     "description": "Faz com que as pernas da vítima colapsem, como se tivessem se transformado em geleia. O alvo fica Lento pela duração do feitiço, o que dificulta seus movimentos e ações. Toda vez que a vítima tentar se mover, incluindo realizar Aparatação, ela deve ser bem-sucedida em um teste de Destreza, obtendo no mínimo 3 Sucessos. Caso falhe nesse teste, a vítima fica Caída, incapaz de se movimentar adequadamente. ",
-    "updatedAt": "2023-08-06T18:58:05.180503",
+    "updatedAt": "2023-08-10T18:09:24.501103",
     "title": "Azaração das Pernas Bambas",
     "level": 1,
     "actionType": "Padrão",
     "duration": "2 rodadas",
     "light": "Transparente",
+    "distance": "Curto",
+    "resistence": "Salvaguarda Físico Anula.",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,17 +28,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Locomotor Wibbly de forma não-verbal, como um feitiço de \"Duração: 3 rodadas\". Nessa variação, além do efeito de tornar o alvo lento, o feitiço também causa 1d6 de dano quando acerta."
+            "description": "Você pode lançar Locomotor Wibbly de forma não-verbal, como um feitiço de \"Duração: 4 rodadas\". Nessa variação, além do efeito de tornar o alvo lento, o feitiço também causa 1d6 + 2 + Sucessos de dano quando acerta."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Locomotor Wibbly como um feitiço de \"Necromancia\" e \"Duração: Permanente\". Essa variação não pode ser desfeita por Finite Incantatem, tornando seus efeitos duradouros e mais difíceis de serem revertidos."
+            "description": "Você pode lançar Locomotor Wibbly como um feitiço de \"Necromancia\" e \"Duração: Permanente\". Essa variação não pode ser desfeita por Finite Incantatem, tornando seus efeitos duradouros e mais difíceis de serem revertidos. (So pode ser desfeita por poção)"
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Locomotor Wibbly de forma silenciosa, realizando a conjuração sem a necessidade de pronunciar palavras em voz alta."
+            "description": "Você pode lançar Locomotor Wibbly de forma silenciosa, realizando a conjuração sem a necessidade de pronunciar palavras em voz alta. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "cec58888-f2d5-475a-97ae-d03ed86d25f2"

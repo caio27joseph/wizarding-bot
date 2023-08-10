@@ -1,13 +1,17 @@
 {
     "name": "Impervius",
-    "category": "Encantamento",
+    "category": [
+        "Encantamento"
+    ],
     "difficulty": "Médio",
     "description": "O feitiço Impervius cria uma proteção mágica que torna um objeto repelente a líquidos e névoa. Esse encantamento pode ser aplicado, por exemplo, em óculos para melhorar a visibilidade em climas densos, ou em peças de roupa para impedir que fiquem molhadas. É uma magia amplamente utilizada por jogadores de quadribol em dias chuvosos, garantindo que a chuva não atrapalhe o desempenho durante a partida. ",
-    "updatedAt": "2023-08-06T18:58:05.166502",
+    "updatedAt": "2023-08-10T18:01:58.029361",
     "title": "Feitiço de Impermeabilidade",
     "level": 1,
     "actionType": "Padrão",
+    "distance": "Curto",
     "duration": "3 horas",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -27,12 +31,12 @@
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Impervius Maxima (Feitiço Impertubável). Nessa variação, ao lançar o feitiço como uma ação completa e com duração permanente, você cria uma barreira invisível ao redor de um objeto, como uma porta. Qualquer coisa que tente tocar o objeto encantado é repelida ou empurrada para trás, e nenhum som é capaz de atravessar essa barreira."
+            "description": "Você pode lançar Impervius Maxima (Feitiço Impertubável). Nessa variação, ao lançar o feitiço como uma ação completa e com duração permanente, você cria uma barreira invisível ao redor de um objeto, como uma porta. Qualquer coisa que tente tocar o objeto encantado é repelida ou empurrada para trás, e nenhum som é capaz de atravessar essa barreira. Nesta variação nenhum tipo de liquito consegue tocar o alvo."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Impervius Totalum (Feitiço da Barreira Impermeável). Nessa variação, também como uma ação completa e com duração permanente, você pode estender a proteção para cobrir um cômodo, um edifício ou uma grande área de até 500m². A barreira invisível criada é capaz de repelir chuvas, tempestades, nevascas e ventanias."
+            "description": "Você pode lançar Impervius Totalum (Feitiço da Barreira Impermeável). Nessa variação, também como uma ação completa e com duração permanente, você pode estender a proteção para cobrir um cômodo, um edifício ou uma grande área de até 500m². A barreira invisível criada é capaz de repelir chuvas, tempestades, nevascas e ventanias. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "49e7c81f-8b95-449f-a001-e99829d328d2"

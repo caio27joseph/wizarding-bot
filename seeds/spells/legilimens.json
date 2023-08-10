@@ -1,9 +1,11 @@
 {
     "name": "Legilimens",
-    "category": "Adivinhação",
+    "category": [
+        "Adivinhação"
+    ],
     "difficulty": "Muito Difícil",
     "description": "Ao lançar Legilimens, o conjurador é capaz de ler os pensamentos superficiais do alvo, ou seja, as coisas que ele está pensando ou sentindo naquele exato momento. O bruxo que usa esse feitiço é capaz de enxergar os pensamentos em forma de visões, que se manifestam como \"flashes\" nítidos em sua mente. Essa forma de invasão mental é sutil e não provoca nenhuma sensação no alvo. ",
-    "updatedAt": "2023-08-06T20:47:38.812905",
+    "updatedAt": "2023-08-10T18:10:57.785075",
     "title": "Feitiço Legilimente",
     "level": 2,
     "actionType": "Padrão",
@@ -11,6 +13,9 @@
     "light": "Transparente psicodélico",
     "antiSpell": "Protego",
     "requirements": "Legilimência 1",
+    "distance": "Curto",
+    "resistence": "Salvaguarda Mental Anula.",
+    "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -25,17 +30,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você aprende a navegar através das camadas da mente. A cada turno em que se mantém concentrado, você pode fazer um teste de Força de Vontade resistido contra a FdV do alvo e forçá-lo a mostrar uma memória relacionada ao que você deseja, caso seja bem-sucedido. Quanto mais Sucessos você obtiver a mais que o seu oponente, mais nítida será a memória do evento a ser vasculhado. Por exemplo, com uma diferença de 1 Sucesso, você seria capaz de enxergar rápidos flashes do momento em que Anna cometeu um assassinato. Com 3 Sucessos, você veria toda a briga que ocorreu antes de Anna empunhar sua varinha e lançar Avada Kedavra, e entenderia que foi um ato impulsivo em vez de completamente calculado. Utilizar Legilimens dessa forma força o alvo a vivenciar as mesmas memórias que você, portanto, é facilmente detectável (e muito desconfortável para a vítima)."
+            "description": "Você aprende a navegar através das camadas da mente. A cada turno em que se mantém concentrado, você pode fazer um teste de Força de Vontade resistido contra a FdV do alvo e forçá-lo a mostrar uma memória relacionada ao que você deseja, caso seja bem-sucedido. Quanto mais Sucessos você obtiver a mais que o seu oponente, mais nítida será a memória do evento a ser vasculhado. Por exemplo, com uma diferença de 1 Sucesso, você seria capaz de enxergar rápidos flashes do momento em que Anna cometeu um assassinato. Com 3 Sucessos, você veria toda a briga que ocorreu antes de Anna empunhar sua varinha e lançar Avada Kedavra, e entenderia que foi um ato impulsivo em vez de completamente calculado. Utilizar Legilimens dessa forma força o alvo a vivenciar as mesmas memórias que você, portanto, é facilmente detectável (e muito desconfortável para a vítima). | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Legilimens de forma não-verbal."
+            "description": "Você pode lançar Legilimens de forma não-verbal. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você aprende a manipular as imagens e sons que seu alvo vivencia quando ele está sob esse feitiço. Você pode se inserir em certas memórias durante uma invasão ou projetar seus pensamentos na cabeça de sua vítima. Essa habilidade permite que você se comunique mentalmente com seu alvo e também que implante imagens particularmente perturbadoras, que não serão facilmente esquecidas. Com uma ação livre, você pode deixar o alvo Abalado pelo restante da cena após afetá-lo com Legilimens."
+            "description": "Você aprende a manipular as imagens e sons que seu alvo vivencia quando ele está sob esse feitiço. Você pode se inserir em certas memórias durante uma invasão ou projetar seus pensamentos na cabeça de sua vítima. Essa habilidade permite que você se comunique mentalmente com seu alvo e também que implante imagens particularmente perturbadoras, que não serão facilmente esquecidas. Com uma ação livre, você pode deixar o alvo Abalado pelo restante da cena após afetá-lo com Legilimens. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "170325fa-7d68-489d-baee-d5edc245ea31"

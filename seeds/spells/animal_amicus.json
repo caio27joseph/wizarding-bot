@@ -1,9 +1,11 @@
 {
     "name": "Animal amicus",
-    "category": "Adivinhação",
+    "category": [
+        "Adivinhação"
+    ],
     "difficulty": "Muito Difícil",
     "description": "Este feitiço permite que você convença uma fera de que não quer fazer nenhum mal. Escolha uma besta que esteja dentro do alcance do feitiço, que possa ver e ouvir você. Se a consciência da besta for 4 ou superior, o feitiço falha. Caso contrário, a besta deve ser bem-sucedida em um teste de Força de Vontade ou ficará enfeitiçada por você pela duração do feitiço, que é de 2 rodadas. Durante esse período, a criatura se torna prestativa e disposta a ajudá-lo. ",
-    "updatedAt": "2023-08-06T18:58:04.919943",
+    "updatedAt": "2023-08-10T18:01:04.393225",
     "title": "Feitiço da Amizade com animais.",
     "level": 1,
     "actionType": "Padrão",

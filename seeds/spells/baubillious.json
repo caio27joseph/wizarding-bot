@@ -1,9 +1,11 @@
 {
     "name": "Baubillious",
-    "category": "Evocação",
+    "category": [
+        "Evocação"
+    ],
     "difficulty": "Médio",
     "description": "Ao lançar o Baubillious, você dispara um jato brilhante de luz branca da sua varinha. Essa luz viaja em linha reta e, ao atingir a distância de 100 metros ou mais, se transforma em faíscas da mesma cor. Caso atinja uma criatura durante seu trajeto, o Baubillious causa dano de queimadura equivalente a 1d4 + Força + o número de Sucessos obtidos no teste da magia. É importante ressaltar que o feitiço não é bloqueado por outros feitiços que protejam contra lampejos, mas é afetado por esse tipo de proteção. ",
-    "updatedAt": "2023-08-06T18:58:04.958943",
+    "updatedAt": "2023-08-10T18:01:57.537361",
     "title": "Faíscas Brancas",
     "level": 1,
     "actionType": "Padrão",
@@ -35,7 +37,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre do Baubillious, você tem acesso a mais variações de cores para as faíscas. Agora, você pode conjurar faíscas Pretas (Nigreomillious), Violetas (Purpuramillious), Laranjas (Orangemillious), Rosadas (Pinkimillious), Cianas (Ciamillious), Turquesas (Carbunculumillious) e Olivas (Olivaemillious), tornando seu repertório ainda mais impressionante e versátil."
+            "description": "Como mestre do Baubillious, você tem acesso a mais variações de cores para as faíscas. Agora, você pode conjurar faíscas Pretas (Nigreomillious), Violetas (Purpuramillious), Laranjas (Orangemillious), Rosadas (Pinkimillious), Cianas (Ciamillious), Turquesas (Carbunculumillious) e Olivas (Olivaemillious), tornando seu repertório ainda mais impressionante e versátil. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "76069bfa-061e-48f5-aaee-5e9cda0c4d8f"

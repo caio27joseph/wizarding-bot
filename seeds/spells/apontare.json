@@ -1,15 +1,17 @@
 {
     "name": "Apontare",
-    "category": "Adivinhação",
+    "category": [
+        "Adivinhação"
+    ],
     "difficulty": "Fácil",
     "description": "O efeito principal do Apontare é permitir que o bruxo descubra a direção do norte magnético, o que pode ser especialmente útil em situações de exploração ou quando ele precisa se orientar em ambientes desconhecidos. Além disso, o feitiço possui variações que o tornam ainda mais versátil. ",
-    "updatedAt": "2023-08-06T18:58:04.933942",
+    "updatedAt": "2023-08-10T18:01:57.484364",
     "title": "Feitiço dos Quatro Pontos",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
     "requirements": "Encantamentos 1",
-    "distance": "Médio",
+    "distance": "Ilimitado",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {

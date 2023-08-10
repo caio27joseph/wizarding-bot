@@ -1,14 +1,18 @@
 {
     "name": "Reflectus petrify",
-    "category": "Abjuração",
+    "category": [
+        "Abjuração"
+    ],
     "difficulty": "Difícil",
     "description": "Projeta um escudo invisível na frente do conjurador que anula qualquer quantidade de lampejos provenientes de um Petrificus Totalus. O escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 3 a sua rolagem de Reflectus Petrify. ",
-    "updatedAt": "2023-08-06T18:58:05.251845",
+    "updatedAt": "2023-08-10T18:01:58.249761",
     "title": "Feitiço Anti-Paralisia",
     "level": 1,
     "actionType": "Reação",
     "duration": "Instantânea",
+    "distance": "Curto",
     "requirements": "Abjuração 1",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -23,7 +27,7 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "O seu escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 5 a sua rolagem de Reflectus Petrify, oferecendo uma defesa ainda mais sólida."
+            "description": "O seu escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 5 a sua rolagem de Reflectus Petrify, oferecendo uma defesa ainda mais sólida. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
@@ -33,7 +37,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "O seu Reflectus Petrify é extremamente poderoso e quase impenetrável por um Petrificus Totalus adversário, a menos que você tire uma Falha ou Falha Crítica na jogada de defesa, garantindo a sua segurança contra a paralisia indesejada."
+            "description": "O seu Reflectus Petrify é extremamente poderoso e quase impenetrável por um Petrificus Totalus adversário, a menos que você tire uma Falha ou Falha Crítica na jogada de defesa, garantindo a sua segurança contra a paralisia indesejada. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "d7ca8abf-c4f5-48cb-873a-c8dd7fded2e2"
