@@ -9,6 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Player } from '~/core/player/entities/player.entity';
+import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
 
 export enum AttributeNameEnum {
@@ -22,6 +23,9 @@ export enum AttributeNameEnum {
   DETERMINATION = 'Determinação',
   RATIONALITY = 'Raciocínio',
 }
+export const attributeChoices = Object.keys(AttributeNameEnum).map(
+  (competence) => enumToChoice(competence as any, AttributeNameEnum),
+);
 
 @Entity()
 export class Attributes implements DiscordEntityVieable {

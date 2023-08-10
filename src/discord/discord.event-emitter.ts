@@ -199,9 +199,11 @@ export class DiscordEventEmitter implements OnModuleInit {
             if (param.options?.choices) {
               const choices: APIApplicationCommandOptionChoice<number>[] = [];
               for (const choice of param.options.choices) {
+                const name = choice?.name || choice.toString();
+                const value = choice?.value?.toString() || choice;
                 choices.push({
-                  name: choice.toString(),
-                  value: choice,
+                  name,
+                  value,
                 });
               }
               option.setChoices(...choices);
@@ -223,13 +225,16 @@ export class DiscordEventEmitter implements OnModuleInit {
               .setName(name)
               .setDescription(description)
               .setRequired(required);
+
             if (typeof param.options === 'string') return option;
             if (param.options?.choices) {
               const choices: APIApplicationCommandOptionChoice<string>[] = [];
               for (const choice of param.options.choices) {
+                const name = choice?.name || choice.toString();
+                const value = choice?.value?.toString() || choice;
                 choices.push({
-                  name: choice,
-                  value: choice,
+                  name,
+                  value,
                 });
               }
               option.setChoices(...choices);

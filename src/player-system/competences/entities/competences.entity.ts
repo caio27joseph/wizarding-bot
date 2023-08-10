@@ -9,12 +9,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Player } from '~/core/player/entities/player.entity';
+import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
-
-// Aparatação	1	Adivinhação	1	Poções - Alquimia	1
-// Magizoologia	2	Astronomia	1	Herbologia	3
-// Artes das Trevas	3	Runas Antigas	1	Medibruxaria	3
-// Voo	1	Rituais	1	Línguas Mágicas
 
 export enum CompetencesNameEnum {
   APPARITION = 'Aparatação',
@@ -32,6 +28,9 @@ export enum CompetencesNameEnum {
   MAGI_MEDICINE = 'Medibruxaria',
   MAGICAL_LANGUAGES = 'Línguas Mágicas',
 }
+export const competenceChoices = Object.keys(CompetencesNameEnum).map(
+  (competence) => enumToChoice(competence as any, CompetencesNameEnum),
+);
 
 @Entity()
 @ObjectType()

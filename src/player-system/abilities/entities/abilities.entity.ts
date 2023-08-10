@@ -8,6 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Player } from '~/core/player/entities/player.entity';
+import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
 
 export enum AbilitiesNameEnum {
@@ -41,7 +42,7 @@ export enum AbilitiesNameEnum {
   ACADEMICS = 'Acadêmicos',
   SCIENCES = 'Ciências',
   COSMOLOGY = 'Cosmologia',
-  THEOLOGICAL_KNOWLEDGE = 'Tecnologia', // Note: 'Conhecimento Teológico' would be a direct translation but this seems to be a mistake in your original enum.
+  THEOLOGICAL_KNOWLEDGE = 'Con Teologico', // Note: 'Conhecimento Teológico' would be a direct translation but this seems to be a mistake in your original enum.
   FINANCES = 'Finanças',
   INVESTIGATION = 'Investigação',
   LINGUISTICS = 'Linguística',
@@ -51,6 +52,94 @@ export enum AbilitiesNameEnum {
   POLITICS = 'Política',
   TECHNOLOGY = 'Tecnologia',
 }
+
+// Separate abilities by type
+const skillAbilities = [
+  AbilitiesNameEnum.BLADED_WEAPONS,
+  AbilitiesNameEnum.FIGHT,
+  AbilitiesNameEnum.DRIVING,
+  AbilitiesNameEnum.MAGIC_DUEL,
+  AbilitiesNameEnum.DODGE,
+  AbilitiesNameEnum.STEALTH,
+  AbilitiesNameEnum.CRAFTS,
+  AbilitiesNameEnum.AIM,
+  AbilitiesNameEnum.PERCEPTION,
+  AbilitiesNameEnum.THEFT,
+  AbilitiesNameEnum.SURVIVAL,
+  AbilitiesNameEnum.ATHLETICS,
+];
+
+const talentAbilities = [
+  AbilitiesNameEnum.EXPRESSION,
+  AbilitiesNameEnum.EMPATHY,
+  AbilitiesNameEnum.ETIQUETTE,
+  AbilitiesNameEnum.INTIMIDATION,
+  AbilitiesNameEnum.INTUITION,
+  AbilitiesNameEnum.SWEET_TALK,
+  AbilitiesNameEnum.LEADERSHIP,
+  AbilitiesNameEnum.CUNNING,
+  AbilitiesNameEnum.PERFORMANCE,
+  AbilitiesNameEnum.PERSUASION,
+  AbilitiesNameEnum.SLEIGHT_OF_HAND,
+  AbilitiesNameEnum.ANIMAL_HANDLING,
+];
+
+const knowledgeAbilities = [
+  AbilitiesNameEnum.ACADEMICS,
+  AbilitiesNameEnum.SCIENCES,
+  AbilitiesNameEnum.COSMOLOGY,
+  AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE,
+  AbilitiesNameEnum.FINANCES,
+  AbilitiesNameEnum.INVESTIGATION,
+  AbilitiesNameEnum.LINGUISTICS,
+  AbilitiesNameEnum.MEDITATION,
+  AbilitiesNameEnum.MEDICINE,
+  AbilitiesNameEnum.OCCULTISM,
+  AbilitiesNameEnum.POLITICS,
+  AbilitiesNameEnum.TECHNOLOGY,
+];
+type EnumKeys<T> = { [key in keyof T]: string };
+
+function getEnumKeysFromValues<EnumType>(
+  enumObj: EnumType,
+  values: Array<EnumType[keyof EnumType]>,
+): Array<keyof EnumType> {
+  const keysArray: Array<keyof EnumType> = [];
+  for (const key in enumObj) {
+    if (values.includes(enumObj[key])) {
+      keysArray.push(key as keyof EnumType);
+    }
+  }
+  return keysArray;
+}
+
+const knowledgeAbilityKeys = getEnumKeysFromValues(
+  AbilitiesNameEnum,
+  knowledgeAbilities,
+);
+
+const talentAbilityKeys = getEnumKeysFromValues(
+  AbilitiesNameEnum,
+  talentAbilities,
+);
+
+const skillAbilityKeys = getEnumKeysFromValues(
+  AbilitiesNameEnum,
+  skillAbilities,
+);
+// Convert each array of abilities to choices
+export const skillChoices = skillAbilityKeys.map((ability) =>
+  enumToChoice(ability as any, AbilitiesNameEnum),
+);
+
+export const talentChoices = talentAbilityKeys.map((ability) =>
+  enumToChoice(ability as any, AbilitiesNameEnum),
+);
+
+export const knowledgeChoices = knowledgeAbilityKeys.map((ability) =>
+  enumToChoice(ability as any, AbilitiesNameEnum),
+);
+
 @Entity()
 export class Abilities implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')

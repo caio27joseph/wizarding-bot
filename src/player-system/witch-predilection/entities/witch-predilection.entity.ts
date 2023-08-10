@@ -9,15 +9,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Player } from '~/core/player/entities/player.entity';
+import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
-
-// Abjuração	3	Adivinhação	1	Conjuração	1
-// Encantamento	1	Evocação	3	Ilusão	1
-// Necromancia	4	Transmutação	2	Universal	2
-
-// Abjuration 3 Divination 1 Conjuration 1
-// Enchantment 1 Evocation 3 Illusion 1
-// Necromancy 4 Transmutation 2 Universal 2
 
 export enum WitchPredilectionsNameEnum {
   ABJURATION = 'Abjuração',
@@ -32,6 +25,12 @@ export enum WitchPredilectionsNameEnum {
   ILLUSION = 'Ilusão',
   UNIVERSAL = 'Universal',
 }
+
+export const witchPredilectionsChoices = Object.keys(
+  WitchPredilectionsNameEnum,
+).map((competence) =>
+  enumToChoice(competence as any, WitchPredilectionsNameEnum),
+);
 
 @Entity()
 @ObjectType()

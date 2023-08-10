@@ -13,5 +13,6 @@ import { WitchPredilections } from './entities/witch-predilection.entity';
     WitchPredilectionsService,
     WitchPredilectionsGroup,
   ],
+  exports: [WitchPredilectionsService],
 })
 export class WitchPredilectionsModule {}

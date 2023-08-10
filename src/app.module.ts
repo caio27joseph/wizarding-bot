@@ -12,6 +12,7 @@ import { SpellModule } from './spell/spell.module';
 import { SeederModule } from './seeder/seeder.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { PlayerSystemModule } from './player-system/player-system.module';
+import { RollModule } from './roll/roll.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { PlayerSystemModule } from './player-system/player-system.module';
     SpellModule,
     SeederModule,
     PlayerSystemModule,
+    RollModule,
   ],
   controllers: [],
   providers: [],

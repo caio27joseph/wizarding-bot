@@ -9,5 +9,6 @@ import { Competences } from './entities/competences.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([Competences]), PlayerModule],
   providers: [CompetencesResolver, CompetencesService, CompetencesGroup],
+  exports: [CompetencesService],
 })
 export class CompetencesModule {}

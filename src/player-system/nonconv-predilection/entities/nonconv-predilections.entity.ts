@@ -9,6 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Player } from '~/core/player/entities/player.entity';
+import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
 
 export enum NonConvPredilectionsNameEnum {
@@ -24,6 +25,12 @@ export enum NonConvPredilectionsNameEnum {
   M_TEMPORAL = 'M Temporal',
   WANDMANCY = 'Varinhomancia',
 }
+
+export const nonConvPredilectionsChoices = Object.keys(
+  NonConvPredilectionsNameEnum,
+).map((competence) =>
+  enumToChoice(competence as any, NonConvPredilectionsNameEnum),
+);
 
 @Entity()
 @ObjectType()

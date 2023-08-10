@@ -13,5 +13,6 @@ import { NonConvPredilections } from './entities/nonconv-predilections.entity';
     NonConvPredilectionsService,
     NonConvPredilectionsGroup,
   ],
+  exports: [NonConvPredilectionsService],
 })
 export class NonConvPredilectionsModule {}

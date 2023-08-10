@@ -69,7 +69,7 @@ export class HouseCupGroup {
     if (lastMessageId) {
       try {
         const message = await channel.messages.fetch(lastMessageId);
-      await message.delete();
+        await message.delete();
       } catch (e) {
         this.logger.error(e);
       }
@@ -77,7 +77,6 @@ export class HouseCupGroup {
     const payload = this.service.getTotalDisplay(results);
 
     const message = await channel.send({ content, ...payload });
-
 
     await this.showcaseService.update(
       { id },
@@ -88,8 +87,7 @@ export class HouseCupGroup {
     );
   }
 
-  @Cron('0 5 * * *')
-  @Cron('0 15 * * *')
+  @Cron('0 0 0 * * *')
   async updateShowcase() {
     this.logger.debug('Updating showcase');
     const cups = await this.service.findAll({

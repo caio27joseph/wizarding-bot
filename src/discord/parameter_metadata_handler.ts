@@ -44,7 +44,7 @@ export interface InteractionOptions {
   name: string;
   description?: string;
   required?: boolean;
-  choices?: any[];
+  choices?: any[] | { name: string; value: number }[];
 }
 
 export interface Parameter<T> {

@@ -1,3 +1,8 @@
+type Choice = {
+  name: string;
+  value: string;
+};
+
 export interface DiscordEntityVieable {
   toEmbed(): EmbedBuilder;
   reply(interaction: Interaction): MessagePayload;
