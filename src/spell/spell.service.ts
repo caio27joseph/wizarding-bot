@@ -38,9 +38,11 @@ export class SpellService {
     const existingSpell = await this.findOne({
       where: { identifier: input.identifier, guildId: input.guildId },
     });
-
     if (existingSpell) {
-      return this.update({ id: existingSpell.id }, input);
+      await this.update({ id: existingSpell.id }, input);
+      return this.findOne({
+        where: { id: existingSpell.id },
+      });
     }
     const data = this.repo.create(input);
     return await this.repo.save(data);

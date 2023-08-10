@@ -190,7 +190,6 @@ export class Rolls10Group {
     }
     if (autoSuccess) {
       if (expression.length > 0) expression += ' + ';
-      expression += `${autoSuccess}`;
     }
     if (bonus) {
       dices += bonus;
@@ -212,7 +211,9 @@ export class Rolls10Group {
       content: `${interaction.member}`,
       embeds: [
         roll.toEmbed().setFooter({
-          text: `${expression} = ${dices}d10, diff: ${diff || 6}`,
+          text: `${expression} = ${dices}d10 ${
+            autoSuccess > 0 ? `, ${autoSuccess} Automático` : ''
+          }, diff: ${diff || 6}`,
         }),
       ],
     });

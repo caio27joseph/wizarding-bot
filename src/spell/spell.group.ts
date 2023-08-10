@@ -1,4 +1,4 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Guild } from '~/core/guild/guild.entity';
 import { Command } from '~/discord/decorators/command.decorator';
 import { Group } from '~/discord/decorators/group.decorator';
@@ -10,19 +10,14 @@ import {
 } from '~/discord/decorators/message.decorators';
 import { SpellService } from './spell.service';
 import {
-  ActionRow,
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
   CommandInteraction,
-  Interaction,
   InteractionResponse,
-  Message,
-  MessagePayload,
 } from 'discord.js';
-import { DiscordEventEmitter } from '~/discord/discord.event-emitter';
 import { SpellCategoryEnum } from './entities/spell.entity';
-import { ILike } from 'typeorm';
+import { Any, ILike, In } from 'typeorm';
 import { EntityNotFound } from '~/discord/exceptions';
 
 @Injectable()
@@ -93,9 +88,15 @@ export class SpellGroup {
   ) {
     const ITEMS_PER_PAGE = 8;
 
-    const spells = await this.service.findAll({
-      where: { level, category, guildId: guild.id },
+    let spells = await this.service.findAll({
+      where: {
+        level,
+        guildId: guild.id,
+      },
     });
+    if (category) {
+      spells = spells.filter((spell) => spell.category.includes(category));
+    }
 
     const totalPages = Math.ceil(spells.length / ITEMS_PER_PAGE);
 
@@ -165,6 +166,7 @@ export class SpellGroup {
       filter: (i) => i.user.id === interaction.user.id,
       time: 60000,
     });
+
     collector.on('collect', async (i) => {
       if (i.customId.startsWith('spell_')) {
         // Here you can handle specific spell button clicks, like showing more information

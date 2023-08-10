@@ -164,7 +164,7 @@ export class Spell implements DiscordEntityVieable {
     array: true,
     nullable: true,
   })
-  category: SpellCategoryEnum[];
+  category: string[];
 
   @Column()
   updatedAt: Date;
@@ -201,7 +201,9 @@ export class Spell implements DiscordEntityVieable {
     const embed = new EmbedBuilder();
     embed.setTitle(this.name);
     embed.setDescription(this.description);
-    embed.setFooter({ text: `${this.category} / ${this.difficulty}` });
+    embed.setFooter({
+      text: `${this.category.join(', ')} / ${this.difficulty}`,
+    });
     embed.setAuthor({
       name: this.title,
     });

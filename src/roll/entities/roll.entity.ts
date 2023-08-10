@@ -50,49 +50,14 @@ export class RollsD10 {
     const rollStr = this.rolls.join(''); // Convert rolls to string for easier pattern detection
     let easterEggs = ''; // Separate string for easter eggs
     let foundEasterEgg = false;
-    if (rollStr.includes('777')) {
-      easterEggs += ' :slot_machine:'; // Jackpot for 777
-      foundEasterEgg = true;
-    }
+
     for (let index = 0; index < this.autoSuccess; index++) {
       emojiStr += ':dart: ';
     }
 
-    if (
-      rollStr.includes('8') &&
-      this.rolls.filter((r) => r === 8).length === 1
-    ) {
-      easterEggs += ' :8ball:'; // Single 8 for magic 8 ball
-      foundEasterEgg = true;
-    }
-    if (rollStr.includes('666')) {
-      easterEggs += ' :smiling_imp:'; // 666 for devil
-      foundEasterEgg = true;
-    }
-    if (rollStr.includes('101010')) {
-      easterEggs += ' 👑'; // Triple crown for three 10s
-      foundEasterEgg = true;
-    }
-    if (rollStr.includes('999')) {
-      easterEggs += ' 🎆'; // Almost perfect for three 9s
-      foundEasterEgg = true;
-    }
-    if (rollStr.includes('111')) {
-      easterEggs += ' 🐢'; // Slow or lowest tier for three 1s
-      foundEasterEgg = true;
-    }
-    if (rollStr.endsWith('22')) {
-      easterEggs += ' 🦆'; // Duck for ending in 2
-      foundEasterEgg = true;
-    }
-
     for (let i = 0; i < this.rolls.length; i++) {
-      if (this.rolls[i] >= this.diff && !hasInsertedSuccessArrow) {
-        emojiStr += ' :chart_with_upwards_trend: '; // Add upwards trend to indicate start of successes
-        hasInsertedSuccessArrow = true;
-      }
       if (this.rolls[i] < this.diff && !hasInsertedFailArrow) {
-        emojiStr += ' :chart_with_downwards_trend: '; // Add downwards trend to indicate start of failures
+        emojiStr += ' / '; // Add downwards trend to indicate start of failures
         hasInsertedFailArrow = true;
       }
       emojiStr += RollsD10.numberToEmojiMap[this.rolls[i]];
@@ -119,7 +84,7 @@ export class RollsD10 {
       embed.setTitle(`Sucesso Crítico x${this.critical_s}`).setColor('#FFD700'); // Gold
       total += this.critical_s * 2;
       fields.push({
-        name: 'Sucessos (De Criticos)',
+        name: 'Bônus de Criticos',
         value: (this.critical_s * 2).toString(),
         inline: true,
       });
@@ -138,7 +103,7 @@ export class RollsD10 {
 
     fields.push({
       name: 'Total',
-      value: total.toString(),
+      value: (total + this.autoSuccess).toString(),
       inline: true,
     });
 

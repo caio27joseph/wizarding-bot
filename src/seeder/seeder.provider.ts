@@ -38,9 +38,8 @@ export class SeederProvider implements OnModuleInit {
         const spellData = JSON.parse(readFileSync(filePath, 'utf8'));
 
         const existingSpell = await this.spellService.findOne({
-          where: { id: spellData.id },
+          where: { identifier: spellData.identifier },
         });
-
         if (
           !existingSpell ||
           new Date(spellData.updatedAt) > new Date(existingSpell.updatedAt)
@@ -48,10 +47,11 @@ export class SeederProvider implements OnModuleInit {
           for (const guild of this.guildService.guilds.values()) {
             if (!guild.importSpells) continue;
             try {
-              await this.spellService.updateOrCreate({
+              const speel = await this.spellService.updateOrCreate({
                 guildId: guild.id,
                 ...spellData,
               });
+              console.log(`Found ${speel.name}`);
             } catch (e) {
               console.log(`Found ${spellData.name} with error ${e}}`);
             }
