@@ -188,6 +188,10 @@ export class Rolls10Group {
       if (expression.length > 0) expression += ' + ';
       expression += `${value}`;
     }
+    if (autoSuccess) {
+      if (expression.length > 0) expression += ' + ';
+      expression += `${autoSuccess}`;
+    }
     if (bonus) {
       dices += bonus;
       if (expression.length > 0) expression += ' + ';
