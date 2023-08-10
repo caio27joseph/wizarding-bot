@@ -5,7 +5,7 @@
     ],
     "difficulty": "Muito Difícil",
     "description": "Com este feitiço, você é capaz de tocar com a varinha um objeto inanimado, não mágico, que não esteja atrelado a outro objeto ou superfície e que não esteja sendo carregado por alguém, transformando-o em um animal com massa similar. O objeto transfigurado se comportará como um animal comum de sua espécie, independente da vontade do conjurador (ou seja, controlado pelo Narrador). Para fins de estatísticas, o objeto é considerado um animal de forma evasiva, miúdo e terrestre/alado, de acordo com o desejo do bruxo e da forma do alvo (veja \"A Sua Forma Animal\" no NPC 0.0.6 - Antecedentes), mas não possui Pontos de Vitalidade (PV).  Nesse nível, é impossível transfigurar objetos em animais de tamanho Pequeno ou maior, mas nada impede o bruxo de imaginar uma versão miniaturizada de um animal maior. Para ser bem-sucedido, o conjurador deve nomear a criatura em latim seguido do sufixo \"-forma\". Por exemplo: \"Aviforma\" para transformar em ave, \"Feliforma\" para transformar em gato, \"Noctuaforma\" para transformar em coruja, etc. Esse feitiço é considerado Transmutação. ",
-    "updatedAt": "2023-08-10T18:10:57.583072",
+    "updatedAt": "2023-08-10T19:23:17.994219",
     "title": "Transformação de Objeto em Animal",
     "level": 2,
     "actionType": "Completa",
@@ -35,7 +35,7 @@
             "description": "Você pode lançar Forma de forma não-verbal. Quando conjura Forma em sua forma não-verbal, você pode transformar qualquer objeto em qualquer animal de tamanho Médio ou menor, independente da massa ser ou não similar. Nessa versão, você pode escolher as estatísticas da transfiguração, incluindo: miúdo, pequeno ou médio; forma evasiva ou forma de combate; e depois alado, terrestre ou aquático. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
-            "level": 10,
+            "level": 5,
             "name": "Mestre",
             "description": "Você pode lançar Draconifors (Objeto Pequeno em Dragão). Nessa variação, o objeto é transfigurado em um dragão miniaturizado. O dragão é uma criatura miúda ou pequena, de forma evasiva e alada. No entanto, ele é controlado por você e não pelo Narrador. Além dos ataques normais, seu dragão em miniatura pode gastar uma ação padrão para cuspir fogo, conjurando o feitiço Lacarnum Inflamari ● (se for miúdo) ou Lacarnum Inflamari ●●●● (se for pequeno) - (OBS: OUTROS FEITIÇOS PODEM VIR A FUNCIONAR PERGUNTE AO STAFF). O dragão utiliza a mesma parada de dados que você para conjurar esse feitiço. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
