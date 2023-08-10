@@ -14,6 +14,7 @@ import { DiscordEntityVieable } from '~/discord/types';
 export enum AbilitiesNameEnum {
   // Skills
   BLADED_WEAPONS = 'Armas Brancas',
+  ATHLETICS = 'Atletismo',
   FIGHT = 'Briga',
   DRIVING = 'Condução',
   MAGIC_DUEL = 'Duelo Mágico',
@@ -24,7 +25,6 @@ export enum AbilitiesNameEnum {
   PERCEPTION = 'Percepção',
   THEFT = 'Roubo',
   SURVIVAL = 'Sobrevivência',
-  ATHLETICS = 'Atletismo',
   // Talents
   EXPRESSION = 'Expressão',
   EMPATHY = 'Empatia',
@@ -42,7 +42,7 @@ export enum AbilitiesNameEnum {
   ACADEMICS = 'Acadêmicos',
   SCIENCES = 'Ciências',
   COSMOLOGY = 'Cosmologia',
-  THEOLOGICAL_KNOWLEDGE = 'Con Teologico', // Note: 'Conhecimento Teológico' would be a direct translation but this seems to be a mistake in your original enum.
+  TECHNOLOGY = 'Tecnologia',
   FINANCES = 'Finanças',
   INVESTIGATION = 'Investigação',
   LINGUISTICS = 'Linguística',
@@ -50,12 +50,13 @@ export enum AbilitiesNameEnum {
   MEDICINE = 'Medicina',
   OCCULTISM = 'Ocultismo',
   POLITICS = 'Política',
-  TECHNOLOGY = 'Tecnologia',
+  THEOLOGICAL_KNOWLEDGE = 'Con Teologico', // Note: 'Conhecimento Teológico' would be a direct translation but this seems to be a mistake in your original enum.
 }
 
 // Separate abilities by type
 const skillAbilities = [
   AbilitiesNameEnum.BLADED_WEAPONS,
+  AbilitiesNameEnum.ATHLETICS,
   AbilitiesNameEnum.FIGHT,
   AbilitiesNameEnum.DRIVING,
   AbilitiesNameEnum.MAGIC_DUEL,
@@ -66,7 +67,6 @@ const skillAbilities = [
   AbilitiesNameEnum.PERCEPTION,
   AbilitiesNameEnum.THEFT,
   AbilitiesNameEnum.SURVIVAL,
-  AbilitiesNameEnum.ATHLETICS,
 ];
 
 const talentAbilities = [
@@ -88,7 +88,7 @@ const knowledgeAbilities = [
   AbilitiesNameEnum.ACADEMICS,
   AbilitiesNameEnum.SCIENCES,
   AbilitiesNameEnum.COSMOLOGY,
-  AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE,
+  AbilitiesNameEnum.TECHNOLOGY,
   AbilitiesNameEnum.FINANCES,
   AbilitiesNameEnum.INVESTIGATION,
   AbilitiesNameEnum.LINGUISTICS,
@@ -96,7 +96,7 @@ const knowledgeAbilities = [
   AbilitiesNameEnum.MEDICINE,
   AbilitiesNameEnum.OCCULTISM,
   AbilitiesNameEnum.POLITICS,
-  AbilitiesNameEnum.TECHNOLOGY,
+  AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE,
 ];
 type EnumKeys<T> = { [key in keyof T]: string };
 
@@ -145,58 +145,31 @@ export class Abilities implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  //#region skills
-  @Column({
-    default: 0,
-  })
+  @Column({ default: 0 })
   bladed_weapons: number;
-  @Column({
-    default: 0,
-  })
-  fight: number;
-  @Column({
-    default: 0,
-  })
-  driving: number;
-  @Column({
-    default: 0,
-  })
-  magic_duel: number;
-  @Column({
-    default: 0,
-  })
-  dodge: number;
-  @Column({
-    default: 0,
-  })
-  stealth: number;
-  @Column({
-    default: 0,
-  })
-  crafts: number;
-  @Column({
-    default: 0,
-  })
-  aim: number;
-  @Column({
-    default: 0,
-  })
-  perception: number;
-  @Column({
-    default: 0,
-  })
-  theft: number;
-  @Column({
-    default: 0,
-  })
-  survival: number;
-  @Column({
-    default: 0,
-  })
+  @Column({ default: 0 })
   athletics: number;
-  //#endregion
+  @Column({ default: 0 })
+  fight: number;
+  @Column({ default: 0 })
+  driving: number;
+  @Column({ default: 0 })
+  magic_duel: number;
+  @Column({ default: 0 })
+  dodge: number;
+  @Column({ default: 0 })
+  stealth: number;
+  @Column({ default: 0 })
+  crafts: number;
+  @Column({ default: 0 })
+  aim: number;
+  @Column({ default: 0 })
+  perception: number;
+  @Column({ default: 0 })
+  theft: number;
+  @Column({ default: 0 })
+  survival: number;
 
-  //#region talents
   @Column({ default: 0 })
   expression: number;
   @Column({ default: 0 })
@@ -221,58 +194,31 @@ export class Abilities implements DiscordEntityVieable {
   sleight_of_hand: number;
   @Column({ default: 0 })
   animal_handling: number;
-  //#endregion
 
-  //#region knowledge
-  @Column({
-    default: 0,
-  })
+  @Column({ default: 0 })
   academics: number;
-  @Column({
-    default: 0,
-  })
+  @Column({ default: 0 })
   sciences: number;
-  @Column({
-    default: 0,
-  })
+  @Column({ default: 0 })
   cosmology: number;
-  @Column({
-    default: 0,
-  })
-  theological_knowledge: number;
-  @Column({
-    default: 0,
-  })
-  finances: number;
-  @Column({
-    default: 0,
-  })
-  investigation: number;
-  @Column({
-    default: 0,
-  })
-  linguistics: number;
-  @Column({
-    default: 0,
-  })
-  meditation: number;
-  @Column({
-    default: 0,
-  })
-  medicine: number;
-  @Column({
-    default: 0,
-  })
-  occultism: number;
-  @Column({
-    default: 0,
-  })
-  politics: number;
-  @Column({
-    default: 0,
-  })
+  @Column({ default: 0 })
   technology: number;
-  //#endregion
+  @Column({ default: 0 })
+  finances: number;
+  @Column({ default: 0 })
+  investigation: number;
+  @Column({ default: 0 })
+  linguistics: number;
+  @Column({ default: 0 })
+  meditation: number;
+  @Column({ default: 0 })
+  medicine: number;
+  @Column({ default: 0 })
+  occultism: number;
+  @Column({ default: 0 })
+  politics: number;
+  @Column({ default: 0 })
+  theological_knowledge: number;
 
   @OneToOne(() => Player, (player) => player.abilities)
   player: Player;
@@ -290,6 +236,7 @@ export class Abilities implements DiscordEntityVieable {
     let skills = '';
     skills +=
       AbilitiesNameEnum.BLADED_WEAPONS + ': ' + this.bladed_weapons + '\n';
+    skills += AbilitiesNameEnum.ATHLETICS + ': ' + this.athletics + '\n';
     skills += AbilitiesNameEnum.FIGHT + ': ' + this.fight + '\n';
     skills += AbilitiesNameEnum.DRIVING + ': ' + this.driving + '\n';
     skills += AbilitiesNameEnum.MAGIC_DUEL + ': ' + this.magic_duel + '\n';
@@ -300,7 +247,6 @@ export class Abilities implements DiscordEntityVieable {
     skills += AbilitiesNameEnum.PERCEPTION + ': ' + this.perception + '\n';
     skills += AbilitiesNameEnum.THEFT + ': ' + this.theft + '\n';
     skills += AbilitiesNameEnum.SURVIVAL + ': ' + this.survival + '\n';
-    skills += AbilitiesNameEnum.ATHLETICS + ': ' + this.athletics + '\n';
 
     let talents = '';
     talents += AbilitiesNameEnum.EXPRESSION + ': ' + this.expression + '\n';
@@ -323,10 +269,7 @@ export class Abilities implements DiscordEntityVieable {
     knowledge += AbilitiesNameEnum.SCIENCES + ': ' + this.sciences + '\n';
     knowledge += AbilitiesNameEnum.COSMOLOGY + ': ' + this.cosmology + '\n';
     knowledge +=
-      AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE +
-      ': ' +
-      this.theological_knowledge +
-      '\n';
+      AbilitiesNameEnum.TECHNOLOGY + ': ' + this.theological_knowledge + '\n';
     knowledge += AbilitiesNameEnum.FINANCES + ': ' + this.finances + '\n';
     knowledge +=
       AbilitiesNameEnum.INVESTIGATION + ': ' + this.investigation + '\n';
@@ -335,7 +278,8 @@ export class Abilities implements DiscordEntityVieable {
     knowledge += AbilitiesNameEnum.MEDICINE + ': ' + this.medicine + '\n';
     knowledge += AbilitiesNameEnum.OCCULTISM + ': ' + this.occultism + '\n';
     knowledge += AbilitiesNameEnum.POLITICS + ': ' + this.politics + '\n';
-    knowledge += AbilitiesNameEnum.TECHNOLOGY + ': ' + this.technology + '\n';
+    knowledge +=
+      AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE + ': ' + this.technology + '\n';
 
     embed.addFields(
       {

@@ -64,77 +64,84 @@ export class AbiliitesSkillsGroup {
       name: AbilitiesNameEnum.BLADED_WEAPONS,
       description: `${AbilitiesNameEnum.BLADED_WEAPONS} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     bladed_weapons?: number,
+    @ArgInteger({
+      name: AbilitiesNameEnum.ATHLETICS,
+      description: `${AbilitiesNameEnum.ATHLETICS} do Personagem`,
+      required: false,
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    athletics?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.FIGHT,
       description: `${AbilitiesNameEnum.FIGHT} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     fight?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.DRIVING,
       description: `${AbilitiesNameEnum.DRIVING} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     driving?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.MAGIC_DUEL,
       description: `${AbilitiesNameEnum.MAGIC_DUEL} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     magic_duel?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.DODGE,
       description: `${AbilitiesNameEnum.DODGE} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     dodge?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.STEALTH,
       description: `${AbilitiesNameEnum.STEALTH} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     stealth?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.CRAFTS,
       description: `${AbilitiesNameEnum.CRAFTS} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     crafts?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.AIM,
       description: `${AbilitiesNameEnum.AIM} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     aim?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.PERCEPTION,
       description: `${AbilitiesNameEnum.PERCEPTION} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     perception?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.THEFT,
       description: `${AbilitiesNameEnum.THEFT} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     theft?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.SURVIVAL,
       description: `${AbilitiesNameEnum.SURVIVAL} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     survival?: number,
   ) {
@@ -147,6 +154,7 @@ export class AbiliitesSkillsGroup {
       {
         playerId: player.id,
         bladed_weapons,
+        athletics,
         fight,
         driving,
         magic_duel,
@@ -181,96 +189,88 @@ export class AbiliitesTalentsGroup {
   async updateAbilities(
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
-
-    @ArgInteger({
-      name: AbilitiesNameEnum.ATHLETICS,
-      description: `${AbilitiesNameEnum.ATHLETICS} do Personagem`,
-      required: false,
-      choices: [1, 2, 3, 4, 5, 6],
-    })
-    athletics?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.EXPRESSION,
       description: `${AbilitiesNameEnum.EXPRESSION} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     expression?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.EMPATHY,
       description: `${AbilitiesNameEnum.EMPATHY} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     empathy?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.ETIQUETTE,
       description: `${AbilitiesNameEnum.ETIQUETTE} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     etiquette?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.INTIMIDATION,
       description: `${AbilitiesNameEnum.INTIMIDATION} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     intimidation?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.INTUITION,
       description: `${AbilitiesNameEnum.INTUITION} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     intuition?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.SWEET_TALK,
       description: `${AbilitiesNameEnum.SWEET_TALK} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     sweet_talk?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.LEADERSHIP,
       description: `${AbilitiesNameEnum.LEADERSHIP} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     leadership?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.CUNNING,
       description: `${AbilitiesNameEnum.CUNNING} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     cunning?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.PERFORMANCE,
       description: `${AbilitiesNameEnum.PERFORMANCE} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     performance?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.PERSUASION,
       description: `${AbilitiesNameEnum.PERSUASION} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     persuasion?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.SLEIGHT_OF_HAND,
       description: `${AbilitiesNameEnum.SLEIGHT_OF_HAND} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     sleight_of_hand?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.ANIMAL_HANDLING,
       description: `${AbilitiesNameEnum.ANIMAL_HANDLING} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     animal_handling?: number,
   ) {
@@ -282,7 +282,6 @@ export class AbiliitesTalentsGroup {
       },
       {
         playerId: player.id,
-        athletics,
         expression,
         empathy,
         etiquette,
@@ -324,86 +323,86 @@ export class AbiliitesKnowledgesGroup {
       name: AbilitiesNameEnum.ACADEMICS,
       description: `${AbilitiesNameEnum.ACADEMICS} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     academics?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.SCIENCES,
       description: `${AbilitiesNameEnum.SCIENCES} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     sciences?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.COSMOLOGY,
       description: `${AbilitiesNameEnum.COSMOLOGY} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     cosmology?: number,
     @ArgInteger({
-      name: 'Conh  Teologico',
-      description: `${AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE} do Personagem`,
+      name: AbilitiesNameEnum.TECHNOLOGY,
+      description: `${AbilitiesNameEnum.TECHNOLOGY} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
-    theological_knowledge?: number,
+    technology?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.FINANCES,
       description: `${AbilitiesNameEnum.FINANCES} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     finances?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.INVESTIGATION,
       description: `${AbilitiesNameEnum.INVESTIGATION} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     investigation?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.LINGUISTICS,
       description: `${AbilitiesNameEnum.LINGUISTICS} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     linguistics?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.MEDITATION,
       description: `${AbilitiesNameEnum.MEDITATION} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     meditation?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.MEDICINE,
       description: `${AbilitiesNameEnum.MEDICINE} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     medicine?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.OCCULTISM,
       description: `${AbilitiesNameEnum.OCCULTISM} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     occultism?: number,
     @ArgInteger({
       name: AbilitiesNameEnum.POLITICS,
       description: `${AbilitiesNameEnum.POLITICS} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
     politics?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.TECHNOLOGY,
-      description: `${AbilitiesNameEnum.TECHNOLOGY} do Personagem`,
+      name: AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE,
+      description: `${AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE} do Personagem`,
       required: false,
-      choices: [1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5],
     })
-    technology?: number,
+    theological_knowledge?: number,
   ) {
     const abiliites = await this.service.updateOrCreate(
       {
@@ -416,7 +415,7 @@ export class AbiliitesKnowledgesGroup {
         academics,
         sciences,
         cosmology,
-        theological_knowledge,
+        technology,
         finances,
         investigation,
         linguistics,
@@ -424,7 +423,7 @@ export class AbiliitesKnowledgesGroup {
         medicine,
         occultism,
         politics,
-        technology,
+        theological_knowledge,
       },
     );
     await interaction.reply({
