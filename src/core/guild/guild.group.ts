@@ -5,6 +5,7 @@ import {
   GuildMember,
   PermissionsBitField,
   Role,
+  TextChannel,
 } from 'discord.js';
 import {
   ArgBoolean,
@@ -12,6 +13,7 @@ import {
   ArgInteraction,
   ArgRole,
   ArgString,
+  ArgGuild,
 } from '~/discord/decorators/message.decorators';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -30,11 +32,7 @@ import { HouseService } from '../house/house.service';
   description: 'Comandos para o servidor',
 })
 export class GuildGroup {
-  constructor(
-    private houseService: HouseService,
-    @InjectRepository(House) private houseRepo: Repository<House>,
-    private service: GuildService,
-  ) {}
+  constructor(private service: GuildService) {}
 
   @Command({
     name: 'setup',
@@ -67,5 +65,21 @@ export class GuildGroup {
       prefix: prefix || '!',
     });
     return await interaction.reply('Guild configurada com sucesso');
+  }
+
+  @Command({
+    name: 'set_train_log_channel',
+    description: 'Comando para definir o canal de treinamento',
+    mod: true,
+  })
+  public async setTrainLogChannel(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgGuild() guild: Guild,
+  ) {
+    guild.trainLogChannel = interaction.channel as TextChannel;
+    guild.trainLogChannelId = interaction.channelId;
+    await this.service.updateGuild(guild);
+    await interaction.reply('Canal de treinamento definido');
   }
 }

@@ -108,6 +108,7 @@ export class SpellGroup {
         i,
         player,
         spell,
+        guild,
       );
     });
   }

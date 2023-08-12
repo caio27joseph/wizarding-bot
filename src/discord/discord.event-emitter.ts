@@ -1,4 +1,9 @@
-import { ConsoleLogger, Injectable, OnModuleInit } from '@nestjs/common';
+import {
+  ConsoleLogger,
+  Global,
+  Injectable,
+  OnModuleInit,
+} from '@nestjs/common';
 import {
   APIApplicationCommandOptionChoice,
   CDN,
@@ -99,6 +104,7 @@ class GroupContext {
     return this._commands_map[key];
   }
 }
+
 @Injectable()
 export class DiscordEventEmitter implements OnModuleInit {
   public readonly client: DiscordClient;

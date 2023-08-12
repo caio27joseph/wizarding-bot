@@ -1,29 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { Group } from '~/discord/decorators/group.decorator';
 import { TrainService } from './train.service';
-import { Command } from '~/discord/decorators/command.decorator';
-import { ArgInteraction } from '~/discord/decorators/message.decorators';
 import {
   APISelectMenuOption,
   ActionRowBuilder,
-  AnySelectMenuInteraction,
   ButtonBuilder,
-  ButtonInteraction,
   ButtonStyle,
   CommandInteraction,
-  Interaction,
-  InteractionResponse,
   MessageComponentInteraction,
-  ModalBuilder,
   StringSelectMenuInteraction,
-  TextInputBuilder,
-  TextInputStyle,
 } from 'discord.js';
 import { StringSelectMenuBuilder } from '@discordjs/builders';
 import { PlayerService } from '~/core/player/player.service';
 import { Player } from '~/core/player/entities/player.entity';
 import { Spell } from '~/spell/entities/spell.entity';
-import { Rolls10Group } from '~/roll/rolls10.group';
 import { RollService } from '~/roll/roll.service';
 import {
   WitchPredilectionsNameEnum,
@@ -32,10 +22,12 @@ import {
 import { TrainGroupOption } from './entities/train.entity';
 import { MoreThan } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
+import { Guild } from '~/core/guild/guild.entity';
 
 export enum SpellTrainAction {
   SELECT_GROUP = 'spell-train-group-select',
   SELECT_ROLL = 'spell-train-tests-select',
+  CANCEL = 'spell-train-cancel',
   SUBMIT = 'spell-train-submit',
   BONUS_ROLL = 'spell-train-bonus-roll',
   AUTO_SUCCESS = 'spell-train-auto-success',
@@ -50,10 +42,6 @@ export interface SpellTrainData {
   bonusRoll?: number;
 }
 
-@Group({
-  name: 'treinar',
-  description: 'Inicia um treino de habilidade',
-})
 @Injectable()
 export class TrainGroup {
   constructor(
@@ -67,6 +55,7 @@ export class TrainGroup {
     i: MessageComponentInteraction,
     player: Player,
     spell: Spell,
+    guild: Guild,
   ) {
     const now = new Date();
     // Create a date for 6 am today.
@@ -89,15 +78,15 @@ export class TrainGroup {
     });
     if (trains.length >= 6) {
       await i.reply({
-        content: `Você já treinou mais do que poderia hoje!`,
+        content: `Você já treinou demais hoje!`,
         ephemeral: true,
       });
       return;
     }
-    const trainingForThisSpell = trains.filter((t) => t.spellId);
+    const trainingForThisSpell = trains.filter((t) => t.spellId === spell.id);
     if (trainingForThisSpell.length >= 2) {
       await i.reply({
-        content: `Você já treinou mais do que poderia hoje!`,
+        content: `Você já treinou demais esse feitiço hoje!`,
         ephemeral: true,
       });
       return;
@@ -150,13 +139,19 @@ export class TrainGroup {
           (await i.deferReply()).delete();
           break;
         case SpellTrainAction.SUBMIT + submitHash:
-          await reply.edit({
-            content:
-              `Treino de ${spell.name} Configurado!` +
-              '\nEnvie sua ação de treino por favor (5 Minutos)',
+          await reply.delete();
+          await i.reply({
+            content: `Envia a alção para Iniciar o Treino!`,
             components: [],
+            ephemeral: true,
           });
-          await this.startSpellTrain(interaction, player, spell, trainOptions);
+          await this.startSpellTrain(
+            interaction,
+            player,
+            spell,
+            guild,
+            trainOptions,
+          );
           configurator.stop();
           break;
       }
@@ -166,6 +161,7 @@ export class TrainGroup {
     interaction: CommandInteraction,
     player: Player,
     spell: Spell,
+    guild: Guild,
     options: SpellTrainData,
   ) {
     const collected = await interaction.channel.awaitMessages({
@@ -205,6 +201,19 @@ export class TrainGroup {
     await message.reply({
       content: `Treino Feito!`,
       embeds: [train.toEmbed()],
+    });
+    if (!guild.trainLogChannel) {
+      return;
+    }
+    await guild.trainLogChannel.send({
+      content:
+        `<@${player.discordId}> realizou um treino de ${spell.name} em ${interaction.channel}` +
+        `\nID para cancelar: ${train.id}`,
+      embeds: [
+        train.toEmbed().setFooter({
+          text: `ID: ${train.id}`,
+        }),
+      ],
     });
   }
 

@@ -15,7 +15,6 @@ export class PointLogsResolver {
     private readonly pointLogsService: PointLogsService,
     private readonly cupService: HouseCupService,
     private readonly houseService: HouseService,
-    private readonly playerService: PlayerService,
   ) {}
 
   //resolvefield Cup

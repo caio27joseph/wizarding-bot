@@ -81,22 +81,22 @@ type DeleteResult {
 }
 
 type Query {
-  houses(where: FindAllHouseInput!): [House!]!
-  house(id: ID!): House!
   players(where: FindAllPlayerInput!): [Player!]!
   player(id: ID!): Player!
+  houses(where: FindAllHouseInput!): [House!]!
+  house(id: ID!): House!
   pointLogs(where: FindAllPointLogInput!): [PointLog!]!
   pointLog(houseId: String!): PointLog!
   houseCup(id: ID!): HouseCup!
 }
 
-input FindAllHouseInput {
-  guildId: ID!
-}
-
 input FindAllPlayerInput {
   name: String
   houseId: ID
+  guildId: ID!
+}
+
+input FindAllHouseInput {
   guildId: ID!
 }
 
@@ -108,31 +108,15 @@ input FindAllPointLogInput {
 }
 
 type Mutation {
-  createHouse(input: CreateHouseInput!): House!
-  updateHouse(id: ID!, input: UpdateHouseInput!): UpdateResult!
-  removeHouse(id: ID!): DeleteResult!
   createPlayer(input: CreatePlayerInput!): Player!
   updatePlayer(id: ID!, input: UpdatePlayerInput!): Player!
   removePlayer(id: ID!): Player!
+  createHouse(input: CreateHouseInput!): House!
+  updateHouse(id: ID!, input: UpdateHouseInput!): UpdateResult!
+  removeHouse(id: ID!): DeleteResult!
   createHouseCup(createHouseCupInput: CreateHouseCupInput!): HouseCup!
   updateHouseCup(id: ID!, updateHouseCupInput: UpdateHouseCupInput!): HouseCup!
   removeHouseCup(id: ID!): HouseCup!
-}
-
-input CreateHouseInput {
-  title: String
-  imageUrl: String
-  color: Float
-  discordRoleId: ID!
-  guildId: ID!
-}
-
-input UpdateHouseInput {
-  title: String
-  imageUrl: String
-  color: Float
-  discordRoleId: ID
-  guildId: ID
 }
 
 input CreatePlayerInput {
@@ -149,6 +133,22 @@ input UpdatePlayerInput {
   discordId: String
   guildId: ID
   houseId: ID
+}
+
+input CreateHouseInput {
+  title: String
+  imageUrl: String
+  color: Float
+  discordRoleId: ID!
+  guildId: ID!
+}
+
+input UpdateHouseInput {
+  title: String
+  imageUrl: String
+  color: Float
+  discordRoleId: ID
+  guildId: ID
 }
 
 input CreateHouseCupInput {

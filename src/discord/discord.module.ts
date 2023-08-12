@@ -1,12 +1,20 @@
-import { Global, Module, ConsoleLogger } from '@nestjs/common';
+import { Global, Module, ConsoleLogger, forwardRef } from '@nestjs/common';
 import { DiscordOptions } from './discord-options';
 import { DiscordEventEmitter } from './discord.event-emitter';
 import { GuildService } from '~/core/guild/guild.service';
 import { CoreModule } from '~/core/core.module';
+import { GuildModule } from '~/core/guild/guild.module';
+import { PlayerModule } from '~/core/player/player.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Guild } from '~/core/guild/guild.entity';
 
 @Global()
 @Module({
-  imports: [CoreModule],
+  imports: [
+    PlayerModule,
+    TypeOrmModule.forFeature([Guild]),
+    forwardRef(() => GuildModule),
+  ],
   controllers: [],
   providers: [
     ConsoleLogger,

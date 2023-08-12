@@ -9,7 +9,7 @@ import {
 import { HouseCup } from '~/house-cup/house-cup/entities/house-cup.entity';
 import { House } from '../house/entities/house.entity';
 import { Player } from '../player/entities/player.entity';
-import { GuildMember } from 'discord.js';
+import { GuildMember, TextChannel } from 'discord.js';
 import { AdminNeeded } from '~/discord/exceptions';
 import { Spell } from '~/spell/entities/spell.entity';
 
@@ -28,6 +28,13 @@ export class Guild {
     default: true,
   })
   importSpells: boolean;
+
+  trainLogChannel?: TextChannel;
+
+  @Column({
+    nullable: true,
+  })
+  trainLogChannelId?: string;
 
   @OneToMany((type) => Player, (player) => player.guild, {
     cascade: true,
