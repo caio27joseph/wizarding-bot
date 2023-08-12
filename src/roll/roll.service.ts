@@ -34,6 +34,7 @@ export class RollService {
       witchPredilection?: string;
       nonConvPredilectionsChoices?: string;
       extras?: string;
+      message?: string;
     },
   ) {
     let values: number[] = [];
@@ -146,6 +147,7 @@ export class RollService {
       values,
       options?.diff || 6,
       options?.autoSuccess || 0,
+      options?.message,
     );
 
     return roll;

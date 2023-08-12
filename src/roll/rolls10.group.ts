@@ -44,6 +44,12 @@ export class Rolls10Group {
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer()
     player: Player,
+    @ArgString({
+      name: 'Mensagem',
+      description: 'Enviar uma mensagem junto com o dado',
+      required: false,
+    })
+    message?: string,
     @ArgInteger({
       name: 'Bônus',
       description: 'Bônus a ser adicionado ao rolamento',
@@ -131,6 +137,7 @@ export class Rolls10Group {
       witchPredilection,
       nonConvPredilectionsChoices,
       extras,
+      message,
     });
 
     await interaction.reply({

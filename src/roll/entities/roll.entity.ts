@@ -42,6 +42,7 @@ export class RollsD10 {
     private readonly values: number[],
     public diff = 6,
     public autoSuccess = 0,
+    public readonly message = '',
   ) {
     this.expression = '';
     let total = values.reduce((a, b) => a + b, 0);
@@ -120,18 +121,34 @@ export class RollsD10 {
     });
 
     if (this.critical_f) {
-      embed.setTitle('Falha Crítica').setColor('#FF0000'); // Red
+      embed
+        .setTitle(
+          `Falha Crítica${this.message.length > 0 ? ' - ' + this.message : ''}`,
+        )
+        .setColor('#FF0000'); // Red
     } else if (this.critical_s) {
-      embed.setTitle(`Sucesso Crítico x${this.critical_s}`).setColor('#FFD700'); // Gold
+      embed
+        .setTitle(
+          `Sucesso Crítico x${this.critical_s}${
+            this.message.length > 0 ? ' - ' + this.message : ''
+          }`,
+        )
+        .setColor('#FFD700'); // Gold
       fields.push({
         name: 'Bônus de Criticos',
         value: (this.critical_s * 2).toString(),
         inline: true,
       });
     } else if (this.success > 0 || this.autoSuccess > 0) {
-      embed.setTitle('Sucesso').setColor('#00FF00'); // Green
+      embed
+        .setTitle(
+          `Sucesso${this.message.length > 0 ? ' - ' + this.message : ''}`,
+        )
+        .setColor('#00FF00'); // Green
     } else {
-      embed.setTitle('Falha').setColor('#8B0000'); // Dark Red
+      embed
+        .setTitle(`Falha${this.message.length > 0 ? ' - ' + this.message : ''}`)
+        .setColor('#8B0000'); // Dark Red
     }
     if (this.autoSuccess > 0) {
       fields.push({
