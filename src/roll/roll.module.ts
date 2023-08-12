@@ -6,6 +6,7 @@ import { AttributeModule } from '~/player-system/attribute/attribute.module';
 import { CompetencesModule } from '~/player-system/competences/competences.module';
 import { NonConvPredilectionsModule } from '~/player-system/nonconv-predilection/noconv-predilections.module';
 import { WitchPredilectionsModule } from '~/player-system/witch-predilection/witch-predilection.module';
+import { ExtrasModule } from '~/player-system/extras/extras.module';
 
 @Module({
   imports: [
@@ -14,7 +15,9 @@ import { WitchPredilectionsModule } from '~/player-system/witch-predilection/wit
     CompetencesModule,
     WitchPredilectionsModule,
     NonConvPredilectionsModule,
+    ExtrasModule,
   ],
   providers: [RollService, Rolls10Group],
+  exports: [RollService],
 })
 export class RollModule {}

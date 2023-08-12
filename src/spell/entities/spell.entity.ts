@@ -10,11 +10,13 @@ import {
   Entity,
   Index,
   ManyToOne,
+  OneToMany,
   PrimaryColumn,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { DiscordEntityVieable } from '~/discord/types';
+import { Train } from '~/train/entities/train.entity';
 
 export enum SpellCategoryEnum {
   ABJURATION = 'Abjuração',
@@ -179,6 +181,9 @@ export class Spell implements DiscordEntityVieable {
 
   @Column()
   guildId: string;
+
+  @OneToMany(() => Train, (train) => train.spell)
+  trains: Train[];
 
   toShortEmbed() {
     const embed = new EmbedBuilder();

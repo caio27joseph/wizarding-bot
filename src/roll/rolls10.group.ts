@@ -25,6 +25,9 @@ import {
 } from '~/player-system/abilities/entities/abilities.entity';
 import { witchPredilectionsChoices } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { nonConvPredilectionsChoices } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
+import { ExtrasService } from '~/player-system/extras/extras.service';
+import { extrasChoices } from '~/player-system/extras/entities/extras.entity';
+import { RollService } from './roll.service';
 
 @Group({
   name: 'dr',
@@ -32,13 +35,7 @@ import { nonConvPredilectionsChoices } from '~/player-system/nonconv-predilectio
 })
 @Injectable()
 export class Rolls10Group {
-  constructor(
-    private readonly attributesService: AttributeService,
-    private readonly abilitiesService: AbilitiesService,
-    private readonly competencesService: CompetencesService,
-    private readonly witchPredilectionsService: WitchPredilectionsService,
-    private readonly nonConvPredilectionsService: NonConvPredilectionsService,
-  ) {}
+  constructor(private readonly rollService: RollService) {}
 
   @Command({
     name: 'default',
@@ -114,108 +111,31 @@ export class Rolls10Group {
       required: false,
     })
     nonConvPredilectionsChoices?: string,
+    @ArgString({
+      name: 'Extras',
+      description: 'Extras a ser rolado',
+      required: false,
+      choices: extrasChoices,
+    })
+    extras?: string,
   ) {
-    let dices = 0;
-    let expression = '';
-    if (attribute) {
-      const attributes = await this.attributesService.findOne({
-        where: {
-          playerId: player.id,
-        },
-      });
-      const value = attributes[attribute];
-      dices += value;
-      if (expression.length > 0) expression += ' + ';
-      expression += `${value}`;
-    }
-    let abilities: Abilities;
-    if (skills || talent || knowledge) {
-      abilities = await this.abilitiesService.findOne({
-        where: {
-          playerId: player.id,
-        },
-      });
-    }
-    if (skills) {
-      const value = abilities[skills];
-      dices += value;
-      if (expression.length > 0) expression += ' + ';
-      expression += `${value}`;
-    }
-    if (talent) {
-      const value = abilities[talent];
-      dices += value;
-      if (expression.length > 0) expression += ' + ';
-      expression += `${value}`;
-    }
-    if (knowledge) {
-      const value = abilities[knowledge];
-      dices += value;
-      if (expression.length > 0) expression += ' + ';
-      expression += `${value}`;
-    }
-    if (competence) {
-      const competences = await this.competencesService.findOne({
-        where: {
-          playerId: player.id,
-        },
-      });
-      const value = competences[competence];
-      dices += value;
-      if (expression.length > 0) expression += ' + ';
-      expression += `${value}`;
-    }
-    if (witchPredilection) {
-      const witchPredilections = await this.witchPredilectionsService.findOne({
-        where: {
-          playerId: player.id,
-        },
-      });
-      const value = witchPredilections[witchPredilection];
-      dices += value;
-      if (expression.length > 0) expression += ' + ';
-      expression += `${value}`;
-    }
-    if (nonConvPredilectionsChoices) {
-      const nonConvPredilections =
-        await this.nonConvPredilectionsService.findOne({
-          where: {
-            playerId: player.id,
-          },
-        });
-      const value = nonConvPredilections[nonConvPredilectionsChoices];
-      dices += value;
-      if (expression.length > 0) expression += ' + ';
-      expression += `${value}`;
-    }
-    if (autoSuccess) {
-      if (expression.length > 0) expression += ' + ';
-    }
-    if (bonus) {
-      dices += bonus;
-      if (expression.length > 0) expression += ' + ';
-      expression += `${bonus}`;
-    }
-    if (dices + (autoSuccess || 0) <= 0) {
-      await interaction.reply({
-        content: `${interaction.member} - FALHA AUTOMATICA - ${
-          expression || 0
-        }`,
-      });
-      return;
-    }
-
-    const roll = new RollsD10(dices, diff || 6, autoSuccess || 0);
+    const roll = await this.rollService.roll10(player, {
+      diff,
+      autoSuccess,
+      bonus,
+      attribute,
+      skills,
+      talent,
+      knowledge,
+      competence,
+      witchPredilection,
+      nonConvPredilectionsChoices,
+      extras,
+    });
 
     await interaction.reply({
       content: `${interaction.member}`,
-      embeds: [
-        roll.toEmbed().setFooter({
-          text: `${expression} = ${dices}d10 ${
-            autoSuccess > 0 ? `, ${autoSuccess} Automático` : ''
-          }, diff: ${diff || 6}`,
-        }),
-      ],
+      embeds: [roll.toEmbed()],
     });
   }
 }

@@ -84,7 +84,9 @@ export class NonConvPredilections implements DiscordEntityVieable {
   @Field()
   wandmancy: number;
 
-  @OneToOne(() => Player, (player) => player.nonConvPredilections)
+  @OneToOne(() => Player, (player) => player.nonConvPredilections, {
+    cascade: true,
+  })
   player: Player;
 
   @Column()

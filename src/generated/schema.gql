@@ -26,6 +26,8 @@ type Player {
   competencesId: ID!
   witchPredilectionsId: ID!
   nonConvPredilectionsId: ID!
+  extrasId: ID!
+  trains: ID!
 }
 
 type PointLog {

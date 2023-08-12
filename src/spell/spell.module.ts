@@ -5,9 +5,16 @@ import { SpellSlotsModule } from './spell-slots/spell-slots.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Spell } from './entities/spell.entity';
 import { SpellGroup } from './spell.group';
+import { TrainModule } from '~/train/train.module';
+import { PlayerModule } from '~/core/player/player.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Spell]), SpellSlotsModule],
+  imports: [
+    TypeOrmModule.forFeature([Spell]),
+    SpellSlotsModule,
+    TrainModule,
+    PlayerModule,
+  ],
   providers: [SpellResolver, SpellService, SpellGroup],
   exports: [SpellService],
 })

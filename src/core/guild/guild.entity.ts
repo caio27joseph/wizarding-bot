@@ -29,16 +29,24 @@ export class Guild {
   })
   importSpells: boolean;
 
-  @OneToMany((type) => Player, (player) => player.guild)
+  @OneToMany((type) => Player, (player) => player.guild, {
+    cascade: true,
+  })
   players: Player[];
 
-  @OneToMany((type) => House, (house) => house.guild)
+  @OneToMany((type) => House, (house) => house.guild, {
+    cascade: true,
+  })
   houses: House[];
 
-  @OneToMany((type) => HouseCup, (cup) => cup.guild)
+  @OneToMany((type) => HouseCup, (cup) => cup.guild, {
+    cascade: true,
+  })
   cups: HouseCup[];
 
-  @OneToMany((type) => Spell, (spell) => spell.guild)
+  @OneToMany((type) => Spell, (spell) => spell.guild, {
+    cascade: true,
+  })
   spells: Spell[];
 
   async verifyMod(member: GuildMember) {

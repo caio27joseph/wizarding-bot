@@ -25,6 +25,18 @@ export enum WitchPredilectionsNameEnum {
   ILLUSION = 'Ilusão',
   UNIVERSAL = 'Universal',
 }
+// map reverse
+export const witchPredilectionsNameMap = {
+  [WitchPredilectionsNameEnum.ABJURATION]: 'abjuration',
+  [WitchPredilectionsNameEnum.ENCHANTMENT]: 'enchantment',
+  [WitchPredilectionsNameEnum.NECROMANCY]: 'necromancy',
+  [WitchPredilectionsNameEnum.DIVINATION]: 'divination',
+  [WitchPredilectionsNameEnum.EVOCATION]: 'evocation',
+  [WitchPredilectionsNameEnum.TRANSMUTATION]: 'transmutation',
+  [WitchPredilectionsNameEnum.CONJURATION]: 'conjuration',
+  [WitchPredilectionsNameEnum.ILLUSION]: 'illusion',
+  [WitchPredilectionsNameEnum.UNIVERSAL]: 'universal',
+};
 
 export const witchPredilectionsChoices = Object.keys(
   WitchPredilectionsNameEnum,
@@ -84,7 +96,9 @@ export class WitchPredilections implements DiscordEntityVieable {
   @Field()
   universal: number;
 
-  @OneToOne(() => Player, (player) => player.witchPredilections)
+  @OneToOne(() => Player, (player) => player.witchPredilections, {
+    cascade: true,
+  })
   player: Player;
 
   @Column()

@@ -16,8 +16,10 @@ import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
 import { Abilities } from '~/player-system/abilities/entities/abilities.entity';
 import { Attributes } from '~/player-system/attribute/entities/attributes.entity';
 import { Competences } from '~/player-system/competences/entities/competences.entity';
+import { Extras } from '~/player-system/extras/entities/extras.entity';
 import { NonConvPredilections } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { WitchPredilections } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { Train } from '~/train/entities/train.entity';
 
 @ObjectType()
 @Entity()
@@ -59,7 +61,9 @@ export class Player implements DiscordEntityVieable {
   @Field(() => ID, { nullable: true })
   houseId?: string;
 
-  @OneToMany((type) => PointLog, (log) => log.player)
+  @OneToMany((type) => PointLog, (log) => log.player, {
+    cascade: true,
+  })
   @Field((type) => [PointLog])
   pointLogs?: PointLog[];
 
@@ -124,6 +128,22 @@ export class Player implements DiscordEntityVieable {
   })
   @Field(() => ID)
   nonConvPredilectionsId?: string;
+  @OneToOne((type) => Extras, (extras) => extras.player, {
+    nullable: true,
+  })
+  extras: Extras;
+
+  @Column({
+    nullable: true,
+  })
+  @Field(() => ID)
+  extrasId?: string;
+
+  @OneToMany((type) => Train, (train) => train.player, {
+    cascade: true,
+  })
+  @Field(() => ID)
+  trains: Train[];
 
   toEmbed() {
     const embeds = new EmbedBuilder();

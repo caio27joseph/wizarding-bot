@@ -60,7 +60,9 @@ export class Attributes implements DiscordEntityVieable {
   @Field()
   rationality: number;
 
-  @OneToOne(() => Player, (player) => player.attributes)
+  @OneToOne(() => Player, (player) => player.attributes, {
+    cascade: true,
+  })
   player: Player;
 
   @Column()

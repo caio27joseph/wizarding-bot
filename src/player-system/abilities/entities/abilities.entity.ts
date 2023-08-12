@@ -220,7 +220,9 @@ export class Abilities implements DiscordEntityVieable {
   @Column({ default: 0 })
   theological_knowledge: number;
 
-  @OneToOne(() => Player, (player) => player.abilities)
+  @OneToOne(() => Player, (player) => player.abilities, {
+    cascade: true,
+  })
   player: Player;
 
   @Column()

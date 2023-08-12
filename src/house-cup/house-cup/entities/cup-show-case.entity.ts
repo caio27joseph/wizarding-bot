@@ -26,7 +26,9 @@ export class CupShowCase {
   })
   message?: string;
 
-  @OneToOne(() => HouseCup, (cup) => cup.showCase)
+  @OneToOne(() => HouseCup, (cup) => cup.showCase, {
+    cascade: true,
+  })
   cup: HouseCup;
 
   @Column()

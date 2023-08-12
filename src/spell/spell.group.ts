@@ -6,19 +6,29 @@ import {
   ArgGuild,
   ArgInteger,
   ArgInteraction,
+  ArgPlayer,
   ArgString,
 } from '~/discord/decorators/message.decorators';
 import { SpellService } from './spell.service';
 import {
   ActionRowBuilder,
+  AnySelectMenuInteraction,
   ButtonBuilder,
+  ButtonInteraction,
   ButtonStyle,
   CommandInteraction,
   InteractionResponse,
+  Message,
+  MessageComponentInteraction,
+  StringSelectMenuInteraction,
 } from 'discord.js';
 import { SpellCategoryEnum } from './entities/spell.entity';
 import { Any, ILike, In } from 'typeorm';
 import { EntityNotFound } from '~/discord/exceptions';
+import { SpellTrainAction, TrainGroup } from '~/train/train.group';
+import { PlayerService } from '~/core/player/player.service';
+import { Player } from '~/core/player/entities/player.entity';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 @Group({
@@ -26,7 +36,11 @@ import { EntityNotFound } from '~/discord/exceptions';
   description: 'Comandos relacionados a feitiços',
 })
 export class SpellGroup {
-  constructor(private readonly service: SpellService) {}
+  constructor(
+    private readonly service: SpellService,
+    private readonly trainGroup: TrainGroup,
+    private readonly playerService: PlayerService,
+  ) {}
 
   @Command({
     name: 'add',
@@ -54,14 +68,47 @@ export class SpellGroup {
       description: 'Nome do feitiço, ex.: "Lumos"',
     })
     name: string,
+    @ArgPlayer()
+    player: Player,
   ) {
     const spell = await this.service.findOne({
       where: { guildId: guild.id, name: ILike(name) },
     });
     if (!spell) throw new EntityNotFound('Feitiço', name);
-    await interaction.reply({
+
+    const uuid4 = uuidv4();
+    const trainOption = new ActionRowBuilder<ButtonBuilder>().addComponents(
+      new ButtonBuilder({
+        customId: `train-${uuid4}`,
+        label: 'Treinar',
+        style: ButtonStyle.Primary,
+      }),
+    );
+    const message = await interaction.reply({
       embeds: [spell.toEmbed()],
+      components: [trainOption],
       ephemeral: true,
+    });
+
+    let responded = false;
+    const collector = interaction.channel.createMessageComponentCollector({
+      filter: (i) =>
+        i.user.id === interaction.user.id && i.customId === `train-${uuid4}`,
+      time: 35000,
+    });
+    collector.on('collect', async (i: MessageComponentInteraction) => {
+      if (!responded) {
+        await message.edit({
+          embeds: [spell.toEmbed()],
+          components: [],
+        });
+      }
+      await this.trainGroup.handlePossibleSpellTrain(
+        interaction,
+        i,
+        player,
+        spell,
+      );
     });
   }
 

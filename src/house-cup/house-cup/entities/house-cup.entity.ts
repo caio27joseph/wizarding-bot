@@ -59,7 +59,9 @@ export class HouseCup implements DiscordEntityVieable {
   @Field()
   guildId: string;
 
-  @OneToMany((type) => PointLog, (log) => log.cup)
+  @OneToMany((type) => PointLog, (log) => log.cup, {
+    cascade: true,
+  })
   @Field((type) => [PointLog])
   pointLogs: PointLog[];
 

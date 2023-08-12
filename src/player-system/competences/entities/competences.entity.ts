@@ -77,7 +77,9 @@ export class Competences implements DiscordEntityVieable {
   @Column({ default: 0 })
   magical_languages: number;
 
-  @OneToOne(() => Player, (player) => player.competences)
+  @OneToOne(() => Player, (player) => player.competences, {
+    cascade: true,
+  })
   player: Player;
 
   @Column()
