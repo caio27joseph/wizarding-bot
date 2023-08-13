@@ -24,10 +24,12 @@ export enum TrainGroupOption {
 @Entity()
 export class Train implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
-  @Column()
-  messageId: string;
+  @Column({
+    nullable: true,
+  })
+  messageId?: string;
 
   @Column()
   channelId: string;
@@ -108,6 +110,7 @@ export class Train implements DiscordEntityVieable {
 
   @BeforeInsert()
   setXp() {
+    if (this.xp) return this.xp;
     if (this.spell) {
       let expression =
         `${this.success} Sucessos * ${this.spell.level} Nível do Feitiço` +

@@ -3,6 +3,7 @@ import {
   CommandInteraction,
   GuildMember,
   Interaction,
+  Role,
   TextChannel,
 } from 'discord.js';
 
@@ -15,6 +16,8 @@ import {
   ArgInteger,
   ArgUser,
   ArgGuild,
+  ArgPlayer,
+  ArgRole,
 } from '~/discord/decorators/message.decorators';
 import { Command } from '~/discord/decorators/command.decorator';
 import { Group } from '~/discord/decorators/group.decorator';
@@ -32,6 +35,8 @@ import { Cron } from '@nestjs/schedule';
 import { IsNull, Not } from 'typeorm';
 import { DiscordEventEmitter } from '~/discord/discord.event-emitter';
 import { CupShowCase } from './entities/cup-show-case.entity';
+import { Player } from '~/core/player/entities/player.entity';
+import { PaginationHelper } from '~/discord/helpers/page-helper';
 
 @Group({
   name: 'taca',
@@ -223,7 +228,6 @@ export class HouseCupGroup {
   })
   public async addPoints(
     @ArgInteraction() interaction: CommandInteraction,
-    @ArgAuthorMember() author: GuildMember,
     @ArgInteger({
       name: 'Quantidade',
       description:
@@ -236,6 +240,11 @@ export class HouseCupGroup {
     })
     target: GuildMember,
     @ArgGuild() guild: Guild,
+    @ArgString({
+      name: 'motivo',
+      description: 'Motivo da adicao ou remocao de pontos',
+    })
+    reason: string,
   ) {
     const cup = await this.service.getActiveCup({ guild });
     if (!cup)
@@ -254,8 +263,66 @@ export class HouseCupGroup {
         target,
       );
     }
-    const log = await this.pointLogsService.addPoints(cup, player, value);
-    return log;
+    const log = await this.pointLogsService.addPoints(
+      cup,
+      player,
+      value,
+      interaction.channelId,
+      reason,
+    );
+    await interaction.reply({
+      content:
+        `<@${target.id}> recebeu ${value} pontos` +
+        (reason ? `\n***Motivo: ${reason}***` : ''),
+    });
+
+    if (!guild.pointLogChannelId) return;
+    await guild.pointLogChannel.send({
+      content:
+        `<@${target.id}> recebeu ${value} pontos para <@&${log.house.discordRoleId}> - <#${interaction.channelId}>` +
+        (reason ? `\n***Motivo: ${reason}***` : ''),
+    });
+
+    return;
+  }
+
+  @Command({
+    name: 'cancelar_ponto_casa',
+    description: 'Cancela o acontecimento de ponto dado a jogador',
+    mod: true,
+  })
+  async cancelPointGiven(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgGuild()
+    guild: Guild,
+    @ArgString({
+      name: 'ID',
+      description: 'Id de cancelamento informado no log',
+    })
+    id: string,
+  ) {
+    const log = await this.pointLogsService.findOne({
+      where: {
+        id,
+        player: {
+          guildId: guild.id,
+        },
+      },
+      relations: {
+        player: true,
+      },
+    });
+    if (!log) {
+      throw new DiscordSimpleError('Ponto não encontrado');
+    }
+
+    const removed = await this.pointLogsService.remove({ id: log.id });
+
+    await interaction.reply({
+      content: `${removed.affected} log cancelado...`,
+      embeds: [log.toEmbed()],
+      ephemeral: true,
+    });
   }
 
   @Command({
@@ -291,26 +358,63 @@ export class HouseCupGroup {
     await interaction.reply({ ...message, ephemeral: true });
   }
 
-  // @Command({
-  //   name: 'playerLog',
-  //   description: 'Lista de pontos de determinado player',
-  // })
-  // public async playerLog(
-  //   @ArgInteraction() interaction: CommandInteraction,
+  @Command({
+    name: 'log',
+    description: 'Verifica a lista de pontos de um jogador/casa',
+  })
+  public async playerLog(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgPlayer({
+      name: 'Jogador',
+      required: false,
+      description: 'Verifica o total de pontos',
+    })
+    target?: Player,
+    @ArgRole({
+      name: 'Casa',
+      required: false,
+      description: 'Verifica o total de pontos',
+    })
+    houseRole?: Role,
+  ) {
+    if (!target && !houseRole) {
+      throw new DiscordSimpleError(
+        'Você precisa informar um jogador ou uma casa',
+      );
+    }
+    const logs = await this.pointLogsService.findAll({
+      where: {
+        house: {
+          discordRoleId: houseRole?.id,
+        },
+        playerId: target?.id,
+      },
+      relations: {
+        house: true,
+      },
+      order: {
+        createdAt: 'DESC',
+      },
+    });
 
-  //   @ArgUser({
-  //     name: 'jogador',
-  //     description: 'Verifica o total de pontos',
-  //   })
-  //   target: GuildMember,
-  // ) {
-  //   const guild = await this.guildService.loadGuildAsMod(interaction);
-  //   const player = await this.playerService.getOrCreateByMember(guild, target, {
-  //     pointLogs: true,
-  //   });
-  //   const logs = player.pointLogs;
-  //   await interaction.reply({
-  //     embeds: logs.map((h) => h.toEmbeds()),
-  //   });
-  // }
+    const helper = new PaginationHelper({
+      items: logs,
+      formatter: async (log) => {
+        const dateStringBr = new Date(log.createdAt);
+        dateStringBr.setHours(log.createdAt.getHours() - 3);
+        let response =
+          `${dateStringBr.toLocaleDateString('pt-BR', {
+            hour: 'numeric',
+            minute: 'numeric',
+          })}: <@${log.player.discordId}> recebeu ${log.value} pontos para <@&${
+            log.house.discordRoleId
+          }>` +
+          `${log.reason ? `\n${log.reason}` : ''}` +
+          `\n**ID:** ${log.id}\n`;
+        return response;
+      },
+      header: '**Pontos**\n\n',
+    });
+    await helper.reply(interaction);
+  }
 }

@@ -31,10 +31,16 @@ export class Guild {
 
   trainLogChannel?: TextChannel;
 
+  pointLogChannel?: TextChannel;
+
   @Column({
     nullable: true,
   })
   trainLogChannelId?: string;
+  @Column({
+    nullable: true,
+  })
+  pointLogChannelId?: string;
 
   @OneToMany((type) => Player, (player) => player.guild, {
     cascade: true,

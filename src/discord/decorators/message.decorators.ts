@@ -42,14 +42,37 @@ export const ArgGuild = simpleFactory((interaction, opt) => {
   return opt.guild;
 });
 
-export const ArgPlayer = simpleFactory((interaction, opt) => {
-  const player = opt.playerService.getOrCreateUpdate({
-    discordId: interaction.member.user.id,
-    guildId: interaction.guild.id,
-  });
-
-  return player;
-});
+type PlayerOptions = InteractionOptions;
+export const ArgPlayer = factory<PlayerOptions | undefined>(
+  async (interaction, { parameter, command, playerService }) => {
+    if (!parameter.options) {
+      const player = playerService.getOrCreateUpdate({
+        discordId: interaction.member.user.id,
+        guildId: interaction.guild.id,
+      });
+      return player;
+    }
+    const paramName =
+      typeof parameter.options === 'string'
+        ? normalizedName(parameter.options)
+        : normalizedName(parameter.options.name);
+    const commandName = normalizedName(command.options.name);
+    const value = getInteractionArgValue(interaction, paramName, commandName);
+    if (!value) return;
+    let user = interaction.guild.members.cache.get(value);
+    if (!user) {
+      user = (await interaction.guild.members.fetch()).get(value);
+    }
+    const player = playerService.getOrCreateUpdate({
+      discordId: user.id,
+      guildId: interaction.guild.id,
+    });
+    return player;
+  },
+  {
+    type: InteractionOptionEnum.User,
+  },
+);
 
 const argOptionHandler: SlashCommandDecoratorHandler<any> = (
   interaction,

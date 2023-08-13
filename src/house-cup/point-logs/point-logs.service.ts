@@ -4,7 +4,12 @@ import {
   UpdatePointLogInput,
 } from './entities/point-log.input';
 import { InjectRepository } from '@nestjs/typeorm';
-import { FindManyOptions, FindOneOptions, Repository } from 'typeorm';
+import {
+  FindManyOptions,
+  FindOneOptions,
+  FindOptionsWhere,
+  Repository,
+} from 'typeorm';
 import { PointLog } from './entities/point-log.entity';
 import { HouseCup } from '../house-cup/entities/house-cup.entity';
 import { Player } from '~/core/player/entities/player.entity';
@@ -33,11 +38,16 @@ export class PointLogsService {
     return `This action updates a #${id} pointLog`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} pointLog`;
+  remove(options: FindOptionsWhere<PointLog>) {
+    return this.repo.delete(options);
   }
-
-  addPoints(cup: HouseCup, player: Player, value: number) {
+  addPoints(
+    cup: HouseCup,
+    player: Player,
+    value: number,
+    channelId: string,
+    reason?: string,
+  ) {
     if (!cup?.active)
       throw new DiscordSimpleError('Voce precisa iniciar a taca das casas');
     const data = this.repo.create({
@@ -45,6 +55,8 @@ export class PointLogsService {
       player,
       house: player.house,
       value: value,
+      reason,
+      channelId,
     });
     return this.repo.save(data);
   }

@@ -162,7 +162,7 @@ export class DiscordEventEmitter implements OnModuleInit {
       if (!Object.values(InteractionOptionEnum).includes(param?.type as any)) {
         continue;
       }
-
+      if (!param.options) continue;
       let name: string, description: string, required: boolean;
       if (typeof param.options === 'string') {
         name = normalizedName(param.options);

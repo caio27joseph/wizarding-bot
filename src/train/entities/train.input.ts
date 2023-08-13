@@ -7,13 +7,15 @@ import { Player } from '~/core/player/entities/player.entity';
 export class CreateTrainInput {
   success: number;
 
-  spell: Spell;
-  spellId: string;
+  spell?: Spell;
+  spellId?: string;
+
+  xp?: number;
 
   player: Player;
   playerId: string;
 
-  messageId: string;
+  messageId?: string;
   channelId: string;
 
   group?: TrainGroupOption;

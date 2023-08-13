@@ -25,7 +25,9 @@ export class TrainService {
     const result = await this.repo.update(where, input);
     return result;
   }
-  async delete() {}
+  remove(options: FindOptionsWhere<Train>) {
+    return this.repo.delete(options);
+  }
   async findAll(options?: FindManyOptions<Train>) {
     const trains = await this.repo.find(options);
     return trains;

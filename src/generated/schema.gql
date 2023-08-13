@@ -33,6 +33,8 @@ type Player {
 type PointLog {
   id: ID!
   value: Float!
+  reason: String
+  channelId: String
   player: Player!
   playerId: String!
   house: House!

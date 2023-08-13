@@ -25,22 +25,46 @@ export class GuildService implements OnModuleInit {
   async onModuleInit() {
     const allGuilds = await this.repo.find();
 
-    for (const guild of allGuilds) {
-      try {
-        const fetchedChannel = await this.discordEmitter.client.channels.fetch(
-          guild.trainLogChannelId,
-          {
-            allowUnknownGuild: true,
-            cache: true,
-            force: true,
-          },
-        );
-        guild.trainLogChannel = fetchedChannel as TextChannel;
-      } catch (error) {
-        console.log(error);
-      }
+    for (let guild of allGuilds) {
+      guild = await this.loadTrainChannel(guild);
+      guild = await this.loadPointLogsChannel(guild);
+
       this.guilds.set(guild.id, guild);
     }
+  }
+  async loadTrainChannel(guild: Guild) {
+    if (!guild.trainLogChannelId) return guild;
+    try {
+      const fetchedChannel = await this.discordEmitter.client.channels.fetch(
+        guild.trainLogChannelId,
+        {
+          allowUnknownGuild: true,
+          cache: true,
+          force: true,
+        },
+      );
+      guild.trainLogChannel = fetchedChannel as TextChannel;
+    } catch (error) {
+      console.log(error);
+    }
+    return guild;
+  }
+  async loadPointLogsChannel(guild: Guild) {
+    if (!guild.pointLogChannelId) return guild;
+    try {
+      const fetchedChannel = await this.discordEmitter.client.channels.fetch(
+        guild.pointLogChannelId,
+        {
+          allowUnknownGuild: true,
+          cache: true,
+          force: true,
+        },
+      );
+      guild.pointLogChannel = fetchedChannel as TextChannel;
+    } catch (error) {
+      console.log(error);
+    }
+    return guild;
   }
 
   async create(createHouseInput: CreateGuildInput) {

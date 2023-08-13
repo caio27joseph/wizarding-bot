@@ -23,6 +23,22 @@ export class PointLog {
   @Field()
   value: number;
 
+  @Column({
+    nullable: true,
+  })
+  @Field({
+    nullable: true,
+  })
+  reason?: string;
+
+  @Column({
+    nullable: true,
+  })
+  @Field({
+    nullable: true,
+  })
+  channelId?: string;
+
   @ManyToOne((type) => Player, (player) => player.pointLogs, {
     eager: true,
   })
@@ -33,7 +49,7 @@ export class PointLog {
   @Field()
   playerId: string;
 
-  @ManyToOne((type) => House, (house) => house.pointLogs)
+  @ManyToOne((type) => House, (house) => house.pointLogs, { eager: true })
   @Field((type) => House)
   house: House;
 
@@ -53,10 +69,8 @@ export class PointLog {
   @Field()
   createdAt: Date;
 
-  toEmbeds() {
-    const embeds = new EmbedBuilder({
-      color: this.house.color,
-    })
+  toEmbed() {
+    const embeds = new EmbedBuilder()
       .setAuthor({
         name: this.player.name || 'Jogador sem nome',
         iconURL:
@@ -67,13 +81,17 @@ export class PointLog {
       .setFooter({
         text: this.createdAt.toLocaleString('pt-BR'),
       });
-    if (this.house?.imageUrl) embeds.setImage(this.house.imageUrl);
+    if (this.house) {
+      embeds.setColor(this.house.color);
+    }
+    if (this.reason) embeds.setDescription(this.reason);
+    if (this.house?.imageUrl) embeds.setThumbnail(this.house.imageUrl);
     return embeds;
   }
   reply(interaction: Interaction): MessagePayload {
     const reply = new MessagePayload(interaction, {
       content: 'Taca das Casas',
-      embeds: [this.toEmbeds()],
+      embeds: [this.toEmbed()],
     });
     return reply;
   }

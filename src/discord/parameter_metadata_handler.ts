@@ -121,7 +121,7 @@ export function interactionDecoratorFactory<Opt>(
   handler: SlashCommandDecoratorHandler<Opt>,
   { type }: SlashDecoratorFactoryOptions,
 ) {
-  return (options: Opt) =>
+  return (options?: Opt) =>
     (target: any, propertyKey: string | symbol, index: number) => {
       const meta = new DiscordParametersMetadataHandler(target);
       meta.addCommandParameterDecorator(
