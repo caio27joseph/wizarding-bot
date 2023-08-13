@@ -97,7 +97,7 @@ export class TrainGroup {
         createdAt: MoreThan(startTime),
       },
     });
-    if (trains.length >= 6) {
+    if (trains.length >= 50) {
       await i.reply({
         content: `Você já treinou demais hoje!`,
         ephemeral: true,
@@ -105,7 +105,7 @@ export class TrainGroup {
       return;
     }
     const trainingForThisSpell = trains.filter((t) => t.spellId === spell.id);
-    if (trainingForThisSpell.length >= 2) {
+    if (trainingForThisSpell.length >= 30) {
       await i.reply({
         content: `Você já treinou demais esse feitiço hoje!`,
         ephemeral: true,
@@ -147,6 +147,7 @@ export class TrainGroup {
       time: 1000 * 60 * 10,
     });
     let message: Message;
+    let submitted = false;
     const submit = async (i, trainOptions: SpellTrainData) => {
       try {
         await i.reply({
@@ -164,6 +165,8 @@ export class TrainGroup {
           components: [],
         });
       }
+      if (submitted) return;
+      submitted = true;
       await this.startSpellTrain(
         interaction,
         player,
