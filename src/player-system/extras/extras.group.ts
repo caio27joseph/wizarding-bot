@@ -57,28 +57,28 @@ export class ExtrasGroup {
       name: ExtrasNameEnum.WILLPOWER,
       description: `${ExtrasNameEnum.WILLPOWER} do personagem.`,
       required: false,
-      choices: [0, 1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     })
     willpower?: number,
     @ArgInteger({
       name: ExtrasNameEnum.AFFINITY,
       description: `${ExtrasNameEnum.AFFINITY} do personagem.`,
       required: false,
-      choices: [0, 1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     })
     affinity?: number,
     @ArgInteger({
       name: ExtrasNameEnum.CONTROL,
       description: `${ExtrasNameEnum.CONTROL} do personagem.`,
       required: false,
-      choices: [0, 1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     })
     control?: number,
     @ArgInteger({
       name: ExtrasNameEnum.SORCERY,
       description: `${ExtrasNameEnum.SORCERY} do personagem.`,
       required: false,
-      choices: [0, 1, 2, 3, 4, 5, 6],
+      choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     })
     sorcery?: number,
   ) {
