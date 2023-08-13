@@ -69,6 +69,13 @@ export class Train implements DiscordEntityVieable {
 
   xpExpression?: string;
 
+  toShortText() {
+    return (
+      `Treino de ${this.spell.name}, XP Concedido ${this.xp}` +
+      `\n${this.xpExpression} --- ${this.group} `
+    );
+  }
+
   toEmbed() {
     const embed = new EmbedBuilder();
     embed.setAuthor({
@@ -118,7 +125,7 @@ export class Train implements DiscordEntityVieable {
         expression = '(' + expression + ') * 4 Professor';
       } else {
         xp += Train.groupXpMap[this.group];
-        expression += ' + ' + Train.groupXpMap[this.group] + ' Grupo';
+        expression += ' + ' + Train.groupXpMap[this.group] + ` ${this.group}`;
       }
       this.xp = xp;
       this.xpExpression = expression;

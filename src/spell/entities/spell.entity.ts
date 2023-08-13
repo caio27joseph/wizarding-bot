@@ -64,6 +64,14 @@ export enum MaestryNameEnum {
   EXPERT = 'Especialista',
   MASTER = 'Mestre',
 }
+export const maestryNumToName = {
+  1: MaestryNameEnum.INITIAL,
+  2: MaestryNameEnum.INTERMEDIATE,
+  3: MaestryNameEnum.ADVANCED,
+  4: MaestryNameEnum.EXPERT,
+  5: MaestryNameEnum.MASTER,
+};
+
 registerEnumType(MaestryNameEnum, {
   name: 'MaestryNameEnum',
 });
