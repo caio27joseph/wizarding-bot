@@ -179,8 +179,9 @@ export class TrainGroup {
       switch (i.customId) {
         case SpellTrainAction.SELECT_ROLL:
           trainOptions.category = i.values[0] as WitchPredilectionsNameEnum;
-          (await i.deferUpdate()).delete();
+          (await i.deferReply()).delete();
           break;
+
         case SpellTrainAction.SELECT_GROUP:
           trainOptions.group = i.values[0] as TrainGroupOption;
           (await i.deferReply()).delete();
