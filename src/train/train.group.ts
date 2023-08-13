@@ -247,10 +247,12 @@ export class TrainGroup {
           value: TrainGroupOption.PROFESSOR,
         },
       );
-    const numberOptions = [0, 1, 2, 3, 4, 5, 6].map((n) => ({
-      label: n.toString(),
-      value: n.toString(),
-    }));
+    const numberOptions = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6].map(
+      (n) => ({
+        label: n.toString(),
+        value: n.toString(),
+      }),
+    );
     const testsSelect = new StringSelectMenuBuilder()
       .setCustomId(SpellTrainAction.SELECT_ROLL)
       .setPlaceholder('Qual teste?');
