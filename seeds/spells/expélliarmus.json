@@ -1,0 +1,44 @@
+{
+    "name": "Expélliarmus",
+    "category": [
+        "Evocação"
+    ],
+    "difficulty": "Médio",
+    "description": "O Feitiço Desarmador, também conhecido como Expelliarmus, é um feitiço utilizado para desarmar um adversário. Para que o efeito de desarmar seja ativado, o lampejo do feitiço deve atingir a mão armada da pessoa. Caso o lampejo atinja qualquer outra parte do corpo ou do alvo, ele apenas causa dano normalmente, sendo 2d6 + 2 + Sucessos.  1° Se o lampejo atingir a mão armada do alvo, ele é desarmado, fazendo com que o objeto que estava segurando seja arremessado a uma distância de 5 metros dele. 2° Caso o lampejo atinja qualquer outra parte do corpo ou do alvo, ele causa 2d6 + 2 + Sucessos. de dano do feitiço. ",
+    "updatedAt": "2023-08-13T01:20:09.966856",
+    "title": "Feitiço Desarmador",
+    "level": 3,
+    "actionType": "Padrão",
+    "duration": "Instantâneo",
+    "distance": "Curto",
+    "light": "Vermelho",
+    "antiSpell": "Protego",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Expélliarmus."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar o feitiço de forma focada. Além disso o dano aumenta em +1d6."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Feitiço Desarmador de forma não-verbal."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Seu feitiço agora se causar 12 ou mais de dano, deixa o inimigo atordoado por 1dControle de Rodadas."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Se o lampejo atingir a mão armada do alvo e desarmá-lo, o objeto arremessado retorna à sua mão após a conjuração do feitiço, desde que seja um objeto normalmente passível de ser segurado com uma mão."
+        }
+    ],
+    "identifier": "5bfbe56f-41ca-4d09-bdfa-3a434df084ca"
+}

@@ -1,0 +1,44 @@
+{
+    "name": "Asfixo maladum",
+    "category": [
+        "Necromancia"
+    ],
+    "difficulty": "Muito Difícil",
+    "description": "O Feitiço Asfixo Maladum é uma poderosa magia necromântica que causa grande aflição à vítima, interferindo em sua capacidade de respirar corretamente. Ao ser atingida pelo feitiço, a vítima começa a sentir dificuldades em sua respiração, tornando-se incapaz de recuperar o fôlego adequadamente.  A vítima deve ser bem-sucedida em um teste de resistência de Constituição para evitar os efeitos completos do feitiço. Caso falhe no teste, a vítima sofre os seguintes efeitos:  1° Na primeira rodada após ser atingida, a vítima fica Lenta e desajeitada, sofrendo uma penalidade de -2 em suas rolagens de iniciativa e em testes de Destreza ou Força até o início do próximo turno do conjurador. 2° Nas rodadas subsequentes, enquanto o conjurador mantiver a concentração no feitiço, a vítima começa a ter dificuldades respiratórias mais graves. Ela ficará Enjoada e incapaz de falar ou realizar ações que exijam esforço físico, como correr ou realizar ataques corpo a corpo. 3° Se a concentração for mantida por todo o tempo máximo de duração (1 minuto), a vítima entrará em um estado de asfixia extrema, caindo inconsciente e perdendo 1d6 de pontos de vida a cada rodada.  O conjurador pode optar por encerrar o feitiço a qualquer momento durante a concentração. Caso a vítima seja libertada do efeito, ela ainda ficará abalada por alguns segundos, recuperando o fôlego e retomando suas ações normais.  Este feitiço pode ser protegido por Protego. ",
+    "updatedAt": "2023-08-13T01:20:09.787856",
+    "title": "Feitiço Asfixo Maladum",
+    "level": 3,
+    "actionType": "Padrão",
+    "distance": "10 metros",
+    "light": "Verde pálido",
+    "duration": "Concentração (Máximo de 1 minuto)",
+    "requirements": "Necromancia 4",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o Feitiço Asfixo Maladum."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar o Feitiço Asfixo Maladum de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar o Feitiço Asfixo Maladum de forma não-verbal."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "A vítima tem desvantagem em seu teste de vigor contra o feitiço."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode prolongar a duração máxima do feitiço para até 1 hora, desde que mantenha a concentração."
+        }
+    ],
+    "identifier": "89bf3bf1-0691-4d52-afa7-632c09bd9459"
+}

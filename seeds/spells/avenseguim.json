@@ -1,0 +1,44 @@
+{
+    "name": "Avenseguim",
+    "category": [
+        "Adivinhação"
+    ],
+    "difficulty": "Muito Difícil",
+    "description": "O Feitiço Rastreador, também conhecido como Avenseguim, é uma magia poderosa usada para localizar objetos perdidos ou seres vivos específicos. Quando lançado com sucesso, o conjurador toca o objeto ou a criatura que deseja rastrear e, durante a duração do feitiço, pode sentir a direção e a distância aproximada em que o alvo se encontra.  O Avenseguim é especialmente útil para localizar itens valiosos que foram roubados, animais de estimação perdidos ou pessoas desaparecidas. No entanto, ele não é capaz de fornecer informações detalhadas sobre a localização exata do alvo, apenas a direção geral e a distância aproximada. ",
+    "updatedAt": "2023-08-13T01:20:09.828856",
+    "title": "Feitiço Rastreador",
+    "level": 3,
+    "actionType": "Padrão",
+    "distance": "Toque",
+    "light": "Verde claro",
+    "duration": "1 hora",
+    "requirements": "Adivinhação 4",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o Feitiço Rastreador."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar o Feitiço Rastreador de forma focada, aumentando a precisão das informações fornecidas. Com essa variação, o conjurador pode obter detalhes mais específicos sobre a localização do alvo, como uma breve visão da área em que o objeto ou criatura se encontra."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar o Feitiço Rastreador de forma não-verbal."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode rastrear até dois alvos diferentes simultaneamente com o Feitiço Rastreador, desde que os toque em momentos separados e obtenha pelo menos 2 Sucessos na rolagem."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar o Avenseguim Avançado, como um feitiço de \"Nível: 4\" e \"Pré-Requisitos: Adivinhação 3\". Nesta versão aprimorada, o feitiço permite que o conjurador obtenha informações muito mais precisas sobre a localização do alvo. Ele pode visualizar a área exata em que o objeto ou criatura se encontra, identificar obstáculos ou perigos próximos e até mesmo receber vislumbres das atividades em torno do alvo rastreado. Para alcançar essas informações detalhadas, o conjurador deve obter pelo menos 3 Sucessos na rolagem."
+        }
+    ],
+    "identifier": "51a586c3-0b19-42db-97b5-945a4b0d644d"
+}

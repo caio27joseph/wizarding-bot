@@ -1,0 +1,44 @@
+{
+    "name": "Arresto momentum",
+    "category": [
+        "Encantamento"
+    ],
+    "difficulty": "Fácil",
+    "description": "O Feitiço da Desaceleração, conhecido como Arresto Momentum, é usado para reduzir ou parar o movimento de um objeto ou criatura. Quando lançado com sucesso, o alvo é desacelerado bruscamente, tornando-se mais lento ou parando por completo, dependendo do número de Sucessos obtidos na rolagem.  Para criaturas, o Arresto Momentum diminui a velocidade e dificulta a realização de ações rápidas. O alvo afetado fica com a condição Lento até o início do seu próximo turno, caso o conjurador obtenha pelo menos 1 Sucesso.  Para objetos, o feitiço pode ser usado para diminuir ou deter completamente seu movimento. Um objeto em movimento é reduzido gradualmente, e um objeto estacionário é imobilizado temporariamente. A duração do efeito é de 1 rodada. Pode ser usado caso esteja caindo de altura altas. ",
+    "updatedAt": "2023-08-13T01:20:09.772857",
+    "title": "Feitiço da Desaceleração",
+    "level": 3,
+    "actionType": "Padrão",
+    "distance": "Curto",
+    "light": "Azul claro",
+    "duration": "Instantânea",
+    "requirements": "Encantamento 1",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o Feitiço da Desaceleração."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar o Feitiço da Desaceleração de forma focada, aumentando as chances de desacelerar o alvo com sucesso e prolongando a duração do efeito para 1 rodada adicional, totalizando 2 rodadas."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar o Feitiço da Desaceleração de forma não-verbal."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você pode afetar até dois alvos com o Feitiço da Desaceleração ao mesmo tempo, desde que ambos estejam dentro do alcance e o conjurador obtenha pelo menos 2 Sucessos na rolagem."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar o Arresto Momentum Aprimorado, como um feitiço de \"Nível: 4\" e \"Pré-Requisitos: Encantamentos 3\". Nessa versão avançada, o feitiço não apenas desacelera o alvo, mas também o imobiliza completamente por 1 rodada, mesmo que o objeto ou criatura não estivesse em movimento inicialmente. O conjurador deve obter pelo menos 3 Sucessos na rolagem para alcançar esse efeito completo de imobilização."
+        }
+    ],
+    "identifier": "388395f1-0cbd-4cab-9793-6196c0ebdf75"
+}

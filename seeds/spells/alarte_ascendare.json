@@ -1,0 +1,46 @@
+{
+    "name": "Alarte ascendare",
+    "category": [
+        "Encantamento"
+    ],
+    "difficulty": "Médio",
+    "description": "Com um aceno de varinha, o bruxo conjura um feitiço que faz com que o alvo seja lançado para o alto em uma velocidade vertiginosa. O feitiço impulsiona o alvo verticalmente, podendo atingir até 15 metros de altura. O alvo deve ser uma criatura ou objeto que esteja visível e dentro do alcance de 15 metros.  O efeito do Alarte Ascendare é repentino e imediato, podendo ser usado tanto para projetar o alvo no ar como para desestabilizar sua posição atual. Caso seja usado em um ser vivo, a criatura atingida deve fazer um teste de resistência de Força + Esquiva  para tentar evitar o impulso. Em caso de falha no teste, ela é lançada para o alto conforme o efeito do feitiço.  Se o alvo for um objeto inanimado, ele será lançado no ar sem a possibilidade de resistência. É importante notar que o Alarte Ascendare não fornece qualquer controle sobre a direção para onde o alvo será arremessado. ",
+    "updatedAt": "2023-08-13T01:20:09.724857",
+    "title": "Levantar no Ar",
+    "level": 3,
+    "actionType": "Padrão",
+    "distance": "15 Metros",
+    "light": "Amarelo",
+    "duration": "Instantânea",
+    "resistence": "Força + Esquiva",
+    "antiSpell": "Arresto Momentum",
+    "requirements": "Encantamento 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Alarte Ascendare."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Alarte Ascendare de forma focada, aumentando a precisão do feitiço e tornando mais difícil para o alvo resistir ao impulso."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Alarte Ascendare de forma não-verbal. Muda o dano de queda de d6 para d8."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Quando conjura Alarte Ascendare, você pode aumentar a potência do feitiço para lançar o alvo a uma altura maior, atingindo até 20 metros, caso obtenha 3 ou mais Sucessos."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Alarte Ascendare como um feitiço de \"Duração: Concentração\", permitindo que você mantenha o alvo flutuando no ar por uma quantidade de turnos igual ao número de Sucessos obtidos na rolagem do feitiço. Durante a concentração, o alvo permanecerá imóvel no ar e poderá ser movido verticalmente pelo conjurador conforme sua vontade. Entretanto, o movimento lateral do alvo ainda é limitado, e ele permanecerá na mesma posição horizontal em relação ao solo."
+        }
+    ],
+    "identifier": "08ba996c-d833-4c00-96d1-1df14babf1e7"
+}

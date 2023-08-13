@@ -1,0 +1,44 @@
+{
+    "name": "Cuecatius",
+    "category": [
+        "Encantamento"
+    ],
+    "difficulty": "Difícil",
+    "description": "O Feitiço Cuecatius é uma brincadeira travessa utilizada para pregar peças nos outros bruxos. Ao ser lançado, um lampejo laranja é apontado para a cueca ou calcinha da vítima, criando um gancho imaginário que se prende na roupa íntima. Como resultado, a cueca ou calcinha da vítima é levantada pela parte traseira, expondo-a embaraçosamente.  Este feitiço é principalmente uma piada inofensiva, e geralmente é usado de forma cômica e leve. No entanto, bruxos avançados podem aprimorar o feitiço para torná-lo mais incômodo ou desconfortável para a vítima. Nesse caso, a cueca pode ser puxada de forma mais vigorosa, causando desconforto físico, ou até mesmo ser utilizada para erguer a vítima do chão momentaneamente.  É importante ressaltar que o Cuecatius deve ser usado com responsabilidade e consideração pelos sentimentos da vítima. É uma brincadeira, mas ainda assim pode ser considerado um comportamento desrespeitoso ou invasivo, dependendo do contexto e da reação da pessoa afetada. ",
+    "updatedAt": "2023-08-13T01:20:09.926856",
+    "title": "Feitiço Cuecão",
+    "level": 3,
+    "actionType": "Padrão",
+    "duration": "1 minuto",
+    "light": "Laranja",
+    "distance": "3 Metros",
+    "requirements": "Encantamento 2",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Cuecatius."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Cuecatius de forma focada, permitindo que a cueca/calcinha seja puxada com mais força, mas ainda de forma inofensiva."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Cuecatius de forma não-verbal. Diminui a Dif de sucesso necessario em 1."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Com prática e controle mágico avançado, você pode aprimorar o feitiço para causar uma sensação de formigamento ou desconforto físico na vítima, tornando-o mais desagradável, mas ainda não violento."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Cuecatius Maxima (Cuecatius Máximo), uma versão mais poderosa e intensa deste feitiço. Cuecatius Maxima é um feitiço de \"Execução: Ação padrão\" e \"Duração: 5 minutos\" que exige habilidade excepcional em Encantamento. Nessa variação, o feitiço pode ser usado para erguer a vítima do chão, embora ainda de forma temporária e inofensiva. Além disso, o desconforto físico pode ser aprimorado para causar sensações mais intensas, como cócegas ou formigamento acentuado. O bruxo precisa ser cuidadoso ao lançar Cuecatius Maxima, pois seu efeito pode ser mais perturbador para a vítima.Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "4754b355-d5ac-49ce-b9c4-4eff1f1f7437"
+}

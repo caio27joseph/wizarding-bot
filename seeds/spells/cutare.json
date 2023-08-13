@@ -1,0 +1,43 @@
+{
+    "name": "Cutare",
+    "category": [
+        "Evocação"
+    ],
+    "difficulty": "Difícil",
+    "description": "O Feitiço Cutare é uma evocação avançado que permite ao bruxo disparar uma lâmina de energia em forma de meia-lua em direção ao oponente. Essa lâmina é composta de energia mágica concentrada, e seu formato lembra a curva de uma lua crescente.  Ao ser lançado, o bruxo aponta sua varinha na direção do oponente e emite um lampejo prata, que dá forma à lâmina mágica. A lâmina se move rapidamente em um arco em direção ao alvo, cortando o ar e causando dano ao atingir.  O Cutare é especialmente eficaz contra seres e criaturas mágicas, bem como objetos mágicos, pois sua natureza energética pode penetrar em defesas mágicas. No entanto, ele também pode ser usado contra bruxos e seres humanos, embora seja necessário cautela ao utilizar um feitiço potencialmente perigoso. Causa 1d6 + Sucessos de dano. ",
+    "updatedAt": "2023-08-13T01:20:09.939856",
+    "title": "Feitiço Confundus",
+    "level": 3,
+    "actionType": "Padrão",
+    "duration": "Instantâneo",
+    "light": "Prata",
+    "distance": "9 Metros",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Cutare."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Cutare de forma focada, aumentando a precisão e a velocidade da lâmina."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Cutare de forma não-verbal. Diminui a Dif de sucesso necessario em 1."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Com prática e habilidade aprimorada em Encantamento, você pode lançar várias lâminas de uma só vez, atacando múltiplos oponentes ou aumentando as chances de acerto contra um alvo específico. Pode lançar 3 lâminas."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Cutare Potentia, uma versão mais poderosa do feitiço que aumenta consideravelmente o dano causado pela lâmina mágica (2d6+4 + Sucessos). No entanto, a energia adicional exigida para lançar Cutare Potentia torna esse feitiço mais cansativo e exige maior concentração e controle mágico. A lâmina resultante é maior, mais brilhante e pode cortar através de defesas mágicas com maior facilidade. Porém, a dificuldade e o risco de lançar Cutare Potentia também são ampliados.. Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "82e7f061-eb89-4f99-9aa3-e28d88a08a9e"
+}
