@@ -4,15 +4,16 @@
         "Necromancia"
     ],
     "difficulty": "Muito Difícil",
-    "description": "O Feitiço Asfixo Maladum é uma poderosa magia necromântica que causa grande aflição à vítima, interferindo em sua capacidade de respirar corretamente. Ao ser atingida pelo feitiço, a vítima começa a sentir dificuldades em sua respiração, tornando-se incapaz de recuperar o fôlego adequadamente.  A vítima deve ser bem-sucedida em um teste de resistência de Constituição para evitar os efeitos completos do feitiço. Caso falhe no teste, a vítima sofre os seguintes efeitos:  1° Na primeira rodada após ser atingida, a vítima fica Lenta e desajeitada, sofrendo uma penalidade de -2 em suas rolagens de iniciativa e em testes de Destreza ou Força até o início do próximo turno do conjurador. 2° Nas rodadas subsequentes, enquanto o conjurador mantiver a concentração no feitiço, a vítima começa a ter dificuldades respiratórias mais graves. Ela ficará Enjoada e incapaz de falar ou realizar ações que exijam esforço físico, como correr ou realizar ataques corpo a corpo. 3° Se a concentração for mantida por todo o tempo máximo de duração (1 minuto), a vítima entrará em um estado de asfixia extrema, caindo inconsciente e perdendo 1d6 de pontos de vida a cada rodada.  O conjurador pode optar por encerrar o feitiço a qualquer momento durante a concentração. Caso a vítima seja libertada do efeito, ela ainda ficará abalada por alguns segundos, recuperando o fôlego e retomando suas ações normais.  Este feitiço pode ser protegido por Protego. ",
-    "updatedAt": "2023-08-13T01:20:09.787856",
+    "description": "O Feitiço Asfixo Maladum é uma poderosa magia necromântica que causa grande aflição à vítima, interferindo em sua capacidade de respirar corretamente. Ao ser atingida pelo feitiço, a vítima começa a sentir dificuldades em sua respiração, tornando-se incapaz de recuperar o fôlego adequadamente.  A vítima deve ser bem-sucedida em um teste de resistência de Constituição para evitar os efeitos completos do feitiço. Caso falhe no teste, a vítima sofre os seguintes efeitos:  1° Na primeira rodada após ser atingida, a vítima fica Lenta e desajeitada, sofrendo uma penalidade de -2 em suas rolagens de iniciativa e em testes de Destreza ou Força até o início do próximo turno do conjurador. 2° Nas rodadas subsequentes, enquanto o conjurador mantiver a concentração no feitiço, a vítima começa a ter dificuldades respiratórias mais graves. Ela ficará Enjoada e incapaz de falar ou realizar ações que exijam esforço físico, como correr ou realizar ataques corpo a corpo. 3° Se a concentração for mantida por todo o tempo máximo de duração (2 minuto - 4 rodadas), a vítima entrará em um estado de asfixia extrema, caindo inconsciente e perdendo 2d6+Arte das trevas de pontos de vida a cada rodada.  O conjurador pode optar por encerrar o feitiço a qualquer momento durante a concentração. Caso a vítima seja libertada do efeito, ela ainda ficará abalada por alguns segundos, recuperando o fôlego e retomando suas ações normais.  Este feitiço pode ser protegido por Protego. ",
+    "updatedAt": "2023-08-13T15:57:48.458917",
     "title": "Feitiço Asfixo Maladum",
     "level": 3,
     "actionType": "Padrão",
     "distance": "10 metros",
     "light": "Verde pálido",
-    "duration": "Concentração (Máximo de 1 minuto)",
-    "requirements": "Necromancia 4",
+    "duration": "Concentração (Máximo de 2 minuto - 4 rodadas)",
+    "requirements": "Necromancia 3 e  Arte das trevas 2",
+    "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -27,17 +28,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar o Feitiço Asfixo Maladum de forma não-verbal."
+            "description": "Você pode lançar o Feitiço Asfixo Maladum de forma não-verbal. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "A vítima tem desvantagem em seu teste de vigor contra o feitiço."
+            "description": "A vítima tem desvantagem em seu teste de vigor contra o feitiço. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode prolongar a duração máxima do feitiço para até 1 hora, desde que mantenha a concentração."
+            "description": "Você pode prolongar a duração máxima do feitiço para até 1 hora, desde que mantenha a concentração. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "89bf3bf1-0691-4d52-afa7-632c09bd9459"

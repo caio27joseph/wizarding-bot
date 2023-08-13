@@ -4,8 +4,8 @@
         "Encantamento"
     ],
     "difficulty": "Médio",
-    "description": "Com este feitiço, o bruxo é capaz de perceber as intenções ocultas de uma criatura que possa ver dentro do alcance. O conjurador mergulha o olhar no alvo e pode sentir as emoções, intenções e motivações secretas da criatura, mesmo que ela tente escondê-las ou dissimulá-las.  Durante a concentração, o bruxo obtém vislumbres das emoções predominantes da criatura, como medo, raiva, tristeza, alegria ou culpa. Além disso, o bruxo pode ter noção das intenções da criatura em relação a ele ou a outros ao seu redor, como amizade, hostilidade, desconfiança ou interesse romântico.  É importante destacar que o Ariannum Detectum não revela pensamentos específicos ou memórias da criatura. Ele fornece apenas uma compreensão geral das emoções e intenções que a criatura está experienciando no momento presente. ",
-    "updatedAt": "2023-08-13T01:20:09.766856",
+    "description": "Com este feitiço, o bruxo é capaz de perceber as intenções ocultas de uma criatura que possa ver dentro do alcance. O conjurador mergulha o olhar no alvo e pode sentir as emoções, intenções e motivações secretas da criatura, mesmo que ela tente escondê-las ou dissimulá-las.  Durante a concentração, o bruxo obtém vislumbres das emoções predominantes da criatura, como medo, raiva, tristeza, alegria ou culpa. Além disso, o bruxo pode ter noção das intenções da criatura em relação a ele ou a outros ao seu redor, como amizade, hostilidade, desconfiança ou interesse romântico.  É importante destacar que o Ariannum Detectum não revela pensamentos específicos ou memórias da criatura. Ele fornece apenas uma compreensão geral das emoções e intenções que a criatura está experienciando no momento presente.  Obs: Legelimente recebem bonus e oglumencia não funciona com este feitiço. ",
+    "updatedAt": "2023-08-13T15:57:48.427917",
     "title": "Feitiço do Olhar Revelador",
     "level": 3,
     "actionType": "Padrão",
@@ -37,7 +37,7 @@
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Ariannum Revelatio como um feitiço de \"Execução: Ação padrão\", \"Alcance: Longo\" e \"Duração: Instantânea\". Nessa versão avançada, o bruxo é capaz de obter uma visão mais profunda e detalhada das emoções e intenções da criatura. Ele pode perceber pensamentos e memórias específicas, bem como obter uma visão mais completa dos sentimentos e motivações da criatura. No entanto, essa versão requer mais habilidade e concentração do conjurador."
+            "description": "Você pode lançar Ariannum Revelatio como um feitiço de \"Execução: Ação padrão\", \"Alcance: Longo\" e \"Duração: Instantânea\". Nessa versão avançada, o bruxo é capaz de obter uma visão mais profunda e detalhada das emoções e intenções da criatura. Ele pode perceber pensamentos e memórias específicas relacionadas a aqueles sentimentos, bem como obter uma visão mais completa dos sentimentos e motivações da criatura. No entanto, essa versão requer mais habilidade e concentração do conjurador. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "4a4783dc-f8e4-461d-9ac3-2aa598065277"

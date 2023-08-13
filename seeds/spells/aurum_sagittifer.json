@@ -4,20 +4,21 @@
         "Evocação"
     ],
     "difficulty": "Difícil",
-    "description": "O Feitiço Aurum Sagittifer é uma magia avançada de encantamento que permite ao conjurador criar flechas douradas a partir de pura energia mágica. Essas flechas são extremamente afiadas e poderosas, e podem ser lançadas em direção a um alvo com grande precisão.  O conjurador pode criar até cinco flechas por conjuração do feitiço. As flechas têm um alcance efetivo de 30 metros e causam 1d8 de dano de perfuração cada. Além disso, as flechas são imbuidas com uma energia dourada especial que as torna capazes de causar dano extra contra seres das trevas ou criaturas mágicas, causando +1d6 de dano adicional a esse tipo de alvo.  Durante a concentração, o conjurador pode lançar as flechas criadas a cada rodada como uma ação padrão. Se o conjurador perder a concentração, as flechas desaparecerão. ",
-    "updatedAt": "2023-08-13T01:20:09.822855",
+    "description": "O Feitiço Aurum Sagittifer é uma magia avançada de Evocação que permite ao conjurador criar flechas douradas a partir de pura energia mágica. Essas flechas são extremamente afiadas e poderosas, e podem ser lançadas em direção a um alvo com grande precisão.  O conjurador pode criar até cinco flechas por conjuração do feitiço. As flechas têm um alcance efetivo de 30 metros e causam 2d8+Controle de dano de perfuração cada. Além disso, as flechas são imbuidas com uma energia dourada especial que as torna capazes de causar dano extra contra seres das trevas ou criaturas mágicas, causando +1d6 de dano adicional a esse tipo de alvo (Dano radiante).  Durante a concentração, o conjurador pode lançar as flechas criadas a cada rodada como uma ação padrão. Se o conjurador perder a concentração, as flechas desaparecerão. ",
+    "updatedAt": "2023-08-13T15:57:48.480907",
     "title": "Feitiço Aurum Sagittifer",
     "level": 3,
     "actionType": "Padrão",
     "distance": "30 metros",
     "light": "Dourado",
-    "duration": "Concentração (Máximo de 1 minuto)",
+    "duration": "4 Rodadas",
     "requirements": "Evocação 3",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar o Feitiço Aurum Sagittifer e criar até cinco flechas douradas por conjuração."
+            "description": "Você pode lançar o Feitiço Aurum Sagittifer e criar até cinco + Controle flechas douradas por conjuração."
         },
         {
             "level": 2,
@@ -27,17 +28,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar o Feitiço Aurum Sagittifer de forma não-verbal."
+            "description": "Suas flechas agora, causam uma explosão de luz de Controle de Metros, iluminando a area e curando 1d4+4 de cura aos aliados na area. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode criar até dez flechas douradas por conjuração do feitiço."
+            "description": "Você pode criar até dez + Controle de flechas douradas por conjuração do feitiço."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode criar até dez flechas douradas por conjuração e lançá-las como uma ação bônus em vez de uma ação padrão durante a concentração. Além disso, as flechas causam +2d6 de dano adicional contra seres das trevas e criaturas mágicas."
+            "description": "Você pode usar suas flechas como uma ação bônus em vez de uma ação padrão durante a concentração. Além disso, as flechas causam +2d6 de dano adicional contra seres das trevas e criaturas mágicas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "3cf0a152-9b74-44ba-b2e8-6a0efdb99d4c"

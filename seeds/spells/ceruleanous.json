@@ -1,16 +1,17 @@
 {
     "name": "Ceruleanous",
     "category": [
-        "Conjuração"
+        "Evocação"
     ],
     "difficulty": "Muito Difícil",
     "description": "Ceruleanous é um feitiço que permite ao bruxo alterar os efeitos meteorológicos já existentes de um local em pequenas proporções. Com esse encantamento, o bruxo pode manipular o clima local para criar efeitos como mudanças na temperatura, pequenas nuvens, chuviscos, ventos leves e outras alterações atmosféricas.  Ao conjurar o feitiço, o bruxo concentra sua energia mágica na atmosfera ao seu redor, podendo controlar o clima em um raio de cerca de 10 metros. O grau de controle e a duração das alterações dependem do sucesso no teste da magia. ",
-    "updatedAt": "2023-08-13T01:20:09.878856",
+    "updatedAt": "2023-08-13T15:57:48.557906",
     "title": "Feitiço das Alterações Meteorológicas",
     "level": 3,
     "actionType": "Padrão",
-    "duration": "Concentração - 1 hora",
-    "requirements": "Conjuração 4",
+    "duration": "Concentração - 1 + Sucessos hora",
+    "requirements": "Evocação 3 e Sobrevivência 1",
+    "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -25,17 +26,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "O bruxo pode aumentar o raio de alcance do feitiço para cerca de 15 metros e a duração das alterações é estendida. + 1 Hora"
+            "description": "O bruxo pode aumentar o raio de alcance do feitiço para cerca de 30 metros e a duração das alterações é estendida. + 1 Hora. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "O controle do bruxo sobre o clima local é tão refinado que ele pode criar efeitos mais complexos, como tempestades leves ou até mesmo nevoeiros densos."
+            "description": "O controle do bruxo sobre o clima local é tão refinado que ele pode criar efeitos mais complexos, como tempestades leves ou até mesmo nevoeiros densos. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "O bruxo alcança um nível de maestria no feitiço, podendo influenciar o clima em uma área maior, com um raio de cerca de 20 metros. Além disso, ele pode criar efeitos meteorológicos mais intensos e duradouros, como tempestades moderadas e chuvas constantes. Essas alterações persistem por mais tempo sem a necessidade de manter a concentração, permitindo que o bruxo deixe um clima modificado em vigor por um período maior. Seus sucessos significam +1 hora na duração."
+            "description": "O bruxo alcança um nível de maestria no feitiço, podendo influenciar o clima em uma área maior, com um raio de cerca de 20 metros. Além disso, ele pode criar efeitos meteorológicos mais intensos e duradouros, como tempestades moderadas e chuvas constantes. Essas alterações persistem por mais tempo sem a necessidade de manter a concentração, permitindo que o bruxo deixe um clima modificado em vigor por um período maior. Seus sucessos significam +1 hora na duração. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "525f0c10-3065-47fe-89e2-3505d4c1090d"

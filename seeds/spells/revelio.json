@@ -1,0 +1,40 @@
+{
+  "name": "Revelio",
+  "category": ["Adivinhação"],
+  "difficulty": "Médio",
+  "description": "O feitiço Revelio é usado para revelar informações ocultas ou escondidas em objetos, criaturas e ou lugares. Ao lançar o feitiço a sua area em volta, o conjurador é capaz de perceber se há algo escondido ou mágico associado a ele. Se houver, o feitiço fornece uma sensação geral de que há algo oculto, mas não revela a natureza exata do que está escondido. Para obter informações mais detalhadas, o conjurador precisa usar outros meios adivinhatórios ou mágicos.  O Revelio também é comumente usado para detectar objetos disfarçados por feitiços de ilusão ou criaturas disfarçadas ou transformadas. Nesse caso, ele revelará a verdadeira forma ou natureza do alvo. ",
+  "updatedAt": "2023-08-13T15:57:48.648904",
+  "title": "Feitiço da revelação",
+  "level": 3,
+  "actionType": "Padrão",
+  "distance": "Area 5 metros em volta",
+  "duration": "Instantânea",
+  "maestry": [
+    {
+      "level": 1,
+      "name": "Inicial",
+      "description": "Você pode lançar Revelio."
+    },
+    {
+      "level": 2,
+      "name": "Intermediário",
+      "description": "Você pode lançar Revelio de forma focada."
+    },
+    {
+      "level": 3,
+      "name": "Avançado",
+      "description": "Você pode lançar Revelio de forma não-verbal. Pode usar Homenum Revelio (Variação) é um Feitiço que revela as presenças humanas no ambiente circundante. O feitiço indica um corpo por um marcador, cuja aparência ainda é desconhecida, mas que pode ser sentida pelo conjurador. Pode usar Propositum Revelare (Variação) Feitiço que revela a função ou propósito de um objeto desconhecido. Deve-se tocar o objeto com a varinha e pronunciar o feitiço. Logo um pequeno holograma surgirá da ponta da varinha exibindo o objeto em funcionamento."
+    },
+    {
+      "level": 4,
+      "name": "Especialista",
+      "description": "O feitiço Revelio é mais poderoso em suas percepções. Ele pode identificar o tipo geral de magia oculta ou o tipo de objeto disfarçado. Pode usar agora Specialis Revelio (Variação) um feitiço que permitia ao conjurador revelar qualquer feitiço ou escola do feitiço lançado. Pode usar Scarpin Revelaspell (Variação) um feitiço que e usado para identificar corretamente os ingredientes de uma determinada poção"
+    },
+    {
+      "level": 5,
+      "name": "Mestre",
+      "description": "O Revelio pode ser estendido para revelar informações ocultas em uma área maior ao redor do conjurador, permitindo que ele detecte objetos ou criaturas escondidas em uma área de 10 metros de raio."
+    }
+  ],
+  "identifier": "fa547cc9-d3cb-4cc1-85e6-6a6bef992ff0"
+}

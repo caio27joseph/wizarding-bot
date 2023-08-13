@@ -5,7 +5,7 @@
     ],
     "difficulty": "Difícil",
     "description": "O Feitiço Aracnomobilis permite ao bruxo adquirir temporariamente a capacidade de andar em superfícies impossíveis normalmente para humanos, como paredes e tetos. Ao tocar com a varinha em si mesmo ou em outro alvo, o bruxo pode ativar esse feitiço e, enquanto se concentrar, poderá caminhar verticalmente e até de cabeça para baixo como se estivesse sobre o chão plano.  Ao conjurar o feitiço com sucesso, o bruxo pode se mover com facilidade em qualquer superfície, ignorando a gravidade e as limitações físicas normais. Isso inclui andar em paredes, tetos e outras superfícies verticais e inclinadas. O bruxo pode até mesmo caminhar de cabeça para baixo em tetos, se desejar.  É importante destacar que o Feitiço Aracnomobilis requer concentração contínua para ser mantido ativo. Caso o bruxo perca a concentração, seja interrompido ou deseje cancelar o feitiço, ele voltará a ser afetado pela gravidade e cairá da superfície em que estiver caminhando, podendo sofrer danos pela queda.  Além disso, o bruxo precisa de coordenação e habilidade para se mover com sucesso em superfícies não convencionais. Caminhar em paredes e tetos pode ser desafiador, e o bruxo deve se adaptar a essa nova perspectiva para evitar acidentes. ",
-    "updatedAt": "2023-08-13T01:20:09.746855",
+    "updatedAt": "2023-08-13T15:57:48.397917",
     "title": "Feitiço Aracnomobilis",
     "level": 3,
     "actionType": "Padrão",
@@ -13,31 +13,32 @@
     "light": "Amarelo esverdeado",
     "duration": "Concentração",
     "requirements": "Transmutação 2",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Aracnomobilis e caminhar em paredes e tetos por até 1 rodada, mas requer bastante concentração."
+            "description": "Você pode lançar Aracnomobilis e caminhar em paredes e tetos por até 2 rodada, mas requer bastante concentração."
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Aracnomobilis e caminhar em paredes e tetos por até 3 rodadas, mantendo melhor a concentração."
+            "description": "Você pode lançar Aracnomobilis e caminhar em paredes e tetos por até 4 rodadas, mantendo melhor a concentração."
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Aracnomobilis e caminhar em paredes e tetos por até 1 minuto, com maior facilidade e controle."
+            "description": "Você pode lançar Aracnomobilis e caminhar em paredes e tetos por até 1 hora com maior facilidade e controle. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Aracnomobilis e caminhar em superfícies impossíveis com grande habilidade e sem perder a concentração por até 10 minutos."
+            "description": "Você pode lançar Aracnomobilis e caminhar em superfícies impossíveis com grande habilidade e sem perder a concentração por até 2 horas."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Aracnomobilis e caminhar em superfícies impossíveis com maestria e concentração perfeita, por até 1 hora."
+            "description": "Você pode lançar Aracnomobilis e caminhar em superfícies impossíveis com maestria e concentração perfeita, por até 4 hora. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "cfa643c7-dd93-47f8-a33c-8315ec393827"

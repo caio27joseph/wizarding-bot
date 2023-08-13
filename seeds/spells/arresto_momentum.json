@@ -4,8 +4,8 @@
         "Encantamento"
     ],
     "difficulty": "Fácil",
-    "description": "O Feitiço da Desaceleração, conhecido como Arresto Momentum, é usado para reduzir ou parar o movimento de um objeto ou criatura. Quando lançado com sucesso, o alvo é desacelerado bruscamente, tornando-se mais lento ou parando por completo, dependendo do número de Sucessos obtidos na rolagem.  Para criaturas, o Arresto Momentum diminui a velocidade e dificulta a realização de ações rápidas. O alvo afetado fica com a condição Lento até o início do seu próximo turno, caso o conjurador obtenha pelo menos 1 Sucesso.  Para objetos, o feitiço pode ser usado para diminuir ou deter completamente seu movimento. Um objeto em movimento é reduzido gradualmente, e um objeto estacionário é imobilizado temporariamente. A duração do efeito é de 1 rodada. Pode ser usado caso esteja caindo de altura altas. ",
-    "updatedAt": "2023-08-13T01:20:09.772857",
+    "description": "O Feitiço da Desaceleração, conhecido como Arresto Momentum, é usado para reduzir ou parar o movimento de um objeto ou criatura. Quando lançado com sucesso, o alvo é desacelerado bruscamente, tornando-se mais lento ou parando por completo, dependendo do número de Sucessos obtidos na rolagem. (Quando tira 5 ou mais sucessos no teste para bruscamente)  Para criaturas, o Arresto Momentum diminui a velocidade e dificulta a realização de ações rápidas. O alvo afetado fica com a condição Lento até o início do seu próximo turno, caso o conjurador obtenha pelo menos 1 Sucesso.  Para objetos, o feitiço pode ser usado para diminuir ou deter completamente seu movimento. Um objeto em movimento é reduzido gradualmente, e um objeto estacionário é imobilizado temporariamente. A duração do efeito é de 1 rodada. Pode ser usado caso esteja caindo de altura altas. ",
+    "updatedAt": "2023-08-13T15:57:48.442917",
     "title": "Feitiço da Desaceleração",
     "level": 3,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "light": "Azul claro",
     "duration": "Instantânea",
     "requirements": "Encantamento 1",
+    "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
