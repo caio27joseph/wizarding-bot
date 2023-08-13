@@ -43,11 +43,9 @@ export const ArgGuild = simpleFactory((interaction, opt) => {
 });
 
 export const ArgPlayer = simpleFactory((interaction, opt) => {
-  const player = opt.playerService.findOne({
-    where: {
-      discordId: interaction.member.user.id,
-      guildId: interaction.guild.id,
-    },
+  const player = opt.playerService.getOrCreateUpdate({
+    discordId: interaction.member.user.id,
+    guildId: interaction.guild.id,
   });
 
   return player;
