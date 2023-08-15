@@ -16,19 +16,32 @@ import {
   ButtonBuilder,
   ButtonInteraction,
   ButtonStyle,
+  CacheType,
   CommandInteraction,
   InteractionResponse,
   Message,
   MessageComponentInteraction,
   StringSelectMenuInteraction,
 } from 'discord.js';
-import { SpellCategoryEnum } from './entities/spell.entity';
+import { Spell, SpellCategoryEnum } from './entities/spell.entity';
 import { Any, ILike, In } from 'typeorm';
 import { EntityNotFound } from '~/discord/exceptions';
 import { SpellTrainAction, TrainGroup } from '~/train/train.group';
 import { PlayerService } from '~/core/player/player.service';
 import { Player } from '~/core/player/entities/player.entity';
 import { v4 as uuidv4 } from 'uuid';
+import { GrimoireMenu } from '~/grimoire/grimoire.menu';
+import { TrainSpellMenu } from '~/train/train-spell.menu';
+import { MenuAction, ActionContext } from '~/discord/helpers/menu-helper';
+
+enum SpellActions {
+  MAESTRY = 'maestry',
+  GRIMOIRE = 'grimoire',
+}
+
+export interface SpellActionContext extends ActionContext {
+  spell: Spell;
+}
 
 @Injectable()
 @Group({
@@ -38,9 +51,52 @@ import { v4 as uuidv4 } from 'uuid';
 export class SpellGroup {
   constructor(
     private readonly service: SpellService,
-    private readonly trainGroup: TrainGroup,
+    private readonly trainSpellMenu: TrainSpellMenu,
+    private readonly grimoireMenu: GrimoireMenu,
     private readonly playerService: PlayerService,
   ) {}
+
+  actions(options: ActionMenuOptions) {
+    return new ActionRowBuilder<ButtonBuilder>().addComponents(
+      new ButtonBuilder()
+        .setCustomId(SpellActions.MAESTRY + options.hash)
+        .setLabel('Maestria')
+        .setStyle(ButtonStyle.Primary)
+        .setDisabled(options.disabled),
+      new ButtonBuilder()
+        .setCustomId(SpellActions.GRIMOIRE + options.hash)
+        .setLabel('Grimório')
+        .setStyle(ButtonStyle.Primary)
+        .setDisabled(options.disabled),
+    );
+  }
+  async handleActions(context: SpellActionContext) {
+    const { player, spell, guild, interaction, response, hash } = context;
+
+    const collector = response.createMessageComponentCollector({
+      filter: (i) => player.discordId === interaction.user.id,
+      time: 20000,
+    });
+    let responded = false;
+    collector.on('collect', async (i) => {
+      if (responded) return;
+      context.i = i as ButtonInteraction<CacheType>;
+      switch (i.customId) {
+        case SpellActions.MAESTRY + hash:
+          await this.trainSpellMenu.handle({
+            i: i as ButtonInteraction<CacheType>,
+            ...context,
+          });
+          await response.delete();
+          break;
+        case SpellActions.GRIMOIRE + hash:
+          await this.grimoireMenu.handle(context);
+          await response.delete();
+          break;
+      }
+      responded = true;
+    });
+  }
 
   @Command({
     name: 'add',
@@ -76,40 +132,20 @@ export class SpellGroup {
     });
     if (!spell) throw new EntityNotFound('Feitiço', name);
 
-    const uuid4 = uuidv4();
-    const trainOption = new ActionRowBuilder<ButtonBuilder>().addComponents(
-      new ButtonBuilder({
-        customId: `train-${uuid4}`,
-        label: 'Treinar',
-        style: ButtonStyle.Primary,
-      }),
-    );
-    const message = await interaction.reply({
+    const hash = uuidv4();
+    const response = await interaction.reply({
       embeds: [spell.toEmbed()],
-      components: [trainOption],
+      components: [this.actions({ hash, disabled: false })],
       ephemeral: true,
     });
 
-    let responded = false;
-    const collector = interaction.channel.createMessageComponentCollector({
-      filter: (i) =>
-        i.user.id === interaction.user.id && i.customId === `train-${uuid4}`,
-      time: 35000,
-    });
-    collector.on('collect', async (i: MessageComponentInteraction) => {
-      if (!responded) {
-        await message.edit({
-          embeds: [spell.toEmbed()],
-          components: [],
-        });
-      }
-      await this.trainGroup.handlePossibleSpellTrain(
-        interaction,
-        i,
-        player,
-        spell,
-        guild,
-      );
+    await this.handleActions({
+      guild,
+      player,
+      spell,
+      interaction,
+      hash,
+      response,
     });
   }
 

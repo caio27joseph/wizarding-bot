@@ -7,7 +7,9 @@ import {
   Attachment,
   AttachmentBuilder,
   ButtonBuilder,
+  ButtonInteraction,
   ButtonStyle,
+  CacheType,
   CommandInteraction,
   EmbedBuilder,
   Message,
@@ -24,7 +26,7 @@ import {
   WitchPredilectionsNameEnum,
   witchPredilectionsNameMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
-import { TrainGroupOption } from './entities/train.entity';
+import { Train, TrainGroupOption } from './entities/train.entity';
 import { ILike, IsNull, MoreThan, Not } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { Guild } from '~/core/guild/guild.entity';
@@ -42,6 +44,7 @@ import { PaginationHelper } from '~/discord/helpers/page-helper';
 import { RollsD10 } from '~/roll/entities/roll.entity';
 import { SpellService } from '~/spell/spell.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
+import { SpellActionContext } from '~/spell/spell.group';
 
 export enum SpellTrainAction {
   SELECT_GROUP = 'spell-train-group-select',
@@ -75,64 +78,24 @@ export class TrainGroup {
     private readonly rollService: RollService,
   ) {}
 
+  async execute() {}
+
   // #region Spell
-  async handlePossibleSpellTrain(
-    interaction: CommandInteraction,
-    i: MessageComponentInteraction,
-    player: Player,
-    spell: Spell,
-    guild: Guild,
-  ) {
-    const now = new Date();
-    // Create a date for 6 am today.
-    const today6am = new Date(now);
-    today6am.setHours(9, 0, 0, 0);
-
-    let startTime: Date;
-    if (now < today6am) {
-      // If the current time is before 6 am today, set the start time to 6 am the previous day.
-      startTime = new Date(today6am.getTime() - 24 * 60 * 60 * 1000); // Subtract 24 hours
-    } else {
-      startTime = today6am;
-    }
-    let canDouble = true;
-    const trains = await this.trainService.findAll({
-      where: {
-        playerId: player.id,
-        createdAt: MoreThan(startTime),
-      },
-    });
-    if (trains.length >= 50) {
-      await i.reply({
-        content: `Você já treinou demais hoje!`,
-        ephemeral: true,
-      });
-      return;
-    }
-    const trainingForThisSpell = trains.filter((t) => t.spellId === spell.id);
-    if (trainingForThisSpell.length >= 30) {
-      await i.reply({
-        content: `Você já treinou demais esse feitiço hoje!`,
-        ephemeral: true,
-      });
-      return;
-    }
-
-    if (trainingForThisSpell.length >= 1 || trains.length >= 5) {
-      canDouble = false;
-    }
+  async handleSpellTrain(context?: SpellActionContext) {
+    const { interaction, player, guild, spell, i } = context;
 
     const tests = {};
     for (const category of spell.category) {
       tests[category] = `Controle + ${category}`;
     }
     const submitHash = uuidv4();
-    const reply = await i.channel.send({
+    const reply = await i.reply({
       content:
         `Iniciando treino de ${spell.name}, por favor configure <@${player.discordId}>!` +
         `\nLembrando que você tem 10 minutos para configurar o treino e enviar a ação!` +
         `\nVocê deve ter configurado seus pontos usando /extras atrualizar, e /pred_bruxa atualizar`,
-      components: this.spellTrainMenu(tests, submitHash, canDouble),
+      // components: this.spellTrainMenu(tests, submitHash, canDouble),
+      ephemeral: true,
     });
 
     const trainOptions: SpellTrainData = {
@@ -187,20 +150,20 @@ export class TrainGroup {
       switch (i.customId) {
         case SpellTrainAction.SELECT_ROLL:
           trainOptions.category = i.values[0] as WitchPredilectionsNameEnum;
-          (await i.deferReply()).delete();
+          await (await i.deferReply()).delete();
           break;
 
         case SpellTrainAction.SELECT_GROUP:
           trainOptions.group = i.values[0] as TrainGroupOption;
-          (await i.deferReply()).delete();
+          await (await i.deferReply()).delete();
           break;
         case SpellTrainAction.BONUS_ROLL:
           trainOptions.bonusRoll = parseInt(i.values[0]);
-          (await i.deferReply()).delete();
+          await (await i.deferReply()).delete();
           break;
         case SpellTrainAction.AUTO_SUCCESS:
           trainOptions.autoSuccess = parseInt(i.values[0]);
-          (await i.deferReply()).delete();
+          await (await i.deferReply()).delete();
           break;
         case SpellTrainAction.SUBMIT + submitHash:
           await submit(i, trainOptions);
@@ -407,30 +370,30 @@ export class TrainGroup {
       ([, a], [, b]) => b - a,
     );
 
-    const helper = new PaginationHelper({
-      items: sortedSpells,
-      formatter: async ([spellId, totalXP]) => {
-        const spell = groupedTrains[spellId][0].spell;
-        const necessaryXP = await this.trainService.getSpellNecessaryUpXP(
-          spell,
-        );
-        const currentLevel = Math.ceil(totalXP / necessaryXP);
-        const xpTowardsNextLevel = totalXP % necessaryXP;
-        const progressBar = this.generateProgressBarEmoji(
-          xpTowardsNextLevel,
-          necessaryXP,
-        );
+    // const helper = new PaginationHelper({
+    //   items: sortedSpells,
+    //   formatter: async ([spellId, totalXP]) => {
+    //     const spell = groupedTrains[spellId][0].spell;
+    //     // // const necessaryXP = await this.trainService.getSpellNecessaryUpXP(
+    //     // //   spell,
+    //     // // );
+    //     // // const currentLevel = Math.ceil(totalXP / necessaryXP);
+    //     // // const xpTowardsNextLevel = totalXP % necessaryXP;
+    //     // // const progressBar = this.generateProgressBarEmoji(
+    //     // //   xpTowardsNextLevel,
+    //     // //   necessaryXP,
+    //     // // );
 
-        let response = `**${spell.name}**\n`;
-        response += `Nível atual: ${currentLevel}\n`;
-        response += `XP ${progressBar} ${xpTowardsNextLevel}/${necessaryXP}\n`;
-        response += '---'; // Horizontal line for separation
-        return response;
-      },
-      header: '**Spells by Mastery:**\n\n',
-    });
+    //     // let response = `**${spell.name}**\n`;
+    //     // response += `Nível atual: ${currentLevel}\n`;
+    //     // response += `XP ${progressBar} ${xpTowardsNextLevel}/${necessaryXP}\n`;
+    //     // response += '---'; // Horizontal line for separation
+    //     // return response;
+    //   },
+    //   header: '**Spells by Mastery:**\n\n',
+    // });
 
-    await helper.reply(interaction);
+    // await helper.reply(interaction);
   }
 
   generateProgressBarEmoji(

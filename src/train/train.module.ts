@@ -7,6 +7,8 @@ import { PlayerModule } from '~/core/player/player.module';
 import { RollModule } from '~/roll/roll.module';
 import { SpellModule } from '~/spell/spell.module';
 import { Spell } from '~/spell/entities/spell.entity';
+import { TrainSpellMenu } from './train-spell.menu';
+import { TrainSpellService } from './train-spell.service';
 
 @Module({
   imports: [
@@ -15,7 +17,8 @@ import { Spell } from '~/spell/entities/spell.entity';
     RollModule,
     forwardRef(() => SpellModule),
   ],
-  providers: [TrainService, TrainGroup],
-  exports: [TrainGroup],
+  providers: [TrainService, TrainGroup, TrainSpellMenu, TrainSpellService],
+
+  exports: [TrainGroup, TrainSpellMenu],
 })
 export class TrainModule {}

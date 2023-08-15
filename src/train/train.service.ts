@@ -5,6 +5,9 @@ import {
   FindOptionsWhere,
   FindManyOptions,
   FindOneOptions,
+  MoreThan,
+  Not,
+  IsNull,
 } from 'typeorm';
 import { Train, TrainGroupOption } from './entities/train.entity';
 import { CreateTrainInput, UpdateTrainInput } from './entities/train.input';
@@ -47,16 +50,5 @@ export class TrainService {
     }
     const data = this.repo.create(input);
     return await this.repo.save(data);
-  }
-  private spellMaestryLevelModMap = {
-    [SpellDifficultyEnum.EASY]: 2,
-    [SpellDifficultyEnum.MEDIUM]: 4,
-    [SpellDifficultyEnum.HARD]: 6,
-    [SpellDifficultyEnum.VERY_HARD]: 8,
-  };
-  getSpellNecessaryUpXP(spell: Spell) {
-    const cap =
-      spell.level * 100 * this.spellMaestryLevelModMap[spell.difficulty];
-    return cap;
   }
 }

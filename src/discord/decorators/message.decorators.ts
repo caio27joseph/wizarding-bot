@@ -8,7 +8,7 @@ import {
 } from '../parameter_metadata_handler';
 import { DiscordSimpleError, GuildSetupNeeded } from '../exceptions';
 import { IOERR } from 'sqlite3';
-import { normalizedName } from '../discord.event-emitter';
+import { normalizedName } from '../discord.utils';
 
 // CREATE A DECORATOR FOR EACH KIND OF SLASH OPTION
 

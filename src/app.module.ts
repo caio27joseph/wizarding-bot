@@ -13,6 +13,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { PlayerSystemModule } from './player-system/player-system.module';
 import { RollModule } from './roll/roll.module';
 import { TrainModule } from './train/train.module';
+import { GrimoireModule } from './grimoire/grimoire.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { TrainModule } from './train/train.module';
     PlayerSystemModule,
     RollModule,
     TrainModule,
+    GrimoireModule,
   ],
   controllers: [],
   providers: [],

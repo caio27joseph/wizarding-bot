@@ -74,7 +74,7 @@ export class Train implements DiscordEntityVieable {
   toShortText() {
     return (
       `Treino de ${this.spell.name}, XP Concedido ${this.xp}` +
-      `\n${this.xpExpression} --- ${this.group} `
+      `\n${this.xpExpression}`
     );
   }
 

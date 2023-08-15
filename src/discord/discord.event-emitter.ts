@@ -44,6 +44,7 @@ import {
 } from './decorators/group.decorator';
 import { DiscordEntityVieable } from './types';
 import { PlayerService } from '~/core/player/player.service';
+import { normalizedName } from './discord.utils';
 
 export interface Command<T> {
   keys: string[];
@@ -53,14 +54,6 @@ export interface Command<T> {
   parentKey?: string;
   childKeys: string[];
   parameters: Parameter<T>[];
-}
-
-export function normalizedName(inputStr) {
-  // Normalize the string to remove diacritics
-  let normalized = inputStr.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
-  // Convert to lowercase and replace spaces with underscores
-  return normalized.toLowerCase().replace(/\s+/g, '_').toLowerCase();
 }
 
 class GroupContext {

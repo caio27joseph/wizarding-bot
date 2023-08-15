@@ -7,6 +7,7 @@ import { Spell } from './entities/spell.entity';
 import { SpellGroup } from './spell.group';
 import { TrainModule } from '~/train/train.module';
 import { PlayerModule } from '~/core/player/player.module';
+import { GrimoireModule } from '~/grimoire/grimoire.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { PlayerModule } from '~/core/player/player.module';
     SpellSlotsModule,
     TrainModule,
     PlayerModule,
+    GrimoireModule,
   ],
   providers: [SpellResolver, SpellService, SpellGroup],
   exports: [SpellService],
