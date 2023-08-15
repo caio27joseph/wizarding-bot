@@ -141,7 +141,6 @@ export class Rolls10Group {
     });
 
     await interaction.reply({
-      content: `${interaction.member}`,
       embeds: [roll.toEmbed()],
     });
   }
