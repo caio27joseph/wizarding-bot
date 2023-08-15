@@ -75,8 +75,6 @@ export class Train implements DiscordEntityVieable {
   @CreateDateColumn()
   createdAt: Date;
 
-  xpExpression?: string;
-
   toShortText() {
     return (
       `Treino de ${this.spell.name}, XP Concedido ${this.xp}` +
@@ -94,10 +92,16 @@ export class Train implements DiscordEntityVieable {
       embed.setTitle(`Treino de ${this.spell.name}`);
     }
     embed.setDescription(`XP Concedido ${this.xp}` + `\n${this.xpExpression}`);
-    embed.setFields({
-      name: 'Estilo de Treino',
-      value: this.group,
-    });
+    embed.setFields(
+      {
+        name: 'Estilo de Treino',
+        value: this.group,
+      },
+      {
+        name: 'ID',
+        value: this.id,
+      },
+    );
 
     return embed;
   }
@@ -114,30 +118,40 @@ export class Train implements DiscordEntityVieable {
     [SpellDifficultyEnum.VERY_HARD]: 16,
   };
 
-  @BeforeInsert()
-  setXp() {
-    if (this.xp) return this.xp;
-    if (this.spell) {
+  get xpExpression() {
+    if (this.spellId) {
       let expression =
         `${this.success} Sucessos * ${this.spell.level} Nível do Feitiço` +
         ` + ${
           Train.spellDifficultyXpMap[this.spell.difficulty]
         } Dificuldade do Feitiço`;
+
+      if (this.group === TrainGroupOption.TUTOR) {
+        expression = '(' + expression + ') * 2 Tutor';
+      } else if (this.group === TrainGroupOption.PROFESSOR) {
+        expression = '(' + expression + ') * 4 Professor';
+      } else {
+        expression += ' + ' + Train.groupXpMap[this.group] + ` ${this.group}`;
+      }
+      return expression;
+    }
+  }
+
+  @BeforeInsert()
+  setXp() {
+    if (this.xp) return this.xp;
+    if (this.spell) {
       let xp =
         this.success * this.spell.level +
         Train.spellDifficultyXpMap[this.spell.difficulty];
       if (this.group === TrainGroupOption.TUTOR) {
         xp *= 2;
-        expression = '(' + expression + ') * 2 Tutor';
       } else if (this.group === TrainGroupOption.PROFESSOR) {
         xp *= 4;
-        expression = '(' + expression + ') * 4 Professor';
       } else {
         xp += Train.groupXpMap[this.group];
-        expression += ' + ' + Train.groupXpMap[this.group] + ` ${this.group}`;
       }
       this.xp = xp;
-      this.xpExpression = expression;
     }
   }
 

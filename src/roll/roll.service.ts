@@ -8,6 +8,7 @@ import { CompetencesService } from '~/player-system/competences/competences.serv
 import { ExtrasService } from '~/player-system/extras/extras.service';
 import { NonConvPredilectionsService } from '~/player-system/nonconv-predilection/noconv-predilections.service';
 import { WitchPredilectionsService } from '~/player-system/witch-predilection/witch-predilection.service';
+import { DiscordSimpleError } from '~/discord/exceptions';
 
 @Injectable()
 export class RollService {
@@ -49,6 +50,11 @@ export class RollService {
           playerId: player.id,
         },
       });
+      if (!attributes) {
+        throw new DiscordSimpleError(
+          'Você deve configurar os atributos usando o comando /atb atualizar',
+        );
+      }
       const value = attributes[options?.attribute];
       values.push(value);
       if (expression.length > 0) expression += ' + ';
@@ -63,6 +69,12 @@ export class RollService {
           playerId: player.id,
         },
       });
+      if (!abilities) {
+        throw new DiscordSimpleError(
+          'Você deve configurar suas habilidades usando os comandos' +
+            ' [/pericias atualizar; /talentos atualizar; /conhecimentos atualizar]',
+        );
+      }
     }
     if (options?.skills) {
       const value = abilities[options?.skills];
@@ -90,6 +102,12 @@ export class RollService {
           playerId: player.id,
         },
       });
+      if (!extras) {
+        throw new DiscordSimpleError(
+          'Você deve configurar suas informações extras usando o comando' +
+            ' [/extras atualizar]',
+        );
+      }
       const value = extras[options?.extras];
       values.push(value);
       if (expression.length > 0) expression += ' + ';
@@ -103,6 +121,12 @@ export class RollService {
           playerId: player.id,
         },
       });
+      if (!competences) {
+        throw new DiscordSimpleError(
+          'Você deve configurar suas competencias usando o comando' +
+            ' [/comp atualizar]',
+        );
+      }
       const value = competences[options?.competence];
       values.push(value);
       if (expression.length > 0) expression += ' + ';
@@ -116,6 +140,13 @@ export class RollService {
           playerId: player.id,
         },
       });
+
+      if (!witchPredilections) {
+        throw new DiscordSimpleError(
+          'Você deve configurar suas Predileções Bruxas usando o comando' +
+            ' [/pred_bruxa atualizar]',
+        );
+      }
       const value = witchPredilections[options?.witchPredilection];
       values.push(value);
       if (expression.length > 0) expression += ' + ';
@@ -130,6 +161,12 @@ export class RollService {
             playerId: player.id,
           },
         });
+      if (!nonConvPredilections) {
+        throw new DiscordSimpleError(
+          'Você deve configurar suas Predileções Não Convencionais usando o comando' +
+            ' [/ncpred atualizar]',
+        );
+      }
       const value = nonConvPredilections[options?.nonConvPredilectionsChoices];
       values.push(value);
       if (expression.length > 0) expression += ' + ';

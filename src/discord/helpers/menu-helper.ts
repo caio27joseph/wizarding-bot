@@ -18,6 +18,7 @@ import { v4 } from 'uuid';
 import 'reflect-metadata';
 import { Player } from '~/core/player/entities/player.entity';
 import { Guild } from '~/core/guild/guild.entity';
+import { DiscordSimpleError } from '../exceptions';
 
 const ACTION_KEY = Symbol('ACTION_KEY');
 
@@ -85,10 +86,9 @@ export abstract class MenuHelper<T extends ActionContext> {
         collector.stop();
         await this.redirect(context as T);
       } catch (error) {
-        if (i.isRepliable()) {
-          await i.reply(
-            `'${error.message}'\n(Todo erro é automaticamente reportado)`,
-          );
+        const canReply = i.isRepliable();
+        if (canReply) {
+          await i.reply({ content: '${error.message}', ephemeral: true });
         }
         if (context.guild.errorLogChannel) {
           await context.guild.errorLogChannel.send({

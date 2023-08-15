@@ -75,6 +75,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         playerId: player.id,
       },
     );
+    grimoire.spells = grimoire.spells || [];
 
     const slots = await this.slotService.findAll({
       where: {

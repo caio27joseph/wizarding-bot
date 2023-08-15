@@ -1,7 +1,7 @@
 export class DiscordSimpleError extends Error {}
-export class GuildSetupNeeded extends Error {}
-export class AdminNeeded extends Error {}
-export class EntityAlreadyExists extends Error {}
+export class GuildSetupNeeded extends DiscordSimpleError {}
+export class AdminNeeded extends DiscordSimpleError {}
+export class EntityAlreadyExists extends DiscordSimpleError {}
 
 export class EntityNotFound extends DiscordSimpleError {
   constructor(entity: string, id: string) {

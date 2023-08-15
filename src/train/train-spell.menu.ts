@@ -305,6 +305,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
       extras: 'control',
       autoSuccess: props.autoSuccess,
       bonus: props.bonusRoll,
+      message: spell.name,
     });
     rolls.push(roll);
     const trains: Train[] = [];
