@@ -13,6 +13,7 @@ import {
   Interaction,
   InteractionReplyOptions,
   EmbedBuilder,
+  MessageReplyOptions,
 } from 'discord.js';
 import { v4 } from 'uuid';
 import 'reflect-metadata';
@@ -62,7 +63,9 @@ export abstract class MenuHelper<T extends ActionContext> {
   async handle<U extends ActionContext>(context: U | T) {
     context = await this.buildUpContext(context);
     this.__hash = v4();
-    const content = await this.getMenuPrompt(context);
+    const content = (await this.getMenuPrompt(
+      context,
+    )) as InteractionReplyOptions;
     content.components = [
       await this.options({
         disabled: false,
@@ -115,7 +118,11 @@ export abstract class MenuHelper<T extends ActionContext> {
 
   abstract getMenuPrompt(
     context: T,
-  ): Promise<InteractionReplyOptions> | InteractionReplyOptions;
+  ):
+    | Promise<InteractionReplyOptions>
+    | Promise<MessageReplyOptions>
+    | InteractionReplyOptions
+    | MessageReplyOptions;
 
   async options(
     options: MenuActionOptions,

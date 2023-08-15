@@ -11,6 +11,7 @@ import {
   Interaction,
   InteractionReplyOptions,
   MessagePayload,
+  MessageReplyOptions,
   StringSelectMenuBuilder,
   StringSelectMenuInteraction,
 } from 'discord.js';
@@ -50,6 +51,7 @@ interface Props {
 export interface TrainSpellActionContext extends SpellActionContext {
   trains?: Train[];
   todayTrains?: Train[];
+  spellTrains?: Train[];
 }
 
 @Injectable()
@@ -67,22 +69,23 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     const todayTrains = await this.trainSpellService.getTodayTrains(
       context.player.id,
     );
+    const trains = await this.trainService.findAll({
+      where: {
+        playerId: context.player.id,
+      },
+    });
+    const spellTrains = trains.filter((t) => t.spellId === context.spell.id);
     const newContext: TrainSpellActionContext = {
       ...context,
       todayTrains,
+      trains,
+      spellTrains,
     };
     return newContext;
   }
 
-  async getMenuPrompt(
-    context: TrainSpellActionContext,
-  ): Promise<InteractionReplyOptions> {
-    const trains = await this.trainService.findAll({
-      where: {
-        spellId: context.spell.id,
-        playerId: context.player.id,
-      },
-    });
+  async getMenuPrompt(context: TrainSpellActionContext) {
+    const { spellTrains: trains } = context;
     const progress = await this.trainSpellService.progressData({
       trains,
       spell: context.spell,
@@ -342,10 +345,18 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
       trains.push(train);
     }
 
+    context.spellTrains.push(...trains);
     await message.reply({
       content: trains.map((t) => t.toShortText()).join('\n\n'),
       embeds: rolls.map((r) => r.toEmbed()),
     });
+
+    if (context.i.isRepliable()) {
+      const progress = await this.getMenuPrompt(context);
+      (progress as InteractionReplyOptions).ephemeral = true;
+      await context.i.followUp(progress);
+    }
+
     if (!guild.trainLogChannel) {
       return;
     }
