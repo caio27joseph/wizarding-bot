@@ -63,11 +63,11 @@ export class SpellGroup {
         .setLabel('Maestria')
         .setStyle(ButtonStyle.Primary)
         .setDisabled(options.disabled),
-      new ButtonBuilder()
-        .setCustomId(SpellActions.GRIMOIRE + options.hash)
-        .setLabel('Grimório')
-        .setStyle(ButtonStyle.Primary)
-        .setDisabled(options.disabled),
+      // new ButtonBuilder()
+      //   .setCustomId(SpellActions.GRIMOIRE + options.hash)
+      //   .setLabel('Grimório')
+      //   .setStyle(ButtonStyle.Primary)
+      //   .setDisabled(options.disabled),
     );
   }
   async handleActions(context: SpellActionContext) {
