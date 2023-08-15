@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { Player } from '~/core/player/entities/player.entity';
 import { DiscordEntityVieable } from '~/discord/types';
-import { Spell, SpellDifficultyEnum } from '~/spell/entities/spell.entity';
+import { Spell } from '~/spell/entities/spell.entity';
 
 export enum TrainGroupOption {
   SOLO = 'Solo',
@@ -21,6 +21,12 @@ export enum TrainGroupOption {
   PROFESSOR = 'Professor',
 }
 
+enum SpellDifficultyEnum {
+  EASY = 'Fácil',
+  MEDIUM = 'Médio',
+  HARD = 'Difícil',
+  VERY_HARD = 'Muito Difícil',
+}
 @Entity()
 export class Train implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')

@@ -5,6 +5,6 @@ export class EntityAlreadyExists extends Error {}
 
 export class EntityNotFound extends DiscordSimpleError {
   constructor(entity: string, id: string) {
-    super(`${entity} '${id}' not found`);
+    super(`${entity} '${id}' não encontrado`);
   }
 }

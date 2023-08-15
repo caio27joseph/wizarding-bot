@@ -8,10 +8,12 @@ import {
   ManyToOne,
   OneToMany,
   OneToOne,
+  ManyToMany,
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { House } from '~/core/house/entities/house.entity';
 import { DiscordEntityVieable } from '~/discord/types';
+import { Grimoire } from '~/grimoire/entities/grimoire.entity';
 import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
 import { Abilities } from '~/player-system/abilities/entities/abilities.entity';
 import { Attributes } from '~/player-system/attribute/entities/attributes.entity';
@@ -19,6 +21,7 @@ import { Competences } from '~/player-system/competences/entities/competences.en
 import { Extras } from '~/player-system/extras/entities/extras.entity';
 import { NonConvPredilections } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { WitchPredilections } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { Spell } from '~/spell/entities/spell.entity';
 import { Train } from '~/train/entities/train.entity';
 
 @ObjectType()

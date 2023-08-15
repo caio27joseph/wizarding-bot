@@ -33,6 +33,8 @@ export class Guild {
 
   pointLogChannel?: TextChannel;
 
+  errorLogChannel?: TextChannel;
+
   @Column({
     nullable: true,
   })
@@ -41,6 +43,10 @@ export class Guild {
     nullable: true,
   })
   pointLogChannelId?: string;
+  @Column({
+    nullable: true,
+  })
+  errorLogChannelId?: string;
 
   @OneToMany((type) => Player, (player) => player.guild, {
     cascade: true,

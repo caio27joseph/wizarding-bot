@@ -49,6 +49,7 @@ export const ArgPlayer = factory<PlayerOptions | undefined>(
       const player = playerService.getOrCreateUpdate({
         discordId: interaction.member.user.id,
         guildId: interaction.guild.id,
+        target: interaction.member as GuildMember,
       });
       return player;
     }
@@ -66,6 +67,7 @@ export const ArgPlayer = factory<PlayerOptions | undefined>(
     const player = playerService.getOrCreateUpdate({
       discordId: user.id,
       guildId: interaction.guild.id,
+      target: interaction.member as GuildMember,
     });
     return player;
   },

@@ -12,6 +12,7 @@ import {
   MessagePayload,
   Interaction,
   InteractionReplyOptions,
+  EmbedBuilder,
 } from 'discord.js';
 import { v4 } from 'uuid';
 import 'reflect-metadata';
@@ -41,10 +42,12 @@ export interface MenuActionOptions {
 export interface ActionContext {
   player: Player;
   guild: Guild;
-  interaction: CommandInteraction;
-  i?: ButtonInteraction<CacheType> | StringSelectMenuInteraction<CacheType>;
-  response: InteractionResponse<boolean>;
-  hash: string;
+  interaction?: CommandInteraction;
+  i:
+    | ButtonInteraction<CacheType>
+    | StringSelectMenuInteraction<CacheType>
+    | CommandInteraction<CacheType>;
+  response?: InteractionResponse<boolean>;
 }
 
 export interface MenuActionOptions {
@@ -54,19 +57,20 @@ export interface MenuActionOptions {
 
 @Injectable()
 export abstract class MenuHelper<T extends ActionContext> {
+  private __hash: string;
   async handle<U extends ActionContext>(context: U | T) {
     context = await this.buildUpContext(context);
-    context.hash = v4();
+    this.__hash = v4();
     const content = await this.getMenuPrompt(context);
     content.components = [
       await this.options({
         disabled: false,
-        hash: context.hash,
+        hash: this.__hash,
       }),
     ];
     content.ephemeral = true;
-    const message = await context.i.reply(content);
-
+    const response = await context.i.reply(content);
+    context.response = context.response || response;
     const collector = context.response.createMessageComponentCollector({
       filter: (i: ButtonInteraction<CacheType>) => {
         return i.user.id === context.player.discordId;
@@ -74,16 +78,44 @@ export abstract class MenuHelper<T extends ActionContext> {
       time: 20000,
       max: 1,
     });
-
     collector.on('collect', async (i) => {
-      context.i = i as ButtonInteraction<CacheType>;
-      await message.delete();
-      await this.redirect(context as T);
+      try {
+        context.i = i as ButtonInteraction<CacheType>;
+        await response.delete();
+        collector.stop();
+        await this.redirect(context as T);
+      } catch (error) {
+        if (i.isRepliable()) {
+          await i.reply(
+            `'${error.message}'\n(Todo erro é automaticamente reportado)`,
+          );
+        }
+        if (context.guild.errorLogChannel) {
+          await context.guild.errorLogChannel.send({
+            content: `<@${context.player.discordId}>, encontrou um: ${error.message}`,
+            embeds: [
+              new EmbedBuilder().setTitle('Stack').setDescription(error.stack),
+              new EmbedBuilder()
+                .setTitle('Interaction')
+                .setDescription(
+                  context.interaction.toString() +
+                    JSON.stringify(
+                      context.interaction.toJSON(),
+                      (_, v) => (typeof v === 'bigint' ? v.toString() : v),
+                      2,
+                    ),
+                ),
+            ],
+          });
+        }
+      }
     });
   }
-  abstract buildUpContext(context: unknown): Promise<T>;
+  abstract buildUpContext(context: unknown): Promise<T> | T;
 
-  abstract getMenuPrompt(context: T): Promise<InteractionReplyOptions>;
+  abstract getMenuPrompt(
+    context: T,
+  ): Promise<InteractionReplyOptions> | InteractionReplyOptions;
 
   async options(
     options: MenuActionOptions,
@@ -107,7 +139,9 @@ export abstract class MenuHelper<T extends ActionContext> {
     const actionsMetadata =
       Reflect.getMetadata(ACTION_KEY, this.constructor) || [];
     const action = actionsMetadata.find((a) =>
-      context.i.customId.startsWith(a.customId + context.hash),
+      (context.i as StringSelectMenuInteraction).customId.startsWith(
+        a.customId + this.__hash,
+      ),
     );
     if (action) {
       await (this as any)[action.methodName](context);

@@ -35,6 +35,7 @@ export class PaginationHelper<T> {
   constructor(options: PageHelperOptions<T>) {
     this.items = options.items;
     this.itemsPerPage = options.itemsPerPage || 10;
+    this.itemsPerPage++;
     this.formatter = options.formatter;
     this.header = options.header || '';
     this.footer =

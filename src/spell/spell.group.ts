@@ -40,7 +40,8 @@ enum SpellActions {
 }
 
 export interface SpellActionContext extends ActionContext {
-  spell: Spell;
+  spell?: Spell;
+  spells?: Spell[];
 }
 
 @Injectable()
@@ -70,33 +71,33 @@ export class SpellGroup {
       //   .setDisabled(options.disabled),
     );
   }
-  async handleActions(context: SpellActionContext) {
-    const { player, spell, guild, interaction, response, hash } = context;
+  // async handleActions(context: SpellActionContext) {
+  //   const { player, spell, guild, interaction, response } = context;
 
-    const collector = response.createMessageComponentCollector({
-      filter: (i) => player.discordId === interaction.user.id,
-      time: 20000,
-    });
-    let responded = false;
-    collector.on('collect', async (i) => {
-      if (responded) return;
-      context.i = i as ButtonInteraction<CacheType>;
-      switch (i.customId) {
-        case SpellActions.MAESTRY + hash:
-          await this.trainSpellMenu.handle({
-            i: i as ButtonInteraction<CacheType>,
-            ...context,
-          });
-          await response.delete();
-          break;
-        case SpellActions.GRIMOIRE + hash:
-          await this.grimoireMenu.handle(context);
-          await response.delete();
-          break;
-      }
-      responded = true;
-    });
-  }
+  //   const collector = response.createMessageComponentCollector({
+  //     filter: (i) => player.discordId === interaction.user.id,
+  //     time: 20000,
+  //   });
+  //   let responded = false;
+  //   collector.on('collect', async (i) => {
+  //     if (responded) return;
+  //     context.i = i as ButtonInteraction<CacheType>;
+  //     switch (i.customId) {
+  //       case SpellActions.MAESTRY + hash:
+  //         await this.trainSpellMenu.handle({
+  //           i: i as ButtonInteraction<CacheType>,
+  //           ...context,
+  //         });
+  //         await response.delete();
+  //         break;
+  //       case SpellActions.GRIMOIRE + hash:
+  //         await this.grimoireMenu.handle(context);
+  //         await response.delete();
+  //         break;
+  //     }
+  //     responded = true;
+  //   });
+  // }
 
   @Command({
     name: 'add',
@@ -132,21 +133,27 @@ export class SpellGroup {
     });
     if (!spell) throw new EntityNotFound('Feitiço', name);
 
-    const hash = uuidv4();
     const response = await interaction.reply({
       embeds: [spell.toEmbed()],
-      components: [this.actions({ hash, disabled: false })],
+      components: [
+        new ActionRowBuilder<ButtonBuilder>().setComponents(
+          new ButtonBuilder()
+            .setCustomId('depreceated')
+            .setLabel('Maestria(Removido) (Use /ftc)')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(true),
+        ),
+      ],
       ephemeral: true,
     });
 
-    await this.handleActions({
-      guild,
-      player,
-      spell,
-      interaction,
-      hash,
-      response,
-    });
+    // await this.handleActions({
+    //   guild,
+    //   player,
+    //   spell,
+    //   interaction,
+    //   response,
+    // });
   }
 
   @Command({
@@ -239,7 +246,7 @@ export class SpellGroup {
     const spellButtonRows = createSpellButtons(currentPage);
 
     const message = await interaction.reply({
-      content: `Feitiços (Page ${
+      content: `Use o comando /ftc!\nFeitiços (Page ${
         currentPage + 1
       } of ${totalPages}):\n${displaySpellsForPage(currentPage)}`,
       components: [...spellButtonRows, createNavigationRow()],

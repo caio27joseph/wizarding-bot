@@ -8,6 +8,7 @@ import { SpellGroup } from './spell.group';
 import { TrainModule } from '~/train/train.module';
 import { PlayerModule } from '~/core/player/player.module';
 import { GrimoireModule } from '~/grimoire/grimoire.module';
+import { SpellMenuGroup } from './spell.menu.group';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { GrimoireModule } from '~/grimoire/grimoire.module';
     PlayerModule,
     GrimoireModule,
   ],
-  providers: [SpellResolver, SpellService, SpellGroup],
+  providers: [SpellResolver, SpellService, SpellGroup, SpellMenuGroup],
   exports: [SpellService],
 })
 export class SpellModule {}

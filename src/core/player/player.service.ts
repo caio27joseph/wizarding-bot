@@ -23,6 +23,11 @@ export class PlayerService {
       },
     });
     if (player && !update) return player;
+    input.name =
+      input.name ||
+      input.target.nickname ||
+      input.target.displayName ||
+      input.target.user.username;
     if (player && update) {
       const result = await this.repo.update(player.id, input);
       return this.repo.findOneBy({ id: player.id });

@@ -1,6 +1,5 @@
 import { Field, ID, InputType, PartialType } from '@nestjs/graphql';
-import { Guild } from '~/core/guild/guild.entity';
-import { House } from '~/core/house/entities/house.entity';
+import { GuildMember } from 'discord.js';
 
 @InputType()
 export class CreatePlayerInput {
@@ -18,6 +17,8 @@ export class CreatePlayerInput {
 
   @Field(() => ID, { nullable: true })
   houseId?: string;
+
+  target?: GuildMember;
 }
 
 @InputType()

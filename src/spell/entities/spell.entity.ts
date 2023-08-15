@@ -9,6 +9,8 @@ import {
   Column,
   Entity,
   Index,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   OneToMany,
   PrimaryColumn,
@@ -16,6 +18,7 @@ import {
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { DiscordEntityVieable } from '~/discord/types';
+import { Grimoire } from '~/grimoire/entities/grimoire.entity';
 import { Train } from '~/train/entities/train.entity';
 
 export enum SpellCategoryEnum {
@@ -168,7 +171,6 @@ export class Spell implements DiscordEntityVieable {
   @Column('text')
   description: string;
 
-  // Create the enum
   @Field((type) => [SpellCategoryEnum])
   @Column('text', {
     array: true,
@@ -193,6 +195,9 @@ export class Spell implements DiscordEntityVieable {
   @OneToMany(() => Train, (train) => train.spell)
   trains: Train[];
 
+  @ManyToMany(() => Grimoire)
+  grimoires: Grimoire[];
+
   toShortEmbed() {
     const embed = new EmbedBuilder();
     embed.setTitle(this.name);
@@ -205,7 +210,7 @@ export class Spell implements DiscordEntityVieable {
     return embed;
   }
   toShortText(n?: number) {
-    let message = `### ${n ? n + '.' : ''}${this.name} - ${this.title}\n`;
+    let message = `### ${n ? n + '. ' : ''}${this.name} - ${this.title}\n`;
     message += `Nivel ${this.level}, ${this.category} / ${this.difficulty}`;
     return message;
   }

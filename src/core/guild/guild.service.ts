@@ -28,6 +28,7 @@ export class GuildService implements OnModuleInit {
     for (let guild of allGuilds) {
       guild = await this.loadTrainChannel(guild);
       guild = await this.loadPointLogsChannel(guild);
+      guild = await this.loadErrorLogsChannel(guild);
 
       this.guilds.set(guild.id, guild);
     }
@@ -61,6 +62,23 @@ export class GuildService implements OnModuleInit {
         },
       );
       guild.pointLogChannel = fetchedChannel as TextChannel;
+    } catch (error) {
+      console.log(error);
+    }
+    return guild;
+  }
+  async loadErrorLogsChannel(guild: Guild) {
+    if (!guild.errorLogChannelId) return guild;
+    try {
+      const fetchedChannel = await this.discordEmitter.client.channels.fetch(
+        guild.errorLogChannelId,
+        {
+          allowUnknownGuild: true,
+          cache: true,
+          force: true,
+        },
+      );
+      guild.errorLogChannel = fetchedChannel as TextChannel;
     } catch (error) {
       console.log(error);
     }

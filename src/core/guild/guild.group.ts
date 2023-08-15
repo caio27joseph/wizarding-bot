@@ -82,6 +82,21 @@ export class GuildGroup {
     await this.service.updateGuild(guild);
     await interaction.reply('Canal de treinamento definido');
   }
+  @Command({
+    name: 'set_error_log_channel',
+    description: 'Comando para definir o canal de treinamento',
+    mod: true,
+  })
+  public async setErrorLogChannel(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgGuild() guild: Guild,
+  ) {
+    guild.errorLogChannel = interaction.channel as TextChannel;
+    guild.errorLogChannelId = interaction.channelId;
+    await this.service.updateGuild(guild);
+    await interaction.reply('Canal de Errors definido');
+  }
 
   @Command({
     name: 'set_point_log_channel',
