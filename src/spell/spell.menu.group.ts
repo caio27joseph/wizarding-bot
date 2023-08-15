@@ -154,7 +154,7 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
     await this.trainMenu.handle(context);
   }
 
-  @MenuAction('Grimório')
+  @MenuAction('Grimório (Beta)')
   async grimoire(context: SpellActionContext) {
     await this.grimoireMenu.handle(context);
   }
