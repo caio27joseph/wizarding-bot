@@ -80,6 +80,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     const trains = await this.trainService.findAll({
       where: {
         spellId: context.spell.id,
+        playerId: context.player.id,
       },
     });
     const progress = await this.trainSpellService.progressData({
