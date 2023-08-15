@@ -45,6 +45,7 @@ import { RollsD10 } from '~/roll/entities/roll.entity';
 import { SpellService } from '~/spell/spell.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { SpellActionContext } from '~/spell/spell.group';
+import { TrainSpellService } from './train-spell.service';
 
 export enum SpellTrainAction {
   SELECT_GROUP = 'spell-train-group-select',
@@ -74,272 +75,13 @@ export interface SpellTrainData {
 export class TrainGroup {
   constructor(
     private readonly trainService: TrainService,
+    private readonly trainSpellService: TrainSpellService,
     private readonly spellService: SpellService,
     private readonly rollService: RollService,
   ) {}
 
   async execute() {}
 
-  // #region Spell
-  async handleSpellTrain(context?: SpellActionContext) {
-    const { interaction, player, guild, spell, i } = context;
-
-    const tests = {};
-    for (const category of spell.category) {
-      tests[category] = `Controle + ${category}`;
-    }
-    const submitHash = uuidv4();
-    const reply = await i.reply({
-      content:
-        `Iniciando treino de ${spell.name}, por favor configure <@${player.discordId}>!` +
-        `\nLembrando que você tem 10 minutos para configurar o treino e enviar a ação!` +
-        `\nVocê deve ter configurado seus pontos usando /extras atrualizar, e /pred_bruxa atualizar`,
-      // components: this.spellTrainMenu(tests, submitHash, canDouble),
-      ephemeral: true,
-    });
-
-    const trainOptions: SpellTrainData = {
-      spellId: spell.id,
-      playerId: player.id,
-      group: TrainGroupOption.SOLO,
-      category: spell.category[0] as WitchPredilectionsNameEnum,
-      autoSuccess: 0,
-      bonusRoll: 0,
-      doubleTrain: false,
-    };
-    const filter = (i) => {
-      return i.user.id === player.discordId;
-    };
-    const configurator = reply.createMessageComponentCollector({
-      filter,
-      time: 1000 * 60 * 10,
-    });
-    let message: Message;
-    let submitted = false;
-    const submit = async (i, trainOptions: SpellTrainData) => {
-      try {
-        await i.reply({
-          content: `Envia a alção para Iniciar o Treino ${
-            trainOptions.doubleTrain ? 'x2' : ''
-          }!`,
-          components: [],
-          ephemeral: true,
-        });
-      } catch {
-        message = await i.channel.send({
-          content: `Envia a alção para Iniciar o Treino ${
-            trainOptions.doubleTrain ? 'x2' : ''
-          }!`,
-          components: [],
-        });
-      }
-      if (submitted) return;
-      submitted = true;
-      await this.startSpellTrain(
-        interaction,
-        player,
-        spell,
-        guild,
-        trainOptions,
-        message,
-      );
-      await reply.delete();
-      configurator.stop();
-    };
-    configurator.on('collect', async (i: StringSelectMenuInteraction) => {
-      switch (i.customId) {
-        case SpellTrainAction.SELECT_ROLL:
-          trainOptions.category = i.values[0] as WitchPredilectionsNameEnum;
-          await (await i.deferReply()).delete();
-          break;
-
-        case SpellTrainAction.SELECT_GROUP:
-          trainOptions.group = i.values[0] as TrainGroupOption;
-          await (await i.deferReply()).delete();
-          break;
-        case SpellTrainAction.BONUS_ROLL:
-          trainOptions.bonusRoll = parseInt(i.values[0]);
-          await (await i.deferReply()).delete();
-          break;
-        case SpellTrainAction.AUTO_SUCCESS:
-          trainOptions.autoSuccess = parseInt(i.values[0]);
-          await (await i.deferReply()).delete();
-          break;
-        case SpellTrainAction.SUBMIT + submitHash:
-          await submit(i, trainOptions);
-          break;
-        case SpellTrainAction.DOUBLE_TRAIN + submitHash:
-          trainOptions.doubleTrain = true;
-          await submit(i, trainOptions);
-      }
-    });
-  }
-
-  async startSpellTrain(
-    interaction: CommandInteraction,
-    player: Player,
-    spell: Spell,
-    guild: Guild,
-    options: SpellTrainData,
-    possibleMessage: Message,
-  ) {
-    const collected = await interaction.channel.awaitMessages({
-      filter: (m) => m.author.id === player.discordId,
-      max: 1,
-      time: 1000 * 60 * 10,
-    });
-    const message = collected.first();
-    if (!message) {
-      await interaction.channel.send({
-        content: `Você não enviou sua ação a tempo!`,
-      });
-      return;
-    }
-    if (possibleMessage) {
-      await possibleMessage.delete();
-    }
-    const rolls: RollsD10[] = [];
-    const roll = await this.rollService.roll10(player, {
-      witchPredilection: witchPredilectionsNameMap[options.category],
-      extras: 'control',
-      autoSuccess: options.autoSuccess,
-      bonus: options.bonusRoll,
-    });
-    rolls.push(roll);
-    if (options.doubleTrain) {
-      const roll = await this.rollService.roll10(player, {
-        witchPredilection: witchPredilectionsNameMap[options.category],
-        extras: 'control',
-        autoSuccess: options.autoSuccess,
-        bonus: options.bonusRoll,
-        message: spell.name,
-      });
-      rolls.push(roll);
-    }
-    for (const roll of rolls) {
-      const train = await this.trainService.create({
-        success: roll.total,
-        channelId: interaction.channelId,
-        messageId: message.id,
-        spell: spell,
-        spellId: spell.id,
-        player: player,
-        playerId: player.id,
-        group: options.group,
-      });
-
-      await message.reply({
-        content: train.toShortText(),
-        embeds: [roll.toEmbed()],
-      });
-      if (!guild.trainLogChannel) {
-        return;
-      }
-
-      await guild.trainLogChannel.send({
-        content:
-          `<@${player.discordId}> realizou um treino de ${spell.name}, Ação: ` +
-          `https://discord.com/channels/${message.guildId}/${message.channelId}/${message.id}` +
-          `\nID para cancelar: ${train.id}`,
-        embeds: [
-          train.toEmbed().setFooter({
-            text: `ID: ${train.id}`,
-          }),
-        ],
-      });
-    }
-  }
-  spellTrainMenu(tests: { [category: string]: string }, id, canDouble = true) {
-    const groupSelect = new StringSelectMenuBuilder()
-      .setCustomId(SpellTrainAction.SELECT_GROUP)
-      .setPlaceholder('Treinando sozinho?')
-      .setOptions(
-        {
-          label: 'Treinar sozinho',
-          value: TrainGroupOption.SOLO,
-        },
-        {
-          label: 'Treinar em dupla',
-          value: TrainGroupOption.DUO,
-        },
-        {
-          label: 'Treinar em trio',
-          value: TrainGroupOption.TRIO,
-        },
-        {
-          label: 'Treinar com grupo 4+',
-          value: TrainGroupOption.GROUP,
-        },
-        {
-          label: 'Treinar com Tutor (Monitor e Especializados)',
-          value: TrainGroupOption.TUTOR,
-        },
-        {
-          label: 'Treinar com Professor',
-          value: TrainGroupOption.PROFESSOR,
-        },
-      );
-    const numberOptions = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6].map(
-      (n) => ({
-        label: n.toString(),
-        value: n.toString(),
-      }),
-    );
-    const testsSelect = new StringSelectMenuBuilder()
-      .setCustomId(SpellTrainAction.SELECT_ROLL)
-      .setPlaceholder('Qual teste?');
-    const options: APISelectMenuOption[] = [];
-    for (const [category, roll] of Object.entries(tests)) {
-      options.push({
-        label: roll,
-        value: category,
-      });
-    }
-    testsSelect.addOptions(options);
-
-    const bonusDices = new StringSelectMenuBuilder()
-      .setCustomId(SpellTrainAction.BONUS_ROLL)
-      .setPlaceholder('Bônus de Dados')
-      .setOptions(numberOptions);
-    const autoSuccess = new StringSelectMenuBuilder()
-      .setCustomId(SpellTrainAction.AUTO_SUCCESS)
-      .setPlaceholder('Sucessos Automáticos')
-      .setOptions(numberOptions);
-    const submitButtons = [
-      new ButtonBuilder({
-        customId: SpellTrainAction.SUBMIT + id,
-        label: 'Treinar',
-        style: ButtonStyle.Success,
-      }),
-    ];
-
-    if (canDouble) {
-      submitButtons.push(
-        new ButtonBuilder({
-          customId: SpellTrainAction.DOUBLE_TRAIN + id,
-          label: 'Treinar x2',
-          style: ButtonStyle.Success,
-        }),
-      );
-    }
-
-    const submit = new ActionRowBuilder<ButtonBuilder>().addComponents(
-      submitButtons,
-    );
-    const menu1 = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
-      groupSelect,
-    );
-    const menu2 = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
-      testsSelect,
-    );
-    const menu3 = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
-      bonusDices,
-    );
-    const menu4 = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
-      autoSuccess,
-    );
-    return [menu1, menu2, menu3, menu4, submit];
-  }
   @Command({
     name: 'feiticos',
     description: 'Verifica todos os status de maestria que você possui',
@@ -370,30 +112,31 @@ export class TrainGroup {
       ([, a], [, b]) => b - a,
     );
 
-    // const helper = new PaginationHelper({
-    //   items: sortedSpells,
-    //   formatter: async ([spellId, totalXP]) => {
-    //     const spell = groupedTrains[spellId][0].spell;
-    //     // // const necessaryXP = await this.trainService.getSpellNecessaryUpXP(
-    //     // //   spell,
-    //     // // );
-    //     // // const currentLevel = Math.ceil(totalXP / necessaryXP);
-    //     // // const xpTowardsNextLevel = totalXP % necessaryXP;
-    //     // // const progressBar = this.generateProgressBarEmoji(
-    //     // //   xpTowardsNextLevel,
-    //     // //   necessaryXP,
-    //     // // );
+    const helper = new PaginationHelper({
+      items: sortedSpells,
+      formatter: async ([spellId, totalXP]) => {
+        const spell = groupedTrains[spellId][0].spell;
+        const { necessaryXP } = await this.trainSpellService.progressData({
+          spell,
+          trains,
+        });
+        const currentLevel = Math.ceil(totalXP / necessaryXP);
+        const xpTowardsNextLevel = totalXP % necessaryXP;
+        const progressBar = this.generateProgressBarEmoji(
+          xpTowardsNextLevel,
+          necessaryXP,
+        );
 
-    //     // let response = `**${spell.name}**\n`;
-    //     // response += `Nível atual: ${currentLevel}\n`;
-    //     // response += `XP ${progressBar} ${xpTowardsNextLevel}/${necessaryXP}\n`;
-    //     // response += '---'; // Horizontal line for separation
-    //     // return response;
-    //   },
-    //   header: '**Spells by Mastery:**\n\n',
-    // });
+        let response = `**${spell.name}**\n`;
+        response += `Nível atual: ${currentLevel}\n`;
+        response += `XP ${progressBar} ${xpTowardsNextLevel}/${necessaryXP}\n`;
+        response += '---'; // Horizontal line for separation
+        return response;
+      },
+      header: '**Spells by Mastery:**\n\n',
+    });
 
-    // await helper.reply(interaction);
+    await helper.reply(interaction);
   }
 
   generateProgressBarEmoji(
