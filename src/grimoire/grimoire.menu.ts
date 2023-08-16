@@ -60,6 +60,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
   ) {
     super();
   }
+
   async buildUpContext(context: SpellActionContext) {
     const { player, spell } = context;
     const grimoire = await this.grimoireService.getOrCreate(
@@ -220,7 +221,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
 
     const found = grimoire.spells?.find((s) => s.id === spell.id);
     if (found) {
-      throw new EntityAlreadyExists('O feitiço já está no seu grimório.');
+      throw new DiscordSimpleError('O feitiço já está no seu grimório.');
     }
     grimoire.spells.push(spell);
     await this.grimoireService.save(grimoire);
