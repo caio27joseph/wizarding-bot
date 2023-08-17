@@ -378,12 +378,20 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     if (found) {
       throw new DiscordSimpleError('O feitiço já está no seu grimório.');
     }
+
     grimoire.spells.push(spell);
     await this.grimoireService.save(grimoire);
 
-    context.i.reply({
-      content: 'Grimório Atualizado',
+    const i = context.i.isRepliable() ? context.i : context.interaction;
+    const response = await i.reply({
+      content: `${spell.name} adicionado ao seu grimório`,
       ephemeral: true,
+    });
+
+    await this.handle({
+      ...context,
+      grimoire,
+      response,
     });
   }
 }

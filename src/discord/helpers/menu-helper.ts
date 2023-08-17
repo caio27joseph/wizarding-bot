@@ -72,8 +72,23 @@ export abstract class MenuHelper<T extends ActionContext> {
         hash: this.__hash,
       }),
     ];
+    content.fetchReply = true;
     content.ephemeral = true;
-    const response = await context.i.reply(content);
+    let response;
+    if (context.i.isRepliable()) {
+      try {
+        response = await context.i.reply(content);
+      } catch (error) {
+        response = await context.i.followUp(content);
+      }
+    } else if (context.interaction.isRepliable()) {
+      try {
+        response = await context.interaction.reply(content);
+      } catch (error) {
+        response = await context.interaction.followUp(content);
+      }
+    }
+
     context.response = context.response || response;
     const collector = context.response.createMessageComponentCollector({
       filter: (i: ButtonInteraction<CacheType>) => {
