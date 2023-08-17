@@ -37,6 +37,17 @@ import {
   FormHelper,
   OptionConfig,
 } from '~/discord/helpers/form-helper';
+import { Group } from '~/discord/decorators/group.decorator';
+import { Command } from '~/discord/decorators/command.decorator';
+import { TrainService } from '~/train/train.service';
+import {
+  ArgGuild,
+  ArgInteraction,
+  ArgPlayer,
+  ArgString,
+} from '~/discord/decorators/message.decorators';
+import { Guild } from '~/core/guild/guild.entity';
+import { ILike } from 'typeorm';
 
 interface Props {
   selectedSlot: number;
@@ -52,13 +63,156 @@ export interface GrimoireActionContext extends SpellActionContext {
   slots: SpellSlot[];
 }
 
+@Group({
+  name: 'grimorio',
+  description: 'Gerencia o grimório do jogador',
+})
 @Injectable()
 export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
   constructor(
     private readonly slotService: SpellSlotsService,
     private readonly grimoireService: GrimoireService,
+    private readonly spellService: SpellService,
   ) {
     super();
+  }
+
+  @Command({
+    name: 'menu',
+    description: 'Ver o grimório do jogador',
+  })
+  async getGrimorio(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgPlayer()
+    player: Player,
+    @ArgGuild()
+    guild: Guild,
+  ) {
+    const slots = await this.slotService.findAll({
+      where: {
+        playerId: player.id,
+      },
+      relations: {
+        spell: true,
+      },
+      order: {
+        position: 'ASC',
+      },
+    });
+    const spellContext: SpellActionContext = {
+      guild,
+      player,
+      interaction,
+      i: interaction,
+      spell: slots[0].spell,
+    };
+
+    await this.handle(spellContext);
+  }
+
+  @Command({
+    name: 'aprender',
+    description: 'Ver o grimório do jogador',
+  })
+  async addGrimorio(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgPlayer()
+    player: Player,
+    @ArgGuild()
+    guild: Guild,
+    @ArgString({
+      name: 'nome',
+      description: 'Nome do feitiço',
+    })
+    name: string,
+  ) {
+    const spell = await this.spellService.findOne({
+      where: {
+        name: ILike(name),
+      },
+    });
+    const grimoire = await this.grimoireService.getOrCreate(
+      {
+        where: {
+          playerId: player.id,
+        },
+      },
+      {
+        player: player,
+        playerId: player.id,
+      },
+    );
+    const slots = await this.slotService.findAll({
+      where: {
+        playerId: player.id,
+      },
+    });
+    const context: GrimoireActionContext = {
+      guild,
+      player,
+      interaction,
+      i: interaction,
+      spell,
+      grimoire,
+      slots,
+      playerMaxSlots: await this.slotService.playerMaxSlots(player),
+    };
+
+    await this.addToGrimoire(context);
+  }
+
+  @Command({
+    name: 'desaprender',
+    description: 'Ver o grimório do jogador',
+  })
+  async removeGrimorio(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgPlayer()
+    player: Player,
+    @ArgGuild()
+    guild: Guild,
+    @ArgString({
+      name: 'nome',
+      description: 'Nome do feitiço',
+    })
+    name: string,
+  ) {
+    const spell = await this.spellService.findOne({
+      where: {
+        name: ILike(name),
+      },
+    });
+    const grimoire = await this.grimoireService.getOrCreate(
+      {
+        where: {
+          playerId: player.id,
+        },
+      },
+      {
+        player: player,
+        playerId: player.id,
+      },
+    );
+    const slots = await this.slotService.findAll({
+      where: {
+        playerId: player.id,
+      },
+    });
+    const context: GrimoireActionContext = {
+      guild,
+      player,
+      interaction,
+      i: interaction,
+      spell,
+      grimoire,
+      slots,
+      playerMaxSlots: await this.slotService.playerMaxSlots(player),
+    };
+
+    await this.removeFromGrimoire(context);
   }
 
   async buildUpContext(context: SpellActionContext) {
@@ -73,6 +227,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         },
       },
       {
+        player: player,
         playerId: player.id,
       },
     );

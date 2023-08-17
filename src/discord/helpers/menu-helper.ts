@@ -91,7 +91,7 @@ export abstract class MenuHelper<T extends ActionContext> {
       } catch (error) {
         const canReply = i.isRepliable();
         if (canReply) {
-          await i.reply({ content: '${error.message}', ephemeral: true });
+          await i.reply({ content: `${error.message}`, ephemeral: true });
         }
         if (context.guild.errorLogChannel) {
           await context.guild.errorLogChannel.send({

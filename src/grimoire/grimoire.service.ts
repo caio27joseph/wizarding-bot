@@ -49,7 +49,7 @@ export class GrimoireService {
 
   async getOrCreate(
     options: FindOneOptions<Grimoire>,
-    input: UpdateGrimoireInput,
+    input: CreateGrimoireInput,
   ) {
     const grimoire = await this.findOne(options);
     if (grimoire) {
