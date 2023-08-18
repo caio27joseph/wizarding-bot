@@ -217,6 +217,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
             value: c,
           })),
           defaultValue: context.spell.category[0],
+          disabled: context.spell.category.length === 1,
         },
         {
           placeholder: 'Bônus de Treino (Padrão: 0)',

@@ -174,4 +174,86 @@ export class PaginationHelper<T> {
     });
     return;
   }
+  async followUp(interaction: CommandInteraction): Promise<void> {
+    const totalPages: number = Math.ceil(this.items.length / this.itemsPerPage);
+
+    const constructPage = async (page: number): Promise<string> => {
+      const start: number = (page - 1) * this.itemsPerPage;
+      const end: number = start + this.itemsPerPage;
+      const pageItems = this.items.slice(start, end);
+
+      let content: string = this.header;
+      content += await (
+        await Promise.all(pageItems.map(this.formatter))
+      ).join('\n');
+      content += this.footer(page, totalPages);
+
+      return content;
+    };
+
+    const initialContent: string = await constructPage(this.currentPage);
+    const message = await interaction.followUp({
+      content: initialContent,
+      ephemeral: true,
+      components: [
+        new ActionRowBuilder<ButtonBuilder>().addComponents(
+          new ButtonBuilder()
+            .setCustomId('previous')
+            .setLabel('◀️')
+            .setDisabled(this.currentPage === 1)
+            .setStyle(ButtonStyle.Primary),
+          new ButtonBuilder()
+            .setCustomId('next')
+            .setLabel('▶️')
+            .setDisabled(this.currentPage === totalPages)
+            .setStyle(ButtonStyle.Primary),
+        ),
+      ],
+    });
+
+    const filter = (i: ButtonInteraction) => {
+      return (
+        ['previous', 'next'].includes(i.customId) &&
+        i.user.id === interaction.user.id
+      );
+    };
+
+    const collector = message.createMessageComponentCollector({
+      filter,
+      time: 120000,
+    });
+
+    collector.on('collect', async (i: ButtonInteraction) => {
+      if (i.customId === 'next' && this.currentPage < totalPages) {
+        this.currentPage++;
+      } else if (i.customId === 'previous' && this.currentPage > 1) {
+        this.currentPage--;
+      }
+
+      const newContent: string = await constructPage(this.currentPage);
+      await i.update({
+        content: newContent,
+        components: [
+          new ActionRowBuilder<ButtonBuilder>().addComponents(
+            new ButtonBuilder()
+              .setCustomId('previous')
+              .setLabel('◀️')
+              .setDisabled(this.currentPage === 1)
+              .setStyle(ButtonStyle.Primary),
+            new ButtonBuilder()
+              .setCustomId('next')
+              .setLabel('▶️')
+              .setDisabled(this.currentPage === totalPages)
+              .setStyle(ButtonStyle.Primary),
+          ),
+        ],
+      });
+    });
+    collector.on('end', () => {
+      message.edit({
+        components: [],
+      });
+    });
+    return;
+  }
 }

@@ -147,7 +147,7 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
         return `Página ${currentPage} de ${totalPages}`;
       },
     };
-    await new PaginationHelper(options).reply(context.interaction);
+    await new PaginationHelper(options).followUp(context.interaction);
   }
 
   @MenuAction('Maestria')

@@ -22,6 +22,7 @@ export type FormFieldConfig = {
   defaultValue?: any;
   pipe?: (value: string) => any;
   options: OptionConfig[];
+  disabled?: boolean;
 };
 
 export type FormConfig<P> = {
@@ -65,7 +66,9 @@ export class FormHelper<Props> {
         new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
           selectMenu,
         );
-      components.push(formRow);
+      if (!field.disabled) {
+        components.push(formRow);
+      }
     }
 
     const buttons: ButtonBuilder[] = [];
