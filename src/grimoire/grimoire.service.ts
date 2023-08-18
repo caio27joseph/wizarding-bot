@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {
+  DeepPartial,
   FindManyOptions,
   FindOneOptions,
   FindOptionsWhere,
@@ -13,43 +14,23 @@ import {
   CreateGrimoireInput,
   UpdateGrimoireInput,
 } from './entities/grimoire.input';
+import { BasicService } from '~/utils/basic.service';
+import { QueryPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 @Injectable()
-export class GrimoireService {
+export class GrimoireService extends BasicService<
+  Grimoire,
+  DeepPartial<Grimoire>,
+  QueryPartialEntity<Grimoire>
+> {
   constructor(
     @InjectRepository(Grimoire) private readonly repo: Repository<Grimoire>,
-  ) {}
-
-  create(createGrimoireInput: CreateGrimoireInput) {
-    const data = this.repo.create(createGrimoireInput);
-    return this.repo.save(data);
-  }
-
-  findAll(options?: FindManyOptions<Grimoire>) {
-    return this.repo.find(options);
-  }
-
-  findOne(options?: FindOneOptions<Grimoire>) {
-    return this.repo.findOne(options);
-  }
-
-  update(
-    options: FindOptionsWhere<Grimoire>,
-    updateGrimoireInput: UpdateGrimoireInput,
   ) {
-    return this.repo.update(options, updateGrimoireInput);
-  }
-
-  save(grimoire: Grimoire) {
-    return this.repo.save(grimoire);
-  }
-
-  remove(options: FindOptionsWhere<Grimoire>) {
-    return this.repo.delete(options);
+    super(repo);
   }
 
   async getOrCreate(
     options: FindOneOptions<Grimoire>,
-    input: CreateGrimoireInput,
+    input: DeepPartial<Grimoire>,
   ) {
     const grimoire = await this.findOne(options);
     if (grimoire) {

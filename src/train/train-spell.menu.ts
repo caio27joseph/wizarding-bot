@@ -74,6 +74,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
         playerId: context.player.id,
       },
     });
+
     const spellTrains = trains.filter((t) => t.spellId === context.spell.id);
     const newContext: TrainSpellActionContext = {
       ...context,
@@ -135,7 +136,8 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
         todayTrains,
       });
     } catch (e) {
-      await context.i.reply({
+      debugger;
+      await context.interaction.followUp({
         content: e.message,
       });
       return;
@@ -149,7 +151,6 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
         label: 'Cancelar',
         style: ButtonStyle.Danger,
         handler: async (i, props) => {
-          context.i = i;
           await this.cancelTrain(context);
         },
       },
@@ -157,7 +158,6 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
         label: 'Treinar',
         style: ButtonStyle.Primary,
         handler: async (i, props) => {
-          context.i = i;
           await this.startTrain(context, props);
         },
       },
@@ -168,13 +168,12 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
         label: 'Treinar x2',
         style: ButtonStyle.Secondary,
         handler: async (i, props) => {
-          context.i = i;
           await this.startTrain(context, props, canDoubleTrain);
         },
       });
     }
 
-    new FormHelper<Props>(context, {
+    await new FormHelper<Props>(context, {
       label: `Treinar ${context.spell.name}`,
       buttons,
       fields: [
@@ -243,7 +242,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     //
   }
   async cancelTrain(context: TrainSpellActionContext) {
-    await context.i.followUp({
+    await context.interaction.followUp({
       content: 'Treino Cancelado',
       ephemeral: true,
     });
@@ -253,7 +252,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     props: Props,
     doubleTrain?: boolean,
   ) {
-    await context.i.followUp({
+    await context.interaction.followUp({
       content: 'Envie a ação de treino completar',
       embeds: [
         new EmbedBuilder({
@@ -351,10 +350,10 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
       embeds: rolls.map((r) => r.toEmbed()),
     });
 
-    if (context.i.isRepliable()) {
+    if (context.interaction.isRepliable()) {
       const progress = await this.getMenuPrompt(context);
       (progress as InteractionReplyOptions).ephemeral = true;
-      await context.i.followUp(progress);
+      await context.interaction.followUp(progress);
     }
 
     if (!guild.trainLogChannel) {

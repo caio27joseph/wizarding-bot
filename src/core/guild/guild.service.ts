@@ -98,8 +98,6 @@ export class GuildService implements OnModuleInit {
 
   async updateGuild(guild: Guild) {
     const result = await this.repo.save(guild);
-    console.log('Found');
-    console.log(result.trainLogChannel);
     this.guilds.set(guild.id, result);
     return result;
   }

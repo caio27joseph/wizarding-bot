@@ -21,9 +21,7 @@ export class Grimoire {
   @Column()
   playerId: string;
 
-  @ManyToMany(() => Spell, {
-    eager: true,
-  })
+  @ManyToMany(() => Spell)
   @JoinTable()
   spells: Spell[];
 }

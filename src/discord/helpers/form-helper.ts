@@ -87,14 +87,14 @@ export class FormHelper<Props> {
     return components;
   }
   async collectFormResponses() {
-    const message = await this.context.i.reply({
+    this.context.response = await this.context.interaction.editReply({
       content: this.formConfig.label,
       components: this.generateFormComponents(),
-      ephemeral: true,
     });
 
     const collector = this.context.response.createMessageComponentCollector({
-      time: 1000 * 60 * 5,
+      time: 1000 * 60 * 10,
+      filter: (i) => i.user.id === this.context.player.discordId,
     });
 
     const props = {};
@@ -109,6 +109,7 @@ export class FormHelper<Props> {
           const fieldConfig = this.selectIdMap.get(interaction.customId);
           if (fieldConfig) {
             await interaction.deferReply({ ephemeral: true });
+
             let value: any;
             if (fieldConfig.pipe) {
               value = fieldConfig.pipe(interaction.values[0]);
@@ -122,22 +123,31 @@ export class FormHelper<Props> {
           await interaction.deferReply({ ephemeral: true });
           const buttonConfig = this.buttonIdMap.get(interaction.customId);
           if (buttonConfig) {
-            await buttonConfig.handler(interaction, props as any);
+            try {
+              await this.context.interaction.editReply({
+                components: [],
+              });
+              await buttonConfig.handler(interaction, props as any);
+            } catch (error) {
+              await this.context.interaction.followUp({
+                content: `Erro ao processar ação: ${error.message}`,
+                ephemeral: true,
+              });
+            }
           }
+          await interaction.deleteReply();
           collector.stop('Handled');
         }
       },
     );
 
-    collector.on('end', async (collected, reason) => {
-      if (message) {
-        await message.delete();
-      }
-    });
+    // collector.on('end', async (collected, reason) => {
+
+    // });
   }
 
-  init() {
+  async init() {
     this.generateFormComponents();
-    this.collectFormResponses();
+    await this.collectFormResponses();
   }
 }

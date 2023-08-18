@@ -357,13 +357,17 @@ export class DiscordEventEmitter implements OnModuleInit {
             await interaction.reply(
               `Todo: ${typeof result} needs to implement the reply method`,
             );
-          } else {
+          } else if (result) {
             await interaction.reply(result.reply(interaction));
           }
         } catch (error) {
           try {
             const result = await this.handleErrors(interaction, error);
-            await interaction.reply(result);
+            try {
+              await interaction.reply(result);
+            } catch (error) {
+              await interaction.followUp(result);
+            }
           } catch (error) {}
         }
       },

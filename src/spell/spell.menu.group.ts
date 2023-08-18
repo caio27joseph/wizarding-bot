@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {
+  ButtonInteraction,
   CommandInteraction,
   Interaction,
   InteractionReplyOptions,
@@ -67,7 +68,7 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
   })
   async spell(
     @ArgInteraction()
-    i: CommandInteraction,
+    interaction: CommandInteraction,
     @ArgGuild()
     guild: Guild,
     @ArgPlayer()
@@ -99,11 +100,11 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
     })
     level?: number,
   ) {
+    await interaction.deferReply({ ephemeral: true });
     const context: SpellActionContext = {
       guild,
       player,
-      interaction: i,
-      i,
+      interaction,
     };
     if (!name)
       return await this.list(context, {
@@ -120,7 +121,7 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
     if (!spell) throw new EntityNotFound('Feitiço', name);
     context.spell = spell;
 
-    await this.handle(context);
+    await this.handle(context, true);
   }
   async list(context: SpellActionContext, where: FindOptionsWhere<Spell> = {}) {
     let spells = await this.spellService.findAll({
@@ -150,12 +151,12 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
   }
 
   @MenuAction('Maestria')
-  async train(context: SpellActionContext) {
+  async train(context: SpellActionContext, i: ButtonInteraction) {
     await this.trainMenu.handle(context);
   }
 
   @MenuAction('Grimório (Beta)')
-  async grimoire(context: SpellActionContext) {
+  async grimoire(context: SpellActionContext, i: ButtonInteraction) {
     await this.grimoireMenu.handle(context);
   }
 }

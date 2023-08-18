@@ -139,7 +139,7 @@ export class SpellGroup {
         new ActionRowBuilder<ButtonBuilder>().setComponents(
           new ButtonBuilder()
             .setCustomId('depreceated')
-            .setLabel('Maestria(Removido) (Use /ftc)')
+            .setLabel('Maestria(Removido) (Use o comando /ftc nome:feitico)')
             .setStyle(ButtonStyle.Primary)
             .setDisabled(true),
         ),

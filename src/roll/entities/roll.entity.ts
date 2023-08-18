@@ -31,7 +31,6 @@ export class RollsD10 {
     8: '<:keycap_eight_gray:1139683529479958679>',
     9: '<:keycap_nine_gray:1139683541903487107>',
   };
-
   private rolls = [];
   private critical_f: boolean;
   private critical_s: number;

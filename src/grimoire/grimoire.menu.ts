@@ -6,6 +6,7 @@ import {
   EmbedBuilder,
   Interaction,
   InteractionReplyOptions,
+  Message,
 } from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
 import { PlayerService } from '~/core/player/player.service';
@@ -100,11 +101,16 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         position: 'ASC',
       },
     });
+    if (!slots.length) {
+      throw new DiscordSimpleError(
+        'Você precisa ao menos ter algum feitiço em slot para acessar o menu. use o comando /ftc nome:feitico',
+      );
+    }
+
     const spellContext: SpellActionContext = {
       guild,
       player,
       interaction,
-      i: interaction,
       spell: slots[0].spell,
     };
 
@@ -128,6 +134,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     })
     name: string,
   ) {
+    await interaction.deferReply({ ephemeral: true });
     const spell = await this.spellService.findOne({
       where: {
         name: ILike(name),
@@ -153,7 +160,6 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
       guild,
       player,
       interaction,
-      i: interaction,
       spell,
       grimoire,
       slots,
@@ -205,7 +211,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
       guild,
       player,
       interaction,
-      i: interaction,
+
       spell,
       grimoire,
       slots,
@@ -227,10 +233,10 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         },
       },
       {
-        player: player,
         playerId: player.id,
       },
     );
+
     grimoire.spells = grimoire.spells || [];
 
     const slots = await this.slotService.findAll({
@@ -288,7 +294,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         return `Página ${currentPage} de ${totalPages}`;
       },
     };
-    new PaginationHelper(options).reply(context.i as any);
+    new PaginationHelper(options).reply(context.interaction);
   }
 
   @MenuAction('Substiruir No Slot')
@@ -311,7 +317,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
       }
       slots[index] = slot;
 
-      await interaction.followUp({
+      await context.interaction.followUp({
         content:
           `Salvo ${slot.position + 1}\n` +
           this.slotService.listSlots(slots, playerMaxSlots),
@@ -364,7 +370,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     }
     await this.grimoireService.save(grimoire);
 
-    context.i.reply({
+    return context.interaction.followUp({
       content: 'Grimório Atualizado',
       ephemeral: true,
     });
@@ -380,14 +386,12 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     }
 
     grimoire.spells.push(spell);
-    await this.grimoireService.save(grimoire);
+    // await this.grimoireService.save(grimoire);
 
-    const i = context.i.isRepliable() ? context.i : context.interaction;
-    const response = await i.reply({
+    const response = await context.interaction.followUp({
       content: `${spell.name} adicionado ao seu grimório`,
       ephemeral: true,
     });
-
     await this.handle({
       ...context,
       grimoire,

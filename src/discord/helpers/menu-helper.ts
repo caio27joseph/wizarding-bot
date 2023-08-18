@@ -14,6 +14,7 @@ import {
   InteractionReplyOptions,
   EmbedBuilder,
   MessageReplyOptions,
+  Message,
 } from 'discord.js';
 import { v4 } from 'uuid';
 import 'reflect-metadata';
@@ -45,11 +46,7 @@ export interface ActionContext {
   player: Player;
   guild: Guild;
   interaction?: CommandInteraction;
-  i:
-    | ButtonInteraction<CacheType>
-    | StringSelectMenuInteraction<CacheType>
-    | CommandInteraction<CacheType>;
-  response?: InteractionResponse<boolean>;
+  response?: Message<boolean>;
 }
 
 export interface MenuActionOptions {
@@ -60,7 +57,7 @@ export interface MenuActionOptions {
 @Injectable()
 export abstract class MenuHelper<T extends ActionContext> {
   private __hash: string;
-  async handle<U extends ActionContext>(context: U | T) {
+  async handle<U extends ActionContext>(context: U | T, entryPoint = false) {
     context = await this.buildUpContext(context);
     this.__hash = v4();
     const content = (await this.getMenuPrompt(
@@ -74,22 +71,11 @@ export abstract class MenuHelper<T extends ActionContext> {
     ];
     content.fetchReply = true;
     content.ephemeral = true;
-    let response;
-    if (context.i.isRepliable()) {
-      try {
-        response = await context.i.reply(content);
-      } catch (error) {
-        response = await context.i.followUp(content);
-      }
-    } else if (context.interaction.isRepliable()) {
-      try {
-        response = await context.interaction.reply(content);
-      } catch (error) {
-        response = await context.interaction.followUp(content);
-      }
+    if (entryPoint) {
+      context.response = await context.interaction.followUp(content);
+    } else {
+      context.response = await context.interaction.editReply(content);
     }
-
-    context.response = context.response || response;
     const collector = context.response.createMessageComponentCollector({
       filter: (i: ButtonInteraction<CacheType>) => {
         return i.user.id === context.player.discordId;
@@ -97,12 +83,15 @@ export abstract class MenuHelper<T extends ActionContext> {
       time: 20000,
       max: 1,
     });
-    collector.on('collect', async (i) => {
+    collector.on('collect', async (i: ButtonInteraction) => {
       try {
-        context.i = i as ButtonInteraction<CacheType>;
-        await response.delete();
+        if (!entryPoint) {
+          content.components = [];
+          await context.interaction.editReply(content);
+        }
+        await (await i.deferReply()).delete();
         collector.stop();
-        await this.redirect(context as T);
+        await this.redirect(context as T, i);
       } catch (error) {
         const canReply = i.isRepliable();
         if (canReply) {
@@ -157,16 +146,14 @@ export abstract class MenuHelper<T extends ActionContext> {
     return actionRow;
   }
 
-  async redirect(context: T): Promise<void> {
+  async redirect(context: T, i: ButtonInteraction): Promise<void> {
     const actionsMetadata =
       Reflect.getMetadata(ACTION_KEY, this.constructor) || [];
     const action = actionsMetadata.find((a) =>
-      (context.i as StringSelectMenuInteraction).customId.startsWith(
-        a.customId + this.__hash,
-      ),
+      i.customId.startsWith(a.customId + this.__hash),
     );
     if (action) {
-      await (this as any)[action.methodName](context);
+      await (this as any)[action.methodName](context, i);
     }
   }
 }
