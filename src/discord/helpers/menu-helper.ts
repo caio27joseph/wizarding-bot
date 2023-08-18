@@ -89,7 +89,7 @@ export abstract class MenuHelper<T extends ActionContext> {
           content.components = [];
           await context.interaction.editReply(content);
         }
-        await (await i.deferReply()).delete();
+        await (await i.deferReply({ ephemeral: true })).delete();
         collector.stop();
         await this.redirect(context as T, i);
       } catch (error) {
