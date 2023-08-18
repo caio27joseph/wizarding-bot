@@ -1,6 +1,6 @@
 import { Module, forwardRef } from '@nestjs/common';
 import { TrainService } from './train.service';
-import { TrainGroup } from './train.group';
+import { MaestryGroup, TrainGroup } from './train.group';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Train } from './entities/train.entity';
 import { PlayerModule } from '~/core/player/player.module';
@@ -17,8 +17,14 @@ import { TrainSpellService } from './train-spell.service';
     RollModule,
     forwardRef(() => SpellModule),
   ],
-  providers: [TrainService, TrainGroup, TrainSpellMenu, TrainSpellService],
+  providers: [
+    TrainService,
+    MaestryGroup,
+    TrainSpellMenu,
+    TrainSpellService,
+    TrainGroup,
+  ],
 
-  exports: [TrainGroup, TrainSpellMenu],
+  exports: [MaestryGroup, TrainSpellMenu],
 })
 export class TrainModule {}

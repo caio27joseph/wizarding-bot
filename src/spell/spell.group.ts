@@ -26,7 +26,7 @@ import {
 import { Spell, SpellCategoryEnum } from './entities/spell.entity';
 import { Any, ILike, In } from 'typeorm';
 import { EntityNotFound } from '~/discord/exceptions';
-import { SpellTrainAction, TrainGroup } from '~/train/train.group';
+import { SpellTrainAction, MaestryGroup } from '~/train/train.group';
 import { PlayerService } from '~/core/player/player.service';
 import { Player } from '~/core/player/entities/player.entity';
 import { v4 as uuidv4 } from 'uuid';

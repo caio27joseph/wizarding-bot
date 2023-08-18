@@ -21,6 +21,7 @@ export class SpellSlotsService extends BasicService<
   CreateSpellSlotInput,
   UpdateSpellSlotInput
 > {
+  entityName = 'Slot de Feitiço';
   constructor(
     @InjectRepository(SpellSlot) private readonly repo: Repository<SpellSlot>,
     private readonly extrasService: ExtrasService,

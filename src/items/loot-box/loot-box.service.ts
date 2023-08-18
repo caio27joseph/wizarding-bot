@@ -9,4 +9,6 @@ export class LootBoxService extends BasicService<
   LootBox,
   DeepPartial<LootBox>,
   QueryDeepPartialEntity<LootBox>
-> {}
+> {
+  entityName = 'LootBox';
+}

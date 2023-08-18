@@ -10,6 +10,7 @@ export class ItemService extends BasicService<
   DeepPartial<Item>,
   QueryDeepPartialEntity<Item>
 > {
+  entityName = 'Item';
   constructor(@InjectRepository(Item) private readonly repo: Repository<Item>) {
     super(repo);
   }

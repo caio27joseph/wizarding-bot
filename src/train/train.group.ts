@@ -46,6 +46,7 @@ import { SpellService } from '~/spell/spell.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { SpellActionContext } from '~/spell/spell.group';
 import { TrainSpellService } from './train-spell.service';
+import { TrainSpellActionContext, TrainSpellMenu } from './train-spell.menu';
 
 export enum SpellTrainAction {
   SELECT_GROUP = 'spell-train-group-select',
@@ -72,7 +73,7 @@ export interface SpellTrainData {
   description: 'Veja as maestrias adquiridas',
 })
 @Injectable()
-export class TrainGroup {
+export class MaestryGroup {
   constructor(
     private readonly trainService: TrainService,
     private readonly trainSpellService: TrainSpellService,
@@ -255,4 +256,49 @@ export class TrainGroup {
   }
 
   // #endregion
+}
+
+@Group({ name: 'treinar', description: 'Treine seus feitiços' })
+@Injectable()
+export class TrainGroup {
+  constructor(
+    private readonly spellService: SpellService,
+    private readonly trainSpellMenu: TrainSpellMenu,
+  ) {}
+
+  @Command({
+    name: 'default',
+    description: 'Treine sua maestria',
+  })
+  async train(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgGuild() guild: Guild,
+    @ArgPlayer() player: Player,
+    @ArgString({
+      name: 'Feitiço',
+      description: 'Nome do feitiço a ser treinado',
+      required: false,
+    })
+    spellName?: string,
+  ) {
+    await interaction.deferReply({ ephemeral: true });
+    if (spellName) {
+      const spell = await this.spellService.findOneOrFail({
+        where: {
+          guildId: guild.id,
+          name: ILike(spellName),
+        },
+      });
+
+      const context = await this.trainSpellMenu.buildUpContext({
+        interaction,
+        guild,
+        player,
+        spell,
+      } as SpellActionContext);
+
+      return await this.trainSpellMenu.train(context);
+    }
+    throw new DiscordSimpleError('Você precisa informar o que vai treinar');
+  }
 }

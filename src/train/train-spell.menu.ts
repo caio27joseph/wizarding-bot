@@ -38,6 +38,7 @@ import {
 } from '~/discord/helpers/form-helper';
 import { RollService } from '~/roll/roll.service';
 import { RollsD10 } from '~/roll/entities/roll.entity';
+import { Group } from '~/discord/decorators/group.decorator';
 
 interface Props {
   roll?: WitchPredilectionsNameEnum;

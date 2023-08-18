@@ -114,7 +114,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
       spell: slots[0].spell,
     };
 
-    await this.handle(spellContext);
+    await this.handle(spellContext, true);
   }
 
   @Command({

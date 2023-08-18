@@ -22,6 +22,7 @@ export class GrimoireService extends BasicService<
   DeepPartial<Grimoire>,
   QueryPartialEntity<Grimoire>
 > {
+  entityName = 'Grimório';
   constructor(
     @InjectRepository(Grimoire) private readonly repo: Repository<Grimoire>,
   ) {

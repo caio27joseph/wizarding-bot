@@ -13,6 +13,7 @@ export abstract class BasicService<
   CreateEntityInput extends DeepPartial<Entity>,
   UpdateEntityInput extends QueryDeepPartialEntity<Entity>,
 > {
+  abstract entityName;
   constructor(private readonly __repo: Repository<Entity>) {}
 
   save(slot: Entity): any {
@@ -30,6 +31,14 @@ export abstract class BasicService<
 
   findOne(options?: FindOneOptions<Entity>) {
     return this.__repo.findOne(options);
+  }
+
+  async findOneOrFail(options?: FindOneOptions<Entity>) {
+    const data = await this.__repo.findOne(options);
+    if (!data) {
+      throw new Error(this.entityName + ' não encontrado');
+    }
+    return data;
   }
 
   update(options: FindOptionsWhere<Entity>, input: UpdateEntityInput) {

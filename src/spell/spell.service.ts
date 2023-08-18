@@ -19,6 +19,7 @@ export class SpellService extends BasicService<
   DeepPartial<Spell>,
   QueryDeepPartialEntity<Spell>
 > {
+  entityName = 'Feitiço';
   constructor(
     @InjectRepository(Spell)
     private repo: Repository<Spell>,
