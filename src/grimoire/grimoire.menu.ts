@@ -121,7 +121,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     name: 'aprender',
     description: 'Ver o grimório do jogador',
   })
-  async addGrimorio(
+  async learnGrimorio(
     @ArgInteraction()
     interaction: CommandInteraction,
     @ArgPlayer()
@@ -144,6 +144,9 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
       {
         where: {
           playerId: player.id,
+        },
+        relations: {
+          spells: true,
         },
       },
       {

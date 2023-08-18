@@ -38,6 +38,10 @@ export class GrimoireService extends BasicService<
       return grimoire;
     }
     const data = this.repo.create(input);
-    return this.repo.save(data);
+    const entity = await this.repo.save(data);
+    if (!entity.spells) {
+      entity.spells = [];
+    }
+    return entity;
   }
 }
