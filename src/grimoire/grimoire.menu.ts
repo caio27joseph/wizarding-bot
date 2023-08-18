@@ -383,13 +383,15 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
   async addToGrimoire(context: GrimoireActionContext) {
     const { spell, grimoire } = context;
 
+    if (!grimoire.spells) {
+      grimoire.spells = [];
+    }
     const found = grimoire.spells?.find((s) => s.id === spell.id);
     if (found) {
       throw new DiscordSimpleError('O feitiço já está no seu grimório.');
     }
-
     grimoire.spells.push(spell);
-    // await this.grimoireService.save(grimoire);
+    await this.grimoireService.save(grimoire);
 
     const response = await context.interaction.followUp({
       content: `${spell.name} adicionado ao seu grimório`,
