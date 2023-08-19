@@ -6,8 +6,5 @@ export function generateProgressBarEmoji(
   const filledBlocks = Math.round((currentXP / totalXP) * length);
   const emptyBlocks = length - filledBlocks;
 
-  return (
-    ':purple_square:'.repeat(filledBlocks) +
-    ':white_large_square:'.repeat(emptyBlocks)
-  );
+  return '█'.repeat(filledBlocks) + '-'.repeat(emptyBlocks);
 }
