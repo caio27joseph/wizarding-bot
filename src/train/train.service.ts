@@ -8,36 +8,25 @@ import {
   MoreThan,
   Not,
   IsNull,
+  DeepPartial,
 } from 'typeorm';
 import { Train, TrainGroupOption } from './entities/train.entity';
 import { CreateTrainInput, UpdateTrainInput } from './entities/train.input';
 import { Spell, SpellDifficultyEnum } from '~/spell/entities/spell.entity';
+import { BasicService } from '~/utils/basic.service';
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 
 @Injectable()
-export class TrainService {
+export class TrainService extends BasicService<
+  Train,
+  DeepPartial<Train>,
+  QueryDeepPartialEntity<Train>
+> {
+  entityName = 'Treino';
   constructor(
     @InjectRepository(Train) private readonly repo: Repository<Train>,
-  ) {}
-
-  async create(input: CreateTrainInput) {
-    const data = this.repo.create(input);
-    const train = await this.repo.save(data);
-    return train;
-  }
-  async update(where: FindOptionsWhere<Train>, input: UpdateTrainInput) {
-    const result = await this.repo.update(where, input);
-    return result;
-  }
-  remove(options: FindOptionsWhere<Train>) {
-    return this.repo.delete(options);
-  }
-  async findAll(options?: FindManyOptions<Train>) {
-    const trains = await this.repo.find(options);
-    return trains;
-  }
-  async findOne(options: FindOneOptions<Train>) {
-    const train = await this.repo.findOne(options);
-    return train;
+  ) {
+    super(repo);
   }
   async updateOrCreate(
     options: FindOneOptions<Train>,

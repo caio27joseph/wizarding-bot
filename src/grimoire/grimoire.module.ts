@@ -6,6 +6,7 @@ import { PlayerModule } from '~/core/player/player.module';
 import { GrimoireService } from './grimoire.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Grimoire } from './entities/grimoire.entity';
+import { TrainModule } from '~/train/train.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { Grimoire } from './entities/grimoire.entity';
     forwardRef(() => SpellModule),
     SpellSlotsModule,
     PlayerModule,
+    TrainModule,
   ],
   providers: [GrimoireMenu, GrimoireService],
   exports: [GrimoireMenu, GrimoireService],

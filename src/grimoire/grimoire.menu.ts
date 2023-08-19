@@ -25,13 +25,11 @@ import {
   PaginationHelper,
 } from '~/discord/helpers/page-helper';
 import { Spell } from '~/spell/entities/spell.entity';
-import { SpellSlotsModule } from '~/spell/spell-slots/spell-slots.module';
 import { SpellSlotsService } from '~/spell/spell-slots/spell-slots.service';
 import { SpellActionContext } from '~/spell/spell.group';
 import { SpellService } from '~/spell/spell.service';
 import { Grimoire } from './entities/grimoire.entity';
 import { GrimoireService } from './grimoire.service';
-import { group } from 'console';
 import { SpellSlot } from '~/spell/spell-slots/entities/spell-slot.entity';
 import {
   FormConfig,
@@ -40,7 +38,6 @@ import {
 } from '~/discord/helpers/form-helper';
 import { Group } from '~/discord/decorators/group.decorator';
 import { Command } from '~/discord/decorators/command.decorator';
-import { TrainService } from '~/train/train.service';
 import {
   ArgGuild,
   ArgInteraction,
@@ -49,6 +46,9 @@ import {
 } from '~/discord/decorators/message.decorators';
 import { Guild } from '~/core/guild/guild.entity';
 import { ILike } from 'typeorm';
+import { TrainSpellService } from '~/train/train-spell.service';
+import { groupBy } from 'lodash';
+import { generateProgressBarEmoji } from '~/utils/emojiProgressBar';
 
 interface Props {
   selectedSlot: number;
@@ -74,13 +74,14 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     private readonly slotService: SpellSlotsService,
     private readonly grimoireService: GrimoireService,
     private readonly spellService: SpellService,
+    private readonly trainSpellService: TrainSpellService,
   ) {
     super();
   }
 
   @Command({
     name: 'menu',
-    description: 'Ver o grimório do jogador',
+    description: 'Ver o próprio grimório menu',
   })
   async getGrimorio(
     @ArgInteraction()
@@ -90,6 +91,51 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     @ArgGuild()
     guild: Guild,
   ) {
+    await interaction.deferReply({ ephemeral: true });
+    const slots = await this.slotService.findAll({
+      where: {
+        playerId: player.id,
+      },
+      relations: {
+        spell: true,
+      },
+      order: {
+        position: 'ASC',
+      },
+    });
+    if (!slots.length) {
+      throw new DiscordSimpleError(
+        'Você precisa ao menos ter algum feitiço em slot para acessar o menu. use o comando /ftc nome:feitico',
+      );
+    }
+
+    const spellContext: SpellActionContext = {
+      guild,
+      player,
+      interaction,
+      spell: slots[0].spell,
+    };
+
+    await this.handle(spellContext, true);
+  }
+
+  @Command({
+    name: 'mod_menu',
+    mod: true,
+    description: 'Ver o grimório do jogador',
+  })
+  async getTargetGrimorio(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgPlayer({
+      name: 'player',
+      description: 'Jogador que deseja conferir o menu',
+    })
+    player: Player,
+    @ArgGuild()
+    guild: Guild,
+  ) {
+    await interaction.deferReply({ ephemeral: true });
     const slots = await this.slotService.findAll({
       where: {
         playerId: player.id,
@@ -287,17 +333,32 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
   @MenuAction('Listar')
   async grimoire(context: GrimoireActionContext) {
     const { player, grimoire } = context;
+
+    const trains = await this.trainSpellService.playerTrains(player.id);
+    const groupedTrains = groupBy(trains, (train) => train.spellId);
+
     const options: PageHelperOptions<Spell> = {
       items: grimoire.spells || [],
       header: `# Grimório de ${player?.name}\n`,
       formatter: async (item, index, array) => {
-        return `## ${index}. **${item.name}**\n`;
+        const progress = await this.trainSpellService.progressData({
+          spell: item,
+          trains: groupedTrains[item.id] || [],
+        });
+        let message = `## ${index}. **${item.name}**\n`;
+        message += `Nível: ${
+          progress.currentLevel
+        } :magic_wand: ${generateProgressBarEmoji(
+          progress.xpTowardsNextLevel,
+          progress.necessaryXP,
+        )} ${progress.xpTowardsNextLevel}/${progress.necessaryXP}`;
+        return message;
       },
       footer(currentPage, totalPages) {
-        return `Página ${currentPage} de ${totalPages}`;
+        return `\nPágina ${currentPage} de ${totalPages}`;
       },
     };
-    new PaginationHelper(options).reply(context.interaction);
+    new PaginationHelper(options).followUp(context.interaction);
   }
 
   @MenuAction('Substiruir No Slot')

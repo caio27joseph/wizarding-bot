@@ -1,10 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { Train } from './entities/train.entity';
 import { Spell, SpellDifficultyEnum } from '~/spell/entities/spell.entity';
-import { TrainService } from './train.service';
 import { MoreThan, Not, IsNull } from 'typeorm';
 import { ButtonInteraction, CacheType } from 'discord.js';
 import { createCanvas } from 'canvas';
+import { groupBy, sumBy } from 'lodash';
+import { TrainService } from './train.service';
+import { generateProgressBarEmoji } from '~/utils/emojiProgressBar';
 
 export class MaxSpellsTrainReached extends Error {}
 export class MaxSpellDayTrainReached extends Error {}
@@ -123,5 +125,52 @@ export class TrainSpellService {
     );
 
     return canvas.toBuffer();
+  }
+
+  async playerTrains(playerId: string) {
+    return await this.trainService.findAll({
+      where: {
+        playerId: playerId,
+        spellId: Not(IsNull()),
+      },
+      relations: {
+        spell: true,
+      },
+    });
+  }
+  spellTotalXpMap(trains: Train[]) {
+    const groupedTrains = groupBy(trains, (train) => train.spellId);
+    const xpTotalsBySpell: { [key: string]: number } = {};
+    for (const spellId in groupedTrains) {
+      xpTotalsBySpell[spellId] = sumBy(groupedTrains[spellId], 'xp');
+    }
+    return xpTotalsBySpell;
+  }
+
+  getSortedSpellsByXP(trains: any[]) {
+    const xpTotalsBySpell = this.spellTotalXpMap(trains);
+
+    return Object.entries(xpTotalsBySpell).sort(([, a], [, b]) => b - a);
+  }
+
+  async formatSpellForDisplay(spellId: string, totalXP: number, trains: any[]) {
+    const groupedTrains = groupBy(trains, (train) => train.spellId);
+    const spell = groupedTrains[spellId][0].spell;
+    const { necessaryXP } = await this.progressData({
+      spell,
+      trains,
+    });
+    const currentLevel = Math.ceil(totalXP / necessaryXP);
+    const xpTowardsNextLevel = totalXP % necessaryXP;
+    const progressBar = generateProgressBarEmoji(
+      xpTowardsNextLevel,
+      necessaryXP,
+    );
+
+    let response = `**${spell.name}**\n`;
+    response += `Nível atual: ${currentLevel}\n`;
+    response += `XP ${progressBar} ${xpTowardsNextLevel}/${necessaryXP}\n`;
+    response += '---';
+    return response;
   }
 }

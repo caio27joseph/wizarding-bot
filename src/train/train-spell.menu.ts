@@ -1,24 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import {
-  APISelectMenuOption,
-  ActionRowBuilder,
   AttachmentBuilder,
-  ButtonBuilder,
-  ButtonInteraction,
   ButtonStyle,
-  CacheType,
   EmbedBuilder,
-  Interaction,
   InteractionReplyOptions,
-  MessagePayload,
-  MessageReplyOptions,
-  StringSelectMenuBuilder,
-  StringSelectMenuInteraction,
 } from 'discord.js';
-import { v4 } from 'uuid';
 import { SpellActionContext } from '~/spell/spell.group';
 import { TrainSpellService } from './train-spell.service';
-import { TrainService } from './train.service';
 import { Train, TrainGroupOption } from './entities/train.entity';
 import { Spell, maestryNumToName } from '~/spell/entities/spell.entity';
 import {
@@ -26,19 +14,11 @@ import {
   witchPredilectionsNameMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Player } from '~/core/player/entities/player.entity';
-import {
-  ActionContext,
-  MenuAction,
-  MenuHelper,
-} from '~/discord/helpers/menu-helper';
-import {
-  ButtonConfig,
-  FormConfig,
-  FormHelper,
-} from '~/discord/helpers/form-helper';
+import { MenuAction, MenuHelper } from '~/discord/helpers/menu-helper';
+import { ButtonConfig, FormHelper } from '~/discord/helpers/form-helper';
 import { RollService } from '~/roll/roll.service';
 import { RollsD10 } from '~/roll/entities/roll.entity';
-import { Group } from '~/discord/decorators/group.decorator';
+import { TrainService } from './train.service';
 
 interface Props {
   roll?: WitchPredilectionsNameEnum;

@@ -1,34 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { Group } from '~/discord/decorators/group.decorator';
-import { TrainService } from './train.service';
-import {
-  APISelectMenuOption,
-  ActionRowBuilder,
-  Attachment,
-  AttachmentBuilder,
-  ButtonBuilder,
-  ButtonInteraction,
-  ButtonStyle,
-  CacheType,
-  CommandInteraction,
-  EmbedBuilder,
-  Message,
-  MessageComponentInteraction,
-  StringSelectMenuInteraction,
-  TextChannel,
-} from 'discord.js';
-import { StringSelectMenuBuilder } from '@discordjs/builders';
-import { PlayerService } from '~/core/player/player.service';
+import { CommandInteraction } from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
-import { Spell, maestryNumToName } from '~/spell/entities/spell.entity';
 import { RollService } from '~/roll/roll.service';
-import {
-  WitchPredilectionsNameEnum,
-  witchPredilectionsNameMap,
-} from '~/player-system/witch-predilection/entities/witch-predilection.entity';
-import { Train, TrainGroupOption } from './entities/train.entity';
-import { ILike, IsNull, MoreThan, Not } from 'typeorm';
-import { v4 as uuidv4 } from 'uuid';
+import { WitchPredilectionsNameEnum } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { TrainGroupOption } from './entities/train.entity';
+import { ILike } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { Command } from '~/discord/decorators/command.decorator';
 import {
@@ -39,14 +16,13 @@ import {
   ArgString,
 } from '~/discord/decorators/message.decorators';
 import { groupBy, sumBy } from 'lodash';
-import { createCanvas } from 'canvas';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
-import { RollsD10 } from '~/roll/entities/roll.entity';
 import { SpellService } from '~/spell/spell.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { SpellActionContext } from '~/spell/spell.group';
 import { TrainSpellService } from './train-spell.service';
-import { TrainSpellActionContext, TrainSpellMenu } from './train-spell.menu';
+import { TrainSpellMenu } from './train-spell.menu';
+import { TrainService } from './train.service';
 
 export enum SpellTrainAction {
   SELECT_GROUP = 'spell-train-group-select',
@@ -81,8 +57,6 @@ export class MaestryGroup {
     private readonly rollService: RollService,
   ) {}
 
-  async execute() {}
-
   @Command({
     name: 'feiticos',
     description: 'Verifica todos os status de maestria que você possui',
@@ -91,66 +65,23 @@ export class MaestryGroup {
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
   ) {
-    const trains = await this.trainService.findAll({
-      where: {
-        playerId: player.id,
-        spellId: Not(IsNull()),
-      },
-      relations: {
-        spell: true,
-      },
-    });
-
-    const groupedTrains = groupBy(trains, (train) => train.spellId);
-
-    const xpTotalsBySpell: { [key: string]: number } = {};
-    for (const spellId in groupedTrains) {
-      xpTotalsBySpell[spellId] = sumBy(groupedTrains[spellId], 'xp');
-    }
-
-    // Sort the spells based on total XP
-    const sortedSpells = Object.entries(xpTotalsBySpell).sort(
-      ([, a], [, b]) => b - a,
-    );
+    const trains = await this.trainSpellService.playerTrains(player.id);
+    const sortedSpells = this.trainSpellService.getSortedSpellsByXP(trains);
 
     const helper = new PaginationHelper({
       items: sortedSpells,
       formatter: async ([spellId, totalXP]) => {
-        const spell = groupedTrains[spellId][0].spell;
-        const { necessaryXP } = await this.trainSpellService.progressData({
-          spell,
+        return await this.trainSpellService.formatSpellForDisplay(
+          spellId,
+          totalXP,
           trains,
-        });
-        const currentLevel = Math.ceil(totalXP / necessaryXP);
-        const xpTowardsNextLevel = totalXP % necessaryXP;
-        const progressBar = this.generateProgressBarEmoji(
-          xpTowardsNextLevel,
-          necessaryXP,
         );
-
-        let response = `**${spell.name}**\n`;
-        response += `Nível atual: ${currentLevel}\n`;
-        response += `XP ${progressBar} ${xpTowardsNextLevel}/${necessaryXP}\n`;
-        response += '---'; // Horizontal line for separation
-        return response;
       },
       header: '**Spells by Mastery:**\n\n',
     });
 
     await helper.reply(interaction);
   }
-
-  generateProgressBarEmoji(
-    currentXP: number,
-    totalXP: number,
-    length: number = 10,
-  ): string {
-    const filledBlocks = Math.round((currentXP / totalXP) * length);
-    const emptyBlocks = length - filledBlocks;
-
-    return '▮'.repeat(filledBlocks) + '▯'.repeat(emptyBlocks);
-  }
-
   @Command({
     name: 'pts_feitico',
     description: 'Adiciona pontos de maestria diretamente a um jogador',
