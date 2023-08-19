@@ -357,6 +357,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
       footer(currentPage, totalPages) {
         return `\nPágina ${currentPage} de ${totalPages}`;
       },
+      itemsPerPage: 6,
     };
     new PaginationHelper(options).followUp(context.interaction);
   }
