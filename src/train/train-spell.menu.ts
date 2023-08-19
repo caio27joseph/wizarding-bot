@@ -117,7 +117,6 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
         todayTrains,
       });
     } catch (e) {
-      debugger;
       await context.interaction.followUp({
         content: e.message,
       });

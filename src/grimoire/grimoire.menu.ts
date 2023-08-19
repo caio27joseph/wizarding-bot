@@ -183,6 +183,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     await interaction.deferReply({ ephemeral: true });
     const spell = await this.spellService.findOne({
       where: {
+        guildId: guild.id,
         name: ILike(name),
       },
     });
@@ -237,6 +238,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
   ) {
     const spell = await this.spellService.findOne({
       where: {
+        guildId: guild.id,
         name: ILike(name),
       },
     });
