@@ -78,7 +78,7 @@ export abstract class MenuHelper<T extends ActionContext> {
     }
     const collector = context.response.createMessageComponentCollector({
       filter: (i: ButtonInteraction<CacheType>) => {
-        return i.user.id === context.player.discordId;
+        return i.user.id === context.interaction.user.id;
       },
       time: 20000,
       max: 1,
