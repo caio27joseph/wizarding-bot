@@ -5,11 +5,11 @@
     ],
     "difficulty": "Muito Difícil",
     "description": "Ceruleanous é um feitiço que permite ao bruxo alterar os efeitos meteorológicos já existentes de um local em pequenas proporções. Com esse encantamento, o bruxo pode manipular o clima local para criar efeitos como mudanças na temperatura, pequenas nuvens, chuviscos, ventos leves e outras alterações atmosféricas.  Ao conjurar o feitiço, o bruxo concentra sua energia mágica na atmosfera ao seu redor, podendo controlar o clima em um raio de cerca de 10 metros. O grau de controle e a duração das alterações dependem do sucesso no teste da magia. ",
-    "updatedAt": "2023-08-13T15:57:48.557906",
+    "updatedAt": "2023-08-20T17:59:25.607308",
     "title": "Feitiço das Alterações Meteorológicas",
     "level": 3,
     "actionType": "Padrão",
-    "duration": "Concentração - 1 + Sucessos hora",
+    "duration": "Concentração - 1 + Sucessos horas",
     "requirements": "Evocação 3 e Sobrevivência 1",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [

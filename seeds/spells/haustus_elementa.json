@@ -1,11 +1,11 @@
 {
     "name": "Haustus elementa",
     "category": [
-        "Evocação"
+        "Conjuração"
     ],
     "difficulty": "Médio",
     "description": "O feitiço Absorver Elementos captura parte da energia do dano elemental recebido, diminuindo seu efeito sobre você e armazenando-a para seu próximo ataque corpo a corpo ou feitiço que envolva o elemento. Quando você conjura este feitiço em reação a receber dano de algum elemento, você ganha resistência ao tipo de dano desencadeante até o início do seu próximo turno.  Você ganha resistência ao tipo de dano desencadeante até o início do seu próximo turno, reduzindo pela metade o dano recebido.  Além disso, na primeira vez que você acertar com um ataque corpo a corpo ou feitiço relacionado ao elemento em seu próximo turno, o alvo sofre 1d6 de dano extra do tipo de dano desencadeador e o feitiço termina. ",
-    "updatedAt": "2023-08-10T18:10:57.665072",
+    "updatedAt": "2023-08-20T17:59:26.239307",
     "title": "Feitiço Absorver Elementos",
     "level": 2,
     "actionType": "Reação",

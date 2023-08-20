@@ -1,0 +1,46 @@
+{
+    "name": "Morbus radius",
+    "category": [
+        "Necromancia"
+    ],
+    "difficulty": "Difícil",
+    "description": "Você dispara um raio de energia esverdeada doentia em direção a uma criatura dentro do alcance. O alvo atingido pelo raio sofre 2d6 + Necromancia de dano venenoso e deve fazer um teste de Salvaguarda Física.  Em uma falha no teste de Salvaguarda, o alvo é envenenado até o final do seu próximo turno. Isso significa que ele tem desvantagem nas jogadas de ataque e testes de resistência durante esse período érdendo 1d10 em tudo e levando 2d4+2 de dano de veneno. ",
+    "updatedAt": "2023-08-20T17:59:26.387308",
+    "title": "Feitiço Raio da Doença",
+    "level": 3,
+    "actionType": "Padrão",
+    "duration": "Instantâneo",
+    "distance": "Curto",
+    "light": "Verde Esmeralda",
+    "resistence": "Salvaguarda Fisica",
+    "requirements": "Necromancia 1",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "O dano causado pelo feitiço é 2d6 + Necromancia"
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "dano causado pelo feitiço é aumentado para +1d6."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Feitiço Raio da Doença de forma não-verbal. O alvo tem desvantagem no teste de Salvaguarda Física e no Protego perdendo 1d10."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "O dano causado pelo feitiço é aumentado para d8."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Em uma falha no teste de Salvaguarda, o alvo fica envenenado por 1+1d4 rodadas, em vez de apenas até o final do próximo turno. Durante esse período, o alvo tem desvantagem nas jogadas de ataque e testes de resistência (Perde 1d10), e no início de cada um de seus turnos, ele sofre 2d6+2 de dano venenoso adicional. Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "a5cd93d8-09d2-44a8-8080-cac42865ba84"
+}

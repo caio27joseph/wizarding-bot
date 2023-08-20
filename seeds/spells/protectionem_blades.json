@@ -1,0 +1,44 @@
+{
+    "name": "Protectionem blades",
+    "category": [
+        "Abjuração"
+    ],
+    "difficulty": "Médio",
+    "description": "Você estende sua varinha e recita um encantamento. Por duas rodadas, você tem resistência contra dano de concussão, perfurante e cortante causado por ataques com armas. Leva metade do dano. ",
+    "updatedAt": "2023-08-20T17:59:26.476307",
+    "title": "Encanto da Lâmina Guardiã",
+    "level": 3,
+    "actionType": "Padrão ou Reação",
+    "duration": "Instantâneo - 2 rodadas.",
+    "distance": "Curto",
+    "requirements": "Abjuração 2",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o feitiço."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar o Feitiço Dobrado dos Mortos de forma focada. Você recebe 2d4+4 de Vida, para absorver dano."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar o Encanto da Lâmina Guardiã de forma não-verbal. Além de afetar você afeta +1 pessoa."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Além da resistência ao dano de concussão, perfurante e cortante, você também ganha +2 dados em todos os testes de salvaguarda. O tempo aumenta em +2 rodadas."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "A resistência ao dano permanece, O bonus de dado para salvaguarda aumenta em +2 dados, além disso, durante a duração, se você for atingido por um ataque de arma corpo a corpo, o atacante sofre automaticamente Controle d6 +Abjuração de dano como uma reação ao contato com a proteção mágica. Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "d81bfb81-2f63-4066-8ab1-84385b9a03d4"
+}

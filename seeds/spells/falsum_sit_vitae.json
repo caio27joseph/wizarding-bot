@@ -1,0 +1,44 @@
+{
+    "name": "Falsum sit vitae",
+    "category": [
+        "Necromancia"
+    ],
+    "difficulty": "Médio",
+    "description": "Ao lançar este feitiço, você reforça-se com uma cópia necromântica da vida, ganhando 4d4+4 pontos de vida temporários. Esses pontos de vida temporários são adicionados à sua Vitalidade atual, mas eles desaparecem quando a duração do feitiço terminar.  Os pontos de vida temporários fornecidos por este feitiço podem absorver dano normalmente, mas eles são consumidos antes dos pontos de vida reais. Se você ainda tiver pontos de vida temporários quando a duração do feitiço terminar, eles são removidos, e qualquer excesso de dano é aplicado aos seus pontos de vida reais. ",
+    "updatedAt": "2023-08-20T17:59:26.058308",
+    "title": "Feitiço Falsa Vida",
+    "level": 3,
+    "actionType": "Padrão ou Reação",
+    "duration": "Instantâneo",
+    "distance": "Pessoal",
+    "requirements": "Necromancia 1",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar o feitiço."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você ganha +1d4 pontos de vida temporários."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Feitiço Raio da Doença de forma não-verbal. O alcance muda para curto. Você ganha +1d4 pontos de vida temporários."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Você ganha +1d4 pontos de vida temporários. E sempre que lançar este feitiço um aliado proximo tambem recebe metade da falsa vida."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "O bônus de pontos de vida temporários é aumentado para d8. Além disso, sempre que você infligir dano necrótico a uma criatura, você pode gastar 1 ponto de vida temporário para adicionar 1d4 de dano necrótico extra ao dano causado. Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "13968de7-8585-46b8-b832-d32871d44d44"
+}

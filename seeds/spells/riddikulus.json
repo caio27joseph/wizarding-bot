@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "O Riddikulus é um feitiço que força uma criatura metamórfica a assumir uma forma hilariante aos olhos do conjurador. Essa azaração é especialmente útil para combater Bichos-Papões, uma vez que eles são vulneráveis a risadas. Além disso, o Riddikulus pode ser usado para prender qualquer tipo de criatura metamórfica em uma única forma, como Ghouls Camaleões, Cavalos-do-lago e Esconde-escondes. No entanto, o feitiço só funciona se a criatura tiver a capacidade de se transformar na forma desejada. Tenha em mente que o Riddikulus não tem efeito sobre humanos. ",
-    "updatedAt": "2023-08-10T18:10:58.027076",
+    "updatedAt": "2023-08-20T17:59:26.642308",
     "title": "Azaração para Rebater Bicho-Papão",
     "level": 2,
     "actionType": "Padrão",
@@ -33,7 +33,7 @@
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Seu Riddikulus passa a poder afetar bruxos metamorfomagos."
+            "description": "Seu Riddikulus passa a poder afetar bruxos metamorfomagos (pass aa afetar humanos metamorgomagos e Animagos)."
         },
         {
             "level": 5,

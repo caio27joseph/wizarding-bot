@@ -5,14 +5,16 @@
     ],
     "difficulty": "Difícil",
     "description": "O Feitiço Cuecatius é uma brincadeira travessa utilizada para pregar peças nos outros bruxos. Ao ser lançado, um lampejo laranja é apontado para a cueca ou calcinha da vítima, criando um gancho imaginário que se prende na roupa íntima. Como resultado, a cueca ou calcinha da vítima é levantada pela parte traseira, expondo-a embaraçosamente.  Este feitiço é principalmente uma piada inofensiva, e geralmente é usado de forma cômica e leve. No entanto, bruxos avançados podem aprimorar o feitiço para torná-lo mais incômodo ou desconfortável para a vítima. Nesse caso, a cueca pode ser puxada de forma mais vigorosa, causando desconforto físico, ou até mesmo ser utilizada para erguer a vítima do chão momentaneamente.  É importante ressaltar que o Cuecatius deve ser usado com responsabilidade e consideração pelos sentimentos da vítima. É uma brincadeira, mas ainda assim pode ser considerado um comportamento desrespeitoso ou invasivo, dependendo do contexto e da reação da pessoa afetada. ",
-    "updatedAt": "2023-08-13T01:20:09.926856",
+    "updatedAt": "2023-08-20T17:59:25.746307",
     "title": "Feitiço Cuecão",
     "level": 3,
     "actionType": "Padrão",
     "duration": "1 minuto",
     "light": "Laranja",
-    "distance": "3 Metros",
+    "distance": "Curto",
     "requirements": "Encantamento 2",
+    "resistence": "Salvaguarda Fisica Anula.",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,

@@ -5,12 +5,15 @@
     ],
     "difficulty": "Médio",
     "description": "O feitiço Diffindo é um poderoso encantamento de corte, permitindo que o bruxo corte uma ampla variedade de objetos, desde panos e cordas até materiais mais resistentes, como madeira e pedras. A eficiência do feitiço aumenta com a experiência do bruxo e seu conhecimento em Encantamentos.  Quando lançado, o bruxo aponta sua varinha para o objeto que deseja cortar e pronuncia o encantamento \"Diffindo\". A dificuldade e a rapidez do corte dependerão da resistência e do tamanho do objeto. Objetos mais simples e pequenos podem ser cortados com facilidade, enquanto materiais mais resistentes e volumosos podem exigir mais concentração e poder mágico.  O feitiço Diffindo possui uma eficiência particularmente maior em objetos de tendência cilíndrica, como cordas, correntes e tubos. A varinha do bruxo desliza facilmente através desses materiais, permitindo cortes precisos e rápidos.  Conforme o bruxo avança em seus estudos de Encantamentos e ganha mais experiência, a eficácia do Diffindo aumenta. Ele pode cortar materiais mais duros e maiores com menos esforço, tornando-se uma ferramenta versátil para várias situações. ",
-    "updatedAt": "2023-08-13T01:20:09.946856",
+    "updatedAt": "2023-08-20T17:59:25.890308",
     "title": "Feitiço Diffindo",
     "level": 3,
     "actionType": "Padrão",
     "duration": "Instantânea",
-    "distance": "6 Metros",
+    "light": "Branco",
+    "resistence": "Salvaguarda Fisica Reduz a metade.",
+    "distance": "Curto",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,

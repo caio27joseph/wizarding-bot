@@ -1,11 +1,11 @@
 {
     "name": "Colloshoo",
     "category": [
-        "Convocação"
+        "Conjuração"
     ],
     "difficulty": "Médio",
     "description": "Colloshoo é um feitiço que tem como objetivo imobilizar o alvo, fazendo com que seus pés grudem no chão. Quando lançado com sucesso, o Colloshoo deixa os pés da criatura afetada completamente presos ao solo, tornando-a incapaz de se mover e a deixando vulnerável a ataques. ",
-    "updatedAt": "2023-08-10T18:09:24.134290",
+    "updatedAt": "2023-08-20T17:59:25.674307",
     "title": "Azaração dos Pés Grudentos",
     "level": 1,
     "actionType": "Padrão",

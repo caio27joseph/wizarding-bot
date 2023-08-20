@@ -1,0 +1,46 @@
+{
+    "name": "Mystica crepitus",
+    "category": [
+        "Evocação"
+    ],
+    "difficulty": "Difícil",
+    "description": "Um feixe de energia crepitante sai em forma de lampejo e atinge uma criatura dentro do alcance. Faça um teste de lampejo contra a Defesa Física do alvo. Se acertar, o alvo recebe 1d10 + Força de dano ",
+    "updatedAt": "2023-08-20T17:59:26.391307",
+    "title": "Explosão Mística",
+    "level": 3,
+    "actionType": "Padrão",
+    "duration": "Instantânea",
+    "distance": "Curto",
+    "light": "Azul",
+    "requirements": "Evocação 1",
+    "resistence": "Salvaguarda Fisica Reduz a metade.",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Explosão Mística."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Explosão Mística de forma focada. Aumenta o dano em +1d10."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Explosão Mística de forma não-verbal. Você lança dois feixe  de energia, em duas pessoas diferentes ."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "O dano aumenta para +1d10. Além disso pode lançar três feixe de energia, podendo agora acertar o mesmo inimigo."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Explosão Mística em uma área de alcance de 3 metros de raio e deixa os inimigos enfraquezidos na area em 1d10 e o dano reduzido em 1d4+2."
+        }
+    ],
+    "identifier": "8e66cc41-3d11-4ed6-9f53-c8fa81aa944c"
+}

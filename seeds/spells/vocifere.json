@@ -1,11 +1,11 @@
 {
     "name": "Vocifere",
     "category": [
-        "Universal"
+        "Encantamento"
     ],
     "difficulty": "Difícil",
     "description": "Ao conjurar Vocifere, você causa extrema raiva no alvo, independentemente de sua personalidade ou natureza. Pela duração do efeito, a vítima sofre a condição Enfurecida, atacando qualquer criatura com o arsenal que possui à sua disposição (incluindo palavras!). Os ataques causados por esse feitiço tendem a ser mais morais que físicos, mas situações especificamente sensíveis podem levar a vítima a erguer sua varinha contra alguém. Após o fim da duração, a vítima fica Fatigada até poder descansar. Esse feitiço é uma forma leve de controle mental. ",
-    "updatedAt": "2023-08-10T18:10:58.106075",
+    "updatedAt": "2023-08-20T17:59:26.742308",
     "title": "Maldição Provocadora",
     "level": 2,
     "actionType": "Padrão",

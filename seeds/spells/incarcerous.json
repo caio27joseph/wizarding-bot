@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "Ao lançar Incarcerous, você conjura cordas ou correntes a partir da ponta da varinha, que são lançadas como projéteis em direção ao alvo. Uma vez atingido, o alvo tem todo o seu corpo amarrado pelas cordas invocadas, ficando Paralisado até conseguir se desvencilhar delas. ",
-    "updatedAt": "2023-08-10T19:23:18.051219",
+    "updatedAt": "2023-08-20T17:59:26.307307",
     "title": "Feitiço Incarcerous",
     "level": 2,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "requirements": "Necromancia 2",
     "distance": "Curto",
     "resistence": "Salvaguarda Fisica Anula.",
+    "antiSpell": "Solvo",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {

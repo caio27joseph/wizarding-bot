@@ -5,13 +5,15 @@
     ],
     "difficulty": "Médio",
     "description": "O Feitiço Confundus é usado para confundir e desorientar a vítima. Ao ser lançado, cria-se um lampejo amarelo direcionado à mente do alvo, perturbando temporariamente suas percepções e pensamentos. A vítima fica momentaneamente incerta e pode ter dificuldades em tomar decisões lógicas.  Durante a duração do efeito, que é de aproximadamente um minuto, a vítima pode experimentar:  - Desorientação: Dificuldade em entender sua localização ou situação atual. - Confusão mental: Dificuldade em lembrar fatos recentes ou tomar decisões racionais. - Distorção perceptual: Percepções sensoriais distorcidas, como visão turva ou sons distantes. - Dificuldade de concentração: Dificuldade em se concentrar em tarefas ou conversas.  O Confundus é uma ferramenta útil em situações de distração, quando o objetivo é afetar temporariamente o julgamento ou as ações de um adversário. No entanto, seu uso é limitado, pois não tem o poder de controlar a mente da vítima nem causar danos físicos. ",
-    "updatedAt": "2023-08-13T01:20:09.915856",
+    "updatedAt": "2023-08-20T17:59:25.697309",
     "title": "Feitiço Confundus",
     "level": 3,
     "actionType": "Padrão",
-    "duration": "1 minuto",
+    "duration": "1 hora - 4 Rodadas",
     "light": "Amarelo",
-    "distance": "9 Metros",
+    "distance": "Curto",
+    "resistence": "Salvaguarda Mental Anula.",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,

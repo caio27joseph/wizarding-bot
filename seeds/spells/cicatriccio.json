@@ -1,22 +1,23 @@
 {
     "name": "Cicatriccio",
     "category": [
-        "Necromancia"
+        "Evocação"
     ],
-    "difficulty": "Fácil",
+    "difficulty": "Médio",
     "description": "O Feitiço de Cicatrização Lenta é usado para tratar ferimentos de forma gradual e metódica. Ao ser lançado, o feitiço inicia um processo lento e contínuo de cicatrização na área ou ferimento alvo. O efeito do feitiço é sentido ao longo de uma hora, durante a qual a cura se desenvolve em um ritmo constante.  O Cicatriccio não é adequado para curar ferimentos graves ou situações de emergência, mas é especialmente útil quando há tempo disponível para um tratamento mais prolongado e cuidadoso. Ferimentos superficiais, cortes, arranhões, Sangramentos e queimaduras leves (1 grau) são tratados de forma eficaz, garantindo uma recuperação completa e uma cicatrização mais limpa e esteticamente agradável.  Vale ressaltar que o Cicatriccio não tem o poder de curar lesões graves, como ossos quebrados ou ferimentos profundos. Para esses casos, são necessários feitiços mais avançados e até mesmo intervenções médicas. ",
-    "updatedAt": "2023-08-13T01:20:09.889855",
+    "updatedAt": "2023-08-20T17:59:25.622307",
     "title": "Feitiço de Cicatrização Lenta",
     "level": 3,
     "actionType": "Padrão",
-    "duration": "1 hora - (Cena)",
+    "duration": "1 hora - 4 rodadas",
     "light": "Azul claro",
-    "distance": "9 Metros",
+    "distance": "Curto",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Cicatriccio. Curando 2 + Sucessos ao longo da duração."
+            "description": "Você pode lançar Cicatriccio. Curando 4 + Medibruxaria + Sucessos ao longo da duração."
         },
         {
             "level": 2,
@@ -26,17 +27,17 @@
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Cicatriccio de forma não-verbal.  Passa a curar 1d4+2 + Sucessos ao longo da duração."
+            "description": "Você pode lançar Cicatriccio de forma não-verbal.  Passa a curar 2d8+4 + Medibruxaria+ Sucessos ao longo da duração."
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "A duração do efeito é estendida para 2 horas, proporcionando um tratamento ainda mais abrangente e minucioso."
+            "description": "A duração do efeito é estendida para 2 horas - +4 Rodadas, proporcionando um tratamento ainda mais abrangente e minucioso. Além de aumentar em +1d8."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Cicatriccio Maxima, um feitiço de \"Execução: Ação Completa\" e \"Duração: 24 horas - 1 Dia\". Essa variação permite uma cicatrização ainda mais profunda e eficaz, sendo capaz de tratar ferimentos moderados e até mesmo alguns ferimentos graves ao longo do período de 24 horas. O efeito é progressivo e requer que o alvo permaneça sob os cuidados da magia durante todo o período. Em descanso e sem se esforçar, Recupera 2d6+4 + Sucessos ao infez dos valores anteriores."
+            "description": "Você pode lançar Cicatriccio Maxima, um feitiço de \"Execução: Ação Completa\" e \"Duração: 24 horas - 1 Dia\". Essa variação permite uma cicatrização ainda mais profunda e eficaz, sendo capaz de tratar ferimentos moderados e até mesmo alguns ferimentos graves ao longo do período de 24 horas. O efeito é progressivo e requer que o alvo permaneça sob os cuidados da magia durante todo o período. Em descanso e sem se esforçar, Recupera 3d10+4+ Medibruxaria+ Sucessos ao infez dos valores anteriores. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
         }
     ],
     "identifier": "4f6dc3fd-6985-414d-bfbe-f2003679f849"
