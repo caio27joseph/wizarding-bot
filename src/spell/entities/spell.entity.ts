@@ -252,7 +252,6 @@ export class Spell implements DiscordEntityVieable {
         value: maestry.description.slice(0, 600),
       });
     }
-    d
     embed.setDescription(description)
     try {
       
