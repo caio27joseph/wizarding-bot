@@ -10,11 +10,12 @@ import { HouseModule } from '~/core/house/house.module';
 import { CupShowCaseService } from './cup-show-case.service';
 import { CupShowCase } from './entities/cup-show-case.entity';
 import { DiscordModule } from '~/discord/discord.module';
+import { PlayerModule } from '~/core/player/player.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([HouseCup, CupShowCase]),
-    CoreModule,
+    PlayerModule,
     forwardRef(() => PointLogsModule),
     HouseModule,
     DiscordModule,

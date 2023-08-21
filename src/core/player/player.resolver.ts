@@ -32,16 +32,16 @@ export class PlayerResolver {
     });
   }
 
-  @Mutation(() => Player)
-  updatePlayer(
-    @Args('id', { type: () => ID }) id: string,
-    @Args('input') input: UpdatePlayerInput,
-  ) {
-    return this.playerService.update(id, input);
-  }
+  // @Mutation(() => Player)
+  // updatePlayer(
+  //   @Args('id', { type: () => ID }) id: string,
+  //   @Args('input') input: UpdatePlayerInput,
+  // ) {
+  //   return this.playerService.update(id, input);
+  // }
 
-  @Mutation(() => Player)
-  removePlayer(@Args('id', { type: () => ID }) id: string) {
-    return this.playerService.remove(id);
-  }
+  // @Mutation(() => Player)
+  // removePlayer(@Args('id', { type: () => ID }) id: string) {
+  //   return this.playerService.remove(id);
+  // }
 }

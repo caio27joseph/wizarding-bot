@@ -1,19 +1,33 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePlayerInput, UpdatePlayerInput } from './entities/player.input';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, FindManyOptions, FindOneOptions } from 'typeorm';
+import {
+  Repository,
+  FindManyOptions,
+  FindOneOptions,
+  DeepPartial,
+} from 'typeorm';
 import { Player } from './entities/player.entity';
 import { Guild } from '../guild/guild.entity';
 import { HouseService } from '../house/house.service';
 import { GuildMember } from 'discord.js';
 import { GuildSetupNeeded } from '~/discord/exceptions';
+import { BasicService } from '~/utils/basic.service';
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 
 @Injectable()
-export class PlayerService {
+export class PlayerService extends BasicService<
+  Player,
+  DeepPartial<Player>,
+  QueryDeepPartialEntity<Player>
+> {
+  entityName: 'Personagem';
   constructor(
-    @InjectRepository(Player) private readonly repo: Repository<Player>,
+    @InjectRepository(Player) public readonly repo: Repository<Player>,
     private readonly houseService: HouseService,
-  ) {}
+  ) {
+    super(repo);
+  }
 
   async getOrCreateUpdate(input: CreatePlayerInput, update = false) {
     let player = await this.repo.findOne({
@@ -25,9 +39,9 @@ export class PlayerService {
     if (player && !update) return player;
     input.name =
       input.name ||
-      input.target.nickname ||
-      input.target.displayName ||
-      input.target.user.username;
+      input.target?.nickname ||
+      input.target?.displayName ||
+      input.target?.user.username;
     if (player && update) {
       const result = await this.repo.update(player.id, input);
       return this.repo.findOneBy({ id: player.id });
@@ -55,25 +69,5 @@ export class PlayerService {
 
     player.house = house;
     return await this.repo.save(player);
-  }
-
-  create(createPlayerInput: CreatePlayerInput) {
-    return this.repo.save(createPlayerInput);
-  }
-
-  findAll(options?: FindManyOptions<Player>) {
-    return this.repo.find(options);
-  }
-
-  findOne(options: FindOneOptions<Player>) {
-    return this.repo.findOne(options);
-  }
-
-  update(id: string, updatePlayerInput: UpdatePlayerInput) {
-    return this.repo.update(id, updatePlayerInput);
-  }
-
-  remove(id: string) {
-    return this.repo.delete(id);
   }
 }

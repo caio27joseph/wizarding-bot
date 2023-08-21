@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GuildService } from './guild.service';
 import { GuildGroup } from './guild.group';
 import { DiscordModule } from '~/discord/discord.module';
+import { PlayerModule } from '../player/player.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Guild]), forwardRef(() => DiscordModule)],

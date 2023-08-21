@@ -9,6 +9,7 @@ import {
   OneToMany,
   OneToOne,
   ManyToMany,
+  JoinColumn,
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { House } from '~/core/house/entities/house.entity';
@@ -20,7 +21,7 @@ import { Attributes } from '~/player-system/attribute/entities/attributes.entity
 import { Competences } from '~/player-system/competences/entities/competences.entity';
 import { Extras } from '~/player-system/extras/entities/extras.entity';
 import { NonConvPredilections } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
-import { WitchPredilections } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { WitchPredilection } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Spell } from '~/spell/entities/spell.entity';
 import { Train } from '~/train/entities/train.entity';
 
@@ -75,48 +76,26 @@ export class Player implements DiscordEntityVieable {
   })
   attributes?: Attributes;
 
-  @Column({
-    nullable: true,
-  })
-  @Field(() => ID)
-  attributesId?: string;
-
   @OneToOne((type) => Abilities, (abilities) => abilities.player, {
     nullable: true,
+    cascade: true,
   })
   abilities: Abilities;
-
-  @Column({
-    nullable: true,
-  })
-  @Field(() => ID)
-  abilitiesId?: string;
 
   @OneToOne((type) => Competences, (competences) => competences.player, {
     nullable: true,
   })
   competences: Competences;
 
-  @Column({
-    nullable: true,
-  })
-  @Field(() => ID)
-  competencesId?: string;
-
   @OneToOne(
-    (type) => WitchPredilections,
+    (type) => WitchPredilection,
     (witchPredilections) => witchPredilections.player,
     {
       nullable: true,
     },
   )
-  witchPredilections: WitchPredilections;
+  witchPredilections: WitchPredilection;
 
-  @Column({
-    nullable: true,
-  })
-  @Field(() => ID)
-  witchPredilectionsId?: string;
   @OneToOne(
     (type) => NonConvPredilections,
     (nonConvPredilections) => nonConvPredilections.player,
@@ -126,21 +105,10 @@ export class Player implements DiscordEntityVieable {
   )
   nonConvPredilections: NonConvPredilections;
 
-  @Column({
-    nullable: true,
-  })
-  @Field(() => ID)
-  nonConvPredilectionsId?: string;
   @OneToOne((type) => Extras, (extras) => extras.player, {
     nullable: true,
   })
   extras: Extras;
-
-  @Column({
-    nullable: true,
-  })
-  @Field(() => ID)
-  extrasId?: string;
 
   @OneToMany((type) => Train, (train) => train.player, {
     cascade: true,
