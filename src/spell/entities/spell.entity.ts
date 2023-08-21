@@ -217,8 +217,8 @@ export class Spell implements DiscordEntityVieable {
 
   toEmbed() {
     const embed = new EmbedBuilder();
+    let description = "\n\n" + this.description;
     embed.setTitle(this.name);
-    embed.setDescription(this.description);
     embed.setFooter({
       text: `${this.category.join(', ')} / ${this.difficulty}`,
     });
@@ -227,56 +227,39 @@ export class Spell implements DiscordEntityVieable {
     });
     const fields: APIEmbedField[] = [];
     if (this.light) {
-      fields.push({
-        name: 'Lampejo',
-        value: this.light,
-        inline: true,
-      });
+      description = `**Lampejo:** ${this.light}\n` + description 
     }
     if (this.meta) {
-      fields.push({
-        name: 'Meta',
-        value: this.meta,
-        inline: true,
-      });
+      description = `**Meta:** ${this.meta}\n` + description 
     }
     if (this.antiSpell) {
-      fields.push({
-        name: 'Contra-Feitiço',
-        value: this.antiSpell,
-        inline: true,
-      });
+      description = `**Contra-Feiitço:** ${this.antiSpell}\n` + description 
     }
     if (this.requirements) {
-      fields.push({
-        name: 'Requisitos',
-        value: this.requirements,
-        inline: true,
-      });
+      description = `**Requisitos:** ${this.requirements}\n` + description 
     }
     if (this.duration) {
-      fields.push({
-        name: 'Duração',
-        value: this.duration,
-        inline: true,
-      });
+      description = `**Duração:** ${this.duration}\n` + description 
     }
     if (this.distance) {
-      fields.push({
-        name: 'Distância',
-        value: this.distance,
-        inline: true,
-      });
+      description = `**Distância:** ${this.distance}\n` + description 
     }
 
     for (const maestry of this.maestry) {
-      const level = '⚪'.repeat(maestry.level) + '⚫'.repeat(5 - maestry.level);
+      const level = '⁌'.repeat(maestry.level) + '○'.repeat(5 - maestry.level);
       fields.push({
         name: `${level} - ${maestry.name}`,
-        value: maestry.description,
+        value: maestry.description.slice(0, 600),
       });
     }
-    embed.setFields(fields);
+    d
+    embed.setDescription(description)
+    try {
+      
+      embed.setFields(fields);
+    } catch (error) {
+      debugger
+    }
     return embed;
   }
   reply(interaction: Interaction) {
