@@ -9,6 +9,7 @@ import {
   CDN,
   Client,
   Client as DiscordClient,
+  EmbedBuilder,
   Events,
   GatewayIntentBits,
   GuildMember,
@@ -46,6 +47,7 @@ import { DiscordEntityVieable } from './types';
 import { PlayerService } from '~/core/player/player.service';
 import { normalizedName } from './discord.utils';
 import { SpaceService } from '~/spaces/space/space.service';
+import { Guild } from '~/core/guild/guild.entity';
 
 export interface Command<T> {
   keys: string[];
@@ -316,7 +318,7 @@ export class DiscordEventEmitter implements OnModuleInit {
       Events.InteractionCreate,
       async (interaction: MessageContextMenuCommandInteraction) => {
         if (!interaction.isCommand()) return;
-
+        let guild: Guild;
         const { commandName } = interaction;
         const group = this.getGroup(commandName);
         if (!group) return;
@@ -334,7 +336,7 @@ export class DiscordEventEmitter implements OnModuleInit {
         if (!command) return;
         try {
           const args = [];
-          const guild = await this.guildService.get(interaction);
+           guild = await this.guildService.get(interaction);
           if (command.options.mod) {
             if (!guild) {
               throw new GuildSetupNeeded();
@@ -370,6 +372,24 @@ export class DiscordEventEmitter implements OnModuleInit {
               await interaction.reply(result);
             } catch (error) {
               await interaction.followUp(result);
+            }
+            if (guild.errorLogChannel) {
+              await guild.errorLogChannel.send({
+                content: `<@${interaction.user.id}>, encontrou um: ${error.message}`,
+                embeds: [
+                  new EmbedBuilder().setTitle('Stack').setDescription(error.stack),
+                  new EmbedBuilder()
+                    .setTitle('Interaction')
+                    .setDescription(
+                      interaction.toString() +
+                        JSON.stringify(
+                          interaction.toJSON(),
+                          (_, v) => (typeof v === 'bigint' ? v.toString() : v),
+                          2,
+                        ),
+                    ),
+                ],
+              });
             }
           } catch (error) {}
         }
