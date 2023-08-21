@@ -2,7 +2,7 @@ import { InputType, Int, Field, PartialType, ID } from '@nestjs/graphql';
 import {
   ActionTypeEnum,
   Maestry,
-  SpellCategoryEnum,
+  SpellCategoryNameEnum,
   SpellDifficultyEnum,
 } from './spell.entity';
 
@@ -48,8 +48,8 @@ export class CreateSpellInput {
   @Field()
   description: string;
 
-  @Field((type) => [SpellCategoryEnum])
-  category: SpellCategoryEnum[];
+  @Field((type) => [SpellCategoryNameEnum])
+  category: SpellCategoryNameEnum[];
   updatedAt: Date;
 
   @Field(() => [Maestry])

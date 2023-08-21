@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -13,7 +14,7 @@ import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
 
 export enum AttributeNameEnum {
-  STRENTH = 'Força',
+  STRENGTH = 'Força',
   VIM = 'Vigor',
   DEXTERITY = 'Destreza',
   CHARISMA = 'Carisma',
@@ -23,6 +24,18 @@ export enum AttributeNameEnum {
   DETERMINATION = 'Determinação',
   RATIONALITY = 'Raciocínio',
 }
+
+export type AttributeNameValue =
+  | 'strength'
+  | 'vim'
+  | 'dexterity'
+  | 'charisma'
+  | 'manipulation'
+  | 'selfcontrol'
+  | 'intelligence'
+  | 'determination'
+  | 'rationality';
+
 export const attributeChoices = Object.keys(AttributeNameEnum).map(
   (competence) => enumToChoice(competence as any, AttributeNameEnum),
 );
@@ -34,7 +47,7 @@ export class Attributes implements DiscordEntityVieable {
 
   @Column({ default: 0 })
   @Field()
-  strenth: number;
+  strength: number;
   @Column({ default: 0 })
   @Field()
   vim: number;
@@ -63,6 +76,7 @@ export class Attributes implements DiscordEntityVieable {
   @OneToOne(() => Player, (player) => player.attributes, {
     cascade: true,
   })
+  @JoinColumn()
   player: Player;
 
   @Column()
@@ -77,17 +91,17 @@ export class Attributes implements DiscordEntityVieable {
     const embed = new EmbedBuilder().setTitle('Atributos');
     embed.addFields(
       {
-        name: 'Atributos Físicos',
-        value: `Força: ${this.strenth}\nVigor: ${this.vim}\nDestreza: ${this.dexterity}`,
+        name: 'Físicos',
+        value: `Força: ${this.strength}\nVigor: ${this.vim}\nDestreza: ${this.dexterity}`,
         inline: true,
       },
       {
-        name: 'Atributos Sociais',
+        name: 'Sociais',
         value: `Carisma: ${this.charisma}\nManipulação: ${this.manipulation}\nAutocontrole: ${this.selfcontrol}`,
         inline: true,
       },
       {
-        name: 'Atributos Mentais',
+        name: 'Mentais',
         value: `Inteligência: ${this.intelligence}\nDeterminação: ${this.determination}\nRaciocínio: ${this.rationality}`,
         inline: true,
       },

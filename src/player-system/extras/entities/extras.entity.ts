@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -44,6 +45,7 @@ export class Extras implements DiscordEntityVieable {
   @OneToOne(() => Player, (player) => player.extras, {
     cascade: true,
   })
+  @JoinColumn()
   player: Player;
 
   @Column()

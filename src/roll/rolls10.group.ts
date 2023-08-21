@@ -23,7 +23,7 @@ import {
   skillChoices,
   talentChoices,
 } from '~/player-system/abilities/entities/abilities.entity';
-import { witchPredilectionsChoices } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { witchPredilectionChoices } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { nonConvPredilectionsChoices } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { ExtrasService } from '~/player-system/extras/extras.service';
 import { extrasChoices } from '~/player-system/extras/entities/extras.entity';
@@ -106,7 +106,7 @@ export class Rolls10Group {
     @ArgString({
       name: 'Predileção Bruxa',
       description: 'Predileção a ser rolada',
-      choices: witchPredilectionsChoices,
+      choices: witchPredilectionChoices,
       required: false,
     })
     witchPredilection?: string,
@@ -125,6 +125,7 @@ export class Rolls10Group {
     })
     extras?: string,
   ) {
+    await interaction.deferReply();
     const roll = await this.rollService.roll10(player, {
       diff,
       autoSuccess,
@@ -140,7 +141,7 @@ export class Rolls10Group {
       message,
     });
 
-    await interaction.reply({
+    await interaction.editReply({
       embeds: [roll.toEmbed()],
     });
   }

@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -12,7 +13,7 @@ import { Player } from '~/core/player/entities/player.entity';
 import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
 
-export enum WitchPredilectionsNameEnum {
+export enum WitchPredilectionNameEnum {
   ABJURATION = 'Abjuração',
   ENCHANTMENT = 'Encantamento',
   NECROMANCY = 'Necromancia',
@@ -25,28 +26,40 @@ export enum WitchPredilectionsNameEnum {
   ILLUSION = 'Ilusão',
   UNIVERSAL = 'Universal',
 }
+
+export type WitchPredilectionNameValue =
+  | 'Abjuração'
+  | 'Encantamento'
+  | 'Necromancia'
+  | 'Adivinhação'
+  | 'Evocação'
+  | 'Transmutação'
+  | 'Conjuração'
+  | 'Ilusão'
+  | 'Universal';
+
 // map reverse
-export const witchPredilectionsNameMap = {
-  [WitchPredilectionsNameEnum.ABJURATION]: 'abjuration',
-  [WitchPredilectionsNameEnum.ENCHANTMENT]: 'enchantment',
-  [WitchPredilectionsNameEnum.NECROMANCY]: 'necromancy',
-  [WitchPredilectionsNameEnum.DIVINATION]: 'divination',
-  [WitchPredilectionsNameEnum.EVOCATION]: 'evocation',
-  [WitchPredilectionsNameEnum.TRANSMUTATION]: 'transmutation',
-  [WitchPredilectionsNameEnum.CONJURATION]: 'conjuration',
-  [WitchPredilectionsNameEnum.ILLUSION]: 'illusion',
-  [WitchPredilectionsNameEnum.UNIVERSAL]: 'universal',
+export const witchPredilectionNameMap = {
+  [WitchPredilectionNameEnum.ABJURATION]: 'abjuration',
+  [WitchPredilectionNameEnum.ENCHANTMENT]: 'enchantment',
+  [WitchPredilectionNameEnum.NECROMANCY]: 'necromancy',
+  [WitchPredilectionNameEnum.DIVINATION]: 'divination',
+  [WitchPredilectionNameEnum.EVOCATION]: 'evocation',
+  [WitchPredilectionNameEnum.TRANSMUTATION]: 'transmutation',
+  [WitchPredilectionNameEnum.CONJURATION]: 'conjuration',
+  [WitchPredilectionNameEnum.ILLUSION]: 'illusion',
+  [WitchPredilectionNameEnum.UNIVERSAL]: 'universal',
 };
 
-export const witchPredilectionsChoices = Object.keys(
-  WitchPredilectionsNameEnum,
+export const witchPredilectionChoices = Object.keys(
+  WitchPredilectionNameEnum,
 ).map((competence) =>
-  enumToChoice(competence as any, WitchPredilectionsNameEnum),
+  enumToChoice(competence as any, WitchPredilectionNameEnum),
 );
 
 @Entity()
 @ObjectType()
-export class WitchPredilections implements DiscordEntityVieable {
+export class WitchPredilection implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -99,6 +112,7 @@ export class WitchPredilections implements DiscordEntityVieable {
   @OneToOne(() => Player, (player) => player.witchPredilections, {
     cascade: true,
   })
+  @JoinColumn()
   player: Player;
 
   @Column()
@@ -110,21 +124,21 @@ export class WitchPredilections implements DiscordEntityVieable {
   updatedAt: Date;
 
   toEmbed() {
-    const embed = new EmbedBuilder().setTitle('Competencias');
+    const embed = new EmbedBuilder().setTitle('Predileções Bruxas');
     embed.addFields(
       {
         name: `-----`,
-        value: `${WitchPredilectionsNameEnum.ABJURATION}: ${this.abjuration}\n${WitchPredilectionsNameEnum.ENCHANTMENT}: ${this.enchantment}\n${WitchPredilectionsNameEnum.NECROMANCY}: ${this.necromancy}`,
+        value: `${WitchPredilectionNameEnum.ABJURATION}: ${this.abjuration}\n${WitchPredilectionNameEnum.ENCHANTMENT}: ${this.enchantment}\n${WitchPredilectionNameEnum.NECROMANCY}: ${this.necromancy}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${WitchPredilectionsNameEnum.DIVINATION}: ${this.divination}\n${WitchPredilectionsNameEnum.EVOCATION}: ${this.evocation}\n${WitchPredilectionsNameEnum.TRANSMUTATION}: ${this.transmutation}`,
+        value: `${WitchPredilectionNameEnum.DIVINATION}: ${this.divination}\n${WitchPredilectionNameEnum.EVOCATION}: ${this.evocation}\n${WitchPredilectionNameEnum.TRANSMUTATION}: ${this.transmutation}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${WitchPredilectionsNameEnum.CONJURATION}: ${this.conjuration}\n${WitchPredilectionsNameEnum.ILLUSION}: ${this.illusion}\n${WitchPredilectionsNameEnum.UNIVERSAL}: ${this.universal}`,
+        value: `${WitchPredilectionNameEnum.CONJURATION}: ${this.conjuration}\n${WitchPredilectionNameEnum.ILLUSION}: ${this.illusion}\n${WitchPredilectionNameEnum.UNIVERSAL}: ${this.universal}`,
         inline: true,
       },
     );

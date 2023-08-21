@@ -32,7 +32,7 @@ import {
 } from '~/discord/helpers/page-helper';
 import {
   Spell,
-  SpellCategoryEnum,
+  SpellCategoryNameEnum,
   SpellDifficultyEnum,
 } from './entities/spell.entity';
 import { GrimoireMenu } from '~/grimoire/grimoire.menu';
@@ -83,9 +83,9 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
       name: 'Competência',
       description: 'Competência do feitiço',
       required: false,
-      choices: Object.values(SpellCategoryEnum),
+      choices: Object.values(SpellCategoryNameEnum),
     })
-    category?: SpellCategoryEnum,
+    category?: SpellCategoryNameEnum,
     @ArgString({
       name: 'dificuldade',
       description: 'Dificuldade do feitiço',

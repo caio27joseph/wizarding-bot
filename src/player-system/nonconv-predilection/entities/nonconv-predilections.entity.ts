@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -87,6 +88,7 @@ export class NonConvPredilections implements DiscordEntityVieable {
   @OneToOne(() => Player, (player) => player.nonConvPredilections, {
     cascade: true,
   })
+  @JoinColumn()
   player: Player;
 
   @Column()
@@ -98,7 +100,7 @@ export class NonConvPredilections implements DiscordEntityVieable {
   updatedAt: Date;
 
   toEmbed() {
-    const embed = new EmbedBuilder().setTitle('Competencias');
+    const embed = new EmbedBuilder().setTitle('Predileções Não Convencionais');
     embed.addFields(
       {
         name: `-----`,

@@ -23,7 +23,7 @@ import {
   MessageComponentInteraction,
   StringSelectMenuInteraction,
 } from 'discord.js';
-import { Spell, SpellCategoryEnum } from './entities/spell.entity';
+import { Spell, SpellCategoryNameEnum } from './entities/spell.entity';
 import { Any, ILike, In } from 'typeorm';
 import { EntityNotFound } from '~/discord/exceptions';
 import { SpellTrainAction, MaestryGroup } from '~/train/train.group';
@@ -173,9 +173,9 @@ export class SpellGroup {
       name: 'Categoria',
       description: 'Categoria do feitiço',
       required: false,
-      choices: Object.values(SpellCategoryEnum),
+      choices: Object.values(SpellCategoryNameEnum),
     })
-    category?: SpellCategoryEnum,
+    category?: SpellCategoryNameEnum,
   ) {
     const ITEMS_PER_PAGE = 8;
 

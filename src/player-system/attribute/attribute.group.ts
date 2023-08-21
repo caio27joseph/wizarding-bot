@@ -58,7 +58,7 @@ export class AttributeGroup {
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
-    strenth?: number,
+    strength?: number,
     @ArgInteger({
       name: 'Vigor',
       description: 'Vigor do personagem',
@@ -124,7 +124,7 @@ export class AttributeGroup {
       },
       {
         playerId: player.id,
-        strenth,
+        strength,
         vim,
         dexterity,
         charisma,

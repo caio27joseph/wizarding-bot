@@ -13,7 +13,7 @@ import { Command } from '~/discord/decorators/command.decorator';
 import { NonConvPredilectionsNameEnum } from './entities/nonconv-predilections.entity';
 
 @Group({
-  name: 'ncpred',
+  name: 'pred_nc',
   description: 'Comandos relacionados a Predileções-Não-Convencionais',
 })
 @Injectable()

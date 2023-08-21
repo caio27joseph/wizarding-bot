@@ -9,6 +9,13 @@ import { ExtrasService } from '~/player-system/extras/extras.service';
 import { NonConvPredilectionsService } from '~/player-system/nonconv-predilection/noconv-predilections.service';
 import { WitchPredilectionsService } from '~/player-system/witch-predilection/witch-predilection.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
+import {
+  Bonus,
+  BonusTarget,
+  BonusType,
+  applyBonuses,
+} from '~/items/item-with-effect.interface';
+import { groupBy } from 'lodash';
 
 @Injectable()
 export class RollService {
@@ -36,12 +43,18 @@ export class RollService {
       nonConvPredilectionsChoices?: string;
       extras?: string;
       message?: string;
+      bonuses?: Bonus[];
     },
   ) {
     let values: number[] = [];
     let expression = '';
     let abilities: Abilities;
-
+    const bonuses = [] as Bonus<BonusTarget.Attribute>[];
+    const bonusByType = groupBy(bonuses, (b) => b.bonusType);
+    const bonusesByTarget = groupBy(
+      bonusByType[BonusType.Dice],
+      (b) => b.target,
+    );
     // #region Attributes
 
     if (options?.attribute) {
@@ -55,7 +68,12 @@ export class RollService {
           'Você deve configurar os atributos usando o comando /atb atualizar',
         );
       }
-      const value = attributes[options?.attribute];
+      let value = attributes[options?.attribute];
+      value = applyBonuses(
+        options?.attribute,
+        value,
+        bonusesByTarget[BonusTarget.Attribute] || [],
+      );
       values.push(value);
       if (expression.length > 0) expression += ' + ';
       expression += `${value}`;
@@ -78,6 +96,7 @@ export class RollService {
     }
     if (options?.skills) {
       const value = abilities[options?.skills];
+
       values.push(value);
       if (expression.length > 0) expression += ' + ';
       expression += `${value}`;

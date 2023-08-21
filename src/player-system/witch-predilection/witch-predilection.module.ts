@@ -4,10 +4,10 @@ import { PlayerModule } from '~/core/player/player.module';
 import { WitchPredilectionsGroup } from './witch-predilection.group';
 import { WitchPredilectionsService } from './witch-predilection.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { WitchPredilections } from './entities/witch-predilection.entity';
+import { WitchPredilection } from './entities/witch-predilection.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([WitchPredilections]), PlayerModule],
+  imports: [TypeOrmModule.forFeature([WitchPredilection]), PlayerModule],
   providers: [
     WitchPredilectionsResolver,
     WitchPredilectionsService,

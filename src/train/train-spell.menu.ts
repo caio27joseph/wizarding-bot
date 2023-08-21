@@ -10,8 +10,8 @@ import { TrainSpellService } from './train-spell.service';
 import { Train, TrainGroupOption } from './entities/train.entity';
 import { Spell, maestryNumToName } from '~/spell/entities/spell.entity';
 import {
-  WitchPredilectionsNameEnum,
-  witchPredilectionsNameMap,
+  WitchPredilectionNameEnum,
+  witchPredilectionNameMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Player } from '~/core/player/entities/player.entity';
 import { MenuAction, MenuHelper } from '~/discord/helpers/menu-helper';
@@ -21,7 +21,7 @@ import { RollsD10 } from '~/roll/entities/roll.entity';
 import { TrainService } from './train.service';
 
 interface Props {
-  roll?: WitchPredilectionsNameEnum;
+  roll?: WitchPredilectionNameEnum;
   spell?: Spell;
   group?: TrainGroupOption;
   player?: Player;
@@ -284,7 +284,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
 
     const rolls: RollsD10[] = [];
     const roll = await this.rollService.roll10(player, {
-      witchPredilection: witchPredilectionsNameMap[props.roll],
+      witchPredilection: witchPredilectionNameMap[props.roll],
       extras: 'control',
       autoSuccess: props.autoSuccess,
       bonus: props.bonusRoll,
@@ -305,7 +305,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     trains.push(train);
     if (doubleTrain) {
       const roll = await this.rollService.roll10(player, {
-        witchPredilection: witchPredilectionsNameMap[props.roll],
+        witchPredilection: witchPredilectionNameMap[props.roll],
         extras: 'control',
         autoSuccess: props.autoSuccess,
         bonus: props.bonusRoll,

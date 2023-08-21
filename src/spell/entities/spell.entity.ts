@@ -21,7 +21,7 @@ import { DiscordEntityVieable } from '~/discord/types';
 import { Grimoire } from '~/grimoire/entities/grimoire.entity';
 import { Train } from '~/train/entities/train.entity';
 
-export enum SpellCategoryEnum {
+export enum SpellCategoryNameEnum {
   ABJURATION = 'Abjuração',
   DIVINATION = 'Adivinhação',
   CONJURATION = 'Convocação',
@@ -33,9 +33,20 @@ export enum SpellCategoryEnum {
   UNIVERSAL = 'Universal',
 }
 
-registerEnumType(SpellCategoryEnum, {
+registerEnumType(SpellCategoryNameEnum, {
   name: 'SpellCategoryEnum',
 });
+
+export type SpellCategoryNameValue =
+  | 'Abjuração'
+  | 'Adivinhação'
+  | 'Convocação'
+  | 'Encantamento'
+  | 'Evocação'
+  | 'Ilusão'
+  | 'Necromancia'
+  | 'Transmutação'
+  | 'Universal';
 
 export enum SpellDifficultyEnum {
   EASY = 'Fácil',
@@ -171,7 +182,7 @@ export class Spell implements DiscordEntityVieable {
   @Column('text')
   description: string;
 
-  @Field((type) => [SpellCategoryEnum])
+  @Field((type) => [SpellCategoryNameEnum])
   @Column('text', {
     array: true,
     nullable: true,

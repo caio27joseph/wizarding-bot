@@ -3,7 +3,7 @@ import { Group } from '~/discord/decorators/group.decorator';
 import { CommandInteraction } from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
 import { RollService } from '~/roll/roll.service';
-import { WitchPredilectionsNameEnum } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { WitchPredilectionNameEnum } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { TrainGroupOption } from './entities/train.entity';
 import { ILike } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
@@ -35,7 +35,7 @@ export enum SpellTrainAction {
 }
 
 export interface SpellTrainData {
-  category?: WitchPredilectionsNameEnum;
+  category?: WitchPredilectionNameEnum;
   spellId?: string;
   group?: TrainGroupOption;
   playerId?: string;

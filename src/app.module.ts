@@ -15,7 +15,7 @@ import { RollModule } from './roll/roll.module';
 import { TrainModule } from './train/train.module';
 import { GrimoireModule } from './grimoire/grimoire.module';
 import { SpacesModule } from './spaces/spaces.module';
-import { InventoriesModule } from './inventories/inventories.module';
+import { ItemsModule } from './items/inventories.module';
 
 @Module({
   imports: [
@@ -35,7 +35,7 @@ import { InventoriesModule } from './inventories/inventories.module';
     RollModule,
     TrainModule,
     GrimoireModule,
-    InventoriesModule,
+    ItemsModule,
     SpacesModule,
   ],
   controllers: [],

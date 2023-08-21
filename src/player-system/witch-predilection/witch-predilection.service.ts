@@ -7,7 +7,7 @@ import {
   FindOptionsWhere,
   Repository,
 } from 'typeorm';
-import { WitchPredilections } from './entities/witch-predilection.entity';
+import { WitchPredilection } from './entities/witch-predilection.entity';
 import {
   CreateWitchPredilectionsInput,
   UpdateWitchPredilectionsInput,
@@ -16,8 +16,8 @@ import {
 @Injectable()
 export class WitchPredilectionsService {
   constructor(
-    @InjectRepository(WitchPredilections)
-    private readonly repo: Repository<WitchPredilections>,
+    @InjectRepository(WitchPredilection)
+    private readonly repo: Repository<WitchPredilection>,
   ) {}
 
   async create(input: CreateWitchPredilectionsInput) {
@@ -26,23 +26,23 @@ export class WitchPredilectionsService {
     return witchPredilections;
   }
   async update(
-    where: FindOptionsWhere<WitchPredilections>,
+    where: FindOptionsWhere<WitchPredilection>,
     input: UpdateWitchPredilectionsInput,
   ) {
     const result = await this.repo.update(where, input);
     return result;
   }
   async delete() {}
-  async findAll(options?: FindManyOptions<WitchPredilections>) {
+  async findAll(options?: FindManyOptions<WitchPredilection>) {
     const witchPredilectionss = await this.repo.find(options);
     return witchPredilectionss;
   }
-  async findOne(options: FindOneOptions<WitchPredilections>) {
+  async findOne(options: FindOneOptions<WitchPredilection>) {
     const witchPredilections = await this.repo.findOne(options);
     return witchPredilections;
   }
   async updateOrCreate(
-    options: FindOneOptions<WitchPredilections>,
+    options: FindOneOptions<WitchPredilection>,
     input: UpdateWitchPredilectionsInput,
   ) {
     const existingWitchPredilections = await this.findOne(options);

@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -80,6 +81,7 @@ export class Competences implements DiscordEntityVieable {
   @OneToOne(() => Player, (player) => player.competences, {
     cascade: true,
   })
+  @JoinColumn()
   player: Player;
 
   @Column()

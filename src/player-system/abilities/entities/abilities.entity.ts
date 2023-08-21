@@ -3,6 +3,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -220,9 +221,8 @@ export class Abilities implements DiscordEntityVieable {
   @Column({ default: 0 })
   theological_knowledge: number;
 
-  @OneToOne(() => Player, (player) => player.abilities, {
-    cascade: true,
-  })
+  @OneToOne(() => Player, (player) => player.abilities)
+  @JoinColumn()
   player: Player;
 
   @Column()
