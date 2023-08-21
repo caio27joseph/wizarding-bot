@@ -217,33 +217,38 @@ export class Spell implements DiscordEntityVieable {
 
   toEmbed() {
     const embed = new EmbedBuilder();
-    let description = "\n\n" + this.description;
+    let description = '\n\n' + this.description;
     embed.setTitle(this.name);
-    embed.setFooter({
-      text: `${this.category.join(', ')} / ${this.difficulty}`,
-    });
     embed.setAuthor({
       name: this.title,
     });
     const fields: APIEmbedField[] = [];
     if (this.light) {
-      description = `**Lampejo:** ${this.light}\n` + description 
+      description = `**Lampejo:** ${this.light}\n` + description;
     }
     if (this.meta) {
-      description = `**Meta:** ${this.meta}\n` + description 
+      description = `**Meta:** ${this.meta}\n` + description;
     }
     if (this.antiSpell) {
-      description = `**Contra-Feiitço:** ${this.antiSpell}\n` + description 
+      description = `**Contra-Feiitço:** ${this.antiSpell}\n` + description;
     }
     if (this.requirements) {
-      description = `**Requisitos:** ${this.requirements}\n` + description 
+      description = `**Requisitos:** ${this.requirements}\n` + description;
     }
     if (this.duration) {
-      description = `**Duração:** ${this.duration}\n` + description 
+      description = `**Duração:** ${this.duration}\n` + description;
     }
     if (this.distance) {
-      description = `**Distância:** ${this.distance}\n` + description 
+      description = `**Distância:** ${this.distance}\n` + description;
     }
+    if (this.resistence) {
+      description = `**Resistência:** ${this.resistence}\n` + description;
+    }
+    if (this.actionType) {
+      description = `**Ação:** ${this.actionType}\n` + description;
+    }
+    description =
+      `${this.category.join(', ')} / ${this.difficulty}\n` + description;
 
     for (const maestry of this.maestry) {
       const level = '⁌'.repeat(maestry.level) + '○'.repeat(5 - maestry.level);
@@ -252,8 +257,8 @@ export class Spell implements DiscordEntityVieable {
         value: maestry.description.slice(0, 600),
       });
     }
-    embed.setDescription(description)
-      
+    embed.setDescription(description);
+
     embed.setFields(fields);
     return embed;
   }
