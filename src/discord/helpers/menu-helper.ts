@@ -43,8 +43,8 @@ export interface MenuActionOptions {
 }
 
 export interface ActionContext {
-  player: Player;
   guild: Guild;
+  player?: Player;
   interaction?: CommandInteraction;
   response?: Message<boolean>;
 }
@@ -85,10 +85,6 @@ export abstract class MenuHelper<T extends ActionContext> {
     });
     collector.on('collect', async (i: ButtonInteraction) => {
       try {
-        if (!entryPoint) {
-          content.components = [];
-          await context.interaction.editReply(content);
-        }
         await (await i.deferReply({ ephemeral: true })).delete();
         collector.stop();
         await this.redirect(context as T, i);
@@ -99,7 +95,7 @@ export abstract class MenuHelper<T extends ActionContext> {
         }
         if (context.guild.errorLogChannel) {
           await context.guild.errorLogChannel.send({
-            content: `<@${context.player.discordId}>, encontrou um: ${error.message}`,
+            content: `<@${i.user.id}>, encontrou um: ${error.message}`,
             embeds: [
               new EmbedBuilder().setTitle('Stack').setDescription(error.stack),
               new EmbedBuilder()

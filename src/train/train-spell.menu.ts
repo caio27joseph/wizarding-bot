@@ -265,7 +265,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     });
     const { interaction, spell, player, guild } = context;
     const collected = await interaction.channel.awaitMessages({
-      filter: (m) => m.author.id === player.discordId,
+      filter: (m) => m.author.id === context.interaction.user.id,
       max: 1,
       time: 1000 * 60 * 10,
     });

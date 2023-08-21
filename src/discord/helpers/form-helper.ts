@@ -16,9 +16,9 @@ export type OptionConfig = {
   value: any;
 };
 
-export type FormFieldConfig = {
+export type FormFieldConfig<P> = {
   placeholder: string;
-  propKey: string;
+  propKey: keyof P;
   defaultValue?: any;
   pipe?: (value: string) => any;
   options: OptionConfig[];
@@ -27,7 +27,7 @@ export type FormFieldConfig = {
 
 export type FormConfig<P> = {
   label: string;
-  fields: FormFieldConfig[];
+  fields: FormFieldConfig<P>[];
   buttons: ButtonConfig<P>[]; // Array of button configurations
 };
 
@@ -43,7 +43,7 @@ export class FormHelper<Props> {
   private hash: string; // Unique hash for each form instance
 
   private buttonIdMap: Map<string, ButtonConfig<Props>> = new Map();
-  private selectIdMap: Map<string, FormFieldConfig> = new Map();
+  private selectIdMap: Map<string, FormFieldConfig<Props>> = new Map();
 
   constructor(context: any, formConfig: FormConfig<Props>) {
     this.context = context;
@@ -89,6 +89,7 @@ export class FormHelper<Props> {
 
     return components;
   }
+
   async collectFormResponses() {
     this.context.response = await this.context.interaction.editReply({
       content: this.formConfig.label,
@@ -97,10 +98,10 @@ export class FormHelper<Props> {
 
     const collector = this.context.response.createMessageComponentCollector({
       time: 1000 * 60 * 10,
-      filter: (i) => i.user.id === this.context.player.discordId,
+      filter: (i) => i.user.id === this.context.interaction.user.id,
     });
 
-    const props = {};
+    const props: Props = {} as any;
     for (const field of this.formConfig.fields) {
       props[field.propKey] = field.defaultValue;
     }

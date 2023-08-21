@@ -42,8 +42,7 @@ export const ArgGuild = simpleFactory((interaction, opt) => {
   return opt.guild;
 });
 
-type PlayerOptions = InteractionOptions;
-export const ArgPlayer = factory<PlayerOptions | undefined>(
+export const ArgPlayer = factory<InteractionOptions | undefined>(
   async (interaction, { parameter, command, playerService }) => {
     if (!parameter.options) {
       const player = playerService.getOrCreateUpdate({

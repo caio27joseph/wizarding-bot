@@ -67,7 +67,7 @@ export class RollsD10 {
       rolls.push(value);
     }
     this.critical_s = Math.floor(rolls10 / 2);
-    this.critical_f = rolls1 >= 1 && this.success === 0;
+    this.critical_f = rolls1 >= 1 && this.success + this.autoSuccess === 0;
 
     // this.rolls = rolls.sort((a, b) => b - a);
     this.rolls = rolls;
