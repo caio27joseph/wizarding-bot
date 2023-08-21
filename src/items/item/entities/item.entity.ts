@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { DiscordEntityVieable } from '~/discord/types';
-import { ResourceProvider } from '~/inventories/resource-provider/resource-provider.entity';
+import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
 
 @Entity()
 export class Item implements DiscordEntityVieable {
