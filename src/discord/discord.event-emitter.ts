@@ -45,6 +45,7 @@ import {
 import { DiscordEntityVieable } from './types';
 import { PlayerService } from '~/core/player/player.service';
 import { normalizedName } from './discord.utils';
+import { SpaceService } from '~/spaces/space/space.service';
 
 export interface Command<T> {
   keys: string[];
@@ -108,6 +109,7 @@ export class DiscordEventEmitter implements OnModuleInit {
     private readonly logger: ConsoleLogger,
     private readonly guildService: GuildService,
     private readonly playerService: PlayerService,
+    private readonly spaceService: SpaceService,
   ) {
     this.client = new DiscordClient({
       intents: [
@@ -346,6 +348,7 @@ export class DiscordEventEmitter implements OnModuleInit {
                 command: command,
                 guild,
                 playerService: this.playerService,
+                spaceSevice: this.spaceService,
               }),
             );
           }

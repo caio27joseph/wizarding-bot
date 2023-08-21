@@ -7,5 +7,6 @@ import { ItemGroup } from './item.group';
 @Module({
   imports: [TypeOrmModule.forFeature([Item])],
   providers: [ItemService, ItemGroup],
+  exports: [ItemService],
 })
 export class ItemModule {}

@@ -14,7 +14,8 @@ import { PlayerSystemModule } from './player-system/player-system.module';
 import { RollModule } from './roll/roll.module';
 import { TrainModule } from './train/train.module';
 import { GrimoireModule } from './grimoire/grimoire.module';
-import { ItemsModule } from './items/items.module';
+import { SpacesModule } from './spaces/spaces.module';
+import { InventoriesModule } from './inventories/inventories.module';
 
 @Module({
   imports: [
@@ -34,7 +35,8 @@ import { ItemsModule } from './items/items.module';
     RollModule,
     TrainModule,
     GrimoireModule,
-    ItemsModule,
+    InventoriesModule,
+    SpacesModule,
   ],
   controllers: [],
   providers: [],

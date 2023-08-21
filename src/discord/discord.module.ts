@@ -7,6 +7,7 @@ import { GuildModule } from '~/core/guild/guild.module';
 import { PlayerModule } from '~/core/player/player.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Guild } from '~/core/guild/guild.entity';
+import { SpaceModule } from '~/spaces/space/space.module';
 
 @Global()
 @Module({
@@ -14,6 +15,7 @@ import { Guild } from '~/core/guild/guild.entity';
     PlayerModule,
     TypeOrmModule.forFeature([Guild]),
     forwardRef(() => GuildModule),
+    SpaceModule,
   ],
   controllers: [],
   providers: [

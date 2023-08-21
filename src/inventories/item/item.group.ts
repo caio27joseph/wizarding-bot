@@ -35,9 +35,8 @@ export class ItemGroup {
     @ArgString({
       name: 'imageUrl',
       description: 'Url da imagem do item',
-      required: false,
     })
-    imageUrl?: string,
+    imageUrl: string,
   ) {
     const itemExists = await this.service.findOne({
       where: {

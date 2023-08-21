@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class LootBox {
+export class Inventory {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 }

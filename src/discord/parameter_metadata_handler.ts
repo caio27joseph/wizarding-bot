@@ -9,6 +9,7 @@ import { Command } from './discord.event-emitter';
 import { Guild } from '~/core/guild/guild.entity';
 import { Player } from '~/core/player/entities/player.entity';
 import { PlayerService } from '~/core/player/player.service';
+import { SpaceService } from '~/spaces/space/space.service';
 
 export enum InteractionOptionEnum {
   Boolean = 'Boolean',
@@ -28,6 +29,7 @@ export type CommandDecoratorHandler<Opt> = (
     parameter: Parameter<Opt>;
     guild?: Guild;
     playerService?: PlayerService;
+    spaceSevice?: SpaceService;
   },
 ) => any;
 export type SlashCommandDecoratorHandler<Opt> = (
@@ -37,6 +39,7 @@ export type SlashCommandDecoratorHandler<Opt> = (
     parameter: Parameter<Opt>;
     guild?: Guild;
     playerService?: PlayerService;
+    spaceSevice?: SpaceService;
   },
 ) => any;
 

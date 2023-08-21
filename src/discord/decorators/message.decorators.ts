@@ -74,6 +74,50 @@ export const ArgPlayer = factory<InteractionOptions | undefined>(
     type: InteractionOptionEnum.User,
   },
 );
+export const ArgSpace = factory<InteractionOptions | undefined>(
+  async (interaction, { parameter, command, spaceSevice }) => {
+    if (!parameter.options) {
+      const space = await spaceSevice.getOrCreate(
+        {
+          where: {
+            channelId: interaction.channelId,
+            guildId: interaction.guildId,
+          },
+        },
+        {
+          channelId: interaction.channelId,
+          guildId: interaction.guildId,
+        },
+      );
+      return space;
+    }
+    const paramName =
+      typeof parameter.options === 'string'
+        ? normalizedName(parameter.options)
+        : normalizedName(parameter.options.name);
+    const commandName = normalizedName(command.options.name);
+    const value = getInteractionArgValue(interaction, paramName, commandName);
+    if (!value) return;
+    const channel = interaction.guild.channels.cache.get(value);
+
+    const space = await spaceSevice.getOrCreate(
+      {
+        where: {
+          channelId: channel.id,
+          guildId: interaction.guildId,
+        },
+      },
+      {
+        channelId: interaction.channelId,
+        guildId: interaction.guildId,
+      },
+    );
+    return space;
+  },
+  {
+    type: InteractionOptionEnum.User,
+  },
+);
 
 const argOptionHandler: SlashCommandDecoratorHandler<any> = (
   interaction,

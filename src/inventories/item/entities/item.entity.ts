@@ -1,7 +1,14 @@
 import { EmbedBuilder, Interaction } from 'discord.js';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { DiscordEntityVieable } from '~/discord/types';
+import { ResourceProvider } from '~/inventories/resource-provider/resource-provider.entity';
 
 @Entity()
 export class Item implements DiscordEntityVieable {
@@ -22,6 +29,12 @@ export class Item implements DiscordEntityVieable {
 
   @Column()
   guildId: string;
+
+  @OneToMany(
+    () => ResourceProvider,
+    (resourceProvider) => resourceProvider.item,
+  )
+  resourceProviders: ResourceProvider[];
 
   toEmbed() {
     const embed = new EmbedBuilder()
