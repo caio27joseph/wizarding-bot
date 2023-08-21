@@ -253,12 +253,8 @@ export class Spell implements DiscordEntityVieable {
       });
     }
     embed.setDescription(description)
-    try {
       
-      embed.setFields(fields);
-    } catch (error) {
-      debugger
-    }
+    embed.setFields(fields);
     return embed;
   }
   reply(interaction: Interaction) {
