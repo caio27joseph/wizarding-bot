@@ -1,25 +1,35 @@
-import { Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Player } from '~/core/player/entities/player.entity';
+import { Item } from '~/items/item/entities/item.entity';
 
 @Entity()
 export class PlayerSet {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  leftHand: string;
+  @OneToOne(() => Player)
+  @JoinColumn()
+  player: Player;
 
-  rightHand: string;
+  @OneToOne(() => Item)
+  @JoinColumn()
+  wand: Item;
 
-  head: string;
+  // leftHand: string;
 
-  body: string;
+  // rightHand: string;
 
-  legs: string;
+  // head: string;
 
-  feet: string;
+  // body: string;
 
-  neck: string;
+  // legs: string;
 
-  ring: string;
+  // feet: string;
 
-  ammo: string;
+  // neck: string;
+
+  // ring: string;
+
+  // ammo: string;
 }

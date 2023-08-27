@@ -9,13 +9,13 @@ import { ExtrasService } from '~/player-system/extras/extras.service';
 import { NonConvPredilectionsService } from '~/player-system/nonconv-predilection/noconv-predilections.service';
 import { WitchPredilectionsService } from '~/player-system/witch-predilection/witch-predilection.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
+import { groupBy } from 'lodash';
 import {
   Bonus,
   BonusTarget,
   BonusType,
   applyBonuses,
-} from '~/items/item-with-effect.interface';
-import { groupBy } from 'lodash';
+} from '~/items/bonuses/item-with-bonus.interface';
 
 @Injectable()
 export class RollService {

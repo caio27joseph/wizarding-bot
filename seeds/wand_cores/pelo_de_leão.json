@@ -1,0 +1,11 @@
+{
+    "name": "Pelo de Leão",
+    "rarity": "Comum",
+    "description": "O Pelo de Leão é um núcleo de varinha comum, mas poderoso, frequentemente usado em varinhas por bruxos de grande bravura e nobreza. Leões são conhecidos por sua coragem, força e majestade, e essas qualidades são transmitidas às varinhas com esse núcleo.",
+    "characteristics": "Coragem e Nobreza: As varinhas com Pelo de Leão são especialmente adequadas para bruxos corajosos, nobres e justos. Elas são capazes de realizar feitiços de proteção e feitiços de ataque com grande força e poder.",
+    "special_effect": "Fúria do Leão: O bruxo ou bruxa que possui uma varinha com Pelo de Leão ganha um bônus de 2 dados (2d10) em feitiços de ataque, feitiços de proteção e feitiços que exigem coragem e determinação.",
+    "critical_success": "Em um sucesso crítico, a varinha libera a verdadeira fúria do leão, ampliando o poder dos feitiços lançados. Feitiços de ataque se tornam ainda mais destrutivos, feitiços de proteção se tornam ainda mais eficazes e o bruxo demonstra uma grande presença e carisma. A varinha se torna uma extensão natural da vontade do bruxo, respondendo prontamente a suas intenções com força e precisão. o proximo feitiço de proteção ou dano tem efeito melhorado em 50%;",
+    "critical_failure": "Em uma falha crítica, a varinha pode ser influenciada pelo lado mais selvagem do leão. Isso pode levar a um comportamento impulsivo da varinha, resultando em feitiços que não funcionam conforme o esperado ou até mesmo em efeitos indesejados. O jogador não pode realizar reção nessa rodada.",
+    "identifier": "0de2323d-d9e5-4cf2-91d0-b667d8a05d4c",
+    "updatedAt": "2023-08-25 04:47:51"
+}

@@ -15,7 +15,7 @@ import { RollModule } from './roll/roll.module';
 import { TrainModule } from './train/train.module';
 import { GrimoireModule } from './grimoire/grimoire.module';
 import { SpacesModule } from './spaces/spaces.module';
-import { ItemsModule } from './items/inventories.module';
+import { ItemsModule } from './items/items.module';
 
 @Module({
   imports: [

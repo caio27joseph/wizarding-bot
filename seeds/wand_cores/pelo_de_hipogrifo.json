@@ -1,0 +1,11 @@
+{
+    "name": "Pelo de Hipogrifo",
+    "rarity": "Raro",
+    "description": "O Pelo de Hipogrifo é um núcleo de varinha raro e altamente valorizado. Hipogrifos são criaturas majestosas e mágicas com a cabeça e as asas de uma águia e o corpo de um cavalo. Eles são conhecidos por sua beleza, lealdade e força. Os pelos obtidos dessas criaturas são usados como um núcleo de varinha que confere propriedades especiais à varinha e ao bruxo que a possui.",
+    "characteristics": "Força e Fidelidade: As varinhas com Pelo de Hipogrifo são conhecidas por sua força e lealdade. Elas são particularmente adequadas para bruxos corajosos, leais e determinados.",
+    "special_effect": "Vínculo Leal: O bruxo ou bruxa que possui uma varinha com Pelo de Hipogrifo ganha um bônus de 2 dados (2d10) em feitiços de abjuração, feitiços de voo e feitiços de ataque.",
+    "critical_success": "Em um sucesso crítico, a varinha manifesta seu vínculo leal com o bruxo de forma poderosa. Isso resulta em feitiços de proteção mais eficazes, voo mais controlado e ataques mais precisos e poderosos. A varinha age como uma extensão da vontade do bruxo, respondendo a seus desejos e intenções com maior força e precisão. ao usar uma magia o jogador fica sobre o efeito de voo por 2 rodadas.",
+    "critical_failure": "Em uma falha crítica, a varinha pode ser influenciada pela natureza orgulhosa e desafiadora dos hipogrifos. Isso pode levar a um comportamento rebelde da varinha, resultando em feitiços que não funcionam conforme o esperado ou até mesmo em reações imprevisíveis do próprio núcleo. o jogador é jogado pro alto sofrendo 1d6+3 de dano de queda.",
+    "identifier": "60aac07c-f6d7-4953-9666-5dd27adca027",
+    "updatedAt": "2023-08-25 04:47:51"
+}

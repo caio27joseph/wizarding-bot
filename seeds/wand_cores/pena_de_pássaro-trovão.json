@@ -1,0 +1,11 @@
+{
+    "name": "Pena de Pássaro-Trovão",
+    "rarity": "Raro",
+    "description": "A Pena de Pássaro-Trovão é um núcleo de varinha raro e poderoso, originário da majestosa criatura mágica conhecida como pássaro-trovão. Essas aves têm asas poderosas e penas iridescentes que mudam de cor, refletindo seu poder de invocar tempestades. A pena de cauda do pássaro-trovão é usada como núcleo em varinhas, e ela confere habilidades únicas relacionadas à transfiguração e maldições.",
+    "characteristics": "Habilidade na Transfiguração: Varinhas com Pena de Pássaro-Trovão são altamente habilidosas em transfiguração. Seus donos podem realizar feitiços de transformação com destreza e precisão incomuns.\nCapacidade de Invocar Tempestades: Assim como o pássaro-trovão real, as varinhas com esse núcleo são capazes de sentir o perigo e invocar tempestades enquanto voam, o que lhes confere uma vantagem adicional na batalha.",
+    "special_effect": "Habilidade em Maldições e Transfiguração:  O bruxo ou bruxa que possuir uma varinha com Pena de Pássaro-Trovão ganha um dado adicional (1d10) em feitiços de maldições e transfiguração. Isso reflete a afinidade da varinha com essas duas áreas da magia.\nDesafio\nApesar de poderosas, as varinhas com Pena de Pássaro-Trovão são difíceis de dominar devido à sua natureza imprevisível e à capacidade de invocar tempestades. Os bruxos que buscam controlar totalmente essas varinhas devem estar preparados para enfrentar desafios adicionais em sua jornada mágica.",
+    "critical_success": "Em um sucesso crítico, a varinha aplica a Maldição do Pássaro-Trovão, que aumenta a dificuldade do próximo feitiço do inimigo em +1 sucesso. Essa maldição pode atrapalhar significativamente o oponente em batalhas mágicas.",
+    "critical_failure": "Em uma falha crítica, a varinha libera uma explosão de eletricidade em escala pequena (3 metros), causando dano de 1d6 a você, seus aliados e/ou inimigos próximos. Essa descarga elétrica pode ser perigosa e deve ser manuseada com cautela.",
+    "identifier": "2c955a4d-98a4-4777-81e7-ed3b1a67d39d",
+    "updatedAt": "2023-08-25 04:47:51"
+}

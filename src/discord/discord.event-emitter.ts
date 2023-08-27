@@ -336,7 +336,7 @@ export class DiscordEventEmitter implements OnModuleInit {
         if (!command) return;
         try {
           const args = [];
-           guild = await this.guildService.get(interaction);
+          guild = await this.guildService.get(interaction);
           if (command.options.mod) {
             if (!guild) {
               throw new GuildSetupNeeded();
@@ -355,16 +355,7 @@ export class DiscordEventEmitter implements OnModuleInit {
             );
           }
 
-          const result: DiscordEntityVieable | undefined = await command.target[
-            command.key
-          ](...args);
-          if (result && !result?.reply) {
-            await interaction.reply(
-              `Todo: ${typeof result} needs to implement the reply method`,
-            );
-          } else if (result) {
-            await interaction.reply(result.reply(interaction));
-          }
+          await command.target[command.key](...args);
         } catch (error) {
           try {
             const result = await this.handleErrors(interaction, error);
@@ -377,7 +368,9 @@ export class DiscordEventEmitter implements OnModuleInit {
               await guild.errorLogChannel.send({
                 content: `<@${interaction.user.id}>, encontrou um: ${error.message}`,
                 embeds: [
-                  new EmbedBuilder().setTitle('Stack').setDescription(error.stack),
+                  new EmbedBuilder()
+                    .setTitle('Stack')
+                    .setDescription(error.stack),
                   new EmbedBuilder()
                     .setTitle('Interaction')
                     .setDescription(

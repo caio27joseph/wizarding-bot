@@ -1,0 +1,11 @@
+{
+    "name": "Fibra de Coração de Dragão",
+    "rarity": "Comum",
+    "description": "",
+    "characteristics": "Poder Ofensivo: Varinhas com a Fibra de Coração de Dragão são altamente especializadas em feitiços de maldição e azaração, proporcionando ao bruxo ou bruxa um aumento de eficiência nesses tipos de magia. Seus feitiços se tornam mais consistentes e poderosos, refletindo a coragem e aventureirismo do portador.\nLealdade Condicional: A Fibra de Coração de Dragão é leal a seus donos, desde que estes se mostrem corajosos e fiéis em suas jornadas mágicas. No entanto, se o bruxo ou bruxa for desarmado em um combate, a varinha pode se tornar leal ao vencedor, buscando sempre servir ao mais forte.",
+    "special_effect": "Habilidade em Necromancia e Evocação: O bruxo ou bruxa que possuir uma varinha com o Núcleo de Fibra de Coração de Dragão ganha um dado adicional (1d4 de dano ou cura) em feitiços de Necromancia e Evocação, representando o poder ofensivo e o talento natural para esses tipos de magia. Ou caso deseje a varinha pode ganhar um buff na duração do feitiço, caso o feitiço possua duração. o buff e sempre de +1. (Seja rodada ou o que for)\nDesafio\nO desafio ao usar uma varinha com esse núcleo é o controle e a responsabilidade. A força da Fibra de Coração de Dragão pode ser tentadora para bruxos inclinados a utilizar Artes das Trevas, exigindo que o portador seja cauteloso ao não se deixar levar pelo poder sombrio que a varinha pode oferecer.",
+    "critical_success": "Em um sucesso crítico, os feitiços de dano do bruxo ou bruxa são aprimorados, dobrando seu valor de dano, causando o dobro do dano normal. Por exemplo, um feitiço que normalmente causaria 1d4 de dano agora causaria 2d4+2 de dano.",
+    "critical_failure": "Em uma falha crítica, a varinha reage de forma indomável, emitindo uma espécie de \"coice\" mágico que causa dano ao seu possuidor. O dano é equivalente a 1d4 por nível do feitiço conjurado. Por exemplo, se o bruxo lançar um feitiço de 3º nível e falhar criticamente, sofrerá 3d4 de dano. É importante tomar cuidado com o uso imprudente de feitiços quando se possui uma varinha com esse núcleo.",
+    "identifier": "485f6425-c21d-4c62-88b1-b577e9038024",
+    "updatedAt": "2023-08-25 04:47:51"
+}

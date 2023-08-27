@@ -26,7 +26,6 @@ import {
 } from '~/discord/helpers/page-helper';
 import { Spell } from '~/spell/entities/spell.entity';
 import { SpellSlotsService } from '~/spell/spell-slots/spell-slots.service';
-import { SpellActionContext } from '~/spell/spell.group';
 import { SpellService } from '~/spell/spell.service';
 import { Grimoire } from './entities/grimoire.entity';
 import { GrimoireService } from './grimoire.service';
@@ -49,6 +48,7 @@ import { ILike } from 'typeorm';
 import { TrainSpellService } from '~/train/train-spell.service';
 import { groupBy } from 'lodash';
 import { generateProgressBarEmoji } from '~/utils/emojiProgressBar';
+import { SpellActionContext } from '~/spell/spell.menu.group';
 
 interface Props {
   selectedSlot: number;

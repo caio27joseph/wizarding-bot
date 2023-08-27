@@ -1,0 +1,11 @@
+{
+    "name": "Fibra de Coração de Snallygaster",
+    "rarity": "Raro",
+    "description": "A Fibra de Coração de Snallygaster é um raro e misterioso núcleo de varinha, obtido do Snallygaster, uma criatura lendária que combina características de ave e réptil. Apesar de ser parente distante do Occamy, o Snallygaster possui características únicas, como dentes de aço serrilhado e couro à prova de balas. A fibra de coração de Snallygaster foi usada como núcleo de varinhas pelos co-fundadores da Ilvermorny, James Steward e Isolt Sayre, em conjunto com o pelo de Pumaruna e chifre de Jackalope.",
+    "characteristics": "Azaração e Feitiço de Proteção: As varinhas com Fibra de Coração de Snallygaster são excepcionalmente hábeis em azarações e feitiços de proteção. Sua origem do Snallygaster confere-lhes um poder único e uma natureza curiosa.\nHabilidade em Magia em Ação:  O núcleo de varinha proporciona uma vantagem especial quando se trata de lançar feitiços em momentos cruciais.",
+    "special_effect": "Habilidade em Azaração e Proteção: O bruxo ou bruxa que possui uma varinha com Fibra de Coração de Snallygaster ganha dois dados adicionais (2d10) em necromancia ou um dado adicional (1d10) em necromancia, evocação e abjuração. Essa afinidade reflete a poderosa ligação da varinha com essas áreas da magia.",
+    "critical_success": "Em um sucesso crítico, o próximo feitiço lançado pelo bruxo é realizado com tamanha maestria que recebe um sucesso automático, independente da dificuldade do feitiço. Isso demonstra o incrível poder e precisão da varinha em momentos cruciais.",
+    "critical_failure": "Em uma falha crítica, a varinha libera uma onda de azar que afeta o próximo feitiço lançado pelo bruxo. A rolagem do próximo feitiço começa com um valor de -1, obrigando o jogador a remover um dos seus acertos. Isso demonstra que a varinha é temperamental e exige habilidade e concentração para lidar com seus poderes peculiares.",
+    "identifier": "1e3cc1fb-733f-4a66-92ed-e1e789a71afc",
+    "updatedAt": "2023-08-25 04:47:51"
+}

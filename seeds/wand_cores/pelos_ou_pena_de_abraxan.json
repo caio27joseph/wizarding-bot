@@ -1,0 +1,11 @@
+{
+    "name": "Pelos ou Pena de Abraxan",
+    "rarity": "Comum",
+    "description": "Os Pelos ou Pena de Abraxan são um núcleo de varinha incomum que provêm de uma criatura mágica chamada Abraxan, que é uma espécie de cavalo alado gigante. As varinhas com esse núcleo são altamente valorizadas por sua conexão com magias de cura e azaração, e são conhecidas por ganharem novas capacidades quando um bruxo conquista sua lealdade.",
+    "characteristics": "Magia de Cura e Azaração: As varinhas com Pelos ou Pena de Abraxan são altamente eficientes em feitiços de cura e azaração. A afinidade com a magia de cura e a capacidade de influenciar a realidade com feitiços azaradores tornam-nas poderosas ferramentas para bruxos que buscam equilíbrio entre proteção e cura.",
+    "special_effect": "Habilidade em Feitiços de Cura e Azaração: O bruxo ou bruxa que possui uma varinha com Pelos ou Pena de Abraxan recebe um dado adicional (1d10) em feitiços de cura e azaração. Além disso, eles também têm a opção de usar os dois dados adicionais (2d10) especificamente para feitiços de cura.",
+    "critical_success": "Em um sucesso crítico, a varinha é capaz de conceder efeitos duradouros aos feitiços lançados. O bônus de duração dos efeitos aumenta em 1 turno, o que permite ao bruxo prolongar os benefícios dos feitiços ou reforçar as proteções oferecidas por eles.",
+    "critical_failure": "Em uma falha crítica, a varinha libera uma poderosa rajada de vento a sua volta, empurrando o bruxo e quem estiver próximo a até 3 metros de distância. Isso pode causar 1d4 de dano e também atrapalhar a realização de feitiços subsequentes. É uma lembrança de que o poder da varinha pode ser desafiador de controlar em situações de falha.",
+    "identifier": "fd36b501-7485-4cdb-8197-09d108cd8b17",
+    "updatedAt": "2023-08-25 04:47:51"
+}

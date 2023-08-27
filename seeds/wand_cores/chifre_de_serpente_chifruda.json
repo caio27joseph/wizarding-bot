@@ -1,0 +1,11 @@
+{
+    "name": "Chifre de Serpente Chifruda",
+    "rarity": "Raro",
+    "description": "O Chifre de Serpente Chifruda é um raro e poderoso núcleo de varinha obtido a partir de serpentes com chifres, também conhecidas como Serpentes Chifrudas. Essas serpentes possuem uma cabeça com chifres distintivos, e algumas espécies americanas também apresentam uma jóia na testa. São animais considerados inteligentes, com olhos ferozes e a habilidade de emitir uma nota musical baixa para se comunicar e sinalizar perigo. As aparas de seus chifres são usadas como núcleos de varinha, sendo que a jóia em sua testa é especialmente cobiçada por conceder poderes de invisibilidade e fuga.",
+    "characteristics": "Ofidioglossia: As varinhas com Chifre de Serpente Chifruda têm uma forte afinidade com a ofidioglossia, a língua das cobras, permitindo que o bruxo seja mais hábil em se comunicar com essas criaturas e compreender sua magia.",
+    "special_effect": "Feitiços Encantados: O bruxo ou bruxa que possui uma varinha com Chifre de Serpente Chifruda recebe um bônus de 2 dados (2d10) em feitiços de Encantamento, evocação, conjuração e Transfiguração. Esse núcleo confere ao bruxo maior destreza na realização de feitiços relacionados à transformação de objetos e criaturas, bem como na aplicação de encantamentos mágicos.",
+    "critical_success": "Em um sucesso crítico, a varinha concede ao seu usuário uma recuperação de 1d4 de pontos de vida. Se o bruxo estiver com a saúde completa, ele ganha um bônus temporário de 1d4 de pontos de vida que dura por 2 turnos. Essa energia regenerativa permite que o bruxo se restabeleça rapidamente e continue lutando com vigor.",
+    "critical_failure": "Em uma falha crítica, a varinha libera um leve veneno em seu usuário, causando 1d4 de dano por 2 turnos. Essa reação adversa destaca a natureza misteriosa e imprevisível do Chifre de Serpente Chifruda, exigindo cuidado e atenção ao usar esse poderoso núcleo de varinha.",
+    "identifier": "fccdf838-441f-4708-9e3d-f6304fcb4694",
+    "updatedAt": "2023-08-25 04:47:51"
+}

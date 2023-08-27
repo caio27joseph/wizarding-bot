@@ -1,0 +1,11 @@
+{
+    "name": "Chifre ou Ossos de Basilisco",
+    "rarity": "Raro",
+    "description": "O Chifre ou Ossos de Basilisco são núcleos raros e extremamente poderosos, obtidos a partir de uma das criaturas mais mortais e temíveis da mitologia mágica: o Basilisco. Essas serpentes gigantescas são conhecidas como o \"Rei das Serpentes\" e possuem presas venenosas e um olhar mortal que pode causar morte instantânea a quem o enfrenta. Devido à sua natureza letal e rara, poucos produtores de varinhas ousam utilizar o Chifre ou Ossos de Basilisco como núcleo.",
+    "characteristics": "Poder Mortal: As varinhas com Chifre ou Ossos de Basilisco são excepcionalmente poderosas em maldições e feitiços de azaração. Elas têm uma afinidade natural com magias ofensivas e venenosas, tornando-se armas temíveis para bruxos e bruxas que buscam destruir ou neutralizar seus inimigos.",
+    "special_effect": "Toque Mortal: O bruxo ou bruxa que possui uma varinha com Chifre ou Ossos de Basilisco recebe um bônus de 2 dados (2d10) em necromancia, evocação e conjuração. Esse núcleo oferece ao bruxo um poder impressionante ao lançar magias ofensivas e enfeitiçar seus oponentes.",
+    "critical_success": "Em um sucesso crítico, a varinha libera uma poderosa carga mágica, concedendo um bônus de +1d4 de dano aos feitiços lançados nos próximos 2 turnos. Esse aumento no poder torna os feitiços ainda mais devastadores, permitindo que o bruxo alcance a vantagem em batalhas.",
+    "critical_failure": "Em uma falha crítica, a varinha libera um leve veneno em seu usuário, causando 1d4 de dano por 2 turnos. Essa reação adversa demonstra a natureza mortal e perigosa do Chifre ou Ossos de Basilisco e exige que o bruxo seja cauteloso ao manipular esse poderoso núcleo de varinha.",
+    "identifier": "d4ae3e10-920c-47ac-bd8c-b49476b72c20",
+    "updatedAt": "2023-08-25 04:47:51"
+}

@@ -36,6 +36,28 @@ export type AttributeNameValue =
   | 'determination'
   | 'rationality';
 
+export const attributeKeyMap = {
+  [AttributeNameEnum.STRENGTH]: 'strength',
+  [AttributeNameEnum.VIM]: 'vim',
+  [AttributeNameEnum.DEXTERITY]: 'dexterity',
+  [AttributeNameEnum.CHARISMA]: 'charisma',
+  [AttributeNameEnum.MANIPULATION]: 'manipulation',
+  [AttributeNameEnum.SELFCONTROL]: 'selfcontrol',
+  [AttributeNameEnum.INTELLIGENCE]: 'intelligence',
+  [AttributeNameEnum.DETERMINATION]: 'determination',
+  [AttributeNameEnum.RATIONALITY]: 'rationality',
+};
+export const attributeDisplay = {
+  strength: AttributeNameEnum.STRENGTH,
+  vim: AttributeNameEnum.VIM,
+  dexterity: AttributeNameEnum.DEXTERITY,
+  charisma: AttributeNameEnum.CHARISMA,
+  manipulation: AttributeNameEnum.MANIPULATION,
+  selfcontrol: AttributeNameEnum.SELFCONTROL,
+  intelligence: AttributeNameEnum.INTELLIGENCE,
+  determination: AttributeNameEnum.DETERMINATION,
+  rationality: AttributeNameEnum.RATIONALITY,
+};
 export const attributeChoices = Object.keys(AttributeNameEnum).map(
   (competence) => enumToChoice(competence as any, AttributeNameEnum),
 );

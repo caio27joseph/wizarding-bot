@@ -1,0 +1,11 @@
+{
+    "name": "Pelo de Testrálio",
+    "rarity": "Lendario",
+    "description": "O Pelo de Testrálio é um raro e misterioso núcleo de varinha, conhecido por sua aparência sinistra e sua conexão com as criaturas mágicas chamadas Testrálios. Esses seres alados, invisíveis para aqueles que nunca testemunharam a morte, têm uma presença assustadora e são frequentemente associados à morte e ao desconhecido. Por ser um material tão raro, poucos produtores de varinhas utilizam o Pelo de Testrálio, tornando as varinhas com esse núcleo extremamente valiosas e únicas.",
+    "characteristics": "Poder de Escolha: As varinhas com Pelo de Testrálio oferecem ao bruxo ou bruxa uma conexão especial com a magia, permitindo que eles escolham onde desejam concentrar seu poder. Essa flexibilidade permite que o bruxo adapte suas habilidades mágicas de acordo com as necessidades de cada situação. +2 dados em 1 escola de magia a sua escolha.",
+    "special_effect": "Escolha do Bruxo: O bruxo ou bruxa que possui uma varinha com Pelo de Testrálio recebe um bônus de 1 dados (1d10) que podem ser usados à sua escolha. Isso significa que o bruxo pode aplicar esses dados extras em qualquer tipo de feitiço, seja de ataque, proteção, cura ou qualquer outra categoria de magia que ele deseje aprimorar.Além disso, o bruxo também recebe um bônus de -1 na dificuldade em sucessos em feitiços.",
+    "critical_success": "Em um sucesso crítico, a varinha mostra seu poder excepcional, permitindo que o mesmo feitiço de ataque seja lançado duas vezes, dobrando seus efeitos, ou que o mesmo feitiço de proteção ou cura seja lançado duas vezes, aumentando sua eficácia.",
+    "critical_failure": "Em uma falha crítica, a varinha libera uma leve maldição no bruxo ou bruxa, fazendo com que ele se sinta enjoado por 2 turnos. Esse efeito temporário reflete a natureza incomum e misteriosa do Pelo de Testrálio, exigindo cautela e habilidade para dominar completamente esse poderoso núcleo de varinha.",
+    "identifier": "c8d8dc7f-2562-40a9-9ec5-236e7152bb7b",
+    "updatedAt": "2023-08-25 04:47:51"
+}

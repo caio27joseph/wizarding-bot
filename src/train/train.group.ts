@@ -19,10 +19,10 @@ import { groupBy, sumBy } from 'lodash';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
 import { SpellService } from '~/spell/spell.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
-import { SpellActionContext } from '~/spell/spell.group';
 import { TrainSpellService } from './train-spell.service';
 import { TrainSpellMenu } from './train-spell.menu';
 import { TrainService } from './train.service';
+import { SpellActionContext } from '~/spell/spell.menu.group';
 
 export enum SpellTrainAction {
   SELECT_GROUP = 'spell-train-group-select',
@@ -54,7 +54,6 @@ export class MaestryGroup {
     private readonly trainService: TrainService,
     private readonly trainSpellService: TrainSpellService,
     private readonly spellService: SpellService,
-    private readonly rollService: RollService,
   ) {}
 
   @Command({

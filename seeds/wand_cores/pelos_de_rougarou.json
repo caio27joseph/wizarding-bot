@@ -1,0 +1,11 @@
+{
+    "name": "Pelos de Rougarou",
+    "rarity": "Raro",
+    "description": "Os Pelos de Rougarou são um núcleo incomum e misterioso de varinha, obtidos a partir da fera mágica conhecida como Rougarou, que habita regiões pantanosas da Louisiana nos Estados Unidos. Essa fera tem uma aparência perigosa, com uma cabeça de cachorro, e é temida por sua natureza selvagem e violenta. O uso do pelo de Rougarou como núcleo de varinha foi mantido em segredo por um longo tempo pela bruxa norte-americana Violetta Beauvais, pois acredita-se que ele tenha uma afinidade com as Artes das Trevas.",
+    "characteristics": "Força das Trevas: As varinhas com Pelos de Rougarou têm uma forte afinidade com as Artes das Trevas, como maldições e feitiços de azaração. Elas são conhecidas por proporcionar um poder considerável para bruxos e bruxas que buscam dominar magias ofensivas e venenosas.",
+    "special_effect": "Fúria Selvagem: O bruxo ou bruxa que possui uma varinha com Pelos de Rougarou recebe um bônus de 2 dados (2d10) em necromancia e feitiços dfe dano. Esse núcleo confere ao bruxo uma dose adicional de força e selvageria em suas magias, tornando-os formidáveis oponentes em combate.",
+    "critical_success": "Em um sucesso crítico, a varinha libera uma poderosa descarga de energia, concedendo um bônus de +1d4 de dano aos feitiços lançados nos próximos 2 turnos. Esse aumento no poder amplifica a ferocidade dos feitiços, permitindo que o bruxo cause estragos ainda maiores nos adversários.",
+    "critical_failure": "Em uma falha crítica, a varinha libera um leve veneno em seu usuário, causando 1d4 de dano por 2 rodadas. Essa reação adversa destaca a natureza perigosa e selvagem dos Pelos de Rougarou, exigindo cautela ao manusear esse poderoso núcleo de varinha.",
+    "identifier": "d17189af-ff77-4d19-abf8-3cbb36ecf8f0",
+    "updatedAt": "2023-08-25 04:47:51"
+}

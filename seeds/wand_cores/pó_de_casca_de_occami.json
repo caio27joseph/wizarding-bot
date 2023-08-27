@@ -1,0 +1,11 @@
+{
+    "name": "Pó de Casca de Occami",
+    "rarity": "Mitico",
+    "description": "O Pó de Casca de Occami é um núcleo de varinha raro e fascinante, obtido a partir da casca em pó das Occamis, serpentes mágicas nativas da África e do Extremo Oriente. Essas criaturas têm a habilidade única de diminuir ou aumentar seu tamanho para caber em qualquer espaço, e sua casca é altamente valorizada no mundo mágico por suas propriedades místicas.",
+    "characteristics": "Adaptação Mágica: As varinhas com Pó de Casca de Occami são conhecidas por sua adaptabilidade e versatilidade mágica. Essa característica reflete a habilidade das Occamis de se adaptarem facilmente a diferentes situações e ambientes. +2 dados em uma escola a escolha.",
+    "special_effect": "Flexibilidade Mágica: O bruxo ou bruxa que possui uma varinha com Pó de Casca de Occami recebe um bônus de 1 dados (1d10) em todos os feitiços. A natureza versátil do pó da casca permite que a varinha execute feitiços de transformação e adaptação com maior facilidade e sucesso. Além disso, o bruxo também recebe um bônus de -1 na dificuldade em sucessos em feitiços.",
+    "critical_success": "Em um sucesso crítico, a varinha libera um fluxo adicional de pó de casca de Occami ao lançar um feitiço. Isso permite ao bruxo moldar o feitiço com maior precisão e eficácia, aumentando suas chances de sucesso e o poder do feitiço. O jogador tem seu proximo feitiço lançado com seu dano/cura ampliado em 1 dado extra alternativamente feitiços de efeito tem seu numero de alvos dobrados, além de causar dano maximo.",
+    "critical_failure": "Em uma falha crítica, a varinha pode ser afetada pela natureza mutável do pó de casca de Occami, resultando em um feitiço instável ou imprevisível. A falha pode levar a resultados inesperados ou até mesmo opostos ao que o bruxo pretendia realizar. Essa manifestação imprevisível do Pó de Casca de Occami reflete sua natureza mágica única e desafiadora. a magia sai do controle e os aliados proximos sofrem 50% do efeito como dano ou debuff.",
+    "identifier": "a222e23f-54b3-4858-a183-d08935d81ba2",
+    "updatedAt": "2023-08-25 04:47:51"
+}

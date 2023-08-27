@@ -1,0 +1,11 @@
+{
+    "name": "Veneno de Acrômantula",
+    "rarity": "Raro",
+    "description": "O Veneno de Acrômantula é um raro e poderoso núcleo de varinha, obtido a partir do veneno das Acrômantulas, grandes aranhas mágicas com uma reputação ameaçadora. Essas criaturas são conhecidas por serem extremamente venenosas e perigosas, e sua conexão com a escuridão torna o Veneno de Acrômantula uma escolha incomum e temida para a fabricação de varinhas.",
+    "characteristics": "Veneno Mortal:: As varinhas com Veneno de Acrômantula são conhecidas por sua natureza venenosa e mortífera. Essa característica reflete a letalidade do veneno da Acrômantula, tornando a varinha uma arma temível em combate.",
+    "special_effect": "Dano Aumentado: O bruxo ou bruxa que possui uma varinha com Veneno de Acrômantula recebe um bônus de 2 dados (2d10) em feitiços de necromancia e ilusão o que causam dano direto ao alvo. O veneno infundido na varinha aumenta o poder desses feitiços, tornando-os ainda mais prejudiciais e temíveis.",
+    "critical_success": "Em um sucesso crítico, a varinha libera uma dose extra de veneno ao lançar um feitiço. Isso causa um dano adicional de 1d4, além de quaisquer outros efeitos do feitiço. O veneno da Acrômantula é altamente tóxico, e esse efeito reforçado demonstra a potência mortal da varinha.",
+    "critical_failure": "Em uma falha crítica, a varinha pode ser contaminada pelo próprio veneno que a compõe, tornando-se perigosa para o próprio bruxo ou bruxa. A falha pode resultar em uma leve intoxicação mágica, causando tontura ou fraqueza temporária no usuário. Essa manifestação letal do Veneno de Acrômantula reflete a natureza perigosa e imprevisível desse núcleo.",
+    "identifier": "fc9b9076-3994-4673-8f43-431d747b54ef",
+    "updatedAt": "2023-08-25 04:47:51"
+}

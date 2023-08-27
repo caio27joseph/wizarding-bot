@@ -11,7 +11,6 @@ import {
   MenuAction,
   MenuHelper,
 } from '~/discord/helpers/menu-helper';
-import { SpellActionContext } from './spell.group';
 import { Command } from '~/discord/decorators/command.decorator';
 import {
   ArgGuild,
@@ -36,6 +35,11 @@ import {
   SpellDifficultyEnum,
 } from './entities/spell.entity';
 import { GrimoireMenu } from '~/grimoire/grimoire.menu';
+
+export interface SpellActionContext extends ActionContext {
+  spell?: Spell;
+  spells?: Spell[];
+}
 
 @Group({
   name: 'ftc',

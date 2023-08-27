@@ -1,4 +1,4 @@
-import { EmbedBuilder, Interaction } from 'discord.js';
+import { EmbedBuilder, Interaction, InteractionReplyOptions } from 'discord.js';
 import {
   Column,
   Entity,
@@ -8,10 +8,15 @@ import {
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { DiscordEntityVieable } from '~/discord/types';
+import {
+  CanHaveBonus,
+  Bonus,
+  BonusTarget,
+} from '~/items/bonuses/item-with-bonus.interface';
 import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
 
 @Entity()
-export class Item implements DiscordEntityVieable {
+export class Item implements DiscordEntityVieable, CanHaveBonus {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -29,6 +34,11 @@ export class Item implements DiscordEntityVieable {
 
   @Column()
   guildId: string;
+
+  @Column({
+    type: 'json',
+  })
+  bonuses: Bonus<BonusTarget>[];
 
   @OneToMany(
     () => ResourceProvider,

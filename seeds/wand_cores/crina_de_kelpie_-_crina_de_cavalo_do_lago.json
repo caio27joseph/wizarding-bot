@@ -1,0 +1,11 @@
+{
+    "name": "Crina de Kelpie - Crina de Cavalo do Lago",
+    "rarity": "Raro",
+    "description": "A Crina de Kelpie, também conhecida como Crina de Cavalo do Lago, é um raro núcleo de varinha obtido das místicas criaturas conhecidas como Cavalos do Lago. Essas criaturas são capazes de assumir qualquer forma, mas geralmente escolhem a aparência de um cavalo com uma juba de junco. Atraem viajantes incautos para as margens dos lagos e, em seguida, os arrastam para as profundezas da água para devorá-los, deixando somente suas entranhas flutuando na superfície. No entanto, um Cavalo do Lago pode ser domado e tornado inofensivo usando um Feitiço de Posicionamento para colocar um freio sobre sua cabeça. A Crina de Kelpie é usada como núcleo de varinha, concedendo habilidades únicas ao seu possuidor.",
+    "characteristics": "Encantamento e Transfiguração: As varinhas com Crina de Kelpie são altamente eficazes em feitiços de encantamento e transfiguração. Seus poderes são particularmente úteis para bruxos que desejam aprimorar suas habilidades em encantar objetos e pessoas, bem como aqueles que desejam dominar a arte da transfiguração.",
+    "special_effect": "Habilidades em Feitiços Múltiplos: O bruxo ou bruxa que possui uma varinha com Crina de Kelpie recebe um bônus de 2 dados (2d10) em feitiços de encantamento e transfiguração, ou um bônus de 1 dado (1d10) em feitiços de encantamento, maldição, transfiguração e abjuração.",
+    "critical_success": "Em um sucesso crítico, a varinha é capaz de maximizar seus feitiços, concedendo um bônus em seus próximos três feitiços. Esses feitiços terão sua dificuldade reduzida em -1, proporcionando uma vantagem significativa em termos de precisão e poder.",
+    "critical_failure": "Em uma falha crítica, a varinha drena 1d4 de vida do próprio usuário, assim como dos inimigos ou aliados próximos. Essa drenagem de vida pode ser perigosa e deve ser evitada a todo custo, pois pode enfraquecer o bruxo ou bruxa durante os combates mais intensos.",
+    "identifier": "1702027d-56f1-4497-858f-74ed0e29751a",
+    "updatedAt": "2023-08-25 04:47:51"
+}

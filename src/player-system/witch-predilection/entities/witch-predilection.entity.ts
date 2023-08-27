@@ -38,8 +38,7 @@ export type WitchPredilectionNameValue =
   | 'Ilusão'
   | 'Universal';
 
-// map reverse
-export const witchPredilectionNameMap = {
+export const witchPredilectionKeyMap = {
   [WitchPredilectionNameEnum.ABJURATION]: 'abjuration',
   [WitchPredilectionNameEnum.ENCHANTMENT]: 'enchantment',
   [WitchPredilectionNameEnum.NECROMANCY]: 'necromancy',
@@ -49,6 +48,17 @@ export const witchPredilectionNameMap = {
   [WitchPredilectionNameEnum.CONJURATION]: 'conjuration',
   [WitchPredilectionNameEnum.ILLUSION]: 'illusion',
   [WitchPredilectionNameEnum.UNIVERSAL]: 'universal',
+};
+export const witchPredilectionDisplay = {
+  abjuration: WitchPredilectionNameEnum.ABJURATION,
+  enchantment: WitchPredilectionNameEnum.ENCHANTMENT,
+  necromancy: WitchPredilectionNameEnum.NECROMANCY,
+  divination: WitchPredilectionNameEnum.DIVINATION,
+  evocation: WitchPredilectionNameEnum.EVOCATION,
+  transmutation: WitchPredilectionNameEnum.TRANSMUTATION,
+  conjuration: WitchPredilectionNameEnum.CONJURATION,
+  illusion: WitchPredilectionNameEnum.ILLUSION,
+  universal: WitchPredilectionNameEnum.UNIVERSAL,
 };
 
 export const witchPredilectionChoices = Object.keys(

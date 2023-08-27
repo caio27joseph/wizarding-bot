@@ -1,0 +1,10 @@
+{
+    "name": "Olmo (Elm)",
+    "rarity": "Comum",
+    "wood_description": "A madeira de olmo é incomum na fabricação de varinhas e tem uma reputação de ser altamente seletiva em relação a seus possuidores. Enquanto há uma crença infundada de que apenas bruxos de sangue-puro podem utilizar varinhas de olmo, isso não é verdade, e muitos bruxos nascidos trouxas também podem se adequar perfeitamente a essa madeira. No entanto, a varinha de olmo tende a escolher bruxos que possuem uma presença marcante, destreza mágica e uma certa dignidade inata.",
+    "characteristics": "Elegância e Charme: As varinhas de olmo são altamente sofisticadas e capazes de realizar feitiços elegantes e charmosos. Elas têm uma afinidade natural com a magia de alto nível e se destacam na execução de feitiços complexos. +1 dado para encantamento e Conjuração.\nMenos Acidentes: Entre todas as madeiras, o olmo é conhecido por produzir varinhas com menos acidentes e erros bobos. Elas são altamente precisas e consistentes em sua performance.  -1 sucesso de meta.\nSeletividade: A varinha de olmo é extremamente seletiva em relação a seus possuidores. Ela busca bruxos que possuam uma presença marcante e destreza mágica, além de uma certa dignidade inata.",
+    "core_combinations": "As varinhas de olmo podem ser combinadas com uma variedade de núcleos, mas a pena de fênix é uma das combinações mais poderosas. Essa união aumenta ainda mais a elegância e o charme da varinha, tornando-a ainda mais eficaz na realização de feitiços complexos. +2 turnos para efeitos de encantamento.",
+    "magic_schools": "A varinha de olmo é recomendada para bruxos que possuem uma presença marcante, destreza mágica e uma certa dignidade inata. Ela é especialmente adequada para escolas da magia que valorizam a sofisticação e o alto nível de magia, como a transfiguração e a feitiçaria avançada. Seu desempenho preciso e elegante a torna uma excelente escolha para bruxos experientes e habilidosos em várias áreas da magia.",
+    "identifier": "95e1d040-9c29-4ae7-8353-265eadbb774a",
+    "updatedAt": "2023-08-24 20:17:11"
+}

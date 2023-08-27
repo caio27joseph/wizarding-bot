@@ -1,0 +1,11 @@
+{
+    "name": "Pelo de Pumaruna",
+    "rarity": "Comum",
+    "description": "O Pelo de Pumaruna é um núcleo de varinha incomum, oriundo do majestoso Pumaruna, uma criatura nativa das montanhas dos Apalaches. Esses seres possuem aparência semelhante a pumas mundanos, mas com olhos amarelos hipnotizantes, conhecidos por sua habilidade em hipnose e legilimência. Os pelos do Pumaruna foram escolhidos por renomados fabricantes de varinhas, como Johannes Jonker, Isolt Sayre e James Steward, devido à sua eficácia e poder mágico.",
+    "characteristics": "Hipnose e Legilimência: Varinhas com Pelo de Pumaruna possuem uma conexão especial com a hipnose e legilimência, tornando-as mais proficientes em encantamentos e feitiços de proteção.\nRapidez e Força:  A essência do Pumaruna confere às varinhas uma sensação de velocidade e força, tornando-as ideais para bruxos e bruxas que buscam eficiência em combates mágicos.",
+    "special_effect": "Habilidade em Encantamentos e Proteção: O bruxo ou bruxa que possui uma varinha com Pelo de Pumaruna ganha um dado adicional (1d10) em feitiços de encantamentos e evocação ou um dado adicional (1d10) em evocação e abjuração. Isso reflete a afinidade da varinha com essas áreas da magia.",
+    "critical_success": "Em um sucesso crítico, o feitiço lançado pelo bruxo deixa um efeito adicional no alvo, que pode ser benefício ou prejudicial. O efeito extra é determinado pelo Mestre, podendo incluir uma cura aumentada, proteção melhorada, dano aumentado ou outro efeito mágico que complemente o feitiço original.",
+    "critical_failure": "Em uma falha crítica, a varinha libera uma drenagem mágica em seu próximo feitiço, causando um dano de 1d4 na própria vida do bruxo. Essa drenagem pode ser prejudicial ao bruxo e deve ser considerada com cautela.",
+    "identifier": "31c4c3f7-d745-4f1b-905b-2e3a5d541f15",
+    "updatedAt": "2023-08-25 04:47:51"
+}

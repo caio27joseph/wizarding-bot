@@ -5,20 +5,24 @@ import {
   EmbedBuilder,
   InteractionReplyOptions,
 } from 'discord.js';
-import { SpellActionContext } from '~/spell/spell.group';
 import { TrainSpellService } from './train-spell.service';
 import { Train, TrainGroupOption } from './entities/train.entity';
 import { Spell, maestryNumToName } from '~/spell/entities/spell.entity';
 import {
   WitchPredilectionNameEnum,
-  witchPredilectionNameMap,
+  witchPredilectionKeyMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Player } from '~/core/player/entities/player.entity';
-import { MenuAction, MenuHelper } from '~/discord/helpers/menu-helper';
+import {
+  ActionContext,
+  MenuAction,
+  MenuHelper,
+} from '~/discord/helpers/menu-helper';
 import { ButtonConfig, FormHelper } from '~/discord/helpers/form-helper';
 import { RollService } from '~/roll/roll.service';
 import { RollsD10 } from '~/roll/entities/roll.entity';
 import { TrainService } from './train.service';
+import { SpellActionContext } from '~/spell/spell.menu.group';
 
 interface Props {
   roll?: WitchPredilectionNameEnum;
@@ -284,7 +288,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
 
     const rolls: RollsD10[] = [];
     const roll = await this.rollService.roll10(player, {
-      witchPredilection: witchPredilectionNameMap[props.roll],
+      witchPredilection: witchPredilectionKeyMap[props.roll],
       extras: 'control',
       autoSuccess: props.autoSuccess,
       bonus: props.bonusRoll,
@@ -305,7 +309,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     trains.push(train);
     if (doubleTrain) {
       const roll = await this.rollService.roll10(player, {
-        witchPredilection: witchPredilectionNameMap[props.roll],
+        witchPredilection: witchPredilectionKeyMap[props.roll],
         extras: 'control',
         autoSuccess: props.autoSuccess,
         bonus: props.bonusRoll,
