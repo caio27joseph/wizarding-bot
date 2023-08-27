@@ -44,6 +44,15 @@ export class ResourceProvider {
   space: Space;
 
   @Column()
+  minAmount: number;
+  @Column()
+  maxAmount: number;
+  @Column()
+  metaForMaxAmount: number;
+  @Column()
+  amountForExtraDrop: number;
+
+  @Column()
   spaceId: string;
 
   toEmbed() {

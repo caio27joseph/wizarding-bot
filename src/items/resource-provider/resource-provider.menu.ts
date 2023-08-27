@@ -29,6 +29,7 @@ import { NewResourceProviderProps } from './forms/new-provider.form';
 import { subtract } from 'lodash';
 import { subtractDays } from '~/utils/date.utils';
 import { MessageCollectorHelper } from '~/discord/helpers/message-collector-helper';
+import { Like } from 'typeorm';
 
 export interface ResourceProviderActionContext extends ActionContext {
   space: Space;
@@ -74,7 +75,7 @@ export class ResourceProviderMenu extends MenuHelper<ActionContext> {
     if (name) {
       const item = await this.itemService.findOne({
         where: {
-          name,
+          name: Like(name),
           guildId: guild.id,
         },
       });
@@ -124,6 +125,36 @@ export class ResourceProviderMenu extends MenuHelper<ActionContext> {
           })),
           pipe: (value) => parseInt(value),
         },
+        {
+          placeholder: 'Quantidade Mínima de Recursos [0]',
+          propKey: 'minAmount',
+          defaultValue: 0,
+          options: [0, 1, 2, 3, 4, 5, 7, 10, 15, 20].map((n) => ({
+            label: n.toString() + ` ${context.item.name}`,
+            value: n.toString(),
+          })),
+          pipe: (value) => parseInt(value),
+        },
+        {
+          placeholder: 'Quantidade Máxima de Recursos [10]',
+          propKey: 'maxAmount',
+          defaultValue: 10,
+          options: [3, 4, 5, 6, 7, 8, 9, 10, 15, 20].map((n) => ({
+            label: n.toString() + ` ${context.item.name}`,
+            value: n.toString(),
+          })),
+          pipe: (value) => parseInt(value),
+        },
+        {
+          placeholder: 'Meta para conseguir o máximo [6]',
+          propKey: 'metaForMaxAmount',
+          defaultValue: 6,
+          options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
+            label: n.toString() + ` ${context.item.name}`,
+            value: n.toString(),
+          })),
+          pipe: (value) => parseInt(value),
+        },
       ],
       buttons: [
         {
@@ -142,13 +173,18 @@ export class ResourceProviderMenu extends MenuHelper<ActionContext> {
             const rp = await this.service.create({
               item: context.item,
               daysCooldown: form.daysCooldown,
+              minAmount: form.minAmount,
+              maxAmount: form.maxAmount,
+              metaForMaxAmount: form.metaForMaxAmount,
+
+              amountForExtraDrop: 1,
               lastTimeOpened: lastTimeOpened,
               name,
               description,
               space: context.space,
             });
             await context.interaction.editReply({
-              content: 'Loot box criada com sucesso!',
+              content: 'Area com recursos criada com sucesso!',
               embeds: [
                 new EmbedBuilder()
                   .setTitle(rp.name)

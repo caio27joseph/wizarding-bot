@@ -37,6 +37,7 @@ export class Item implements DiscordEntityVieable, CanHaveBonus {
 
   @Column({
     type: 'json',
+    default: [],
   })
   bonuses: Bonus<BonusTarget>[];
 

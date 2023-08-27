@@ -36,6 +36,21 @@ export class Player implements DiscordEntityVieable {
   @Field({ nullable: true })
   name?: string;
 
+  @Column({
+    default: 0,
+  })
+  xp: number;
+
+  @Column({
+    default: 0,
+  })
+  wizardMoney: number;
+
+  @Column({
+    default: 0,
+  })
+  muggleMoney: number;
+
   @Column({ nullable: true })
   @Field({ nullable: true })
   avatarUrl?: string;
