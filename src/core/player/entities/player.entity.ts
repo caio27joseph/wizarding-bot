@@ -142,6 +142,21 @@ export class Player implements DiscordEntityVieable {
       });
       embeds.setColor(this.house.color);
     }
+    embeds.addFields({
+      name: 'XP',
+      value: this.xp.toString(),
+      inline: true,
+    });
+    embeds.addFields({
+      name: 'Galeões',
+      value: this.wizardMoney.toString(),
+      inline: true,
+    });
+    embeds.addFields({
+      name: 'Libras',
+      value: this.muggleMoney.toString(),
+      inline: true,
+    });
     return embeds;
   }
   reply(interaction: Interaction) {

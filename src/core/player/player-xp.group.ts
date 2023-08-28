@@ -9,6 +9,7 @@ import {
 } from '~/discord/decorators/message.decorators';
 import { CommandInteraction } from 'discord.js';
 import { Player } from './entities/player.entity';
+import { PlayerChangeLogService } from './player-change-log.service';
 
 @Group({
   name: 'xp',
@@ -16,7 +17,10 @@ import { Player } from './entities/player.entity';
 })
 @Injectable()
 export class PlayerXPGroup {
-  constructor(private readonly service: PlayerService) {}
+  constructor(
+    private readonly service: PlayerService,
+    private readonly logSaver: PlayerChangeLogService,
+  ) {}
 
   @Command({
     name: 'dar',
@@ -26,15 +30,31 @@ export class PlayerXPGroup {
   async addXP(
     @ArgInteraction()
     interaction: CommandInteraction,
-    @ArgPlayer()
-    player: Player,
     @ArgInteger({ name: 'quantidade' })
     quantity: number,
+    @ArgPlayer({
+      name: 'jogador',
+      description: 'Jogador para adicionar xp',
+    })
+    player: Player,
+    @ArgPlayer({
+      name: 'Motivo',
+      description: 'Motivo para adicionar o xp',
+    })
+    reason: string,
   ) {
     player.xp += quantity;
     await this.service.save(player);
+    await this.logSaver.create({
+      player,
+      field: 'xp',
+      oldValue: (player.xp - quantity).toString(),
+      newValue: player.xp.toString(),
+      value: quantity.toString(),
+      reason,
+    });
     await interaction.reply({
-      content: `Adicionado ${quantity}xp ao personagem ${player.name}`,
+      content: `Adicionado ${quantity} XP ao personagem ${player.name}`,
       embeds: [player.toEmbed()],
       ephemeral: true,
     });

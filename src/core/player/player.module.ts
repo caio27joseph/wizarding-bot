@@ -6,10 +6,21 @@ import { Player } from './entities/player.entity';
 import { HouseModule } from '../house/house.module';
 import { PlayerGroup } from './player.group';
 import { GuildModule } from '../guild/guild.module';
+import { PlayerXPGroup } from './player-xp.group';
+import { PlayerTargetGroup } from './player-target.group';
+import { PlayerChangeLogService } from './player-change-log.service';
+import { PlayerChangeLog } from './entities/player-change-log.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Player]), HouseModule],
-  providers: [PlayerResolver, PlayerService, PlayerGroup],
-  exports: [PlayerService],
+  imports: [TypeOrmModule.forFeature([Player, PlayerChangeLog]), HouseModule],
+  providers: [
+    PlayerResolver,
+    PlayerService,
+    PlayerGroup,
+    PlayerTargetGroup,
+    PlayerXPGroup,
+    PlayerChangeLogService,
+  ],
+  exports: [PlayerService, PlayerChangeLogService],
 })
 export class PlayerModule {}
