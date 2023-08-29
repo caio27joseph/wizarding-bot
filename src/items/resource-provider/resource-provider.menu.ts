@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import {
   ButtonStyle,
   CommandInteraction,
-  EmbedBuilder,
   InteractionReplyOptions,
   MessageReplyOptions,
 } from 'discord.js';
@@ -22,26 +21,21 @@ import {
 } from '~/discord/helpers/menu-helper';
 import { Space } from '~/spaces/space/entities/space.entity';
 import { ItemService } from '../item/item.service';
-import { Item } from '../item/entities/item.entity';
 import { ResourceProviderService } from './resource-provider.service';
-import { FormConfig, FormHelper } from '~/discord/helpers/form-helper';
-import { NewResourceProviderProps } from './forms/new-provider.form';
-import { subtract } from 'lodash';
-import { subtractDays } from '~/utils/date.utils';
-import { MessageCollectorHelper } from '~/discord/helpers/message-collector-helper';
 import { Like } from 'typeorm';
-
-export interface ResourceProviderActionContext extends ActionContext {
-  space: Space;
-  item?: Item;
-}
+import {
+  ResourceProviderActionContext,
+  getNewProviderInput,
+} from './forms/new-provider.form';
+import { MessageCollectorHelper } from '~/discord/helpers/message-collector-helper';
+import { subtractDays } from '~/utils/date.utils';
 
 @Group({
   name: 'mod_resource',
   description: 'Resource related commands',
 })
 @Injectable()
-export class ResourceProviderMenu extends MenuHelper<ActionContext> {
+export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
   constructor(
     private readonly itemService: ItemService,
     private readonly service: ResourceProviderService,
@@ -102,7 +96,7 @@ export class ResourceProviderMenu extends MenuHelper<ActionContext> {
   @MenuAction('Novo Gerador')
   async createProvider(context: ResourceProviderActionContext) {
     const reply: InteractionReplyOptions = {
-      content: 'Hora de Criar um Novo Gerador de Recurso',
+      content: 'Vamos criar uma nova fonte de Recurso',
       components: [],
     };
 
@@ -111,96 +105,30 @@ export class ResourceProviderMenu extends MenuHelper<ActionContext> {
       await context.interaction.editReply(reply);
       return;
     }
+    const form = await getNewProviderInput(context);
+    const collector = new MessageCollectorHelper(context);
 
-    const config: FormConfig<NewResourceProviderProps> = {
-      label: `Novo Provedor de Item:${context.item.name}`,
-      fields: [
-        {
-          placeholder: 'Dias de cooldown',
-          propKey: 'daysCooldown',
-          defaultValue: 1,
-          options: [1, 2, 3, 5, 7, 9, 14, 20, 30].map((n) => ({
-            label: n.toString() + ' dias',
-            value: n.toString(),
-          })),
-          pipe: (value) => parseInt(value),
-        },
-        {
-          placeholder: 'Quantidade Mínima de Recursos [0]',
-          propKey: 'minAmount',
-          defaultValue: 0,
-          options: [0, 1, 2, 3, 4, 5, 7, 10, 15, 20].map((n) => ({
-            label: n.toString() + ` ${context.item.name}`,
-            value: n.toString(),
-          })),
-          pipe: (value) => parseInt(value),
-        },
-        {
-          placeholder: 'Quantidade Máxima de Recursos [10]',
-          propKey: 'maxAmount',
-          defaultValue: 10,
-          options: [3, 4, 5, 6, 7, 8, 9, 10, 15, 20].map((n) => ({
-            label: n.toString() + ` ${context.item.name}`,
-            value: n.toString(),
-          })),
-          pipe: (value) => parseInt(value),
-        },
-        {
-          placeholder: 'Meta para conseguir o máximo [6]',
-          propKey: 'metaForMaxAmount',
-          defaultValue: 6,
-          options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
-            label: n.toString() + ` ${context.item.name}`,
-            value: n.toString(),
-          })),
-          pipe: (value) => parseInt(value),
-        },
-      ],
-      buttons: [
-        {
-          label: 'Criar',
-          style: ButtonStyle.Success,
-          handler: async (i, form) => {
-            let lastTimeOpened = subtractDays(new Date(), form.daysCooldown);
+    const name = await collector.prompt('Digite o nome do Gerador');
+    const description = await collector.prompt('Digite a descrição do Gerador');
+    const imageUrl = await collector.prompt(
+      'Digite a URL da imagem do Gerador',
+    );
+    const lastTimeOpened = subtractDays(new Date(), form.daysCooldown);
 
-            const collector = new MessageCollectorHelper(context);
-
-            const name = await collector.prompt('Digite o nome do provedor');
-            const description = await collector.prompt(
-              'Digite a descrição do provedor',
-            );
-
-            const rp = await this.service.create({
-              item: context.item,
-              daysCooldown: form.daysCooldown,
-              minAmount: form.minAmount,
-              maxAmount: form.maxAmount,
-              metaForMaxAmount: form.metaForMaxAmount,
-
-              amountForExtraDrop: 1,
-              lastTimeOpened: lastTimeOpened,
-              name,
-              description,
-              space: context.space,
-            });
-            await context.interaction.editReply({
-              content: 'Area com recursos criada com sucesso!',
-              embeds: [
-                new EmbedBuilder()
-                  .setTitle(rp.name)
-                  .setDescription(rp.description)
-                  .setAuthor({
-                    name: 'Gerador de ' + context.item.name,
-                  })
-                  .setThumbnail(rp.item.imageUrl),
-              ],
-            });
-          },
-        },
-      ],
-    };
-
-    new FormHelper<NewResourceProviderProps>(context, config).init();
+    const provider = await this.service.create({
+      ...form,
+      name,
+      description,
+      imageUrl,
+      lastTimeOpened,
+      lastTimeSearched: lastTimeOpened,
+      item: context.item,
+      space: context.space,
+    });
+    await context.interaction.editReply({
+      content: 'Gerador Criado!',
+      embeds: [provider.toEmbed()],
+    });
   }
 
   @MenuAction('Ver Geradores')

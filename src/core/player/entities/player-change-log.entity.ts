@@ -37,5 +37,9 @@ export class PlayerChangeLog {
 
   @ManyToOne(() => Player)
   @JoinColumn()
-  player: Player;
+  receiver: Player;
+
+  @ManyToOne(() => Player)
+  @JoinColumn()
+  giver: Player;
 }

@@ -10,7 +10,7 @@ import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { Injectable } from '@nestjs/common';
 import { Command } from '~/discord/decorators/command.decorator';
-import { CompetencesNameEnum } from './entities/competences.entity';
+import { CompetenceDisplayEnum } from './entities/competences.entity';
 
 @Group({
   name: 'comp',
@@ -51,84 +51,84 @@ export class CompetencesGroup {
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
     @ArgInteger({
-      name: CompetencesNameEnum.APPARITION,
+      name: CompetenceDisplayEnum.APPARITION,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     apparition: number,
     @ArgInteger({
-      name: CompetencesNameEnum.MAGIZOOLOGY,
+      name: CompetenceDisplayEnum.MAGIZOOLOGY,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     magizoology: number,
     @ArgInteger({
-      name: CompetencesNameEnum.DARK_ARTS,
+      name: CompetenceDisplayEnum.DARK_ARTS,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     dark_arts: number,
     @ArgInteger({
-      name: CompetencesNameEnum.FLIGHT,
+      name: CompetenceDisplayEnum.FLIGHT,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     flight: number,
     @ArgInteger({
-      name: CompetencesNameEnum.DIVINATION,
+      name: CompetenceDisplayEnum.DIVINATION,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     divination: number,
     @ArgInteger({
-      name: CompetencesNameEnum.ASTRONOMY,
+      name: CompetenceDisplayEnum.ASTRONOMY,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     astronomy: number,
     @ArgInteger({
-      name: CompetencesNameEnum.ANCIENT_RUNES,
+      name: CompetenceDisplayEnum.ANCIENT_RUNES,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     ancient_runes: number,
     @ArgInteger({
-      name: CompetencesNameEnum.RITUALS,
+      name: CompetenceDisplayEnum.RITUALS,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     rituals: number,
     @ArgInteger({
-      name: CompetencesNameEnum.POTIONS_ALCHEMY,
+      name: CompetenceDisplayEnum.POTIONS_ALCHEMY,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     potions_alchemy: number,
     @ArgInteger({
-      name: CompetencesNameEnum.HERBOLOGY,
+      name: CompetenceDisplayEnum.HERBOLOGY,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     herbology: number,
     @ArgInteger({
-      name: CompetencesNameEnum.MAGI_MEDICINE,
+      name: CompetenceDisplayEnum.MAGI_MEDICINE,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],
     })
     magi_medicine: number,
     @ArgInteger({
-      name: CompetencesNameEnum.MAGICAL_LANGUAGES,
+      name: CompetenceDisplayEnum.MAGICAL_LANGUAGES,
       description: 'Força do personagem',
       required: false,
       choices: [1, 2, 3, 4, 5],

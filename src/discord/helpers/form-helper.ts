@@ -108,38 +108,43 @@ export class FormHelper<Props> {
 
     collector.on(
       'collect',
-      async (interaction: StringSelectMenuInteraction | ButtonInteraction) => {
-        if (interaction instanceof StringSelectMenuInteraction) {
-          const fieldConfig = this.selectIdMap.get(interaction.customId);
+      async (i: StringSelectMenuInteraction | ButtonInteraction) => {
+        if (i instanceof StringSelectMenuInteraction) {
+          const fieldConfig = this.selectIdMap.get(i.customId);
           if (fieldConfig) {
-            await interaction.deferReply({ ephemeral: true });
+            await i.deferReply({ ephemeral: true });
 
             let value: any;
             if (fieldConfig.pipe) {
-              value = fieldConfig.pipe(interaction.values[0]);
+              value = fieldConfig.pipe(i.values[0]);
             } else {
-              value = interaction.values[0];
+              value = i.values[0];
             }
             props[fieldConfig.propKey] = value;
-            await interaction.deleteReply();
+            await i.deleteReply();
           }
-        } else if (interaction instanceof ButtonInteraction) {
-          await interaction.deferReply({ ephemeral: true });
-          const buttonConfig = this.buttonIdMap.get(interaction.customId);
+        } else if (i instanceof ButtonInteraction) {
+          await i.deferReply({ ephemeral: true });
+          const buttonConfig = this.buttonIdMap.get(i.customId);
           if (buttonConfig) {
             try {
-              await this.context.interaction.editReply({
-                components: [],
-              });
-              await buttonConfig.handler(interaction, props as any);
+              try {
+                await this.context.interaction.editReply({
+                  components: [],
+                });
+              } catch (error) {
+                debugger;
+              }
+              await i.deleteReply();
+              await buttonConfig.handler(i, props as any);
             } catch (error) {
+              await i.deleteReply();
               await this.context.interaction.followUp({
                 content: `Erro ao processar ação: ${error.message}`,
                 ephemeral: true,
               });
             }
           }
-          await interaction.deleteReply();
           collector.stop('Handled');
         }
       },
@@ -155,3 +160,4 @@ export class FormHelper<Props> {
     await this.collectFormResponses();
   }
 }
+1;

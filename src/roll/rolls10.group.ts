@@ -9,7 +9,10 @@ import {
   ArgString,
 } from '~/discord/decorators/message.decorators';
 import { CommandInteraction } from 'discord.js';
-import { attributeChoices } from '~/player-system/attribute/entities/attributes.entity';
+import {
+  AttributeKeyType,
+  attributeChoices,
+} from '~/player-system/attribute/entities/attributes.entity';
 import { Player } from '~/core/player/entities/player.entity';
 import { AttributeService } from '~/player-system/attribute/attribute.service';
 import { AbilitiesService } from '~/player-system/abilities/abilities.service';
@@ -19,6 +22,9 @@ import { NonConvPredilectionsService } from '~/player-system/nonconv-predilectio
 import { competenceChoices } from '~/player-system/competences/entities/competences.entity';
 import {
   Abilities,
+  KnowledgeNameValue,
+  SkillNameValue,
+  TalentNameValue,
   knowledgeChoices,
   skillChoices,
   talentChoices,
@@ -74,28 +80,28 @@ export class Rolls10Group {
       choices: attributeChoices,
       required: false,
     })
-    attribute?: string,
+    attribute?: AttributeKeyType,
     @ArgString({
       name: 'Perícia',
       description: 'Perícia a ser rolada',
       choices: skillChoices,
       required: false,
     })
-    skills?: string,
+    skill?: SkillNameValue,
     @ArgString({
       name: 'Talento',
       description: 'Talento a ser rolado',
       choices: talentChoices,
       required: false,
     })
-    talent?: string,
+    talent?: TalentNameValue,
     @ArgString({
       name: 'Conhecimento',
       description: 'Conhecimento a ser rolado',
       choices: knowledgeChoices,
       required: false,
     })
-    knowledge?: string,
+    knowledge?: KnowledgeNameValue,
     @ArgString({
       name: 'Competência',
       description: 'Competencia a ser rolada',
@@ -126,12 +132,12 @@ export class Rolls10Group {
     extras?: string,
   ) {
     await interaction.deferReply();
-    const roll = await this.rollService.roll10(player, {
+    const roll = await this.rollService.roll10(interaction, player, {
       diff,
       autoSuccess,
       bonus,
       attribute,
-      skills,
+      skill,
       talent,
       knowledge,
       competence,

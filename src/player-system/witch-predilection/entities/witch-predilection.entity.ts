@@ -12,8 +12,9 @@ import {
 import { Player } from '~/core/player/entities/player.entity';
 import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
+import { getDisplayKeyMaps } from '~/utils/entity-types';
 
-export enum WitchPredilectionNameEnum {
+export enum WitchPredilectionDisplayEnum {
   ABJURATION = 'Abjuração',
   ENCHANTMENT = 'Encantamento',
   NECROMANCY = 'Necromancia',
@@ -27,6 +28,25 @@ export enum WitchPredilectionNameEnum {
   UNIVERSAL = 'Universal',
 }
 
+export enum WitchPredilectionKeyEnum {
+  ABJURATION = 'abjuration',
+  ENCHANTMENT = 'enchantment',
+  NECROMANCY = 'necromancy',
+
+  DIVINATION = 'divination',
+  EVOCATION = 'evocation',
+  TRANSMUTATION = 'transmutation',
+
+  CONJURATION = 'conjuration',
+  ILLUSION = 'illusion',
+  UNIVERSAL = 'universal',
+}
+
+export const {
+  displayToKeyMap: witchPredilectionDisplayToKeyMap,
+  keyToDisplayMap: witchPredilectionKeyToDisplayMap,
+} = getDisplayKeyMaps(WitchPredilectionDisplayEnum, WitchPredilectionKeyEnum);
+
 export type WitchPredilectionNameValue =
   | 'Abjuração'
   | 'Encantamento'
@@ -38,33 +58,10 @@ export type WitchPredilectionNameValue =
   | 'Ilusão'
   | 'Universal';
 
-export const witchPredilectionKeyMap = {
-  [WitchPredilectionNameEnum.ABJURATION]: 'abjuration',
-  [WitchPredilectionNameEnum.ENCHANTMENT]: 'enchantment',
-  [WitchPredilectionNameEnum.NECROMANCY]: 'necromancy',
-  [WitchPredilectionNameEnum.DIVINATION]: 'divination',
-  [WitchPredilectionNameEnum.EVOCATION]: 'evocation',
-  [WitchPredilectionNameEnum.TRANSMUTATION]: 'transmutation',
-  [WitchPredilectionNameEnum.CONJURATION]: 'conjuration',
-  [WitchPredilectionNameEnum.ILLUSION]: 'illusion',
-  [WitchPredilectionNameEnum.UNIVERSAL]: 'universal',
-};
-export const witchPredilectionDisplay = {
-  abjuration: WitchPredilectionNameEnum.ABJURATION,
-  enchantment: WitchPredilectionNameEnum.ENCHANTMENT,
-  necromancy: WitchPredilectionNameEnum.NECROMANCY,
-  divination: WitchPredilectionNameEnum.DIVINATION,
-  evocation: WitchPredilectionNameEnum.EVOCATION,
-  transmutation: WitchPredilectionNameEnum.TRANSMUTATION,
-  conjuration: WitchPredilectionNameEnum.CONJURATION,
-  illusion: WitchPredilectionNameEnum.ILLUSION,
-  universal: WitchPredilectionNameEnum.UNIVERSAL,
-};
-
 export const witchPredilectionChoices = Object.keys(
-  WitchPredilectionNameEnum,
+  WitchPredilectionDisplayEnum,
 ).map((competence) =>
-  enumToChoice(competence as any, WitchPredilectionNameEnum),
+  enumToChoice(competence as any, WitchPredilectionDisplayEnum),
 );
 
 @Entity()
@@ -138,17 +135,17 @@ export class WitchPredilection implements DiscordEntityVieable {
     embed.addFields(
       {
         name: `-----`,
-        value: `${WitchPredilectionNameEnum.ABJURATION}: ${this.abjuration}\n${WitchPredilectionNameEnum.ENCHANTMENT}: ${this.enchantment}\n${WitchPredilectionNameEnum.NECROMANCY}: ${this.necromancy}`,
+        value: `${WitchPredilectionDisplayEnum.ABJURATION}: ${this.abjuration}\n${WitchPredilectionDisplayEnum.ENCHANTMENT}: ${this.enchantment}\n${WitchPredilectionDisplayEnum.NECROMANCY}: ${this.necromancy}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${WitchPredilectionNameEnum.DIVINATION}: ${this.divination}\n${WitchPredilectionNameEnum.EVOCATION}: ${this.evocation}\n${WitchPredilectionNameEnum.TRANSMUTATION}: ${this.transmutation}`,
+        value: `${WitchPredilectionDisplayEnum.DIVINATION}: ${this.divination}\n${WitchPredilectionDisplayEnum.EVOCATION}: ${this.evocation}\n${WitchPredilectionDisplayEnum.TRANSMUTATION}: ${this.transmutation}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${WitchPredilectionNameEnum.CONJURATION}: ${this.conjuration}\n${WitchPredilectionNameEnum.ILLUSION}: ${this.illusion}\n${WitchPredilectionNameEnum.UNIVERSAL}: ${this.universal}`,
+        value: `${WitchPredilectionDisplayEnum.CONJURATION}: ${this.conjuration}\n${WitchPredilectionDisplayEnum.ILLUSION}: ${this.illusion}\n${WitchPredilectionDisplayEnum.UNIVERSAL}: ${this.universal}`,
         inline: true,
       },
     );

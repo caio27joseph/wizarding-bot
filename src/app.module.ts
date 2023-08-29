@@ -16,6 +16,8 @@ import { TrainModule } from './train/train.module';
 import { GrimoireModule } from './grimoire/grimoire.module';
 import { SpacesModule } from './spaces/spaces.module';
 import { ItemsModule } from './items/items.module';
+import { ActionsModule } from './actions/actions.module';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
   imports: [
@@ -24,6 +26,7 @@ import { ItemsModule } from './items/items.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/generated/schema.gql'),
     }),
+    EventEmitterModule.forRoot(),
     ConfigModule.forRoot(),
     DiscordModule,
     CoreModule,
@@ -37,6 +40,7 @@ import { ItemsModule } from './items/items.module';
     GrimoireModule,
     ItemsModule,
     SpacesModule,
+    ActionsModule,
   ],
   controllers: [],
   providers: [],

@@ -27,5 +27,5 @@ export class Space {
     () => ResourceProvider,
     (resourceProvider) => resourceProvider.space,
   )
-  resourceProviders: ResourceProvider[];
+  resourceProviders: Promise<ResourceProvider[]>;
 }

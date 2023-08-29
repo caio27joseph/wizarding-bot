@@ -6,6 +6,7 @@ import {
   ArgInteger,
   ArgInteraction,
   ArgPlayer,
+  ArgString,
 } from '~/discord/decorators/message.decorators';
 import { CommandInteraction } from 'discord.js';
 import { Player } from './entities/player.entity';
@@ -32,30 +33,33 @@ export class PlayerXPGroup {
     interaction: CommandInteraction,
     @ArgInteger({ name: 'quantidade' })
     quantity: number,
+    @ArgPlayer()
+    giver: Player,
     @ArgPlayer({
       name: 'jogador',
       description: 'Jogador para adicionar xp',
     })
-    player: Player,
-    @ArgPlayer({
+    receiver: Player,
+    @ArgString({
       name: 'Motivo',
       description: 'Motivo para adicionar o xp',
     })
     reason: string,
   ) {
-    player.xp += quantity;
-    await this.service.save(player);
+    receiver.xp += quantity;
+    await this.service.save(receiver);
     await this.logSaver.create({
-      player,
+      giver,
+      receiver,
       field: 'xp',
-      oldValue: (player.xp - quantity).toString(),
-      newValue: player.xp.toString(),
+      oldValue: (receiver.xp - quantity).toString(),
+      newValue: receiver.xp.toString(),
       value: quantity.toString(),
       reason,
     });
     await interaction.reply({
-      content: `Adicionado ${quantity} XP ao personagem ${player.name}`,
-      embeds: [player.toEmbed()],
+      content: `Adicionado ${quantity} XP ao personagem ${receiver.name}`,
+      embeds: [receiver.toEmbed()],
       ephemeral: true,
     });
   }

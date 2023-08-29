@@ -9,8 +9,8 @@ import { TrainSpellService } from './train-spell.service';
 import { Train, TrainGroupOption } from './entities/train.entity';
 import { Spell, maestryNumToName } from '~/spell/entities/spell.entity';
 import {
-  WitchPredilectionNameEnum,
-  witchPredilectionKeyMap,
+  WitchPredilectionDisplayEnum,
+  witchPredilectionDisplayToKeyMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Player } from '~/core/player/entities/player.entity';
 import {
@@ -25,7 +25,7 @@ import { TrainService } from './train.service';
 import { SpellActionContext } from '~/spell/spell.menu.group';
 
 interface Props {
-  roll?: WitchPredilectionNameEnum;
+  roll?: WitchPredilectionDisplayEnum;
   spell?: Spell;
   group?: TrainGroupOption;
   player?: Player;
@@ -48,6 +48,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
   ) {
     super();
   }
+
   async buildUpContext(
     context: SpellActionContext,
   ): Promise<TrainSpellActionContext> {
@@ -287,8 +288,8 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     }
 
     const rolls: RollsD10[] = [];
-    const roll = await this.rollService.roll10(player, {
-      witchPredilection: witchPredilectionKeyMap[props.roll],
+    const roll = await this.rollService.roll10(interaction, player, {
+      witchPredilection: witchPredilectionDisplayToKeyMap[props.roll],
       extras: 'control',
       autoSuccess: props.autoSuccess,
       bonus: props.bonusRoll,
@@ -308,8 +309,8 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     });
     trains.push(train);
     if (doubleTrain) {
-      const roll = await this.rollService.roll10(player, {
-        witchPredilection: witchPredilectionKeyMap[props.roll],
+      const roll = await this.rollService.roll10(interaction, player, {
+        witchPredilection: witchPredilectionDisplayToKeyMap[props.roll],
         extras: 'control',
         autoSuccess: props.autoSuccess,
         bonus: props.bonusRoll,

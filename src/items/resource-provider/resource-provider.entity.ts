@@ -26,12 +26,6 @@ export class ResourceProvider {
   })
   imageUrl?: string;
 
-  @Column()
-  lastTimeOpened: Date;
-
-  @Column()
-  daysCooldown: number;
-
   @ManyToOne(() => Item, (item) => item.resourceProviders, {
     eager: true,
     cascade: true,
@@ -44,13 +38,43 @@ export class ResourceProvider {
   space: Space;
 
   @Column()
-  minAmount: number;
+  lastTimeOpened: Date;
+
   @Column()
-  maxAmount: number;
+  lastTimeSearched: Date;
+
   @Column()
-  metaForMaxAmount: number;
+  daysCooldown: number;
+
   @Column()
-  amountForExtraDrop: number;
+  minDrop: number;
+  @Column()
+  maxDrop: number;
+
+  @Column()
+  metaForMaxDrop: number;
+  @Column()
+  metaForAExtraDrop: number;
+  @Column()
+  metaPerceptionRoll: number;
+
+  @Column()
+  rollType1: string;
+  @Column()
+  rollType2: string;
+  @Column({
+    nullable: true,
+  })
+  rollType3?: string;
+
+  @Column()
+  roll1: string;
+  @Column()
+  roll2: string;
+  @Column({
+    nullable: true,
+  })
+  roll3?: string;
 
   @Column()
   spaceId: string;

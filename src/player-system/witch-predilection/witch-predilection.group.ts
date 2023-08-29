@@ -10,7 +10,7 @@ import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { Injectable } from '@nestjs/common';
 import { Command } from '~/discord/decorators/command.decorator';
-import { WitchPredilectionNameEnum } from './entities/witch-predilection.entity';
+import { WitchPredilectionDisplayEnum } from './entities/witch-predilection.entity';
 
 @Group({
   name: 'pred_bruxa',
@@ -51,64 +51,64 @@ export class WitchPredilectionsGroup {
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.ABJURATION,
-      description: `${WitchPredilectionNameEnum.ABJURATION}`,
+      name: WitchPredilectionDisplayEnum.ABJURATION,
+      description: `${WitchPredilectionDisplayEnum.ABJURATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     abjuration?: number,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.ENCHANTMENT,
-      description: `${WitchPredilectionNameEnum.ENCHANTMENT}`,
+      name: WitchPredilectionDisplayEnum.ENCHANTMENT,
+      description: `${WitchPredilectionDisplayEnum.ENCHANTMENT}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     enchantment?: number,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.NECROMANCY,
-      description: `${WitchPredilectionNameEnum.NECROMANCY}`,
+      name: WitchPredilectionDisplayEnum.NECROMANCY,
+      description: `${WitchPredilectionDisplayEnum.NECROMANCY}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     necromancy?: number,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.DIVINATION,
-      description: `${WitchPredilectionNameEnum.DIVINATION}`,
+      name: WitchPredilectionDisplayEnum.DIVINATION,
+      description: `${WitchPredilectionDisplayEnum.DIVINATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     divination?: number,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.EVOCATION,
-      description: `${WitchPredilectionNameEnum.EVOCATION}`,
+      name: WitchPredilectionDisplayEnum.EVOCATION,
+      description: `${WitchPredilectionDisplayEnum.EVOCATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     evocation?: number,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.TRANSMUTATION,
-      description: `${WitchPredilectionNameEnum.TRANSMUTATION}`,
+      name: WitchPredilectionDisplayEnum.TRANSMUTATION,
+      description: `${WitchPredilectionDisplayEnum.TRANSMUTATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     transmutation?: number,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.CONJURATION,
-      description: `${WitchPredilectionNameEnum.CONJURATION}`,
+      name: WitchPredilectionDisplayEnum.CONJURATION,
+      description: `${WitchPredilectionDisplayEnum.CONJURATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     conjuration?: number,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.ILLUSION,
-      description: `${WitchPredilectionNameEnum.ILLUSION}`,
+      name: WitchPredilectionDisplayEnum.ILLUSION,
+      description: `${WitchPredilectionDisplayEnum.ILLUSION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     illusion?: number,
     @ArgInteger({
-      name: WitchPredilectionNameEnum.UNIVERSAL,
-      description: `${WitchPredilectionNameEnum.UNIVERSAL}`,
+      name: WitchPredilectionDisplayEnum.UNIVERSAL,
+      description: `${WitchPredilectionDisplayEnum.UNIVERSAL}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })

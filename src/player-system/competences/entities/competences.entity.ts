@@ -12,8 +12,9 @@ import {
 import { Player } from '~/core/player/entities/player.entity';
 import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
+import { getDisplayKeyMaps } from '~/utils/entity-types';
 
-export enum CompetencesNameEnum {
+export enum CompetenceDisplayEnum {
   APPARITION = 'Aparatação',
   MAGIZOOLOGY = 'Magizoologia',
   DARK_ARTS = 'Artes das Trevas',
@@ -29,8 +30,31 @@ export enum CompetencesNameEnum {
   MAGI_MEDICINE = 'Medibruxaria',
   MAGICAL_LANGUAGES = 'Línguas Mágicas',
 }
-export const competenceChoices = Object.keys(CompetencesNameEnum).map(
-  (competence) => enumToChoice(competence as any, CompetencesNameEnum),
+
+export enum CompetenceKeyEnum {
+  APPARITION = 'apparition',
+  MAGIZOOLOGY = 'magizoology',
+  DARK_ARTS = 'dark_arts',
+  FLIGHT = 'flight',
+
+  DIVINATION = 'divination',
+  ASTRONOMY = 'astronomy',
+  ANCIENT_RUNES = 'ancient_runes',
+  RITUALS = 'rituals',
+
+  POTIONS_ALCHEMY = 'potions_alchemy',
+  HERBOLOGY = 'herbology',
+  MAGI_MEDICINE = 'magi_medicine',
+  MAGICAL_LANGUAGES = 'magical_languages',
+}
+
+export const {
+  displayToKeyMap: competenceDisplayToKeyMap,
+  keyToDisplayMap: competenceKeyToDisplayMap,
+} = getDisplayKeyMaps(CompetenceDisplayEnum, CompetenceKeyEnum);
+
+export const competenceChoices = Object.keys(CompetenceDisplayEnum).map(
+  (competence) => enumToChoice(competence as any, CompetenceDisplayEnum),
 );
 
 @Entity()
@@ -97,17 +121,17 @@ export class Competences implements DiscordEntityVieable {
     embed.addFields(
       {
         name: `-----`,
-        value: `${CompetencesNameEnum.APPARITION}: ${this.apparition}\n${CompetencesNameEnum.MAGIZOOLOGY}: ${this.magizoology}\n${CompetencesNameEnum.DARK_ARTS}: ${this.dark_arts}\n${CompetencesNameEnum.FLIGHT}: ${this.apparition}`,
+        value: `${CompetenceDisplayEnum.APPARITION}: ${this.apparition}\n${CompetenceDisplayEnum.MAGIZOOLOGY}: ${this.magizoology}\n${CompetenceDisplayEnum.DARK_ARTS}: ${this.dark_arts}\n${CompetenceDisplayEnum.FLIGHT}: ${this.apparition}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${CompetencesNameEnum.DIVINATION}: ${this.divination}\n${CompetencesNameEnum.ASTRONOMY}: ${this.astronomy}\n${CompetencesNameEnum.ANCIENT_RUNES}: ${this.ancient_runes}\n${CompetencesNameEnum.RITUALS}: ${this.rituals}`,
+        value: `${CompetenceDisplayEnum.DIVINATION}: ${this.divination}\n${CompetenceDisplayEnum.ASTRONOMY}: ${this.astronomy}\n${CompetenceDisplayEnum.ANCIENT_RUNES}: ${this.ancient_runes}\n${CompetenceDisplayEnum.RITUALS}: ${this.rituals}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${CompetencesNameEnum.POTIONS_ALCHEMY}: ${this.potions_alchemy}\n${CompetencesNameEnum.HERBOLOGY}: ${this.herbology}\n${CompetencesNameEnum.MAGI_MEDICINE}: ${this.magi_medicine}\n${CompetencesNameEnum.MAGICAL_LANGUAGES}: ${this.magical_languages}`,
+        value: `${CompetenceDisplayEnum.POTIONS_ALCHEMY}: ${this.potions_alchemy}\n${CompetenceDisplayEnum.HERBOLOGY}: ${this.herbology}\n${CompetenceDisplayEnum.MAGI_MEDICINE}: ${this.magi_medicine}\n${CompetenceDisplayEnum.MAGICAL_LANGUAGES}: ${this.magical_languages}`,
         inline: true,
       },
     );

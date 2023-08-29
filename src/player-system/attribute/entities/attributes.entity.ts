@@ -12,8 +12,9 @@ import {
 import { Player } from '~/core/player/entities/player.entity';
 import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
+import { getDisplayKeyMaps } from '~/utils/entity-types';
 
-export enum AttributeNameEnum {
+export enum AttributeDisplayEnum {
   STRENGTH = 'Força',
   VIM = 'Vigor',
   DEXTERITY = 'Destreza',
@@ -24,8 +25,24 @@ export enum AttributeNameEnum {
   DETERMINATION = 'Determinação',
   RATIONALITY = 'Raciocínio',
 }
+export enum AttributeKeyEnum {
+  STRENGTH = 'strength',
+  VIM = 'vim',
+  DEXTERITY = 'dexterity',
+  CHARISMA = 'charisma',
+  MANIPULATION = 'manipulation',
+  SELFCONTROL = 'selfcontrol',
+  INTELLIGENCE = 'intelligence',
+  DETERMINATION = 'determination',
+  RATIONALITY = 'rationality',
+}
 
-export type AttributeNameValue =
+export const {
+  displayToKeyMap: attributeDisplayToKeyMap,
+  keyToDisplayMap: attributeKeyToDisplayMap,
+} = getDisplayKeyMaps(AttributeDisplayEnum, AttributeKeyEnum);
+
+export type AttributeKeyType =
   | 'strength'
   | 'vim'
   | 'dexterity'
@@ -36,30 +53,8 @@ export type AttributeNameValue =
   | 'determination'
   | 'rationality';
 
-export const attributeKeyMap = {
-  [AttributeNameEnum.STRENGTH]: 'strength',
-  [AttributeNameEnum.VIM]: 'vim',
-  [AttributeNameEnum.DEXTERITY]: 'dexterity',
-  [AttributeNameEnum.CHARISMA]: 'charisma',
-  [AttributeNameEnum.MANIPULATION]: 'manipulation',
-  [AttributeNameEnum.SELFCONTROL]: 'selfcontrol',
-  [AttributeNameEnum.INTELLIGENCE]: 'intelligence',
-  [AttributeNameEnum.DETERMINATION]: 'determination',
-  [AttributeNameEnum.RATIONALITY]: 'rationality',
-};
-export const attributeDisplay = {
-  strength: AttributeNameEnum.STRENGTH,
-  vim: AttributeNameEnum.VIM,
-  dexterity: AttributeNameEnum.DEXTERITY,
-  charisma: AttributeNameEnum.CHARISMA,
-  manipulation: AttributeNameEnum.MANIPULATION,
-  selfcontrol: AttributeNameEnum.SELFCONTROL,
-  intelligence: AttributeNameEnum.INTELLIGENCE,
-  determination: AttributeNameEnum.DETERMINATION,
-  rationality: AttributeNameEnum.RATIONALITY,
-};
-export const attributeChoices = Object.keys(AttributeNameEnum).map(
-  (competence) => enumToChoice(competence as any, AttributeNameEnum),
+export const attributeChoices = Object.keys(AttributeDisplayEnum).map(
+  (competence) => enumToChoice(competence as any, AttributeDisplayEnum),
 );
 
 @Entity()

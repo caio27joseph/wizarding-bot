@@ -49,6 +49,7 @@ export class RollsD10 {
     this.expression += `${values.join(' + ')} = ${total}d10${
       autoSuccess ? `, Auto: ${autoSuccess}` : ''
     }, Diff: ${diff}`;
+    this.total = 0;
     this.success = 0;
     this.doRolls(total, diff);
   }

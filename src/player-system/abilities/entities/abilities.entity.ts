@@ -11,6 +11,112 @@ import {
 import { Player } from '~/core/player/entities/player.entity';
 import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
+import { getDisplayKeyMaps } from '~/utils/entity-types';
+
+export enum SkillDisplayEnum {
+  BLADED_WEAPONS = 'Armas Brancas',
+  ATHLETICS = 'Atletismo',
+  FIGHT = 'Briga',
+  DRIVING = 'Condução',
+  MAGIC_DUEL = 'Duelo Mágico',
+  DODGE = 'Esquiva',
+  STEALTH = 'Furtividade',
+  CRAFTS = 'Ofícios',
+  AIM = 'Pontaria',
+  PERCEPTION = 'Percepção',
+  THEFT = 'Roubo',
+  SURVIVAL = 'Sobrevivência',
+}
+
+export enum SkillKeyEnum {
+  BLADED_WEAPONS = 'bladed_weapons',
+  ATHLETICS = 'athletics',
+  FIGHT = 'fight',
+  DRIVING = 'driving',
+  MAGIC_DUEL = 'magic_duel',
+  DODGE = 'dodge',
+  STEALTH = 'stealth',
+  CRAFTS = 'crafts',
+  AIM = 'aim',
+  PERCEPTION = 'perception',
+  THEFT = 'theft',
+  SURVIVAL = 'survival',
+}
+
+export const {
+  displayToKeyMap: skillDisplayToKeyMap,
+  keyToDisplayMap: skillKeyToDisplayMap,
+} = getDisplayKeyMaps(SkillDisplayEnum, SkillKeyEnum);
+
+export enum TalentDisplayEnum {
+  EXPRESSION = 'Expressão',
+  EMPATHY = 'Empatia',
+  ETIQUETTE = 'Etiqueta',
+  INTIMIDATION = 'Intimidação',
+  INTUITION = 'Intuição',
+  SWEET_TALK = 'Lábia',
+  LEADERSHIP = 'Liderança',
+  CUNNING = 'Manha',
+  PERFORMANCE = 'Performance',
+  PERSUASION = 'Persuasão',
+  SLEIGHT_OF_HAND = 'Prestidigitação',
+  ANIMAL_HANDLING = 'Trato com Animais',
+}
+
+export enum TalentKeyEnum {
+  EXPRESSION = 'expression',
+  EMPATHY = 'empathy',
+  ETIQUETTE = 'etiquette',
+  INTIMIDATION = 'intimidation',
+  INTUITION = 'intuition',
+  SWEET_TALK = 'sweet_talk',
+  LEADERSHIP = 'leadership',
+  CUNNING = 'cunning',
+  PERFORMANCE = 'performance',
+  PERSUASION = 'persuasion',
+  SLEIGHT_OF_HAND = 'sleight_of_hand',
+  ANIMAL_HANDLING = 'animal_handling',
+}
+
+export const {
+  displayToKeyMap: talentDisplayToKeyMap,
+  keyToDisplayMap: talentKeyToDisplayMap,
+} = getDisplayKeyMaps(TalentDisplayEnum, TalentKeyEnum);
+
+export enum KnowledgeDisplayEnum {
+  ACADEMICS = 'Acadêmicos',
+  SCIENCES = 'Ciências',
+  COSMOLOGY = 'Cosmologia',
+  TECHNOLOGY = 'Tecnologia',
+  FINANCES = 'Finanças',
+  INVESTIGATION = 'Investigação',
+  LINGUISTICS = 'Linguística',
+  MEDITATION = 'Meditação',
+  MEDICINE = 'Medicina',
+  OCCULTISM = 'Ocultismo',
+  POLITICS = 'Política',
+  THEOLOGICAL_KNOWLEDGE = 'Con Teologico', // Note: 'Conhecimento Teológico' would be a direct translation but this seems to be a mistake in your original enum.
+}
+
+export enum KnowledgeKeyEnum {
+  ACADEMICS = 'academics',
+  SCIENCES = 'sciences',
+  COSMOLOGY = 'cosmology',
+  TECHNOLOGY = 'technology',
+  FINANCES = 'finances',
+  INVESTIGATION = 'investigation',
+  LINGUISTICS = 'linguistics',
+  MEDITATION = 'meditation',
+  MEDICINE = 'medicine',
+  OCCULTISM = 'occultism',
+  POLITICS = 'politics',
+  THEOLOGICAL_KNOWLEDGE = 'theological_knowledge',
+}
+
+export const {
+  displayToKeyMap: knowledgeDisplayToKeyMap,
+  keyToDisplayMap: knowledgeKeyToDisplayMap,
+} = getDisplayKeyMaps(KnowledgeDisplayEnum, KnowledgeKeyEnum);
 
 export enum AbilitiesNameEnum {
   // Skills
@@ -53,6 +159,53 @@ export enum AbilitiesNameEnum {
   POLITICS = 'Política',
   THEOLOGICAL_KNOWLEDGE = 'Con Teologico', // Note: 'Conhecimento Teológico' would be a direct translation but this seems to be a mistake in your original enum.
 }
+
+export type SkillNameValue =
+  | 'bladed_weapons'
+  | 'athletics'
+  | 'fight'
+  | 'driving'
+  | 'magic_duel'
+  | 'dodge'
+  | 'stealth'
+  | 'crafts'
+  | 'aim'
+  | 'perception'
+  | 'theft'
+  | 'survival';
+
+export type TalentNameValue =
+  | 'expression'
+  | 'empathy'
+  | 'etiquette'
+  | 'intimidation'
+  | 'intuition'
+  | 'sweet_talk'
+  | 'leadership'
+  | 'cunning'
+  | 'performance'
+  | 'persuasion'
+  | 'sleight_of_hand'
+  | 'animal_handling';
+
+export type KnowledgeNameValue =
+  | 'academics'
+  | 'sciences'
+  | 'cosmology'
+  | 'technology'
+  | 'finances'
+  | 'investigation'
+  | 'linguistics'
+  | 'meditation'
+  | 'medicine'
+  | 'occultism'
+  | 'politics'
+  | 'theological_knowledge';
+
+export type AbilityNameValue =
+  | SkillNameValue
+  | TalentNameValue
+  | KnowledgeNameValue;
 
 // Separate abilities by type
 const skillAbilities = [

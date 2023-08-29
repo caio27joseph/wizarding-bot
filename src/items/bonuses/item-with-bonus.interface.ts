@@ -3,14 +3,14 @@
 import { EmbedField } from 'discord.js';
 import { groupBy } from 'lodash';
 import {
-  AttributeNameValue,
+  AttributeKeyType,
   attributeChoices,
-  attributeDisplay,
+  attributeKeyToDisplayMap,
 } from '~/player-system/attribute/entities/attributes.entity';
 import {
   WitchPredilectionNameValue,
   witchPredilectionChoices,
-  witchPredilectionDisplay,
+  witchPredilectionKeyToDisplayMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 export enum BonusTarget {
@@ -32,7 +32,7 @@ export enum BonusModifier {
 
 // Mapping from BonusReceiver to valid receiver keys
 export type BonusTargetMapping = {
-  [BonusTarget.Attribute]: AttributeNameValue;
+  [BonusTarget.Attribute]: AttributeKeyType;
   [BonusTarget.WitchPredilection]: WitchPredilectionNameValue;
   [BonusTarget.SpellCategory]: WitchPredilectionNameValue;
   [BonusTarget.AllSpells]: null;
@@ -82,11 +82,11 @@ export class BonusHelper {
   get displayKey() {
     switch (this.bonus.target) {
       case BonusTarget.SpellCategory:
-        return witchPredilectionDisplay[this.bonus.targetKey];
+        return witchPredilectionKeyToDisplayMap[this.bonus.targetKey];
       case BonusTarget.WitchPredilection:
-        return witchPredilectionDisplay[this.bonus.targetKey];
+        return witchPredilectionKeyToDisplayMap[this.bonus.targetKey];
       case BonusTarget.Attribute:
-        return attributeDisplay[this.bonus.targetKey];
+        return attributeKeyToDisplayMap[this.bonus.targetKey];
       case BonusTarget.AllSpells:
         return 'Todos os Feitiços';
       case BonusTarget.AllWitchPredilection:

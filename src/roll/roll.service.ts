@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { Player } from '~/core/player/entities/player.entity';
-import { Abilities } from '~/player-system/abilities/entities/abilities.entity';
+import {
+  Abilities,
+  KnowledgeNameValue,
+  SkillNameValue,
+  TalentNameValue,
+} from '~/player-system/abilities/entities/abilities.entity';
 import { RollsD10 } from './entities/roll.entity';
 import { AbilitiesService } from '~/player-system/abilities/abilities.service';
 import { AttributeService } from '~/player-system/attribute/attribute.service';
@@ -16,6 +21,32 @@ import {
   BonusType,
   applyBonuses,
 } from '~/items/bonuses/item-with-bonus.interface';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { CommandInteraction } from 'discord.js';
+import { AttributeKeyType } from '~/player-system/attribute/entities/attributes.entity';
+
+export interface RollOptions {
+  diff?: number;
+  autoSuccess?: number;
+  bonus?: number;
+  attribute?: AttributeKeyType;
+  skill?: SkillNameValue;
+  talent?: TalentNameValue;
+  knowledge?: KnowledgeNameValue;
+  competence?: string;
+  witchPredilection?: string;
+  nonConvPredilectionsChoices?: string;
+  extras?: string;
+  message?: string;
+  bonuses?: Bonus[];
+}
+
+export interface RollEvent {
+  roll: RollsD10;
+  player: Player;
+  options: RollOptions;
+  interaction: CommandInteraction;
+}
 
 @Injectable()
 export class RollService {
@@ -26,25 +57,13 @@ export class RollService {
     private readonly witchPredilectionsService: WitchPredilectionsService,
     private readonly nonConvPredilectionsService: NonConvPredilectionsService,
     private readonly extrasService: ExtrasService,
+    private readonly eventEmitter: EventEmitter2,
   ) {}
 
   async roll10(
+    interaction: CommandInteraction,
     player: Player,
-    options?: {
-      diff?: number;
-      autoSuccess?: number;
-      bonus?: number;
-      attribute?: string;
-      skills?: string;
-      talent?: string;
-      knowledge?: string;
-      competence?: string;
-      witchPredilection?: string;
-      nonConvPredilectionsChoices?: string;
-      extras?: string;
-      message?: string;
-      bonuses?: Bonus[];
-    },
+    options?: RollOptions,
   ) {
     let values: number[] = [];
     let expression = '';
@@ -81,7 +100,7 @@ export class RollService {
 
     // #endregion
     // #region Abilities
-    if (options?.skills || options?.talent || options?.knowledge) {
+    if (options?.skill || options?.talent || options?.knowledge) {
       abilities = await this.abilitiesService.findOne({
         where: {
           playerId: player.id,
@@ -94,8 +113,8 @@ export class RollService {
         );
       }
     }
-    if (options?.skills) {
-      const value = abilities[options?.skills];
+    if (options?.skill) {
+      const value = abilities[options?.skill];
 
       values.push(value);
       if (expression.length > 0) expression += ' + ';
@@ -205,6 +224,13 @@ export class RollService {
       options?.autoSuccess || 0,
       options?.message,
     );
+
+    this.eventEmitter.emit('roll', {
+      roll,
+      player,
+      options,
+      interaction,
+    });
 
     return roll;
   }
