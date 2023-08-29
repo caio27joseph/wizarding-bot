@@ -60,6 +60,7 @@ interface NewResourceProviderProps4 {
   daysCooldown: number;
   hoursCooldown: number;
   minutesCooldown: number;
+  minutesCooldownPerception: number;
 }
 interface NewResourceProviderProps
   extends NewResourceProviderProps1,
@@ -102,6 +103,16 @@ const getForm4 = (context: ResourceProviderActionContext) => {
           {
             placeholder: 'Minutos de cooldown [0]',
             propKey: 'minutesCooldown',
+            defaultValue: 0,
+            options: [0, 5, 10, 15, 20, 30, 45, 60].map((n) => ({
+              label: n.toString() + ' minutos',
+              value: n.toString(),
+            })),
+            pipe: (value) => parseInt(value),
+          },
+          {
+            placeholder: 'Minutos de cooldown para percepção [15]',
+            propKey: 'minutesCooldownPerception',
             defaultValue: 0,
             options: [0, 5, 10, 15, 20, 30, 45, 60].map((n) => ({
               label: n.toString() + ' minutos',

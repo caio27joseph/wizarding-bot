@@ -53,6 +53,11 @@ export class ResourceProvider {
   })
   minutesCooldown: number;
 
+  @Column({
+    default: 15,
+  })
+  minutesCooldownPerception: number;
+
   canOpen() {
     const lastTimeOpened = this.lastTimeOpened;
     const nextTime = addDays(lastTimeOpened, this.daysCooldown);
@@ -71,7 +76,10 @@ export class ResourceProvider {
   canSearch() {
     // can searc if not searched in last 30 minutes
     const lastTimeSearched = this.lastTimeSearched;
-    const nextTime = addMinutes(lastTimeSearched, 30);
+    const nextTime = addMinutes(
+      lastTimeSearched,
+      this.minutesCooldownPerception,
+    );
     const now = new Date();
     return now > nextTime;
   }
