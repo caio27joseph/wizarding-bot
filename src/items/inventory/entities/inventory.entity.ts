@@ -16,6 +16,7 @@ export class Inventory {
 
   @OneToMany(() => Stack, (stack) => stack.inventory, {
     cascade: true,
+    eager: true,
   })
   stacks: Stack[];
 

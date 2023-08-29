@@ -122,9 +122,10 @@ export class ResourceProvider {
       .setAuthor({
         name: this.name,
       })
+      .setTitle(this.name)
       .setDescription(this.description)
-      .setAuthor({
-        name: 'Gerador de ' + this.item.name,
+      .setFooter({
+        text: 'Aqui é possível conseguir: ' + this.item.name,
       });
 
     if (this.imageUrl) {

@@ -85,10 +85,11 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
 
   getMenuPrompt(context: ResourceProviderActionContext) {
     const content = context.item
-      ? `You selected ${context.item.name}`
-      : 'No item selected';
+      ? `Você selecionou o item: ${context.item.name}`
+      : 'Nenhum item seleconado';
     const reply: MessageReplyOptions = {
       content,
+      embeds: context.item ? [context.item.toEmbed()] : [],
     };
     return reply;
   }
@@ -101,17 +102,19 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     };
 
     if (!context.item) {
-      reply.content = 'No item selected';
+      reply.content = 'Nenhum item seleconado';
       await context.interaction.editReply(reply);
       return;
     }
     const form = await getNewProviderInput(context);
     const collector = new MessageCollectorHelper(context);
 
-    const name = await collector.prompt('Digite o nome do Gerador');
-    const description = await collector.prompt('Digite a descrição do Gerador');
+    const name = await collector.prompt('Digite o nome da fonte de recurso');
+    const description = await collector.prompt(
+      'Digite a descrição da fonte de recurso',
+    );
     const imageUrl = await collector.prompt(
-      'Digite a URL da imagem do Gerador',
+      'Digite a URL da imagem da Fonte do recurso',
     );
     const lastTimeOpened = subtractDays(new Date(), form.daysCooldown);
 
@@ -143,7 +146,7 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
 
     try {
       await context.interaction.editReply({
-        content: 'Lista de Geradores no Local!',
+        content: 'Lista de fontes de recurso no Local!',
         embeds: providers.map((p) => p.toEmbed()),
       });
     } catch (e) {
