@@ -82,11 +82,6 @@ export class SearchGroup {
         return samePlayer && sameChannel && perceptionRoll;
       },
     );
-
-    if (provider && provider.canSearch()) {
-      provider.lastTimeSearched = new Date();
-      await this.resourceProviderService.save(provider);
-    }
     if (
       !provider ||
       roll.total < provider.metaPerceptionRoll ||
@@ -97,6 +92,11 @@ export class SearchGroup {
         `<@${player.discordId}> anda pela região procurando por ${name} mas não encontra nada`,
       );
       return;
+    }
+
+    if (provider && provider.canSearch()) {
+      provider.lastTimeSearched = new Date();
+      await this.resourceProviderService.save(provider);
     }
 
     await interaction.followUp({
