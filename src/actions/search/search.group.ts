@@ -14,6 +14,7 @@ import {
   InteractionOptionEnum,
   interactionDecoratorFactory,
 } from '~/discord/parameter_metadata_handler';
+import { InventoryService } from '~/items/inventory/inventory.service';
 import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
 import { ResourceProviderService } from '~/items/resource-provider/resource-provider.service';
 import {
@@ -24,7 +25,7 @@ import {
 import { RollEvent } from '~/roll/roll.service';
 import { Space } from '~/spaces/space/entities/space.entity';
 import { findClosestMatchInObjects } from '~/utils/closest-match';
-import { addMinutes } from '~/utils/date.utils';
+import { addDays, addMinutes } from '~/utils/date.utils';
 import { waitForEvent } from '~/utils/wait-for-event';
 
 @Group({
@@ -36,6 +37,7 @@ export class SearchGroup {
   constructor(
     private eventEmitter: EventEmitter2,
     private readonly resourceProviderService: ResourceProviderService,
+    private readonly inventoryService: InventoryService,
   ) {}
 
   @Command({
@@ -81,20 +83,22 @@ export class SearchGroup {
       },
     );
 
+    if (
+      !provider ||
+      roll.total < provider.metaPerceptionRoll ||
+      !provider.canSearch() ||
+      !provider.canOpen()
+    ) {
+      await interaction.followUp(
+        `<@${player.discordId}> anda pela região procurando por ${name} mas não encontra nada`,
+      );
+      return;
+    }
+
     if (provider) {
       provider.lastTimeSearched = new Date();
       await this.resourceProviderService.save(provider);
     }
-    // if (
-    //   !provider ||
-    //   roll.total < provider.metaPerceptionRoll ||
-    //   provider.lastTimeOpened > addMinutes(new Date(), -15)
-    // ) {
-    //   await interaction.followUp(
-    //     `<@${player.discordId}> anda pela região procurando por ${name} mas não encontra nada`,
-    //   );
-    //   return;
-    // }
 
     await interaction.followUp({
       content: `Você encontrou ${provider.item.name}!`,
@@ -148,9 +152,18 @@ export class SearchGroup {
       drops += Math.floor(extraMeta / metaForAExtraDrop);
     }
 
-    await interaction.followUp(`Você coletou ${drops} ${provider.item.name}!`);
+    const stack = await this.inventoryService.addItemToPlayerInventory(
+      player,
+      provider.item,
+      drops,
+    );
 
+    await interaction.followUp({
+      content: `Você coletou ${drops} ${provider.item.name}!\n`,
+      embeds: [stack.toEmbed()],
+    });
     provider.lastTimeSearched = new Date();
+
     await this.resourceProviderService.save(provider);
   }
 }

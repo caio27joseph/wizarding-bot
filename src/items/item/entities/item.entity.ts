@@ -2,6 +2,7 @@ import { EmbedBuilder, Interaction, InteractionReplyOptions } from 'discord.js';
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -13,6 +14,7 @@ import {
   Bonus,
   BonusTarget,
 } from '~/items/bonuses/item-with-bonus.interface';
+import { Inventory } from '~/items/inventory/entities/inventory.entity';
 import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
 
 @Entity()
@@ -28,6 +30,13 @@ export class Item implements DiscordEntityVieable, CanHaveBonus {
 
   @Column()
   imageUrl: string;
+
+  @Column({ default: false })
+  unique: boolean;
+
+  @ManyToOne(() => Inventory)
+  @JoinColumn()
+  owner: Inventory;
 
   @ManyToOne(() => Guild)
   guild: Guild;

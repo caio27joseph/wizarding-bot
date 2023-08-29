@@ -9,6 +9,7 @@ import {
 import { Item } from '../item/entities/item.entity';
 import { Space } from '~/spaces/space/entities/space.entity';
 import { EmbedBuilder } from 'discord.js';
+import { addDays, addHours, addMinutes } from '~/utils/date.utils';
 
 @Entity()
 export class ResourceProvider {
@@ -41,10 +42,39 @@ export class ResourceProvider {
   lastTimeOpened: Date;
 
   @Column()
-  lastTimeSearched: Date;
+  daysCooldown: number;
+
+  @Column({
+    default: 0,
+  })
+  hoursCooldown: number;
+  @Column({
+    default: 0,
+  })
+  minutesCooldown: number;
+
+  canOpen() {
+    const lastTimeOpened = this.lastTimeOpened;
+    const nextTime = addDays(lastTimeOpened, this.daysCooldown);
+    const nextTimeWithHours = addHours(nextTime, this.hoursCooldown);
+    const nextTimeWithMinutes = addMinutes(
+      nextTimeWithHours,
+      this.minutesCooldown,
+    );
+    const now = new Date();
+    return now > nextTimeWithMinutes;
+  }
 
   @Column()
-  daysCooldown: number;
+  lastTimeSearched: Date;
+
+  canSearch() {
+    // can searc if not searched in last 30 minutes
+    const lastTimeSearched = this.lastTimeSearched;
+    const nextTime = addMinutes(lastTimeSearched, 30);
+    const now = new Date();
+    return now > nextTime;
+  }
 
   @Column()
   minDrop: number;

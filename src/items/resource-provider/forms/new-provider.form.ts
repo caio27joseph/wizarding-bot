@@ -40,7 +40,6 @@ export interface ResourceProviderActionContext extends ActionContext {
 }
 
 interface NewResourceProviderProps1 {
-  daysCooldown: number;
   rollType1: PointsKeyEnum;
   rollType2: PointsKeyEnum;
   rollType3?: PointsKeyEnum;
@@ -57,24 +56,94 @@ interface NewResourceProviderProps3 {
   minDrop: number;
   maxDrop: number;
 }
+interface NewResourceProviderProps4 {
+  daysCooldown: number;
+  hoursCooldown: number;
+  minutesCooldown: number;
+}
 interface NewResourceProviderProps
   extends NewResourceProviderProps1,
     NewResourceProviderProps2,
-    NewResourceProviderProps3 {
+    NewResourceProviderProps3,
+    NewResourceProviderProps4 {
   roll3?: AvailablePointsEnums;
 }
 
+const getForm4 = (context: ResourceProviderActionContext) => {
+  const promise: Promise<NewResourceProviderProps4> = new Promise(
+    (resolve, reject) => {
+      const config: FormConfig<NewResourceProviderProps4> = {
+        label: `Novo Provedor de Item 4/4: ${context.item.name}`,
+        fields: [
+          {
+            placeholder: 'Dias de cooldown [0]',
+            propKey: 'daysCooldown',
+            defaultValue: 0,
+            options: [
+              0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 14, 15, 16, 20, 25, 30,
+            ].map((n) => ({
+              label: n.toString() + ' dias',
+              value: n.toString(),
+            })),
+            pipe: (value) => parseInt(value),
+          },
+          {
+            placeholder: 'Horas de cooldown [0]',
+            propKey: 'hoursCooldown',
+            defaultValue: 0,
+            options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 20, 24].map(
+              (n) => ({
+                label: n.toString() + ' horas',
+                value: n.toString(),
+              }),
+            ),
+            pipe: (value) => parseInt(value),
+          },
+          {
+            placeholder: 'Minutos de cooldown [0]',
+            propKey: 'minutesCooldown',
+            defaultValue: 0,
+            options: [0, 5, 10, 15, 20, 30, 45, 60].map((n) => ({
+              label: n.toString() + ' minutos',
+              value: n.toString(),
+            })),
+            pipe: (value) => parseInt(value),
+          },
+        ],
+        buttons: [
+          {
+            label: 'Cancelar',
+            style: ButtonStyle.Danger,
+            handler: async (i, form) => {
+              reject(null);
+            },
+          },
+          {
+            label: 'Criar',
+            style: ButtonStyle.Success,
+            handler: async (i, form) => {
+              resolve(form);
+            },
+          },
+        ],
+      };
+
+      new FormHelper<NewResourceProviderProps4>(context, config).init();
+    },
+  );
+  return promise;
+};
 const getForm3 = (context: ResourceProviderActionContext) => {
   const promise: Promise<NewResourceProviderProps3> = new Promise(
     (resolve, reject) => {
       const config: FormConfig<NewResourceProviderProps3> = {
-        label: `Novo Provedor de Item 3/3: ${context.item.name}`,
+        label: `Novo Provedor de Item 3/4: ${context.item.name}`,
         fields: [
           {
             placeholder: 'Metas para garantir um drop extra (Cada x ganha 1)',
             propKey: 'metaForAExtraDrop',
             defaultValue: 0,
-            options: [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
+            options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
               label: n.toString() + ' de Meta',
               value: n.toString(),
             })),
@@ -105,7 +174,7 @@ const getForm3 = (context: ResourceProviderActionContext) => {
           {
             placeholder: `Meta para rolagem de percepção`,
             propKey: 'metaPerceptionRoll',
-            options: [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
+            options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
               label: n.toString() + ' de Meta',
               value: n.toString(),
             })),
@@ -121,8 +190,8 @@ const getForm3 = (context: ResourceProviderActionContext) => {
             },
           },
           {
-            label: 'Criar',
-            style: ButtonStyle.Success,
+            label: 'Continuar',
+            style: ButtonStyle.Primary,
             handler: async (i, form) => {
               resolve(form);
             },
@@ -143,7 +212,7 @@ const getForm2 = (
   const promise: Promise<NewResourceProviderProps2> = new Promise(
     (resolve, reject) => {
       const config: FormConfig<NewResourceProviderProps2> = {
-        label: `Novo Provedor de Item 2/3: ${context.item.name}`,
+        label: `Novo Provedor de Item 2/4: ${context.item.name}`,
         fields: [
           {
             placeholder: 'Meta para garantir o máximo de drop',
@@ -202,8 +271,8 @@ const getForm2 = (
             },
           },
           {
-            label: 'Criar',
-            style: ButtonStyle.Success,
+            label: 'Continuar',
+            style: ButtonStyle.Primary,
             handler: async (i, form) => {
               resolve(form);
             },
@@ -221,20 +290,8 @@ const getForm1 = (context: ResourceProviderActionContext) => {
   const promise: Promise<NewResourceProviderProps1> = new Promise(
     (resolve, reject) => {
       const config: FormConfig<NewResourceProviderProps1> = {
-        label: `Novo Provedor de Item 1/3:${context.item.name}`,
+        label: `Novo Provedor de Item 1/4:${context.item.name}`,
         fields: [
-          {
-            placeholder: 'Dias de cooldown',
-            propKey: 'daysCooldown',
-            defaultValue: 1,
-            options: [1, 2, 3, 4, 5, 6, 7, 9, 10, 14, 15, 16, 20, 25, 30].map(
-              (n) => ({
-                label: n.toString() + ' dias',
-                value: n.toString(),
-              }),
-            ),
-            pipe: (value) => parseInt(value),
-          },
           {
             placeholder: 'Rolagem 1',
             propKey: 'rollType1',
@@ -276,8 +333,8 @@ const getForm1 = (context: ResourceProviderActionContext) => {
             },
           },
           {
-            label: 'Criar',
-            style: ButtonStyle.Success,
+            label: 'Coninuar',
+            style: ButtonStyle.Primary,
             handler: async (i, form) => {
               resolve(form);
             },
@@ -301,9 +358,9 @@ export const getNewProviderInput = async (
   if (!form1?.rollType2) {
     throw new DiscordSimpleError('Você precisa escolher uma rolagem 2');
   }
-  if (!form1?.daysCooldown) {
-    throw new DiscordSimpleError('Você precisa escolher um cooldown');
-  }
+  // if (!form1?.daysCooldown) {
+  //   throw new DiscordSimpleError('Você precisa escolher um cooldown');
+  // }
   const form2 = await getForm2(context, form1);
   if (!form2?.roll1) {
     throw new DiscordSimpleError('Você precisa escolher uma rolagem 1');
@@ -328,11 +385,12 @@ export const getNewProviderInput = async (
   if (!form3?.metaPerceptionRoll) {
     throw new DiscordSimpleError('Você precisa escolher uma meta');
   }
-
+  const form4 = await getForm4(context);
   const form: NewResourceProviderProps = {
     ...form1,
     ...form2,
     ...form3,
+    ...form4,
   };
   return form;
 };

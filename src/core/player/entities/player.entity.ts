@@ -8,21 +8,18 @@ import {
   ManyToOne,
   OneToMany,
   OneToOne,
-  ManyToMany,
-  JoinColumn,
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { House } from '~/core/house/entities/house.entity';
 import { DiscordEntityVieable } from '~/discord/types';
-import { Grimoire } from '~/grimoire/entities/grimoire.entity';
 import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
+import { Inventory } from '~/items/inventory/entities/inventory.entity';
 import { Abilities } from '~/player-system/abilities/entities/abilities.entity';
 import { Attributes } from '~/player-system/attribute/entities/attributes.entity';
 import { Competences } from '~/player-system/competences/entities/competences.entity';
 import { Extras } from '~/player-system/extras/entities/extras.entity';
 import { NonConvPredilections } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { WitchPredilection } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
-import { Spell } from '~/spell/entities/spell.entity';
 import { Train } from '~/train/entities/train.entity';
 
 @ObjectType()
@@ -130,6 +127,9 @@ export class Player implements DiscordEntityVieable {
   })
   @Field(() => ID)
   trains: Train[];
+
+  @OneToOne(() => Inventory, (iv) => iv.player)
+  inventory: Inventory;
 
   toEmbed() {
     const embeds = new EmbedBuilder();

@@ -48,4 +48,17 @@ export abstract class BasicService<
   remove(options: FindOptionsWhere<Entity>) {
     return this.__repo.delete(options);
   }
+
+  async getOrCreate(
+    options: FindOneOptions<Entity>,
+    input: DeepPartial<Entity>,
+  ) {
+    const oldEntity = await this.findOne(options);
+    if (oldEntity) {
+      return oldEntity;
+    }
+    const data = this.__repo.create(input);
+    const entity = await this.__repo.save(data);
+    return entity;
+  }
 }
