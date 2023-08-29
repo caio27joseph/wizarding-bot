@@ -89,15 +89,14 @@ export class SearchGroup {
       !provider.canSearch() ||
       !provider.canOpen()
     ) {
+      if (provider) {
+        provider.lastTimeSearched = new Date();
+        await this.resourceProviderService.save(provider);
+      }
       await interaction.followUp(
         `<@${player.discordId}> anda pela região procurando por ${name} mas não encontra nada`,
       );
       return;
-    }
-
-    if (provider) {
-      provider.lastTimeSearched = new Date();
-      await this.resourceProviderService.save(provider);
     }
 
     await interaction.followUp({
