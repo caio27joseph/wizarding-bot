@@ -83,16 +83,16 @@ export class SearchGroup {
       },
     );
 
+    if (provider && provider.canSearch()) {
+      provider.lastTimeSearched = new Date();
+      await this.resourceProviderService.save(provider);
+    }
     if (
       !provider ||
       roll.total < provider.metaPerceptionRoll ||
       !provider.canSearch() ||
       !provider.canOpen()
     ) {
-      if (provider) {
-        provider.lastTimeSearched = new Date();
-        await this.resourceProviderService.save(provider);
-      }
       await interaction.followUp(
         `<@${player.discordId}> anda pela região procurando por ${name} mas não encontra nada`,
       );
