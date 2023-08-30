@@ -9,6 +9,7 @@ import {
 } from '~/discord/decorators/message.decorators';
 import { InventoryService } from './inventory.service';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
+import { createInventoryGridImage } from './inventory.viewer';
 
 @Group({
   name: 'inventario',
@@ -30,6 +31,7 @@ export class InventoryGroup {
     await interaction.deferReply({
       ephemeral: true,
     });
+
     const inventory = await this.inventoryService.getOrCreate(
       {
         where: {
@@ -48,19 +50,18 @@ export class InventoryGroup {
       },
     );
 
-    await new PaginationHelper({
-      header: `Inventário de ${player.name}`,
-      items: inventory.stacks,
-      itemsPerPage: 20,
-      formatter: async (stack, i, stacks) => {
-        const item = stack.item;
-        const quantity = stack.quantity;
-
-        return `${i + 1} - ${item.name} - ${quantity}`;
-      },
-      footer(currentPage, totalPages) {
-        return `\nPágina ${currentPage}/${totalPages}`;
-      },
-    }).followUp(interaction);
+    const inventoryImageBuffer = await createInventoryGridImage(
+      inventory,
+      this.inventoryService,
+    );
+    await interaction.followUp({
+      files: [
+        {
+          attachment: inventoryImageBuffer,
+          name: 'inventory.png',
+        },
+      ],
+      content: `Inventário de ${player.name}`,
+    });
   }
 }

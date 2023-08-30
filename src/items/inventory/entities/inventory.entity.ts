@@ -1,10 +1,12 @@
 import {
+  Column,
   Entity,
   JoinColumn,
   ManyToMany,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { Stack } from './stack.entity';
 import { Player } from '~/core/player/entities/player.entity';
@@ -25,4 +27,10 @@ export class Inventory {
   })
   @JoinColumn()
   player?: Player;
+
+  @Column({ type: 'timestamp', nullable: true })
+  lastImageGeneratedAt?: Date;
+
+  @Column()
+  updatedAt: Date;
 }

@@ -5,6 +5,7 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { Item } from '~/items/item/entities/item.entity';
 import { Inventory } from './inventory.entity';
@@ -19,6 +20,9 @@ export class Stack {
   @JoinColumn()
   inventory: Inventory;
 
+  @Column()
+  inventoryId: string;
+
   @ManyToOne(() => Item, {
     eager: true,
   })
@@ -30,6 +34,9 @@ export class Stack {
     type: 'smallint',
   })
   quantity: number;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 
   toEmbed() {
     const embed = new EmbedBuilder();
