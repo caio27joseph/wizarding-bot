@@ -49,6 +49,7 @@ export class InventoryGroup {
         player,
       },
     );
+    inventory.stacks = inventory.stacks || [];
 
     const inventoryImageBuffer = await createInventoryGridImage(
       inventory,

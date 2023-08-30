@@ -31,6 +31,8 @@ export class Inventory {
   @Column({ type: 'timestamp', nullable: true })
   lastImageGeneratedAt?: Date;
 
-  @Column()
+  @Column({
+    default: () => 'CURRENT_TIMESTAMP',
+  })
   updatedAt: Date;
 }
