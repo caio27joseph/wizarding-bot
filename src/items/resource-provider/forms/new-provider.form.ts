@@ -33,9 +33,11 @@ import {
   pointsKeyToTargetDisplayMap,
   pointsKeyToDisplayMap,
 } from '~/player-system/system-types';
+import { ResourceProvider } from '../resource-provider.entity';
 
 export interface ResourceProviderActionContext extends ActionContext {
   space: Space;
+  provider?: ResourceProvider;
   item?: Item;
 }
 

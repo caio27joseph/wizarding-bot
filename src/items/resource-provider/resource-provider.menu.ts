@@ -53,11 +53,17 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     @ArgGuild() guild: Guild,
     @ArgSpace() space: Space,
     @ArgString({
-      name: 'nome',
-      description: 'Nome do recurso',
+      name: 'item',
+      description: 'Nome do item que está sendo procurado',
       required: false,
     })
-    name?: string,
+    itemName?: string,
+    @ArgString({
+      name: 'fonte',
+      description: 'Nome da fonte de recurso que está procurando',
+      required: false,
+    })
+    providerName?: string,
   ) {
     await interaction.deferReply({ ephemeral: true });
 
@@ -66,14 +72,26 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       guild,
       space,
     };
-    if (name) {
+
+    if (itemName) {
       const item = await this.itemService.findOne({
         where: {
-          name: Like(name),
+          name: Like(itemName),
           guildId: guild.id,
         },
       });
       context.item = item;
+    }
+    if (providerName) {
+      const provider = await this.service.findOne({
+        where: {
+          name: Like(providerName),
+          space: {
+            id: space.id,
+          },
+        },
+      });
+      context.provider = provider;
     }
 
     await this.handle(context, true);
@@ -84,17 +102,24 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
   }
 
   getMenuPrompt(context: ResourceProviderActionContext) {
-    const content = context.item
-      ? `Você selecionou o item: ${context.item.name}`
-      : 'Nenhum item seleconado';
+    let content = 'O que você quer fazer?';
+    const embeds = [];
+    if (context.item) {
+      content += `\nItem: ${context.item.name}`;
+      embeds.push(context.item.toEmbed());
+    }
+    if (context.provider) {
+      content += `\nFonte: ${context.provider.name}`;
+      embeds.push(context.provider.toEmbed());
+    }
     const reply: MessageReplyOptions = {
       content,
-      embeds: context.item ? [context.item.toEmbed()] : [],
+      embeds,
     };
     return reply;
   }
 
-  @MenuAction('Novo Gerador')
+  @MenuAction('Novo')
   async createProvider(context: ResourceProviderActionContext) {
     const reply: InteractionReplyOptions = {
       content: 'Vamos criar uma nova fonte de Recurso',
@@ -134,7 +159,7 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     });
   }
 
-  @MenuAction('Ver Geradores')
+  @MenuAction('Listar')
   async listProviders(context: ResourceProviderActionContext) {
     const providers = await this.service.findAll({
       where: {
@@ -147,10 +172,27 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     try {
       await context.interaction.editReply({
         content: 'Lista de fontes de recurso no Local!',
-        embeds: providers.map((p) => p.toEmbed()),
+        embeds: providers.map((p) => p.toEmbed(true)),
       });
     } catch (e) {
       debugger;
     }
+  }
+
+  //rm
+  @MenuAction('Remover')
+  async removeProvider(context: ResourceProviderActionContext) {
+    if (!context.provider) {
+      await context.interaction.editReply({
+        content: 'Nenhuma fonte selecionada',
+      });
+      return;
+    }
+    await this.service.remove({
+      id: context.provider.id,
+    });
+    await context.interaction.editReply({
+      content: 'Fonte removida',
+    });
   }
 }

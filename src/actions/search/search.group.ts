@@ -58,7 +58,8 @@ export class SearchGroup {
     name: string,
   ) {
     await interaction.reply(
-      'Role o dado de percepção\n' + 'Raciocinio + (Percepção ou Investigação)',
+      'Role o dado para procurar\n' +
+        '/dr atributo:Raciocinio + (pericia:Percepção ou conhecimento:Investigação)',
     );
     const providers = await space.resourceProviders;
     const provider = await findClosestMatchInObjects(
@@ -101,7 +102,8 @@ export class SearchGroup {
 
     await interaction.followUp({
       content: `Você encontrou ${provider.item.name}!`,
-      embeds: [provider.toEmbed(), provider.item.toEmbed()],
+      embeds: [provider.toEmbed()],
+      ephemeral: true,
     });
     await interaction.followUp({
       content: `Caso queira pegar o item, por favor role /dr ${
@@ -158,10 +160,10 @@ export class SearchGroup {
     );
 
     await interaction.followUp({
-      content: `Você coletou ${drops} ${provider.item.name}!\n`,
+      content: `Você coletou '${provider.item.name} x${drops}'\n`,
       embeds: [stack.toEmbed()],
     });
-    provider.lastTimeSearched = new Date();
+    provider.lastTimeOpened = new Date();
 
     await this.resourceProviderService.save(provider);
   }

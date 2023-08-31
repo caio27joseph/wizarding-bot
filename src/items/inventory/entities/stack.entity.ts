@@ -41,8 +41,9 @@ export class Stack {
   toEmbed() {
     const embed = new EmbedBuilder();
     embed.setTitle(this.item.name);
-    embed.setDescription(`***Quantidade***: ${this.quantity}`);
-
+    embed.setDescription(`***Quantidade Total***: ${this.quantity}`);
+    embed.setThumbnail(this.item.imageUrl);
+    embed.setColor(`White`);
     return embed;
   }
 }
