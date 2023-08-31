@@ -160,7 +160,7 @@ export enum AbilitiesNameEnum {
   THEOLOGICAL_KNOWLEDGE = 'Con Teologico', // Note: 'Conhecimento Teológico' would be a direct translation but this seems to be a mistake in your original enum.
 }
 
-export type SkillNameValue =
+export type SkillKeyValue =
   | 'bladed_weapons'
   | 'athletics'
   | 'fight'
@@ -174,7 +174,7 @@ export type SkillNameValue =
   | 'theft'
   | 'survival';
 
-export type TalentNameValue =
+export type TalentKeyValue =
   | 'expression'
   | 'empathy'
   | 'etiquette'
@@ -188,7 +188,7 @@ export type TalentNameValue =
   | 'sleight_of_hand'
   | 'animal_handling';
 
-export type KnowledgeNameValue =
+export type KnowledgeKeyValue =
   | 'academics'
   | 'sciences'
   | 'cosmology'
@@ -203,9 +203,9 @@ export type KnowledgeNameValue =
   | 'theological_knowledge';
 
 export type AbilityNameValue =
-  | SkillNameValue
-  | TalentNameValue
-  | KnowledgeNameValue;
+  | SkillKeyValue
+  | TalentKeyValue
+  | KnowledgeKeyValue;
 
 // Separate abilities by type
 const skillAbilities = [

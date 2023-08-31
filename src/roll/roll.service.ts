@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { Player } from '~/core/player/entities/player.entity';
 import {
   Abilities,
-  KnowledgeNameValue,
-  SkillNameValue,
-  TalentNameValue,
+  KnowledgeKeyValue,
+  SkillKeyValue,
+  TalentKeyValue,
 } from '~/player-system/abilities/entities/abilities.entity';
 import { RollsD10 } from './entities/roll.entity';
 import { AbilitiesService } from '~/player-system/abilities/abilities.service';
@@ -29,10 +29,11 @@ export interface RollOptions {
   diff?: number;
   autoSuccess?: number;
   bonus?: number;
+  meta?: number;
   attribute?: AttributeKeyType;
-  skill?: SkillNameValue;
-  talent?: TalentNameValue;
-  knowledge?: KnowledgeNameValue;
+  skill?: SkillKeyValue;
+  talent?: TalentKeyValue;
+  knowledge?: KnowledgeKeyValue;
   competence?: string;
   witchPredilection?: string;
   nonConvPredilectionsChoices?: string;

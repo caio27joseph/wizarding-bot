@@ -8,7 +8,7 @@ import {
 import { CommandInteraction } from 'discord.js';
 import { ExtrasService } from './extras.service';
 import { Repository } from 'typeorm';
-import { Extras, ExtrasNameEnum } from './entities/extras.entity';
+import { Extras, ExtrasDisplayEnum } from './entities/extras.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
@@ -54,29 +54,29 @@ export class ExtrasGroup {
     @ArgPlayer() player: Player,
 
     @ArgInteger({
-      name: ExtrasNameEnum.WILLPOWER,
-      description: `${ExtrasNameEnum.WILLPOWER} do personagem.`,
+      name: ExtrasDisplayEnum.WILLPOWER,
+      description: `${ExtrasDisplayEnum.WILLPOWER} do personagem.`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     })
     willpower?: number,
     @ArgInteger({
-      name: ExtrasNameEnum.AFFINITY,
-      description: `${ExtrasNameEnum.AFFINITY} do personagem.`,
+      name: ExtrasDisplayEnum.AFFINITY,
+      description: `${ExtrasDisplayEnum.AFFINITY} do personagem.`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     })
     affinity?: number,
     @ArgInteger({
-      name: ExtrasNameEnum.CONTROL,
-      description: `${ExtrasNameEnum.CONTROL} do personagem.`,
+      name: ExtrasDisplayEnum.CONTROL,
+      description: `${ExtrasDisplayEnum.CONTROL} do personagem.`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     })
     control?: number,
     @ArgInteger({
-      name: ExtrasNameEnum.SORCERY,
-      description: `${ExtrasNameEnum.SORCERY} do personagem.`,
+      name: ExtrasDisplayEnum.SORCERY,
+      description: `${ExtrasDisplayEnum.SORCERY} do personagem.`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     })

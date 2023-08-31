@@ -29,6 +29,10 @@ import {
 } from './forms/new-provider.form';
 import { MessageCollectorHelper } from '~/discord/helpers/message-collector-helper';
 import { subtractDays } from '~/utils/date.utils';
+import { waitForEvent } from '~/utils/wait-for-event';
+import { RollEvent } from '~/roll/roll.service';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { getNewValidRollForm } from './forms/new-valid-roll.form';
 
 @Group({
   name: 'mod_resource',
@@ -39,6 +43,7 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
   constructor(
     private readonly itemService: ItemService,
     private readonly service: ResourceProviderService,
+    private readonly eventEmitter: EventEmitter2,
   ) {
     super();
   }
@@ -179,7 +184,6 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     }
   }
 
-  //rm
   @MenuAction('Remover')
   async removeProvider(context: ResourceProviderActionContext) {
     if (!context.provider) {
@@ -193,6 +197,44 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     });
     await context.interaction.editReply({
       content: 'Fonte removida',
+    });
+  }
+
+  // Add Roll
+  @MenuAction('Adicionar Rolagem')
+  async addRoll(context: ResourceProviderActionContext) {
+    const { provider } = context;
+    context.item = provider.item;
+    if (!provider) {
+      await context.interaction.editReply('Nenhuma fonte selecionada');
+      return;
+    }
+    const form = await getNewValidRollForm(context);
+
+    await context.interaction.followUp('Execute a rolagem adicionar');
+    const { roll, options }: RollEvent = await waitForEvent(
+      this.eventEmitter,
+      'roll',
+      (data: RollEvent) => true,
+    );
+
+    provider.rolls.push({
+      attribute: options.attribute,
+      skill: options.skill,
+      talent: options.talent,
+      knowledge: options.knowledge,
+      competence: options.competence,
+      witchPredilection: options.witchPredilection,
+      extras: options.extras,
+      meta: options.meta,
+      // spell: options.spell,
+      secret: form.secret,
+      // secret: options.secret,
+    });
+    await this.service.save(provider);
+    await context.interaction.followUp({
+      content: 'Rolagem adicionada',
+      embeds: [provider.toEmbed()],
     });
   }
 }

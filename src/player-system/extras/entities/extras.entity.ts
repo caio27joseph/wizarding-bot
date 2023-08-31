@@ -12,16 +12,28 @@ import {
 import { Player } from '~/core/player/entities/player.entity';
 import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
+import { getDisplayKeyMaps } from '~/utils/entity-types';
 
-export enum ExtrasNameEnum {
+export enum ExtrasDisplayEnum {
   WILLPOWER = 'Força de Vontade',
   AFFINITY = 'Afinidade',
   CONTROL = 'Controle',
   SORCERY = 'Feitiçaria',
 }
+export enum ExtrasKeyEnum {
+  WILLPOWER = 'willpower',
+  AFFINITY = 'affinity',
+  CONTROL = 'control',
+  SORCERY = 'sorcery',
+}
 
-export const extrasChoices = Object.keys(ExtrasNameEnum).map((e) =>
-  enumToChoice(e as any, ExtrasNameEnum),
+export const {
+  displayToKeyMap: extrasDisplayToKeyMap,
+  keyToDisplayMap: extrasKeyToDisplayMap,
+} = getDisplayKeyMaps(ExtrasDisplayEnum, ExtrasKeyEnum);
+
+export const extrasChoices = Object.keys(ExtrasDisplayEnum).map((e) =>
+  enumToChoice(e as any, ExtrasDisplayEnum),
 );
 
 @Entity()
@@ -59,10 +71,10 @@ export class Extras implements DiscordEntityVieable {
   toEmbed() {
     const embed = new EmbedBuilder().setTitle('Extras');
     let description = '';
-    description += `**${ExtrasNameEnum.WILLPOWER}**: ${this.willpower}\n`;
-    description += `**${ExtrasNameEnum.AFFINITY}**: ${this.affinity}\n`;
-    description += `**${ExtrasNameEnum.CONTROL}**: ${this.control}\n`;
-    description += `**${ExtrasNameEnum.SORCERY}**: ${this.sorcery}\n`;
+    description += `**${ExtrasDisplayEnum.WILLPOWER}**: ${this.willpower}\n`;
+    description += `**${ExtrasDisplayEnum.AFFINITY}**: ${this.affinity}\n`;
+    description += `**${ExtrasDisplayEnum.CONTROL}**: ${this.control}\n`;
+    description += `**${ExtrasDisplayEnum.SORCERY}**: ${this.sorcery}\n`;
     embed.setDescription(description);
     return embed;
   }

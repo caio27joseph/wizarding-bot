@@ -10,19 +10,53 @@ import { Item } from '../item/entities/item.entity';
 import { Space } from '~/spaces/space/entities/space.entity';
 import { EmbedBuilder } from 'discord.js';
 import { addDays, addHours, addMinutes, displayBRT } from '~/utils/date.utils';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
+import {
+  AttributeKeyType,
+  attributeKeyToDisplayMap,
+} from '~/player-system/attribute/entities/attributes.entity';
+import {
+  KnowledgeKeyValue,
+  SkillKeyValue,
+  TalentKeyValue,
+  skillKeyToDisplayMap,
+} from '~/player-system/abilities/entities/abilities.entity';
+import { RollOptions } from '~/roll/roll.service';
+
+export class RollSpec {
+  meta?: number;
+  attribute?: AttributeKeyType;
+  skill?: SkillKeyValue;
+  talent?: TalentKeyValue;
+  knowledge?: KnowledgeKeyValue;
+  competence?: string;
+  witchPredilection?: string;
+  nonConvPredilectionsChoices?: string;
+  extras?: string;
+
+  spell?: string;
+  secret?: boolean;
+}
 
 @Entity()
+@ObjectType()
 export class ResourceProvider {
   @PrimaryGeneratedColumn('uuid')
+  @Field((type) => ID)
   id: string;
 
   @Column()
+  @Field()
   name: string;
 
   @Column()
+  @Field()
   description: string;
 
   @Column({
+    nullable: true,
+  })
+  @Field({
     nullable: true,
   })
   imageUrl?: string;
@@ -39,24 +73,40 @@ export class ResourceProvider {
   space: Space;
 
   @Column()
+  @Field()
   lastTimeOpened: Date;
 
   @Column()
+  @Field()
   daysCooldown: number;
 
   @Column({
     default: 0,
   })
+  @Field()
   hoursCooldown: number;
+
   @Column({
     default: 0,
   })
+  @Field()
   minutesCooldown: number;
 
   @Column({
     default: 15,
   })
+  @Field()
   minutesCooldownPerception: number;
+
+  @Column({
+    default: true,
+  })
+  @Field()
+  public: boolean;
+
+  @Column()
+  @Field()
+  lastTimeSearched: Date;
 
   canOpen() {
     const lastTimeOpened = this.lastTimeOpened;
@@ -70,9 +120,6 @@ export class ResourceProvider {
     return now > nextTimeWithMinutes;
   }
 
-  @Column()
-  lastTimeSearched: Date;
-
   canSearch() {
     // can searc if not searched in last 30 minutes
     const lastTimeSearched = this.lastTimeSearched;
@@ -85,36 +132,27 @@ export class ResourceProvider {
   }
 
   @Column()
+  @Field()
   minDrop: number;
   @Column()
+  @Field()
   maxDrop: number;
 
   @Column()
-  metaForMaxDrop: number;
-  @Column()
+  @Field()
   metaForAExtraDrop: number;
   @Column()
+  @Field()
   metaPerceptionRoll: number;
 
-  @Column()
-  rollType1: string;
-  @Column()
-  rollType2: string;
   @Column({
-    nullable: true,
+    type: 'json',
+    default: [],
   })
-  rollType3?: string;
+  rolls: RollSpec[];
 
   @Column()
-  roll1: string;
-  @Column()
-  roll2: string;
-  @Column({
-    nullable: true,
-  })
-  roll3?: string;
-
-  @Column()
+  @Field()
   spaceId: string;
 
   toEmbed(mod?: boolean) {
@@ -137,20 +175,55 @@ export class ResourceProvider {
       description += `**Cooldown: ** ${this.daysCooldown} dias ${
         this.hoursCooldown ? this.hoursCooldown + ' horas' : ''
       } ${this.minutesCooldown ? this.minutesCooldown + ' minutos' : ''}\n`;
+
       description += `**Cooldown Percepção: ** ${this.minutesCooldownPerception} minutos\n`;
       description += `**Minimo de Drop: ** ${this.minDrop}\n`;
       description += `**Maximo de Drop: ** ${this.maxDrop}\n`;
-      description += `**Meta para Maximo de Drop: ** ${this.metaForMaxDrop}\n`;
       description += `**Meta para Extra Drop: ** ${this.metaForAExtraDrop}\n`;
       description += `**Meta para Percepção: ** ${this.metaPerceptionRoll}\n`;
-      description += `**Tipo de Roll 1: ** ${this.rollType1}\n`;
-      description += `**Tipo de Roll 2: ** ${this.rollType2}\n`;
-      description += `**Tipo de Roll 3: ** ${this.rollType3}\n`;
-      description += `**Roll 1: ** ${this.roll1}\n`;
-      description += `**Roll 2: ** ${this.roll2}\n`;
-      description += `**Roll 3: ** ${this.roll3}\n`;
 
       embed.setDescription(description);
+      const fields = this.rolls.map((roll, index) => {
+        let description = '';
+        if (roll.attribute) {
+          description += `**Atributo: ** ${
+            attributeKeyToDisplayMap[roll.attribute]
+          }\n`;
+        }
+        if (roll.skill) {
+          description += `**Pericia: ** ${skillKeyToDisplayMap[roll.skill]}\n`;
+        }
+        if (roll.talent) {
+          description += `**Talento: ** ${roll.talent}\n`;
+        }
+        if (roll.knowledge) {
+          description += `**Conhecimento: ** ${roll.knowledge}\n`;
+        }
+        if (roll.competence) {
+          description += `**Competencia: ** ${roll.competence}\n`;
+        }
+        if (roll.witchPredilection) {
+          description += `**Predileção Bruxa: ** ${roll.witchPredilection}\n`;
+        }
+        if (roll.nonConvPredilectionsChoices) {
+          description += `**Predileção Não Convencional: ** ${roll.nonConvPredilectionsChoices}\n`;
+        }
+        if (roll.extras) {
+          description += `**Extras: ** ${roll.extras}\n`;
+        }
+
+        if (roll.spell) {
+          description += `**Spell: ** ${roll.spell}\n`;
+        }
+        if (roll.secret) {
+          description += `**Secret: ** ${roll.secret}\n`;
+        }
+        return {
+          name: 'Roll ' + (index + 1),
+          value: description,
+        };
+      });
+      embed.addFields(fields);
     } else {
       embed.setDescription(this.description);
     }
@@ -160,5 +233,40 @@ export class ResourceProvider {
       embed.setThumbnail(this.item.imageUrl);
     }
     return embed;
+  }
+
+  getValidRoll(options: RollOptions) {
+    return this.rolls.find((roll) => {
+      let valid = true;
+      if (options?.attribute) {
+        valid = valid && roll.attribute === options?.attribute;
+      }
+      if (options?.skill) {
+        valid = valid && roll.skill === options?.skill;
+      }
+      if (options?.talent) {
+        valid = valid && roll.talent === options?.talent;
+      }
+      if (options?.knowledge) {
+        valid = valid && roll.knowledge === options?.knowledge;
+      }
+      if (options?.competence) {
+        valid = valid && roll.competence === options?.competence;
+      }
+      if (options?.witchPredilection) {
+        valid = valid && roll.witchPredilection === options?.witchPredilection;
+      }
+      if (options?.nonConvPredilectionsChoices) {
+        valid =
+          valid &&
+          roll.nonConvPredilectionsChoices ===
+            options?.nonConvPredilectionsChoices;
+      }
+      if (options?.extras) {
+        valid = valid && roll.extras === options?.extras;
+      }
+
+      return valid;
+    });
   }
 }

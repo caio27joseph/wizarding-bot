@@ -10,7 +10,7 @@ import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { Injectable } from '@nestjs/common';
 import { Command } from '~/discord/decorators/command.decorator';
-import { NonConvPredilectionsNameEnum } from './entities/nonconv-predilections.entity';
+import { NonConvPredilectionsDisplayEnum } from './entities/nonconv-predilections.entity';
 
 @Group({
   name: 'pred_nc',
@@ -51,64 +51,64 @@ export class NonConvPredilectionsGroup {
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.BROOMMANCY,
-      description: `${NonConvPredilectionsNameEnum.BROOMMANCY} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.BROOMMANCY,
+      description: `${NonConvPredilectionsDisplayEnum.BROOMMANCY} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })
     broommancy?: number,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.M_SELVAGEM,
-      description: `${NonConvPredilectionsNameEnum.M_SELVAGEM} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.M_SELVAGEM,
+      description: `${NonConvPredilectionsDisplayEnum.M_SELVAGEM} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })
     m_selvagem?: number,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.M_ANCESTRAL,
-      description: `${NonConvPredilectionsNameEnum.M_ANCESTRAL} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.M_ANCESTRAL,
+      description: `${NonConvPredilectionsDisplayEnum.M_ANCESTRAL} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })
     m_ancestral?: number,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.ELEMENTAL,
-      description: `${NonConvPredilectionsNameEnum.ELEMENTAL} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.ELEMENTAL,
+      description: `${NonConvPredilectionsDisplayEnum.ELEMENTAL} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })
     elemental?: number,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.ESPIRITUAL,
-      description: `${NonConvPredilectionsNameEnum.ESPIRITUAL} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.ESPIRITUAL,
+      description: `${NonConvPredilectionsDisplayEnum.ESPIRITUAL} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })
     espiritual?: number,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.M_MENTAL,
-      description: `${NonConvPredilectionsNameEnum.M_MENTAL} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.M_MENTAL,
+      description: `${NonConvPredilectionsDisplayEnum.M_MENTAL} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })
     m_mental?: number,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.M_AMORMENTE,
-      description: `${NonConvPredilectionsNameEnum.M_AMORMENTE} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.M_AMORMENTE,
+      description: `${NonConvPredilectionsDisplayEnum.M_AMORMENTE} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })
     m_amormente?: number,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.M_TEMPORAL,
-      description: `${NonConvPredilectionsNameEnum.M_TEMPORAL} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.M_TEMPORAL,
+      description: `${NonConvPredilectionsDisplayEnum.M_TEMPORAL} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })
     m_temporal?: number,
     @ArgInteger({
-      name: NonConvPredilectionsNameEnum.WANDMANCY,
-      description: `${NonConvPredilectionsNameEnum.WANDMANCY} do personagem`,
+      name: NonConvPredilectionsDisplayEnum.WANDMANCY,
+      description: `${NonConvPredilectionsDisplayEnum.WANDMANCY} do personagem`,
       required: false,
       choices: [0, 1, 2, 3, 4, 5],
     })

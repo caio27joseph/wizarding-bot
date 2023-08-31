@@ -12,8 +12,9 @@ import {
 import { Player } from '~/core/player/entities/player.entity';
 import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
+import { getDisplayKeyMaps } from '~/utils/entity-types';
 
-export enum NonConvPredilectionsNameEnum {
+export enum NonConvPredilectionsDisplayEnum {
   BROOMMANCY = 'Vassouromancia',
   M_SELVAGEM = 'M Selvagem',
   M_ANCESTRAL = 'M Ancestral',
@@ -26,11 +27,32 @@ export enum NonConvPredilectionsNameEnum {
   M_TEMPORAL = 'M Temporal',
   WANDMANCY = 'Varinhomancia',
 }
+export enum NonConvPredilectionsKeyEnum {
+  BROOMMANCY = 'broommancy',
+  M_SELVAGEM = 'm_selvagem',
+  M_ANCESTRAL = 'm_ancestral',
+
+  ELEMENTAL = 'elemental',
+  ESPIRITUAL = 'espiritual',
+  M_MENTAL = 'm_mental',
+
+  M_AMORMENTE = 'm_amormente',
+  M_TEMPORAL = 'm_temporal',
+  WANDMANCY = 'wandmancy',
+}
+
+export const {
+  displayToKeyMap: nonConvDisplayToKeyMap,
+  keyToDisplayMap: nonConvKeyToDisplayMap,
+} = getDisplayKeyMaps(
+  NonConvPredilectionsDisplayEnum,
+  NonConvPredilectionsKeyEnum,
+);
 
 export const nonConvPredilectionsChoices = Object.keys(
-  NonConvPredilectionsNameEnum,
+  NonConvPredilectionsDisplayEnum,
 ).map((competence) =>
-  enumToChoice(competence as any, NonConvPredilectionsNameEnum),
+  enumToChoice(competence as any, NonConvPredilectionsDisplayEnum),
 );
 
 @Entity()
@@ -104,17 +126,17 @@ export class NonConvPredilections implements DiscordEntityVieable {
     embed.addFields(
       {
         name: `-----`,
-        value: `${NonConvPredilectionsNameEnum.BROOMMANCY}: ${this.broommancy}\n${NonConvPredilectionsNameEnum.M_SELVAGEM}: ${this.m_selvagem}\n${NonConvPredilectionsNameEnum.M_ANCESTRAL}: ${this.m_ancestral}`,
+        value: `${NonConvPredilectionsDisplayEnum.BROOMMANCY}: ${this.broommancy}\n${NonConvPredilectionsDisplayEnum.M_SELVAGEM}: ${this.m_selvagem}\n${NonConvPredilectionsDisplayEnum.M_ANCESTRAL}: ${this.m_ancestral}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${NonConvPredilectionsNameEnum.ELEMENTAL}: ${this.elemental}\n${NonConvPredilectionsNameEnum.ESPIRITUAL}: ${this.espiritual}\n${NonConvPredilectionsNameEnum.M_MENTAL}: ${this.m_mental}`,
+        value: `${NonConvPredilectionsDisplayEnum.ELEMENTAL}: ${this.elemental}\n${NonConvPredilectionsDisplayEnum.ESPIRITUAL}: ${this.espiritual}\n${NonConvPredilectionsDisplayEnum.M_MENTAL}: ${this.m_mental}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${NonConvPredilectionsNameEnum.M_AMORMENTE}: ${this.m_amormente}\n${NonConvPredilectionsNameEnum.M_TEMPORAL}: ${this.m_temporal}\n${NonConvPredilectionsNameEnum.WANDMANCY}: ${this.wandmancy}`,
+        value: `${NonConvPredilectionsDisplayEnum.M_AMORMENTE}: ${this.m_amormente}\n${NonConvPredilectionsDisplayEnum.M_TEMPORAL}: ${this.m_temporal}\n${NonConvPredilectionsDisplayEnum.WANDMANCY}: ${this.wandmancy}`,
         inline: true,
       },
     );

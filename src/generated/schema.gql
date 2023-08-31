@@ -12,6 +12,30 @@ type House {
   pointLogs: [PointLog!]!
 }
 
+type ResourceProvider {
+  id: ID!
+  name: String!
+  description: String!
+  imageUrl: String
+  lastTimeOpened: DateTime!
+  daysCooldown: Float!
+  hoursCooldown: Float!
+  minutesCooldown: Float!
+  minutesCooldownPerception: Float!
+  public: Boolean!
+  lastTimeSearched: DateTime!
+  minDrop: Float!
+  maxDrop: Float!
+  metaForAExtraDrop: Float!
+  metaPerceptionRoll: Float!
+  spaceId: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Player {
   id: ID!
   name: String
@@ -37,11 +61,6 @@ type PointLog {
   cupId: String!
   createdAt: DateTime!
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 type HousePodium {
   position: Float!
@@ -84,6 +103,8 @@ type Query {
   pointLogs(where: FindAllPointLogInput!): [PointLog!]!
   pointLog(houseId: String!): PointLog!
   houseCup(id: ID!): HouseCup!
+  findAllResourceProvider: [ResourceProvider!]!
+  findOneResourceProvider: ResourceProvider!
 }
 
 input FindAllPlayerInput {

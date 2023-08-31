@@ -1,3 +1,4 @@
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { EmbedBuilder, Interaction, InteractionReplyOptions } from 'discord.js';
 import {
   Column,
@@ -18,20 +19,26 @@ import { Inventory } from '~/items/inventory/entities/inventory.entity';
 import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
 
 @Entity()
+@ObjectType()
 export class Item implements DiscordEntityVieable, CanHaveBonus {
   @PrimaryGeneratedColumn('uuid')
+  @Field((type) => ID)
   id: string;
 
   @Column()
+  @Field()
   name: string;
 
   @Column()
+  @Field()
   description: string;
 
   @Column()
+  @Field()
   imageUrl: string;
 
   @Column({ default: false })
+  @Field()
   unique: boolean;
 
   @ManyToOne(() => Inventory)
@@ -39,9 +46,11 @@ export class Item implements DiscordEntityVieable, CanHaveBonus {
   owner: Inventory;
 
   @ManyToOne(() => Guild)
+  @JoinColumn()
   guild: Guild;
 
   @Column()
+  @Field()
   guildId: string;
 
   @Column({

@@ -10,22 +10,27 @@ import {
   ArgSpace,
   ArgString,
 } from '~/discord/decorators/message.decorators';
-import {
-  InteractionOptionEnum,
-  interactionDecoratorFactory,
-} from '~/discord/parameter_metadata_handler';
+import { PaginationHelper } from '~/discord/helpers/page-helper';
 import { InventoryService } from '~/items/inventory/inventory.service';
 import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
 import { ResourceProviderService } from '~/items/resource-provider/resource-provider.service';
 import {
+  skillKeyToDisplayMap,
+  talentKeyToDisplayMap,
+} from '~/player-system/abilities/entities/abilities.entity';
+import { attributeKeyToDisplayMap } from '~/player-system/attribute/entities/attributes.entity';
+import { competenceKeyToDisplayMap } from '~/player-system/competences/entities/competences.entity';
+import { extrasKeyToDisplayMap } from '~/player-system/extras/entities/extras.entity';
+import { nonConvKeyToDisplayMap } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
+import {
   pointsKeyToDisplayMap,
-  pointsKeyToTargetDisplayMap,
   pointsKeyToTargetKeyMap,
 } from '~/player-system/system-types';
+import { witchPredilectionKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { RollsD10 } from '~/roll/entities/roll.entity';
 import { RollEvent } from '~/roll/roll.service';
 import { Space } from '~/spaces/space/entities/space.entity';
 import { findClosestMatchInObjects } from '~/utils/closest-match';
-import { addDays, addMinutes } from '~/utils/date.utils';
 import { waitForEvent } from '~/utils/wait-for-event';
 
 @Group({
@@ -54,20 +59,15 @@ export class SearchGroup {
     @ArgString({
       name: 'nome',
       description: 'Nome do recurso que você está procurando',
+      required: false,
     })
-    name: string,
+    name?: string,
   ) {
     await interaction.reply(
       'Role o dado para procurar\n' +
-        '/dr atributo:Raciocinio + (pericia:Percepção ou conhecimento:Investigação)',
+        '/dr atributo:Raciocínio pericia:Percepção\n Ou /dr atributo:Raciocinio conhecimento:Investigação',
     );
     const providers = await space.resourceProviders;
-    const provider = await findClosestMatchInObjects(
-      name,
-      providers,
-      (o) => o.item.name,
-      0.8,
-    );
     const { roll }: RollEvent = await waitForEvent(
       this.eventEmitter,
       'roll',
@@ -82,6 +82,15 @@ export class SearchGroup {
 
         return samePlayer && sameChannel && perceptionRoll;
       },
+    );
+    if (!name) {
+      return await this.searchResources(interaction, player, space, roll);
+    }
+    const provider = await findClosestMatchInObjects(
+      name,
+      providers,
+      (o) => o.item.name,
+      0.8,
     );
     if (
       !provider ||
@@ -105,21 +114,111 @@ export class SearchGroup {
       embeds: [provider.toEmbed()],
       ephemeral: true,
     });
-    await interaction.followUp({
-      content: `Caso queira pegar o item, por favor role /dr ${
-        pointsKeyToDisplayMap[provider.rollType1]
-      }:${pointsKeyToTargetKeyMap[provider.rollType1][provider.roll1]} + ${
-        pointsKeyToDisplayMap[provider.rollType2]
-      }:${pointsKeyToTargetKeyMap[provider.rollType2][provider.roll2]}
-      `,
-    });
+
+    const possibleRolls = provider.rolls
+      .filter((roll) => !roll.secret)
+      .map((roll) => {
+        let description = '/dr ';
+        if (roll.attribute) {
+          description += `**atributo:**${
+            attributeKeyToDisplayMap[roll.attribute]
+          } `;
+        }
+        if (roll.skill) {
+          description += `**pericia:**${skillKeyToDisplayMap[roll.skill]} `;
+        }
+        if (roll.talent) {
+          description += `**talento:**${talentKeyToDisplayMap[roll.talent]} `;
+        }
+        if (roll.knowledge) {
+          description += `**conhecimento:**${
+            talentKeyToDisplayMap[roll.knowledge]
+          } `;
+        }
+        if (roll.competence) {
+          description += `**competencia:**${
+            competenceKeyToDisplayMap[roll.competence]
+          } `;
+        }
+        if (roll.witchPredilection) {
+          description += `**predilecao_bruxa:**${
+            witchPredilectionKeyToDisplayMap[roll.witchPredilection]
+          } `;
+        }
+        if (roll.nonConvPredilectionsChoices) {
+          description += `**predilecao_nao_convencional:**${
+            nonConvKeyToDisplayMap[roll.nonConvPredilectionsChoices]
+          } `;
+        }
+        if (roll.extras) {
+          description += `**extras:**${extrasKeyToDisplayMap[roll.extras]} `;
+        }
+        return description;
+      });
+    const rolls = possibleRolls.join('\nOu ');
+
+    if (possibleRolls.length === 0) {
+      await interaction.followUp({
+        content: `Você não tem ferramentas para pegar este item...\n`,
+      });
+      await this.collectResource(interaction, player, provider);
+      if (provider.rolls.length === 0) {
+        return;
+      }
+    } else {
+      await interaction.followUp({
+        content: `Caso queira pegar o item, por favor role\n` + rolls,
+      });
+    }
     await this.collectResource(interaction, player, provider);
   }
+
+  async searchResources(
+    interaction: CommandInteraction,
+    player: Player,
+    space: Space,
+    roll: RollsD10,
+  ) {
+    const foundResources: ResourceProvider[] = [];
+    const providers = await space.resourceProviders;
+    for (const provider of providers) {
+      if (
+        provider.canOpen() &&
+        provider.metaPerceptionRoll + 1 <= roll.total &&
+        provider.canSearch() &&
+        provider.public
+      ) {
+        foundResources.push(provider);
+      }
+    }
+
+    if (foundResources.length === 0) {
+      await interaction.followUp(
+        `<@${player.discordId}> anda pela região procurando por recursos mas não encontra nada`,
+      );
+      return;
+    }
+    new PaginationHelper({
+      header: `Você encontrou ${foundResources.length} recursos!`,
+      items: foundResources,
+      formatter: async (provider, index, objs) => {
+        let desc = `**${provider.item.name}**\n`;
+        desc += `**Descrição:** ${provider.item.description}\n`;
+        return desc;
+      },
+      footer(currentPage, totalPages) {
+        return `\nPágina ${currentPage}/${totalPages}`;
+      },
+      itemsPerPage: 5,
+    }).followUp(interaction);
+  }
+
   async collectResource(
     interaction: CommandInteraction,
     player: Player,
     provider: ResourceProvider,
   ) {
+    let metaForMaxDrop = 3;
     const { roll }: RollEvent = await waitForEvent(
       this.eventEmitter,
       'roll',
@@ -127,21 +226,13 @@ export class SearchGroup {
         const samePlayer = data.player.id === player.id;
         const sameChannel =
           data.interaction.channelId === interaction.channelId;
-        const rollType1 = data.options[provider.rollType1];
-        const rollType2 = data.options[provider.rollType2];
-        const rollType3 = provider.rollType3
-          ? data.options[provider.rollType3]
-          : null;
 
-        const correctRoll =
-          provider.roll1 === rollType1 &&
-          provider.roll2 === rollType2 &&
-          (!provider.rollType3 || provider.roll3 === rollType3);
-
-        return samePlayer && sameChannel && correctRoll;
+        const validRoll = provider.getValidRoll(data.options);
+        metaForMaxDrop = validRoll?.meta || 3;
+        return samePlayer && sameChannel && !!validRoll;
       },
     );
-    const { maxDrop, minDrop, metaForMaxDrop, metaForAExtraDrop } = provider;
+    const { maxDrop, minDrop, metaForAExtraDrop } = provider;
     const extraMeta = roll.total - metaForMaxDrop;
 
     const dropPerMeta = (maxDrop - minDrop) / metaForMaxDrop;
@@ -161,7 +252,6 @@ export class SearchGroup {
 
     await interaction.followUp({
       content: `Você coletou '${provider.item.name} x${drops}'\n`,
-      embeds: [stack.toEmbed()],
     });
     provider.lastTimeOpened = new Date();
 

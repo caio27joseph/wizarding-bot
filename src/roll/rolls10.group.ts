@@ -22,9 +22,9 @@ import { NonConvPredilectionsService } from '~/player-system/nonconv-predilectio
 import { competenceChoices } from '~/player-system/competences/entities/competences.entity';
 import {
   Abilities,
-  KnowledgeNameValue,
-  SkillNameValue,
-  TalentNameValue,
+  KnowledgeKeyValue,
+  SkillKeyValue,
+  TalentKeyValue,
   knowledgeChoices,
   skillChoices,
   talentChoices,
@@ -87,21 +87,21 @@ export class Rolls10Group {
       choices: skillChoices,
       required: false,
     })
-    skill?: SkillNameValue,
+    skill?: SkillKeyValue,
     @ArgString({
       name: 'Talento',
       description: 'Talento a ser rolado',
       choices: talentChoices,
       required: false,
     })
-    talent?: TalentNameValue,
+    talent?: TalentKeyValue,
     @ArgString({
       name: 'Conhecimento',
       description: 'Conhecimento a ser rolado',
       choices: knowledgeChoices,
       required: false,
     })
-    knowledge?: KnowledgeNameValue,
+    knowledge?: KnowledgeKeyValue,
     @ArgString({
       name: 'Competência',
       description: 'Competencia a ser rolada',
@@ -130,6 +130,12 @@ export class Rolls10Group {
       choices: extrasChoices,
     })
     extras?: string,
+    @ArgInteger({
+      name: 'Meta',
+      description: 'Meta de sucesso',
+      required: false,
+    })
+    meta?: number,
   ) {
     await interaction.deferReply();
     const roll = await this.rollService.roll10(interaction, player, {
@@ -145,6 +151,7 @@ export class Rolls10Group {
       nonConvPredilectionsChoices,
       extras,
       message,
+      meta,
     });
 
     await interaction.editReply({
