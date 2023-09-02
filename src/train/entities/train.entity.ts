@@ -117,13 +117,17 @@ export class Train implements DiscordEntityVieable {
     [SpellDifficultyEnum.HARD]: 12,
     [SpellDifficultyEnum.VERY_HARD]: 16,
   };
+  @Column({
+    default: false,
+  })
+  double: boolean;
 
   get xpExpression() {
     if (this.spellId) {
       let expression =
         `${this.success} Sucessos * ${this.spell.level} Nível do Feitiço` +
-        ` + ${
-          Train.spellDifficultyXpMap[this.spell.difficulty]
+        ` + ${Train.spellDifficultyXpMap[this.spell.difficulty]}${
+          this.double ? 'x2' : ''
         } Dificuldade do Feitiço`;
 
       if (this.group === TrainGroupOption.TUTOR) {
@@ -131,7 +135,11 @@ export class Train implements DiscordEntityVieable {
       } else if (this.group === TrainGroupOption.PROFESSOR) {
         expression = '(' + expression + ') * 4 Professor';
       } else {
-        expression += ' + ' + Train.groupXpMap[this.group] + ` ${this.group}`;
+        expression +=
+          ' + ' +
+          Train.groupXpMap[this.group] +
+          `${this.double ? 'x2' : ''}` +
+          ` ${this.group}`;
       }
       return expression;
     }
@@ -143,13 +151,14 @@ export class Train implements DiscordEntityVieable {
     if (this.spell) {
       let xp =
         this.success * this.spell.level +
-        Train.spellDifficultyXpMap[this.spell.difficulty];
+        Train.spellDifficultyXpMap[this.spell.difficulty] *
+          (this.double ? 2 : 1);
       if (this.group === TrainGroupOption.TUTOR) {
         xp *= 2;
       } else if (this.group === TrainGroupOption.PROFESSOR) {
         xp *= 4;
       } else {
-        xp += Train.groupXpMap[this.group];
+        xp += Train.groupXpMap[this.group] * (this.double ? 2 : 1);
       }
       this.xp = xp;
     }

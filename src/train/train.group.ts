@@ -23,6 +23,7 @@ import { TrainSpellService } from './train-spell.service';
 import { TrainSpellMenu } from './train-spell.menu';
 import { TrainService } from './train.service';
 import { SpellActionContext } from '~/spell/spell.menu.group';
+import { GrimoireService } from '~/grimoire/grimoire.service';
 
 export enum SpellTrainAction {
   SELECT_GROUP = 'spell-train-group-select',
@@ -194,6 +195,7 @@ export class TrainGroup {
   constructor(
     private readonly spellService: SpellService,
     private readonly trainSpellMenu: TrainSpellMenu,
+    private readonly grimoireService: GrimoireService,
   ) {}
 
   @Command({
@@ -212,23 +214,38 @@ export class TrainGroup {
     spellName?: string,
   ) {
     await interaction.deferReply({ ephemeral: true });
-    if (spellName) {
-      const spell = await this.spellService.findOneOrFail({
-        where: {
-          guildId: guild.id,
-          name: ILike(spellName),
-        },
-      });
-
-      const context = await this.trainSpellMenu.buildUpContext({
-        interaction,
-        guild,
-        player,
-        spell,
-      } as SpellActionContext);
-
-      return await this.trainSpellMenu.train(context);
+    if (!spellName) {
+      throw new DiscordSimpleError('Você precisa informar o que vai treinar');
     }
-    throw new DiscordSimpleError('Você precisa informar o que vai treinar');
+    const spell = await this.spellService.findOneOrFail({
+      where: {
+        guildId: guild.id,
+        name: ILike(spellName),
+      },
+    });
+    if (!spell) {
+      throw new DiscordSimpleError('Feitiço não encontrado');
+    }
+
+    const grimoire = await this.grimoireService.getOrCreate(
+      {
+        where: {
+          playerId: player.id,
+        },
+      },
+      {
+        playerId: player.id,
+      },
+    );
+
+    const context = await this.trainSpellMenu.buildUpContext({
+      interaction,
+      guild,
+      player,
+      spell,
+      grimoire,
+    } as SpellActionContext);
+
+    return await this.trainSpellMenu.train(context);
   }
 }

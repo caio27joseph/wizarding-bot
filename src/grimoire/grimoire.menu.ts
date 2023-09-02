@@ -24,12 +24,10 @@ import {
   PageHelperOptions,
   PaginationHelper,
 } from '~/discord/helpers/page-helper';
-import { Spell } from '~/spell/entities/spell.entity';
-import { SpellSlotsService } from '~/spell/spell-slots/spell-slots.service';
+import { Spell, SpellDifficultyEnum } from '~/spell/entities/spell.entity';
 import { SpellService } from '~/spell/spell.service';
 import { Grimoire } from './entities/grimoire.entity';
 import { GrimoireService } from './grimoire.service';
-import { SpellSlot } from '~/spell/spell-slots/entities/spell-slot.entity';
 import {
   FormConfig,
   FormHelper,
@@ -39,6 +37,7 @@ import { Group } from '~/discord/decorators/group.decorator';
 import { Command } from '~/discord/decorators/command.decorator';
 import {
   ArgGuild,
+  ArgInteger,
   ArgInteraction,
   ArgPlayer,
   ArgString,
@@ -49,19 +48,21 @@ import { TrainSpellService } from '~/train/train-spell.service';
 import { groupBy } from 'lodash';
 import { generateProgressBarEmoji } from '~/utils/emojiProgressBar';
 import { SpellActionContext } from '~/spell/spell.menu.group';
+import {
+  witchPredilectionChoices,
+  witchPredilectionKeyToDisplayMap,
+} from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 interface Props {
   selectedSlot: number;
 }
 
-export interface HandleGrimorioActionOptions {
+export interface HandleGrimoireActionOptions {
   interaction: CommandInteraction;
 }
 
 export interface GrimoireActionContext extends SpellActionContext {
   grimoire: Grimoire;
-  playerMaxSlots: number;
-  slots: SpellSlot[];
 }
 
 @Group({
@@ -69,105 +70,18 @@ export interface GrimoireActionContext extends SpellActionContext {
   description: 'Gerencia o grimório do jogador',
 })
 @Injectable()
-export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
+export class GrimoireMenu {
   constructor(
-    private readonly slotService: SpellSlotsService,
     private readonly grimoireService: GrimoireService,
     private readonly spellService: SpellService,
     private readonly trainSpellService: TrainSpellService,
-  ) {
-    super();
-  }
-
-  @Command({
-    name: 'menu',
-    description: 'Ver o próprio grimório menu',
-  })
-  async getGrimorio(
-    @ArgInteraction()
-    interaction: CommandInteraction,
-    @ArgPlayer()
-    player: Player,
-    @ArgGuild()
-    guild: Guild,
-  ) {
-    await interaction.deferReply({ ephemeral: true });
-    const slots = await this.slotService.findAll({
-      where: {
-        playerId: player.id,
-      },
-      relations: {
-        spell: true,
-      },
-      order: {
-        position: 'ASC',
-      },
-    });
-    if (!slots.length) {
-      throw new DiscordSimpleError(
-        'Você precisa ao menos ter algum feitiço em slot para acessar o menu. use o comando /ftc nome:feitico',
-      );
-    }
-
-    const spellContext: SpellActionContext = {
-      guild,
-      player,
-      interaction,
-      spell: slots[0].spell,
-    };
-
-    await this.handle(spellContext, true);
-  }
-
-  @Command({
-    name: 'mod_menu',
-    mod: true,
-    description: 'Ver o grimório do jogador',
-  })
-  async getTargetGrimorio(
-    @ArgInteraction()
-    interaction: CommandInteraction,
-    @ArgPlayer({
-      name: 'player',
-      description: 'Jogador que deseja conferir o menu',
-    })
-    player: Player,
-    @ArgGuild()
-    guild: Guild,
-  ) {
-    await interaction.deferReply({ ephemeral: true });
-    const slots = await this.slotService.findAll({
-      where: {
-        playerId: player.id,
-      },
-      relations: {
-        spell: true,
-      },
-      order: {
-        position: 'ASC',
-      },
-    });
-    if (!slots.length) {
-      throw new DiscordSimpleError(
-        'Você precisa ao menos ter algum feitiço em slot para acessar o menu. use o comando /ftc nome:feitico',
-      );
-    }
-
-    const spellContext: SpellActionContext = {
-      guild,
-      player,
-      interaction,
-      spell: slots[0].spell,
-    };
-
-    await this.handle(spellContext, true);
-  }
+  ) {}
 
   @Command({
     name: 'aprender',
-    description: 'Ver o grimório do jogador',
+    description: 'Aprende um feitiço adicionando ele ao grimório',
   })
-  async learnGrimorio(
+  async learnSpell(
     @ArgInteraction()
     interaction: CommandInteraction,
     @ArgPlayer()
@@ -175,7 +89,7 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
     @ArgGuild()
     guild: Guild,
     @ArgString({
-      name: 'nome',
+      name: 'feitico',
       description: 'Nome do feitiço',
     })
     name: string,
@@ -201,29 +115,49 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         playerId: player.id,
       },
     );
-    const slots = await this.slotService.findAll({
-      where: {
-        playerId: player.id,
-      },
+    if (grimoire.spells.some((s) => s.id === spell.id)) {
+      return await interaction.followUp({
+        content: `Você já conhece o feitiço ${spell.name}`,
+        embeds: [spell.toShortEmbed()],
+      });
+    }
+    grimoire.spells.push(spell);
+    await this.grimoireService.save(grimoire);
+    await interaction.followUp({
+      content: `Você aprendeu o feitiço ${spell.name}`,
+      embeds: [spell.toShortEmbed()],
     });
-    const context: GrimoireActionContext = {
-      guild,
-      player,
-      interaction,
-      spell,
-      grimoire,
-      slots,
-      playerMaxSlots: await this.slotService.playerMaxSlots(player),
-    };
+  }
 
-    await this.addToGrimoire(context);
+  @Command({
+    name: '_add',
+    description: 'Adiciona o Feitiço a algum jogador',
+    mod: true,
+  })
+  async teachSpell(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgPlayer({
+      name: 'Jogador',
+      description: 'Jogador que será ensinado',
+    })
+    player: Player,
+    @ArgGuild()
+    guild: Guild,
+    @ArgString({
+      name: 'feitico',
+      description: 'Nome do feitiço',
+    })
+    name: string,
+  ) {
+    return await this.learnSpell(interaction, player, guild, name);
   }
 
   @Command({
     name: 'desaprender',
-    description: 'Ver o grimório do jogador',
+    description: 'Desaprende o feitiço anteriormente adicionado ao grimório',
   })
-  async removeGrimorio(
+  async unlearnGrimoire(
     @ArgInteraction()
     interaction: CommandInteraction,
     @ArgPlayer()
@@ -249,35 +183,82 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         },
       },
       {
-        player: player,
         playerId: player.id,
       },
     );
-    const slots = await this.slotService.findAll({
-      where: {
-        playerId: player.id,
-      },
-    });
-    const context: GrimoireActionContext = {
-      guild,
-      player,
-      interaction,
-
-      spell,
-      grimoire,
-      slots,
-      playerMaxSlots: await this.slotService.playerMaxSlots(player),
-    };
-
-    await this.removeFromGrimoire(context);
+    grimoire.spells = grimoire.spells.filter((s) => s.id !== spell.id);
+    await this.grimoireService.save(grimoire);
   }
 
-  async buildUpContext(context: SpellActionContext) {
-    const { player, spell } = context;
+  @Command({
+    name: '_rem',
+    description: 'Remove o Feitiço de algum jogador',
+    mod: true,
+  })
+  async removeGrimoire(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgPlayer({
+      name: 'Jogador',
+      description: 'Jogador que perderá o feitiço',
+    })
+    player: Player,
+    @ArgGuild()
+    guild: Guild,
+    @ArgString({
+      name: 'Feitiço',
+      description: 'Nome do feitiço',
+    })
+    name: string,
+  ) {
+    return await this.unlearnGrimoire(interaction, player, guild, name);
+  }
+
+  @Command({
+    name: 'listar',
+    description: 'Ver o grimório do jogador',
+  })
+  async listGrimoire(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgPlayer()
+    player: Player,
+    @ArgGuild()
+    guild: Guild,
+    @ArgInteger({
+      name: 'Nivel_Feitico',
+      description: 'Nível do feitiço',
+      required: false,
+    })
+    level?: number,
+    @ArgString({
+      name: 'Escola_Magica',
+      description: 'Escola do feitiço',
+      required: false,
+      choices: Object.entries(witchPredilectionKeyToDisplayMap).map(
+        ([key, value]) => ({
+          name: value,
+          value: key,
+        }),
+      ),
+    })
+    category?: string,
+    @ArgString({
+      name: 'Dificuldade_Feitico',
+      description: 'Dificuldade do feitiço',
+      required: false,
+    })
+    difficulty?: SpellDifficultyEnum,
+  ) {
+    await interaction.deferReply({ ephemeral: true });
     const grimoire = await this.grimoireService.getOrCreate(
       {
         where: {
           playerId: player.id,
+          spells: {
+            level,
+            difficulty,
+          },
         },
         relations: {
           spells: true,
@@ -287,70 +268,30 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         playerId: player.id,
       },
     );
-
-    grimoire.spells = grimoire.spells || [];
-
-    const slots = await this.slotService.findAll({
-      where: {
-        playerId: player.id,
-      },
-      relations: {
-        spell: true,
-      },
-      order: {
-        position: 'ASC',
-      },
+    const spells = grimoire.spells.filter((spell) => {
+      if (category && !spell.category.includes(category)) {
+        return false;
+      }
+      return true;
     });
 
-    const ctx: GrimoireActionContext = {
-      ...context,
-      grimoire,
-      slots,
-      playerMaxSlots: await this.slotService.playerMaxSlots(player),
-    };
-    return ctx;
-  }
-
-  async getMenuPrompt(
-    context: GrimoireActionContext,
-  ): Promise<InteractionReplyOptions> {
-    const { spell, player, playerMaxSlots, slots } = context;
-    let description = 'Slots Atuais\n';
-
-    for (let i = 0; i < playerMaxSlots; i++) {
-      description += `${i + 1} - ${
-        slots.find((s) => s.position === i)?.spell?.name || 'Vazio'
-      }\n`;
-    }
-
-    return {
-      embeds: [
-        new EmbedBuilder()
-          .setTitle(`Feitiço ${spell.name} selecionado.`)
-          .setDescription(description),
-      ],
-    };
-  }
-
-  @MenuAction('Listar')
-  async grimoire(context: GrimoireActionContext) {
-    const { player, grimoire } = context;
-
     const trains = await this.trainSpellService.playerTrains(player.id);
+
     const groupedTrains = groupBy(trains, (train) => train.spellId);
 
     const options: PageHelperOptions<Spell> = {
-      items: grimoire.spells || [],
-      header: `# Grimório de ${player?.name}\n`,
+      items: spells || [],
+      header: `# Grimório de ${player?.name}\n${spells.length} Feitiços Encontrados\n`,
       formatter: async (item, index, array) => {
         const progress = await this.trainSpellService.progressData({
           spell: item,
           trains: groupedTrains[item.id] || [],
         });
+
         let message = `## ${index}. **${item.name}**\n`;
         message += `Nível: ${
           progress.currentLevel
-        } :magic_wand: ${generateProgressBarEmoji(
+        } - ${generateProgressBarEmoji(
           progress.xpTowardsNextLevel,
           progress.necessaryXP,
         )} ${progress.xpTowardsNextLevel}/${progress.necessaryXP}`;
@@ -360,110 +301,6 @@ export class GrimoireMenu extends MenuHelper<GrimoireActionContext> {
         return `\nPágina ${currentPage} de ${totalPages}`;
       },
     };
-    new PaginationHelper(options).followUp(context.interaction);
-  }
-
-  @MenuAction('Substiruir No Slot')
-  async slot(context: GrimoireActionContext) {
-    const { slots, player, playerMaxSlots, spell } = context;
-
-    const handler = async (interaction: ButtonInteraction, props: Props) => {
-      const { selectedSlot } = props;
-      let slot = slots.find((s) => s.position === selectedSlot);
-      const index = slots.indexOf(slot);
-      if (slot) {
-        slot.spell = spell;
-        slot = await this.slotService.save(slot);
-      } else {
-        slot = await this.slotService.create({
-          playerId: player.id,
-          spellId: spell.id,
-          position: selectedSlot,
-        });
-      }
-      slots[index] = slot;
-
-      await context.interaction.followUp({
-        content:
-          `Salvo ${slot.position + 1}\n` +
-          this.slotService.listSlots(slots, playerMaxSlots),
-        ephemeral: true,
-      });
-    };
-
-    let description = 'Slots Atuais\n';
-    const options: OptionConfig[] = [];
-    for (let i = 0; i < playerMaxSlots; i++) {
-      const msg = `${i + 1} - ${
-        slots.find((s) => s.position === i)?.spell?.name || 'Vazio'
-      }\n`;
-      description += msg;
-      options.push({
-        label: msg,
-        value: i.toString(),
-      });
-    }
-
-    const config: FormConfig<Props> = {
-      label: 'Selecione o slot\n' + description,
-      fields: [
-        {
-          placeholder: 'Selecione o slot',
-          propKey: 'selectedSlot',
-          pipe: (value) => parseInt(value),
-          options,
-        },
-      ],
-      buttons: [
-        {
-          label: 'Substituir',
-          style: ButtonStyle.Primary,
-          handler,
-        },
-      ],
-    };
-    new FormHelper<Props>(context, config).init();
-  }
-  @MenuAction('Desaprender')
-  async removeFromGrimoire(context: GrimoireActionContext) {
-    const { spell, grimoire } = context;
-    const index = grimoire.spells?.findIndex((s) => s.id === spell.id);
-
-    if (index !== undefined && index !== -1) {
-      grimoire.spells.splice(index, 1);
-    } else {
-      throw new DiscordSimpleError('O feitiço não está no seu grimório.');
-    }
-    await this.grimoireService.save(grimoire);
-
-    return context.interaction.followUp({
-      content: 'Grimório Atualizado',
-      ephemeral: true,
-    });
-  }
-
-  @MenuAction('Aprender')
-  async addToGrimoire(context: GrimoireActionContext) {
-    const { spell, grimoire } = context;
-
-    if (!grimoire.spells) {
-      grimoire.spells = [];
-    }
-    const found = grimoire.spells?.find((s) => s.id === spell.id);
-    if (found) {
-      throw new DiscordSimpleError('O feitiço já está no seu grimório.');
-    }
-    grimoire.spells.push(spell);
-    await this.grimoireService.save(grimoire);
-
-    const response = await context.interaction.followUp({
-      content: `${spell.name} adicionado ao seu grimório`,
-      ephemeral: true,
-    });
-    await this.handle({
-      ...context,
-      grimoire,
-      response,
-    });
+    new PaginationHelper(options).followUp(interaction);
   }
 }

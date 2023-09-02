@@ -214,6 +214,7 @@ export class Spell implements DiscordEntityVieable {
     embed.setTitle(this.name);
     let description = '';
     description += `${this.category} / ${this.difficulty}\n`;
+    description += `Nivel ${this.level}\n`;
     embed.setDescription(description);
     embed.setAuthor({
       name: this.title,
@@ -258,6 +259,7 @@ export class Spell implements DiscordEntityVieable {
     if (this.actionType) {
       description = `**Ação:** ${this.actionType}\n` + description;
     }
+    description = `**Nivel:** ${this.level}\n` + description;
     description =
       `${this.category.join(', ')} / ${this.difficulty}\n` + description;
 

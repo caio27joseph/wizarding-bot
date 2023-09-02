@@ -1,7 +1,6 @@
 import { Module, forwardRef } from '@nestjs/common';
 import { GrimoireMenu } from './grimoire.menu';
 import { SpellModule } from '~/spell/spell.module';
-import { SpellSlotsModule } from '~/spell/spell-slots/spell-slots.module';
 import { PlayerModule } from '~/core/player/player.module';
 import { GrimoireService } from './grimoire.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -12,9 +11,8 @@ import { TrainModule } from '~/train/train.module';
   imports: [
     TypeOrmModule.forFeature([Grimoire]),
     forwardRef(() => SpellModule),
-    SpellSlotsModule,
+    forwardRef(() => TrainModule),
     PlayerModule,
-    TrainModule,
   ],
   providers: [GrimoireMenu, GrimoireService],
   exports: [GrimoireMenu, GrimoireService],

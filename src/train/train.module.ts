@@ -9,6 +9,7 @@ import { Spell } from '~/spell/entities/spell.entity';
 import { TrainSpellMenu } from './train-spell.menu';
 import { TrainSpellService } from './train-spell.service';
 import { TrainService } from './train.service';
+import { GrimoireModule } from '~/grimoire/grimoire.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { TrainService } from './train.service';
     PlayerModule,
     RollModule,
     forwardRef(() => SpellModule),
+    forwardRef(() => GrimoireModule),
   ],
   providers: [
     TrainService,

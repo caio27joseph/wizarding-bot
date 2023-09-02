@@ -13,7 +13,7 @@ export const getNewValidRollForm = (context: ResourceProviderActionContext) => {
       label: `Novo Provedor de Item 4/4: ${context.item.name}`,
       fields: [
         {
-          placeholder: 'Recurso secreto? [Não]',
+          placeholder: 'Rolagem secreta? [Não]',
           propKey: 'secret',
           defaultValue: false,
           options: ['Sim', 'Não'].map((n) => ({
@@ -28,7 +28,7 @@ export const getNewValidRollForm = (context: ResourceProviderActionContext) => {
           defaultValue: 3,
           options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
             (n) => ({
-              label: n.toString() + ' horas',
+              label: n.toString() + ' de Meta',
               value: n.toString(),
             }),
           ),

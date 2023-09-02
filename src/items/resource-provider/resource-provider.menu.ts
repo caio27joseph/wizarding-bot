@@ -211,7 +211,10 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     }
     const form = await getNewValidRollForm(context);
 
-    await context.interaction.followUp('Execute a rolagem adicionar');
+    await context.interaction.followUp({
+      content: 'Execute a rolagem adicionar',
+      ephemeral: true,
+    });
     const { roll, options }: RollEvent = await waitForEvent(
       this.eventEmitter,
       'roll',
@@ -235,6 +238,7 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     await context.interaction.followUp({
       content: 'Rolagem adicionada',
       embeds: [provider.toEmbed()],
+      ephemeral: true,
     });
   }
 }

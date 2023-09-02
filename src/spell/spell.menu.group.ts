@@ -35,10 +35,12 @@ import {
   SpellDifficultyEnum,
 } from './entities/spell.entity';
 import { GrimoireMenu } from '~/grimoire/grimoire.menu';
+import { Grimoire } from '~/grimoire/entities/grimoire.entity';
 
 export interface SpellActionContext extends ActionContext {
   spell?: Spell;
   spells?: Spell[];
+  grimoire?: Grimoire;
 }
 
 @Group({
@@ -157,10 +159,5 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
   @MenuAction('Maestria')
   async train(context: SpellActionContext, i: ButtonInteraction) {
     await this.trainMenu.handle(context);
-  }
-
-  @MenuAction('Grimório (Beta)')
-  async grimoire(context: SpellActionContext, i: ButtonInteraction) {
-    await this.grimoireMenu.handle(context);
   }
 }

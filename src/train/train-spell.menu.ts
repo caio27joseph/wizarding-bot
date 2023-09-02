@@ -11,6 +11,7 @@ import { Spell, maestryNumToName } from '~/spell/entities/spell.entity';
 import {
   WitchPredilectionDisplayEnum,
   witchPredilectionDisplayToKeyMap,
+  witchPredilectionKeyToDisplayMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Player } from '~/core/player/entities/player.entity';
 import {
@@ -23,6 +24,7 @@ import { RollService } from '~/roll/roll.service';
 import { RollsD10 } from '~/roll/entities/roll.entity';
 import { TrainService } from './train.service';
 import { SpellActionContext } from '~/spell/spell.menu.group';
+import { DiscordSimpleError } from '~/discord/exceptions';
 
 interface Props {
   roll?: WitchPredilectionDisplayEnum;
@@ -115,7 +117,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
   // This assumes you have decorators to handle each customId, similar to GrimoireMenu
   @MenuAction('Treinar')
   async train(context: TrainSpellActionContext) {
-    const { spell, todayTrains } = context;
+    const { spell, todayTrains, grimoire } = context;
     try {
       await this.trainSpellService.validate({
         spell,
@@ -127,6 +129,13 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
       });
       return;
     }
+
+    if (!grimoire.spells.some((s) => s.id === spell.id)) {
+      return await context.interaction.followUp(
+        'Você não conhece esse feitiço, use /grimorio aprender',
+      );
+    }
+
     const canDoubleTrain = this.trainSpellService.canDoubleTrain({
       todayTrains,
       spell,
@@ -159,7 +168,11 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     }
 
     await new FormHelper<Props>(context, {
-      label: `Treinar ${context.spell.name}`,
+      label: `Treinar ${context.spell.name} ${
+        context.spell.category.length === 1
+          ? `\n> Controle + ${context.spell.category[0]}`
+          : ''
+      }`,
       buttons,
       fields: [
         {
@@ -296,18 +309,6 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
       message: spell.name,
     });
     rolls.push(roll);
-    const trains: Train[] = [];
-    const train = await this.trainService.create({
-      success: roll.total,
-      channelId: interaction.channelId,
-      messageId: message.id,
-      spell: spell,
-      spellId: spell.id,
-      player: player,
-      playerId: player.id,
-      group: props.group,
-    });
-    trains.push(train);
     if (doubleTrain) {
       const roll = await this.rollService.roll10(interaction, player, {
         witchPredilection: witchPredilectionDisplayToKeyMap[props.roll],
@@ -317,22 +318,23 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
         message: spell.name,
       });
       rolls.push(roll);
-      const train = await this.trainService.create({
-        success: roll.total,
-        channelId: interaction.channelId,
-        messageId: message.id,
-        spell: spell,
-        spellId: spell.id,
-        player: player,
-        playerId: player.id,
-        group: props.group,
-      });
-      trains.push(train);
     }
+    // total should be the total sum of rolls array
+    const train = await this.trainService.create({
+      success: rolls.reduce((acc, curr) => acc + curr.total, 0),
+      channelId: interaction.channelId,
+      messageId: message.id,
+      spell: spell,
+      spellId: spell.id,
+      player: player,
+      playerId: player.id,
+      group: props.group,
+      double: doubleTrain,
+    });
 
-    context.spellTrains.push(...trains);
+    context.spellTrains.push(train);
     await message.reply({
-      content: trains.map((t) => t.toShortText()).join('\n\n'),
+      content: train.toShortText(),
       embeds: rolls.map((r) => r.toEmbed()),
     });
 
@@ -350,8 +352,8 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
       content:
         `<@${player.discordId}> realizou um treino de ${spell.name}, Ação: ` +
         `https://discord.com/channels/${message.guildId}/${message.channelId}/${message.id}` +
-        trains.map((t) => `\nID: ${t.id}`).join(''),
-      embeds: trains.map((t) => t.toEmbed()),
+        `\nID: ${train.id}`,
+      embeds: [train.toEmbed()],
     });
   }
 }
