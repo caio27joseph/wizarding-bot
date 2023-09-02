@@ -5,7 +5,7 @@
     ],
     "difficulty": "Muito Difícil",
     "description": "Ao conjurar Bombarda, uma explosão é projetada no alvo, podendo quebrar trancas, janelas e portas. Esse feitiço causa 5d6 + Evocação de dano em objetos inanimados, construtos e estruturas, mas apenas 2d6 + Evocação de dano caso utilizado em seres vivos. ",
-    "updatedAt": "2023-08-20T17:59:25.492308",
+    "updatedAt": "2023-09-02T20:00:40.418274",
     "title": "Feitiço de Explosão",
     "level": 2,
     "actionType": "Padrão",
@@ -15,6 +15,7 @@
     "resistence": "Salvaguarda Físico Reduz para Metade.",
     "requirements": "Evocação 3.",
     "antiSpell": "Custodire",
+    "cd": "Feitiçaria + Metade da Força",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {

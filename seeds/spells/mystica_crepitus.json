@@ -3,9 +3,9 @@
     "category": [
         "Evocação"
     ],
-    "difficulty": "Difícil",
-    "description": "Um feixe de energia crepitante sai em forma de lampejo e atinge uma criatura dentro do alcance. Faça um teste de lampejo contra a Defesa Física do alvo. Se acertar, o alvo recebe 1d10 + Força de dano ",
-    "updatedAt": "2023-08-20T17:59:26.391307",
+    "difficulty": "Médio",
+    "description": "Um feixe de energia crepitante sai em forma de lampejo e atinge uma criatura dentro do alcance. Faça um teste de lampejo contra a Defesa Física do alvo. Se acertar, o alvo recebe 1d10 + Controle + 2 de dano ",
+    "updatedAt": "2023-09-02T20:01:04.708468",
     "title": "Explosão Mística",
     "level": 3,
     "actionType": "Padrão",
@@ -14,7 +14,7 @@
     "light": "Azul",
     "requirements": "Evocação 1",
     "resistence": "Salvaguarda Fisica Reduz a metade.",
-    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {
             "level": 1,
@@ -24,7 +24,7 @@
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Explosão Mística de forma focada. Aumenta o dano em +1d10."
+            "description": "Você pode lançar Explosão Mística de forma focada. Aumenta o dano em +1d10 + 4."
         },
         {
             "level": 3,
@@ -34,12 +34,12 @@
         {
             "level": 4,
             "name": "Especialista",
-            "description": "O dano aumenta para +1d10. Além disso pode lançar três feixe de energia, podendo agora acertar o mesmo inimigo."
+            "description": "O dano aumenta para +1d10 + 2d6. Além disso pode lançar três feixe de energia, podendo agora acertar o mesmo inimigo."
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Explosão Mística em uma área de alcance de 3 metros de raio e deixa os inimigos enfraquezidos na area em 1d10 e o dano reduzido em 1d4+2."
+            "description": "Você pode lançar Explosão Mística em uma área de alcance de 3 metros de raio e deixa os inimigos enfraquezidos na area em 1d10 e o dano reduzido em 1d4+2. Diminui a Dif de sucesso necessario em 1."
         }
     ],
     "identifier": "8e66cc41-3d11-4ed6-9f53-c8fa81aa944c"

@@ -5,7 +5,7 @@
     ],
     "difficulty": "Fácil",
     "description": "Puxa um objeto para a mão do conjurador. Para ser bem-sucedido, o bruxo precisa ter em mente a localização e/ou aparência do objeto para convocá-lo. Caso convocado, o objeto voará rapidamente na direção do conjurador evitando quaisquer obstáculos em seu caminho. Com ele, um bruxo pode puxar um objeto para a sua mão, desde que esteja dentro de um alcance razoável e não se trate de seres vivos, objetos trancados, edifícios, ou artefatos mágicos, como varinhas. O bruxo deve conhecer a localização ou aparência do objeto que deseja convocar para que o feitiço funcione corretamente. Pode ser usado de duas formas: formulando o feitiço e nomeando o objeto desejado (Accio Medalhão!), ou apontando a varinha na direção do objeto para atraí-lo até si. ",
-    "updatedAt": "2023-08-20T17:59:25.168499",
+    "updatedAt": "2023-09-02T20:00:18.158077",
     "title": "Feitiço Convocatório",
     "level": 1,
     "actionType": "Padrão",
@@ -13,7 +13,8 @@
     "requirements": "Convocação 1",
     "distance": "Médio",
     "antiSpell": "Depulso",
-    "resistence": "Salvaguarda Físico Anula",
+    "resistence": "Salvaguarda Físico Anula.",
+    "cd": "Feitiçaria + Metade da Força",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [
         {

@@ -179,6 +179,14 @@ export class Spell implements DiscordEntityVieable {
   @Field((type) => ActionTypeEnum)
   actionType: ActionTypeEnum;
 
+  @Column({
+    nullable: true,
+  })
+  @Field({
+    nullable: true,
+  })
+  cd?: string;
+
   @Column('text')
   description: string;
 

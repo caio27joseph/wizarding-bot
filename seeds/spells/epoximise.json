@@ -5,7 +5,7 @@
     ],
     "difficulty": "Difícil",
     "description": "O feitiço Epoximise torna o alvo extremamente adesivo e elástico, assemelhando-se a uma geléia grudenta. Pode ser lançado sobre um único objeto, independentemente do tamanho, ou sobre uma superfície de até 6 metros quadrados. Se Epoximise for lançado em um objeto, criaturas que tentarem pegá-lo ou tocá-lo não conseguirão soltá-lo por meios convencionais. Se for lançado em uma área, qualquer criatura que pisar, caminhar ou se apoiar na superfície ficará Enredada até sair da área ou até o feitiço ser desfeito. Vale ressaltar que esse feitiço é considerado uma Transfiguração. ",
-    "updatedAt": "2023-08-10T18:10:57.474072",
+    "updatedAt": "2023-09-02T20:00:40.690268",
     "title": "Feitiço Adesivo",
     "level": 2,
     "actionType": "Padrão",
@@ -14,6 +14,7 @@
     "requirements": "Transfigurações 2",
     "distance": "Curto",
     "resistence": "Salvaguarda Fisica Anula.",
+    "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {

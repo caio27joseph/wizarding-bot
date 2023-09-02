@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "Flipendo é um feitiço que empurra o alvo para longe do conjurador e o faz cair no chão. Ao ser atingido, o alvo é lançado a até (número de Sucessos x2) metros na direção contrária à do conjurador, sofrendo 1d6 + Força de dano contusivo para cada 3 metros arrastados por esse feitiço, com um mínimo de 1d6 + Força, Além disso, a vítima começa seu próximo turno caída. ",
-    "updatedAt": "2023-08-10T18:09:24.292289",
+    "updatedAt": "2023-09-02T20:00:18.641112",
     "title": "Azaração do Empurrão",
     "level": 1,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "light": "Branco",
     "distance": "Curto",
     "resistence": "Salvaguarda Físico Reduz a metade. (Você não cai mais, mas leva metade do dano)",
+    "cd": "Feitiçaria + Metade da Força.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {

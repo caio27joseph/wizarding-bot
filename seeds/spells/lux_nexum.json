@@ -5,7 +5,7 @@
     ],
     "difficulty": "Difícil",
     "description": "O Feitiço da Conexão da Luz, também conhecido como Lux Nexum, permite que o bruxo lance um projetil de luz da ponta de sua varinha. Quando esse projetil atinge um inimigo, causa dano e o deixa momentaneamente paralisado em uma espécie de redoma de luz por 2 rodadas. Caso o projetil atinja um inimigo e haja outro atrás dele, o projetil continua e também o acerta,  causando dano. O dano e de 2d6 + 2 + Sucessos . Não causa aprisionamento na outra pessoa so dano.  Obs: Fantasmas e outros seres deste gênero ou das trevas levam o dobro de dano. ",
-    "updatedAt": "2023-08-10T18:09:24.526105",
+    "updatedAt": "2023-09-02T20:00:18.841475",
     "title": "Feitiço da conexão da luz",
     "level": 1,
     "actionType": "Padrão",
@@ -15,6 +15,7 @@
     "requirements": "Evocação 2",
     "distance": "Curto",
     "resistence": "Salvaguarda Físico Reduz a Metade..",
+    "cd": "Feitiçaria + Metade da Força",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {

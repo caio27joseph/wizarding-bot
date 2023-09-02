@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "Ao lançar a Azaração do Espirro (Sternius), a vítima é afligida por crises constantes de espirros durante toda a duração do feitiço. Em combate, a vítima deve fazer um teste de Salvaguarda Fisica para anular. Caso falhe, o alvo começará a espirrar incontrolavelmente e só poderá realizar uma ação padrão ou de movimento (não ambas) naquele turno. ",
-    "updatedAt": "2023-08-10T18:09:24.715104",
+    "updatedAt": "2023-09-02T20:00:19.066042",
     "title": "Azaração do Espirro",
     "level": 1,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "light": "Verde",
     "distance": "Curto",
     "resistence": "Salvaguarda Fisica Anula",
+    "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {

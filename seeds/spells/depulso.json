@@ -5,14 +5,15 @@
     ],
     "difficulty": "Médio",
     "description": "Depulso é um feitiço que causa o efeito oposto ao feitiço \"Accio\". Ao ser lançado, empurra o alvo para longe do conjurador. O alvo é arremessado a uma distância igual ao número de Sucessos obtidos no teste multiplicado por dois metros, na direção contrária à do conjurador. Caso o alvo colida com uma parede ou obstáculo durante o trajeto, sofre dano contusivo de 1d4 + 2 para cada 5 metros que tenha sido arrastado, apenas se for empurrado por essa distância. ",
-    "updatedAt": "2023-08-10T18:09:24.175291",
+    "updatedAt": "2023-09-02T20:00:18.487594",
     "title": "Feitiço Expulsório",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
     "light": "Branco",
     "distance": "Curto",
-    "resistence": "Salvaguarda Físico Anula  | Parcial",
+    "resistence": "Salvaguarda Físico Anula | Parcial",
+    "cd": "Feitiçaria + Metade da Força.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {

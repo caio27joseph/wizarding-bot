@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "O feitiço Immobilus cria um pulso mágico com 5 metros de raio e 10 metros de diâmetro, emanando a partir da ponta da varinha. Todas as criaturas com tamanho mínimo (1 Metro - Pequenas) ou menor que estejam dentro desse pulso são instantaneamente paralisadas, como se tivessem sido congeladas em pleno movimento. Caso haja criaturas voando ou flutuando durante a execução do feitiço, elas permanecem nessa posição, deslizando lentamente pelo ar até o fim da duração do efeito. ",
-    "updatedAt": "2023-08-10T18:09:24.454450",
+    "updatedAt": "2023-09-02T20:00:18.770994",
     "title": "Feitiço de Congelamento",
     "level": 1,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "distance": "Médio",
     "requirements": "Encantamentos 2",
     "resistence": "Salvaguarda Mental Anula.",
+    "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {

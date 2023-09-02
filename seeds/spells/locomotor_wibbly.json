@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "Faz com que as pernas da vítima colapsem, como se tivessem se transformado em geleia. O alvo fica Lento pela duração do feitiço, o que dificulta seus movimentos e ações. Toda vez que a vítima tentar se mover, incluindo realizar Aparatação, ela deve ser bem-sucedida em um teste de Destreza, obtendo no mínimo 3 Sucessos. Caso falhe nesse teste, a vítima fica Caída, incapaz de se movimentar adequadamente. ",
-    "updatedAt": "2023-08-10T18:09:24.501103",
+    "updatedAt": "2023-09-02T20:00:18.810944",
     "title": "Azaração das Pernas Bambas",
     "level": 1,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "light": "Transparente",
     "distance": "Curto",
     "resistence": "Salvaguarda Físico Anula.",
+    "cd": "Feitiçaria + Metade da Força.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {

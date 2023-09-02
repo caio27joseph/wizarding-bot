@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "Ao lançar esse feitiço sobre o alvo, galhadas começam a brotar no topo da sua cabeça. Embora o feitiço não imponha penalidades sobre a criatura, ele causa muito desconforto e pontadas de dor. As galhadas crescem naturalmente ao longo da duração do feitiço e podem variar em tamanho e formato. Aplica uma dor de cabeça no afetado que retira 1 dado do alvo em seus testes. ",
-    "updatedAt": "2023-08-10T18:10:57.247072",
+    "updatedAt": "2023-09-02T20:00:40.321273",
     "title": "Azaração da Galhada",
     "level": 2,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "light": "Bronze",
     "requirements": "Necromancia 2",
     "resistence": "Salvaguarda Físico Anula.",
+    "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {

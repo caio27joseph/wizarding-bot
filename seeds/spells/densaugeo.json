@@ -6,7 +6,7 @@
     ],
     "difficulty": "Médio",
     "description": "Densaugeo é um feitiço que afeta os dentes dianteiros do alvo, fazendo com que eles cresçam exponencialmente até atingirem até 50 cm. Embora não imponha penalidades à criatura afetada, o feitiço causa um grande desconforto e pontadas de dor. ",
-    "updatedAt": "2023-08-10T18:09:24.163289",
+    "updatedAt": "2023-09-02T20:00:18.477057",
     "title": "Azaração do Dente que Cresce",
     "level": 1,
     "actionType": "Padrão",
@@ -15,6 +15,7 @@
     "distance": "Curto",
     "antiSpell": "Densrefugit",
     "resistence": "Salvaguarda Físico Anula",
+    "cd": "Feitiçaria + Metade da Força.",
     "requirements": "Necromancia 2 e Transfigurações 1",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [

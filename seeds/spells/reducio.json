@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "O Reducio é um feitiço que reduz o tamanho do alvo afetado. Pode ser utilizado em objetos, formas de energia e animais sem grandes consequências. Porém, quando aplicado em humanos ou seres humanóides, pode causar desconforto e problemas se não for conjurado corretamente. Em objetos ou animais, o feitiço reduz o tamanho em até um quinto (1/5) sem problemas, embora o alvo possa se sentir nauseado por alguns segundos após a transformação.  Para encolher um humano ou ser humanóide, o bruxo deve obter pelo menos 5 Sucessos na conjuração desse feitiço. Caso contrário, o Reducio causa um efeito similar ao estrunchamento, danificando uma pequena área onde a varinha foi apontada, resultando em 2d6 de dano. No entanto, se o Reducio for bem-sucedido, pode diminuir proporcionalmente o tamanho do alvo até um máximo de um quinto (1/5) do seu tamanho original. No entanto, uma criatura reduzida corretamente fica Lenta devido ao encurtamento das pernas. ",
-    "updatedAt": "2023-08-10T18:10:57.975075",
+    "updatedAt": "2023-09-02T20:00:41.112272",
     "title": "Feitiço de Encolhimento",
     "level": 2,
     "actionType": "Padrão",
@@ -15,6 +15,7 @@
     "requirements": "Transmutação 2",
     "distance": "Curto",
     "resistence": "Salvaguarda Fisica Anula.",
+    "cd": "Feitiçaria + Metade da Força.",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {

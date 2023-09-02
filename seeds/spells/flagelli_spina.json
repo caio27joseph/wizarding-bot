@@ -1,0 +1,45 @@
+{
+    "name": "Flagelli spina",
+    "category": [
+        "Transmutação"
+    ],
+    "difficulty": "Médio",
+    "description": "Você cria um longo chicote em forma de videira coberto de espinhos que chicoteia ao seu comando em direção a uma criatura dentro do alcance. Se o ataque acertar, a criatura sofre 2d6 + 2 + Trasmutação de dano perfurante. Se a criatura for de tamanho Média ou Menor, você pode puxá-la até 3 metros mais perto de você. ",
+    "updatedAt": "2023-09-02T20:01:04.327438",
+    "title": "Feitiço do Chicote Espinho",
+    "level": 3,
+    "actionType": "Padrão",
+    "distance": "Curto",
+    "duration": "Instântaneo",
+    "resistence": "Salvaguarda Fisica Reduz a Metade",
+    "light": "Verde Claro",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Chicote Espinho."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Chicote Espinho de forma focada. Seu dano aumenta para +1d6+2"
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Chicote Espinho de forma não-verbal. Pode acertar agora até 3 inimigos."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Quando você acerta um ataque com Chicote Espinho o mesmo deixa espinhos na vitima que causam Controle + Transmutação + 2 de dano a cada rodada até serem tirados."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Chicote Espinho como um feitiço de \"Nível: 4\", o que aumenta o dano para d8 + Sucessos e o alcance para Médio. Além disso, você pode puxar a criatura até 5 metros mais perto de você se ela for de tamanho Grande ou menor. Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "9fb33968-a52d-48d3-9e13-97166abffec9"
+}

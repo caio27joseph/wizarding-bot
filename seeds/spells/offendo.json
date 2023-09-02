@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "O feitiço Offendo é uma poderosa Azaração que provoca um efeito cômico e desestabilizador em seu alvo. Ao ser lançado, a vítima é subitamente tomada por uma sensação de desequilíbrio, como se tivesse esbarrado em algo invisível. Desajeitada, a pessoa tropeça sozinha e perde momentaneamente o controle sobre seus movimentos, culminando em uma queda desajeitada. O alvo da Azaração do Tropeço sofre 1d4 + Sucessos de dano de queda e é considerado Caído durante a rodada afetada. A duração do efeito é instantânea, mas a lembrança do tropeço pode persistir na memória do alvo, gerando embaraço ou tornando-o mais suscetível a novos ataques. ",
-    "updatedAt": "2023-08-10T18:09:24.568106",
+    "updatedAt": "2023-09-02T20:00:18.898522",
     "title": "Azaração do Tropeço",
     "level": 1,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "light": "Verde",
     "distance": "Curto",
     "resistence": "Salvaguarda Mental Anula",
+    "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "maestry": [
         {

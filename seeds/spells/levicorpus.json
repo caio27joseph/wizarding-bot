@@ -1,0 +1,46 @@
+{
+    "name": "Levicorpus",
+    "category": [
+        "Encantamento"
+    ],
+    "difficulty": "Médio",
+    "description": "Ao lançar Levicorpus, você faz com que a vítima fique levitando no ar de ponta-cabeça, presa por uma força invisível. A vítima não pode se mover voluntariamente e sofre desvantagem em todas as jogadas de ataque ficando enredado pela duração. Ela também fica incapacitada, incapaz de realizar ações ou reações, exceto tentar escapar.  Para escapar do efeito, a vítima pode realizar um teste de salvaguarda fisica bem-sucedido contra a sua dificuldade de lançamento. Se a vítima for bem-sucedida, ela consegue se soltar da levitação e cai no chão. ",
+    "updatedAt": "2023-09-02T20:01:04.524467",
+    "title": "Feitiço da Levitação",
+    "level": 3,
+    "actionType": "Padrão",
+    "distance": "Curto",
+    "duration": "Concentração - 2 Rodadas.",
+    "light": "Amarelo Claro.",
+    "resistence": "Salvaguarda Fisica Anula.",
+    "antiSpell": "Liberacorpus",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Levicorpus."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Levicorpus de forma focada."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Levicorpus de forma não-verbal. Você afeta 3 pessoas em uma area de 3 metros."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "A dificuldade de resistência da vítima aumenta. Agora neste estágio o inimigo precisa passar em +1 sucesso, para escapar e leva Encantamento+Controle do conjurador de dano de todas as fontes."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "O alcance da magia aumenta para Média. Além disso, você pode escolher entre mantê-la concentrada na levitação da vítima ou fazer com que ela seja suspensa de cabeça para baixo por uma corda invisível, permitindo que você a mova pela área enquanto a mantém presa. A duração aumenta para 2 + Sucessos de Rodadas. Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "8c3c2236-a470-4a7e-972f-db5148c13ab2"
+}

@@ -4,8 +4,8 @@
         "Necromancia"
     ],
     "difficulty": "Difícil",
-    "description": "Você dispara um raio de energia esverdeada doentia em direção a uma criatura dentro do alcance. O alvo atingido pelo raio sofre 2d6 + Necromancia de dano venenoso e deve fazer um teste de Salvaguarda Física.  Em uma falha no teste de Salvaguarda, o alvo é envenenado até o final do seu próximo turno. Isso significa que ele tem desvantagem nas jogadas de ataque e testes de resistência durante esse período érdendo 1d10 em tudo e levando 2d4+2 de dano de veneno. ",
-    "updatedAt": "2023-08-20T17:59:26.387308",
+    "description": "Você dispara um raio de energia esverdeada doentia em direção a uma criatura dentro do alcance. O alvo atingido pelo raio sofre 2d6 + Necromancia de dano venenoso e deve fazer um teste de Salvaguarda Física.  Em uma falha no teste de Salvaguarda, o alvo é envenenado até o final do seu próximo turno. Isso significa que ele tem desvantagem nas jogadas de ataque e testes de resistência durante esse período pérdendo 1d10 em tudo e levando 2d4+2 de dano de veneno. ",
+    "updatedAt": "2023-09-02T20:01:04.694469",
     "title": "Feitiço Raio da Doença",
     "level": 3,
     "actionType": "Padrão",

@@ -5,7 +5,7 @@
     ],
     "difficulty": "Muito Difícil",
     "description": "Ao lançar Legilimens, o conjurador é capaz de ler os pensamentos superficiais do alvo, ou seja, as coisas que ele está pensando ou sentindo naquele exato momento. O bruxo que usa esse feitiço é capaz de enxergar os pensamentos em forma de visões, que se manifestam como \"flashes\" nítidos em sua mente. Essa forma de invasão mental é sutil e não provoca nenhuma sensação no alvo. ",
-    "updatedAt": "2023-08-10T18:10:57.785075",
+    "updatedAt": "2023-09-02T20:00:40.973270",
     "title": "Feitiço Legilimente",
     "level": 2,
     "actionType": "Padrão",
@@ -15,6 +15,7 @@
     "requirements": "Legilimência 1",
     "distance": "Curto",
     "resistence": "Salvaguarda Mental Anula.",
+    "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {

@@ -5,7 +5,7 @@
     ],
     "difficulty": "Fácil",
     "description": "Ao lançar a Cantis, você faz com que o alvo comece a cantar de forma descontrolada. Mesmo que a criatura seja habilidosa em música, ela não terá controle sobre sua performance e será compelida a cantar em uma situação humilhante. Durante a duração da azaração, o alvo não conseguirá parar de cantar, e todas as tentativas de interromper a melodia serão em vão. ",
-    "updatedAt": "2023-08-10T18:09:24.065291",
+    "updatedAt": "2023-09-02T20:00:18.333542",
     "title": "Azaração do Canto Descontrolado",
     "level": 1,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "light": "Branco",
     "distance": "Curto",
     "resistence": "Salvaguarda Mental Anula",
+    "cd": "Feitiçaria + Metade da Inteligência.",
     "antiSpell": "Angularis",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
     "maestry": [

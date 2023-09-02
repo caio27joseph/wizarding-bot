@@ -5,7 +5,7 @@
     ],
     "difficulty": "Difícil",
     "description": "Glacius é um poderoso feitiço de congelação que dispara um jato de ar frio da ponta da varinha. Esse jato de ar frio é capaz de congelar qualquer matéria que entre em contato com ele. Caso atinja uma criatura, o feitiço causa dano de frio igual a 1d6 + Controle + o número de Sucessos obtidos no teste da magia. Além disso, uma camada fina de gelo cobre a superfície do corpo do alvo, tornando-o Lento pela duração do feitiço ou até que ele se descongele através do calor, de acordo com o critério do Mestre. Glacius também pode ser utilizado para extinguir chamas e resfriar criaturas como salamandras-de-fogo. ",
-    "updatedAt": "2023-08-10T18:09:24.372358",
+    "updatedAt": "2023-09-02T20:00:18.709112",
     "title": "Feitiço de Congelação",
     "level": 1,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "distance": "Curto",
     "requirements": "Evocação 1",
     "resistence": "Salvaguarda Físico Reduz a metade.",
+    "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
     "maestry": [
         {

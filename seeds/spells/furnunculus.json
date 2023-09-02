@@ -5,7 +5,7 @@
     ],
     "difficulty": "Médio",
     "description": "Furnunculus é um feitiço poderoso que causa diversas erupções no rosto e corpo do alvo. Essas espinhas constantemente explodem em pús, causando grande desconforto e deixando a vítima Enjoada pela duração do efeito. O Furúnculo é extremamente desagradável e pode ser bastante constrangedor para o afetado. ",
-    "updatedAt": "2023-08-10T18:09:24.343927",
+    "updatedAt": "2023-09-02T20:00:18.692112",
     "title": "Azaração do Furúnculo",
     "level": 1,
     "actionType": "Padrão",
@@ -13,6 +13,7 @@
     "light": "Amarelo",
     "distance": "Curto",
     "resistence": "Salvaguarda Físico Anula.",
+    "cd": "Feitiçaria + Metade da Força.",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
     "maestry": [
         {

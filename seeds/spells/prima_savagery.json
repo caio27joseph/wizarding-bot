@@ -1,0 +1,44 @@
+{
+    "name": "Prima savagery",
+    "category": [
+        "Transmutação"
+    ],
+    "difficulty": "Médio",
+    "description": "Você canaliza magia primitiva para fazer com que seus dentes ou unhas fiquem afiados, prontos para desferir um ataque corrosivo. Faça um ataque de magia corpo a corpo contra uma criatura a até 2 metro de você. Se acertar, o alvo sofre 1d10 + 1d4 + Transmutação de dano ácido. Depois de fazer o ataque, seus dentes ou unhas voltam ao normal. ",
+    "updatedAt": "2023-09-02T20:01:05.569139",
+    "title": "Feitiço da Selvageria Primal",
+    "level": 3,
+    "actionType": "Livre",
+    "distance": "Pessoal",
+    "duration": "Instântaneo",
+    "light": "Amarelo",
+    "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Selvageria Primal."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Seu feitiço se torna rodada e você pode sempre fazer este ataque como uma ação livre agora. A alteração dura 1d4 Rodadas."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Selvageria Primal de forma não-verbal. Seu dano aumenta em +1d10+1d4."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Seu ataque agora deixa o inimigo sangrando causam Controle + Transmutação + 2 de dano a cada rodada até serem tirados."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Selvageria Primal como um feitiço de \"Nível: 4\", o que aumenta o dano para d12 e permite que você faça o ataque a até 3 metros de distância. Além disso agora você consegue atacar 2 pessoas seguidas. Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "47f5d65e-9279-4da2-9eaa-93034efc7240"
+}

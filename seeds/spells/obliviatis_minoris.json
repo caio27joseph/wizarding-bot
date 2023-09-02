@@ -1,0 +1,45 @@
+{
+    "name": "Obliviatis minoris",
+    "category": [
+        "Encantamento"
+    ],
+    "difficulty": "Difícil",
+    "description": "Você toca um trouxa alvo, substituindo suas memórias recentes por outras memórias pontuais. O alvo deve ter falhado em um teste de resistência de Salvaguarda Mental para ser afetado por este feitiço.  Obliviatis Minoris permite que você escolha e insira uma memória diferente recente no lugar da memória mágica que o trouxa testemunhou. A memória alternativa deve ser algo plausível dentro do contexto do que o trouxa estava vivenciando.  Este feitiço só pode ser usado em um alvo por vez e em uma distância curta. Ele é frequentemente empregado para preservar o Segredo do Mundo Bruxo, garantindo que os trouxas não se lembrem de encontros ou incidentes mágicos. ",
+    "updatedAt": "2023-09-02T20:01:04.732482",
+    "title": "Feitiço do Esquecimento Trouxa",
+    "level": 3,
+    "actionType": "Padrão",
+    "distance": "Toque",
+    "duration": "Instântaneo",
+    "light": "Azul Claro",
+    "resistence": "Salvaguarda Mental Anula.",
+    "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "maestry": [
+        {
+            "level": 1,
+            "name": "Inicial",
+            "description": "Você pode lançar Obliviatis Minoris."
+        },
+        {
+            "level": 2,
+            "name": "Intermediário",
+            "description": "Você pode lançar Obliviatis Minoris de forma focada. Pode afetar agora 2 Trouxas ao mesmo tempo."
+        },
+        {
+            "level": 3,
+            "name": "Avançado",
+            "description": "Você pode lançar Obliviatis Minoris de forma não-verbal. O alcance muda para Curto. Diminui a Dif de sucesso necessario em 1."
+        },
+        {
+            "level": 4,
+            "name": "Especialista",
+            "description": "Quando você lança Obliviatis Minoris, você pode escolher entre duas memórias alternativas para substituir a memória mágica. Aumenta para 3 Trouxas ao mesmo tempo."
+        },
+        {
+            "level": 5,
+            "name": "Mestre",
+            "description": "Você pode lançar Obliviatis Majoris, uma versão aprimorada desse feitiço que pode afetar múltiplos trouxas simultaneamente e tem um alcance médio agora e afeta todos os trouxas em em uma area que possa ver. Pode tambem alterar qualquer tipo de memoria, bem como fasculhar a mente do alvo. (Legilimentes ganham vantagens nesta rolagem) Diminui a Dif de sucesso necessario em 1."
+        }
+    ],
+    "identifier": "66d90fd9-9f0c-464d-b419-5ede565b66e3"
+}
