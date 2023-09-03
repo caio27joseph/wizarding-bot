@@ -172,11 +172,12 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
       formatter: async (item, index, array) => {
         const grimoireSpell = grimoireSpells.some((s) => s.id === item.id);
         return (
-          `### ${item.name} \t ${grimoire && grimoireSpell ? `✅` : `❌`}` +
+          `### ${item.name} ${grimoire && grimoireSpell ? `✅` : `❌`}` +
           `\n` +
           `Nível: ${item.level} - ${item.category.join(', ')} / ${
             item.difficulty
-          }`
+          }` +
+          (item.requirements ? `\nRequisitos: ${item.requirements}` : '')
         );
       },
       footer(currentPage, totalPages) {

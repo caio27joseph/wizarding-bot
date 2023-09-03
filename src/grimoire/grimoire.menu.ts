@@ -95,7 +95,7 @@ export class GrimoireMenu {
     name: string,
   ) {
     await interaction.deferReply({ ephemeral: true });
-    const spell = await this.spellService.findOne({
+    const spell = await this.spellService.findOneOrFail({
       where: {
         guildId: guild.id,
         name: ILike(name),

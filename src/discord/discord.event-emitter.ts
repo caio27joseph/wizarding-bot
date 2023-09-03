@@ -425,7 +425,7 @@ export class DiscordEventEmitter implements OnModuleInit {
       return res;
     }
     const res = new MessagePayload(interaction, {
-      content: `Unexpected Error ${error?.message}`,
+      content: `${error?.message}`,
       ephemeral: true,
     });
     return res;
