@@ -36,6 +36,7 @@ import {
 } from './entities/spell.entity';
 import { GrimoireMenu } from '~/grimoire/grimoire.menu';
 import { Grimoire } from '~/grimoire/entities/grimoire.entity';
+import { GrimoireService } from '~/grimoire/grimoire.service';
 
 export interface SpellActionContext extends ActionContext {
   spell?: Spell;
@@ -52,7 +53,7 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
   constructor(
     private readonly spellService: SpellService,
     private readonly trainMenu: TrainSpellMenu,
-    private readonly grimoireMenu: GrimoireMenu,
+    private readonly grimoireService: GrimoireService,
   ) {
     super();
   }
@@ -129,28 +130,57 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
 
     await this.handle(context, true);
   }
-  async list(context: SpellActionContext, where: FindOptionsWhere<Spell> = {}) {
+  async list(
+    context: SpellActionContext,
+    { difficulty, level, category }: FindOptionsWhere<Spell> = {},
+  ) {
     let spells = await this.spellService.findAll({
       where: {
         guildId: context.guild.id,
-        difficulty: where.difficulty,
-        level: where.level,
+        difficulty,
+        level,
+      },
+      order: {
+        level: 'ASC',
+        name: 'ASC',
       },
     });
-    if (where.category) {
-      spells = spells.filter((s) =>
-        s.category.includes(where.category as string),
+    if (category) {
+      spells = spells.filter((s) => s.category.includes(category as string));
+    }
+
+    const grimoire = await this.grimoireService.findOne({
+      where: {
+        playerId: context.player.id,
+        spells: {
+          level,
+          difficulty,
+        },
+      },
+    });
+    let grimoireSpells = grimoire?.spells || [];
+    if (category) {
+      grimoireSpells = grimoireSpells.filter((s) =>
+        s.category.includes(category as string),
       );
     }
+
     const options: PageHelperOptions<Spell> = {
       itemsPerPage: 10,
       items: spells,
       header: 'Feitiços\n',
       formatter: async (item, index, array) => {
-        return item.toShortText(index);
+        const grimoireSpell = grimoireSpells.some((s) => s.id === item.id);
+        return (
+          `### ${item.name} \t ${grimoireSpell ? `✅` : `❌`}` +
+          `\n` +
+          `Nível: ${item.level} - ${item.category.join(', ')} / ${
+            item.difficulty
+          }`
+        );
       },
       footer(currentPage, totalPages) {
-        return `Página ${currentPage} de ${totalPages}`;
+        return `\nPágina ${currentPage} de ${totalPages}`;
       },
     };
     await new PaginationHelper(options).followUp(context.interaction);
