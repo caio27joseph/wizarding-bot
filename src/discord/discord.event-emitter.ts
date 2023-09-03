@@ -209,6 +209,7 @@ export class DiscordEventEmitter implements OnModuleInit {
                   value,
                 });
               }
+
               option.setChoices(...choices);
             }
             return option;
@@ -240,6 +241,7 @@ export class DiscordEventEmitter implements OnModuleInit {
                   value,
                 });
               }
+
               option.setChoices(...choices);
             }
             return option;

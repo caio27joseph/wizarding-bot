@@ -223,10 +223,9 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
 
     provider.rolls.push({
       attribute: options.attribute,
-      skill: options.skill,
-      talent: options.talent,
-      knowledge: options.knowledge,
-      competence: options.competence,
+      hab1: options.hab1,
+      hab2: options.hab2,
+      hab3: options.hab3,
       witchPredilection: options.witchPredilection,
       extras: options.extras,
       meta: options.meta,

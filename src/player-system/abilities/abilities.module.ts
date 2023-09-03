@@ -4,9 +4,9 @@ import { AbilitiesResolver } from './abilities.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Abilities } from './entities/abilities.entity';
 import {
-  AbiliitesKnowledgesGroup,
-  AbiliitesSkillsGroup,
-  AbiliitesTalentsGroup,
+  Abiliites1Group,
+  Abiliites2Group,
+  Abiliites3Group,
   AbilitiesGroup,
 } from './abiliites.group';
 
@@ -16,9 +16,9 @@ import {
     AbilitiesResolver,
     AbilitiesService,
     AbilitiesGroup,
-    AbiliitesSkillsGroup,
-    AbiliitesTalentsGroup,
-    AbiliitesKnowledgesGroup,
+    Abiliites1Group,
+    Abiliites2Group,
+    Abiliites3Group,
   ],
   exports: [AbilitiesService],
 })

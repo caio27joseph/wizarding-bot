@@ -14,18 +14,10 @@ import { PaginationHelper } from '~/discord/helpers/page-helper';
 import { InventoryService } from '~/items/inventory/inventory.service';
 import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
 import { ResourceProviderService } from '~/items/resource-provider/resource-provider.service';
-import {
-  skillKeyToDisplayMap,
-  talentKeyToDisplayMap,
-} from '~/player-system/abilities/entities/abilities.entity';
+import { abilitiesKeyToDisplayMap } from '~/player-system/abilities/entities/abilities.entity';
 import { attributeKeyToDisplayMap } from '~/player-system/attribute/entities/attributes.entity';
-import { competenceKeyToDisplayMap } from '~/player-system/competences/entities/competences.entity';
 import { extrasKeyToDisplayMap } from '~/player-system/extras/entities/extras.entity';
 import { nonConvKeyToDisplayMap } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
-import {
-  pointsKeyToDisplayMap,
-  pointsKeyToTargetKeyMap,
-} from '~/player-system/system-types';
 import { witchPredilectionKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { RollsD10 } from '~/roll/entities/roll.entity';
 import { RollEvent } from '~/roll/roll.service';
@@ -75,10 +67,11 @@ export class SearchGroup {
         const samePlayer = data.player.id === player.id;
         const sameChannel =
           data.interaction.channelId === interaction.channelId;
+
         const perceptionRoll =
           data.options.attribute === 'rationality' &&
-          (data.options.skill === 'perception' ||
-            data.options.knowledge === 'investigation');
+          (data.options.hab3 === 'perception' ||
+            data.options.hab2 === 'investigation');
 
         return samePlayer && sameChannel && perceptionRoll;
       },
@@ -124,21 +117,14 @@ export class SearchGroup {
             attributeKeyToDisplayMap[roll.attribute]
           } `;
         }
-        if (roll.skill) {
-          description += `**pericia:**${skillKeyToDisplayMap[roll.skill]} `;
+        if (roll.hab1) {
+          description += `**pericia:**${abilitiesKeyToDisplayMap[roll.hab1]} `;
         }
-        if (roll.talent) {
-          description += `**talento:**${talentKeyToDisplayMap[roll.talent]} `;
+        if (roll.hab2) {
+          description += `**pericia:**${abilitiesKeyToDisplayMap[roll.hab2]} `;
         }
-        if (roll.knowledge) {
-          description += `**conhecimento:**${
-            talentKeyToDisplayMap[roll.knowledge]
-          } `;
-        }
-        if (roll.competence) {
-          description += `**competencia:**${
-            competenceKeyToDisplayMap[roll.competence]
-          } `;
+        if (roll.hab3) {
+          description += `**pericia:**${abilitiesKeyToDisplayMap[roll.hab3]} `;
         }
         if (roll.witchPredilection) {
           description += `**predilecao_bruxa:**${

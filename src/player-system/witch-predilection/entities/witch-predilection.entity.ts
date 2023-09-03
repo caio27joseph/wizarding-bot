@@ -66,7 +66,7 @@ export const witchPredilectionChoices = Object.keys(
 
 @Entity()
 @ObjectType()
-export class WitchPredilection implements DiscordEntityVieable {
+export class MagicSchool implements DiscordEntityVieable {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

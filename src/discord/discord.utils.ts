@@ -7,10 +7,14 @@ export const enumToChoice = <Enum>(ability: keyof Enum, e: Enum): Choice => {
   };
 };
 
-export function normalizedName(inputStr) {
+export function normalizedName(inputStr: string): string {
   // Normalize the string to remove diacritics
-  let normalized = inputStr.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const normalized = inputStr.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  // Convert to lowercase and replace spaces with underscores
-  return normalized.toLowerCase().replace(/\s+/g, '_').toLowerCase();
+  // Convert to lowercase, replace spaces and slashes with underscores, and remove certain characters
+  return normalized
+    .toLowerCase()
+    .replace(/\s+/g, '_')
+    .replace(/[.-]/g, '')
+    .replace(/\//g, '_');
 }

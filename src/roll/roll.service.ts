@@ -2,14 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { Player } from '~/core/player/entities/player.entity';
 import {
   Abilities,
-  KnowledgeKeyValue,
-  SkillKeyValue,
-  TalentKeyValue,
+  AbilitiesKeys,
 } from '~/player-system/abilities/entities/abilities.entity';
 import { RollsD10 } from './entities/roll.entity';
 import { AbilitiesService } from '~/player-system/abilities/abilities.service';
 import { AttributeService } from '~/player-system/attribute/attribute.service';
-import { CompetencesService } from '~/player-system/competences/competences.service';
 import { ExtrasService } from '~/player-system/extras/extras.service';
 import { NonConvPredilectionsService } from '~/player-system/nonconv-predilection/noconv-predilections.service';
 import { WitchPredilectionsService } from '~/player-system/witch-predilection/witch-predilection.service';
@@ -31,10 +28,9 @@ export interface RollOptions {
   bonus?: number;
   meta?: number;
   attribute?: AttributeKeyType;
-  skill?: SkillKeyValue;
-  talent?: TalentKeyValue;
-  knowledge?: KnowledgeKeyValue;
-  competence?: string;
+  hab1?: AbilitiesKeys;
+  hab2?: AbilitiesKeys;
+  hab3?: AbilitiesKeys;
   witchPredilection?: string;
   nonConvPredilectionsChoices?: string;
   extras?: string;
@@ -54,7 +50,6 @@ export class RollService {
   constructor(
     private readonly attributesService: AttributeService,
     private readonly abilitiesService: AbilitiesService,
-    private readonly competencesService: CompetencesService,
     private readonly witchPredilectionsService: WitchPredilectionsService,
     private readonly nonConvPredilectionsService: NonConvPredilectionsService,
     private readonly extrasService: ExtrasService,
@@ -101,7 +96,7 @@ export class RollService {
 
     // #endregion
     // #region Abilities
-    if (options?.skill || options?.talent || options?.knowledge) {
+    if (options?.hab1 || options?.hab2 || options?.hab1) {
       abilities = await this.abilitiesService.findOne({
         where: {
           playerId: player.id,
@@ -114,21 +109,21 @@ export class RollService {
         );
       }
     }
-    if (options?.skill) {
-      const value = abilities[options?.skill];
+    if (options?.hab1) {
+      const value = abilities[options?.hab1];
 
       values.push(value);
       if (expression.length > 0) expression += ' + ';
       expression += `${value}`;
     }
-    if (options?.talent) {
-      const value = abilities[options?.talent];
+    if (options?.hab2) {
+      const value = abilities[options?.hab2];
       values.push(value);
       if (expression.length > 0) expression += ' + ';
       expression += `${value}`;
     }
-    if (options?.knowledge) {
-      const value = abilities[options?.knowledge];
+    if (options?.hab3) {
+      const value = abilities[options?.hab3];
       values.push(value);
       if (expression.length > 0) expression += ' + ';
       expression += `${value}`;
@@ -148,25 +143,6 @@ export class RollService {
         );
       }
       const value = extras[options?.extras];
-      values.push(value);
-      if (expression.length > 0) expression += ' + ';
-      expression += `${value}`;
-    }
-    // #endregion
-    // #region Competences
-    if (options?.competence) {
-      const competences = await this.competencesService.findOne({
-        where: {
-          playerId: player.id,
-        },
-      });
-      if (!competences) {
-        throw new DiscordSimpleError(
-          'Você deve configurar suas competencias usando o comando' +
-            ' [/comp atualizar]',
-        );
-      }
-      const value = competences[options?.competence];
       values.push(value);
       if (expression.length > 0) expression += ' + ';
       expression += `${value}`;

@@ -2,7 +2,6 @@ import {
   Column,
   Entity,
   JoinColumn,
-  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -16,19 +15,17 @@ import {
   attributeKeyToDisplayMap,
 } from '~/player-system/attribute/entities/attributes.entity';
 import {
-  KnowledgeKeyValue,
-  SkillKeyValue,
-  TalentKeyValue,
-  skillKeyToDisplayMap,
+  AbilitiesKeys,
+  abilitiesKeyToDisplayMap,
 } from '~/player-system/abilities/entities/abilities.entity';
 import { RollOptions } from '~/roll/roll.service';
 
 export class RollSpec {
   meta?: number;
   attribute?: AttributeKeyType;
-  skill?: SkillKeyValue;
-  talent?: TalentKeyValue;
-  knowledge?: KnowledgeKeyValue;
+  hab1?: AbilitiesKeys;
+  hab2?: AbilitiesKeys;
+  hab3?: AbilitiesKeys;
   competence?: string;
   witchPredilection?: string;
   nonConvPredilectionsChoices?: string;
@@ -190,17 +187,20 @@ export class ResourceProvider {
             attributeKeyToDisplayMap[roll.attribute]
           }\n`;
         }
-        if (roll.skill) {
-          description += `**Pericia: ** ${skillKeyToDisplayMap[roll.skill]}\n`;
+        if (roll.hab1) {
+          description += `**Habilidade 1: ** ${
+            abilitiesKeyToDisplayMap[roll.hab1]
+          }\n`;
         }
-        if (roll.talent) {
-          description += `**Talento: ** ${roll.talent}\n`;
+        if (roll.hab2) {
+          description += `**Habilidade 2: ** ${
+            abilitiesKeyToDisplayMap[roll.hab2]
+          }\n`;
         }
-        if (roll.knowledge) {
-          description += `**Conhecimento: ** ${roll.knowledge}\n`;
-        }
-        if (roll.competence) {
-          description += `**Competencia: ** ${roll.competence}\n`;
+        if (roll.hab3) {
+          description += `**Habilidade 3: ** ${
+            abilitiesKeyToDisplayMap[roll.hab3]
+          }\n`;
         }
         if (roll.witchPredilection) {
           description += `**Predileção Bruxa: ** ${roll.witchPredilection}\n`;
@@ -241,17 +241,14 @@ export class ResourceProvider {
       if (options?.attribute) {
         valid = valid && roll.attribute === options?.attribute;
       }
-      if (options?.skill) {
-        valid = valid && roll.skill === options?.skill;
+      if (options?.hab1) {
+        valid = valid && roll.hab1 === options?.hab1;
       }
-      if (options?.talent) {
-        valid = valid && roll.talent === options?.talent;
+      if (options?.hab2) {
+        valid = valid && roll.hab2 === options?.hab2;
       }
-      if (options?.knowledge) {
-        valid = valid && roll.knowledge === options?.knowledge;
-      }
-      if (options?.competence) {
-        valid = valid && roll.competence === options?.competence;
+      if (options?.hab3) {
+        valid = valid && roll.hab3 === options?.hab3;
       }
       if (options?.witchPredilection) {
         valid = valid && roll.witchPredilection === options?.witchPredilection;

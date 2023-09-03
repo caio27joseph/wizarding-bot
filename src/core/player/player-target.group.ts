@@ -36,7 +36,6 @@ export class PlayerTargetGroup {
       relations: {
         attributes: true,
         abilities: true,
-        competences: true,
         witchPredilections: true,
         nonConvPredilections: true,
         extras: true,
@@ -58,13 +57,6 @@ export class PlayerTargetGroup {
             .setDescription(
               'Para configurar use /[pericias|talentos|conhecimentos] atualizar',
             ),
-    );
-    embeds.push(
-      player.competences
-        ? player.competences.toEmbed()
-        : new EmbedBuilder()
-            .setTitle(`Competências não configuradas`)
-            .setDescription('Para configurar use /competencias atualizar'),
     );
     embeds.push(
       player.witchPredilections

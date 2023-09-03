@@ -16,10 +16,9 @@ import { PointLog } from '~/house-cup/point-logs/entities/point-log.entity';
 import { Inventory } from '~/items/inventory/entities/inventory.entity';
 import { Abilities } from '~/player-system/abilities/entities/abilities.entity';
 import { Attributes } from '~/player-system/attribute/entities/attributes.entity';
-import { Competences } from '~/player-system/competences/entities/competences.entity';
 import { Extras } from '~/player-system/extras/entities/extras.entity';
 import { NonConvPredilections } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
-import { WitchPredilection } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { MagicSchool } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Train } from '~/train/entities/train.entity';
 
 @ObjectType()
@@ -94,19 +93,14 @@ export class Player implements DiscordEntityVieable {
   })
   abilities: Abilities;
 
-  @OneToOne((type) => Competences, (competences) => competences.player, {
-    nullable: true,
-  })
-  competences: Competences;
-
   @OneToOne(
-    (type) => WitchPredilection,
+    (type) => MagicSchool,
     (witchPredilections) => witchPredilections.player,
     {
       nullable: true,
     },
   )
-  witchPredilections: WitchPredilection;
+  witchPredilections: MagicSchool;
 
   @OneToOne(
     (type) => NonConvPredilections,

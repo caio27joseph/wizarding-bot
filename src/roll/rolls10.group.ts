@@ -14,26 +14,15 @@ import {
   attributeChoices,
 } from '~/player-system/attribute/entities/attributes.entity';
 import { Player } from '~/core/player/entities/player.entity';
-import { AttributeService } from '~/player-system/attribute/attribute.service';
-import { AbilitiesService } from '~/player-system/abilities/abilities.service';
-import { CompetencesService } from '~/player-system/competences/competences.service';
-import { WitchPredilectionsService } from '~/player-system/witch-predilection/witch-predilection.service';
-import { NonConvPredilectionsService } from '~/player-system/nonconv-predilection/noconv-predilections.service';
-import { competenceChoices } from '~/player-system/competences/entities/competences.entity';
-import {
-  Abilities,
-  KnowledgeKeyValue,
-  SkillKeyValue,
-  TalentKeyValue,
-  knowledgeChoices,
-  skillChoices,
-  talentChoices,
-} from '~/player-system/abilities/entities/abilities.entity';
+
 import { witchPredilectionChoices } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { nonConvPredilectionsChoices } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
-import { ExtrasService } from '~/player-system/extras/extras.service';
 import { extrasChoices } from '~/player-system/extras/entities/extras.entity';
 import { RollService } from './roll.service';
+import {
+  AbilitiesKeys,
+  abilitiesKeyToDisplayMap,
+} from '~/player-system/abilities/entities/abilities.entity';
 
 @Group({
   name: 'dr',
@@ -82,33 +71,42 @@ export class Rolls10Group {
     })
     attribute?: AttributeKeyType,
     @ArgString({
-      name: 'Perícia',
+      name: 'hab1',
       description: 'Perícia a ser rolada',
-      choices: skillChoices,
+      choices: Object.entries(abilitiesKeyToDisplayMap)
+        .slice(0, 12)
+        .map(([key, value]) => ({
+          name: value,
+          value: key,
+        })),
+
       required: false,
     })
-    skill?: SkillKeyValue,
+    hab1?: AbilitiesKeys,
     @ArgString({
-      name: 'Talento',
-      description: 'Talento a ser rolado',
-      choices: talentChoices,
+      name: 'hab2',
+      description: 'Perícia a ser rolada',
+      choices: Object.entries(abilitiesKeyToDisplayMap)
+        .slice(12, 24)
+        .map(([key, value]) => ({
+          name: value,
+          value: key,
+        })),
       required: false,
     })
-    talent?: TalentKeyValue,
+    hab2?: AbilitiesKeys,
     @ArgString({
-      name: 'Conhecimento',
-      description: 'Conhecimento a ser rolado',
-      choices: knowledgeChoices,
+      name: 'hab3',
+      description: 'Perícia a ser rolada',
+      choices: Object.entries(abilitiesKeyToDisplayMap)
+        .slice(24, 36)
+        .map(([key, value]) => ({
+          name: value,
+          value: key,
+        })),
       required: false,
     })
-    knowledge?: KnowledgeKeyValue,
-    @ArgString({
-      name: 'Competência',
-      description: 'Competencia a ser rolada',
-      choices: competenceChoices,
-      required: false,
-    })
-    competence?: string,
+    hab3?: AbilitiesKeys,
     @ArgString({
       name: 'Predileção Bruxa',
       description: 'Predileção a ser rolada',
@@ -143,10 +141,9 @@ export class Rolls10Group {
       autoSuccess,
       bonus,
       attribute,
-      skill,
-      talent,
-      knowledge,
-      competence,
+      hab1,
+      // hab2,
+      // hab3,
       witchPredilection,
       nonConvPredilectionsChoices,
       extras,

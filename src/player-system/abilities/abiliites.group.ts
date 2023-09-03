@@ -10,7 +10,11 @@ import { CommandInteraction } from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { AbilitiesService } from './abilities.service';
-import { AbilitiesNameEnum } from './entities/abilities.entity';
+import {
+  AbilitiesDisplayEnum,
+  AbilitiesKeyEnum,
+  abilitiesKeyToDisplayMap,
+} from './entities/abilities.entity';
 import { Injectable } from '@nestjs/common';
 
 @Group({
@@ -46,11 +50,11 @@ export class AbilitiesGroup {
 }
 
 @Group({
-  name: 'pericias',
+  name: 'hab1',
   description: 'Comandos relacionados a configuracao de pericias',
 })
 @Injectable()
-export class AbiliitesSkillsGroup {
+export class Abiliites1Group {
   constructor(private readonly service: AbilitiesService) {}
   @Command({
     name: 'atualizar',
@@ -59,91 +63,90 @@ export class AbiliitesSkillsGroup {
   async updateAbilities(
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
-
     @ArgInteger({
-      name: AbilitiesNameEnum.BLADED_WEAPONS,
-      description: `${AbilitiesNameEnum.BLADED_WEAPONS} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.ACADEMICS],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
+    })
+    academics?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.BLADED_WEAPONS],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     bladed_weapons?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.ATHLETICS,
-      description: `${AbilitiesNameEnum.ATHLETICS} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.DARK_ARTS],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
+    })
+    dark_arts?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.ATHLETICS],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     athletics?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.FIGHT,
-      description: `${AbilitiesNameEnum.FIGHT} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.FIGHT],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     fight?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.DRIVING,
-      description: `${AbilitiesNameEnum.DRIVING} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.THEOLOGICAL_KNOWLEDGE],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
+    })
+    theological_knowledge?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.SCIENCES],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+      required: false,
+    })
+    sciences?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.DRIVING],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     driving?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.MAGIC_DUEL,
-      description: `${AbilitiesNameEnum.MAGIC_DUEL} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.COSMOLOGY],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
-    magic_duel?: number,
+    cosmology?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.DODGE,
-      description: `${AbilitiesNameEnum.DODGE} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.EMPATHY],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
+    })
+    empathy?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.DODGE],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     dodge?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.STEALTH,
-      description: `${AbilitiesNameEnum.STEALTH} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.ETIQUETTE],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
-    })
-    stealth?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.CRAFTS,
-      description: `${AbilitiesNameEnum.CRAFTS} do Personagem`,
       required: false,
-      choices: [0, 1, 2, 3, 4, 5],
     })
-    crafts?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.AIM,
-      description: `${AbilitiesNameEnum.AIM} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    aim?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.PERCEPTION,
-      description: `${AbilitiesNameEnum.PERCEPTION} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    perception?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.THEFT,
-      description: `${AbilitiesNameEnum.THEFT} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    theft?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.SURVIVAL,
-      description: `${AbilitiesNameEnum.SURVIVAL} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    survival?: number,
+    etiquette?: number,
   ) {
     const abiliites = await this.service.updateOrCreate(
       {
@@ -153,18 +156,18 @@ export class AbiliitesSkillsGroup {
       },
       {
         playerId: player.id,
+        academics,
         bladed_weapons,
+        dark_arts,
         athletics,
         fight,
+        theological_knowledge,
+        sciences,
         driving,
-        magic_duel,
+        cosmology,
+        empathy,
         dodge,
-        stealth,
-        crafts,
-        aim,
-        perception,
-        theft,
-        survival,
+        etiquette,
       },
     );
     await interaction.reply({
@@ -176,11 +179,11 @@ export class AbiliitesSkillsGroup {
 }
 
 @Group({
-  name: 'talentos',
+  name: 'hab2',
   description: 'Comandos relacionados a configuracao de pericias',
 })
 @Injectable()
-export class AbiliitesTalentsGroup {
+export class Abiliites2Group {
   constructor(private readonly service: AbilitiesService) {}
   @Command({
     name: 'atualizar',
@@ -190,86 +193,191 @@ export class AbiliitesTalentsGroup {
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
     @ArgInteger({
-      name: AbilitiesNameEnum.EXPRESSION,
-      description: `${AbilitiesNameEnum.EXPRESSION} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.EXPRESSION],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
     expression?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.EMPATHY,
-      description: `${AbilitiesNameEnum.EMPATHY} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.FINANCES],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
-    empathy?: number,
+    finances?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.ETIQUETTE,
-      description: `${AbilitiesNameEnum.ETIQUETTE} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.STEALTH],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
-    etiquette?: number,
+    stealth?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.INTIMIDATION,
-      description: `${AbilitiesNameEnum.INTIMIDATION} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.HERBOLOGY],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    herbology?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.INTIMIDATION],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
     intimidation?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.INTUITION,
-      description: `${AbilitiesNameEnum.INTUITION} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.INTUITION],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
     intuition?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.SWEET_TALK,
-      description: `${AbilitiesNameEnum.SWEET_TALK} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.INVESTIGATION],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
-    sweet_talk?: number,
+    investigation?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.LEADERSHIP,
-      description: `${AbilitiesNameEnum.LEADERSHIP} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.BLARNEY],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    blarney?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.LEADERSHIP],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
     leadership?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.CUNNING,
-      description: `${AbilitiesNameEnum.CUNNING} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.LINGUISTICS],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    linguistics?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.CUNNING],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
     cunning?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.PERFORMANCE,
-      description: `${AbilitiesNameEnum.PERFORMANCE} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.MEDICINE],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    medicine?: number,
+  ) {
+    const abiliites = await this.service.updateOrCreate(
+      {
+        where: {
+          playerId: player.id,
+        },
+      },
+      {
+        playerId: player.id,
+        expression,
+        finances,
+        stealth,
+        herbology,
+        intimidation,
+        intuition,
+        investigation,
+        blarney,
+        leadership,
+        linguistics,
+        cunning,
+        medicine,
+      },
+    );
+    await interaction.reply({
+      embeds: [abiliites.toEmbed()],
+      ephemeral: true,
+    });
+    return;
+  }
+}
+
+@Group({
+  name: 'hab3',
+  description: 'Comandos relacionados a configuracao de pericias',
+})
+@Injectable()
+export class Abiliites3Group {
+  constructor(private readonly service: AbilitiesService) {}
+  @Command({
+    name: 'atualizar',
+    description: 'Atualiza as habilidades do personagem',
+  })
+  async updateAbilities(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgPlayer() player: Player,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.MEDITATION],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    meditation?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.OCCULTISM],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    occultism?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.CRAFTS],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    crafts?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.PERCEPTION],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    perception?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.PERFORMANCE],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
     performance?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.PERSUASION,
-      description: `${AbilitiesNameEnum.PERSUASION} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.PERSUASION],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
     persuasion?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.SLEIGHT_OF_HAND,
-      description: `${AbilitiesNameEnum.SLEIGHT_OF_HAND} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.POLITICS],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
-    sleight_of_hand?: number,
+    politics?: number,
     @ArgInteger({
-      name: AbilitiesNameEnum.ANIMAL_HANDLING,
-      description: `${AbilitiesNameEnum.ANIMAL_HANDLING} do Personagem`,
-      required: false,
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.AIM],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    aim?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.POTIONS_ALCHEMY],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    potions_alchemy?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.THEFT],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    theft?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.SURVIVAL],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+    })
+    survival?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.ANIMAL_HANDLING],
+      description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
     })
     animal_handling?: number,
@@ -282,148 +390,18 @@ export class AbiliitesTalentsGroup {
       },
       {
         playerId: player.id,
-        expression,
-        empathy,
-        etiquette,
-        intimidation,
-        intuition,
-        sweet_talk,
-        leadership,
-        cunning,
+        meditation,
+        occultism,
+        crafts,
+        perception,
         performance,
         persuasion,
-        sleight_of_hand,
-        animal_handling,
-      },
-    );
-    await interaction.reply({
-      embeds: [abiliites.toEmbed()],
-      ephemeral: true,
-    });
-    return;
-  }
-}
-@Group({
-  name: 'conhecimentos',
-  description: 'Comandos relacionados a configuracao de pericias',
-})
-@Injectable()
-export class AbiliitesKnowledgesGroup {
-  constructor(private readonly service: AbilitiesService) {}
-
-  @Command({
-    name: 'atualizar',
-    description: 'Atualiza as habilidades do personagem',
-  })
-  async updateAbilities(
-    @ArgInteraction() interaction: CommandInteraction,
-    @ArgPlayer() player: Player,
-
-    @ArgInteger({
-      name: AbilitiesNameEnum.ACADEMICS,
-      description: `${AbilitiesNameEnum.ACADEMICS} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    academics?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.SCIENCES,
-      description: `${AbilitiesNameEnum.SCIENCES} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    sciences?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.COSMOLOGY,
-      description: `${AbilitiesNameEnum.COSMOLOGY} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    cosmology?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.TECHNOLOGY,
-      description: `${AbilitiesNameEnum.TECHNOLOGY} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    technology?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.FINANCES,
-      description: `${AbilitiesNameEnum.FINANCES} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    finances?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.INVESTIGATION,
-      description: `${AbilitiesNameEnum.INVESTIGATION} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    investigation?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.LINGUISTICS,
-      description: `${AbilitiesNameEnum.LINGUISTICS} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    linguistics?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.MEDITATION,
-      description: `${AbilitiesNameEnum.MEDITATION} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    meditation?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.MEDICINE,
-      description: `${AbilitiesNameEnum.MEDICINE} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    medicine?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.OCCULTISM,
-      description: `${AbilitiesNameEnum.OCCULTISM} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    occultism?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.POLITICS,
-      description: `${AbilitiesNameEnum.POLITICS} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    politics?: number,
-    @ArgInteger({
-      name: AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE,
-      description: `${AbilitiesNameEnum.THEOLOGICAL_KNOWLEDGE} do Personagem`,
-      required: false,
-      choices: [0, 1, 2, 3, 4, 5],
-    })
-    theological_knowledge?: number,
-  ) {
-    const abiliites = await this.service.updateOrCreate(
-      {
-        where: {
-          playerId: player.id,
-        },
-      },
-      {
-        playerId: player.id,
-        academics,
-        sciences,
-        cosmology,
-        technology,
-        finances,
-        investigation,
-        linguistics,
-        meditation,
-        medicine,
-        occultism,
         politics,
-        theological_knowledge,
+        aim,
+        potions_alchemy,
+        theft,
+        survival,
+        animal_handling,
       },
     );
     await interaction.reply({

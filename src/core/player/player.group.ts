@@ -68,7 +68,6 @@ export class PlayerGroup {
       relations: {
         attributes: true,
         abilities: true,
-        competences: true,
         witchPredilections: true,
         nonConvPredilections: true,
         extras: true,
@@ -87,16 +86,7 @@ export class PlayerGroup {
         ? player.abilities.toEmbed()
         : new EmbedBuilder()
             .setTitle(`Habilidades não configuradas`)
-            .setDescription(
-              'Para configurar use /[pericias|talentos|conhecimentos] atualizar',
-            ),
-    );
-    embeds.push(
-      player.competences
-        ? player.competences.toEmbed()
-        : new EmbedBuilder()
-            .setTitle(`Competências não configuradas`)
-            .setDescription('Para configurar use /competencias atualizar'),
+            .setDescription('Para configurar use /[hab1|hab2|hab3] atualizar'),
     );
     embeds.push(
       player.witchPredilections
