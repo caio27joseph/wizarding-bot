@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
@@ -12,10 +13,11 @@ import { Spell } from '~/spell/entities/spell.entity';
 
 @Entity()
 export class Grimoire {
-  @PrimaryGeneratedColumn(`uuid`)
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @OneToOne(() => Player)
+  @JoinColumn()
   player: Player;
 
   @Column()
