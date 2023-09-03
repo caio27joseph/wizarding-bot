@@ -25,6 +25,7 @@ import { RollsD10 } from '~/roll/entities/roll.entity';
 import { TrainService } from './train.service';
 import { SpellActionContext } from '~/spell/spell.menu.group';
 import { DiscordSimpleError } from '~/discord/exceptions';
+import { GrimoireService } from '~/grimoire/grimoire.service';
 
 interface Props {
   roll?: WitchPredilectionDisplayEnum;
@@ -47,6 +48,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     private readonly trainSpellService: TrainSpellService,
     private readonly trainService: TrainService,
     private readonly rollService: RollService,
+    private readonly grimoireService: GrimoireService,
   ) {
     super();
   }
@@ -62,6 +64,18 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
         playerId: context.player.id,
       },
     });
+    const grimoire =
+      (await context.grimoire) ||
+      (await this.grimoireService.getOrCreate(
+        {
+          where: {
+            playerId: context.player.id,
+          },
+        },
+        {
+          player: context.player,
+        },
+      ));
 
     const spellTrains = trains.filter((t) => t.spellId === context.spell.id);
     const newContext: TrainSpellActionContext = {
@@ -69,6 +83,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
       todayTrains,
       trains,
       spellTrains,
+      grimoire,
     };
     return newContext;
   }
