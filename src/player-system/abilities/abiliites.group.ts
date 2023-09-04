@@ -196,72 +196,84 @@ export class Abiliites2Group {
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.EXPRESSION],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     expression?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.FINANCES],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     finances?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.STEALTH],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     stealth?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.HERBOLOGY],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     herbology?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.INTIMIDATION],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     intimidation?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.INTUITION],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     intuition?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.INVESTIGATION],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     investigation?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.BLARNEY],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     blarney?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.LEADERSHIP],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     leadership?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.LINGUISTICS],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     linguistics?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.CUNNING],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     cunning?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.MEDICINE],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     medicine?: number,
   ) {
@@ -313,72 +325,84 @@ export class Abiliites3Group {
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.MEDITATION],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     meditation?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.OCCULTISM],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     occultism?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.CRAFTS],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     crafts?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.PERCEPTION],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     perception?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.PERFORMANCE],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     performance?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.PERSUASION],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     persuasion?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.POLITICS],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     politics?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.AIM],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     aim?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.POTIONS_ALCHEMY],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     potions_alchemy?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.THEFT],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     theft?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.SURVIVAL],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     survival?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.ANIMAL_HANDLING],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
+      required: false,
     })
     animal_handling?: number,
   ) {
