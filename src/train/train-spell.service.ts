@@ -23,7 +23,12 @@ export class TrainSpellService {
     todayTrains: Train[];
   }) {
     const trainingForThisSpell = trains.filter((t) => t.spellId === spell.id);
-    if (trains.length >= 5 || trainingForThisSpell.length >= 1) {
+    const someDoubleTrain = trainingForThisSpell.some((t) => t.double);
+    if (
+      trains.length >= 5 ||
+      trainingForThisSpell.length >= 1 ||
+      someDoubleTrain
+    ) {
       return false;
     }
     return true;
@@ -40,8 +45,8 @@ export class TrainSpellService {
       throw new MaxSpellsTrainReached(`Você já treinou demais hoje!`);
     }
     const trainingForThisSpell = trains.filter((t) => t.spellId === spell.id);
-
-    if (trainingForThisSpell.length >= 2) {
+    const someDoubleTrain = trainingForThisSpell.some((t) => t.double);
+    if (trainingForThisSpell.length >= 2 || someDoubleTrain) {
       throw new MaxSpellDayTrainReached(
         `Você já treinou ${spell.name} demais hoje!`,
       );
