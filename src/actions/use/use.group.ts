@@ -15,7 +15,7 @@ import {
 } from '~/discord/decorators/message.decorators';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { ExtrasKeyEnum } from '~/player-system/extras/entities/extras.entity';
-import { witchPredilectionDisplayToKeyMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { magicSchoolDisplayToKeyMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { RollOptions, RollService } from '~/roll/roll.service';
 import { Spell } from '~/spell/entities/spell.entity';
 import { SpellService } from '~/spell/spell.service';
@@ -70,11 +70,11 @@ export class UseGroup {
           id: _.id,
         },
         relations: {
-          witchPredilections: true,
+          magicSchool: true,
           extras: true,
         },
       });
-      if (!player.witchPredilections) {
+      if (!player.magicSchool) {
         throw new DiscordSimpleError(
           'Você não tem escola mágica configurada, use /pred_bruxa atualizar',
         );
@@ -116,20 +116,17 @@ export class UseGroup {
     interaction: CommandInteraction;
     options?: RollOptions;
   }) {
-    const categories = spell.category.map(
-      (c) => witchPredilectionDisplayToKeyMap[c],
-    );
+    const categories = spell.category.map((c) => magicSchoolDisplayToKeyMap[c]);
     // biggest found in player.magicSchool
     const magicSchool = categories
-      .sort(
-        (a, b) => player.witchPredilections[a] - player.witchPredilections[b],
-      )
+      .sort((a, b) => player.magicSchool[a] - player.magicSchool[b])
       .at(-1);
     const roll = await this.rollService.roll10(interaction, player, {
       magicSchool,
       extras: ExtrasKeyEnum.CONTROL,
       message: `${spell.name}`,
       identifier: spell.id,
+      display: `Feitiço ${spell.name}`,
       ...options,
     });
 

@@ -18,7 +18,7 @@ import { abilitiesKeyToDisplayMap } from '~/player-system/abilities/entities/abi
 import { attributeKeyToDisplayMap } from '~/player-system/attribute/entities/attributes.entity';
 import { extrasKeyToDisplayMap } from '~/player-system/extras/entities/extras.entity';
 import { nonConvKeyToDisplayMap } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
-import { witchPredilectionKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { magicSchoolKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { RollsD10 } from '~/roll/entities/roll.entity';
 import { RollEvent } from '~/roll/roll.service';
 import { Space } from '~/spaces/space/entities/space.entity';
@@ -111,7 +111,7 @@ export class SearchGroup {
     const possibleRolls = provider.rolls
       .filter((roll) => !roll.secret)
       .map((roll) => {
-        let description = '/dr ';
+        let description = `${roll.display ? roll.display : ''} - /dr `;
         if (roll.attribute) {
           description += `**atributo:**${
             attributeKeyToDisplayMap[roll.attribute]
@@ -128,7 +128,7 @@ export class SearchGroup {
         }
         if (roll.magicSchool) {
           description += `**predilecao_bruxa:**${
-            witchPredilectionKeyToDisplayMap[roll.magicSchool]
+            magicSchoolKeyToDisplayMap[roll.magicSchool]
           } `;
         }
         if (roll.nonConvPredilectionsChoices) {

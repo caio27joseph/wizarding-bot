@@ -93,14 +93,10 @@ export class Player implements DiscordEntityVieable {
   })
   abilities: Abilities;
 
-  @OneToOne(
-    (type) => MagicSchool,
-    (witchPredilections) => witchPredilections.player,
-    {
-      nullable: true,
-    },
-  )
-  witchPredilections: MagicSchool;
+  @OneToOne((type) => MagicSchool, (magicSchool) => magicSchool.player, {
+    nullable: true,
+  })
+  magicSchool: MagicSchool;
 
   @OneToOne(
     (type) => NonConvPredilections,

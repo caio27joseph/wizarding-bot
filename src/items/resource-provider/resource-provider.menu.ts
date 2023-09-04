@@ -232,6 +232,7 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       identifier: options.identifier,
       // spell: options.spell,
       secret: form.secret,
+      display: options.display,
       // secret: options.secret,
     });
     await this.service.save(provider);

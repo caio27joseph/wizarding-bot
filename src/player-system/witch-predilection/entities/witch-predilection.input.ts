@@ -1,12 +1,12 @@
 import { InputType, Field, ID, PartialType } from '@nestjs/graphql';
 
 @InputType()
-export class CreateWitchPredilectionsInput {}
+export class CreateMagicSchoolInput {}
 
 @InputType()
-export class UpdateWitchPredilectionsInput extends PartialType(
-  CreateWitchPredilectionsInput,
+export class UpdateMagicSchoolInput extends PartialType(
+  CreateMagicSchoolInput,
 ) {}
 
 @InputType()
-export class FindAllWitchPredilectionsInput {}
+export class FindAllMagicSchoolInput {}

@@ -10,7 +10,7 @@ import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { Injectable } from '@nestjs/common';
 import { Command } from '~/discord/decorators/command.decorator';
-import { WitchPredilectionDisplayEnum } from './entities/witch-predilection.entity';
+import { MagicSchoolDisplayEnum } from './entities/witch-predilection.entity';
 
 @Group({
   name: 'pred_bruxa',
@@ -51,70 +51,70 @@ export class WitchPredilectionsGroup {
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.ABJURATION,
-      description: `${WitchPredilectionDisplayEnum.ABJURATION}`,
+      name: MagicSchoolDisplayEnum.ABJURATION,
+      description: `${MagicSchoolDisplayEnum.ABJURATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     abjuration?: number,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.ENCHANTMENT,
-      description: `${WitchPredilectionDisplayEnum.ENCHANTMENT}`,
+      name: MagicSchoolDisplayEnum.ENCHANTMENT,
+      description: `${MagicSchoolDisplayEnum.ENCHANTMENT}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     enchantment?: number,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.NECROMANCY,
-      description: `${WitchPredilectionDisplayEnum.NECROMANCY}`,
+      name: MagicSchoolDisplayEnum.NECROMANCY,
+      description: `${MagicSchoolDisplayEnum.NECROMANCY}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     necromancy?: number,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.DIVINATION,
-      description: `${WitchPredilectionDisplayEnum.DIVINATION}`,
+      name: MagicSchoolDisplayEnum.DIVINATION,
+      description: `${MagicSchoolDisplayEnum.DIVINATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     divination?: number,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.EVOCATION,
-      description: `${WitchPredilectionDisplayEnum.EVOCATION}`,
+      name: MagicSchoolDisplayEnum.EVOCATION,
+      description: `${MagicSchoolDisplayEnum.EVOCATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     evocation?: number,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.TRANSMUTATION,
-      description: `${WitchPredilectionDisplayEnum.TRANSMUTATION}`,
+      name: MagicSchoolDisplayEnum.TRANSMUTATION,
+      description: `${MagicSchoolDisplayEnum.TRANSMUTATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     transmutation?: number,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.CONJURATION,
-      description: `${WitchPredilectionDisplayEnum.CONJURATION}`,
+      name: MagicSchoolDisplayEnum.CONJURATION,
+      description: `${MagicSchoolDisplayEnum.CONJURATION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     conjuration?: number,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.ILLUSION,
-      description: `${WitchPredilectionDisplayEnum.ILLUSION}`,
+      name: MagicSchoolDisplayEnum.ILLUSION,
+      description: `${MagicSchoolDisplayEnum.ILLUSION}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     illusion?: number,
     @ArgInteger({
-      name: WitchPredilectionDisplayEnum.UNIVERSAL,
-      description: `${WitchPredilectionDisplayEnum.UNIVERSAL}`,
+      name: MagicSchoolDisplayEnum.UNIVERSAL,
+      description: `${MagicSchoolDisplayEnum.UNIVERSAL}`,
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     universal?: number,
   ) {
-    const witchPredilections = await this.service.updateOrCreate(
+    const magicSchool = await this.service.updateOrCreate(
       {
         where: {
           playerId: player.id,
@@ -134,7 +134,7 @@ export class WitchPredilectionsGroup {
       },
     );
     await interaction.reply({
-      embeds: [witchPredilections.toEmbed()],
+      embeds: [magicSchool.toEmbed()],
       ephemeral: true,
     });
     return;

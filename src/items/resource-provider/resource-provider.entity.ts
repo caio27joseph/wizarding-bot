@@ -31,6 +31,7 @@ export class RollSpec {
   nonConvPredilectionsChoices?: string;
   extras?: string;
   identifier: string;
+  display?: string;
 
   spell?: string;
   secret?: boolean;
@@ -183,6 +184,7 @@ export class ResourceProvider {
       embed.setDescription(description);
       const fields = this.rolls.map((roll, index) => {
         let description = '';
+
         if (roll.attribute) {
           description += `**Atributo: ** ${
             attributeKeyToDisplayMap[roll.attribute]
@@ -204,7 +206,7 @@ export class ResourceProvider {
           }\n`;
         }
         if (roll.magicSchool) {
-          description += `**Predileção Bruxa: ** ${roll.magicSchool}\n`;
+          description += `**Escola Mágica: ** ${roll.magicSchool}\n`;
         }
         if (roll.nonConvPredilectionsChoices) {
           description += `**Predileção Não Convencional: ** ${roll.nonConvPredilectionsChoices}\n`;
@@ -219,8 +221,11 @@ export class ResourceProvider {
         if (roll.secret) {
           description += `**Secret: ** ${roll.secret}\n`;
         }
+        if (roll.identifier) {
+          description += `**Identifier: ** ${roll.identifier}\n`;
+        }
         return {
-          name: 'Roll ' + (index + 1),
+          name: roll.display ? roll.display : 'Roll ' + (index + 1),
           value: description,
         };
       });
@@ -253,6 +258,9 @@ export class ResourceProvider {
       }
       if (options?.magicSchool) {
         valid = valid && roll.magicSchool === options?.magicSchool;
+      }
+      if (options?.identifier) {
+        valid = valid && roll.identifier === options?.identifier;
       }
       if (options?.nonConvPredilectionsChoices) {
         valid =

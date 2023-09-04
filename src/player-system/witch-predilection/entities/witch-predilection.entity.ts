@@ -14,7 +14,7 @@ import { enumToChoice } from '~/discord/discord.utils';
 import { DiscordEntityVieable } from '~/discord/types';
 import { getDisplayKeyMaps } from '~/utils/entity-types';
 
-export enum WitchPredilectionDisplayEnum {
+export enum MagicSchoolDisplayEnum {
   ABJURATION = 'Abjuração',
   ENCHANTMENT = 'Encantamento',
   NECROMANCY = 'Necromancia',
@@ -28,7 +28,7 @@ export enum WitchPredilectionDisplayEnum {
   UNIVERSAL = 'Universal',
 }
 
-export enum WitchPredilectionKeyEnum {
+export enum MagicSchoolKeyEnum {
   ABJURATION = 'abjuration',
   ENCHANTMENT = 'enchantment',
   NECROMANCY = 'necromancy',
@@ -42,7 +42,7 @@ export enum WitchPredilectionKeyEnum {
   UNIVERSAL = 'universal',
 }
 
-export type WitchPredilectionDisplays =
+export type MagicSchoolDisplays =
   | 'Abjuração'
   | 'Encantamento'
   | 'Necromancia'
@@ -53,7 +53,7 @@ export type WitchPredilectionDisplays =
   | 'Ilusão'
   | 'Universal';
 
-export type WitchPredilectionKeys =
+export type MagicSchoolKeys =
   | 'abjuration'
   | 'enchantment'
   | 'necromancy'
@@ -65,17 +65,11 @@ export type WitchPredilectionKeys =
   | 'universal';
 
 export const {
-  displayToKeyMap: witchPredilectionDisplayToKeyMap,
-  keyToDisplayMap: witchPredilectionKeyToDisplayMap,
-} = getDisplayKeyMaps<WitchPredilectionKeys, WitchPredilectionDisplays>(
-  WitchPredilectionDisplayEnum,
-  WitchPredilectionKeyEnum,
-);
-
-export const witchPredilectionChoices = Object.keys(
-  WitchPredilectionDisplayEnum,
-).map((competence) =>
-  enumToChoice(competence as any, WitchPredilectionDisplayEnum),
+  displayToKeyMap: magicSchoolDisplayToKeyMap,
+  keyToDisplayMap: magicSchoolKeyToDisplayMap,
+} = getDisplayKeyMaps<MagicSchoolKeys, MagicSchoolDisplays>(
+  MagicSchoolDisplayEnum,
+  MagicSchoolKeyEnum,
 );
 
 @Entity()
@@ -130,7 +124,7 @@ export class MagicSchool implements DiscordEntityVieable {
   @Field()
   universal: number;
 
-  @OneToOne(() => Player, (player) => player.witchPredilections, {
+  @OneToOne(() => Player, (player) => player.magicSchool, {
     cascade: true,
   })
   @JoinColumn()
@@ -149,17 +143,17 @@ export class MagicSchool implements DiscordEntityVieable {
     embed.addFields(
       {
         name: `-----`,
-        value: `${WitchPredilectionDisplayEnum.ABJURATION}: ${this.abjuration}\n${WitchPredilectionDisplayEnum.ENCHANTMENT}: ${this.enchantment}\n${WitchPredilectionDisplayEnum.NECROMANCY}: ${this.necromancy}`,
+        value: `${MagicSchoolDisplayEnum.ABJURATION}: ${this.abjuration}\n${MagicSchoolDisplayEnum.ENCHANTMENT}: ${this.enchantment}\n${MagicSchoolDisplayEnum.NECROMANCY}: ${this.necromancy}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${WitchPredilectionDisplayEnum.DIVINATION}: ${this.divination}\n${WitchPredilectionDisplayEnum.EVOCATION}: ${this.evocation}\n${WitchPredilectionDisplayEnum.TRANSMUTATION}: ${this.transmutation}`,
+        value: `${MagicSchoolDisplayEnum.DIVINATION}: ${this.divination}\n${MagicSchoolDisplayEnum.EVOCATION}: ${this.evocation}\n${MagicSchoolDisplayEnum.TRANSMUTATION}: ${this.transmutation}`,
         inline: true,
       },
       {
         name: `-----`,
-        value: `${WitchPredilectionDisplayEnum.CONJURATION}: ${this.conjuration}\n${WitchPredilectionDisplayEnum.ILLUSION}: ${this.illusion}\n${WitchPredilectionDisplayEnum.UNIVERSAL}: ${this.universal}`,
+        value: `${MagicSchoolDisplayEnum.CONJURATION}: ${this.conjuration}\n${MagicSchoolDisplayEnum.ILLUSION}: ${this.illusion}\n${MagicSchoolDisplayEnum.UNIVERSAL}: ${this.universal}`,
         inline: true,
       },
     );

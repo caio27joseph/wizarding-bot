@@ -8,15 +8,14 @@ import {
   attributeKeyToDisplayMap,
 } from '~/player-system/attribute/entities/attributes.entity';
 import {
-  WitchPredilectionDisplays,
-  witchPredilectionChoices,
-  witchPredilectionKeyToDisplayMap,
+  MagicSchoolDisplays,
+  magicSchoolKeyToDisplayMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 export enum BonusTarget {
   Attribute = 'Atributos',
-  AllWitchPredilection = 'Escola Mágica (Todos)',
-  WitchPredilection = 'Escola Mágica (Escolher Categoria)',
+  AllMagicSchools = 'Escola Mágica (Todos)',
+  MagicSchool = 'Escola Mágica (Escolher Categoria)',
   SpellCategory = 'Feitiços (Escolher Categoria)',
   AllSpells = 'Feitiços (Todos)',
 }
@@ -33,10 +32,10 @@ export enum BonusModifier {
 // Mapping from BonusReceiver to valid receiver keys
 export type BonusTargetMapping = {
   [BonusTarget.Attribute]: AttributeKeyType;
-  [BonusTarget.WitchPredilection]: WitchPredilectionDisplays;
-  [BonusTarget.SpellCategory]: WitchPredilectionDisplays;
+  [BonusTarget.MagicSchool]: MagicSchoolDisplays;
+  [BonusTarget.SpellCategory]: MagicSchoolDisplays;
   [BonusTarget.AllSpells]: null;
-  [BonusTarget.AllWitchPredilection]: null;
+  [BonusTarget.AllMagicSchools]: null;
 };
 
 // Bonus type with generics
@@ -53,9 +52,9 @@ export class BonusHelper {
 
   static fieldNameMap = {
     [BonusTarget.SpellCategory]: 'Feitiços',
-    [BonusTarget.WitchPredilection]: 'Escola Mágicas',
+    [BonusTarget.MagicSchool]: 'Escola Mágicas',
     [BonusTarget.Attribute]: 'Atributos',
-    [BonusTarget.AllWitchPredilection]: 'Escola Mágicas',
+    [BonusTarget.AllMagicSchools]: 'Escola Mágicas',
     [BonusTarget.AllSpells]: 'Feitiços',
   };
   static bonusTypeNameMap = {
@@ -70,9 +69,9 @@ export class BonusHelper {
   get choices() {
     switch (this.bonus.target) {
       case BonusTarget.SpellCategory:
-        return witchPredilectionChoices;
-      case BonusTarget.WitchPredilection:
-        return witchPredilectionChoices;
+        return magicSchoolKeyToDisplayMap;
+      case BonusTarget.MagicSchool:
+        return magicSchoolKeyToDisplayMap;
       case BonusTarget.Attribute:
         return attributeChoices;
     }
@@ -82,14 +81,14 @@ export class BonusHelper {
   get displayKey() {
     switch (this.bonus.target) {
       case BonusTarget.SpellCategory:
-        return witchPredilectionKeyToDisplayMap[this.bonus.targetKey];
-      case BonusTarget.WitchPredilection:
-        return witchPredilectionKeyToDisplayMap[this.bonus.targetKey];
+        return magicSchoolKeyToDisplayMap[this.bonus.targetKey];
+      case BonusTarget.MagicSchool:
+        return magicSchoolKeyToDisplayMap[this.bonus.targetKey];
       case BonusTarget.Attribute:
         return attributeKeyToDisplayMap[this.bonus.targetKey];
       case BonusTarget.AllSpells:
         return 'Todos os Feitiços';
-      case BonusTarget.AllWitchPredilection:
+      case BonusTarget.AllMagicSchools:
         return 'Todas as Escolas Mágicas';
     }
     return 'Não Especificado';

@@ -16,8 +16,8 @@ import {
 import { Player } from '~/core/player/entities/player.entity';
 
 import {
-  WitchPredilectionKeys,
-  witchPredilectionChoices,
+  MagicSchoolKeys,
+  magicSchoolKeyToDisplayMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { nonConvPredilectionsChoices } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { extrasChoices } from '~/player-system/extras/entities/extras.entity';
@@ -111,12 +111,17 @@ export class Rolls10Group {
     })
     hab3?: AbilitiesKeys,
     @ArgString({
-      name: 'Predileção Bruxa',
-      description: 'Predileção a ser rolada',
-      choices: witchPredilectionChoices,
+      name: 'Magic School',
+      description: 'Escola Mágica a ser rolada',
+      choices: Object.entries(magicSchoolKeyToDisplayMap).map(
+        ([key, value]) => ({
+          name: value,
+          value: key,
+        }),
+      ),
       required: false,
     })
-    witchPredilection?: WitchPredilectionKeys,
+    magicSchool?: MagicSchoolKeys,
     @ArgString({
       name: 'Predileção Não Convencional',
       description: 'Predileção a ser rolada',
@@ -145,9 +150,9 @@ export class Rolls10Group {
       bonus,
       attribute,
       hab1,
-      // hab2,
-      // hab3,
-      magicSchool: witchPredilection,
+      hab2,
+      hab3,
+      magicSchool,
       nonConvPredilectionsChoices,
       extras,
       message,

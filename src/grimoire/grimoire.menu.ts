@@ -48,10 +48,7 @@ import { TrainSpellService } from '~/train/train-spell.service';
 import { groupBy } from 'lodash';
 import { generateProgressBarEmoji } from '~/utils/emojiProgressBar';
 import { SpellActionContext } from '~/spell/spell.menu.group';
-import {
-  witchPredilectionChoices,
-  witchPredilectionKeyToDisplayMap,
-} from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { magicSchoolKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 interface Props {
   selectedSlot: number;
@@ -235,7 +232,7 @@ export class GrimoireMenu {
       name: 'Escola_Magica',
       description: 'Escola do feitiço',
       required: false,
-      choices: Object.entries(witchPredilectionKeyToDisplayMap).map(
+      choices: Object.entries(magicSchoolKeyToDisplayMap).map(
         ([key, value]) => ({
           name: value,
           value: key,

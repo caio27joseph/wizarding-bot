@@ -9,8 +9,8 @@ import {
 } from 'typeorm';
 import { MagicSchool } from './entities/witch-predilection.entity';
 import {
-  CreateWitchPredilectionsInput,
-  UpdateWitchPredilectionsInput,
+  CreateMagicSchoolInput,
+  UpdateMagicSchoolInput,
 } from './entities/witch-predilection.input';
 
 @Injectable()
@@ -20,14 +20,14 @@ export class WitchPredilectionsService {
     private readonly repo: Repository<MagicSchool>,
   ) {}
 
-  async create(input: CreateWitchPredilectionsInput) {
+  async create(input: CreateMagicSchoolInput) {
     const data = this.repo.create(input);
     const witchPredilections = await this.repo.save(data);
     return witchPredilections;
   }
   async update(
     where: FindOptionsWhere<MagicSchool>,
-    input: UpdateWitchPredilectionsInput,
+    input: UpdateMagicSchoolInput,
   ) {
     const result = await this.repo.update(where, input);
     return result;
@@ -43,7 +43,7 @@ export class WitchPredilectionsService {
   }
   async updateOrCreate(
     options: FindOneOptions<MagicSchool>,
-    input: UpdateWitchPredilectionsInput,
+    input: UpdateMagicSchoolInput,
   ) {
     const existingWitchPredilections = await this.findOne(options);
     if (existingWitchPredilections) {

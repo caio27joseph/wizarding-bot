@@ -126,15 +126,15 @@ export class BonusMenuHelper {
         },
       ],
       fields: [
-        {
-          placeholder: 'Onde é Aplicavel',
-          propKey: 'targetKey',
-          options: helper.choices.map((k) => ({
-            label: k.name,
-            value: k.value,
-          })),
-          disabled: helper.choices.length === 0,
-        },
+        // {
+        //   placeholder: 'Onde é Aplicavel',
+        //   propKey: 'targetKey',
+        //   options: helper.choices.map((k) => ({
+        //     label: k.name,
+        //     value: k.value,
+        //   })),
+        //   disabled: helper.choices.length === 0,
+        // },
         {
           placeholder: 'Tipo de Bônus',
           propKey: 'bonusType',

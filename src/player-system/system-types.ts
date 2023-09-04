@@ -7,9 +7,9 @@ import {
 } from './attribute/entities/attributes.entity';
 
 import {
-  WitchPredilectionDisplayEnum,
-  witchPredilectionDisplayToKeyMap,
-  witchPredilectionKeyToDisplayMap,
+  MagicSchoolDisplayEnum,
+  magicSchoolDisplayToKeyMap,
+  magicSchoolKeyToDisplayMap,
 } from './witch-predilection/entities/witch-predilection.entity';
 import {
   AbilitiesDisplayEnum,
@@ -22,15 +22,13 @@ export enum PointsDisplayEnum {
   Skill = 'Perícia',
   Talent = 'Talento',
   Knowledge = 'Conhecimento',
-  Competence = 'Competência',
-  WitchPredilection = 'Escola Mágica',
+  MagicSchool = 'Escola Mágica',
 }
 
 export enum PointsKeyEnum {
   Attribute = 'attribute',
   Ability = 'ability',
-  Competence = 'competence',
-  WitchPredilection = 'witch_predilection',
+  MagicSchool = 'witch_predilection',
 }
 
 export const {
@@ -41,20 +39,20 @@ export const {
 export const pointsKeyToEnums = {
   [PointsKeyEnum.Attribute]: AttributeDisplayEnum,
   [PointsKeyEnum.Ability]: AbilitiesDisplayEnum,
-  [PointsKeyEnum.WitchPredilection]: WitchPredilectionDisplayEnum,
+  [PointsKeyEnum.MagicSchool]: MagicSchoolDisplayEnum,
 };
 export const pointsKeyToTargetDisplayMap = {
   [PointsKeyEnum.Attribute]: attributeDisplayToKeyMap,
   [PointsKeyEnum.Ability]: abilitiesDisplayToKeyMap,
-  [PointsKeyEnum.WitchPredilection]: witchPredilectionDisplayToKeyMap,
+  [PointsKeyEnum.MagicSchool]: magicSchoolDisplayToKeyMap,
 };
 export const pointsKeyToTargetKeyMap = {
   [PointsKeyEnum.Attribute]: attributeKeyToDisplayMap,
   [PointsKeyEnum.Ability]: abilitiesKeyToDisplayMap,
-  [PointsKeyEnum.WitchPredilection]: witchPredilectionKeyToDisplayMap,
+  [PointsKeyEnum.MagicSchool]: magicSchoolKeyToDisplayMap,
 };
 
 export type AvailablePointsEnums =
   | AttributeDisplayEnum
   | AbilitiesDisplayEnum
-  | WitchPredilectionDisplayEnum;
+  | MagicSchoolDisplayEnum;

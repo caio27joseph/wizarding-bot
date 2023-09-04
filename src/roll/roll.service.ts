@@ -22,8 +22,8 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 import { CommandInteraction } from 'discord.js';
 import { AttributeKeyType } from '~/player-system/attribute/entities/attributes.entity';
 import {
-  WitchPredilectionKeyEnum,
-  WitchPredilectionKeys,
+  MagicSchoolKeyEnum,
+  MagicSchoolKeys,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 export class RollOptions {
@@ -36,10 +36,11 @@ export class RollOptions {
   hab1?: AbilitiesKeys;
   hab2?: AbilitiesKeys;
   hab3?: AbilitiesKeys;
-  magicSchool?: WitchPredilectionKeys;
+  magicSchool?: MagicSchoolKeys;
   nonConvPredilectionsChoices?: string;
   extras?: string;
   message?: string;
+  display?: string;
   bonuses?: Bonus[];
 }
 
@@ -55,7 +56,7 @@ export class RollService {
   constructor(
     private readonly attributesService: AttributeService,
     private readonly abilitiesService: AbilitiesService,
-    private readonly witchPredilectionsService: WitchPredilectionsService,
+    private readonly magicSchoolService: WitchPredilectionsService,
     private readonly nonConvPredilectionsService: NonConvPredilectionsService,
     private readonly extrasService: ExtrasService,
     private readonly eventEmitter: EventEmitter2,
@@ -153,7 +154,7 @@ export class RollService {
     // #endregion
     // #region Witch Predilections
     if (options?.magicSchool) {
-      const magicSchool = await this.witchPredilectionsService.findOne({
+      const magicSchool = await this.magicSchoolService.findOne({
         where: {
           playerId: player.id,
         },

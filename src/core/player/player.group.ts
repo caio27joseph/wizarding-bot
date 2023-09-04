@@ -68,7 +68,7 @@ export class PlayerGroup {
       relations: {
         attributes: true,
         abilities: true,
-        witchPredilections: true,
+        magicSchool: true,
         nonConvPredilections: true,
         extras: true,
       },
@@ -89,8 +89,8 @@ export class PlayerGroup {
             .setDescription('Para configurar use /[hab1|hab2|hab3] atualizar'),
     );
     embeds.push(
-      player.witchPredilections
-        ? player.witchPredilections.toEmbed()
+      player.magicSchool
+        ? player.magicSchool.toEmbed()
         : new EmbedBuilder()
             .setTitle(`Predileções Bruxas não configuradas`)
             .setDescription('Para configurar use /pred_bruxa atualizar'),

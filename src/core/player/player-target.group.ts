@@ -36,7 +36,7 @@ export class PlayerTargetGroup {
       relations: {
         attributes: true,
         abilities: true,
-        witchPredilections: true,
+        magicSchool: true,
         nonConvPredilections: true,
         extras: true,
       },
@@ -59,8 +59,8 @@ export class PlayerTargetGroup {
             ),
     );
     embeds.push(
-      player.witchPredilections
-        ? player.witchPredilections.toEmbed()
+      player.magicSchool
+        ? player.magicSchool.toEmbed()
         : new EmbedBuilder()
             .setTitle(`Predileções Bruxas não configuradas`)
             .setDescription('Para configurar use /pred_bruxa atualizar'),
