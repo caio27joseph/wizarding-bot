@@ -42,12 +42,7 @@ export enum WitchPredilectionKeyEnum {
   UNIVERSAL = 'universal',
 }
 
-export const {
-  displayToKeyMap: witchPredilectionDisplayToKeyMap,
-  keyToDisplayMap: witchPredilectionKeyToDisplayMap,
-} = getDisplayKeyMaps(WitchPredilectionDisplayEnum, WitchPredilectionKeyEnum);
-
-export type WitchPredilectionNameValue =
+export type WitchPredilectionDisplays =
   | 'Abjuração'
   | 'Encantamento'
   | 'Necromancia'
@@ -57,6 +52,25 @@ export type WitchPredilectionNameValue =
   | 'Conjuração'
   | 'Ilusão'
   | 'Universal';
+
+export type WitchPredilectionKeys =
+  | 'abjuration'
+  | 'enchantment'
+  | 'necromancy'
+  | 'divination'
+  | 'evocation'
+  | 'transmutation'
+  | 'conjuration'
+  | 'illusion'
+  | 'universal';
+
+export const {
+  displayToKeyMap: witchPredilectionDisplayToKeyMap,
+  keyToDisplayMap: witchPredilectionKeyToDisplayMap,
+} = getDisplayKeyMaps<WitchPredilectionKeys, WitchPredilectionDisplays>(
+  WitchPredilectionDisplayEnum,
+  WitchPredilectionKeyEnum,
+);
 
 export const witchPredilectionChoices = Object.keys(
   WitchPredilectionDisplayEnum,

@@ -27,9 +27,10 @@ export class RollSpec {
   hab2?: AbilitiesKeys;
   hab3?: AbilitiesKeys;
   competence?: string;
-  witchPredilection?: string;
+  magicSchool?: string;
   nonConvPredilectionsChoices?: string;
   extras?: string;
+  identifier: string;
 
   spell?: string;
   secret?: boolean;
@@ -202,8 +203,8 @@ export class ResourceProvider {
             abilitiesKeyToDisplayMap[roll.hab3]
           }\n`;
         }
-        if (roll.witchPredilection) {
-          description += `**Predileção Bruxa: ** ${roll.witchPredilection}\n`;
+        if (roll.magicSchool) {
+          description += `**Predileção Bruxa: ** ${roll.magicSchool}\n`;
         }
         if (roll.nonConvPredilectionsChoices) {
           description += `**Predileção Não Convencional: ** ${roll.nonConvPredilectionsChoices}\n`;
@@ -250,8 +251,8 @@ export class ResourceProvider {
       if (options?.hab3) {
         valid = valid && roll.hab3 === options?.hab3;
       }
-      if (options?.witchPredilection) {
-        valid = valid && roll.witchPredilection === options?.witchPredilection;
+      if (options?.magicSchool) {
+        valid = valid && roll.magicSchool === options?.magicSchool;
       }
       if (options?.nonConvPredilectionsChoices) {
         valid =

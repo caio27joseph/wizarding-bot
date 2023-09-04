@@ -15,7 +15,10 @@ import {
 } from '~/player-system/attribute/entities/attributes.entity';
 import { Player } from '~/core/player/entities/player.entity';
 
-import { witchPredilectionChoices } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import {
+  WitchPredilectionKeys,
+  witchPredilectionChoices,
+} from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { nonConvPredilectionsChoices } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { extrasChoices } from '~/player-system/extras/entities/extras.entity';
 import { RollService } from './roll.service';
@@ -113,7 +116,7 @@ export class Rolls10Group {
       choices: witchPredilectionChoices,
       required: false,
     })
-    witchPredilection?: string,
+    witchPredilection?: WitchPredilectionKeys,
     @ArgString({
       name: 'Predileção Não Convencional',
       description: 'Predileção a ser rolada',
@@ -144,7 +147,7 @@ export class Rolls10Group {
       hab1,
       // hab2,
       // hab3,
-      witchPredilection,
+      magicSchool: witchPredilection,
       nonConvPredilectionsChoices,
       extras,
       message,

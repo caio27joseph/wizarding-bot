@@ -21,8 +21,13 @@ import {
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { CommandInteraction } from 'discord.js';
 import { AttributeKeyType } from '~/player-system/attribute/entities/attributes.entity';
+import {
+  WitchPredilectionKeyEnum,
+  WitchPredilectionKeys,
+} from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
-export interface RollOptions {
+export class RollOptions {
+  identifier?: string;
   diff?: number;
   autoSuccess?: number;
   bonus?: number;
@@ -31,7 +36,7 @@ export interface RollOptions {
   hab1?: AbilitiesKeys;
   hab2?: AbilitiesKeys;
   hab3?: AbilitiesKeys;
-  witchPredilection?: string;
+  magicSchool?: WitchPredilectionKeys;
   nonConvPredilectionsChoices?: string;
   extras?: string;
   message?: string;
@@ -94,8 +99,6 @@ export class RollService {
       expression += `${value}`;
     }
 
-    // #endregion
-    // #region Abilities
     if (options?.hab1 || options?.hab2 || options?.hab1) {
       abilities = await this.abilitiesService.findOne({
         where: {
@@ -149,20 +152,20 @@ export class RollService {
     }
     // #endregion
     // #region Witch Predilections
-    if (options?.witchPredilection) {
-      const witchPredilections = await this.witchPredilectionsService.findOne({
+    if (options?.magicSchool) {
+      const magicSchool = await this.witchPredilectionsService.findOne({
         where: {
           playerId: player.id,
         },
       });
 
-      if (!witchPredilections) {
+      if (!magicSchool) {
         throw new DiscordSimpleError(
           'Você deve configurar suas Predileções Bruxas usando o comando' +
             ' [/pred_bruxa atualizar]',
         );
       }
-      const value = witchPredilections[options?.witchPredilection];
+      const value = magicSchool[options?.magicSchool];
       values.push(value);
       if (expression.length > 0) expression += ' + ';
       expression += `${value}`;

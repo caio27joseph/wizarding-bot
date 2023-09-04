@@ -8,7 +8,7 @@ import {
   attributeKeyToDisplayMap,
 } from '~/player-system/attribute/entities/attributes.entity';
 import {
-  WitchPredilectionNameValue,
+  WitchPredilectionDisplays,
   witchPredilectionChoices,
   witchPredilectionKeyToDisplayMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
@@ -33,8 +33,8 @@ export enum BonusModifier {
 // Mapping from BonusReceiver to valid receiver keys
 export type BonusTargetMapping = {
   [BonusTarget.Attribute]: AttributeKeyType;
-  [BonusTarget.WitchPredilection]: WitchPredilectionNameValue;
-  [BonusTarget.SpellCategory]: WitchPredilectionNameValue;
+  [BonusTarget.WitchPredilection]: WitchPredilectionDisplays;
+  [BonusTarget.SpellCategory]: WitchPredilectionDisplays;
   [BonusTarget.AllSpells]: null;
   [BonusTarget.AllWitchPredilection]: null;
 };

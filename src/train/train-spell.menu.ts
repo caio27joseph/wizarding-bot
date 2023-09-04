@@ -10,6 +10,7 @@ import { Train, TrainGroupOption } from './entities/train.entity';
 import { Spell, maestryNumToName } from '~/spell/entities/spell.entity';
 import {
   WitchPredilectionDisplayEnum,
+  WitchPredilectionKeys,
   witchPredilectionDisplayToKeyMap,
   witchPredilectionKeyToDisplayMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
@@ -317,7 +318,9 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
 
     const rolls: RollsD10[] = [];
     const roll = await this.rollService.roll10(interaction, player, {
-      witchPredilection: witchPredilectionDisplayToKeyMap[props.roll],
+      magicSchool: witchPredilectionDisplayToKeyMap[
+        props.roll
+      ] as WitchPredilectionKeys,
       extras: 'control',
       autoSuccess: props.autoSuccess,
       bonus: props.bonusRoll,
@@ -326,7 +329,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     rolls.push(roll);
     if (doubleTrain) {
       const roll = await this.rollService.roll10(interaction, player, {
-        witchPredilection: witchPredilectionDisplayToKeyMap[props.roll],
+        magicSchool: witchPredilectionDisplayToKeyMap[props.roll],
         extras: 'control',
         autoSuccess: props.autoSuccess,
         bonus: props.bonusRoll,

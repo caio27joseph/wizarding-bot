@@ -126,9 +126,9 @@ export class SearchGroup {
         if (roll.hab3) {
           description += `**pericia:**${abilitiesKeyToDisplayMap[roll.hab3]} `;
         }
-        if (roll.witchPredilection) {
+        if (roll.magicSchool) {
           description += `**predilecao_bruxa:**${
-            witchPredilectionKeyToDisplayMap[roll.witchPredilection]
+            witchPredilectionKeyToDisplayMap[roll.magicSchool]
           } `;
         }
         if (roll.nonConvPredilectionsChoices) {
