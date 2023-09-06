@@ -100,7 +100,7 @@ export class RollService {
       expression += `${value}`;
     }
 
-    if (options?.hab1 || options?.hab2 || options?.hab1) {
+    if (options?.hab1 || options?.hab2 || options?.hab3) {
       abilities = await this.abilitiesService.findOne({
         where: {
           playerId: player.id,
