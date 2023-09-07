@@ -114,7 +114,7 @@ export class PaginationHelper<T> {
 
     const collector = message.createMessageComponentCollector({
       filter,
-      time: 5000,
+      time: 120000,
     });
 
     collector.on('collect', async (i: ButtonInteraction) => {
