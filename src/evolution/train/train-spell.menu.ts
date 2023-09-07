@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {
   AttachmentBuilder,
   ButtonStyle,
+  CommandInteraction,
   EmbedBuilder,
   InteractionReplyOptions,
 } from 'discord.js';
@@ -27,6 +28,15 @@ import { TrainService } from './train.service';
 import { SpellActionContext } from '~/spell/spell.menu.group';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { GrimoireService } from '~/grimoire/grimoire.service';
+import { MessageCollectorHelper } from '~/discord/helpers/message-collector-helper';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+
+export interface SpellTrainEvent {
+  train: Train;
+  player: Player;
+  options: Props;
+  interaction: CommandInteraction;
+}
 
 interface Props {
   roll?: MagicSchoolDisplayEnum;
@@ -50,6 +60,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     private readonly trainService: TrainService,
     private readonly rollService: RollService,
     private readonly grimoireService: GrimoireService,
+    private readonly eventEmitter: EventEmitter2,
   ) {
     super();
   }
@@ -134,17 +145,11 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
   @MenuAction('Treinar')
   async train(context: TrainSpellActionContext) {
     const { spell, todayTrains, grimoire } = context;
-    try {
-      await this.trainSpellService.validate({
-        spell,
-        todayTrains,
-      });
-    } catch (e) {
-      await context.interaction.followUp({
-        content: e.message,
-      });
-      return;
-    }
+    await this.trainSpellService.validate({
+      spell,
+      todayTrains,
+      player: context.player,
+    });
 
     if (!grimoire.spells.some((s) => s.id === spell.id)) {
       return await context.interaction.followUp(
@@ -267,54 +272,45 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
     props: Props,
     doubleTrain?: boolean,
   ) {
-    await context.interaction.followUp({
+    const { interaction, spell, player, guild } = context;
+
+    const message = await new MessageCollectorHelper(context).message({
       content: 'Envie a ação de treino completar',
       embeds: [
         new EmbedBuilder({
-          title: `Treino de ${context.spell.name} configurado\nEscreva CANCELAR para cancelar o treino`,
-        }).setFields(
-          {
-            name: 'Estilo de Treino',
-            value: props.group,
-            inline: true,
-          },
-          {
-            name: 'Bônus de Treino',
-            value: props.bonusRoll.toString(),
-            inline: true,
-          },
-          {
-            name: 'Rolagem',
-            value: `Controle + ${props.roll}`,
-            inline: true,
-          },
-          {
-            name: 'Sucessos Automaticos',
-            value: props.autoSuccess.toString(),
-            inline: true,
-          },
-        ),
+          title: `Treino de ${context.spell.name} configurado`,
+        })
+          .setFields(
+            {
+              name: 'Estilo de Treino',
+              value: props.group,
+              inline: true,
+            },
+            {
+              name: 'Bônus de Treino',
+              value: props.bonusRoll.toString(),
+              inline: true,
+            },
+            {
+              name: 'Rolagem',
+              value: `Controle + ${props.roll}`,
+              inline: true,
+            },
+            {
+              name: 'Sucessos Automaticos',
+              value: props.autoSuccess.toString(),
+              inline: true,
+            },
+            {
+              name: 'Treino Duplo?',
+              value: doubleTrain ? 'Sim' : 'Não',
+              inline: true,
+            },
+          )
+          .setColor('Green'),
       ],
       ephemeral: true,
     });
-    const { interaction, spell, player, guild } = context;
-    const collected = await interaction.channel.awaitMessages({
-      filter: (m) => m.author.id === context.interaction.user.id,
-      max: 1,
-      time: 1000 * 60 * 10,
-    });
-    const message = collected.first();
-    if (!message) {
-      await interaction.channel.send({
-        content: `Você não enviou sua ação a tempo!`,
-      });
-      return;
-    }
-    if (message.content.toLowerCase() === 'cancelar') {
-      await this.cancelTrain(context);
-      await message.delete();
-      return;
-    }
 
     const rolls: RollsD10[] = [];
     const roll = await this.rollService.roll10(interaction, player, {
@@ -359,6 +355,13 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
       (progress as InteractionReplyOptions).ephemeral = true;
       await context.interaction.followUp(progress);
     }
+
+    this.eventEmitter.emit('spell-train', {
+      train,
+      player,
+      options: props,
+      interaction,
+    });
 
     if (!guild.trainLogChannel) {
       return;

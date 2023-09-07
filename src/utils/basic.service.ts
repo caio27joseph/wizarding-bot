@@ -49,6 +49,10 @@ export abstract class BasicService<
     return this.__repo.delete(options);
   }
 
+  delete(options: FindOptionsWhere<Entity>) {
+    return this.__repo.delete(options);
+  }
+
   async getOrCreate(
     options: FindOneOptions<Entity>,
     input: DeepPartial<Entity>,

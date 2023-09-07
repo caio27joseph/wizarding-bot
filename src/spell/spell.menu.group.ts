@@ -239,7 +239,7 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
 
         const status = learn
           ? learn.progress >= item.necessaryLearns
-            ? `✳️ - ${learn.progress}/${item.necessaryLearns}}`
+            ? `✳️ - ${learn.progress}/${item.necessaryLearns}`
             : `${learn?.progress}/${item.necessaryLearns}`
           : grimoireSpell
           ? '✅'

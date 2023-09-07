@@ -7,15 +7,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Learn } from './entities/learn.entity';
 import { GrimoireService } from '~/grimoire/grimoire.service';
 import { GrimoireModule } from '~/grimoire/grimoire.module';
+import { LearnLog } from './entities/learn-log.entity';
+import { LearnLogService } from './learn-log.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Learn]),
+    TypeOrmModule.forFeature([Learn, LearnLog]),
     forwardRef(() => SpellModule),
     PlayerModule,
     GrimoireModule,
   ],
-  providers: [LearnGroup, LearnService],
-  exports: [LearnService],
+  providers: [LearnGroup, LearnService, LearnLogService],
+  exports: [LearnService, LearnLogService],
 })
 export class LearnModule {}

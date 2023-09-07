@@ -10,6 +10,8 @@ import { TrainSpellMenu } from './train-spell.menu';
 import { TrainSpellService } from './train-spell.service';
 import { TrainService } from './train.service';
 import { GrimoireModule } from '~/grimoire/grimoire.module';
+import { LearnService } from '../learn/learn.service';
+import { LearnModule } from '../learn/learn.module';
 
 @Module({
   imports: [
@@ -18,6 +20,7 @@ import { GrimoireModule } from '~/grimoire/grimoire.module';
     RollModule,
     forwardRef(() => SpellModule),
     forwardRef(() => GrimoireModule),
+    forwardRef(() => LearnModule),
   ],
   providers: [
     TrainService,

@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { LearnModule } from '~/evolution/learn/learn.module';
+import { CleanerService } from './cleaner.service';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       subscribers: ['dist/**/*.subscriber.js'],
       synchronize: true,
     }),
+    LearnModule,
   ],
+  providers: [CleanerService],
 })
 export class DatabaseModule {}

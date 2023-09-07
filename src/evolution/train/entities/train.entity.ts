@@ -13,13 +13,13 @@ import { DiscordEntityVieable } from '~/discord/types';
 import { Spell } from '~/spell/entities/spell.entity';
 
 export enum TrainGroupOption {
+  FLAT = 'Direto',
   SOLO = 'Solo',
   DUO = 'Dupla',
   TRIO = 'Trio',
   GROUP = 'Grupo',
   TUTOR = 'Tutor',
   PROFESSOR = 'Professor',
-  Direto = 'Direto',
 }
 
 enum SpellDifficultyEnum {
@@ -38,7 +38,9 @@ export class Train implements DiscordEntityVieable {
   })
   messageId?: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   channelId: string;
 
   @Column()
@@ -72,6 +74,16 @@ export class Train implements DiscordEntityVieable {
   })
   @Field((type) => TrainGroupOption)
   group: TrainGroupOption;
+
+  @Column({
+    default: false,
+  })
+  double: boolean;
+
+  @Column({
+    nullable: true,
+  })
+  completed?: boolean;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -111,7 +123,7 @@ export class Train implements DiscordEntityVieable {
     [TrainGroupOption.DUO]: 6,
     [TrainGroupOption.TRIO]: 8,
     [TrainGroupOption.GROUP]: 10,
-    [TrainGroupOption.Direto]: 0,
+    [TrainGroupOption.FLAT]: 0,
   };
   static readonly spellDifficultyXpMap = {
     [SpellDifficultyEnum.EASY]: 4,
@@ -119,10 +131,6 @@ export class Train implements DiscordEntityVieable {
     [SpellDifficultyEnum.HARD]: 12,
     [SpellDifficultyEnum.VERY_HARD]: 16,
   };
-  @Column({
-    default: false,
-  })
-  double: boolean;
 
   get xpExpression() {
     if (this.spellId) {

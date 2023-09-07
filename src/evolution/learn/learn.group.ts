@@ -21,6 +21,7 @@ import { EventEmitter2 } from '@nestjs/event-emitter';
 import { magicSchoolKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Spell } from '~/spell/entities/spell.entity';
 import { GrimoireService } from '~/grimoire/grimoire.service';
+import { LearnLogService } from './learn-log.service';
 
 @Group({
   name: 'aprender',
@@ -30,6 +31,7 @@ import { GrimoireService } from '~/grimoire/grimoire.service';
 export class LearnGroup {
   constructor(
     private readonly learnService: LearnService,
+    private readonly learnLogService: LearnLogService,
     private readonly spellService: SpellService,
     private readonly grimoireService: GrimoireService,
     private readonly eventEmitter: EventEmitter2,
@@ -67,6 +69,28 @@ export class LearnGroup {
         },
       },
     });
+
+    const logs = await this.learnLogService.findAll({
+      where: {
+        player: {
+          id: player.id,
+        },
+      },
+    });
+    if (logs.length >= 6) {
+      await interaction.editReply(
+        `Você já estudou 6 magias hoje, espere até amanhã para aprender mais`,
+      );
+      return;
+    }
+    // for this spell
+    const logsForSpell = logs.filter((l) => l.spell.id === spell.id);
+    if (logsForSpell.length >= 2) {
+      await interaction.editReply(
+        `Você já estudou o feitiço ${spell.name} hoje, espere até amanhã para aprender mais`,
+      );
+      return;
+    }
 
     const grimoire = await this.grimoireService.getOrCreate(
       {
@@ -117,6 +141,12 @@ export class LearnGroup {
       spell,
       player,
     });
+
+    await this.learnLogService.create({
+      spell,
+      player,
+    });
+
     if (!success) {
       await interaction.followUp(
         `Você falhou em aprender o feitiço ${spell.name}`,
