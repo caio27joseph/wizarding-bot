@@ -77,7 +77,7 @@ export class LearnGroup {
         },
       },
     });
-    if (logs.length >= 6) {
+    if (logs.length >= 3) {
       await interaction.editReply(
         `Você já estudou 6 magias hoje, espere até amanhã para aprender mais`,
       );
