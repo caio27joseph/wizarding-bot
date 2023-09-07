@@ -12,12 +12,13 @@ import { SeederModule } from './seeder/seeder.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { PlayerSystemModule } from './player-system/player-system.module';
 import { RollModule } from './roll/roll.module';
-import { TrainModule } from './train/train.module';
+import { TrainModule } from './evolution/train/train.module';
 import { GrimoireModule } from './grimoire/grimoire.module';
 import { SpacesModule } from './spaces/spaces.module';
 import { ItemsModule } from './items/items.module';
 import { ActionsModule } from './actions/actions.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { EvolutionModule } from './evolution/evolution.module';
 
 @Module({
   imports: [
@@ -36,11 +37,11 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
     SeederModule,
     PlayerSystemModule,
     RollModule,
-    TrainModule,
     GrimoireModule,
     ItemsModule,
     SpacesModule,
     ActionsModule,
+    EvolutionModule,
   ],
   controllers: [],
   providers: [],

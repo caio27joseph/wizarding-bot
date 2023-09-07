@@ -44,11 +44,14 @@ import {
 } from '~/discord/decorators/message.decorators';
 import { Guild } from '~/core/guild/guild.entity';
 import { ILike } from 'typeorm';
-import { TrainSpellService } from '~/train/train-spell.service';
+import { TrainSpellService } from '~/evolution/train/train-spell.service';
 import { groupBy } from 'lodash';
 import { generateProgressBarEmoji } from '~/utils/emojiProgressBar';
 import { SpellActionContext } from '~/spell/spell.menu.group';
-import { magicSchoolKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import {
+  MagicSchoolKeys,
+  magicSchoolKeyToDisplayMap,
+} from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 interface Props {
   selectedSlot: number;
@@ -127,30 +130,6 @@ export class GrimoireMenu {
   }
 
   @Command({
-    name: '_add',
-    description: 'Adiciona o Feitiço a algum jogador',
-    mod: true,
-  })
-  async teachSpell(
-    @ArgInteraction()
-    interaction: CommandInteraction,
-    @ArgPlayer({
-      name: 'Jogador',
-      description: 'Jogador que será ensinado',
-    })
-    player: Player,
-    @ArgGuild()
-    guild: Guild,
-    @ArgString({
-      name: 'feitico',
-      description: 'Nome do feitiço',
-    })
-    name: string,
-  ) {
-    return await this.learnSpell(interaction, player, guild, name);
-  }
-
-  @Command({
     name: 'desaprender',
     description: 'Desaprende o feitiço anteriormente adicionado ao grimório',
   })
@@ -167,6 +146,7 @@ export class GrimoireMenu {
     })
     name: string,
   ) {
+    await interaction.deferReply({ ephemeral: true });
     const spell = await this.spellService.findOne({
       where: {
         guildId: guild.id,
@@ -185,30 +165,9 @@ export class GrimoireMenu {
     );
     grimoire.spells = grimoire.spells.filter((s) => s.id !== spell.id);
     await this.grimoireService.save(grimoire);
-  }
-
-  @Command({
-    name: '_rem',
-    description: 'Remove o Feitiço de algum jogador',
-    mod: true,
-  })
-  async removeGrimoire(
-    @ArgInteraction()
-    interaction: CommandInteraction,
-    @ArgPlayer({
-      name: 'Jogador',
-      description: 'Jogador que perderá o feitiço',
-    })
-    player: Player,
-    @ArgGuild()
-    guild: Guild,
-    @ArgString({
-      name: 'Feitiço',
-      description: 'Nome do feitiço',
-    })
-    name: string,
-  ) {
-    return await this.unlearnGrimoire(interaction, player, guild, name);
+    await interaction.followUp({
+      content: `Você desaprendeu o feitiço ${spell.name}`,
+    });
   }
 
   @Command({
@@ -220,8 +179,6 @@ export class GrimoireMenu {
     interaction: CommandInteraction,
     @ArgPlayer()
     player: Player,
-    @ArgGuild()
-    guild: Guild,
     @ArgInteger({
       name: 'Nivel_Feitico',
       description: 'Nível do feitiço',
@@ -239,11 +196,12 @@ export class GrimoireMenu {
         }),
       ),
     })
-    category?: string,
+    category?: MagicSchoolKeys,
     @ArgString({
       name: 'Dificuldade_Feitico',
       description: 'Dificuldade do feitiço',
       required: false,
+      choices: Object.values(SpellDifficultyEnum),
     })
     difficulty?: SpellDifficultyEnum,
   ) {

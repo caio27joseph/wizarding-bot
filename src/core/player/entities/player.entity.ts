@@ -19,7 +19,7 @@ import { Attributes } from '~/player-system/attribute/entities/attributes.entity
 import { Extras } from '~/player-system/extras/entities/extras.entity';
 import { NonConvPredilections } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { MagicSchool } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
-import { Train } from '~/train/entities/train.entity';
+import { Train } from '~/evolution/train/entities/train.entity';
 
 @ObjectType()
 @Entity()

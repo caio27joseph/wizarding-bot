@@ -203,7 +203,7 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
   // Add Roll
   @MenuAction('Adicionar Rolagem')
   async addRoll(context: ResourceProviderActionContext) {
-    const { provider } = context;
+    const { provider, player, interaction } = context;
     context.item = provider.item;
     if (!provider) {
       await context.interaction.editReply('Nenhuma fonte selecionada');
@@ -218,7 +218,13 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     const { roll, options }: RollEvent = await waitForEvent(
       this.eventEmitter,
       'roll',
-      (data: RollEvent) => true,
+      (data: RollEvent) => {
+        const samePlayer = data.player.id === player.id;
+        const sameChannel =
+          data.interaction.channelId === interaction.channelId;
+
+        return samePlayer && sameChannel;
+      },
     );
 
     provider.rolls.push({

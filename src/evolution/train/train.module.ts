@@ -27,6 +27,6 @@ import { GrimoireModule } from '~/grimoire/grimoire.module';
     TrainGroup,
   ],
 
-  exports: [MaestryGroup, TrainSpellMenu, TrainSpellService],
+  exports: [MaestryGroup, TrainSpellMenu, TrainSpellService, TrainService],
 })
 export class TrainModule {}

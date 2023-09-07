@@ -134,19 +134,19 @@ export class Abiliites1Group {
     })
     empathy?: number,
     @ArgInteger({
-      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.DODGE],
-      description: 'Valor a se adicionar',
-      choices: [0, 1, 2, 3, 4, 5],
-      required: false,
-    })
-    dodge?: number,
-    @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.ETIQUETTE],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
       required: false,
     })
     etiquette?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.EXPRESSION],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+      required: false,
+    })
+    expression?: number,
   ) {
     const abiliites = await this.service.updateOrCreate(
       {
@@ -166,8 +166,8 @@ export class Abiliites1Group {
         driving,
         cosmology,
         empathy,
-        dodge,
         etiquette,
+        expression,
       },
     );
     await interaction.reply({
@@ -192,13 +192,6 @@ export class Abiliites2Group {
   async updateAbilities(
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
-    @ArgInteger({
-      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.EXPRESSION],
-      description: 'Valor a se adicionar',
-      choices: [0, 1, 2, 3, 4, 5],
-      required: false,
-    })
-    expression?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.FINANCES],
       description: 'Valor a se adicionar',
@@ -276,6 +269,13 @@ export class Abiliites2Group {
       required: false,
     })
     medicine?: number,
+    @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.MEDITATION],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+      required: false,
+    })
+    meditation?: number,
   ) {
     const abiliites = await this.service.updateOrCreate(
       {
@@ -285,7 +285,6 @@ export class Abiliites2Group {
       },
       {
         playerId: player.id,
-        expression,
         finances,
         stealth,
         herbology,
@@ -297,6 +296,7 @@ export class Abiliites2Group {
         linguistics,
         cunning,
         medicine,
+        meditation,
       },
     );
     await interaction.reply({
@@ -321,13 +321,6 @@ export class Abiliites3Group {
   async updateAbilities(
     @ArgInteraction() interaction: CommandInteraction,
     @ArgPlayer() player: Player,
-    @ArgInteger({
-      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.MEDITATION],
-      description: 'Valor a se adicionar',
-      choices: [0, 1, 2, 3, 4, 5],
-      required: false,
-    })
-    meditation?: number,
     @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.OCCULTISM],
       description: 'Valor a se adicionar',
@@ -385,6 +378,13 @@ export class Abiliites3Group {
     })
     potions_alchemy?: number,
     @ArgInteger({
+      name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.RITUALS],
+      description: 'Valor a se adicionar',
+      choices: [0, 1, 2, 3, 4, 5],
+      required: false,
+    })
+    rituals?: number,
+    @ArgInteger({
       name: abilitiesKeyToDisplayMap[AbilitiesKeyEnum.THEFT],
       description: 'Valor a se adicionar',
       choices: [0, 1, 2, 3, 4, 5],
@@ -414,7 +414,6 @@ export class Abiliites3Group {
       },
       {
         playerId: player.id,
-        meditation,
         occultism,
         crafts,
         perception,
@@ -423,6 +422,7 @@ export class Abiliites3Group {
         politics,
         aim,
         potions_alchemy,
+        rituals,
         theft,
         survival,
         animal_handling,

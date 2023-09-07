@@ -111,7 +111,7 @@ export class Rolls10Group {
     })
     hab3?: AbilitiesKeys,
     @ArgString({
-      name: 'Magic School',
+      name: 'Escola Mágica',
       description: 'Escola Mágica a ser rolada',
       choices: Object.entries(magicSchoolKeyToDisplayMap).map(
         ([key, value]) => ({

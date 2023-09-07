@@ -19,6 +19,7 @@ export enum TrainGroupOption {
   GROUP = 'Grupo',
   TUTOR = 'Tutor',
   PROFESSOR = 'Professor',
+  Direto = 'Direto',
 }
 
 enum SpellDifficultyEnum {
@@ -110,6 +111,7 @@ export class Train implements DiscordEntityVieable {
     [TrainGroupOption.DUO]: 6,
     [TrainGroupOption.TRIO]: 8,
     [TrainGroupOption.GROUP]: 10,
+    [TrainGroupOption.Direto]: 0,
   };
   static readonly spellDifficultyXpMap = {
     [SpellDifficultyEnum.EASY]: 4,

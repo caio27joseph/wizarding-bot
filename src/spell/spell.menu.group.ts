@@ -13,6 +13,7 @@ import {
 } from '~/discord/helpers/menu-helper';
 import { Command } from '~/discord/decorators/command.decorator';
 import {
+  ArgBoolean,
   ArgGuild,
   ArgInteger,
   ArgInteraction,
@@ -23,7 +24,7 @@ import { Guild } from '~/core/guild/guild.entity';
 import { Player } from '~/core/player/entities/player.entity';
 import { SpellService } from './spell.service';
 import { EntityAlreadyExists, EntityNotFound } from '~/discord/exceptions';
-import { TrainSpellMenu } from '~/train/train-spell.menu';
+import { TrainSpellMenu } from '~/evolution/train/train-spell.menu';
 import { FindOptionsWhere, ILike } from 'typeorm';
 import {
   PageHelperOptions,
@@ -37,6 +38,7 @@ import {
 import { GrimoireMenu } from '~/grimoire/grimoire.menu';
 import { Grimoire } from '~/grimoire/entities/grimoire.entity';
 import { GrimoireService } from '~/grimoire/grimoire.service';
+import { LearnService } from '~/evolution/learn/learn.service';
 
 export interface SpellActionContext extends ActionContext {
   spell?: Spell;
@@ -54,6 +56,7 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
     private readonly spellService: SpellService,
     private readonly trainMenu: TrainSpellMenu,
     private readonly grimoireService: GrimoireService,
+    private readonly learnService: LearnService,
   ) {
     super();
   }
@@ -87,7 +90,7 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
     })
     name?: string,
     @ArgString({
-      name: 'Competência',
+      name: 'Escola Mágica',
       description: 'Competência do feitiço',
       required: false,
       choices: Object.values(SpellCategoryNameEnum),
@@ -106,6 +109,18 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
       required: false,
     })
     level?: number,
+    @ArgBoolean({
+      name: 'Aprendendo',
+      description: 'Filtrar por feitiços em aprendizado',
+      required: false,
+    })
+    learning?: boolean,
+    @ArgBoolean({
+      name: 'Aprendidos',
+      description: 'Filtrar por feitiços aprendidos',
+      required: false,
+    })
+    learned?: boolean,
   ) {
     await interaction.deferReply({ ephemeral: true });
     const context: SpellActionContext = {
@@ -118,6 +133,8 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
         difficulty,
         category,
         level,
+        learning,
+        learned,
       });
     const spell = await this.spellService.findOne({
       where: {
@@ -132,7 +149,19 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
   }
   async list(
     context: SpellActionContext,
-    { difficulty, level, category }: FindOptionsWhere<Spell> = {},
+    {
+      difficulty,
+      level,
+      category,
+      learning,
+      learned,
+    }: {
+      difficulty?: SpellDifficultyEnum;
+      level?: number;
+      category?: SpellCategoryNameEnum;
+      learning?: boolean;
+      learned?: boolean;
+    } = {},
   ) {
     let spells = await this.spellService.findAll({
       where: {
@@ -159,20 +188,64 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
       },
     });
     let grimoireSpells = grimoire?.spells || [];
+    let learns = await this.learnService.findAll({
+      where: {
+        player: {
+          id: context.player.id,
+        },
+        spell: {
+          level,
+          difficulty,
+        },
+      },
+      relations: {
+        spell: true,
+      },
+    });
+    // check if not undefined
+    if (learning !== undefined) {
+      if (learning) {
+        spells = learns.map((l) => l.spell);
+      } else {
+        spells = spells.filter((s) => !learns.some((l) => l.spell.id === s.id));
+      }
+    }
+    if (learned !== undefined) {
+      if (learned) {
+        // Should exist in grimoire and not exist in learnings
+        spells = grimoireSpells;
+      } else {
+        spells = spells.filter(
+          (s) => !grimoireSpells.some((g) => g.id === s.id),
+        );
+      }
+    }
     if (category) {
       grimoireSpells = grimoireSpells.filter((s) =>
         s.category.includes(category as string),
+      );
+      learns = learns.filter((l) =>
+        l.spell.category.includes(category as string),
       );
     }
 
     const options: PageHelperOptions<Spell> = {
       itemsPerPage: 10,
       items: spells,
-      header: 'Feitiços\n',
+      header: `${spells.length} Feitiços Encontrados\n`,
       formatter: async (item, index, array) => {
         const grimoireSpell = grimoireSpells.some((s) => s.id === item.id);
+        const learn = learns.find((l) => l.spell.id === item.id);
+
+        const status = learn
+          ? learn.progress >= item.necessaryLearns
+            ? `✳️ - ${learn.progress}/${item.necessaryLearns}}`
+            : `${learn?.progress}/${item.necessaryLearns}`
+          : grimoireSpell
+          ? '✅'
+          : '❌';
         return (
-          `### ${item.name} ${grimoire && grimoireSpell ? `✅` : `❌`}` +
+          `### ${item.name} ${status}` +
           `\n` +
           `Nível: ${item.level} - ${item.category.join(', ')} / ${
             item.difficulty
@@ -181,7 +254,13 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
         );
       },
       footer(currentPage, totalPages) {
-        return `\nPágina ${currentPage} de ${totalPages}`;
+        return (
+          '\n' +
+          '```\n✳️ - Estudado (-1 na rolagem)\n' +
+          '✅ - No grimório\n' +
+          '❌ - Não aprendido\n```' +
+          `Página ${currentPage} de ${totalPages}`
+        );
       },
     };
     await new PaginationHelper(options).followUp(context.interaction);

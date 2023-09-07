@@ -24,7 +24,6 @@ export enum AbilitiesDisplayEnum {
   DRIVING = 'Condução',
   COSMOLOGY = 'Cosmologia',
   EMPATHY = 'Empatia',
-  DODGE = 'Esquiva',
   ETIQUETTE = 'Etiqueta',
   EXPRESSION = 'Expressão',
   FINANCES = 'Finanças',
@@ -47,6 +46,7 @@ export enum AbilitiesDisplayEnum {
   POLITICS = 'Política',
   AIM = 'Pontaria',
   POTIONS_ALCHEMY = 'Poções/Alquimia',
+  RITUALS = 'Rituais',
   THEFT = 'Roubo',
   SURVIVAL = 'Sobrevivência',
   ANIMAL_HANDLING = 'Trato com Animais',
@@ -63,10 +63,9 @@ export enum AbilitiesKeyEnum {
   DRIVING = 'driving',
   COSMOLOGY = 'cosmology',
   EMPATHY = 'empathy',
-  DODGE = 'dodge',
   ETIQUETTE = 'etiquette',
-
   EXPRESSION = 'expression',
+
   FINANCES = 'finances',
   STEALTH = 'stealth',
   HERBOLOGY = 'herbology',
@@ -78,8 +77,8 @@ export enum AbilitiesKeyEnum {
   LINGUISTICS = 'linguistics',
   CUNNING = 'cunning',
   MEDICINE = 'medicine',
-
   MEDITATION = 'meditation',
+
   OCCULTISM = 'occultism',
   CRAFTS = 'crafts',
   PERCEPTION = 'perception',
@@ -88,6 +87,7 @@ export enum AbilitiesKeyEnum {
   POLITICS = 'politics',
   AIM = 'aim',
   POTIONS_ALCHEMY = 'potions_alchemy',
+  RITUALS = 'rituals',
   THEFT = 'theft',
   SURVIVAL = 'survival',
   ANIMAL_HANDLING = 'animal_handling',
@@ -162,8 +162,6 @@ export class Abilities implements DiscordEntityVieable {
   @Column({ default: 0 })
   empathy: number;
   @Column({ default: 0 })
-  dodge: number;
-  @Column({ default: 0 })
   etiquette: number;
   @Column({ default: 0 })
   expression: number;
@@ -207,6 +205,8 @@ export class Abilities implements DiscordEntityVieable {
   aim: number;
   @Column({ default: 0 })
   potions_alchemy: number;
+  @Column({ default: 0 })
+  rituals: number;
   @Column({ default: 0 })
   theft: number;
   @Column({ default: 0 })

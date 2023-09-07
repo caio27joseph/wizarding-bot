@@ -182,11 +182,11 @@ export class PaginationHelper<T> {
       const end: number = start + this.itemsPerPage;
       const pageItems = this.items.slice(start, end);
 
-      let content: string = this.header;
+      let content: string = this.header + '\n';
       content += await (
         await Promise.all(pageItems.map(this.formatter))
       ).join('\n');
-      content += this.footer(page, totalPages);
+      content += '\n' + this.footer(page, totalPages);
 
       return content;
     };

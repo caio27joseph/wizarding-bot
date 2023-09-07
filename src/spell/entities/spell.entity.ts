@@ -19,7 +19,7 @@ import {
 import { Guild } from '~/core/guild/guild.entity';
 import { DiscordEntityVieable } from '~/discord/types';
 import { Grimoire } from '~/grimoire/entities/grimoire.entity';
-import { Train } from '~/train/entities/train.entity';
+import { Train } from '~/evolution/train/entities/train.entity';
 
 export enum SpellCategoryNameEnum {
   ABJURATION = 'Abjuração',
@@ -85,7 +85,18 @@ export const maestryNumToName = {
   4: MaestryNameEnum.EXPERT,
   5: MaestryNameEnum.MASTER,
 };
-
+const difficultyToMeta = {
+  [SpellDifficultyEnum.EASY]: 3,
+  [SpellDifficultyEnum.MEDIUM]: 4,
+  [SpellDifficultyEnum.HARD]: 5,
+  [SpellDifficultyEnum.VERY_HARD]: 6,
+};
+const difficultyToLearnMeta = {
+  [SpellDifficultyEnum.EASY]: 3,
+  [SpellDifficultyEnum.MEDIUM]: 6,
+  [SpellDifficultyEnum.HARD]: 9,
+  [SpellDifficultyEnum.VERY_HARD]: 12,
+};
 registerEnumType(MaestryNameEnum, {
   name: 'MaestryNameEnum',
 });
@@ -283,6 +294,14 @@ export class Spell implements DiscordEntityVieable {
     embed.setFields(fields);
     return embed;
   }
+
+  get metaValue() {
+    return difficultyToMeta[this.difficulty];
+  }
+  get necessaryLearns() {
+    return difficultyToLearnMeta[this.difficulty];
+  }
+
   reply(interaction: Interaction) {
     return new MessagePayload(interaction, {
       embeds: [this.toEmbed()],
