@@ -4,6 +4,7 @@ import { ResourceProviderModule } from './resource-provider/resource-provider.mo
 import { InventoryModule } from './inventory/inventory.module';
 import { PlayerSetModule } from './player-set/player-set.module';
 import { WandModule } from './wand/wand.module';
+import { ItemPoolModule } from './item-pool/item-pool.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { WandModule } from './wand/wand.module';
     InventoryModule,
     PlayerSetModule,
     WandModule,
+    ItemPoolModule,
   ],
 })
 export class ItemsModule {}

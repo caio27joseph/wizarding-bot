@@ -274,7 +274,7 @@ export class TrainSpellMenu extends MenuHelper<TrainSpellActionContext> {
   ) {
     const { interaction, spell, player, guild } = context;
 
-    const message = await new MessageCollectorHelper(context).message({
+    const message = await new MessageCollectorHelper(interaction).message({
       content: 'Envie a ação de treino completar',
       embeds: [
         new EmbedBuilder({

@@ -11,6 +11,7 @@ import { Injectable } from '@nestjs/common';
 import { ILike } from 'typeorm';
 import { EntityAlreadyExists } from '~/discord/exceptions';
 import { Guild } from '~/core/guild/guild.entity';
+import { PaginationHelper } from '~/discord/helpers/page-helper';
 
 @Group({
   name: 'item',
@@ -90,7 +91,23 @@ export class ItemGroup {
   async listItem(
     @ArgInteraction() i: CommandInteraction,
     @ArgGuild() guild: Guild,
-  ) {}
+  ) {
+    await i.deferReply({ ephemeral: true });
+    const items = await this.service.findAll({
+      where: {
+        guildId: guild.id,
+      },
+    });
+
+    await new PaginationHelper({
+      header: `${items.length} itens encontrados`,
+      itemsPerPage: 10,
+      items,
+      formatter: async (item, index, array) => {
+        return `### ${item.name}\n${item.description.slice(0, 200)}\n---`;
+      },
+    }).followUp(i);
+  }
   @Command({
     name: 'get',
     description: 'Get item(s)',

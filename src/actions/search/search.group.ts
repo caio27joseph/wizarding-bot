@@ -34,7 +34,6 @@ export class SearchGroup {
   constructor(
     private eventEmitter: EventEmitter2,
     private readonly resourceProviderService: ResourceProviderService,
-    private readonly inventoryService: InventoryService,
   ) {}
 
   @Command({
@@ -108,55 +107,31 @@ export class SearchGroup {
       ephemeral: true,
     });
 
-    const possibleRolls = provider.rolls
-      .filter((roll) => !roll.secret)
-      .map((roll) => {
-        let description = `${roll.display ? roll.display : ''} - /dr `;
-        if (roll.attribute) {
-          description += `**atributo:**${
-            attributeKeyToDisplayMap[roll.attribute]
-          } `;
-        }
-        if (roll.hab1) {
-          description += `**pericia:**${abilitiesKeyToDisplayMap[roll.hab1]} `;
-        }
-        if (roll.hab2) {
-          description += `**pericia:**${abilitiesKeyToDisplayMap[roll.hab2]} `;
-        }
-        if (roll.hab3) {
-          description += `**pericia:**${abilitiesKeyToDisplayMap[roll.hab3]} `;
-        }
-        if (roll.magicSchool) {
-          description += `**predilecao_bruxa:**${
-            magicSchoolKeyToDisplayMap[roll.magicSchool]
-          } `;
-        }
-        if (roll.nonConvPredilectionsChoices) {
-          description += `**predilecao_nao_convencional:**${
-            nonConvKeyToDisplayMap[roll.nonConvPredilectionsChoices]
-          } `;
-        }
-        if (roll.extras) {
-          description += `**extras:**${extrasKeyToDisplayMap[roll.extras]} `;
-        }
-        return description;
-      });
+    const possibleRolls = provider.availableRollsMessage();
     const rolls = possibleRolls.join('\nOu ');
 
     if (possibleRolls.length === 0) {
       await interaction.followUp({
         content: `Você não tem ferramentas para pegar este item...\n`,
       });
-      await this.collectResource(interaction, player, provider);
       if (provider.rolls.length === 0) {
         return;
       }
+      await this.resourceProviderService.collectResource(
+        interaction,
+        player,
+        provider,
+      );
     } else {
       await interaction.followUp({
         content: `Caso queira pegar o item, por favor role\n` + rolls,
       });
     }
-    await this.collectResource(interaction, player, provider);
+    await this.resourceProviderService.collectResource(
+      interaction,
+      player,
+      provider,
+    );
   }
 
   async searchResources(
@@ -197,50 +172,5 @@ export class SearchGroup {
       },
       itemsPerPage: 5,
     }).followUp(interaction);
-  }
-
-  async collectResource(
-    interaction: CommandInteraction,
-    player: Player,
-    provider: ResourceProvider,
-  ) {
-    let metaForMaxDrop = 3;
-    const { roll }: RollEvent = await waitForEvent(
-      this.eventEmitter,
-      'roll',
-      (data: RollEvent) => {
-        const samePlayer = data.player.id === player.id;
-        const sameChannel =
-          data.interaction.channelId === interaction.channelId;
-
-        const validRoll = provider.getValidRoll(data.options);
-        metaForMaxDrop = validRoll?.meta || 3;
-        return samePlayer && sameChannel && !!validRoll;
-      },
-    );
-    const { maxDrop, minDrop, metaForAExtraDrop } = provider;
-    const extraMeta = roll.total - metaForMaxDrop;
-
-    const dropPerMeta = (maxDrop - minDrop) / metaForMaxDrop;
-
-    let drops = Math.floor(roll.total * dropPerMeta) + minDrop;
-    drops = Math.min(drops, maxDrop);
-
-    if (extraMeta >= metaForAExtraDrop) {
-      drops += Math.floor(extraMeta / metaForAExtraDrop);
-    }
-
-    const stack = await this.inventoryService.addItemToPlayerInventory(
-      player,
-      provider.item,
-      drops,
-    );
-
-    await interaction.followUp({
-      content: `Você coletou '${provider.item.name} x${drops}'\n`,
-    });
-    provider.lastTimeOpened = new Date();
-
-    await this.resourceProviderService.save(provider);
   }
 }

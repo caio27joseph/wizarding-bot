@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { Item } from '../item/entities/item.entity';
 import { Space } from '~/spaces/space/entities/space.entity';
-import { EmbedBuilder } from 'discord.js';
+import { CommandInteraction, EmbedBuilder } from 'discord.js';
 import { addDays, addHours, addMinutes, displayBRT } from '~/utils/date.utils';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import {
@@ -18,7 +18,24 @@ import {
   AbilitiesKeys,
   abilitiesKeyToDisplayMap,
 } from '~/player-system/abilities/entities/abilities.entity';
-import { RollOptions } from '~/roll/roll.service';
+import { RollEvent, RollOptions } from '~/roll/roll.service';
+import { waitForEvent } from '~/utils/wait-for-event';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { Player } from '~/core/player/entities/player.entity';
+import { ItemPool } from '../item-pool/entitites/item-pool.entity';
+import { magicSchoolKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { nonConvKeyToDisplayMap } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
+import { extrasKeyToDisplayMap } from '~/player-system/extras/entities/extras.entity';
+
+export enum ProviderActionType {
+  FISH = 'fish',
+  COLLECT = 'collect',
+}
+
+export const ProviderActionTypePortuguese = {
+  [ProviderActionType.FISH]: 'Pescar',
+  [ProviderActionType.COLLECT]: 'Coletar',
+};
 
 export class RollSpec {
   meta?: number;
@@ -32,7 +49,6 @@ export class RollSpec {
   extras?: string;
   identifier: string;
   display?: string;
-
   spell?: string;
   secret?: boolean;
 }
@@ -60,12 +76,28 @@ export class ResourceProvider {
   })
   imageUrl?: string;
 
+  @Column({
+    type: 'enum',
+    enum: ProviderActionType,
+    default: ProviderActionType.COLLECT,
+  })
+  actionType?: ProviderActionType;
+
   @ManyToOne(() => Item, (item) => item.resourceProviders, {
-    eager: true,
     cascade: true,
+    nullable: true,
+    eager: true,
   })
   @JoinColumn()
-  item: Item;
+  item?: Item;
+
+  @ManyToOne(() => ItemPool, {
+    cascade: true,
+    nullable: true,
+    eager: true,
+  })
+  @JoinColumn()
+  pool?: ItemPool;
 
   @ManyToOne(() => Space, (space) => space.resourceProviders)
   @JoinColumn()
@@ -160,7 +192,15 @@ export class ResourceProvider {
     });
     if (mod) {
       let description = '';
-      description += `**Item: **${this.item.name}\n`;
+      if (this.item) {
+        description += `**Item: **${this.item.name}\n`;
+      }
+      if (this.pool) {
+        description += `**Pool: **${this.pool.name}\n`;
+      }
+      description += `**Ação: **${
+        ProviderActionTypePortuguese[this.actionType]
+      }\n`;
       description += `**Ultima Vez Aberto: ** ${
         this.lastTimeOpened ? displayBRT(this.lastTimeOpened) : 'Nunca'
       }\n`;
@@ -224,6 +264,7 @@ export class ResourceProvider {
         if (roll.identifier) {
           description += `**Identifier: ** ${roll.identifier}\n`;
         }
+        description += `**Meta: ** ${roll.meta || 3}\n`;
         return {
           name: roll.display ? roll.display : 'Roll ' + (index + 1),
           value: description,
@@ -235,13 +276,11 @@ export class ResourceProvider {
     }
     if (this.imageUrl) {
       embed.setThumbnail(this.imageUrl);
-    } else {
-      embed.setThumbnail(this.item.imageUrl);
     }
     return embed;
   }
 
-  getValidRoll(options: RollOptions) {
+  private getValidRoll(options: RollOptions) {
     return this.rolls.find((roll) => {
       let valid = true;
       if (options?.attribute) {
@@ -274,5 +313,87 @@ export class ResourceProvider {
 
       return valid;
     });
+  }
+  async open({
+    eventEmitter,
+    player,
+    interaction,
+  }: {
+    eventEmitter: EventEmitter2;
+    player: Player;
+    interaction: CommandInteraction;
+  }) {
+    let metaForMaxDrop: number;
+    const { roll }: RollEvent = await waitForEvent(
+      eventEmitter,
+      'roll',
+      (data: RollEvent) => {
+        const samePlayer = data.player.id === player.id;
+        const sameChannel =
+          data.interaction.channelId === interaction.channelId;
+
+        const validRoll = this.getValidRoll(data.options);
+        metaForMaxDrop = validRoll.meta || 3;
+        return samePlayer && sameChannel && !!validRoll;
+      },
+    );
+
+    const { maxDrop, minDrop, metaForAExtraDrop } = this;
+    const extraMeta = roll.total - metaForMaxDrop;
+
+    const dropPerMeta = (maxDrop - minDrop) / metaForMaxDrop;
+
+    let drops = Math.floor(roll.total * dropPerMeta) + minDrop;
+    drops = Math.min(drops, maxDrop);
+
+    if (extraMeta >= metaForAExtraDrop && metaForAExtraDrop !== 0) {
+      drops += Math.floor(extraMeta / metaForAExtraDrop);
+    }
+    let item: Item;
+    if (this.pool) {
+      item = await this.pool.drawItem();
+    } else {
+      item = this.item;
+    }
+
+    return { drops, item };
+  }
+
+  availableRollsMessage() {
+    const possibleRolls = this.rolls
+      .filter((roll) => !roll.secret)
+      .map((roll) => {
+        let description = `${roll.display ? roll.display : ''} - /dr `;
+        if (roll.attribute) {
+          description += `**atributo:**${
+            attributeKeyToDisplayMap[roll.attribute]
+          } `;
+        }
+        if (roll.hab1) {
+          description += `**hab1:**${abilitiesKeyToDisplayMap[roll.hab1]} `;
+        }
+        if (roll.hab2) {
+          description += `**hab2:**${abilitiesKeyToDisplayMap[roll.hab2]} `;
+        }
+        if (roll.hab3) {
+          description += `**hab3:**${abilitiesKeyToDisplayMap[roll.hab3]} `;
+        }
+        if (roll.magicSchool) {
+          description += `**escola_magica:**${
+            magicSchoolKeyToDisplayMap[roll.magicSchool]
+          } `;
+        }
+        if (roll.nonConvPredilectionsChoices) {
+          description += `**predilecao_nao_convencional:**${
+            nonConvKeyToDisplayMap[roll.nonConvPredilectionsChoices]
+          } `;
+        }
+        if (roll.extras) {
+          description += `**extras:**${extrasKeyToDisplayMap[roll.extras]} `;
+        }
+        return description;
+      });
+
+    return possibleRolls;
   }
 }

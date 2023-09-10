@@ -206,7 +206,7 @@ export class RollService {
       options?.message,
     );
 
-    this.eventEmitter.emit('roll', {
+    this.eventEmitter.emitAsync('roll', {
       roll,
       player,
       options,

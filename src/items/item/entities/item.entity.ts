@@ -16,6 +16,7 @@ import {
   BonusTarget,
 } from '~/items/bonuses/item-with-bonus.interface';
 import { Inventory } from '~/items/inventory/entities/inventory.entity';
+import { ItemPoolRarity } from '~/items/item-pool/entitites/item-pool-config.entity';
 import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
 
 @Entity()
@@ -32,6 +33,8 @@ export class Item implements DiscordEntityVieable, CanHaveBonus {
   @Column()
   @Field()
   description: string;
+
+  rarity?: ItemPoolRarity;
 
   @Column()
   @Field()

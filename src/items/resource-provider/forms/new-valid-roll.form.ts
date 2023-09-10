@@ -10,7 +10,7 @@ interface NewValidRoll {
 export const getNewValidRollForm = (context: ResourceProviderActionContext) => {
   const promise: Promise<NewValidRoll> = new Promise((resolve, reject) => {
     const config: FormConfig<NewValidRoll> = {
-      label: `Novo Provedor de Item 4/4: ${context.item.name}`,
+      label: `Novo Rolagem`,
       fields: [
         {
           placeholder: 'Rolagem secreta? [Não]',

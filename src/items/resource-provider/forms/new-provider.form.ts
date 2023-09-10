@@ -4,13 +4,18 @@ import { Item } from '~/items/item/entities/item.entity';
 import { FormConfig, FormHelper } from '~/discord/helpers/form-helper';
 import { ButtonStyle } from 'discord.js';
 import { DiscordSimpleError } from '~/discord/exceptions';
-import { AvailablePointsEnums } from '~/player-system/system-types';
-import { ResourceProvider } from '../resource-provider.entity';
+import {
+  ProviderActionType,
+  ProviderActionTypePortuguese,
+  ResourceProvider,
+} from '../resource-provider.entity';
+import { ItemPool } from '~/items/item-pool/entitites/item-pool.entity';
 
 export interface ResourceProviderActionContext extends ActionContext {
   space: Space;
   provider?: ResourceProvider;
   item?: Item;
+  itemPool?: ItemPool;
 }
 
 interface NewResourceProviderProps1 {
@@ -25,17 +30,63 @@ interface NewResourceProviderProps2 {
   minutesCooldown: number;
   minutesCooldownPerception: number;
 }
+interface NewResourceProviderProps3 {
+  actionType: ProviderActionType;
+}
 interface NewResourceProviderProps
   extends NewResourceProviderProps1,
-    NewResourceProviderProps2 {
-  roll3?: AvailablePointsEnums;
-}
+    NewResourceProviderProps2,
+    NewResourceProviderProps3 {}
+
+const getForm3 = (context: ResourceProviderActionContext) => {
+  const promise: Promise<NewResourceProviderProps3> = new Promise(
+    (resolve, reject) => {
+      const config: FormConfig<NewResourceProviderProps3> = {
+        label: `Novo Provedor 3/3: ${
+          context.item ? context.item.name : context.itemPool.name
+        }`,
+        fields: [
+          {
+            placeholder: 'Tipo de ação',
+            propKey: 'actionType',
+            defaultValue: ProviderActionType.COLLECT,
+            options: Object.values(ProviderActionType).map((k) => ({
+              label: ProviderActionTypePortuguese[k],
+              value: k,
+            })),
+          },
+        ],
+        buttons: [
+          {
+            label: 'Cancelar',
+            style: ButtonStyle.Danger,
+            handler: async (i, form) => {
+              reject(null);
+            },
+          },
+          {
+            label: 'Criar',
+            style: ButtonStyle.Success,
+            handler: async (i, form) => {
+              resolve(form);
+            },
+          },
+        ],
+      };
+
+      new FormHelper<NewResourceProviderProps3>(context, config).init();
+    },
+  );
+  return promise;
+};
 
 const getForm2 = (context: ResourceProviderActionContext) => {
   const promise: Promise<NewResourceProviderProps2> = new Promise(
     (resolve, reject) => {
       const config: FormConfig<NewResourceProviderProps2> = {
-        label: `Novo Provedor de Item 4/4: ${context.item.name}`,
+        label: `Novo Provedor de Item 2/3: ${
+          context.item ? context.item.name : context.itemPool.name
+        }`,
         fields: [
           {
             placeholder: 'Dias de cooldown [0]',
@@ -91,8 +142,8 @@ const getForm2 = (context: ResourceProviderActionContext) => {
             },
           },
           {
-            label: 'Criar',
-            style: ButtonStyle.Success,
+            label: 'Continuar',
+            style: ButtonStyle.Primary,
             handler: async (i, form) => {
               resolve(form);
             },
@@ -109,7 +160,9 @@ const getForm1 = (context: ResourceProviderActionContext) => {
   const promise: Promise<NewResourceProviderProps1> = new Promise(
     (resolve, reject) => {
       const config: FormConfig<NewResourceProviderProps1> = {
-        label: `Novo Provedor de Item 3/4: ${context.item.name}`,
+        label: `Novo Provedor 1/3: ${
+          context.item ? context.item.name : context.itemPool.name
+        }`,
         fields: [
           {
             placeholder: 'Metas para garantir um drop extra (Cada x ganha 1)',
@@ -122,8 +175,9 @@ const getForm1 = (context: ResourceProviderActionContext) => {
             pipe: (value) => parseInt(value),
           },
           {
-            placeholder: `Drops mínimos do recurso`,
+            placeholder: `Drops mínimos do recurso [0]`,
             propKey: 'minDrop',
+            defaultValue: 0,
             options: [
               0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20,
             ].map((n) => ({
@@ -181,9 +235,6 @@ export const getNewProviderInput = async (
   context: ResourceProviderActionContext,
 ) => {
   const form1 = await getForm1(context);
-  if (!form1?.minDrop && form1?.minDrop !== 0) {
-    throw new DiscordSimpleError('Você precisa escolher um drop mínimo');
-  }
   if (!form1?.maxDrop) {
     throw new DiscordSimpleError('Você precisa escolher um drop máximo');
   }
@@ -193,10 +244,14 @@ export const getNewProviderInput = async (
   if (!form1?.metaPerceptionRoll) {
     throw new DiscordSimpleError('Você precisa escolher uma meta');
   }
-  const form4 = await getForm2(context);
+  const form2 = await getForm2(context);
+
+  const form3 = await getForm3(context);
+
   const form: NewResourceProviderProps = {
     ...form1,
-    ...form4,
+    ...form2,
+    ...form3,
   };
   return form;
 };

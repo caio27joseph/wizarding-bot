@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToMany,
   OneToOne,
@@ -18,6 +19,7 @@ export class Space {
   channelId: string;
 
   @ManyToOne(() => Guild)
+  @JoinColumn()
   guild: Guild;
 
   @Column()

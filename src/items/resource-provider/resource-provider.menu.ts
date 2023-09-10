@@ -11,6 +11,7 @@ import { Group } from '~/discord/decorators/group.decorator';
 import {
   ArgGuild,
   ArgInteraction,
+  ArgPlayer,
   ArgSpace,
   ArgString,
 } from '~/discord/decorators/message.decorators';
@@ -22,7 +23,7 @@ import {
 import { Space } from '~/spaces/space/entities/space.entity';
 import { ItemService } from '../item/item.service';
 import { ResourceProviderService } from './resource-provider.service';
-import { Like } from 'typeorm';
+import { ILike, Like } from 'typeorm';
 import {
   ResourceProviderActionContext,
   getNewProviderInput,
@@ -33,6 +34,12 @@ import { waitForEvent } from '~/utils/wait-for-event';
 import { RollEvent } from '~/roll/roll.service';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { getNewValidRollForm } from './forms/new-valid-roll.form';
+import { ItemPoolService } from '../item-pool/item-pool.service';
+import {
+  ProviderActionType,
+  ProviderActionTypePortuguese,
+} from './resource-provider.entity';
+import { Player } from '~/core/player/entities/player.entity';
 
 @Group({
   name: 'mod_resource',
@@ -42,6 +49,7 @@ import { getNewValidRollForm } from './forms/new-valid-roll.form';
 export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
   constructor(
     private readonly itemService: ItemService,
+    private readonly itemPoolService: ItemPoolService,
     private readonly service: ResourceProviderService,
     private readonly eventEmitter: EventEmitter2,
   ) {
@@ -57,6 +65,8 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
     @ArgInteraction() interaction: CommandInteraction,
     @ArgGuild() guild: Guild,
     @ArgSpace() space: Space,
+    @ArgPlayer()
+    player: Player,
     @ArgString({
       name: 'item',
       description: 'Nome do item que está sendo procurado',
@@ -69,6 +79,12 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       required: false,
     })
     providerName?: string,
+    @ArgString({
+      name: 'ItemPool',
+      description: 'Nome do pool de itens que está procurando',
+      required: false,
+    })
+    poolName?: string,
   ) {
     await interaction.deferReply({ ephemeral: true });
 
@@ -76,17 +92,30 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       interaction,
       guild,
       space,
+      player,
     };
 
     if (itemName) {
       const item = await this.itemService.findOne({
         where: {
-          name: Like(itemName),
+          name: ILike(itemName),
           guildId: guild.id,
         },
       });
       context.item = item;
     }
+    if (poolName) {
+      const pool = await this.itemPoolService.findOne({
+        where: {
+          name: ILike(poolName),
+          guild: {
+            id: guild.id,
+          },
+        },
+      });
+      context.itemPool = pool;
+    }
+
     if (providerName) {
       const provider = await this.service.findOne({
         where: {
@@ -117,6 +146,10 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       content += `\nFonte: ${context.provider.name}`;
       embeds.push(context.provider.toEmbed());
     }
+    if (context.itemPool) {
+      content += `\nPool: ${context.itemPool.name}`;
+      embeds.push(context.itemPool.toEmbed());
+    }
     const reply: MessageReplyOptions = {
       content,
       embeds,
@@ -131,13 +164,25 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       components: [],
     };
 
-    if (!context.item) {
-      reply.content = 'Nenhum item seleconado';
+    if (!context.item && !context.itemPool) {
+      reply.content = 'Nenhum item ou pool selecionado';
       await context.interaction.editReply(reply);
       return;
     }
     const form = await getNewProviderInput(context);
-    const collector = new MessageCollectorHelper(context);
+    if (form.actionType !== ProviderActionType.COLLECT) {
+      const p = await context.space.resourceProviders;
+      const existing = p.find((p) => p.actionType === form.actionType);
+      if (existing) {
+        reply.content = `Já existe uma fonte de recurso com a ação ${
+          ProviderActionTypePortuguese[form.actionType]
+        }`;
+        await context.interaction.editReply(reply);
+        return;
+      }
+    }
+
+    const collector = new MessageCollectorHelper(context.interaction);
 
     const name = await collector.prompt('Digite o nome da fonte de recurso');
     const description = await collector.prompt(
@@ -156,6 +201,7 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       lastTimeOpened,
       lastTimeSearched: lastTimeOpened,
       item: context.item,
+      pool: context.itemPool,
       space: context.space,
     });
     await context.interaction.editReply({
@@ -210,7 +256,6 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       return;
     }
     const form = await getNewValidRollForm(context);
-
     await context.interaction.followUp({
       content: 'Execute a rolagem adicionar',
       ephemeral: true,
@@ -234,12 +279,10 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       hab3: options.hab3,
       magicSchool: options.magicSchool,
       extras: options.extras,
-      meta: options.meta,
+      meta: options.meta || form.metaForMaxDrop,
       identifier: options.identifier,
-      // spell: options.spell,
       secret: form.secret,
       display: options.display,
-      // secret: options.secret,
     });
     await this.service.save(provider);
     await context.interaction.followUp({

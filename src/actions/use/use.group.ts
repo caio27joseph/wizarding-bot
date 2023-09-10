@@ -33,10 +33,10 @@ export class UseGroup {
   ) {}
 
   @Command({
-    name: 'default',
+    name: 'feitico',
     description: 'Comando padrão de uso de habilidades',
   })
-  async default(
+  async useSpellCommand(
     @ArgInteraction()
     interaction: CommandInteraction,
     @ArgPlayer()
@@ -44,11 +44,10 @@ export class UseGroup {
     @ArgGuild()
     guild: Guild,
     @ArgString({
-      name: 'feitiço',
+      name: 'nome',
       description: 'Nome do feitiço',
-      required: false,
     })
-    spellName?: string,
+    spellName: string,
     @ArgInteger({
       name: 'bonus',
       description: 'Bônus para o teste',

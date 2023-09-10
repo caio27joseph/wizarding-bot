@@ -1,14 +1,19 @@
 import { EmbedBuilder } from '@discordjs/builders';
 import { ActionContext } from './menu-helper';
 import { DiscordSimpleError } from '../exceptions';
-import { Colors, InteractionReplyOptions, Message } from 'discord.js';
+import {
+  Colors,
+  CommandInteraction,
+  InteractionReplyOptions,
+  Message,
+} from 'discord.js';
 
 export class MessageCollectorHelper {
-  constructor(private readonly context: ActionContext) {}
+  constructor(private readonly interaction: CommandInteraction) {}
 
   async prompt(promptContent: string): Promise<string | null> {
     // Send the initial prompt message
-    const prompt = await this.context.interaction.editReply({
+    const prompt = await this.interaction.editReply({
       content: promptContent,
       embeds: [
         new EmbedBuilder()
@@ -18,8 +23,8 @@ export class MessageCollectorHelper {
     });
 
     // Await the user's response
-    const collected = await this.context.interaction.channel.awaitMessages({
-      filter: (m) => m.author.id === this.context.interaction.user.id,
+    const collected = await this.interaction.channel.awaitMessages({
+      filter: (m) => m.author.id === this.interaction.user.id,
       max: 1,
       time: 1000 * 60 * 10,
     });
@@ -36,7 +41,7 @@ export class MessageCollectorHelper {
   }
   async message(options: InteractionReplyOptions): Promise<Message> {
     // Send the initial prompt message
-    const prompt = await this.context.interaction.followUp({
+    const prompt = await this.interaction.followUp({
       ...options,
       embeds: [
         ...(options?.embeds || []),
@@ -48,8 +53,8 @@ export class MessageCollectorHelper {
     });
 
     // Await the user's response
-    const collected = await this.context.interaction.channel.awaitMessages({
-      filter: (m) => m.author.id === this.context.interaction.user.id,
+    const collected = await this.interaction.channel.awaitMessages({
+      filter: (m) => m.author.id === this.interaction.user.id,
       max: 1,
       time: 1000 * 60 * 10,
     });

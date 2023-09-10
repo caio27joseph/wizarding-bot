@@ -5,10 +5,21 @@ import { ItemModule } from '../item/item.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ResourceProvider } from './resource-provider.entity';
 import { ResourceProviderResolver } from './resource-provider.resolver';
+import { ItemPoolModule } from '../item-pool/item-pool.module';
+import { InventoryModule } from '../inventory/inventory.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ResourceProvider]), ItemModule],
-  providers: [ResourceProviderService, ModResourceProviderMenu, ResourceProviderResolver],
+  imports: [
+    TypeOrmModule.forFeature([ResourceProvider]),
+    ItemModule,
+    ItemPoolModule,
+    InventoryModule,
+  ],
+  providers: [
+    ResourceProviderService,
+    ModResourceProviderMenu,
+    ResourceProviderResolver,
+  ],
   exports: [ResourceProviderService],
 })
 export class ResourceProviderModule {}

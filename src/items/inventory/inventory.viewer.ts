@@ -61,13 +61,12 @@ export async function createInventoryGridImage(
   if (!existsSync(imageDirectory)) {
     mkdirSync(imageDirectory, { recursive: true });
   }
-  // Check if the inventory needs an image update based on its updatedAt field
-  // if (
-  //   existsSync(imageFilePath) &&
-  //   inventory.lastImageGeneratedAt >= inventory.updatedAt
-  // ) {
-  //   return readFileSync(imageFilePath);
-  // }
+  if (
+    existsSync(imageFilePath) &&
+    inventory.lastImageGeneratedAt >= inventory.updatedAt
+  ) {
+    return readFileSync(imageFilePath);
+  }
   const itemsPerRow = 5;
   const cellSize = 100;
   const textHeight = 20; // Space for item name
