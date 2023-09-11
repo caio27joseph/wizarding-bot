@@ -56,6 +56,12 @@ export class Stack {
       embed.setColor(`White`);
     }
     description += `Total: ${this.quantity}`;
+    // splice and add ellipsis if description is too longe than 500
+    description += this.item.description.slice(0, 500);
+    if (this.item.description.length > 500) {
+      description += '...';
+    }
+
     embed.setDescription(description);
     return embed;
   }
