@@ -65,19 +65,8 @@ export class ResourceProviderService extends BasicService<
       item,
       drops,
     );
+    stack.item.rarity = item.rarity;
 
-    if (drops === 0) {
-      await interaction.followUp({
-        content: `Você não coletou nenhum item dessa vez...\n`,
-      });
-      provider.lastTimeOpened = new Date();
-      await this.save(provider);
-      return;
-    }
-    await interaction.followUp({
-      content: `Você coletou '${item.name} x${drops}'\n`,
-      embeds: [stack.toEmbed()],
-    });
     if (provider.individualCooldown) {
       const history = await this.historyService.getHistory(provider, player);
       history.lastTimeOpened = new Date();
@@ -86,6 +75,18 @@ export class ResourceProviderService extends BasicService<
       provider.lastTimeOpened = new Date();
       await this.save(provider);
     }
+
+    if (drops === 0) {
+      await interaction.followUp({
+        content: `Você não coletou nenhum item dessa vez...\n`,
+      });
+      await this.save(provider);
+      return;
+    }
+    await interaction.followUp({
+      content: `Você coletou '${item.name} x${drops}'\n`,
+      embeds: [stack.toEmbed()],
+    });
   }
 
   async searchResource(player: Player, provider: ResourceProvider) {

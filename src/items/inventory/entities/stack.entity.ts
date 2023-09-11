@@ -10,7 +10,10 @@ import {
 import { Item } from '~/items/item/entities/item.entity';
 import { Inventory } from './inventory.entity';
 import { EmbedBuilder } from 'discord.js';
-import { ItemPoolRarityColors } from '~/items/item-pool/entitites/item-pool-config.entity';
+import {
+  ItemPoolRarityColors,
+  ItemPoolRarityPortuguese,
+} from '~/items/item-pool/entitites/item-pool-config.entity';
 
 @Entity()
 export class Stack {
@@ -46,7 +49,9 @@ export class Stack {
     embed.setThumbnail(this.item.imageUrl);
     if (this.item.rarity) {
       embed.setColor(ItemPoolRarityColors[this.item.rarity]);
-      description += `Raridade: ${this.item.rarity}\n`;
+      description += `Raridade: ${
+        ItemPoolRarityPortuguese[this.item.rarity]
+      }\n`;
     } else {
       embed.setColor(`White`);
     }

@@ -42,9 +42,15 @@ export class FishGroup {
       (p) => p.actionType === ProviderActionType.FISH,
     );
     if (!provider) {
-      throw new DiscordSimpleError('Não há um local de pesca neste na região');
+      return interaction.followUp({
+        content: 'Não há nada para pescar aqui.',
+      });
     }
-
+    if (!provider.canOpen(player)) {
+      return interaction.followUp({
+        content: 'Você perdeu a isca e não conseguiu pescar nada.',
+      });
+    }
     await this.resourceProviderService.collectResource(
       interaction,
       player,

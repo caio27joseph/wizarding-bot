@@ -25,9 +25,9 @@ export const ItemPoolRarityPortuguese = {
 
 // All values are in percentage
 export const RarityRatios = {
-  [ItemPoolRarity.COMMON]: 80,
-  [ItemPoolRarity.UNCOMMON]: 15,
-  [ItemPoolRarity.RARE]: 4,
+  [ItemPoolRarity.COMMON]: 100,
+  [ItemPoolRarity.UNCOMMON]: 20,
+  [ItemPoolRarity.RARE]: 5,
   [ItemPoolRarity.LEGENDARY]: 1,
 };
 
