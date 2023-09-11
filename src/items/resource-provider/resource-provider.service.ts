@@ -34,6 +34,22 @@ export class ResourceProviderService extends BasicService<
     player: Player,
     provider: ResourceProvider,
   ) {
+    const possibleRolls = provider.availableRollsMessage();
+    const rolls = possibleRolls.join('\nOu ');
+
+    if (possibleRolls.length) {
+      await interaction.followUp({
+        content: `Caso queira pegar o item, por favor role\n` + rolls,
+      });
+    } else {
+      await interaction.followUp({
+        content: `Você não tem ferramentas para pegar este item...\n`,
+      });
+    }
+    if (provider.rolls.length === 0) {
+      return;
+    }
+
     const result = await provider.open({
       player,
       interaction,
@@ -62,7 +78,7 @@ export class ResourceProviderService extends BasicService<
       content: `Você coletou '${item.name} x${drops}'\n`,
       embeds: [stack.toEmbed()],
     });
-    if (provider.playerHistories) {
+    if (provider.individualCooldown) {
       const history = await this.historyService.getHistory(provider, player);
       history.lastTimeOpened = new Date();
       await this.historyService.save(history);

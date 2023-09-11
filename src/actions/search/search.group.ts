@@ -98,27 +98,6 @@ export class SearchGroup {
       ephemeral: true,
     });
 
-    const possibleRolls = provider.availableRollsMessage();
-    const rolls = possibleRolls.join('\nOu ');
-
-    if (!possibleRolls.length) {
-      await interaction.followUp({
-        content: `Caso queira pegar o item, por favor role\n` + rolls,
-      });
-    } else {
-      await interaction.followUp({
-        content: `Você não tem ferramentas para pegar este item...\n`,
-      });
-    }
-    if (provider.rolls.length === 0) {
-      return;
-    }
-    await this.resourceProviderService.collectResource(
-      interaction,
-      player,
-      provider,
-    );
-
     await this.resourceProviderService.collectResource(
       interaction,
       player,

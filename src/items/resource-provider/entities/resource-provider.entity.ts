@@ -126,6 +126,9 @@ export class ResourceProvider {
   @OneToMany(
     () => ProviderPlayerHistory,
     (providerPlayerHistory) => providerPlayerHistory.provider,
+    {
+      eager: true,
+    },
   )
   playerHistories: ProviderPlayerHistory[];
 
@@ -264,6 +267,7 @@ export class ResourceProvider {
       description += `**Maximo de Drop: ** ${this.maxDrop}\n`;
       description += `**Meta para Extra Drop: ** ${this.metaForAExtraDrop}\n`;
       description += `**Meta para Percepção: ** ${this.metaPerceptionRoll}\n`;
+      description += `**Individual: ** ${this.individualCooldown}\n`;
 
       embed.setDescription(description);
       const fields = this.rolls.map((roll, index) => {
@@ -298,7 +302,6 @@ export class ResourceProvider {
         if (roll.extras) {
           description += `**Extras: ** ${roll.extras}\n`;
         }
-
         if (roll.spell) {
           description += `**Spell: ** ${roll.spell}\n`;
         }
