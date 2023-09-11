@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
-import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
+import { ResourceProvider } from '~/items/resource-provider/entities/resource-provider.entity';
 
 @Entity()
 export class Space {

@@ -4,12 +4,12 @@ import { Item } from '~/items/item/entities/item.entity';
 import { FormConfig, FormHelper } from '~/discord/helpers/form-helper';
 import { ButtonStyle } from 'discord.js';
 import { DiscordSimpleError } from '~/discord/exceptions';
+import { ItemPool } from '~/items/item-pool/entitites/item-pool.entity';
 import {
+  ResourceProvider,
   ProviderActionType,
   ProviderActionTypePortuguese,
-  ResourceProvider,
-} from '../resource-provider.entity';
-import { ItemPool } from '~/items/item-pool/entitites/item-pool.entity';
+} from '../entities/resource-provider.entity';
 
 export interface ResourceProviderActionContext extends ActionContext {
   space: Space;
@@ -32,6 +32,7 @@ interface NewResourceProviderProps2 {
 }
 interface NewResourceProviderProps3 {
   actionType: ProviderActionType;
+  individualCooldown: boolean;
 }
 interface NewResourceProviderProps
   extends NewResourceProviderProps1,
@@ -54,6 +55,22 @@ const getForm3 = (context: ResourceProviderActionContext) => {
               label: ProviderActionTypePortuguese[k],
               value: k,
             })),
+          },
+          {
+            placeholder: 'Cooldown individual? [Não]',
+            propKey: 'individualCooldown',
+            defaultValue: false,
+            options: [
+              {
+                label: 'Não',
+                value: 'false',
+              },
+              {
+                label: 'Sim',
+                value: 'true',
+              },
+            ],
+            pipe: (value) => value === 'true',
           },
         ],
         buttons: [
@@ -165,13 +182,19 @@ const getForm1 = (context: ResourceProviderActionContext) => {
         }`,
         fields: [
           {
-            placeholder: 'Metas para garantir um drop extra (Cada x ganha 1)',
+            placeholder: 'Metas para Drop extra [Nenhum] (A cada x ganha 1)',
             propKey: 'metaForAExtraDrop',
             defaultValue: 0,
-            options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
-              label: n.toString() + ' de Meta',
-              value: n.toString(),
-            })),
+            options: [
+              {
+                label: 'Nenhum',
+                value: '0',
+              },
+              ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
+                label: n.toString() + ' de Meta',
+                value: n.toString(),
+              })),
+            ],
             pipe: (value) => parseInt(value),
           },
           {
@@ -184,11 +207,13 @@ const getForm1 = (context: ResourceProviderActionContext) => {
               label: n.toString(),
               value: n.toString(),
             })),
+
             pipe: (value) => parseInt(value),
           },
           {
-            placeholder: `Drops máximos do recurso`,
+            placeholder: `Drops máximos do recurso [1]`,
             propKey: 'maxDrop',
+            defaultValue: 1,
             options: [
               1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 25, 30,
             ].map((n) => ({
@@ -198,7 +223,8 @@ const getForm1 = (context: ResourceProviderActionContext) => {
             pipe: (value) => parseInt(value),
           },
           {
-            placeholder: `Meta para rolagem de percepção`,
+            placeholder: `Meta para rolagem de percepção [3]`,
+            defaultValue: 3,
             propKey: 'metaPerceptionRoll',
             options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
               label: n.toString() + ' de Meta',
@@ -235,15 +261,7 @@ export const getNewProviderInput = async (
   context: ResourceProviderActionContext,
 ) => {
   const form1 = await getForm1(context);
-  if (!form1?.maxDrop) {
-    throw new DiscordSimpleError('Você precisa escolher um drop máximo');
-  }
-  if (!form1?.metaForAExtraDrop) {
-    throw new DiscordSimpleError('Você precisa escolher uma meta');
-  }
-  if (!form1?.metaPerceptionRoll) {
-    throw new DiscordSimpleError('Você precisa escolher uma meta');
-  }
+
   const form2 = await getForm2(context);
 
   const form3 = await getForm3(context);

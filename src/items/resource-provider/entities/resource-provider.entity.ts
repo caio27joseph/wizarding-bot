@@ -3,9 +3,9 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Item } from '../item/entities/item.entity';
 import { Space } from '~/spaces/space/entities/space.entity';
 import { CommandInteraction, EmbedBuilder } from 'discord.js';
 import { addDays, addHours, addMinutes, displayBRT } from '~/utils/date.utils';
@@ -22,10 +22,12 @@ import { RollEvent, RollOptions } from '~/roll/roll.service';
 import { waitForEvent } from '~/utils/wait-for-event';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { Player } from '~/core/player/entities/player.entity';
-import { ItemPool } from '../item-pool/entitites/item-pool.entity';
 import { magicSchoolKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { nonConvKeyToDisplayMap } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { extrasKeyToDisplayMap } from '~/player-system/extras/entities/extras.entity';
+import { ProviderPlayerHistory } from './provider-player-history.entity';
+import { Item } from '~/items/item/entities/item.entity';
+import { ItemPool } from '~/items/item-pool/entitites/item-pool.entity';
 
 export enum ProviderActionType {
   FISH = 'fish',
@@ -52,6 +54,11 @@ export class RollSpec {
   spell?: string;
   secret?: boolean;
 }
+
+// export class PlayerHistory {
+//   lastTimeOpened: Date;
+//   lastTimeSearched: Date;
+// }
 
 @Entity()
 @ObjectType()
@@ -103,9 +110,24 @@ export class ResourceProvider {
   @JoinColumn()
   space: Space;
 
+  @Column({
+    default: false,
+  })
+  individualCooldown: boolean;
+
   @Column()
   @Field()
   lastTimeOpened: Date;
+
+  @Column()
+  @Field()
+  lastTimeSearched: Date;
+
+  @OneToMany(
+    () => ProviderPlayerHistory,
+    (providerPlayerHistory) => providerPlayerHistory.provider,
+  )
+  playerHistories: ProviderPlayerHistory[];
 
   @Column()
   @Field()
@@ -135,12 +157,45 @@ export class ResourceProvider {
   @Field()
   public: boolean;
 
-  @Column()
-  @Field()
-  lastTimeSearched: Date;
+  private getLastTimeOpened(player?: Player) {
+    if (!this.individualCooldown) {
+      return this.lastTimeOpened;
+    }
+    this.playerHistories = this.playerHistories || [];
+    const playerHistory = this.playerHistories.find(
+      (p) => p.playerId === player.id,
+    );
+    if (!playerHistory) {
+      return new Date(Date.now() - 31536000000);
+    }
+    return playerHistory.lastTimeOpened;
+  }
+  private getLastTimeSearched(player?: Player) {
+    if (!this.individualCooldown) {
+      return this.lastTimeSearched;
+    }
+    this.playerHistories = this.playerHistories || [];
+    const playerHistory = this.playerHistories.find(
+      (p) => p.playerId === player.id,
+    );
+    if (!playerHistory) {
+      return new Date(Date.now() - 31536000000);
+    }
+    return playerHistory.lastTimeSearched;
+  }
 
-  canOpen() {
-    const lastTimeOpened = this.lastTimeOpened;
+  canSearch(player?: Player) {
+    const lastTimeSearched = this.getLastTimeSearched(player);
+    const nextTime = addMinutes(
+      lastTimeSearched,
+      this.minutesCooldownPerception,
+    );
+    const now = new Date();
+    return now > nextTime;
+  }
+
+  canOpen(player?: Player) {
+    const lastTimeOpened = this.getLastTimeOpened(player);
     const nextTime = addDays(lastTimeOpened, this.daysCooldown);
     const nextTimeWithHours = addHours(nextTime, this.hoursCooldown);
     const nextTimeWithMinutes = addMinutes(
@@ -149,17 +204,6 @@ export class ResourceProvider {
     );
     const now = new Date();
     return now > nextTimeWithMinutes;
-  }
-
-  canSearch() {
-    // can searc if not searched in last 30 minutes
-    const lastTimeSearched = this.lastTimeSearched;
-    const nextTime = addMinutes(
-      lastTimeSearched,
-      this.minutesCooldownPerception,
-    );
-    const now = new Date();
-    return now > nextTime;
   }
 
   @Column()

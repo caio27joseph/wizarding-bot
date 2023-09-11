@@ -1,6 +1,6 @@
 import { Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
-import { ResourceProvider } from './resource-provider.entity';
 import { ResourceProviderService } from './resource-provider.service';
+import { ResourceProvider } from './entities/resource-provider.entity';
 
 @Resolver(() => ResourceProvider)
 export class ResourceProviderResolver {

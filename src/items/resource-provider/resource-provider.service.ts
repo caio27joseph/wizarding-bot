@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { BasicService } from '~/utils/basic.service';
-import { ResourceProvider } from './resource-provider.entity';
 import { DeepPartial, Repository } from 'typeorm';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -9,6 +8,8 @@ import { InventoryService } from '../inventory/inventory.service';
 import { CommandInteraction } from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
+import { ResourceProvider } from './entities/resource-provider.entity';
+import { ProviderPlayerHistoryService } from './provider-player-history.service';
 
 @Injectable()
 export class ResourceProviderService extends BasicService<
@@ -21,6 +22,7 @@ export class ResourceProviderService extends BasicService<
     private readonly repo: Repository<ResourceProvider>,
     private readonly eventEmitter: EventEmitter2,
     private readonly inventoryService: InventoryService,
+    private readonly historyService: ProviderPlayerHistoryService,
   ) {
     super(repo);
   }
@@ -60,8 +62,23 @@ export class ResourceProviderService extends BasicService<
       content: `Você coletou '${item.name} x${drops}'\n`,
       embeds: [stack.toEmbed()],
     });
-    provider.lastTimeOpened = new Date();
+    if (provider.playerHistories) {
+      const history = await this.historyService.getHistory(provider, player);
+      history.lastTimeOpened = new Date();
+      await this.historyService.save(history);
+    } else {
+      provider.lastTimeOpened = new Date();
+      await this.save(provider);
+    }
+  }
 
-    await this.save(provider);
+  async searchResource(player: Player, provider: ResourceProvider) {
+    if (!provider.individualCooldown) {
+      provider.lastTimeSearched = new Date();
+      await this.save(provider);
+    }
+    const history = await this.historyService.getHistory(provider, player);
+    history.lastTimeSearched = new Date();
+    await this.historyService.save(history);
   }
 }

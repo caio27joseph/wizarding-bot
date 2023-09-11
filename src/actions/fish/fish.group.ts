@@ -10,10 +10,7 @@ import {
   ArgSpace,
 } from '~/discord/decorators/message.decorators';
 import { DiscordSimpleError } from '~/discord/exceptions';
-import {
-  ProviderActionType,
-  ResourceProvider,
-} from '~/items/resource-provider/resource-provider.entity';
+import { ProviderActionType } from '~/items/resource-provider/entities/resource-provider.entity';
 import { ResourceProviderService } from '~/items/resource-provider/resource-provider.service';
 import { Space } from '~/spaces/space/entities/space.entity';
 
@@ -45,7 +42,7 @@ export class FishGroup {
       (p) => p.actionType === ProviderActionType.FISH,
     );
     if (!provider) {
-      throw new DiscordSimpleError('Não há um local de pesca neste local.');
+      throw new DiscordSimpleError('Não há um local de pesca neste na região');
     }
 
     const possibleRolls = provider.availableRollsMessage();

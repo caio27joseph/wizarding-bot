@@ -18,12 +18,12 @@ type ResourceProvider {
   description: String!
   imageUrl: String
   lastTimeOpened: DateTime!
+  lastTimeSearched: DateTime!
   daysCooldown: Float!
   hoursCooldown: Float!
   minutesCooldown: Float!
   minutesCooldownPerception: Float!
   public: Boolean!
-  lastTimeSearched: DateTime!
   minDrop: Float!
   maxDrop: Float!
   metaForAExtraDrop: Float!

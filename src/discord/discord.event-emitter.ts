@@ -368,7 +368,7 @@ export class DiscordEventEmitter implements OnModuleInit {
             }
             if (guild.errorLogChannel) {
               await guild.errorLogChannel.send({
-                content: `<@${interaction.user.id}>, encontrou um: ${error.message}`,
+                content: `${interaction.user.id}, encontrou um: ${error.message}`,
                 embeds: [
                   new EmbedBuilder()
                     .setTitle('Stack')

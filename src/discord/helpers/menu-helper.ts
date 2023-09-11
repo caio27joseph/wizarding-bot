@@ -99,7 +99,7 @@ export abstract class MenuHelper<T extends ActionContext> {
         }
         if (context.guild.errorLogChannel) {
           await context.guild.errorLogChannel.send({
-            content: `<@${i.user.id}>, encontrou um: ${error.message}`,
+            content: `@${i.user.id}, encontrou um: ${error.message}`,
             embeds: [
               new EmbedBuilder().setTitle('Stack').setDescription(error.stack),
               new EmbedBuilder()

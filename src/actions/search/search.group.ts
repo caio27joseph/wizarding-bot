@@ -11,14 +11,8 @@ import {
   ArgString,
 } from '~/discord/decorators/message.decorators';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
-import { InventoryService } from '~/items/inventory/inventory.service';
-import { ResourceProvider } from '~/items/resource-provider/resource-provider.entity';
+import { ResourceProvider } from '~/items/resource-provider/entities/resource-provider.entity';
 import { ResourceProviderService } from '~/items/resource-provider/resource-provider.service';
-import { abilitiesKeyToDisplayMap } from '~/player-system/abilities/entities/abilities.entity';
-import { attributeKeyToDisplayMap } from '~/player-system/attribute/entities/attributes.entity';
-import { extrasKeyToDisplayMap } from '~/player-system/extras/entities/extras.entity';
-import { nonConvKeyToDisplayMap } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
-import { magicSchoolKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { RollsD10 } from '~/roll/entities/roll.entity';
 import { RollEvent } from '~/roll/roll.service';
 import { Space } from '~/spaces/space/entities/space.entity';
@@ -55,8 +49,8 @@ export class SearchGroup {
     name?: string,
   ) {
     await interaction.reply(
-      'Role o dado para procurar\n' +
-        '/dr atributo:Raciocínio pericia:Percepção\n Ou /dr atributo:Raciocinio conhecimento:Investigação',
+      '# Faça uma rolagem de procurar recurso\n' +
+        '- /dr atributo:Raciocínio hab3:Percepção\n - /dr atributo:Raciocinio hab2:Investigação',
     );
     const providers = await space.resourceProviders;
     const { roll }: RollEvent = await waitForEvent(
@@ -96,10 +90,7 @@ export class SearchGroup {
       return;
     }
 
-    if (provider && provider.canSearch()) {
-      provider.lastTimeSearched = new Date();
-      await this.resourceProviderService.save(provider);
-    }
+    await this.resourceProviderService.searchResource(player, provider);
 
     await interaction.followUp({
       content: `Você encontrou ${provider.item.name}!`,
@@ -110,23 +101,24 @@ export class SearchGroup {
     const possibleRolls = provider.availableRollsMessage();
     const rolls = possibleRolls.join('\nOu ');
 
-    if (possibleRolls.length === 0) {
-      await interaction.followUp({
-        content: `Você não tem ferramentas para pegar este item...\n`,
-      });
-      if (provider.rolls.length === 0) {
-        return;
-      }
-      await this.resourceProviderService.collectResource(
-        interaction,
-        player,
-        provider,
-      );
-    } else {
+    if (!possibleRolls.length) {
       await interaction.followUp({
         content: `Caso queira pegar o item, por favor role\n` + rolls,
       });
+    } else {
+      await interaction.followUp({
+        content: `Você não tem ferramentas para pegar este item...\n`,
+      });
     }
+    if (provider.rolls.length === 0) {
+      return;
+    }
+    await this.resourceProviderService.collectResource(
+      interaction,
+      player,
+      provider,
+    );
+
     await this.resourceProviderService.collectResource(
       interaction,
       player,

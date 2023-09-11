@@ -35,11 +35,11 @@ import { RollEvent } from '~/roll/roll.service';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { getNewValidRollForm } from './forms/new-valid-roll.form';
 import { ItemPoolService } from '../item-pool/item-pool.service';
+import { Player } from '~/core/player/entities/player.entity';
 import {
   ProviderActionType,
   ProviderActionTypePortuguese,
-} from './resource-provider.entity';
-import { Player } from '~/core/player/entities/player.entity';
+} from './entities/resource-provider.entity';
 
 @Group({
   name: 'mod_resource',
@@ -284,6 +284,7 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       secret: form.secret,
       display: options.display,
     });
+
     await this.service.save(provider);
     await context.interaction.followUp({
       content: 'Rolagem adicionada',
