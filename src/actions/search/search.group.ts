@@ -11,6 +11,8 @@ import {
   ArgString,
 } from '~/discord/decorators/message.decorators';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
+import { ItemDrop } from '~/items/item/entities/item-drop.entity';
+import { ItemDropService } from '~/items/item/item-drop.service';
 import { ResourceProvider } from '~/items/resource-provider/entities/resource-provider.entity';
 import { ResourceProviderService } from '~/items/resource-provider/resource-provider.service';
 import { RollsD10 } from '~/roll/entities/roll.entity';
@@ -28,6 +30,7 @@ export class SearchGroup {
   constructor(
     private eventEmitter: EventEmitter2,
     private readonly resourceProviderService: ResourceProviderService,
+    private readonly itemDropService: ItemDropService,
   ) {}
 
   @Command({
@@ -48,27 +51,9 @@ export class SearchGroup {
     })
     name?: string,
   ) {
-    await interaction.reply(
-      '# Faça uma rolagem de procurar recurso\n' +
-        '- /dr atributo:Raciocínio hab3:Percepção\n - /dr atributo:Raciocinio hab2:Investigação',
-    );
+    await interaction.deferReply();
     const providers = await space.resourceProviders;
-    const { roll }: RollEvent = await waitForEvent(
-      this.eventEmitter,
-      'roll',
-      (data: RollEvent) => {
-        const samePlayer = data.player.id === player.id;
-        const sameChannel =
-          data.interaction.channelId === interaction.channelId;
-
-        const perceptionRoll =
-          data.options.attribute === 'rationality' &&
-          (data.options.hab3 === 'perception' ||
-            data.options.hab2 === 'investigation');
-
-        return samePlayer && sameChannel && perceptionRoll;
-      },
-    );
+    const roll = await this.resourceProviderService.rollPerception(interaction);
     if (!name) {
       return await this.searchResources(interaction, player, space, roll);
     }
@@ -93,7 +78,7 @@ export class SearchGroup {
     await this.resourceProviderService.searchResource(player, provider);
 
     await interaction.followUp({
-      content: `Você encontrou ${provider.item.name}!`,
+      content: `Você encontrou ${provider.title}!`,
       embeds: [provider.toEmbed()],
       ephemeral: true,
     });
@@ -115,9 +100,9 @@ export class SearchGroup {
     const providers = await space.resourceProviders;
     for (const provider of providers) {
       if (
-        provider.canOpen() &&
+        provider.canOpen(player) &&
         provider.metaPerceptionRoll + 1 <= roll.total &&
-        provider.canSearch() &&
+        provider.canSearch(player) &&
         provider.public
       ) {
         foundResources.push(provider);
@@ -134,12 +119,113 @@ export class SearchGroup {
       header: `Você encontrou ${foundResources.length} recursos!`,
       items: foundResources,
       formatter: async (provider, index, objs) => {
-        let desc = `**${provider.item.name}**\n`;
-        desc += `**Descrição:** ${provider.item.description}\n`;
+        let desc = `**${provider.title}**\n`;
+        if (provider.item) {
+          desc += `**Descrição:** ${provider.item.description.slice(0, 200)}\n`;
+        }
+        desc += `\n---`;
         return desc;
       },
       footer(currentPage, totalPages) {
-        return `\nPágina ${currentPage}/${totalPages}`;
+        return `Página ${currentPage}/${totalPages}`;
+      },
+      itemsPerPage: 5,
+    }).followUp(interaction);
+  }
+
+  @Command({
+    name: 'item',
+    description: 'Procura algum item no local',
+  })
+  async searchItem(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgPlayer()
+    player: Player,
+    @ArgSpace()
+    space: Space,
+    @ArgString({
+      name: 'nome',
+      description: 'Nome do item que você está procurando',
+      required: false,
+    })
+    name?: string,
+  ) {
+    await interaction.deferReply();
+    const roll = await this.resourceProviderService.rollPerception(interaction);
+    if (!name) {
+      return await this.searchItems(interaction, player, space, roll);
+    }
+    const drops = await this.itemDropService.findAll({
+      where: {
+        space: {
+          id: space.id,
+        },
+      },
+      relations: {
+        item: true,
+      },
+    });
+    const drop = await findClosestMatchInObjects(
+      name,
+      drops,
+      (o) => o.item.name,
+      0.8,
+    );
+    if (!drop || roll.total < drop.meta) {
+      await interaction.followUp(
+        `<@${player.discordId}> anda pela região procurando, mas não encontra nada`,
+      );
+      return;
+    }
+
+    await interaction.followUp({
+      content:
+        `Você encontrou ${drop.item.name} x${drop.amount}!\n` +
+        'Para pegar digite /item pegar',
+      ephemeral: true,
+    });
+  }
+
+  async searchItems(
+    interaction: CommandInteraction,
+    player: Player,
+    space: Space,
+    roll: RollsD10,
+  ) {
+    const foundDrops: ItemDrop[] = [];
+    const drops = await this.itemDropService.findAll({
+      where: {
+        space: {
+          id: space.id,
+        },
+      },
+      relations: {
+        item: true,
+      },
+    });
+    for (const drop of drops) {
+      if (roll.total >= drop.meta + 2) {
+        foundDrops.push(drop);
+      }
+    }
+
+    if (foundDrops.length === 0) {
+      await interaction.followUp(
+        `<@${player.discordId}> anda pela região procurando, mas não encontra nada`,
+      );
+      return;
+    }
+    new PaginationHelper({
+      header: `Você encontrou ${foundDrops.length} items!`,
+      items: foundDrops,
+      formatter: async (drop, index, objs) => {
+        let desc = `**${drop.item.name}** x${drop.amount}\n`;
+        desc += `**Descrição:** ${drop.item.description.slice(0, 200)}\n---`;
+        return desc;
+      },
+      footer(currentPage, totalPages) {
+        return `Página ${currentPage}/${totalPages}`;
       },
       itemsPerPage: 5,
     }).followUp(interaction);

@@ -9,6 +9,7 @@ import { InventoryModule } from '../inventory/inventory.module';
 import { ResourceProvider } from './entities/resource-provider.entity';
 import { ProviderPlayerHistoryService } from './provider-player-history.service';
 import { ProviderPlayerHistory } from './entities/provider-player-history.entity';
+import { ItemDrop } from '../item/entities/item-drop.entity';
 
 @Module({
   imports: [

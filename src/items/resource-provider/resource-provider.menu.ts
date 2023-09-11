@@ -220,14 +220,10 @@ export class ModResourceProviderMenu extends MenuHelper<ActionContext> {
       },
     });
 
-    try {
-      await context.interaction.editReply({
-        content: 'Lista de fontes de recurso no Local!',
-        embeds: providers.map((p) => p.toEmbed(true)),
-      });
-    } catch (e) {
-      debugger;
-    }
+    await context.interaction.editReply({
+      content: 'Lista de fontes de recurso no Local!',
+      embeds: providers.map((p) => p.toEmbed(true)),
+    });
   }
 
   @MenuAction('Remover')

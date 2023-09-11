@@ -10,6 +10,8 @@ import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { ResourceProvider } from './entities/resource-provider.entity';
 import { ProviderPlayerHistoryService } from './provider-player-history.service';
+import { waitForEvent } from '~/utils/wait-for-event';
+import { RollEvent } from '~/roll/roll.service';
 
 @Injectable()
 export class ResourceProviderService extends BasicService<
@@ -97,5 +99,29 @@ export class ResourceProviderService extends BasicService<
     const history = await this.historyService.getHistory(provider, player);
     history.lastTimeSearched = new Date();
     await this.historyService.save(history);
+  }
+
+  async rollPerception(interaction: CommandInteraction) {
+    await interaction.followUp(
+      `# ${interaction.user} faça uma rolagem de procura\n` +
+        '- /dr atributo:Raciocínio hab3:Percepção\n- /dr atributo:Raciocínio hab2:Investigação',
+    );
+    const { roll }: RollEvent = await waitForEvent(
+      this.eventEmitter,
+      'roll',
+      (data: RollEvent) => {
+        const samePlayer = data.player.discordId === interaction.user.id;
+        const sameChannel =
+          data.interaction.channelId === interaction.channelId;
+
+        const perceptionRoll =
+          data.options.attribute === 'rationality' &&
+          (data.options.hab3 === 'perception' ||
+            data.options.hab2 === 'investigation');
+
+        return samePlayer && sameChannel && perceptionRoll;
+      },
+    );
+    return roll;
   }
 }

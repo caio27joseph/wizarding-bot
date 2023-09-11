@@ -8,6 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
+import { ItemDrop } from '~/items/item/entities/item-drop.entity';
 import { ResourceProvider } from '~/items/resource-provider/entities/resource-provider.entity';
 
 @Entity()
@@ -30,4 +31,7 @@ export class Space {
     (resourceProvider) => resourceProvider.space,
   )
   resourceProviders: Promise<ResourceProvider[]>;
+
+  @OneToMany(() => ItemDrop, (itemDrop) => itemDrop.space)
+  itemDrops: Promise<ItemDrop[]>;
 }

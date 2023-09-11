@@ -3,7 +3,10 @@ import { Command } from '~/discord/decorators/command.decorator';
 import { Group } from '~/discord/decorators/group.decorator';
 import {
   ArgGuild,
+  ArgInteger,
   ArgInteraction,
+  ArgPlayer,
+  ArgSpace,
   ArgString,
 } from '~/discord/decorators/message.decorators';
 import { ItemService } from './item.service';
@@ -12,6 +15,10 @@ import { ILike } from 'typeorm';
 import { EntityAlreadyExists } from '~/discord/exceptions';
 import { Guild } from '~/core/guild/guild.entity';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
+import { Space } from '~/spaces/space/entities/space.entity';
+import { ItemDropService } from './item-drop.service';
+import { InventoryService } from '../inventory/inventory.service';
+import { Player } from '~/core/player/entities/player.entity';
 
 @Group({
   name: 'item',
@@ -19,7 +26,11 @@ import { PaginationHelper } from '~/discord/helpers/page-helper';
 })
 @Injectable()
 export class ItemGroup {
-  constructor(private readonly service: ItemService) {}
+  constructor(
+    private readonly service: ItemService,
+    private readonly itemDropsService: ItemDropService,
+    private readonly inventoryService: InventoryService,
+  ) {}
 
   @Command({
     name: 'create',
@@ -69,22 +80,6 @@ export class ItemGroup {
     await descMessage.delete();
   }
   @Command({
-    name: 'update',
-    description: 'Update item(s)',
-  })
-  async updateItem(
-    @ArgInteraction() i: CommandInteraction,
-    @ArgGuild() guild: Guild,
-  ) {}
-  @Command({
-    name: 'delete',
-    description: 'Delete item(s)',
-  })
-  async deleteItem(
-    @ArgInteraction() i: CommandInteraction,
-    @ArgGuild() guild: Guild,
-  ) {}
-  @Command({
     name: 'list',
     description: 'List item(s)',
   })
@@ -109,11 +104,137 @@ export class ItemGroup {
     }).followUp(i);
   }
   @Command({
-    name: 'get',
-    description: 'Get item(s)',
+    name: 'ver',
+    description: 'Ver item(s)',
   })
   async getItem(
     @ArgInteraction() i: CommandInteraction,
     @ArgGuild() guild: Guild,
-  ) {}
+    @ArgString({
+      name: 'Nome',
+      description: 'Nome do item',
+    })
+    name: string,
+  ) {
+    await i.deferReply({ ephemeral: true });
+
+    const item = await this.service.findOneOrFail({
+      where: {
+        name: ILike(name),
+        guildId: guild.id,
+      },
+    });
+    await i.followUp({
+      embeds: [item.toEmbed()],
+    });
+  }
+
+  @Command({
+    name: 'pegar',
+    description: 'Ver item(s)',
+  })
+  async takeItem(
+    @ArgInteraction() i: CommandInteraction,
+    @ArgPlayer() player: Player,
+    @ArgGuild() guild: Guild,
+    @ArgSpace() space: Space,
+    @ArgString({
+      name: 'Nome',
+      description: 'Nome do item',
+    })
+    name: string,
+    @ArgInteger({
+      name: 'Quantidade',
+      description: 'Quantidade de itens',
+    })
+    amount: number,
+  ) {
+    await i.deferReply({ ephemeral: true });
+
+    const drops = await space.itemDrops;
+
+    const item = await this.service.findOneOrFail({
+      where: {
+        name: ILike(name),
+        guildId: guild.id,
+      },
+    });
+
+    const drop = drops.find((d) => d.itemId === item.id);
+
+    if (!drop) {
+      await i.followUp({
+        content: `Não há nenhum item desse tipo aqui`,
+      });
+      return;
+    }
+    const total = amount > drop.amount ? drop.amount : amount;
+
+    const stack = await this.inventoryService.addItemToPlayerInventory(
+      player,
+      item,
+      total,
+    );
+
+    if (drop.amount - total <= 0) {
+      await this.itemDropsService.remove({
+        id: drop.id,
+      });
+    } else {
+      drop.amount -= total;
+      await this.itemDropsService.save(drop);
+    }
+
+    await i.followUp({
+      content: `Você pegou ${item.name} x${total}`,
+      embeds: [stack.toEmbed()],
+    });
+  }
+
+  @Command({
+    name: 'force_drop',
+    description: 'Dropa algum item no espaço',
+    mod: true,
+  })
+  async forceDropItem(
+    @ArgInteraction() i: CommandInteraction,
+    @ArgGuild() guild: Guild,
+    @ArgSpace() space: Space,
+    @ArgString({
+      name: 'Nome',
+      description: 'Nome do item',
+    })
+    name: string,
+    @ArgInteger({
+      name: 'Quantidade',
+      description: 'Quantidade de itens',
+    })
+    amount: number,
+    @ArgInteger({
+      name: 'Meta Percepção',
+      description: 'Quantidade de itens',
+    })
+    meta: number,
+  ) {
+    await i.deferReply({ ephemeral: true });
+
+    const item = await this.service.findOneOrFail({
+      where: {
+        name: ILike(name),
+        guildId: guild.id,
+      },
+    });
+
+    const drop = await this.itemDropsService.create({
+      item,
+      amount,
+      space,
+      meta,
+    });
+
+    await i.followUp({
+      content: `Você dropou ${item.name} x${amount}`,
+      embeds: [drop.item.toEmbed()],
+    });
+  }
 }

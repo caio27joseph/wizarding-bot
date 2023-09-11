@@ -91,7 +91,6 @@ export class ResourceProvider {
   actionType?: ProviderActionType;
 
   @ManyToOne(() => Item, (item) => item.resourceProviders, {
-    cascade: true,
     nullable: true,
     eager: true,
   })
@@ -99,7 +98,6 @@ export class ResourceProvider {
   item?: Item;
 
   @ManyToOne(() => ItemPool, {
-    cascade: true,
     nullable: true,
     eager: true,
   })
@@ -254,13 +252,9 @@ export class ResourceProvider {
       description += `**Ultima Vez Procurado: ** ${
         this.lastTimeSearched ? displayBRT(this.lastTimeSearched) : 'Nunca'
       }\n`;
-      description += `**Pode Abrir: ** ${this.canOpen() ? 'Sim' : 'Não'}\n`;
-      description += `**Pode Procurar: ** ${
-        this.canSearch() ? 'Sim' : 'Não'
-      }\n`;
       description += `**Cooldown: ** ${this.daysCooldown} dias ${
-        this.hoursCooldown ? this.hoursCooldown + ' horas' : ''
-      } ${this.minutesCooldown ? this.minutesCooldown + ' minutos' : ''}\n`;
+        this.hoursCooldown || 0 + ' horas'
+      } ${this.minutesCooldown || 0 + ' minutos'}\n`;
 
       description += `**Cooldown Percepção: ** ${this.minutesCooldownPerception} minutos\n`;
       description += `**Minimo de Drop: ** ${this.minDrop}\n`;
@@ -268,7 +262,12 @@ export class ResourceProvider {
       description += `**Meta para Extra Drop: ** ${this.metaForAExtraDrop}\n`;
       description += `**Meta para Percepção: ** ${this.metaPerceptionRoll}\n`;
       description += `**Individual: ** ${this.individualCooldown}\n`;
-
+      if (!this.individualCooldown) {
+        description += `**Pode Abrir: ** ${this.canOpen() ? 'Sim' : 'Não'}\n`;
+        description += `**Pode Procurar: ** ${
+          this.canSearch() ? 'Sim' : 'Não'
+        }\n`;
+      }
       embed.setDescription(description);
       const fields = this.rolls.map((roll, index) => {
         let description = '';
@@ -442,5 +441,15 @@ export class ResourceProvider {
       });
 
     return possibleRolls;
+  }
+
+  get title() {
+    if (this.item) {
+      return this.item.name;
+    }
+    if (this.pool) {
+      return this.pool.name;
+    }
+    return this.name;
   }
 }
