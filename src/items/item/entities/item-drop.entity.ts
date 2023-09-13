@@ -31,4 +31,9 @@ export class ItemDrop {
     default: 1,
   })
   amount: number;
+
+  @Column({
+    default: true,
+  })
+  takeable: boolean;
 }

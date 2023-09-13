@@ -326,7 +326,7 @@ export class ResourceProvider {
     return embed;
   }
 
-  private getValidRoll(options: RollOptions) {
+  findValidRoll(options: RollOptions) {
     return this.rolls.find((roll) => {
       let valid = true;
       if (options?.attribute) {
@@ -359,50 +359,6 @@ export class ResourceProvider {
 
       return valid;
     });
-  }
-  async open({
-    eventEmitter,
-    player,
-    interaction,
-  }: {
-    eventEmitter: EventEmitter2;
-    player: Player;
-    interaction: CommandInteraction;
-  }) {
-    let metaForMaxDrop: number;
-    const { roll }: RollEvent = await waitForEvent(
-      eventEmitter,
-      'roll',
-      (data: RollEvent) => {
-        const samePlayer = data.player.id === player.id;
-        const sameChannel =
-          data.interaction.channelId === interaction.channelId;
-
-        const validRoll = this.getValidRoll(data.options);
-        metaForMaxDrop = validRoll.meta || 3;
-        return samePlayer && sameChannel && !!validRoll;
-      },
-    );
-
-    const { maxDrop, minDrop, metaForAExtraDrop } = this;
-    const extraMeta = roll.total - metaForMaxDrop;
-
-    const dropPerMeta = (maxDrop - minDrop) / metaForMaxDrop;
-
-    let drops = Math.floor(roll.total * dropPerMeta) + minDrop;
-    drops = Math.min(drops, maxDrop);
-
-    if (extraMeta >= metaForAExtraDrop && metaForAExtraDrop !== 0) {
-      drops += Math.floor(extraMeta / metaForAExtraDrop);
-    }
-    let item: Item;
-    if (this.pool) {
-      item = await this.pool.drawItem();
-    } else {
-      item = this.item;
-    }
-
-    return { drops, item };
   }
 
   availableRollsMessage() {

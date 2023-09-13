@@ -65,4 +65,49 @@ export class InventoryGroup {
       content: `Inventário de ${player.name}`,
     });
   }
+
+  @Command({
+    name: 'listar',
+    description: 'Ve uma lista com o inventário',
+  })
+  async listInventory(
+    @ArgInteraction() interaction: CommandInteraction,
+    @ArgPlayer() player: Player,
+  ) {
+    await interaction.deferReply({
+      ephemeral: true,
+    });
+
+    const inventory = await this.inventoryService.getOrCreate(
+      {
+        where: {
+          player: {
+            id: player.id,
+          },
+        },
+        relations: {
+          stacks: {
+            item: true,
+          },
+        },
+      },
+      {
+        player,
+      },
+    );
+    inventory.stacks = inventory.stacks || [];
+
+    const pageHelper = new PaginationHelper({
+      header: `Inventário de ${player.name}, Total: ${inventory.stacks.length}`,
+      items: inventory.stacks,
+      itemsPerPage: 20,
+      formatter: async (stack) => {
+        return `${stack.item.name} x${stack.quantity}\n---`;
+      },
+      footer(currentPage, totalPages) {
+        return `Página ${currentPage} de ${totalPages}`;
+      },
+    });
+    await pageHelper.followUp(interaction);
+  }
 }

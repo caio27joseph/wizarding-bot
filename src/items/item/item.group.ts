@@ -2,6 +2,7 @@ import { CommandInteraction } from 'discord.js';
 import { Command } from '~/discord/decorators/command.decorator';
 import { Group } from '~/discord/decorators/group.decorator';
 import {
+  ArgBoolean,
   ArgGuild,
   ArgInteger,
   ArgInteraction,
@@ -33,83 +34,16 @@ export class ItemGroup {
   ) {}
 
   @Command({
-    name: 'create',
-    description: 'Create item(s)',
-  })
-  async createItem(
-    @ArgInteraction() interaction: CommandInteraction,
-    @ArgGuild() guild: Guild,
-    @ArgString({
-      name: 'Nome',
-      description: 'Nome do item',
-    })
-    name: string,
-    @ArgString({
-      name: 'imageUrl',
-      description: 'Url da imagem do item',
-    })
-    imageUrl: string,
-  ) {
-    const itemExists = await this.service.findOne({
-      where: {
-        name: ILike(name),
-      },
-    });
-    if (itemExists) throw new EntityAlreadyExists('Item', name);
-    const response = await interaction.reply({
-      content: 'Criando item... Informe a Descrição',
-    });
-    const collected = await interaction.channel.awaitMessages({
-      filter: (i) => i.author.id === interaction.user.id,
-      time: 60000,
-      max: 1,
-    });
-    const descMessage = collected.first();
-    const description = descMessage.content;
-    const item = await this.service.create({
-      name,
-      description,
-      imageUrl,
-      guildId: guild.id,
-    });
-    await response.edit({
-      content: `Item criado com sucesso!`,
-      embeds: [item.toEmbed()],
-    });
-
-    await descMessage.delete();
-  }
-  @Command({
-    name: 'list',
-    description: 'List item(s)',
-  })
-  async listItem(
-    @ArgInteraction() i: CommandInteraction,
-    @ArgGuild() guild: Guild,
-  ) {
-    await i.deferReply({ ephemeral: true });
-    const items = await this.service.findAll({
-      where: {
-        guildId: guild.id,
-      },
-    });
-
-    await new PaginationHelper({
-      header: `${items.length} itens encontrados`,
-      itemsPerPage: 10,
-      items,
-      formatter: async (item, index, array) => {
-        return `### ${item.name}\n${item.description.slice(0, 200)}\n---`;
-      },
-    }).followUp(i);
-  }
-  @Command({
     name: 'ver',
     description: 'Ver item(s)',
   })
-  async getItem(
+  async viewItem(
     @ArgInteraction() i: CommandInteraction,
     @ArgGuild() guild: Guild,
+    @ArgPlayer()
+    player: Player,
+    @ArgSpace()
+    space: Space,
     @ArgString({
       name: 'Nome',
       description: 'Nome do item',
@@ -124,6 +58,29 @@ export class ItemGroup {
         guildId: guild.id,
       },
     });
+    let hidden = item.hidden;
+    if (hidden) {
+      const drops = await space.itemDrops;
+      let hidden = !drops.some((d) => d.itemId === item.id);
+    }
+    if (hidden) {
+      const inventory = await this.inventoryService.findOne({
+        where: {
+          player: {
+            id: player.id,
+          },
+        },
+        relations: {
+          stacks: true,
+        },
+      });
+      hidden = !inventory.stacks.some((s) => s.item.id === item.id);
+    }
+    if (hidden) {
+      return i.followUp({
+        content: `Você não tem informações sobre o item`,
+      });
+    }
     await i.followUp({
       embeds: [item.toEmbed()],
     });
@@ -160,14 +117,13 @@ export class ItemGroup {
       },
     });
 
-    const drop = drops.find((d) => d.itemId === item.id);
+    const drop = drops.find((d) => d.itemId === item.id && d.takeable);
 
-    if (!drop) {
-      await i.followUp({
-        content: `Não há nenhum item desse tipo aqui`,
+    if (!drop)
+      return i.followUp({
+        content: `Item não encontrado / não é possível pegar`,
       });
-      return;
-    }
+
     const total = amount > drop.amount ? drop.amount : amount;
 
     const stack = await this.inventoryService.addItemToPlayerInventory(
@@ -188,53 +144,6 @@ export class ItemGroup {
     await i.followUp({
       content: `Você pegou ${item.name} x${total}`,
       embeds: [stack.toEmbed()],
-    });
-  }
-
-  @Command({
-    name: 'force_drop',
-    description: 'Dropa algum item no espaço',
-    mod: true,
-  })
-  async forceDropItem(
-    @ArgInteraction() i: CommandInteraction,
-    @ArgGuild() guild: Guild,
-    @ArgSpace() space: Space,
-    @ArgString({
-      name: 'Nome',
-      description: 'Nome do item',
-    })
-    name: string,
-    @ArgInteger({
-      name: 'Quantidade',
-      description: 'Quantidade de itens',
-    })
-    amount: number,
-    @ArgInteger({
-      name: 'Meta Percepção',
-      description: 'Quantidade de itens',
-    })
-    meta: number,
-  ) {
-    await i.deferReply({ ephemeral: true });
-
-    const item = await this.service.findOneOrFail({
-      where: {
-        name: ILike(name),
-        guildId: guild.id,
-      },
-    });
-
-    const drop = await this.itemDropsService.create({
-      item,
-      amount,
-      space,
-      meta,
-    });
-
-    await i.followUp({
-      content: `Você dropou ${item.name} x${amount}`,
-      embeds: [drop.item.toEmbed()],
     });
   }
 }

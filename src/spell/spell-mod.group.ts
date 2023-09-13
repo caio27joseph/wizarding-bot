@@ -203,6 +203,12 @@ export class SpellModGroup {
       required: false,
     })
     amount?: number,
+    @ArgString({
+      name: 'Feitiço',
+      description: 'Nome do feitiço',
+      required: false,
+    })
+    spellName?: string,
   ) {
     switch (action) {
       case SpellMaestryAction.ADD:
@@ -210,7 +216,14 @@ export class SpellModGroup {
           throw new DiscordSimpleError(
             'Você precisa informar a quantidade de XP do treino',
           );
-        await this.addMaestryXP(interaction, author, player, guild, amount, id);
+        await this.addMaestryXP(
+          interaction,
+          author,
+          player,
+          guild,
+          amount,
+          spellName,
+        );
         break;
       case SpellMaestryAction.LIST:
         await this.maestryGroup.spellsTrains(interaction, player);
@@ -268,25 +281,11 @@ export class SpellModGroup {
     });
   }
   async addMaestryXP(
-    @ArgInteraction() interaction: CommandInteraction,
-    @ArgPlayer()
+    interaction: CommandInteraction,
     author: Player,
-    @ArgPlayer({
-      name: 'Jogador',
-      description: 'Jogador a receber os pontos de maestria',
-    })
     target: Player,
-    @ArgGuild()
     guild: Guild,
-    @ArgInteger({
-      name: 'Quantidade',
-      description: 'Quantidade de pontos de maestria a serem adicionados',
-    })
     amount: number,
-    @ArgString({
-      name: 'Feitiço',
-      description: 'Nome do feitiço a receber os pontos de maestria',
-    })
     spellName: string,
   ) {
     const spell = await this.spellService.findOne({

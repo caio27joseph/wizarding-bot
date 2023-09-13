@@ -12,6 +12,8 @@ import { ResourceProvider } from './entities/resource-provider.entity';
 import { ProviderPlayerHistoryService } from './provider-player-history.service';
 import { waitForEvent } from '~/utils/wait-for-event';
 import { RollEvent } from '~/roll/roll.service';
+import { Item } from '../item/entities/item.entity';
+import { RollsD10 } from '~/roll/entities/roll.entity';
 
 @Injectable()
 export class ResourceProviderService extends BasicService<
@@ -19,6 +21,9 @@ export class ResourceProviderService extends BasicService<
   DeepPartial<ResourceProvider>,
   QueryDeepPartialEntity<ResourceProvider>
 > {
+  //Keep track if the player is collecting
+  private collecting: string[] = [];
+
   constructor(
     @InjectRepository(ResourceProvider)
     private readonly repo: Repository<ResourceProvider>,
@@ -31,36 +36,100 @@ export class ResourceProviderService extends BasicService<
 
   entityName = 'LootBox';
 
-  async collectResource(
-    interaction: CommandInteraction,
-    player: Player,
+  private async open(
+    i: CommandInteraction,
     provider: ResourceProvider,
+    player: Player,
+  ) {
+    let metaForMaxDrop: number;
+
+    this.collecting.push(player.id);
+    let roll: RollsD10;
+    try {
+      const event: RollEvent = await waitForEvent(
+        this.eventEmitter,
+        'roll',
+        (data: RollEvent) => {
+          const samePlayer = data.player.id === player.id;
+          const sameChannel = data.interaction.channelId === i.channelId;
+
+          const validRoll = provider.findValidRoll(data.options);
+          metaForMaxDrop = validRoll.meta || 3;
+          return samePlayer && sameChannel && !!validRoll;
+        },
+      );
+      roll = event.roll;
+    } finally {
+      this.collecting = this.collecting.filter((id) => id !== player.id);
+    }
+
+    const { maxDrop, minDrop, metaForAExtraDrop } = provider;
+    const extraMeta = roll.total - metaForMaxDrop;
+
+    const dropPerMeta = (maxDrop - minDrop) / metaForMaxDrop;
+
+    let drops = Math.floor(roll.total * dropPerMeta) + minDrop;
+    drops = Math.min(drops, maxDrop);
+
+    if (extraMeta >= metaForAExtraDrop && metaForAExtraDrop !== 0) {
+      drops += Math.floor(extraMeta / metaForAExtraDrop);
+    }
+    let item: Item;
+    if (provider.pool) {
+      item = await provider.pool.drawItem();
+    } else {
+      item = provider.item;
+    }
+
+    if (provider.individualCooldown) {
+      const history = await this.historyService.getHistory(provider, player);
+      history.lastTimeOpened = new Date();
+      await this.historyService.save(history);
+    }
+    provider.lastTimeOpened = new Date();
+    await this.save(provider);
+    return { drops, item };
+  }
+
+  private providerRollsFollowUp(
+    i: CommandInteraction,
+    provider: ResourceProvider,
+    player: Player,
   ) {
     const possibleRolls = provider.availableRollsMessage();
     const rolls = possibleRolls.join('\nOu ');
 
     if (possibleRolls.length) {
-      await interaction.followUp({
-        content: `Caso queira pegar o item, por favor role\n` + rolls,
+      return i.followUp({
+        content:
+          `<@${player.discordId}> para coletar o item, por favor role\n` +
+          rolls,
       });
     } else {
-      await interaction.followUp({
-        content: `Você não tem ferramentas para pegar este item...\n`,
+      return i.followUp({
+        content: `<@${player.discordId}>, você não sabe como coletar este item...\n`,
       });
     }
-    if (provider.rolls.length === 0) {
-      return;
-    }
+    if (provider.rolls.length === 0) return;
+  }
 
-    const result = await provider.open({
-      player,
-      interaction,
-      eventEmitter: this.eventEmitter,
-    });
-    if (!result) {
-      throw new DiscordSimpleError('Sem sorte dessa vez');
+  async collectResource(
+    i: CommandInteraction,
+    player: Player,
+    provider: ResourceProvider,
+  ) {
+    if (this.collecting.includes(player.id)) {
+      return i.followUp({
+        content: `<@${player.discordId}> já está coletando um item...`,
+        ephemeral: true,
+      });
     }
-    const { item, drops } = result;
+    const rolls = await this.providerRollsFollowUp(i, provider, player);
+    if (!rolls) return;
+
+    const { item, drops } = await this.open(i, provider, player);
+    if (!drops)
+      return i.followUp(`<@${player.discordId}> não conseguiu coletar nada...`);
 
     const stack = await this.inventoryService.addItemToPlayerInventory(
       player,
@@ -69,24 +138,8 @@ export class ResourceProviderService extends BasicService<
     );
     stack.item.rarity = item.rarity;
 
-    if (provider.individualCooldown) {
-      const history = await this.historyService.getHistory(provider, player);
-      history.lastTimeOpened = new Date();
-      await this.historyService.save(history);
-    } else {
-      provider.lastTimeOpened = new Date();
-      await this.save(provider);
-    }
-
-    if (drops === 0) {
-      await interaction.followUp({
-        content: `Você não coletou nenhum item dessa vez...\n`,
-      });
-      await this.save(provider);
-      return;
-    }
-    await interaction.followUp({
-      content: `Você coletou '${item.name} x${drops}'\n`,
+    return i.followUp({
+      content: `<@${player.discordId}> coletou '${item.name} x${drops}'\n`,
       embeds: [stack.toEmbed()],
     });
   }

@@ -33,6 +33,9 @@ export class Stack {
   @JoinColumn()
   item: Item;
 
+  @Column()
+  itemId: string;
+
   @Column({
     default: 1,
     type: 'smallint',
@@ -55,7 +58,7 @@ export class Stack {
     } else {
       embed.setColor(`White`);
     }
-    description += `Total: ${this.quantity}`;
+    description += `Total: ${this.quantity}\n`;
     // splice and add ellipsis if description is too longe than 500
     description += this.item.description.slice(0, 500);
     if (this.item.description.length > 500) {

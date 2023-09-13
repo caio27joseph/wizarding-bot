@@ -36,6 +36,11 @@ export class Item implements DiscordEntityVieable, CanHaveBonus {
 
   rarity?: ItemPoolRarity;
 
+  @Column({
+    default: false,
+  })
+  hidden: boolean;
+
   @Column()
   @Field()
   imageUrl: string;
@@ -75,6 +80,9 @@ export class Item implements DiscordEntityVieable, CanHaveBonus {
     if (this.imageUrl) {
       embed.setImage(this.imageUrl);
     }
+    embed.setFooter({
+      text: this.id,
+    });
     return embed;
   }
   reply(interaction: Interaction) {
