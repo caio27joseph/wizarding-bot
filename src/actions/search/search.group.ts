@@ -221,7 +221,7 @@ export class SearchGroup {
       items: foundDrops,
       formatter: async (drop, index, objs) => {
         let desc = `**${drop.item.name} **${
-          drop.takeable && drop.amount === 1 ? '- Fixo' : `x${drop.amount}`
+          !drop.takeable && drop.amount === 1 ? '- Fixo' : `x${drop.amount}`
         }\n`;
         desc += `**Descrição:** ${drop.item.description.slice(0, 200)}\n---`;
         return desc;
