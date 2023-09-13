@@ -23,6 +23,7 @@ export class ResourceProviderService extends BasicService<
 > {
   //Keep track if the player is collecting
   private collecting: string[] = [];
+  private searching: string[] = [];
 
   constructor(
     @InjectRepository(ResourceProvider)
@@ -155,26 +156,36 @@ export class ResourceProviderService extends BasicService<
   }
 
   async rollPerception(interaction: CommandInteraction) {
+    if (this.searching.includes(interaction.user.id)) {
+      throw new DiscordSimpleError(`Você já está procurando por um item...`);
+    }
+    this.searching.push(interaction.user.id);
     await interaction.followUp(
       `# ${interaction.user} faça uma rolagem de procura\n` +
         '- /dr atributo:Raciocínio hab3:Percepção\n- /dr atributo:Raciocínio hab2:Investigação',
     );
-    const { roll }: RollEvent = await waitForEvent(
-      this.eventEmitter,
-      'roll',
-      (data: RollEvent) => {
-        const samePlayer = data.player.discordId === interaction.user.id;
-        const sameChannel =
-          data.interaction.channelId === interaction.channelId;
+    try {
+      const { roll }: RollEvent = await waitForEvent(
+        this.eventEmitter,
+        'roll',
+        (data: RollEvent) => {
+          const samePlayer = data.player.discordId === interaction.user.id;
+          const sameChannel =
+            data.interaction.channelId === interaction.channelId;
 
-        const perceptionRoll =
-          data.options.attribute === 'rationality' &&
-          (data.options.hab3 === 'perception' ||
-            data.options.hab2 === 'investigation');
+          const perceptionRoll =
+            data.options.attribute === 'rationality' &&
+            (data.options.hab3 === 'perception' ||
+              data.options.hab2 === 'investigation');
 
-        return samePlayer && sameChannel && perceptionRoll;
-      },
-    );
-    return roll;
+          return samePlayer && sameChannel && perceptionRoll;
+        },
+      );
+      return roll;
+    } finally {
+      this.searching = this.searching.filter(
+        (id) => id !== interaction.user.id,
+      );
+    }
   }
 }
