@@ -22,16 +22,20 @@ export class ProviderPlayerHistoryService extends BasicService<
   }
 
   async getHistory(provider: ResourceProvider, player: Player) {
-    let history: ProviderPlayerHistory;
-    history = provider.playerHistories.find((h) => h.playerId === player.id);
-    if (!history) {
-      history = await this.create({
+    let history: ProviderPlayerHistory = await this.getOrCreate({
+      where: {
+        provider: {
+          id: provider.id
+        },
+        playerId: player.id
+      }
+    },
+      {
         player,
         provider,
         lastTimeOpened: new Date(),
         lastTimeSearched: new Date(),
       });
-    }
     return history;
   }
 }

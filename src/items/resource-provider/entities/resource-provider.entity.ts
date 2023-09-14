@@ -123,10 +123,9 @@ export class ResourceProvider {
 
   @OneToMany(
     () => ProviderPlayerHistory,
-    (providerPlayerHistory) => providerPlayerHistory.provider,
-    {
-      eager: true,
-    },
+    (h) => h.provider, {
+    eager: true
+  }
   )
   playerHistories: ProviderPlayerHistory[];
 
@@ -243,18 +242,14 @@ export class ResourceProvider {
       if (this.pool) {
         description += `**Pool: **${this.pool.name}\n`;
       }
-      description += `**Ação: **${
-        ProviderActionTypePortuguese[this.actionType]
-      }\n`;
-      description += `**Ultima Vez Aberto: ** ${
-        this.lastTimeOpened ? displayBRT(this.lastTimeOpened) : 'Nunca'
-      }\n`;
-      description += `**Ultima Vez Procurado: ** ${
-        this.lastTimeSearched ? displayBRT(this.lastTimeSearched) : 'Nunca'
-      }\n`;
-      description += `**Cooldown: ** ${this.daysCooldown} dias ${
-        this.hoursCooldown || 0 + ' horas'
-      } ${this.minutesCooldown || 0 + ' minutos'}\n`;
+      description += `**Ação: **${ProviderActionTypePortuguese[this.actionType]
+        }\n`;
+      description += `**Ultima Vez Aberto: ** ${this.lastTimeOpened ? displayBRT(this.lastTimeOpened) : 'Nunca'
+        }\n`;
+      description += `**Ultima Vez Procurado: ** ${this.lastTimeSearched ? displayBRT(this.lastTimeSearched) : 'Nunca'
+        }\n`;
+      description += `**Cooldown: ** ${this.daysCooldown} dias ${this.hoursCooldown || 0 + ' horas'
+        } ${this.minutesCooldown || 0 + ' minutos'}\n`;
 
       description += `**Cooldown Percepção: ** ${this.minutesCooldownPerception} minutos\n`;
       description += `**Minimo de Drop: ** ${this.minDrop}\n`;
@@ -264,33 +259,28 @@ export class ResourceProvider {
       description += `**Individual: ** ${this.individualCooldown}\n`;
       if (!this.individualCooldown) {
         description += `**Pode Abrir: ** ${this.canOpen() ? 'Sim' : 'Não'}\n`;
-        description += `**Pode Procurar: ** ${
-          this.canSearch() ? 'Sim' : 'Não'
-        }\n`;
+        description += `**Pode Procurar: ** ${this.canSearch() ? 'Sim' : 'Não'
+          }\n`;
       }
       embed.setDescription(description);
       const fields = this.rolls.map((roll, index) => {
         let description = '';
 
         if (roll.attribute) {
-          description += `**Atributo: ** ${
-            attributeKeyToDisplayMap[roll.attribute]
-          }\n`;
+          description += `**Atributo: ** ${attributeKeyToDisplayMap[roll.attribute]
+            }\n`;
         }
         if (roll.hab1) {
-          description += `**Habilidade 1: ** ${
-            abilitiesKeyToDisplayMap[roll.hab1]
-          }\n`;
+          description += `**Habilidade 1: ** ${abilitiesKeyToDisplayMap[roll.hab1]
+            }\n`;
         }
         if (roll.hab2) {
-          description += `**Habilidade 2: ** ${
-            abilitiesKeyToDisplayMap[roll.hab2]
-          }\n`;
+          description += `**Habilidade 2: ** ${abilitiesKeyToDisplayMap[roll.hab2]
+            }\n`;
         }
         if (roll.hab3) {
-          description += `**Habilidade 3: ** ${
-            abilitiesKeyToDisplayMap[roll.hab3]
-          }\n`;
+          description += `**Habilidade 3: ** ${abilitiesKeyToDisplayMap[roll.hab3]
+            }\n`;
         }
         if (roll.magicSchool) {
           description += `**Escola Mágica: ** ${roll.magicSchool}\n`;
@@ -351,7 +341,7 @@ export class ResourceProvider {
         valid =
           valid &&
           roll.nonConvPredilectionsChoices ===
-            options?.nonConvPredilectionsChoices;
+          options?.nonConvPredilectionsChoices;
       }
       if (options?.extras) {
         valid = valid && roll.extras === options?.extras;
@@ -367,9 +357,8 @@ export class ResourceProvider {
       .map((roll) => {
         let description = `${roll.display ? roll.display : ''} - /dr `;
         if (roll.attribute) {
-          description += `**atributo:**${
-            attributeKeyToDisplayMap[roll.attribute]
-          } `;
+          description += `**atributo:**${attributeKeyToDisplayMap[roll.attribute]
+            } `;
         }
         if (roll.hab1) {
           description += `**hab1:**${abilitiesKeyToDisplayMap[roll.hab1]} `;
@@ -381,14 +370,12 @@ export class ResourceProvider {
           description += `**hab3:**${abilitiesKeyToDisplayMap[roll.hab3]} `;
         }
         if (roll.magicSchool) {
-          description += `**escola_magica:**${
-            magicSchoolKeyToDisplayMap[roll.magicSchool]
-          } `;
+          description += `**escola_magica:**${magicSchoolKeyToDisplayMap[roll.magicSchool]
+            } `;
         }
         if (roll.nonConvPredilectionsChoices) {
-          description += `**predilecao_nao_convencional:**${
-            nonConvKeyToDisplayMap[roll.nonConvPredilectionsChoices]
-          } `;
+          description += `**predilecao_nao_convencional:**${nonConvKeyToDisplayMap[roll.nonConvPredilectionsChoices]
+            } `;
         }
         if (roll.extras) {
           description += `**extras:**${extrasKeyToDisplayMap[roll.extras]} `;

@@ -87,9 +87,10 @@ export class ResourceProviderService extends BasicService<
       const history = await this.historyService.getHistory(provider, player);
       history.lastTimeOpened = new Date();
       await this.historyService.save(history);
+    } else {
+      provider.lastTimeOpened = new Date();
+      await this.save(provider);
     }
-    provider.lastTimeOpened = new Date();
-    await this.save(provider);
     return { drops, item };
   }
 
@@ -157,6 +158,7 @@ export class ResourceProviderService extends BasicService<
     if (!provider.individualCooldown) {
       provider.lastTimeSearched = new Date();
       await this.save(provider);
+      return
     }
     const history = await this.historyService.getHistory(provider, player);
     history.lastTimeSearched = new Date();
@@ -170,7 +172,7 @@ export class ResourceProviderService extends BasicService<
     this.searching.push(interaction.user.id);
     await interaction.followUp(
       `# ${interaction.user} faça uma rolagem de procura\n` +
-        '- /dr atributo:Raciocínio hab3:Percepção\n- /dr atributo:Raciocínio hab2:Investigação',
+      '- /dr atributo:Raciocínio hab3:Percepção\n- /dr atributo:Raciocínio hab2:Investigação',
     );
     try {
       const { roll }: RollEvent = await waitForEvent(

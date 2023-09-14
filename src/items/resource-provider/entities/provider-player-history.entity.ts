@@ -13,7 +13,7 @@ export class ProviderPlayerHistory {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => ResourceProvider, (provider) => provider.playerHistories)
+  @ManyToOne(() => ResourceProvider)
   @JoinColumn()
   provider: ResourceProvider;
 

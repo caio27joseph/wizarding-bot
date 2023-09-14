@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { EventEmitter2 } from '@nestjs/event-emitter';
 import { CommandInteraction } from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
 import { Command } from '~/discord/decorators/command.decorator';
@@ -22,7 +21,7 @@ import { Space } from '~/spaces/space/entities/space.entity';
 export class FishGroup {
   constructor(
     private readonly resourceProviderService: ResourceProviderService,
-  ) {}
+  ) { }
 
   @Command({
     name: 'default',
