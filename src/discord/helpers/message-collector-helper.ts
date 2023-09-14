@@ -11,7 +11,14 @@ import {
 export class MessageCollectorHelper {
   constructor(private readonly interaction: CommandInteraction) {}
 
-  async prompt(promptContent: string): Promise<string | null> {
+  async prompt(
+    promptContent: string,
+    options: {
+      delete?: boolean;
+    } = {
+      delete: true,
+    },
+  ): Promise<string | null> {
     // Send the initial prompt message
     const prompt = await this.interaction.editReply({
       content: promptContent,
@@ -30,8 +37,9 @@ export class MessageCollectorHelper {
     });
 
     const message = collected.first();
-
-    await message.delete();
+    if (options.delete) {
+      await message.delete();
+    }
     // await prompt.delete();
     if (!message) {
       throw new DiscordSimpleError('Você não enviou sua ação a tempo!');

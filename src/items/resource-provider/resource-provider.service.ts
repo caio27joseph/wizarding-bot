@@ -100,8 +100,8 @@ export class ResourceProviderService extends BasicService<
     const message = await new MessageCollectorHelper(i).prompt(
       `<@${i.user.id}> envie sua ação!`,
     );
-    if (message.split(' ').length <= 5) {
-      await i.followUp('Ação muito curta...');
+    if (message.split(' ').length <= 2) {
+      await i.followUp(`<@${i.user.id}> envie sua ação!`);
       return;
     }
     const possibleRolls = provider.availableRollsMessage();
