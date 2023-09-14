@@ -5,7 +5,7 @@ import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity
 import { InjectRepository } from '@nestjs/typeorm';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { InventoryService } from '../inventory/inventory.service';
-import { CommandInteraction } from 'discord.js';
+import { CommandInteraction, MessageCollector } from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { ResourceProvider } from './entities/resource-provider.entity';
@@ -14,6 +14,7 @@ import { waitForEvent } from '~/utils/wait-for-event';
 import { RollEvent } from '~/roll/roll.service';
 import { Item } from '../item/entities/item.entity';
 import { RollsD10 } from '~/roll/entities/roll.entity';
+import { MessageCollectorHelper } from '~/discord/helpers/message-collector-helper';
 
 @Injectable()
 export class ResourceProviderService extends BasicService<
@@ -92,26 +93,30 @@ export class ResourceProviderService extends BasicService<
     return { drops, item };
   }
 
-  private providerRollsFollowUp(
+  private async providerRollsFollowUp(
     i: CommandInteraction,
     provider: ResourceProvider,
-    player: Player,
   ) {
+    const message = await new MessageCollectorHelper(i).prompt(
+      `<@${i.user.id}> envie sua ação!`,
+    );
+    if (message.split(' ').length <= 5) {
+      await i.followUp('Ação muito curta...');
+      return;
+    }
     const possibleRolls = provider.availableRollsMessage();
     const rolls = possibleRolls.join('\nOu ');
 
     if (possibleRolls.length) {
-      return i.followUp({
-        content:
-          `<@${player.discordId}> para coletar o item, por favor role\n` +
-          rolls,
-      });
+      await i.followUp(
+        `<@${i.user.id}> para coletar o item, por favor role\n` + rolls,
+      );
     } else {
-      return i.followUp({
-        content: `<@${player.discordId}>, você não sabe como coletar este item...\n`,
-      });
+      await i.followUp(
+        `<@${i.user.id}>, você não sabe como coletar este item...\n`,
+      );
     }
-    if (provider.rolls.length === 0) return;
+    return rolls.length;
   }
 
   async collectResource(
@@ -125,7 +130,7 @@ export class ResourceProviderService extends BasicService<
         ephemeral: true,
       });
     }
-    const rolls = await this.providerRollsFollowUp(i, provider, player);
+    const rolls = await this.providerRollsFollowUp(i, provider);
     if (!rolls) return;
 
     const { item, drops } = await this.open(i, provider, player);

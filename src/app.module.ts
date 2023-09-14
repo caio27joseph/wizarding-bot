@@ -19,6 +19,7 @@ import { ItemsModule } from './items/items.module';
 import { ActionsModule } from './actions/actions.module';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { EvolutionModule } from './evolution/evolution.module';
+import { EconomyModule } from './economy/economy.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { EvolutionModule } from './evolution/evolution.module';
     SpacesModule,
     ActionsModule,
     EvolutionModule,
+    EconomyModule,
   ],
   controllers: [],
   providers: [],
