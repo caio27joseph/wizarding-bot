@@ -99,6 +99,9 @@ export class ResourceProviderService extends BasicService<
   ) {
     const message = await new MessageCollectorHelper(i).prompt(
       `<@${i.user.id}> envie sua ação!`,
+      {
+        delete: false,
+      },
     );
     if (message.split(' ').length <= 2) {
       await i.followUp(`<@${i.user.id}> envie sua ação!`);
