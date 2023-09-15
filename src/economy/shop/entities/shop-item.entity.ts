@@ -37,6 +37,7 @@ export class ShopItem {
 
   @Column({
     type: 'float',
+    default: 0,
   })
   sellPrice: number;
 

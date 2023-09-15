@@ -143,20 +143,21 @@ export class EconomyModGroup {
     @ArgNumber({
       name: 'preço_para_comprar_na_loja',
       description: 'Preço do item',
+      required: false,
     })
-    buyPrice: number,
+    buyPrice?: number,
     @ArgNumber({
       name: 'preço_para_vender_na_loja',
       description: 'Preço do item',
       required: false,
     })
-    sellPrice: number,
+    sellPrice?: number,
     @ArgInteger({
       name: 'quantidade',
       description: 'Quantidade do item',
       required: false,
     })
-    quantity: number,
+    quantity?: number,
   ) {
     await i.deferReply({ ephemeral: true });
     const shop = this.selects.get(i.user.id);
@@ -164,6 +165,7 @@ export class EconomyModGroup {
       return i.followUp(
         'Nenhuma loja selecionada, use o comando `shop_select` para selecionar uma loja',
       );
+    shop.items = shop.items || [];
 
     const item = await this.itemService.findOneOrFail({
       where: {
@@ -180,6 +182,7 @@ export class EconomyModGroup {
       buyPrice,
       quantity,
     });
+    shop.items.push(shopItem);
 
     return i.followUp({
       content: `Item adicionado com sucesso!`,
