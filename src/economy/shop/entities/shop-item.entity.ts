@@ -32,12 +32,13 @@ export class ShopItem {
 
   @Column({
     type: 'float',
+    nullable: true,
   })
   buyPrice: number;
 
   @Column({
     type: 'float',
-    default: 0,
+    nullable: true,
   })
   sellPrice: number;
 

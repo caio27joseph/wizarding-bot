@@ -57,14 +57,14 @@ export class Shop {
       const sellPrice = 'G$ ' + si.sellPrice.toFixed(2);
       const qtd = Math.abs(si.quantity);
       if (si.type === ShopType.BOTH) {
-        buyMessage = `**${si.item.name}**: ${buyPrice}`;
-        sellMessage = `**${si.item.name}**: ${sellPrice}`;
+        buyMessage += `\n**${si.item.name}**: ${buyPrice}`;
+        sellMessage += `\n**${si.item.name}**: ${sellPrice}`;
       }
       if (si.type === ShopType.SELL) {
-        sellMessage = `**${si.item.name}**: ${sellPrice}`;
+        sellMessage += `\n**${si.item.name}**: ${sellPrice}`;
       }
       if (si.type === ShopType.BUY) {
-        buyMessage = `**${si.item.name}**: ${buyPrice}`;
+        buyMessage += `\n**${si.item.name}**: ${buyPrice}`;
       }
     });
     const fields: EmbedField[] = [];
