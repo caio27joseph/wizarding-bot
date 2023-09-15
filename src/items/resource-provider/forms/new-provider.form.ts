@@ -51,7 +51,7 @@ const getForm3 = (context: ResourceProviderActionContext) => {
             placeholder: 'Tipo de ação',
             propKey: 'actionType',
             defaultValue: ProviderActionType.COLLECT,
-            options: Object.values(ProviderActionType).map((k) => ({
+            choices: Object.values(ProviderActionType).map((k) => ({
               label: ProviderActionTypePortuguese[k],
               value: k,
             })),
@@ -60,7 +60,7 @@ const getForm3 = (context: ResourceProviderActionContext) => {
             placeholder: 'Cooldown individual? [Não]',
             propKey: 'individualCooldown',
             defaultValue: false,
-            options: [
+            choices: [
               {
                 label: 'Não',
                 value: 'false',
@@ -112,7 +112,7 @@ const getForm2 = (context: ResourceProviderActionContext) => {
             placeholder: 'Dias de cooldown [0]',
             propKey: 'daysCooldown',
             defaultValue: 0,
-            options: [
+            choices: [
               0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 14, 15, 16, 20, 25, 30,
             ].map((n) => ({
               label: n.toString() + ' dias',
@@ -124,7 +124,7 @@ const getForm2 = (context: ResourceProviderActionContext) => {
             placeholder: 'Horas de cooldown [0]',
             propKey: 'hoursCooldown',
             defaultValue: 0,
-            options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 20, 24].map(
+            choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 20, 24].map(
               (n) => ({
                 label: n.toString() + ' horas',
                 value: n.toString(),
@@ -136,7 +136,7 @@ const getForm2 = (context: ResourceProviderActionContext) => {
             placeholder: 'Minutos de cooldown [0]',
             propKey: 'minutesCooldown',
             defaultValue: 0,
-            options: [0, 5, 10, 15, 20, 30, 45, 60].map((n) => ({
+            choices: [0, 5, 10, 15, 20, 30, 45, 60].map((n) => ({
               label: n.toString() + ' minutos',
               value: n.toString(),
             })),
@@ -146,7 +146,7 @@ const getForm2 = (context: ResourceProviderActionContext) => {
             placeholder: 'Minutos de cooldown para percepção [15]',
             propKey: 'minutesCooldownPerception',
             defaultValue: 0,
-            options: [0, 5, 10, 15, 20, 30, 45, 60].map((n) => ({
+            choices: [0, 5, 10, 15, 20, 30, 45, 60].map((n) => ({
               label: n.toString() + ' minutos',
               value: n.toString(),
             })),
@@ -191,7 +191,7 @@ const getForm1 = (context: ResourceProviderActionContext) => {
             placeholder: 'Metas para Drop extra [Nenhum] (A cada x ganha 1)',
             propKey: 'metaForAExtraDrop',
             defaultValue: 0,
-            options: [
+            choices: [
               {
                 label: 'Nenhum',
                 value: '0',
@@ -207,7 +207,7 @@ const getForm1 = (context: ResourceProviderActionContext) => {
             placeholder: `Drops mínimos do recurso [0]`,
             propKey: 'minDrop',
             defaultValue: 0,
-            options: [
+            choices: [
               0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20,
             ].map((n) => ({
               label: n.toString(),
@@ -220,7 +220,7 @@ const getForm1 = (context: ResourceProviderActionContext) => {
             placeholder: `Drops máximos do recurso [1]`,
             propKey: 'maxDrop',
             defaultValue: 1,
-            options: [
+            choices: [
               1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 25, 30,
             ].map((n) => ({
               label: n.toString(),
@@ -232,7 +232,7 @@ const getForm1 = (context: ResourceProviderActionContext) => {
             placeholder: `Meta para rolagem de percepção [3]`,
             defaultValue: 3,
             propKey: 'metaPerceptionRoll',
-            options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
+            choices: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
               label: n.toString() + ' de Meta',
               value: n.toString(),
             })),

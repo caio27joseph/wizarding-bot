@@ -39,11 +39,13 @@ export class Player implements DiscordEntityVieable {
 
   @Column({
     default: 0,
+    type: 'float',
   })
   wizardMoney: number;
 
   @Column({
     default: 0,
+    type: 'float',
   })
   muggleMoney: number;
 

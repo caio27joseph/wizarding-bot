@@ -5,6 +5,7 @@ import {
   MenuHelper,
 } from '~/discord/helpers/menu-helper';
 import { Shop } from './entities/shop.entity';
+import { ShopType } from './entities/shop-item.entity';
 
 interface ShopMenuContext extends ActionContext {
   shop: Shop;
@@ -21,11 +22,16 @@ export class ShopMenu extends MenuHelper<ShopMenuContext> {
   }
 
   @MenuAction('Comprar')
-  async buy({ shop, interaction }: ShopMenuContext, i: ButtonInteraction) {
-    await interaction.followUp({
-      content: 'Purchase',
-      ephemeral: true,
-    });
+  async buy({ shop, interaction }: ShopMenuContext) {
+    const buyItems = shop.items.filter(
+      (item) => item.type === ShopType.BOTH || item.type === ShopType.BUY,
+    );
+    if (buyItems.length === 0) {
+      return interaction.followUp({
+        content: 'Não há itens para comprar nesta loja',
+        ephemeral: true,
+      });
+    }
   }
 
   @MenuAction('Vender')

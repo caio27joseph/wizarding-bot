@@ -172,7 +172,7 @@ export class EconomyModGroup {
       },
     });
 
-    const shopItem = await this.shopItemService.addItemToShop({
+    const shopItem = await this.shopItemService.addItemToShop(shop, {
       shop,
       item,
       type,

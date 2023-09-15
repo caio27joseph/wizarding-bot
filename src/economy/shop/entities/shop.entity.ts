@@ -21,6 +21,17 @@ export class Shop {
   })
   name?: string;
 
+  @Column({
+    default: false,
+  })
+  infinite: boolean;
+
+  @Column({
+    default: 0,
+    type: 'float',
+  })
+  wizardMoney: number;
+
   @ManyToOne(() => Player)
   @JoinColumn()
   onwer: Player;
@@ -28,11 +39,6 @@ export class Shop {
   @ManyToOne(() => Space, (space) => space.shops)
   @JoinColumn()
   space: Space;
-
-  @Column({
-    default: false,
-  })
-  infinite: boolean;
 
   @OneToMany(() => ShopItem, (item) => item.shop, {
     cascade: true,
@@ -47,18 +53,18 @@ export class Shop {
     let buyMessage = '';
     this.items = this.items || [];
     this.items.forEach((si) => {
-      const buyPrice = 'G ' + si.buyPrice.toFixed(2);
-      const sellPrice = 'G ' + si.sellPrice.toFixed(2);
-
+      const buyPrice = 'G$ ' + si.buyPrice.toFixed(2);
+      const sellPrice = 'G$ ' + si.sellPrice.toFixed(2);
+      const qtd = Math.abs(si.quantity);
       if (si.type === ShopType.BOTH) {
-        buyMessage = `**${si.item.name}**: ${buyPrice} [x${si.quantity}]`;
-        sellMessage = `**${si.item.name}**: ${sellPrice} [x${si.quantity}]`;
+        buyMessage = `**${si.item.name}**: ${buyPrice}`;
+        sellMessage = `**${si.item.name}**: ${sellPrice}`;
       }
       if (si.type === ShopType.SELL) {
-        sellMessage = `**${si.item.name}**: ${sellPrice} [x${si.quantity}]`;
+        sellMessage = `**${si.item.name}**: ${sellPrice}`;
       }
       if (si.type === ShopType.BUY) {
-        buyMessage = `**${si.item.name}**: ${buyPrice} [x${si.quantity}]`;
+        buyMessage = `**${si.item.name}**: ${buyPrice}`;
       }
     });
     const fields: EmbedField[] = [];

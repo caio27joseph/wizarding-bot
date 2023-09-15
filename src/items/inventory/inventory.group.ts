@@ -32,23 +32,7 @@ export class InventoryGroup {
       ephemeral: true,
     });
 
-    const inventory = await this.inventoryService.getOrCreate(
-      {
-        where: {
-          player: {
-            id: player.id,
-          },
-        },
-        relations: {
-          stacks: {
-            item: true,
-          },
-        },
-      },
-      {
-        player,
-      },
-    );
+    const inventory = await this.inventoryService.get(player);
     inventory.stacks = inventory.stacks || [];
 
     const inventoryImageBuffer = await createInventoryGridImage(
@@ -78,23 +62,7 @@ export class InventoryGroup {
       ephemeral: true,
     });
 
-    const inventory = await this.inventoryService.getOrCreate(
-      {
-        where: {
-          player: {
-            id: player.id,
-          },
-        },
-        relations: {
-          stacks: {
-            item: true,
-          },
-        },
-      },
-      {
-        player,
-      },
-    );
+    const inventory = await this.inventoryService.get(player);
     inventory.stacks = inventory.stacks || [];
 
     const pageHelper = new PaginationHelper({

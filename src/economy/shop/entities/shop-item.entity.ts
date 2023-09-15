@@ -47,7 +47,7 @@ export class ShopItem {
   item: Item;
 
   @Column({
-    default: 0,
+    default: 1,
   })
   quantity: number;
 

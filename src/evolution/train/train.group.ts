@@ -1,10 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { Group } from '~/discord/decorators/group.decorator';
 import {
+  AttachmentBuilder,
   ButtonStyle,
   CommandInteraction,
   EmbedBuilder,
   EmbedField,
+  InteractionReplyOptions,
 } from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
 import { RollService } from '~/roll/roll.service';
@@ -36,7 +38,7 @@ import { SpellActionContext } from '~/spell/spell.menu.group';
 import { GrimoireService } from '~/grimoire/grimoire.service';
 import { MessageCollectorHelper } from '~/discord/helpers/message-collector-helper';
 import { RollsD10 } from '~/roll/entities/roll.entity';
-import { Spell } from '~/spell/entities/spell.entity';
+import { Spell, maestryNumToName } from '~/spell/entities/spell.entity';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { ButtonConfig, FormHelper } from '~/discord/helpers/form-helper';
 import { Grimoire } from '~/grimoire/entities/grimoire.entity';
@@ -107,6 +109,47 @@ export class TrainGroup {
     private readonly rollService: RollService,
     private readonly eventEmitter: EventEmitter2,
   ) {}
+
+  async beautify(spell: Spell, trains: Train[]) {
+    const progress = await this.trainSpellService.progressData({
+      trains,
+      spell: spell,
+    });
+    const embed = new EmbedBuilder().setTitle(
+      `:magic_wand: Maestria de ${spell.name}`,
+    );
+
+    embed.setDescription(
+      `***Maestria ${maestryNumToName[progress.currentLevel]}***: ` +
+        spell.maestry.find((m) => m.level === progress.currentLevel)
+          .description,
+    );
+    embed.setFields(
+      {
+        name: ':student: Progresso',
+        value: `Treinos Totais: ${progress.totalTrains}\nXP Total: ${progress.totalXp}`,
+        inline: true,
+      },
+      {
+        name: ':dna: Evolução',
+        value: `XP ${progress.xpTowardsNextLevel}/${progress.necessaryXP}`,
+        inline: true,
+      },
+    );
+    const buffer = this.trainSpellService.createSpellMasteryImage(
+      progress.xpTowardsNextLevel,
+      progress.necessaryXP,
+    );
+    const attachment = new AttachmentBuilder(buffer, {
+      name: 'spell-mastery.png',
+    });
+
+    embed.setImage('attachment://spell-mastery.png');
+    return {
+      embeds: [embed],
+      files: [attachment],
+    };
+  }
 
   @Command({
     name: 'default',
@@ -252,7 +295,6 @@ export class TrainGroup {
         },
       });
     }
-
     await new FormHelper<SpellTrainOptions>(interaction, {
       label: `Treinar ${spell.name} ${
         spell.category.length === 1 ? `\n> Controle + ${spell.category[0]}` : ''
@@ -262,7 +304,7 @@ export class TrainGroup {
         {
           placeholder: 'Estilo de Treino (Padrão: Treino Sozinho)',
           propKey: 'group',
-          options: [
+          choices: [
             {
               label: 'Treino Sozinho',
               value: TrainGroupOption.SOLO,
@@ -293,7 +335,7 @@ export class TrainGroup {
         {
           placeholder: `Rolagens Disponíveis (Padrão: Controle + ${spell.category[0]})})`,
           propKey: 'magicSchool',
-          options: spell.category.map((c) => ({
+          choices: spell.category.map((c) => ({
             label: `Controle + ${c}`,
             value: c,
           })),
@@ -302,7 +344,6 @@ export class TrainGroup {
         },
       ],
     }).init();
-    //
   }
 
   async startTrain({
@@ -396,9 +437,15 @@ export class TrainGroup {
     });
 
     if (interaction.isRepliable()) {
-      // const progress = await this.getMenuPrompt(context);
-      // (progress as InteractionReplyOptions).ephemeral = true;
-      // await context.interaction.followUp(progress);
+      const trains = await this.trainService.findAll({
+        where: {
+          spellId: spell.id,
+          playerId: player.id,
+        },
+      });
+      const progress = await this.beautify(spell, trains);
+      (progress as InteractionReplyOptions).ephemeral = true;
+      await interaction.followUp(progress);
     }
 
     this.eventEmitter.emit('spell-train', {

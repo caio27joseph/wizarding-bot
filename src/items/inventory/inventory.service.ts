@@ -22,22 +22,40 @@ export class InventoryService extends BasicService<
     super(repo);
   }
 
-  async addItemToPlayerInventory(player: Player, item: Item, quantity: number) {
-    let inventory = await this.getOrCreate(
-      {
-        where: {
-          player: {
-            id: player.id,
-          },
-        },
-      },
-      {
-        player,
-      },
-    );
-    inventory = await this.findOne({
+  async addItemToInventory(inventory: Inventory, item: Item, quantity: number) {
+    let stack = inventory.stacks.find((i) => i.item.id === item.id);
+    if (quantity === 0) throw new Error('Receber 0 items não altera o total');
+    if (stack && quantity < 0) {
+      stack.quantity += quantity;
+      if (stack.quantity <= 0) {
+        await this.stackService.delete({
+          id: stack.id,
+        });
+        inventory.stacks = inventory.stacks.filter((i) => i.id !== stack.id);
+      }
+      return await this.stackService.save(stack);
+    }
+    if (stack) {
+      stack.quantity += quantity;
+      await this.stackService.save(stack);
+      return stack;
+    }
+    stack = await this.stackService.create({
+      item,
+      quantity,
+      inventory,
+    });
+    inventory.stacks.push(stack);
+    await this.repo.save(inventory);
+    return stack;
+  }
+
+  async get(player: Player) {
+    const oldEntity = await this.findOne({
       where: {
-        id: inventory.id,
+        player: {
+          id: player.id,
+        },
       },
       relations: {
         stacks: {
@@ -45,18 +63,13 @@ export class InventoryService extends BasicService<
         },
       },
     });
-    let stack = inventory.stacks.find((i) => i.item.id === item.id);
-    if (stack) {
-      stack.quantity += quantity;
-    } else {
-      stack = await this.stackService.create({
-        item,
-        quantity,
-        inventory,
-      });
-      inventory.stacks.push(stack);
+    if (oldEntity) {
+      return oldEntity;
     }
-    await this.repo.save(inventory);
-    return stack;
+    const data = this.repo.create({
+      player,
+    });
+    const entity = await this.repo.save(data);
+    return entity;
   }
 }

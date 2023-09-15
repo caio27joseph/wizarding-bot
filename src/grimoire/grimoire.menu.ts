@@ -31,7 +31,7 @@ import { GrimoireService } from './grimoire.service';
 import {
   FormConfig,
   FormHelper,
-  OptionConfig,
+  FieldChoice,
 } from '~/discord/helpers/form-helper';
 import { Group } from '~/discord/decorators/group.decorator';
 import { Command } from '~/discord/decorators/command.decorator';

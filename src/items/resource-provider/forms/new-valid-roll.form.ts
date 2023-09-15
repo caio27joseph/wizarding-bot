@@ -16,7 +16,7 @@ export const getNewValidRollForm = (context: ResourceProviderActionContext) => {
           placeholder: 'Rolagem secreta? [Não]',
           propKey: 'secret',
           defaultValue: false,
-          options: ['Sim', 'Não'].map((n) => ({
+          choices: ['Sim', 'Não'].map((n) => ({
             label: n.toString(),
             value: n.toString(),
           })),
@@ -26,7 +26,7 @@ export const getNewValidRollForm = (context: ResourceProviderActionContext) => {
           placeholder: 'Meta para drop máximo [3]',
           propKey: 'metaForMaxDrop',
           defaultValue: 3,
-          options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+          choices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
             (n) => ({
               label: n.toString() + ' de Meta',
               value: n.toString(),

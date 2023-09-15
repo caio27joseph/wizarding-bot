@@ -12,7 +12,7 @@ import {
 import { v4 as uuidv4 } from 'uuid'; // Ensure you have uuid installed.
 import { ActionContext } from './menu-helper';
 
-export type OptionConfig = {
+export type FieldChoice = {
   label: string;
   value: any;
 };
@@ -22,7 +22,7 @@ export type FormFieldConfig<P> = {
   propKey: keyof P;
   defaultValue?: any;
   pipe?: (value: string) => any;
-  options: OptionConfig[];
+  choices: FieldChoice[];
   disabled?: boolean;
 };
 
@@ -60,7 +60,7 @@ export class FormHelper<Props> {
       const selectMenu = new StringSelectMenuBuilder()
         .setCustomId(generatedId) // Use the generated UUID
         .setPlaceholder(field.placeholder)
-        .setOptions(field.options);
+        .setOptions(field.choices);
 
       const formRow =
         new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
@@ -109,11 +109,10 @@ export class FormHelper<Props> {
     collector.on(
       'collect',
       async (i: StringSelectMenuInteraction | ButtonInteraction) => {
+        await i.deferUpdate();
         if (i instanceof StringSelectMenuInteraction) {
           const fieldConfig = this.selectIdMap.get(i.customId);
           if (fieldConfig) {
-            await i.deferReply({ ephemeral: true });
-
             let value: any;
             if (fieldConfig.pipe) {
               value = fieldConfig.pipe(i.values[0]);
@@ -121,10 +120,8 @@ export class FormHelper<Props> {
               value = i.values[0];
             }
             props[fieldConfig.propKey] = value;
-            await i.deleteReply();
           }
         } else if (i instanceof ButtonInteraction) {
-          await i.deferReply({ ephemeral: true });
           const buttonConfig = this.buttonIdMap.get(i.customId);
           if (buttonConfig) {
             try {
@@ -135,10 +132,8 @@ export class FormHelper<Props> {
               } catch (error) {
                 debugger;
               }
-              await i.deleteReply();
               await buttonConfig.handler(i, props as any);
             } catch (error) {
-              await i.deleteReply();
               await this.interaction.followUp({
                 content: `Erro ao processar ação: ${error.message}`,
                 ephemeral: true,
@@ -159,4 +154,73 @@ export class FormHelper<Props> {
     return this.collectFormResponses();
   }
 }
-1;
+export class FormHelperBuilder<Props> {
+  private _configOptions: FormConfig<Props> = {
+    label: '',
+    fields: [],
+    buttons: [],
+  };
+  private _resolvePromise!: (value: Props | PromiseLike<Props>) => void;
+  private _rejectPromise!: (reason?: any) => void;
+
+  constructor(config?: FormConfig<Props>) {
+    if (config) {
+      this._configOptions = config;
+    }
+  }
+
+  setLabel(labelTemplate: string): this {
+    this._configOptions.label = labelTemplate;
+    return this;
+  }
+
+  addFields(...fields: FormFieldConfig<Props>[]): this {
+    this._configOptions.fields.push(...fields);
+    return this;
+  }
+
+  addButtons(...buttons: ButtonConfig<Props>[]): this {
+    this._configOptions.buttons.push(...buttons);
+    return this;
+  }
+
+  private addDefaultButtons(): void {
+    // Cancel button
+    this._configOptions.buttons.push({
+      label: 'Cancelar',
+      style: ButtonStyle.Danger,
+      handler: async (interaction, props) => {
+        this._rejectPromise(new Error('Cancelado'));
+      },
+    });
+
+    // OK button
+    this._configOptions.buttons.push({
+      label: 'OK',
+      style: ButtonStyle.Success,
+      handler: async (interaction, props) => {
+        this._resolvePromise(props);
+      },
+    });
+  }
+
+  init(interaction: CommandInteraction): Promise<Props> {
+    return new Promise(async (resolve, reject) => {
+      this._resolvePromise = resolve;
+      this._rejectPromise = reject;
+
+      this.addDefaultButtons();
+
+      const formHelper = new FormHelper<Props>(
+        interaction,
+        this._configOptions,
+      );
+
+      try {
+        await formHelper.init();
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+}

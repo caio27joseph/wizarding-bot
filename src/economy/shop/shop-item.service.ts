@@ -4,6 +4,7 @@ import { ShopItem } from './entities/shop-item.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeepPartial, Repository } from 'typeorm';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
+import { Shop } from './entities/shop.entity';
 
 @Injectable()
 export class ShopItemService extends BasicService<
@@ -18,16 +19,24 @@ export class ShopItemService extends BasicService<
     super(repo);
   }
 
-  async addItemToShop(data: DeepPartial<ShopItem>): Promise<ShopItem> {
+  async addItemToShop(
+    shop: Shop,
+    data: DeepPartial<ShopItem>,
+  ): Promise<ShopItem> {
+    const items = shop.items;
+    if (items.length >= 25) {
+      throw new Error('Não é possível adicionar mais itens a esta loja');
+    }
     const item = await this.findOne({
       where: {
-        shop: { id: data.shop.id },
+        shop: { id: shop.id },
         item: { id: data.item.id },
       },
     });
     if (item) {
       const newItem = {
         ...data,
+        shop,
         quantity: item.quantity + data.quantity,
       };
       await this.update(

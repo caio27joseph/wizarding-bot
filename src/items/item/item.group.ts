@@ -107,6 +107,8 @@ export class ItemGroup {
     amount: number,
   ) {
     await i.deferReply({ ephemeral: true });
+    if (amount <= 0)
+      return i.followUp(`${i.user} a quantidade deve ser maior que 0`);
 
     const drops = await space.itemDrops;
 
@@ -126,8 +128,9 @@ export class ItemGroup {
 
     const total = amount > drop.amount ? drop.amount : amount;
 
-    const stack = await this.inventoryService.addItemToPlayerInventory(
-      player,
+    const inventory = await this.inventoryService.get(player);
+    const stack = await this.inventoryService.addItemToInventory(
+      inventory,
       item,
       total,
     );

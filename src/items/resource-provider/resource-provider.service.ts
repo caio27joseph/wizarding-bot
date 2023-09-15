@@ -105,7 +105,7 @@ export class ResourceProviderService extends BasicService<
       },
     );
     if (message.split(' ').length <= 2) {
-      await i.followUp(`<@${i.user.id}> envie sua ação!`);
+      await i.followUp(`<@${i.user.id}> ação muito curta!`);
       return;
     }
     const possibleRolls = provider.availableRollsMessage();
@@ -141,13 +141,14 @@ export class ResourceProviderService extends BasicService<
     if (!drops)
       return i.followUp(`<@${player.discordId}> não conseguiu coletar nada...`);
 
-    const stack = await this.inventoryService.addItemToPlayerInventory(
-      player,
+    const inventory = await this.inventoryService.get(player);
+    const stack = await this.inventoryService.addItemToInventory(
+      inventory,
       item,
       drops,
     );
+    if (!stack) return i.followUp(`Você tem 0 ${item.name}`);
     stack.item.rarity = item.rarity;
-
     return i.followUp({
       content: `<@${player.discordId}> coletou '${item.name} x${drops}'\n`,
       embeds: [stack.toEmbed()],
@@ -158,7 +159,7 @@ export class ResourceProviderService extends BasicService<
     if (!provider.individualCooldown) {
       provider.lastTimeSearched = new Date();
       await this.save(provider);
-      return
+      return;
     }
     const history = await this.historyService.getHistory(provider, player);
     history.lastTimeSearched = new Date();
@@ -172,7 +173,7 @@ export class ResourceProviderService extends BasicService<
     this.searching.push(interaction.user.id);
     await interaction.followUp(
       `# ${interaction.user} faça uma rolagem de procura\n` +
-      '- /dr atributo:Raciocínio hab3:Percepção\n- /dr atributo:Raciocínio hab2:Investigação',
+        '- /dr atributo:Raciocínio hab3:Percepção\n- /dr atributo:Raciocínio hab2:Investigação',
     );
     try {
       const { roll }: RollEvent = await waitForEvent(

@@ -61,7 +61,7 @@ export class BonusMenuHelper {
         {
           placeholder: 'Onde é Aplicavel',
           propKey: 'target',
-          options: Object.keys(BonusTarget).map((k) => ({
+          choices: Object.keys(BonusTarget).map((k) => ({
             label: BonusTarget[k],
             value: BonusTarget[k],
           })),
@@ -69,7 +69,7 @@ export class BonusMenuHelper {
         {
           placeholder: 'Modificador de Bônus',
           propKey: 'modifier',
-          options: [
+          choices: [
             {
               label: 'Valor Adicionado',
               value: BonusModifier.Flat,
@@ -138,7 +138,7 @@ export class BonusMenuHelper {
         {
           placeholder: 'Tipo de Bônus',
           propKey: 'bonusType',
-          options: [
+          choices: [
             {
               label: 'Adicionar Dados',
               value: BonusType.Dice,
@@ -154,7 +154,7 @@ export class BonusMenuHelper {
         {
           placeholder: 'Quantidade',
           propKey: 'amount',
-          options: [-4, -3, -2, -1, 1, 2, 3, 4].map((k) => ({
+          choices: [-4, -3, -2, -1, 1, 2, 3, 4].map((k) => ({
             label: k.toString(),
             value: k.toString(),
           })),
@@ -205,7 +205,7 @@ export class BonusMenuHelper {
         {
           placeholder: 'Remover Bônus',
           propKey: 'id',
-          options: bonuses.map((bonus) => ({
+          choices: bonuses.map((bonus) => ({
             label: new BonusHelper(bonus).toLineDisplay(),
             value: bonus.id,
           })),
