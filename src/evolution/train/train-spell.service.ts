@@ -2,20 +2,35 @@ import { Injectable } from '@nestjs/common';
 import { Train, TrainGroupOption } from './entities/train.entity';
 import { Spell, SpellDifficultyEnum } from '~/spell/entities/spell.entity';
 import { MoreThan, Not, IsNull } from 'typeorm';
-import { ButtonInteraction, CacheType } from 'discord.js';
+import { ButtonInteraction, CacheType, CommandInteraction } from 'discord.js';
 import { createCanvas } from 'canvas';
 import { groupBy, sumBy } from 'lodash';
 import { TrainService } from './train.service';
 import { generateProgressBarEmoji } from '~/utils/emojiProgressBar';
 import { OnEvent } from '@nestjs/event-emitter';
-import { SpellTrainEvent } from './train-spell.menu';
 import { LearnService } from '../learn/learn.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { Player } from '~/core/player/entities/player.entity';
+import { MagicSchoolDisplayEnum } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 export class MaxSpellsTrainReached extends Error {}
 export class MaxSpellDayTrainReached extends Error {}
 
+export interface SpellTrainEvent {
+  train: Train;
+  player: Player;
+  options: SpellTrainOptions;
+  interaction: CommandInteraction;
+}
+
+export interface SpellTrainOptions {
+  spell?: Spell;
+  group?: TrainGroupOption;
+  magicSchool?: MagicSchoolDisplayEnum;
+  bonus?: number;
+  autoSuccess?: number;
+  double?: boolean;
+}
 @Injectable()
 export class TrainSpellService {
   constructor(

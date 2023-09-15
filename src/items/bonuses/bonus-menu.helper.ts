@@ -84,7 +84,7 @@ export class BonusMenuHelper {
         },
       ],
     };
-    return new FormHelper(context, config).init();
+    return new FormHelper(context.interaction, config).init();
   }
 
   public static addBonusForm<T extends ActionContext>(
@@ -163,7 +163,7 @@ export class BonusMenuHelper {
       ],
     };
 
-    return new FormHelper(context, config).init();
+    return new FormHelper(context.interaction, config).init();
   }
 
   public static removeBonus<T extends ActionContext>(
@@ -213,6 +213,6 @@ export class BonusMenuHelper {
       ],
     };
 
-    return new FormHelper(context, config).init();
+    return new FormHelper(context.interaction, config).init();
   }
 }

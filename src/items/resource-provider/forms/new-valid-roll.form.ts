@@ -53,7 +53,7 @@ export const getNewValidRollForm = (context: ResourceProviderActionContext) => {
       ],
     };
 
-    new FormHelper<NewValidRoll>(context, config).init();
+    new FormHelper<NewValidRoll>(context.interaction, config).init();
   });
   return promise;
 };

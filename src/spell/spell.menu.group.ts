@@ -1,16 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import {
-  ButtonInteraction,
-  CommandInteraction,
-  Interaction,
-  InteractionReplyOptions,
-} from 'discord.js';
+import { CommandInteraction } from 'discord.js';
 import { Group } from '~/discord/decorators/group.decorator';
-import {
-  ActionContext,
-  MenuAction,
-  MenuHelper,
-} from '~/discord/helpers/menu-helper';
+import { ActionContext } from '~/discord/helpers/menu-helper';
 import { Command } from '~/discord/decorators/command.decorator';
 import {
   ArgBoolean,
@@ -23,9 +14,8 @@ import {
 import { Guild } from '~/core/guild/guild.entity';
 import { Player } from '~/core/player/entities/player.entity';
 import { SpellService } from './spell.service';
-import { EntityAlreadyExists, EntityNotFound } from '~/discord/exceptions';
-import { TrainSpellMenu } from '~/evolution/train/train-spell.menu';
-import { FindOptionsWhere, ILike } from 'typeorm';
+import { EntityNotFound } from '~/discord/exceptions';
+import { ILike } from 'typeorm';
 import {
   PageHelperOptions,
   PaginationHelper,
@@ -35,7 +25,6 @@ import {
   SpellCategoryNameEnum,
   SpellDifficultyEnum,
 } from './entities/spell.entity';
-import { GrimoireMenu } from '~/grimoire/grimoire.menu';
 import { Grimoire } from '~/grimoire/entities/grimoire.entity';
 import { GrimoireService } from '~/grimoire/grimoire.service';
 import { LearnService } from '~/evolution/learn/learn.service';
@@ -51,26 +40,12 @@ export interface SpellActionContext extends ActionContext {
   description: 'Menu de feitiço',
 })
 @Injectable()
-export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
+export class SpellMenuGroup {
   constructor(
     private readonly spellService: SpellService,
-    private readonly trainMenu: TrainSpellMenu,
     private readonly grimoireService: GrimoireService,
     private readonly learnService: LearnService,
-  ) {
-    super();
-  }
-
-  buildUpContext(context: unknown): SpellActionContext {
-    return context as any;
-  }
-  getMenuPrompt(context: SpellActionContext): InteractionReplyOptions {
-    const message: InteractionReplyOptions = {
-      embeds: [context.spell.toEmbed()],
-      ephemeral: true,
-    };
-    return message;
-  }
+  ) {}
 
   @Command({
     name: 'default',
@@ -144,8 +119,10 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
     });
     if (!spell) throw new EntityNotFound('Feitiço', name);
     context.spell = spell;
-
-    await this.handle(context, true);
+    await interaction.followUp({
+      embeds: [spell.toEmbed()],
+      ephemeral: true,
+    });
   }
   async list(
     context: SpellActionContext,
@@ -264,10 +241,5 @@ export class SpellMenuGroup extends MenuHelper<SpellActionContext> {
       },
     };
     await new PaginationHelper(options).followUp(context.interaction);
-  }
-
-  @MenuAction('Maestria')
-  async train(context: SpellActionContext, i: ButtonInteraction) {
-    await this.trainMenu.handle(context);
   }
 }

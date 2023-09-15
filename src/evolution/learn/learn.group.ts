@@ -18,7 +18,7 @@ import { RollsD10 } from '~/roll/entities/roll.entity';
 import { waitForEvent } from '~/utils/wait-for-event';
 import { RollEvent } from '~/roll/roll.service';
 import { EventEmitter2 } from '@nestjs/event-emitter';
-import { magicSchoolKeyToDisplayMap } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { MagicSchoolPtBr } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Spell } from '~/spell/entities/spell.entity';
 import { GrimoireService } from '~/grimoire/grimoire.service';
 import { LearnLogService } from './learn-log.service';
@@ -202,7 +202,7 @@ export class LearnGroup {
           const correctAttribute = data.options.attribute === 'intelligence';
           const correctAbility = data.options.hab1 === 'academics';
           const correctMagicSchool = spell.category.includes(
-            magicSchoolKeyToDisplayMap[data.options.magicSchool],
+            MagicSchoolPtBr[data.options.magicSchool],
           );
 
           return (

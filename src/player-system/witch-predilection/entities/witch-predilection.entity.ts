@@ -66,7 +66,7 @@ export type MagicSchoolKeys =
 
 export const {
   displayToKeyMap: magicSchoolDisplayToKeyMap,
-  keyToDisplayMap: magicSchoolKeyToDisplayMap,
+  keyToDisplayMap: MagicSchoolPtBr,
 } = getDisplayKeyMaps<MagicSchoolKeys, MagicSchoolDisplays>(
   MagicSchoolDisplayEnum,
   MagicSchoolKeyEnum,

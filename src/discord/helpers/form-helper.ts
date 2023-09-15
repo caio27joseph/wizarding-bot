@@ -7,6 +7,7 @@ import {
   ButtonInteraction,
   CacheType,
   MessagePayload,
+  CommandInteraction,
 } from 'discord.js';
 import { v4 as uuidv4 } from 'uuid'; // Ensure you have uuid installed.
 import { ActionContext } from './menu-helper';
@@ -38,16 +39,15 @@ export type ButtonConfig<P> = {
 };
 
 export class FormHelper<Props> {
-  private context: ActionContext;
-  private formConfig: FormConfig<Props>;
   private hash: string; // Unique hash for each form instance
 
   private buttonIdMap: Map<string, ButtonConfig<Props>> = new Map();
   private selectIdMap: Map<string, FormFieldConfig<Props>> = new Map();
 
-  constructor(context: any, formConfig: FormConfig<Props>) {
-    this.context = context;
-    this.formConfig = formConfig;
+  constructor(
+    private readonly interaction: CommandInteraction,
+    private readonly formConfig: FormConfig<Props>,
+  ) {
     this.hash = uuidv4(); // Generate a unique hash for the instance
   }
   generateFormComponents() {
@@ -91,14 +91,14 @@ export class FormHelper<Props> {
   }
 
   async collectFormResponses() {
-    this.context.response = await this.context.interaction.editReply({
+    const response = await this.interaction.editReply({
       content: this.formConfig.label,
       components: this.generateFormComponents(),
     });
 
-    const collector = this.context.response.createMessageComponentCollector({
+    const collector = response.createMessageComponentCollector({
       time: 1000 * 60 * 10,
-      filter: (i) => i.user.id === this.context.interaction.user.id,
+      filter: (i) => i.user.id === this.interaction.user.id,
     });
 
     const props: Props = {} as any;
@@ -129,7 +129,7 @@ export class FormHelper<Props> {
           if (buttonConfig) {
             try {
               try {
-                await this.context.interaction.editReply({
+                await this.interaction.editReply({
                   components: [],
                 });
               } catch (error) {
@@ -139,7 +139,7 @@ export class FormHelper<Props> {
               await buttonConfig.handler(i, props as any);
             } catch (error) {
               await i.deleteReply();
-              await this.context.interaction.followUp({
+              await this.interaction.followUp({
                 content: `Erro ao processar ação: ${error.message}`,
                 ephemeral: true,
               });
@@ -150,14 +150,13 @@ export class FormHelper<Props> {
       },
     );
 
-    // collector.on('end', async (collected, reason) => {
-
-    // });
+    collector.on('end', async (collected, reason) => {});
+    return response;
   }
 
   async init() {
     this.generateFormComponents();
-    await this.collectFormResponses();
+    return this.collectFormResponses();
   }
 }
 1;

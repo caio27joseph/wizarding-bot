@@ -1,10 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { Group } from '~/discord/decorators/group.decorator';
-import { CommandInteraction } from 'discord.js';
+import {
+  ButtonStyle,
+  CommandInteraction,
+  EmbedBuilder,
+  EmbedField,
+} from 'discord.js';
 import { Player } from '~/core/player/entities/player.entity';
 import { RollService } from '~/roll/roll.service';
-import { MagicSchoolDisplayEnum } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
-import { TrainGroupOption } from './entities/train.entity';
+import {
+  MagicSchoolDisplayEnum,
+  MagicSchoolPtBr,
+} from '~/player-system/witch-predilection/entities/witch-predilection.entity';
+import { Train, TrainGroupOption } from './entities/train.entity';
 import { ILike } from 'typeorm';
 import { Guild } from '~/core/guild/guild.entity';
 import { Command } from '~/discord/decorators/command.decorator';
@@ -15,15 +23,23 @@ import {
   ArgPlayer,
   ArgString,
 } from '~/discord/decorators/message.decorators';
-import { groupBy, sumBy } from 'lodash';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
 import { SpellService } from '~/spell/spell.service';
 import { DiscordSimpleError } from '~/discord/exceptions';
-import { TrainSpellService } from './train-spell.service';
-import { TrainSpellMenu } from './train-spell.menu';
+import {
+  SpellTrainEvent,
+  SpellTrainOptions,
+  TrainSpellService,
+} from './train-spell.service';
 import { TrainService } from './train.service';
 import { SpellActionContext } from '~/spell/spell.menu.group';
 import { GrimoireService } from '~/grimoire/grimoire.service';
+import { MessageCollectorHelper } from '~/discord/helpers/message-collector-helper';
+import { RollsD10 } from '~/roll/entities/roll.entity';
+import { Spell } from '~/spell/entities/spell.entity';
+import { EventEmitter2 } from '@nestjs/event-emitter';
+import { ButtonConfig, FormHelper } from '~/discord/helpers/form-helper';
+import { Grimoire } from '~/grimoire/entities/grimoire.entity';
 
 export enum SpellTrainAction {
   SELECT_GROUP = 'spell-train-group-select',
@@ -51,11 +67,7 @@ export interface SpellTrainData {
 })
 @Injectable()
 export class MaestryGroup {
-  constructor(
-    private readonly trainService: TrainService,
-    private readonly trainSpellService: TrainSpellService,
-    private readonly spellService: SpellService,
-  ) {}
+  constructor(private readonly trainSpellService: TrainSpellService) {}
 
   @Command({
     name: 'feiticos',
@@ -89,8 +101,11 @@ export class MaestryGroup {
 export class TrainGroup {
   constructor(
     private readonly spellService: SpellService,
-    private readonly trainSpellMenu: TrainSpellMenu,
     private readonly grimoireService: GrimoireService,
+    private readonly trainService: TrainService,
+    private readonly trainSpellService: TrainSpellService,
+    private readonly rollService: RollService,
+    private readonly eventEmitter: EventEmitter2,
   ) {}
 
   @Command({
@@ -107,6 +122,18 @@ export class TrainGroup {
       required: false,
     })
     spellName?: string,
+    @ArgInteger({
+      name: 'Bônus',
+      description: 'Bônus de treino',
+      required: false,
+    })
+    bonus?: number,
+    @ArgInteger({
+      name: 'Sucessos Automáticos',
+      description: 'Duração de treino',
+      required: false,
+    })
+    autoSuccess?: number,
   ) {
     await interaction.deferReply({ ephemeral: true });
     if (!spellName) {
@@ -133,14 +160,264 @@ export class TrainGroup {
       },
     );
 
-    const context = await this.trainSpellMenu.buildUpContext({
+    const todayTrains = await this.trainSpellService.getTodayTrains(player.id);
+
+    return await this.doTrain({
       interaction,
       guild,
       player,
-      spell,
       grimoire,
-    } as SpellActionContext);
+      todayTrains,
+      options: {
+        autoSuccess,
+        bonus,
+        spell,
+      },
+    });
+  }
 
-    return await this.trainSpellMenu.train(context);
+  async doTrain({
+    todayTrains,
+    grimoire,
+    interaction,
+    player,
+    guild,
+    options,
+  }: {
+    todayTrains: Train[];
+    grimoire: Grimoire;
+    interaction: CommandInteraction;
+    player: Player;
+    guild: Guild;
+    options: SpellTrainOptions;
+  }) {
+    const { spell } = options;
+    await this.trainSpellService.validate({
+      spell,
+      todayTrains,
+      player,
+    });
+
+    if (!grimoire.spells.some((s) => s.id === spell.id)) {
+      return await interaction.followUp(
+        'Você não conhece esse feitiço, use /grimorio aprender',
+      );
+    }
+
+    const canDoubleTrain = this.trainSpellService.canDoubleTrain({
+      todayTrains,
+      spell,
+    });
+    const buttons: ButtonConfig<SpellTrainOptions>[] = [
+      {
+        label: 'Cancelar',
+        style: ButtonStyle.Danger,
+        handler: async (i, props) => {
+          throw new DiscordSimpleError('Treino cancelado');
+        },
+      },
+      {
+        label: 'Treinar',
+        style: ButtonStyle.Primary,
+        handler: async (i, props) => {
+          await this.startTrain({
+            guild,
+            interaction,
+            player,
+            options: {
+              ...options,
+              ...props,
+              double: false,
+            },
+          });
+        },
+      },
+    ];
+
+    if (canDoubleTrain) {
+      buttons.push({
+        label: 'Treinar x2',
+        style: ButtonStyle.Secondary,
+        handler: async (i, props) => {
+          await this.startTrain({
+            guild,
+            interaction,
+            player,
+            options: {
+              ...options,
+              ...props,
+              double: true,
+            },
+          });
+        },
+      });
+    }
+
+    await new FormHelper<SpellTrainOptions>(interaction, {
+      label: `Treinar ${spell.name} ${
+        spell.category.length === 1 ? `\n> Controle + ${spell.category[0]}` : ''
+      }`,
+      buttons,
+      fields: [
+        {
+          placeholder: 'Estilo de Treino (Padrão: Treino Sozinho)',
+          propKey: 'group',
+          options: [
+            {
+              label: 'Treino Sozinho',
+              value: TrainGroupOption.SOLO,
+            },
+            {
+              label: 'Treino em Dupla',
+              value: TrainGroupOption.DUO,
+            },
+            {
+              label: 'Treino em Trio',
+              value: TrainGroupOption.TRIO,
+            },
+            {
+              label: 'Treino em Grupo',
+              value: TrainGroupOption.GROUP,
+            },
+            {
+              label: 'Treino com Tutor (Monitor / Especialista)',
+              value: TrainGroupOption.TUTOR,
+            },
+            {
+              label: 'Treino com Professor',
+              value: TrainGroupOption.PROFESSOR,
+            },
+          ],
+          defaultValue: TrainGroupOption.SOLO,
+        },
+        {
+          placeholder: `Rolagens Disponíveis (Padrão: Controle + ${spell.category[0]})})`,
+          propKey: 'magicSchool',
+          options: spell.category.map((c) => ({
+            label: `Controle + ${c}`,
+            value: c,
+          })),
+          defaultValue: spell.category[0],
+          disabled: spell.category.length === 1,
+        },
+      ],
+    }).init();
+    //
+  }
+
+  async startTrain({
+    interaction,
+    player,
+    guild,
+    options,
+  }: {
+    interaction: CommandInteraction;
+    player: Player;
+    guild: Guild;
+    options: SpellTrainOptions;
+  }) {
+    const { group, magicSchool, bonus, autoSuccess, double, spell } = options;
+    const embed = new EmbedBuilder();
+    embed.setTitle(`Treino de ${spell.name}`);
+    const fields: EmbedField[] = [];
+    if (bonus) {
+      fields.push({
+        name: 'Bônus de Treino',
+        value: bonus.toString(),
+        inline: true,
+      });
+    }
+    if (autoSuccess) {
+      fields.push({
+        name: 'Sucessos Automáticos',
+        value: autoSuccess.toString(),
+        inline: true,
+      });
+    }
+    fields.push(
+      {
+        name: 'Estilo de Treino',
+        value: group,
+        inline: true,
+      },
+      {
+        name: 'Rolagem',
+        value: `Controle + ${magicSchool}`,
+        inline: true,
+      },
+      {
+        name: 'Treino Duplo?',
+        value: double ? 'Sim' : 'Não',
+        inline: true,
+      },
+    );
+    embed.setFields(fields);
+    const message = await new MessageCollectorHelper(interaction).message({
+      content: 'Envie a ação de treino completar',
+      embeds: [embed],
+      ephemeral: true,
+    });
+
+    const rolls: RollsD10[] = [];
+    const roll = await this.rollService.roll10(interaction, player, {
+      magicSchool: MagicSchoolPtBr[magicSchool],
+      extras: 'control',
+      autoSuccess,
+      bonus,
+      message: spell.name,
+    });
+    rolls.push(roll);
+    if (double) {
+      const roll = await this.rollService.roll10(interaction, player, {
+        magicSchool: MagicSchoolPtBr[magicSchool],
+        extras: 'control',
+        autoSuccess,
+        bonus,
+        message: spell.name,
+      });
+      rolls.push(roll);
+    }
+    // total should be the total sum of rolls array
+    const train = await this.trainService.create({
+      success: rolls.reduce((acc, curr) => acc + curr.total, 0),
+      channelId: interaction.channelId,
+      messageId: message.id,
+      spell: spell,
+      spellId: spell.id,
+      player: player,
+      playerId: player.id,
+      group,
+      double,
+    });
+
+    await message.reply({
+      content: train.toShortText(),
+      embeds: rolls.map((r) => r.toEmbed()),
+    });
+
+    if (interaction.isRepliable()) {
+      // const progress = await this.getMenuPrompt(context);
+      // (progress as InteractionReplyOptions).ephemeral = true;
+      // await context.interaction.followUp(progress);
+    }
+
+    this.eventEmitter.emit('spell-train', {
+      train,
+      player,
+      interaction,
+      options,
+    } as SpellTrainEvent);
+
+    if (!guild.trainLogChannel) {
+      return;
+    }
+
+    await guild.trainLogChannel.send({
+      content:
+        `<@${player.discordId}> realizou um treino de ${spell.name}, Ação: ` +
+        `https://discord.com/channels/${message.guildId}/${message.channelId}/${message.id}` +
+        `\nID: ${train.id}`,
+      embeds: [train.toEmbed()],
+    });
   }
 }

@@ -50,7 +50,7 @@ import { generateProgressBarEmoji } from '~/utils/emojiProgressBar';
 import { SpellActionContext } from '~/spell/spell.menu.group';
 import {
   MagicSchoolKeys,
-  magicSchoolKeyToDisplayMap,
+  MagicSchoolPtBr,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 interface Props {
@@ -189,12 +189,10 @@ export class GrimoireMenu {
       name: 'Escola_Magica',
       description: 'Escola do feitiço',
       required: false,
-      choices: Object.entries(magicSchoolKeyToDisplayMap).map(
-        ([key, value]) => ({
-          name: value,
-          value: key,
-        }),
-      ),
+      choices: Object.entries(MagicSchoolPtBr).map(([key, value]) => ({
+        name: value,
+        value: key,
+      })),
     })
     category?: MagicSchoolKeys,
     @ArgString({

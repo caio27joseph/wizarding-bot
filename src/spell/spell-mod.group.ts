@@ -17,13 +17,12 @@ import { Spell, SpellDifficultyEnum } from './entities/spell.entity';
 import { GrimoireMenu } from '~/grimoire/grimoire.menu';
 import {
   MagicSchoolKeys,
-  magicSchoolKeyToDisplayMap,
+  MagicSchoolPtBr,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { ILike } from 'typeorm';
 import { DiscordSimpleError } from '~/discord/exceptions';
 import { TrainService } from '~/evolution/train/train.service';
 import { TrainGroupOption } from '~/evolution/train/entities/train.entity';
-import { TrainSpellMenu } from '~/evolution/train/train-spell.menu';
 import { MaestryGroup, TrainGroup } from '~/evolution/train/train.group';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
 import { Learn } from '~/evolution/learn/entities/learn.entity';
@@ -95,12 +94,10 @@ export class SpellModGroup {
       name: 'Escola_Magica',
       description: 'Escola do feitiço',
       required: false,
-      choices: Object.entries(magicSchoolKeyToDisplayMap).map(
-        ([key, value]) => ({
-          name: value,
-          value: key,
-        }),
-      ),
+      choices: Object.entries(MagicSchoolPtBr).map(([key, value]) => ({
+        name: value,
+        value: key,
+      })),
     })
     category?: MagicSchoolKeys,
     @ArgString({

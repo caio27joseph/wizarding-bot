@@ -85,8 +85,16 @@ export abstract class MenuHelper<T extends ActionContext> {
     });
     collector.on('collect', async (i: ButtonInteraction) => {
       try {
-        await (await i.deferReply({ ephemeral: true })).delete();
+        await i.deferUpdate();
         collector.stop();
+        content.components = [
+          await this.options({
+            disabled: true,
+            hash: this.__hash,
+          }),
+        ];
+        await context.interaction.editReply(content);
+
         await this.redirect(context as T, i);
       } catch (error) {
         const canReply = i.isRepliable();

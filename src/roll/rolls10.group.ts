@@ -17,7 +17,7 @@ import { Player } from '~/core/player/entities/player.entity';
 
 import {
   MagicSchoolKeys,
-  magicSchoolKeyToDisplayMap,
+  MagicSchoolPtBr,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { nonConvPredilectionsChoices } from '~/player-system/nonconv-predilection/entities/nonconv-predilections.entity';
 import { extrasChoices } from '~/player-system/extras/entities/extras.entity';
@@ -113,12 +113,10 @@ export class Rolls10Group {
     @ArgString({
       name: 'Escola Mágica',
       description: 'Escola Mágica a ser rolada',
-      choices: Object.entries(magicSchoolKeyToDisplayMap).map(
-        ([key, value]) => ({
-          name: value,
-          value: key,
-        }),
-      ),
+      choices: Object.entries(MagicSchoolPtBr).map(([key, value]) => ({
+        name: value,
+        value: key,
+      })),
       required: false,
     })
     magicSchool?: MagicSchoolKeys,

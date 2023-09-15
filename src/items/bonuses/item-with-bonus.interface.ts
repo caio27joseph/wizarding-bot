@@ -9,7 +9,7 @@ import {
 } from '~/player-system/attribute/entities/attributes.entity';
 import {
   MagicSchoolDisplays,
-  magicSchoolKeyToDisplayMap,
+  MagicSchoolPtBr,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 
 export enum BonusTarget {
@@ -69,9 +69,9 @@ export class BonusHelper {
   get choices() {
     switch (this.bonus.target) {
       case BonusTarget.SpellCategory:
-        return magicSchoolKeyToDisplayMap;
+        return MagicSchoolPtBr;
       case BonusTarget.MagicSchool:
-        return magicSchoolKeyToDisplayMap;
+        return MagicSchoolPtBr;
       case BonusTarget.Attribute:
         return attributeChoices;
     }
@@ -81,9 +81,9 @@ export class BonusHelper {
   get displayKey() {
     switch (this.bonus.target) {
       case BonusTarget.SpellCategory:
-        return magicSchoolKeyToDisplayMap[this.bonus.targetKey];
+        return MagicSchoolPtBr[this.bonus.targetKey];
       case BonusTarget.MagicSchool:
-        return magicSchoolKeyToDisplayMap[this.bonus.targetKey];
+        return MagicSchoolPtBr[this.bonus.targetKey];
       case BonusTarget.Attribute:
         return attributeKeyToDisplayMap[this.bonus.targetKey];
       case BonusTarget.AllSpells:

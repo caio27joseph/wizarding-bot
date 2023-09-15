@@ -91,7 +91,10 @@ const getForm3 = (context: ResourceProviderActionContext) => {
         ],
       };
 
-      new FormHelper<NewResourceProviderProps3>(context, config).init();
+      new FormHelper<NewResourceProviderProps3>(
+        context.interaction,
+        config,
+      ).init();
     },
   );
   return promise;
@@ -168,7 +171,10 @@ const getForm2 = (context: ResourceProviderActionContext) => {
         ],
       };
 
-      new FormHelper<NewResourceProviderProps2>(context, config).init();
+      new FormHelper<NewResourceProviderProps2>(
+        context.interaction,
+        config,
+      ).init();
     },
   );
   return promise;
@@ -251,7 +257,10 @@ const getForm1 = (context: ResourceProviderActionContext) => {
         ],
       };
 
-      new FormHelper<NewResourceProviderProps1>(context, config).init();
+      new FormHelper<NewResourceProviderProps1>(
+        context.interaction,
+        config,
+      ).init();
     },
   );
   return promise;

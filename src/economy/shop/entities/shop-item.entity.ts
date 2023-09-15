@@ -13,7 +13,13 @@ import { Item } from '~/items/item/entities/item.entity';
 export enum ShopType {
   SELL = 'sell',
   BUY = 'buy',
+  BOTH = 'both',
 }
+export const ShopTypePtBr = {
+  [ShopType.SELL]: 'Venda',
+  [ShopType.BUY]: 'Compra',
+  [ShopType.BOTH]: 'Compra e Venda',
+};
 
 @Entity()
 export class ShopItem {
@@ -40,7 +46,9 @@ export class ShopItem {
   @JoinColumn()
   item: Item;
 
-  @Column()
+  @Column({
+    default: 0,
+  })
   quantity: number;
 
   @Column({

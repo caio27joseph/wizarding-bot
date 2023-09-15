@@ -7,9 +7,9 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Player } from '~/core/player/entities/player.entity';
-import { ShopItem } from './shop-item.entity';
+import { ShopItem, ShopType } from './shop-item.entity';
 import { Space } from '~/spaces/space/entities/space.entity';
-import { EmbedBuilder } from 'discord.js';
+import { EmbedBuilder, EmbedField } from 'discord.js';
 
 @Entity()
 export class Shop {
@@ -43,17 +43,30 @@ export class Shop {
   toEmbed(): EmbedBuilder {
     const embed = new EmbedBuilder();
     embed.setTitle(this.name ?? 'Loja');
-    const descriptions = this.items.map((item) => {
-      let sellMessage = '';
-      let buyMessage = '';
+    let sellMessage = '';
+    let buyMessage = '';
+    this.items = this.items || [];
+    this.items.forEach((si) => {
+      const buyPrice = 'G ' + si.buyPrice.toFixed(2);
+      const sellPrice = 'G ' + si.sellPrice.toFixed(2);
 
-      const buyPrice = 'G$' + item.buyPrice.toFixed(2);
-      const sellPrice = 'G$' + item.sellPrice.toFixed(2);
-
-      if (item.type === 'buy') {
-        buyMessage = `**Comprar**: ${buyPrice}`;
+      if (si.type === ShopType.BOTH) {
+        buyMessage = `**${si.item.name}**: ${buyPrice} [x${si.quantity}]`;
+        sellMessage = `**${si.item.name}**: ${sellPrice} [x${si.quantity}]`;
+      }
+      if (si.type === ShopType.SELL) {
+        sellMessage = `**${si.item.name}**: ${sellPrice} [x${si.quantity}]`;
+      }
+      if (si.type === ShopType.BUY) {
+        buyMessage = `**${si.item.name}**: ${buyPrice} [x${si.quantity}]`;
       }
     });
+    const fields: EmbedField[] = [];
+    if (buyMessage)
+      fields.push({ name: 'Comprar', value: buyMessage, inline: true });
+    if (sellMessage)
+      fields.push({ name: 'Vender', value: sellMessage, inline: true });
+    embed.addFields(fields);
     return embed;
   }
 }

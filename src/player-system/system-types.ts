@@ -9,7 +9,7 @@ import {
 import {
   MagicSchoolDisplayEnum,
   magicSchoolDisplayToKeyMap,
-  magicSchoolKeyToDisplayMap,
+  MagicSchoolPtBr,
 } from './witch-predilection/entities/witch-predilection.entity';
 import {
   AbilitiesDisplayEnum,
@@ -49,7 +49,7 @@ export const pointsKeyToTargetDisplayMap = {
 export const pointsKeyToTargetKeyMap = {
   [PointsKeyEnum.Attribute]: attributeKeyToDisplayMap,
   [PointsKeyEnum.Ability]: abilitiesKeyToDisplayMap,
-  [PointsKeyEnum.MagicSchool]: magicSchoolKeyToDisplayMap,
+  [PointsKeyEnum.MagicSchool]: MagicSchoolPtBr,
 };
 
 export type AvailablePointsEnums =
