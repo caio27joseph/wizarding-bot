@@ -32,6 +32,7 @@ export class InventoryService extends BasicService<
           id: stack.id,
         });
         inventory.stacks = inventory.stacks.filter((i) => i.id !== stack.id);
+        return;
       }
       return await this.stackService.save(stack);
     }
