@@ -13,6 +13,7 @@ import { RollService } from '~/roll/roll.service';
 import {
   MagicSchoolDisplayEnum,
   MagicSchoolPtBr,
+  magicSchoolDisplayToKeyMap,
 } from '~/player-system/witch-predilection/entities/witch-predilection.entity';
 import { Train, TrainGroupOption } from './entities/train.entity';
 import { ILike } from 'typeorm';
@@ -401,7 +402,7 @@ export class TrainGroup {
 
     const rolls: RollsD10[] = [];
     const roll = await this.rollService.roll10(interaction, player, {
-      magicSchool: MagicSchoolPtBr[magicSchool],
+      magicSchool: magicSchoolDisplayToKeyMap[magicSchool],
       extras: 'control',
       autoSuccess,
       bonus,
@@ -410,7 +411,7 @@ export class TrainGroup {
     rolls.push(roll);
     if (double) {
       const roll = await this.rollService.roll10(interaction, player, {
-        magicSchool: MagicSchoolPtBr[magicSchool],
+        magicSchool: magicSchoolDisplayToKeyMap[magicSchool],
         extras: 'control',
         autoSuccess,
         bonus,
