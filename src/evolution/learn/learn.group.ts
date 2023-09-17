@@ -59,7 +59,7 @@ export class LearnGroup {
 
     if (!spellName) {
       await interaction.editReply(
-        `<@${interaction.user.id}> precisa informar o nome do feitiço`,
+        `${interaction.user} precisa informar o nome do feitiço`,
       );
       return;
     }
@@ -72,16 +72,10 @@ export class LearnGroup {
       },
     });
 
-    const logs = await this.learnLogService.findAll({
-      where: {
-        player: {
-          id: player.id,
-        },
-      },
-    });
+    const logs = await this.learnLogService.todayLogs(player);
     if (logs.length >= 3) {
       await interaction.editReply(
-        `<@${interaction.user.id}> já estudou 6 magias hoje, espere até amanhã para aprender mais`,
+        `${interaction.user} já estudou 3 magias hoje, espere até amanhã para aprender mais`,
       );
       return;
     }
@@ -89,7 +83,7 @@ export class LearnGroup {
     const logsForSpell = logs.filter((l) => l.spell.id === spell.id);
     if (logsForSpell.length >= 2) {
       await interaction.editReply(
-        `<@${interaction.user.id}> já estudou o feitiço ${spell.name} hoje, espere até amanhã para aprender mais`,
+        `${interaction.user} já estudou o feitiço ${spell.name} hoje, espere até amanhã para aprender mais`,
       );
       return;
     }
@@ -110,7 +104,7 @@ export class LearnGroup {
     );
     if (grimoire.spells.find((s) => s.id === spell.id)) {
       await interaction.editReply(
-        `<@${interaction.user.id}> já tem o feitiço ${spell.name} no grimório`,
+        `${interaction.user} já tem o feitiço ${spell.name} no grimório`,
       );
       return;
     }
@@ -134,7 +128,7 @@ export class LearnGroup {
     );
     if (learn.progress >= spell.necessaryLearns) {
       await interaction.editReply(
-        `<@${interaction.user.id}> já estudou o feitiço ${spell.name} com progresso ${learn.progress}/${spell.necessaryLearns}`,
+        `${interaction.user} já estudou o feitiço ${spell.name} com progresso ${learn.progress}/${spell.necessaryLearns}`,
       );
       return;
     }
@@ -151,7 +145,7 @@ export class LearnGroup {
 
     if (!success) {
       await interaction.followUp(
-        `<@${interaction.user.id}> falhou em estudar o feitiço ${spell.name}`,
+        `${interaction.user} falhou em estudar o feitiço ${spell.name}`,
       );
       return;
     }
@@ -161,13 +155,13 @@ export class LearnGroup {
       grimoire.spells.push(spell);
       await this.grimoireService.save(grimoire);
       await interaction.followUp(
-        `<@${interaction.user.id}> aprendeu o feitiço ${spell.name} e ele foi adicionado ao grimório`,
+        `${interaction.user} aprendeu o feitiço ${spell.name} e ele foi adicionado ao grimório`,
       );
       return;
     }
 
     await interaction.followUp(
-      `<@${interaction.user.id}> estudou o feitiço ${spell.name} com progresso ${learn.progress}/${spell.necessaryLearns}`,
+      `${interaction.user} estudou o feitiço ${spell.name} com progresso ${learn.progress}/${spell.necessaryLearns}`,
     );
   }
 
@@ -182,13 +176,13 @@ export class LearnGroup {
   }) {
     await interaction.editReply({
       content:
-        `Você precisa rolar o treino!\n` +
+        `# Use uma das rolagens para executar o treino!\n` +
         spell.category
           .map(
             (c) =>
-              `Use /dr atributo:Inteligência hab1:Acadêmicos escola_magica:${c}`,
+              `- /dr atributo:Inteligência hab1:Acadêmicos escola_magica:${c}`,
           )
-          .join('\n ou '),
+          .join('\n'),
     });
     let chances = 3;
     for (let i = 0; i < chances; i++) {

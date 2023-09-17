@@ -12,6 +12,7 @@ import {
   Repository,
 } from 'typeorm';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
+import { Player } from '~/core/player/entities/player.entity';
 
 @Injectable()
 export class LearnLogService extends BasicService<
@@ -26,7 +27,7 @@ export class LearnLogService extends BasicService<
     super(repo);
   }
 
-  async todayLogs(playerId: string) {
+  async todayLogs({ id }: Player) {
     const now = new Date();
     const today6am = new Date(now);
     today6am.setHours(9, 0, 0, 0);
@@ -40,7 +41,7 @@ export class LearnLogService extends BasicService<
     const logs = await this.findAll({
       where: {
         player: {
-          id: playerId,
+          id,
         },
         createdAt: MoreThan(startTime),
         spell: { id: Not(IsNull()) },
