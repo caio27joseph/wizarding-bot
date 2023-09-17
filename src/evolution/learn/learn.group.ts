@@ -177,9 +177,10 @@ export class LearnGroup {
     player: Player;
   }) {
     if (this.runningRolls.has(player.id)) {
-      await interaction.editReply(
+      throw new Error(
         `${interaction.user} já está rolando para aprender uma magia`,
       );
+
       return;
     }
     this.runningRolls.set(player.id, player);
