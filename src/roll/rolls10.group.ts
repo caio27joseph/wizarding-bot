@@ -133,13 +133,7 @@ export class Rolls10Group {
       required: false,
       choices: extrasChoices,
     })
-    extras?: string,
-    @ArgInteger({
-      name: 'Meta',
-      description: 'Meta de sucesso',
-      required: false,
-    })
-    meta?: number,
+    extras?: string
   ) {
     await interaction.deferReply();
     const roll = await this.rollService.roll10(interaction, player, {
@@ -154,7 +148,6 @@ export class Rolls10Group {
       nonConvPredilectionsChoices,
       extras,
       message,
-      meta,
     });
 
     await interaction.editReply({
