@@ -37,6 +37,8 @@ export class LearnGroup {
     private readonly eventEmitter: EventEmitter2,
   ) {}
 
+  runningRolls = new Map<string, Player>();
+
   @Command({
     name: 'default',
     description: 'Aprende uma magia',
@@ -174,6 +176,13 @@ export class LearnGroup {
     spell: Spell;
     player: Player;
   }) {
+    if (this.runningRolls.has(player.id)) {
+      await interaction.editReply(
+        `${interaction.user} já está rolando para aprender uma magia`,
+      );
+      return;
+    }
+    this.runningRolls.set(player.id, player);
     await interaction.editReply({
       content:
         `# Use uma das rolagens para executar o treino!\n` +
@@ -185,38 +194,44 @@ export class LearnGroup {
           .join('\n'),
     });
     let chances = 3;
-    for (let i = 0; i < chances; i++) {
-      const { roll }: RollEvent = await waitForEvent(
-        this.eventEmitter,
-        'roll',
-        (data: RollEvent) => {
-          const samePlayer = data.player.id === player.id;
-          const sameChannel =
-            data.interaction.channelId === interaction.channelId;
-          const correctAttribute = data.options.attribute === 'intelligence';
-          const correctAbility = data.options.hab1 === 'academics';
-          const correctMagicSchool = spell.category.includes(
-            MagicSchoolPtBr[data.options.magicSchool],
-          );
+    try {
+      for (let i = 0; i < chances; i++) {
+        const { roll }: RollEvent = await waitForEvent(
+          this.eventEmitter,
+          'roll',
+          (data: RollEvent) => {
+            const samePlayer = data.player.id === player.id;
+            const sameChannel =
+              data.interaction.channelId === interaction.channelId;
+            const correctAttribute = data.options.attribute === 'intelligence';
+            const correctAbility = data.options.hab1 === 'academics';
+            const correctMagicSchool = spell.category.includes(
+              MagicSchoolPtBr[data.options.magicSchool],
+            );
 
-          return (
-            samePlayer &&
-            sameChannel &&
-            correctAttribute &&
-            correctAbility &&
-            correctMagicSchool
-          );
-        },
-      );
-      if (roll.total >= spell.metaValue) {
-        return true;
+            return (
+              samePlayer &&
+              sameChannel &&
+              correctAttribute &&
+              correctAbility &&
+              correctMagicSchool
+            );
+          },
+        );
+        if (roll.total >= spell.metaValue) {
+          return true;
+        }
+        if (i < chances - 1) {
+          await interaction.followUp({
+            content: `Você falhou, mas pode tentar mais ${
+              chances - i - 1
+            } vezes`,
+          });
+        }
       }
-      if (i < chances - 1) {
-        await interaction.followUp({
-          content: `Você falhou, mas pode tentar mais ${chances - i - 1} vezes`,
-        });
-      }
+      return false;
+    } finally {
+      this.runningRolls.delete(player.id);
     }
-    return false;
   }
 }
