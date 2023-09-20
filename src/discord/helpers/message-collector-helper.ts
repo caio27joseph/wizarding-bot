@@ -45,6 +45,10 @@ export class MessageCollectorHelper {
       throw new DiscordSimpleError('Você não enviou sua ação a tempo!');
     }
 
+    if (message.content.toLowerCase() === 'cancelar') {
+      throw new DiscordSimpleError('Cancelado!');
+    }
+
     return message.content;
   }
   async message(options: InteractionReplyOptions): Promise<Message> {
@@ -71,6 +75,10 @@ export class MessageCollectorHelper {
 
     if (!message) {
       throw new DiscordSimpleError('Você não enviou sua ação a tempo!');
+    }
+
+    if (message.content.toLowerCase() === 'cancelar') {
+      throw new DiscordSimpleError('Cancelado!');
     }
 
     return message;
