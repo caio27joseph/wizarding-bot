@@ -66,7 +66,9 @@ export class TrainSpellService {
     todayTrains: Train[];
     player: Player;
   }) {
-    if (trains.length >= 6) {
+    // sum of trains, if is double should count as two
+    const sum = trains.reduce((sum, train) => sum + (train.double ? 2 : 1), 0);
+    if (sum >= 6) {
       throw new MaxSpellsTrainReached(`Você já treinou demais hoje!`);
     }
     const trainingForThisSpell = trains.filter((t) => t.spellId === spell.id);
