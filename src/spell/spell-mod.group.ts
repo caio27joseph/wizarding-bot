@@ -26,6 +26,7 @@ import { TrainGroupOption } from '~/evolution/train/entities/train.entity';
 import { MaestryGroup, TrainGroup } from '~/evolution/train/train.group';
 import { PaginationHelper } from '~/discord/helpers/page-helper';
 import { Learn } from '~/evolution/learn/entities/learn.entity';
+import { groupBy } from 'lodash';
 
 enum SpellGrimoireAction {
   ADD = 'Adicionar',
@@ -430,6 +431,45 @@ export class SpellModGroup {
           footer: (currentPage, totalPages) =>
             `\nPágina ${currentPage} de ${totalPages}`,
         }).followUp(interaction);
+    }
+  }
+
+  @Command({
+    name: 'fix_trains',
+    description: 'fix_all_player_trains',
+    mod: true,
+  })
+  async fixTrains(
+    @ArgInteraction()
+    interaction: CommandInteraction,
+    @ArgGuild()
+    guild: Guild,
+  ) {
+    const trains = await this.trainService.findAll({
+      where: {
+        player: {
+          guildId: guild.id,
+        },
+      },
+    });
+
+    const playerTrains = groupBy(trains, 'playerId');
+
+    for (const [playerId, trains] of Object.entries(playerTrains)) {
+      // group by day considering the definiton
+      // Definition of day, the day start 9 am and ends 9 am of the next day
+      const trainsByDay = groupBy(trains, (train) => {
+        const date = new Date(train.createdAt);
+        const todayStart = new Date(date);
+        todayStart.setHours(9, 0, 0, 0);
+        //If the train was made before 9 am, it should be considered as the day before
+        if (date < todayStart) {
+          todayStart.setDate(todayStart.getDate() - 1);
+        }
+        return `${todayStart.getFullYear()}-${todayStart.getMonth()}-${todayStart.getDate()}`;
+      });
+      console.log(playerId);
+      console.log(trainsByDay);
     }
   }
 }

@@ -193,6 +193,7 @@ export class TrainSpellService {
       },
     });
   }
+
   spellTotalXpMap(trains: Train[]) {
     const groupedTrains = groupBy(trains, (train) => train.spellId);
     const xpTotalsBySpell: { [key: string]: number } = {};

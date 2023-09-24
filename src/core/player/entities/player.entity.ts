@@ -123,6 +123,11 @@ export class Player implements DiscordEntityVieable {
   @OneToOne(() => Inventory, (iv) => iv.player)
   inventory: Inventory;
 
+  @Column({
+    nullable: true,
+  })
+  hasConcentration: boolean;
+
   toEmbed() {
     const embeds = new EmbedBuilder();
     embeds.setTitle(this?.name || 'Defina nome usando /pj atualizar');
@@ -151,6 +156,7 @@ export class Player implements DiscordEntityVieable {
     });
     return embeds;
   }
+
   reply(interaction: Interaction) {
     return new MessagePayload(interaction, {
       embeds: [this.toEmbed()],
