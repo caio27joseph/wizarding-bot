@@ -4,8 +4,6 @@
         "Transmutação"
     ],
     "difficulty": "Médio",
-    "description": "Ao lançar Obscuro, vendas pretas são conjuradas imediatamente e cobrem os olhos do alvo. As vendas aparecem diretamente no rosto da vítima, portanto não podem ser bloqueadas ou esquivadas. Enquanto permanecer vendado, o alvo fica sob o efeito das condições Cego e Desprevenido. Embora não seja mágica, a venda é bem amarrada; para retirá-la, o usuário deve gastar uma Ação completa tentando desvencilhar-se (ou arranjar outros meios!). ",
-    "updatedAt": "2023-08-10T18:10:57.897074",
     "title": "Feitiço dos Olhos Vendados",
     "level": 2,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "requirements": "Transfigurações 2",
     "distance": "Curto",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar Obscuro, vendas pretas são conjuradas imediatamente e cobrem os olhos do alvo. As vendas aparecem diretamente no rosto da vítima, portanto não podem ser bloqueadas ou esquivadas. Enquanto permanecer vendado, o alvo fica sob o efeito das condições Cego e Desprevenido. Embora não seja mágica, a venda é bem amarrada; para retirá-la, o usuário deve gastar uma Ação completa tentando desvencilhar-se (ou arranjar outros meios!).",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Obscuro."
+            "description": "Você pode lançar Obscuro. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Obscuro de forma focada."
+            "description": "Você pode lançar Obscuro de forma focada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Suas vendas conjuradas são ainda mais firmes. O alvo deve gastar uma Ação completa + uma Ação de movimento para desamarrá-la, não apenas uma Ação completa."
+            "description": "Suas vendas conjuradas são ainda mais firmes. O alvo deve gastar uma Ação completa + uma Ação de movimento para desamarrá-la, não apenas uma Ação completa. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Obscuro de forma não-verbal. Aumenta para +2 rodadas."
+            "name": "Experiente",
+            "description": "Você pode lançar Obscuro de forma não-verbal. Aumenta para +2 rodadas. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Suas vendas conjuradas são magicamente laçadas. O alvo não é capaz de se desvencilhar delas por meios não-mágicos. Além disso, enquanto vendado, o alvo não pode ser alvo de feitiços que exijam visão direta, como feitiços que precisam do alvo à vista do conjurador. Isso pode incluir alguns feitiços de ataque, mas cabe ao Narrador decidir quais feitiços são afetados. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Suas vendas conjuradas são magicamente laçadas. O alvo não é capaz de se desvencilhar delas por meios não-mágicos. Além disso, enquanto vendado, o alvo não pode ser alvo de feitiços que exijam visão direta, como feitiços que precisam do alvo à vista do conjurador. Isso pode incluir alguns feitiços de ataque, mas cabe ao Narrador decidir quais feitiços são afetados. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "e19fd7fc-300b-4fe5-92e7-2b96af504cb2"
+    "identifier": "e19fd7fc-300b-4fe5-92e7-2b96af504cb2",
+    "updatedAt": "2023-10-10T21:16:34.717860"
 }

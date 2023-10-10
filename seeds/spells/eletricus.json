@@ -4,8 +4,6 @@
         "Evocação"
     ],
     "difficulty": "Muito Difícil",
-    "description": "Eletricus é um feitiço que conjura energia na ponta da varinha e lança raios contra um alvo, causando eletrocução. O dano causado depende do sucesso no teste da magia. Caso atinja uma criatura, Eletricus causa dano de queimadura igual a 1d4 + Controle + o número de Sucessos obtidos no teste. No entanto, o jogador tem o direito a um teste de Salvaguarda Fisica que Reduz a metade, caso passe no teste o inimigo levara apenas metade do dano. ",
-    "updatedAt": "2023-09-02T20:00:18.524594",
     "title": "Feitiço Conjuratório Cinético",
     "level": 1,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Físico Reduz a Metade.",
     "cd": "Feitiçaria + Metade da Força.",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
+    "description": "Efeito: Eletricus é um feitiço que conjura energia na ponta da varinha e lança raios contra um alvo, causando eletrocução. O dano causado depende do sucesso no teste da magia. Caso atinja uma criatura, Eletricus causa dano de queimadura igual a 1d4 + Controle + o número de Sucessos obtidos no teste. No entanto, o jogador tem o direito a um teste de Salvaguarda Fisica que Reduz a metade, caso passe no teste o inimigo levara apenas metade do dano.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Eletricus com o efeito básico descrito acima."
+            "description": "Você pode lançar Eletricus com o efeito básico descrito acima. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Seu Eletricus fica mais potente, e caso uma criatura receba 12 ou mais de dano em uma única conjuração, ela fica Pasma, ficando temporariamente atordoada e incapaz de realizar ações."
+            "description": "Seu Eletricus fica mais potente, e caso uma criatura receba 12 ou mais de dano em uma única conjuração, ela fica Pasma, ficando temporariamente atordoada e incapaz de realizar ações. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Eletricus de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso pode usar o mesmo em sua forma focada. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Eletricus de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso pode usar o mesmo em sua forma focada. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Os dados de dano do Eletricus aumentam. O dano básico vira 1d6, e caso o alvo esteja molhado ou com peça de metal, o dano aumenta para 1d8. Se o alvo estiver submerso em líquido ou usando armaduras ou peças de metal, o dano é ainda maior, aumentando para 2d8. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Os dados de dano do Eletricus aumentam. O dano básico vira 1d6, e caso o alvo esteja molhado ou com peça de metal, o dano aumenta para 1d8. Se o alvo estiver submerso em líquido ou usando armaduras ou peças de metal, o dano é ainda maior, aumentando para 2d8. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode conjurar uma variação (Electrica Tonitrui) quando estiver em céu aberto, a onde um trovão caira em cima do inimigo causando 2d8 de dano. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode conjurar uma variação (Electrica Tonitrui) quando estiver em céu aberto, a onde um trovão caira em cima do inimigo causando 2d8 de dano. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "667940c2-bb74-404b-9935-d64679c520e6"
+    "identifier": "667940c2-bb74-404b-9935-d64679c520e6",
+    "updatedAt": "2023-10-10T21:09:12.666725"
 }

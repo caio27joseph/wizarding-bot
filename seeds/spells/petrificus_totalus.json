@@ -1,11 +1,9 @@
 {
-    "name": "Petrificus totalus",
+    "name": "Petrificus Totalus",
     "category": [
         "Abjuração"
     ],
     "difficulty": "Difícil",
-    "description": "Faz com que a vítima junte os braços rente ao corpo e depois caia Paralisada   no chão. A cada turno em que fica Paralisada   ou quando recebe qualquer quantidade de dano, a vítima pode fazer um teste de salvaguarda Física. Com 4 Sucessos ou mais, a duração de Petrificus Totalus é reduzida em 1 rodada. A criatura atingida por esse feitiço também é considerada Caída  . ",
-    "updatedAt": "2023-08-10T18:01:58.164362",
     "title": "Maldição do Corpo Preso",
     "level": 1,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "antiSpell": "Reflectus Petrify",
     "requirements": "Abjuração 1",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Faz com que a vítima junte os braços rente ao corpo e depois caia Paralisada   no chão. A cada turno em que fica Paralisada   ou quando recebe qualquer quantidade de dano, a vítima pode fazer um teste de salvaguarda Física. Com 4 Sucessos ou mais, a duração de Petrificus Totalus é reduzida em 1 rodada. O alvo atingida por esse feitiço também é considerada Caída  .\nEssa azaração, não funciona em criaturas ou espíritos, sendo eles mágicos ou não mágicos.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Petrificus Totalus."
+            "description": "Você pode lançar Petrificus Totalus. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Petrificus Totalus de forma focada, aumentando suas chances de sucesso."
+            "description": "Você pode lançar Petrificus Totalus de forma focada, aumentando suas chances de sucesso. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Petrificus Totalus de forma não-verbal, tornando o lançamento do feitiço mais sutil e veloz. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Petrificus Totalus de forma não-verbal, tornando o lançamento do feitiço mais sutil e veloz. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Petrificus Totalus como um feitiço de \"Duração: 8 rodadas\", prolongando o tempo de paralisia do alvo."
+            "description": "Você pode lançar Petrificus Totalus como um feitiço de \"Duração: 8 rodadas\", prolongando o tempo de paralisia do alvo. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Petrificus Totalus como um feitiço de \"Duração: 25 minutos\". Nessa variação, um teste bem-sucedido de salvaguarda retira 1 minuto do total da duração, e a vítima só pode fazer esse teste caso receba alguma forma de dano durante o período de paralisia. Essa versão estendida da maldição pode ser particularmente útil para situações que requerem uma imobilização prolongada do alvo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Petrificus Totalus como um feitiço de \"Duração: 25 minutos\". Nessa variação, um teste bem-sucedido de salvaguarda retira 1 minuto do total da duração, e a vítima só pode fazer esse teste caso receba alguma forma de dano durante o período de paralisia. Essa versão estendida da maldição pode ser particularmente útil para situações que requerem uma imobilização prolongada do alvo. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "df48a8ac-a8ce-47cc-ab89-1fe99b4910b5"
+    "identifier": "df48a8ac-a8ce-47cc-ab89-1fe99b4910b5",
+    "updatedAt": "2023-10-10T21:09:12.766378"
 }

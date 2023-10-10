@@ -1,0 +1,42 @@
+{
+  "name": "Arcanam Armor",
+  "category": ["Abjuração"],
+  "difficulty": "Difícil",
+  "title": "Feitiço da armadura magica",
+  "level": 1,
+  "actionType": "Padrão ou Reação",
+  "duration": "1 rodadas..(Adiciona +1 rodada por Maestria)",
+  "requirements": "Abjuração 2",
+  "distance": "Toque",
+  "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+  "description": "Efeito: Ao lançar o Feitiço da Armadura Mágica, você cria uma poderosa aura mágica ao seu redor que o protege contra danos físicos e mágicos. Essa armadura mágica lhe permite bloquear até 4 pontos de dano. A magia da Armadura Arcana se manterá ativa durante toda a sua duração, protegendo você das ameaças. O feitiço pode ser lançado como uma Ação Padrão, permitindo-lhe conjurar a armadura rapidamente em situações de emergência. Alternativamente, se você preferir, pode realizar um ritual de 30 minutos para invocar a Armadura Arcana antes de se aventurar em desafios mais perigosos.",
+  "maestry": [
+    {
+      "level": 1,
+      "name": "Inicial",
+      "description": "Você pode lançar Armadura Arcana, apenas para dano físico. "
+    },
+    {
+      "level": 2,
+      "name": "Intermediário",
+      "description": "Seu feitiço agora também concede proteção a dano mágico. Nesse nível a armadura recebe +2 de bloqueio. "
+    },
+    {
+      "level": 3,
+      "name": "Avançado",
+      "description": "Seu feitiço agora dura por mais tempo, podendo proteger +1 pessoa adicional a cada lançamento do feitiço. - Feitiço passa a ter alcance Curto. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
+    },
+    {
+      "level": 4,
+      "name": "Experiente",
+      "description": "Você pode lançar Armadura Arcana Aprimorada, recebendo um bônus de +2 dados de bloqueio, tornando sua proteção ainda mais resistente. "
+    },
+    {
+      "level": 5,
+      "name": "Mestre",
+      "description": "Sua Armadura Arcana é aprimorada ainda mais, a resistência da armadura aumenta para 10 pontos. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. Versão Ritual A forma de fazer o ritual é pessoal e pode variar de bruxo para bruxo, apenas três coisas são obrigatórias: Círculo Mágico, velas (pelo menos 4) e meditação, enquanto sussurra palavras de significado pessoal que simbolizem força (para o ritualista), são 30 minutos para realizar o ritual. Não fazer o teste do ritual até receber o primeiro dano. (O jogador irá fazer a cena interpretando o ritual, e apenas quando levar o primeiro dano, irá fazer a rolagem.) Cada sucesso nesse teste, dá resistência a um ataque. Nos níveis 1 e 2 de Maestria, o ritual só pode afetar o ritualista. A partir do nível 3, o ritualista pode encantar um número de alvos dentro do círculo mágico, até o seu nível de inteligência + ritual. O nível da habilidade ritual funciona como um modificador, proporcionando um número de resistência a ataques igual ao nível."
+    }
+  ],
+  "identifier": "4b7813ab-eeeb-40d5-8911-a9279f200486",
+  "updatedAt": "2023-10-10T21:09:12.616788"
+}

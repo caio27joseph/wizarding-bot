@@ -4,8 +4,6 @@
         "Necromancia"
     ],
     "difficulty": "Médio",
-    "description": "Ao lançar esse feitiço sobre o alvo, galhadas começam a brotar no topo da sua cabeça. Embora o feitiço não imponha penalidades sobre a criatura, ele causa muito desconforto e pontadas de dor. As galhadas crescem naturalmente ao longo da duração do feitiço e podem variar em tamanho e formato. Aplica uma dor de cabeça no afetado que retira 1 dado do alvo em seus testes. ",
-    "updatedAt": "2023-09-02T20:00:40.321273",
     "title": "Azaração da Galhada",
     "level": 2,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Físico Anula.",
     "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar esse feitiço sobre o alvo, galhadas começam a brotar no topo da sua cabeça. Embora o feitiço não imponha penalidades sobre a criatura, ele causa muito desconforto e pontadas de dor. As galhadas crescem naturalmente ao longo da duração do feitiço e podem variar em tamanho e formato. Aplica uma dor de cabeça no afetado que retira 1 dado do alvo em seus testes.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Anteoculatia."
+            "description": "Você pode lançar Anteoculatia. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Anteoculatia de forma focada, permitindo maior precisão no crescimento e formato das galhadas."
+            "description": "Você pode lançar Anteoculatia de forma focada, permitindo maior precisão no crescimento e formato das galhadas. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Anteoculatia de forma não-verbal, tornando sua execução mais rápida e discreta. diminui em +1 dado que o alvo perde nos testes."
+            "description": "Você pode lançar Anteoculatia de forma não-verbal, tornando sua execução mais rápida e discreta. diminui em +1 dado que o alvo perde nos testes. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Cornibulus (Feitiço do Crescimento do Chifre). Nessa variação, você tem o poder de conjurar chifres de diferentes formatos e tamanhos na cabeça do alvo, podendo até mesmo moldá-los de forma mais específica."
+            "name": "Experiente",
+            "description": "Você pode lançar Cornibulus (Feitiço do Crescimento do Chifre). Nessa variação, você tem o poder de conjurar chifres de diferentes formatos e tamanhos na cabeça do alvo, podendo até mesmo moldá-los de forma mais específica. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Anteoculatia e/ou Cornibulus como um feitiço de \"Maldição\" e \"Duração: Permanente\". Essa forma avançada do feitiço torna as galhadas ou chifres permanentes, e eles não podem ser desfeitos por meio de magias como Finite Incantatem. Essa maldição pode ser removida apenas por magias muito poderosas ou rituais complexos. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Anteoculatia e/ou Cornibulus como um feitiço de \"Maldição\" e \"Duração: Permanente\". Essa forma avançada do feitiço torna as galhadas ou chifres permanentes, e eles não podem ser desfeitos por meio de magias como Finite Incantatem. Essa maldição pode ser removida apenas por magias muito poderosas ou rituais complexos. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "bd919a3f-bf48-4f05-bf84-6c2ebc10b4fd"
+    "identifier": "bd919a3f-bf48-4f05-bf84-6c2ebc10b4fd",
+    "updatedAt": "2023-10-10T21:14:57.972072"
 }

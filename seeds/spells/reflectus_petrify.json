@@ -1,11 +1,9 @@
 {
-    "name": "Reflectus petrify",
+    "name": "Reflectus Petrify",
     "category": [
         "Abjuração"
     ],
     "difficulty": "Difícil",
-    "description": "Projeta um escudo invisível na frente do conjurador que anula qualquer quantidade de lampejos provenientes de um Petrificus Totalus. O escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 2 a sua rolagem de Reflectus Petrify. ",
-    "updatedAt": "2023-08-20T17:59:26.554306",
     "title": "Feitiço Anti-Paralisia",
     "level": 1,
     "actionType": "Reação",
@@ -13,32 +11,34 @@
     "distance": "Curto",
     "requirements": "Abjuração 1",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Projeta um escudo invisível na frente do conjurador que anula qualquer quantidade de lampejos provenientes de um Petrificus Totalus. O escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 2 a sua rolagem de Reflectus Petrify.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Reflectus Petrify, anulando lampejos de Petrificus Totalus com eficiência."
+            "description": "Você pode lançar Reflectus Petrify, anulando lampejos de Petrificus Totalus com eficiência. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "O seu escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 3 a sua rolagem de Reflectus Petrify, tornando a sua proteção ainda mais resistente."
+            "description": "O seu escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 3 a sua rolagem de Reflectus Petrify, tornando a sua proteção ainda mais resistente. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "O seu escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 4 a sua rolagem de Reflectus Petrify, oferecendo uma defesa ainda mais sólida. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "O seu escudo só é perfurado caso a rolagem de Petrificus Totalus de um oponente supere em 4 a sua rolagem de Reflectus Petrify, oferecendo uma defesa ainda mais sólida. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Reflectus Petrify de forma não-verbal, permitindo que você reaja rapidamente aos ataques e proteja-se contra os lampejos de Petrificus Totalus rebatendo-os de volta para o seu conjurador."
+            "description": "Você pode lançar Reflectus Petrify de forma não-verbal, permitindo que você reaja rapidamente aos ataques e proteja-se contra os lampejos de Petrificus Totalus rebatendo-os de volta para o seu conjurador. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "O seu Reflectus Petrify é extremamente poderoso e quase impenetrável por um Petrificus Totalus adversário, a menos que você tire uma Falha ou Falha Crítica na jogada de defesa, garantindo a sua segurança contra a paralisia indesejada. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "O seu Reflectus Petrify é extremamente poderoso e quase impenetrável por um Petrificus Totalus adversário, a menos que você tire uma Falha ou Falha Crítica na jogada de defesa, garantindo a sua segurança contra a paralisia indesejada. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "d7ca8abf-c4f5-48cb-873a-c8dd7fded2e2"
+    "identifier": "d7ca8abf-c4f5-48cb-873a-c8dd7fded2e2",
+    "updatedAt": "2023-10-10T21:07:00.131722"
 }

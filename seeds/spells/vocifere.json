@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Difícil",
-    "description": "Ao conjurar Vocifere, você causa extrema raiva no alvo, independentemente de sua personalidade ou natureza. Pela duração do efeito, a vítima sofre a condição Enfurecida, atacando qualquer criatura com o arsenal que possui à sua disposição (incluindo palavras!). Os ataques causados por esse feitiço tendem a ser mais morais que físicos, mas situações especificamente sensíveis podem levar a vítima a erguer sua varinha contra alguém. Após o fim da duração, a vítima fica Fatigada até poder descansar. Esse feitiço é uma forma leve de controle mental. ",
-    "updatedAt": "2023-09-02T20:00:41.238313",
     "title": "Maldição Provocadora",
     "level": 2,
     "actionType": "Padrão",
@@ -16,26 +14,27 @@
     "cd": "Feitiçaria + Metade da Inteligência",
     "distance": "Curto",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ao conjurar Vocifere, você causa extrema raiva no alvo, independentemente de sua personalidade ou natureza. Pela duração do efeito, a vítima sofre a condição Enfurecida, atacando qualquer criatura com o arsenal que possui à sua disposição (incluindo palavras!). Os ataques causados por esse feitiço tendem a ser mais morais que físicos, mas situações especificamente sensíveis podem levar a vítima a erguer sua varinha contra alguém. Após o fim da duração, a vítima fica Fatigada até poder descansar. Esse feitiço é uma forma leve de controle mental.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Vocifere."
+            "description": "Você pode lançar Vocifere. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Vocifere de forma focada."
+            "description": "Você pode lançar Vocifere de forma focada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Vocifere de forma não-verbal."
+            "description": "Você pode lançar Vocifere de forma não-verbal. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Vocifere como um feitiço de \"Duração: 4 horas - 6 Rodadas\"."
+            "name": "Experiente",
+            "description": "Você pode lançar Vocifere como um feitiço de \"Duração: 4 horas - 6 Rodadas\". "
         },
         {
             "level": 5,
@@ -43,5 +42,6 @@
             "description": "Você pode lançar Vocifere de forma silenciosa."
         }
     ],
-    "identifier": "614d9dff-22eb-4af1-af3d-c373b13ca0ff"
+    "identifier": "614d9dff-22eb-4af1-af3d-c373b13ca0ff",
+    "updatedAt": "2023-10-10T21:14:58.321752"
 }

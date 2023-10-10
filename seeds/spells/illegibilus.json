@@ -4,8 +4,6 @@
         "Ilusão"
     ],
     "difficulty": "Médio",
-    "description": "O feitiço Illegibilus é capaz de tornar qualquer tipo de texto, gravura ou símbolo completamente ilegível. Ao ser atingido por essa ilusão, o texto se embaralha e emaranha, tornando-se impossível de ser lido. Cada vez que alguém tenta ler, as palavras e linhas se reorganizam de forma desconexa, formando frases sem sentido. Esse feitiço pode ser aplicado em uma página específica, um verso ou até mesmo em uma coletânea inteira, desde que todas as partes façam parte da mesma entidade, como um livro, por exemplo. ",
-    "updatedAt": "2023-08-10T18:01:58.002363",
     "title": "Feitiço do Texto Embaralhado",
     "level": 1,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "duration": "1 dia (D)",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
     "antiSpell": "Aparecium",
+    "description": "Efeito: O feitiço Illegibilus é capaz de tornar qualquer tipo de texto, gravura ou símbolo completamente ilegível. Ao ser atingido por essa ilusão, o texto se embaralha e emaranha, tornando-se impossível de ser lido. Cada vez que alguém tenta ler, as palavras e linhas se reorganizam de forma desconexa, formando frases sem sentido. Esse feitiço pode ser aplicado em uma página específica, um verso ou até mesmo em uma coletânea inteira, desde que todas as partes façam parte da mesma entidade, como um livro, por exemplo.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Illegibilus, criando um texto embaralhado temporário."
+            "description": "Você pode lançar Illegibilus, criando um texto embaralhado temporário. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Illegibilus como um feitiço de \"Duração: Permanente (D)\", tornando o texto ilegível permanentemente, a menos que seja desfeito por alguém que saiba a contra-senha."
+            "description": "Você pode lançar Illegibilus como um feitiço de \"Duração: Permanente (D)\", tornando o texto ilegível permanentemente, a menos que seja desfeito por alguém que saiba a contra-senha. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Illegibilus de forma não-verbal. Além de embaralhar o texto, quando conjura Illegibilus em sua forma não-verbal, você também torna o alvo invisível. Ambas as camadas de encantamentos devem ser desfeitas para tornar o texto legível novamente."
+            "description": "Você pode lançar Illegibilus de forma não-verbal. Além de embaralhar o texto, quando conjura Illegibilus em sua forma não-verbal, você também torna o alvo invisível. Ambas as camadas de encantamentos devem ser desfeitas para tornar o texto legível novamente. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode atribuir uma \"senha\" e \"contra-senha\" ao seu texto encantado. Sempre que alguém falar a senha, o efeito é desfeito e o texto se torna legível. Por outro lado, se alguém falar a contra-senha, o efeito é re-aplicado e o texto volta a ser ilegível."
+            "description": "Você pode atribuir uma \"senha\" e \"contra-senha\" ao seu texto encantado. Sempre que alguém falar a senha, o efeito é desfeito e o texto se torna legível. Por outro lado, se alguém falar a contra-senha, o efeito é re-aplicado e o texto volta a ser ilegível. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Illegibilus Animus (Feitiço do Texto Inteligente). Nessa variação, sempre que alguém tentar desfazer o Illegibilus e obtiver menos de 6 Sucessos, uma mensagem pré-determinada aparecerá no lugar. Essa mensagem pode ter uma \"personalidade\" atribuída, podendo elogiar ou insultar o bruxo que falhar em revelá-la, ou ainda elaborar respostas específicas para pessoas específicas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Illegibilus Animus (Feitiço do Texto Inteligente). Nessa variação, sempre que alguém tentar desfazer o Illegibilus e obtiver menos de 6 Sucessos, uma mensagem pré-determinada aparecerá no lugar. Essa mensagem pode ter uma \"personalidade\" atribuída, podendo elogiar ou insultar o bruxo que falhar em revelá-la, ou ainda elaborar respostas específicas para pessoas específicas. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "3788baae-4c9f-4cf6-86b0-bfa9f995d59d"
+    "identifier": "3788baae-4c9f-4cf6-86b0-bfa9f995d59d",
+    "updatedAt": "2023-10-10T21:09:12.713271"
 }

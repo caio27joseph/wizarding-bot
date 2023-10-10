@@ -4,8 +4,6 @@
         "Necromancia"
     ],
     "difficulty": "Médio",
-    "description": "O Consciu é um feitiço usado para manter uma pessoa consciente e alerta. Ele desfaz uma dentre as condições: Fatigado, Desprevenido ou Adormecido. Além disso, você pode lançar Consciu em uma criatura exausta, deixando-a apenas fatigada em vez disso. ",
-    "updatedAt": "2023-08-10T18:10:57.395072",
     "title": "Feitiço da Energia",
     "level": 2,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "light": "Ciano",
     "distance": "Curto",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O Consciu é um feitiço usado para manter uma pessoa consciente e alerta. Ele desfaz uma dentre as condições: Fatigado, Desprevenido ou Adormecido. Além disso, você pode lançar Consciu em uma criatura exausta, deixando-a apenas fatigada em vez disso.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Consciu."
+            "description": "Você pode lançar Consciu. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Consciu de forma focada, aumentando a precisão do feitiço."
+            "description": "Você pode lançar Consciu de forma focada, aumentando a precisão do feitiço. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Consciu Duo (Feitiço da Energia Dupla). Nessa variação, você conjura dois lampejos que são projetados contra dois alvos diferentes em uma única conjuração. Cada alvo não pode estar a mais de 5 metros de distância um do outro ou atrás/nas laterais do conjurador. Além disso, você pode escolher desfazer uma condição diferente para cada alvo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Consciu Duo (Feitiço da Energia Dupla). Nessa variação, você conjura dois lampejos que são projetados contra dois alvos diferentes em uma única conjuração. Cada alvo não pode estar a mais de 5 metros de distância um do outro ou atrás/nas laterais do conjurador. Além disso, você pode escolher desfazer uma condição diferente para cada alvo. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Consciu de forma não-verbal. Quando conjura Consciu em sua forma não-verbal, você é capaz de desfazer simultaneamente qualquer quantidade de condições base (descritas no campo \"Efeito\") através desse feitiço. Além disso, você pode escolher desfazer mais uma dentre as condições: Atordoado, Pasmo ou Confuso."
+            "name": "Experiente",
+            "description": "Você pode lançar Consciu de forma não-verbal. Quando conjura Consciu em sua forma não-verbal, você é capaz de desfazer simultaneamente qualquer quantidade de condições base (descritas no campo \"Efeito\") através desse feitiço. Além disso, você pode escolher desfazer mais uma dentre as condições: Atordoado, Pasmo ou Confuso. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Quando você lança Consciu ou Consciu Duo em uma criatura com iniciativa menor que a sua no primeiro turno de combate, adicionalmente você desfaz a condição Surpreendida dela. Essa criatura pode agir normalmente, como se não tivesse sido surpreendida. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Quando você lança Consciu ou Consciu Duo em uma criatura com iniciativa menor que a sua no primeiro turno de combate, adicionalmente você desfaz a condição Surpreendida dela. Essa criatura pode agir normalmente, como se não tivesse sido surpreendida. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "3cc6bcfb-1082-4a05-bd6d-a4764b11bb65"
+    "identifier": "3cc6bcfb-1082-4a05-bd6d-a4764b11bb65",
+    "updatedAt": "2023-10-10T21:14:58.085945"
 }

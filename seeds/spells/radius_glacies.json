@@ -1,11 +1,9 @@
 {
-    "name": "Radius glacies",
+    "name": "Radius Glacies",
     "category": [
         "Evocação"
     ],
     "difficulty": "Difícil",
-    "description": "Um lampejo gelado de luz azul-esbranquiçada atinge uma criatura dentro do alcance. Em um acerto, o alvo recebe 2d8 + Controle de dano de frio e sua velocidade é reduzida em 3 metros até o início do seu próximo turno. ",
-    "updatedAt": "2023-09-02T20:01:05.877368",
     "title": "Raio de Gelo",
     "level": 3,
     "actionType": "Padrão",
@@ -15,26 +13,27 @@
     "requirements": "Evocação 1",
     "resistence": "Salvaguarda Fisica Reduz a metade.",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Um lampejo gelado de luz azul-esbranquiçada atinge uma criatura dentro do alcance. Em um acerto, o alvo recebe 2d8 + Controle de dano de frio e sua velocidade é reduzida em 3 metros até o início do seu próximo turno.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Raio de Gelo."
+            "description": "Você pode lançar Raio de Gelo. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Raio de Gelo de forma focada.. Aumenta o dano em +1d8, além de caso queira ao atingir o chão o congela em uma area de esfera de 3 metros, deixando os inimigos ali na quela area com -1 dado nos testes de ataque e defesa."
+            "description": "Você pode lançar Raio de Gelo de forma focada.. Aumenta o dano em +1d8, além de caso queira ao atingir o chão o congela em uma area de esfera de 3 metros, deixando os inimigos ali na quela area com -1 dado nos testes de ataque e defesa. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Raio de Gelo de forma não-verbal.. Você consegue lançar Raio de gelo duas vezes no mesmo turno, um como ação padrão e o outro como ação de movimento. Diminui a Dif de sucesso necessario em 1."
+            "description": "Você pode lançar Raio de Gelo de forma não-verbal.. Você consegue lançar Raio de gelo duas vezes no mesmo turno, um como ação padrão e o outro como ação de movimento. Diminui a Dif de sucesso necessario em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O dano aumenta para +4. Agora os inimigos atingidos diretamente pelo lambejo perdem 2 dados em todos os testes por 3 rodadas."
+            "name": "Experiente",
+            "description": "O dano aumenta para +4. Agora os inimigos atingidos diretamente pelo lambejo perdem 2 dados em todos os testes por 3 rodadas. "
         },
         {
             "level": 5,
@@ -42,5 +41,6 @@
             "description": "Você pode lançar Raio de Gelo em uma área de alcance de 3 metros de raio fazendo uma explosão gelida. O dano permanece o mesmo e as reduções também, afeta todas as criaturas atingidas. Diminui a Dif de sucesso necessario em 1."
         }
     ],
-    "identifier": "2e74e760-0b80-4767-8540-7a341c0a24a8"
+    "identifier": "2e74e760-0b80-4767-8540-7a341c0a24a8",
+    "updatedAt": "2023-10-10T21:22:33.705677"
 }

@@ -1,11 +1,9 @@
 {
-    "name": "Chaos ray",
+    "name": "Chaos Ray",
     "category": [
         "Evocação"
     ],
     "difficulty": "Difícil",
-    "description": "Você arremessa uma massa ondulante e caótica de energia caótica em uma criatura ao alcance. O alvo sofre 2d8 + 1d6 + Evocação de dano. Escolha um dos d8. O número rolado nesse dado determina o tipo de dano do ataque, conforme mostrado abaixo:  d8 Tipo de Dano 1 Ácido 2 Frio 3 Fogo 4 Radiante 5 Raio 6 Tóxico 7 Psíquico 8 Elétrico  Se você rolar o mesmo número em ambos os d8, a energia caótica salta do alvo para uma criatura diferente de sua escolha a até 9 metros dele. Faça uma nova jogada de ataque contra o novo alvo e faça uma nova jogada de tipo de dano, o que pode fazer com que a energia caótica salte novamente.  Uma criatura pode ser alvo apenas uma vez por cada conjuração desta magia. ",
-    "updatedAt": "2023-09-02T20:01:02.017131",
     "title": "Raio do Caos",
     "level": 3,
     "actionType": "Padrão",
@@ -15,26 +13,27 @@
     "requirements": "Evocação 3",
     "resistence": "Salvaguarda Fisica Reduz a metade.",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Você arremessa uma massa ondulante e caótica de energia caótica em uma criatura ao alcance. O alvo sofre 2d8 + 1d6 + Evocação de dano. Escolha um dos d8. O número rolado nesse dado determina o tipo de dano do ataque, conforme mostrado abaixo:\n\nd8 Tipo de Dano\n1 Ácido\n2 Frio\n3 Fogo\n4 Radiante\n5 Raio\n6 Tóxico\n7 Psíquico\n8 Elétrico\n\nSe você rolar o mesmo número em ambos os d8, a energia caótica salta do alvo para uma criatura diferente de sua escolha a até 9 metros dele. Faça uma nova jogada de ataque contra o novo alvo e faça uma nova jogada de tipo de dano, o que pode fazer com que a energia caótica salte novamente.\n\nUma criatura pode ser alvo apenas uma vez por cada conjuração desta magia.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Raio do Caos."
+            "description": "Você pode lançar Raio do Caos. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Raio do Caos de forma focada. Aumenta em +1d8 + 1d6 de dano."
+            "description": "Você pode lançar Raio do Caos de forma focada. Aumenta em +1d8 + 1d6 de dano. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Raio do Caos de forma não-verbal. Aplica um efeito temporario de acordo com o elemento, Causando 2d4 + Controle de dano do elemento por 2 Rodadas. Diminui a Dif de sucesso necessario em 1."
+            "description": "Você pode lançar Raio do Caos de forma não-verbal. Aplica um efeito temporario de acordo com o elemento, Causando 2d4 + Controle de dano do elemento por 2 Rodadas. Diminui a Dif de sucesso necessario em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O dano aumenta para +1d8 + 1d6. E a rodada do efeitoo aumenta em +2 rodada."
+            "name": "Experiente",
+            "description": "O dano aumenta para +1d8 + 1d6. E a rodada do efeitoo aumenta em +2 rodada. "
         },
         {
             "level": 5,
@@ -42,5 +41,6 @@
             "description": "O alcance da magia aumenta para Longa. Além disso, a energia caótica pode saltar para uma segunda criatura mesmo que você não role números iguais nos d8 do elemento escolhido. Diminui a Dif de sucesso necessario em 1."
         }
     ],
-    "identifier": "39f0683d-6450-411d-a378-b784ada1cfdd"
+    "identifier": "39f0683d-6450-411d-a378-b784ada1cfdd",
+    "updatedAt": "2023-10-10T21:22:33.627804"
 }

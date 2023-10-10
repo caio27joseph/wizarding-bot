@@ -4,8 +4,6 @@
         "Adivinhação"
     ],
     "difficulty": "Fácil",
-    "description": "O efeito principal do Apontare é permitir que o bruxo descubra a direção do norte magnético, o que pode ser especialmente útil em situações de exploração ou quando ele precisa se orientar em ambientes desconhecidos. Além disso, o feitiço possui variações que o tornam ainda mais versátil. ",
-    "updatedAt": "2023-08-10T18:01:57.484364",
     "title": "Feitiço dos Quatro Pontos",
     "level": 1,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "requirements": "Encantamentos 1",
     "distance": "Ilimitado",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: O efeito principal do Apontare é permitir que o bruxo descubra a direção do norte magnético, o que pode ser especialmente útil em situações de exploração ou quando ele precisa se orientar em ambientes desconhecidos. Além disso, o feitiço possui variações que o tornam ainda mais versátil.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar o Apontare, permitindo que sua varinha aponte para o norte magnético."
+            "description": "Você pode lançar o Apontare, permitindo que sua varinha aponte para o norte magnético. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar o Apontare de forma não-verbal, aprimorando sua habilidade e tornando-o mais discreto em situações delicadas."
+            "description": "Você pode lançar o Apontare de forma não-verbal, aprimorando sua habilidade e tornando-o mais discreto em situações delicadas. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Com o Apontare Domum, você pode fazer com que a varinha aponte para a direção de qualquer lugar familiar ou que você já tenha visitado, facilitando suas viagens e explorações."
+            "description": "Com o Apontare Domum, você pode fazer com que a varinha aponte para a direção de qualquer lugar familiar ou que você já tenha visitado, facilitando suas viagens e explorações. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Quando lançar qualquer variação do Apontare de forma não-verbal, você pode escolher criar um pequeno rastro luminoso que traçará a rota mais rápida e eficiente até seu objetivo, desviando de obstáculos no trajeto."
+            "name": "Experiente",
+            "description": "Quando lançar qualquer variação do Apontare de forma não-verbal, você pode escolher criar um pequeno rastro luminoso que traçará a rota mais rápida e eficiente até seu objetivo, desviando de obstáculos no trajeto. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Com o Apontare Homenum, você pode fazer com que sua varinha aponte na direção de uma pessoa conhecida, auxiliando em missões de busca ou resgate. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Com o Apontare Homenum, você pode fazer com que sua varinha aponte na direção de uma pessoa conhecida, auxiliando em missões de busca ou resgate. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "ee50079b-1e81-4e60-a6c0-286f85013b9b"
+    "identifier": "ee50079b-1e81-4e60-a6c0-286f85013b9b",
+    "updatedAt": "2023-10-10T21:09:12.613833"
 }

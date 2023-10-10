@@ -4,8 +4,6 @@
         "Abjuração"
     ],
     "difficulty": "Médio",
-    "description": "Ao lançar Protego, o bruxo conjura um escudo invisível à sua frente, capaz de dissipar a magia contida em um lampejo ao ser atingido por ele. O escudo torna-se aparente quando reflete a luz das magias defendidas. Para ser bem-sucedido, o usuário deve seguir as regras abaixo. O feitiço tem diferentes efeitos dependendo do nível do lampejo atacante:  Lampejo de Nível 1,  Nível 2, Nível 3, Nível 4, Nível 5, : É dissipado caso o número de Sucessos obtido na rolagem de Protego seja igual ou superior à rolagem do feitiço adversário. Lampejo de Nível 6, Nível 7, Nível 8, Nível 9 e Nível 10: É dissipado caso o número de Sucessos obtidos na rolagem de Protego seja superior à rolagem do feitiço adversário.  Obs: Feitiços que tem contra-feitiço e são lampejos e empatam a ofensiva sempre ganhara. ",
-    "updatedAt": "2023-08-20T17:59:26.487309",
     "title": "Feitiço Escudo",
     "level": 2,
     "actionType": "Reação",
@@ -13,32 +11,34 @@
     "requirements": "Abjuração 1",
     "distance": "Pessoal",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar Protego, o bruxo conjura um escudo invisível à sua frente, capaz de dissipar a magia contida em um lampejo ao ser atingido por ele. O escudo torna-se aparente quando reflete a luz das magias defendidas. Para ser bem-sucedido, o usuário deve seguir as regras abaixo. O feitiço tem diferentes efeitos dependendo do nível do lampejo atacante:\n\nLampejo de Nível 1,  Nível 2, Nível 3, Nível 4, Nível 5, : É dissipado caso o número de Sucessos obtido na rolagem de Protego seja igual ou superior à rolagem do feitiço adversário.\nLampejo de Nível 6, Nível 7, Nível 8, Nível 9 e Nível 10: É dissipado caso o número de Sucessos obtidos na rolagem de Protego seja superior à rolagem do feitiço adversário. \n\nObs: Feitiços que tem contra-feitiço e são lampejos e empatam a ofensiva sempre ganhara.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Protego."
+            "description": "Você pode lançar Protego. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Protego de forma não-verbal. Quando conjura Protego em sua forma não-verbal, você cria um escudo capaz de absorver um número de 2d6+2 igual a quantidade de Sucessos em sua rolagem. Por exemplo, com 5 sucessos, o escudo teria (10d6+10 = 27) Pontos de Vitalidade. Todo dano recebido por você será descontado primeiro dos PV do escudo, e o excedente será descontado de sua Vitalidade. Essa variação não defende lampejos, mas objetos físicos, formas de energia e projéteis são rebatidos inofensivamente pelo escudo caso não gerem dano o suficiente para quebrá-lo."
+            "description": "Você pode lançar Protego de forma não-verbal. Quando conjura Protego em sua forma não-verbal, você cria um escudo capaz de absorver um número de 2d6+2 + quantidade de Sucessos em sua rolagem. Por exemplo, com 5 sucessos, o escudo teria (2d6+2+5) Pontos de Vitalidade. Todo dano recebido por você será descontado primeiro dos PV do escudo, e o excedente será descontado de sua Vitalidade. Essa variação não defende lampejos, mas objetos físicos, formas de energia e projéteis sendo rebatidos inofensivamente pelo escudo caso não gerem dano o suficiente para quebrá-lo. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Seu Protego básico defende automaticamente qualquer lampejo de Nível 1 e Nível 2, desde que obtenha 5 Sucessos na rolagem de defesa."
+            "description": "Seu Protego básico defende automaticamente qualquer lampejo de Nível 1 e Nível 2, desde que obtenha 5 Sucessos na rolagem de defesa. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Quando conjura Protego em sua forma não-verbal, você cria um escudo capaz de absorver um número de 2d8+4 por Sucesso, em vez de 2d6+2 por Sucesso."
+            "name": "Experiente",
+            "description": "Quando conjura Protego em sua forma não-verbal, você cria um escudo capaz de absorver um número de 2d8+ 4+ Sucessos. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Protego Duo (Feitiço Escudo Superior) como um feitiço de \"Execução: Ação livre\", \"Duração: Concentração\" e \"Pré-Requisitos: Abjuração 4\". Nessa variação, você conjura uma orbe ao seu redor pela duração de sua Concentração que dissipa tanto os lampejos lançados contra você (como descrito na Variação ●●●) - (OBS: Ainda precisa passar nos sucessos para dissipar. So que diminui o sucesso dos inimigos em seus ataques em 1), quanto possui 2d8+4 de PV por Sucesso. A cada turno em que o bruxo se concentra, os PV's máximos de Protego Duo são recuperados (sem necessidade de rolagem!). Essa variação cria uma defesa mágica e física simultaneamente, protegendo o usuário da maioria dos feitiços conhecidos. No entanto, enquanto se concentra, o bruxo não pode gastar Reações para lançar outras variações de Protego. Alem disso os feitiços de lampejo de Nível 6 para cima agora é dissipado caso o número de Sucessos obtido na rolagem de Protego seja igual ou superior à rolagem do feitiço adversário. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Protego Duo (Feitiço Escudo Superior) como um feitiço de \"Execução: Ação livre\", \"Duração: Concentração\" e \"Pré-Requisitos: Abjuração 4\". Nessa variação, você conjura uma orbe ao seu redor pela duração de sua Concentração que dissipa tanto os lampejos lançados contra você (como descrito na Variação "
         }
     ],
-    "identifier": "b254dcb5-9e05-440a-ac18-201861b11a57"
+    "identifier": "b254dcb5-9e05-440a-ac18-201861b11a57",
+    "updatedAt": "2023-10-10T21:16:34.728693"
 }

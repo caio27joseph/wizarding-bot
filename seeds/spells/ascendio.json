@@ -4,34 +4,33 @@
         "Abjuração"
     ],
     "difficulty": "Fácil",
-    "description": "Ao lançar este feitiço, o conjurador é propulsionado para cima, como se tivesse dado um grande pulo. Se utilizado em terra firme, o feitiço lança o bruxo para cima, permitindo que ele alcance uma altura de até 5 metros, equivalente a um andar. Já se usado debaixo d'água, o feitiço levará o bruxo diretamente para a superfície. ",
-    "updatedAt": "2023-08-10T18:10:57.269072",
     "title": "Feitiço de Elevação",
     "level": 2,
     "actionType": "Padrão",
     "duration": "Instantânea",
     "distance": "Pessoal",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar este feitiço, o conjurador é propulsionado para cima, como se tivesse dado um grande pulo. Se utilizado em terra firme, o feitiço lança o bruxo para cima, permitindo que ele alcance uma altura de até 5 metros, equivalente a um andar. Já se usado debaixo d'água, o feitiço levará o bruxo diretamente para a superfície.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Ascendio."
+            "description": "Você pode lançar Ascendio. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Ascendio de forma focada, permitindo um controle mais preciso da elevação."
+            "description": "Você pode lançar Ascendio de forma focada, permitindo um controle mais preciso da elevação. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Ascendio em uma plataforma mecânica que seja capaz de ascender, como um elevador ou um palco levadiço. Nessa variação, o mecanismo magicamente obedece ao seu comando e o carrega para cima."
+            "description": "Você pode lançar Ascendio em uma plataforma mecânica que seja capaz de ascender, como um elevador ou um palco levadiço. Nessa variação, o mecanismo magicamente obedece ao seu comando e o carrega para cima. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Ascendio de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. Com essa forma de conjuração, você é propulsionado até 10 metros para cima."
+            "name": "Experiente",
+            "description": "Você pode lançar Ascendio de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. Com essa forma de conjuração, você é propulsionado até 10 metros para cima. "
         },
         {
             "level": 5,
@@ -39,5 +38,6 @@
             "description": "Caso você fosse receber dano de queda no mesmo turno em que utilizou Ascendio, em vez disso, você é magicamente suspenso no ar poucos centímetros antes de atingir o chão. Nenhum dano de queda é recebido após utilizar este efeito, garantindo uma aterrissagem segura."
         }
     ],
-    "identifier": "dbf3e5bb-ec77-4dee-8533-a2b535a64923"
+    "identifier": "dbf3e5bb-ec77-4dee-8533-a2b535a64923",
+    "updatedAt": "2023-10-10T21:14:57.977980"
 }

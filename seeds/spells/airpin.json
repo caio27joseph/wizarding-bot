@@ -4,8 +4,6 @@
         "Conjuração"
     ],
     "difficulty": "Médio",
-    "description": "Com um gesto rápido, o bruxo arremessa uma bolha de ácido em direção a uma criatura que esteja dentro do alcance curto. O alvo deve ser visível ao conjurador. O feitiço também pode ser direcionado a duas criaturas distintas, desde que ambas estejam dentro do alcance e a até 2 metro de distância uma da outra.  Os alvos sofrerão 2d6 + Conjuração + Sucesso de dano de ácido. ",
-    "updatedAt": "2023-08-13T15:57:48.354916",
     "title": "Respigo de Ácido",
     "level": 3,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "resistence": "Salvaguarda Fisica reduz a metade.",
     "duration": "Instantânea",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Com um gesto rápido, o bruxo arremessa uma bolha de ácido em direção a uma criatura que esteja dentro do alcance curto. O alvo deve ser visível ao conjurador. O feitiço também pode ser direcionado a duas criaturas distintas, desde que ambas estejam dentro do alcance e a até 2 metro de distância uma da outra.\n\nOs alvos sofrerão 2d6 + Conjuração + Sucesso de dano de ácido.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Airpin."
+            "description": "Você pode lançar Airpin. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Airpin de forma focada, aumentando a precisão do arremesso e a chance de acertar o alvo."
+            "description": "Você pode lançar Airpin de forma focada, aumentando a precisão do arremesso e a chance de acertar o alvo. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Airpin de forma não-verbal."
+            "description": "Você pode lançar Airpin de forma não-verbal. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Quando conjura Airpin, você pode aumentar o dano para 3d8 de ácido caso obtenha 3 ou mais Sucessos em um teste de conjuração."
+            "name": "Experiente",
+            "description": "Quando conjura Airpin, você pode aumentar o dano para 3d8 de ácido caso obtenha 3 ou mais Sucessos em um teste de conjuração. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Airpin como um feitiço de \"Execução: Ação livre\", permitindo que você o conjure como uma reação quando uma criatura inimiga se aproxima de você em combate. Isso dá a você a chance de atacar instantaneamente o inimigo que se aproximou antes que ele possa causar dano a você. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Airpin como um feitiço de \"Execução: Ação livre\", permitindo que você o conjure como uma reação quando uma criatura inimiga se aproxima de você em combate. Isso dá a você a chance de atacar instantaneamente o inimigo que se aproximou antes que ele possa causar dano a você. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "48cc5686-39cb-4132-bfb7-eef09481b591"
+    "identifier": "48cc5686-39cb-4132-bfb7-eef09481b591",
+    "updatedAt": "2023-10-10T21:21:03.539835"
 }

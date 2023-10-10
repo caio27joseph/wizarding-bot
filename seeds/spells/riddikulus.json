@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Médio",
-    "description": "O Riddikulus é um feitiço que força uma criatura metamórfica a assumir uma forma hilariante aos olhos do conjurador. Essa azaração é especialmente útil para combater Bichos-Papões, uma vez que eles são vulneráveis a risadas. Além disso, o Riddikulus pode ser usado para prender qualquer tipo de criatura metamórfica em uma única forma, como Ghouls Camaleões, Cavalos-do-lago e Esconde-escondes. No entanto, o feitiço só funciona se a criatura tiver a capacidade de se transformar na forma desejada. Tenha em mente que o Riddikulus não tem efeito sobre humanos. ",
-    "updatedAt": "2023-08-20T17:59:26.642308",
     "title": "Azaração para Rebater Bicho-Papão",
     "level": 2,
     "actionType": "Padrão",
@@ -14,32 +12,34 @@
     "requirements": "Encantamento 1",
     "distance": "Curto",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: O Riddikulus é um feitiço que força uma criatura metamórfica a assumir uma forma hilariante aos olhos do conjurador. Essa azaração é especialmente útil para combater Bichos-Papões, uma vez que eles são vulneráveis a risadas. Além disso, o Riddikulus pode ser usado para prender qualquer tipo de criatura metamórfica em uma única forma, como Ghouls Camaleões, Cavalos-do-lago e Esconde-escondes. No entanto, o feitiço só funciona se a criatura tiver a capacidade de se transformar na forma desejada. Tenha em mente que o Riddikulus não tem efeito sobre humanos.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Riddikulus."
+            "description": "Você pode lançar Riddikulus. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Riddikulus de forma focada."
+            "description": "Você pode lançar Riddikulus de forma focada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Riddikulus de forma não-verbal."
+            "description": "Você pode lançar Riddikulus de forma não-verbal. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Seu Riddikulus passa a poder afetar bruxos metamorfomagos (pass aa afetar humanos metamorgomagos e Animagos)."
+            "name": "Experiente",
+            "description": "Seu Riddikulus passa a poder afetar bruxos metamorfomagos (pass aa afetar humanos metamorgomagos e Animagos). "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Riddikulus como um feitiço de \"Duração: 3 Horas - 12 Rodadas.\". | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Riddikulus como um feitiço de \"Duração: 3 Horas - 12 Rodadas.\". | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "e967bda1-f9f2-4ef3-bc53-d06f25cb7145"
+    "identifier": "e967bda1-f9f2-4ef3-bc53-d06f25cb7145",
+    "updatedAt": "2023-10-10T21:14:58.293191"
 }

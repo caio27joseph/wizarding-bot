@@ -4,8 +4,6 @@
         "Evocação"
     ],
     "difficulty": "Médio",
-    "description": "Depulso é um feitiço que causa o efeito oposto ao feitiço \"Accio\". Ao ser lançado, empurra o alvo para longe do conjurador. O alvo é arremessado a uma distância igual ao número de Sucessos obtidos no teste multiplicado por dois metros, na direção contrária à do conjurador. Caso o alvo colida com uma parede ou obstáculo durante o trajeto, sofre dano contusivo de 1d4 + 2 para cada 5 metros que tenha sido arrastado, apenas se for empurrado por essa distância. ",
-    "updatedAt": "2023-09-02T20:00:18.487594",
     "title": "Feitiço Expulsório",
     "level": 1,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Físico Anula | Parcial",
     "cd": "Feitiçaria + Metade da Força.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Depulso é um feitiço que causa o efeito oposto ao feitiço \"Accio\". Ao ser lançado, empurra o alvo para longe do conjurador. O alvo é arremessado a uma distância igual ao número de Sucessos obtidos no teste multiplicado por dois metros, na direção contrária à do conjurador. Caso o alvo colida com uma parede ou obstáculo durante o trajeto, sofre dano contusivo de 1d4 + 2 para cada 5 metros que tenha sido arrastado, apenas se for empurrado por essa distância.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Depulso, empurrando objetos inanimados ou seres vivos com força suficiente para apenas dar um empurrão inofensivo em criaturas vivas."
+            "description": "Você pode lançar Depulso, empurrando objetos inanimados ou seres vivos com força suficiente para apenas dar um empurrão inofensivo em criaturas vivas. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Agora, seu Depulso pode ser lançado em seres vivos com mais força. O alvo tem a oportunidade de fazer um teste de  Salvaguarda Física (dificuldade numero de sucessos do conjurador) para resistir ao empurrão. Se obtiver metade dos sucessos necessario, ele é lançado apenas metade da distância original. Caso falhe no teste, é empurrado com força total, caindo no chão e ficando considerado Caído."
+            "description": "Agora, seu Depulso pode ser lançado em seres vivos com mais força. O alvo tem a oportunidade de fazer um teste de Salvaguarda Física (dificuldade numero de sucessos do conjurador) para resistir ao empurrão. Se obtiver metade dos sucessos necessario, ele é lançado apenas metade da distância original. Caso falhe no teste, é empurrado com força total, caindo no chão e ficando considerado Caído. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Depulso de forma focada, aumentando a precisão e a eficácia do feitiço."
+            "description": "Você pode lançar Depulso de forma focada, aumentando a precisão e a eficácia do feitiço. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Nessa variação, você pode controlar a distância para qual pretende empurrar o alvo, mas a distância máxima ainda é determinada pelos seus Sucessos obtidos no teste (em metros). O dano muda para 2d4 + 2 para cada 5 metros."
+            "description": "Nessa variação, você pode controlar a distância para qual pretende empurrar o alvo, mas a distância máxima ainda é determinada pelos seus Sucessos obtidos no teste (em metros). O dano muda para 2d4 + 2 para cada 5 metros. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre de Depulso, você pode lançá-lo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Como mestre de Depulso, você pode lançá-lo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "dd1b183a-b973-45c9-a668-23ae3bf696e5"
+    "identifier": "dd1b183a-b973-45c9-a668-23ae3bf696e5",
+    "updatedAt": "2023-10-10T21:09:12.661801"
 }

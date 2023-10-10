@@ -1,43 +1,43 @@
 {
-    "name": "Capacius extremis",
+    "name": "Capacius Extremis",
     "category": [
         "Transmutação"
     ],
     "difficulty": "Muito Difícil",
-    "description": "Capacius Extremis é um feitiço avançado de transmutação que permite ao bruxo expandir o interior de um objeto ou um lugar, criando um espaço maior do que aparenta ser. Ele pode ser usado para fazer algo parecer pequeno por fora, mas grande por dentro. O feitiço pode ser usado de diversas maneiras criativas, como aumentar o espaço interno de um saco, mochila, mala ou até mesmo de uma tenda. Também pode ser utilizado para criar salas secretas dentro de construções existentes, proporcionando um espaço escondido. (Precisa de um documento no ministerio de magia)  Obs: O bruxo so consegue manter 1 espaço magico por vez. ",
-    "updatedAt": "2023-08-13T15:57:48.545907",
     "title": "Feitiço Bacillum Fulgor",
     "level": 3,
     "actionType": "Padrão",
     "duration": "Concentração - 7 Dias",
     "requirements": "Transmutação 3.",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
+    "description": "Efeito: Capacius Extremis é um feitiço avançado de transmutação que permite ao bruxo expandir o interior de um objeto ou um lugar, criando um espaço maior do que aparenta ser. Ele pode ser usado para fazer algo parecer pequeno por fora, mas grande por dentro. O feitiço pode ser usado de diversas maneiras criativas, como aumentar o espaço interno de um saco, mochila, mala ou até mesmo de uma tenda. Também pode ser utilizado para criar salas secretas dentro de construções existentes, proporcionando um espaço escondido. (Precisa de um documento no ministerio de magia)\n\nObs: O bruxo so consegue manter 1 espaço magico por vez.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Capacius Extremis. A duração do feitiço e de 7 Dias."
+            "description": "Você pode lançar Capacius Extremis. A duração do feitiço e de 7 Dias. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Capacius Extremis de forma focada, concentrando a expansão em uma área específica e determinada."
+            "description": "Você pode lançar Capacius Extremis de forma focada, concentrando a expansão em uma área específica e determinada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "O espaço interno expandido por Capacius Extremis pode ser personalizado e organizado de acordo com a vontade do bruxo, permitindo a criação de compartimentos e divisões dentro do espaço ampliado. Pode  agora manter 2 espaçõs magicos por vez. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "O espaço interno expandido por Capacius Extremis pode ser personalizado e organizado de acordo com a vontade do bruxo, permitindo a criação de compartimentos e divisões dentro do espaço ampliado. Pode agora manter 2 espaçõs magicos por vez. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Capacius Extremis de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso, a duração da concentração para manter o feitiço é prolongada, permitindo ao bruxo utilizar o espaço expandido por um período mais longo sem precisar renovar a magia constantemente. (1 mes). Pode  agora manter 3 espaçõs magicos por vez. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "name": "Experiente",
+            "description": "Você pode lançar Capacius Extremis de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso, a duração da concentração para manter o feitiço é prolongada, permitindo ao bruxo utilizar o espaço expandido por um período mais longo sem precisar renovar a magia constantemente. (1 mes). Pode agora manter 3 espaçõs magicos por vez. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode expandir o espaço interno de locais maiores e mais complexos, como um cômodo inteiro de uma casa, um galpão ou uma caverna. Essa variação requer mais poder mágico e concentração, mas permite criar espaços ocultos de grande escala dentro de estruturas já existentes. Pode alterar a aparência do local da forma que quiser, com caracteristicas unicas. Pode  agora manter 3 + Controle de espaçõs magicos por vez. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode expandir o espaço interno de locais maiores e mais complexos, como um cômodo inteiro de uma casa, um galpão ou uma caverna. Essa variação requer mais poder mágico e concentração, mas permite criar espaços ocultos de grande escala dentro de estruturas já existentes. Pode alterar a aparência do local da forma que quiser, com caracteristicas unicas. Pode agora manter 3 + Controle de espaçõs magicos por vez. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "3aaf5168-277c-4fbb-9d06-8b62816547bf"
+    "identifier": "3aaf5168-277c-4fbb-9d06-8b62816547bf",
+    "updatedAt": "2023-10-10T21:20:05.652963"
 }

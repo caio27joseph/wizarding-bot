@@ -4,34 +4,33 @@
         "Encantamento"
     ],
     "difficulty": "Fácil",
-    "description": "Faz com que os objetos desejados flutuem para uma mala de qualquer tipo ou forma, que se auto-empacota e/ou auto-organiza de acordo com a vontade do conjurador. Funciona apenas para guardar roupas e acessórios. Feito isso, a mala é fechada e trancada. ",
-    "updatedAt": "2023-08-10T18:01:58.146362",
     "title": "Feitiço de Empacotar",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea",
     "distance": "Curto",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Faz com que os objetos desejados flutuem para uma mala de qualquer tipo ou forma, que se auto-empacota e/ou auto-organiza de acordo com a vontade do conjurador. Funciona apenas para guardar roupas e acessórios. Feito isso, a mala é fechada e trancada.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Pack. Essa é a versão básica do feitiço, permitindo ao bruxo empacotar roupas e acessórios em uma mala."
+            "description": "Você pode lançar Pack. Essa é a versão básica do feitiço, permitindo ao bruxo empacotar roupas e acessórios em uma mala. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Pack para guardar utensílios e objetos de higiene pessoal."
+            "description": "Você pode lançar Pack para guardar utensílios e objetos de higiene pessoal. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Pack de forma não-verbal sem receber penalidades."
+            "description": "Você pode lançar Pack de forma não-verbal sem receber penalidades. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Pack para guardar qualquer objeto pessoal."
+            "description": "Você pode lançar Pack para guardar qualquer objeto pessoal. "
         },
         {
             "level": 5,
@@ -39,5 +38,6 @@
             "description": "Você pode lançar Pack em múltiplas malas ao mesmo tempo."
         }
     ],
-    "identifier": "5a4a69d9-d00f-457e-bc13-a83404961c6a"
+    "identifier": "5a4a69d9-d00f-457e-bc13-a83404961c6a",
+    "updatedAt": "2023-10-10T21:09:12.762430"
 }

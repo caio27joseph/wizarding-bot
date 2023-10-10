@@ -4,8 +4,6 @@
         "Adivinhação"
     ],
     "difficulty": "Médio",
-    "description": "O feitiço Offendo é uma poderosa Azaração que provoca um efeito cômico e desestabilizador em seu alvo. Ao ser lançado, a vítima é subitamente tomada por uma sensação de desequilíbrio, como se tivesse esbarrado em algo invisível. Desajeitada, a pessoa tropeça sozinha e perde momentaneamente o controle sobre seus movimentos, culminando em uma queda desajeitada. O alvo da Azaração do Tropeço sofre 1d4 + Sucessos de dano de queda e é considerado Caído durante a rodada afetada. A duração do efeito é instantânea, mas a lembrança do tropeço pode persistir na memória do alvo, gerando embaraço ou tornando-o mais suscetível a novos ataques. ",
-    "updatedAt": "2023-09-02T20:00:18.898522",
     "title": "Azaração do Tropeço",
     "level": 1,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Mental Anula",
     "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O feitiço Offendo é uma poderosa Azaração que provoca um efeito cômico e desestabilizador em seu alvo. Ao ser lançado, a vítima é subitamente tomada por uma sensação de desequilíbrio, como se tivesse esbarrado em algo invisível. Desajeitada, a pessoa tropeça sozinha e perde momentaneamente o controle sobre seus movimentos, culminando em uma queda desajeitada. O alvo da Azaração do Tropeço sofre 1d4 + Sucessos de dano de queda e é considerado Caído durante a rodada afetada. A duração do efeito é instantânea, mas a lembrança do tropeço pode persistir na memória do alvo, gerando embaraço ou tornando-o mais suscetível a novos ataques.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Offendo."
+            "description": "Você pode lançar Offendo. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Offendo de forma focada. Com a habilidade de focalizar o poder do feitiço, o bruxo pode escolher um ponto específico para o qual a vítima será atraída antes de tropeçar."
+            "description": "Você pode lançar Offendo de forma focada. Com a habilidade de focalizar o poder do feitiço, o bruxo pode escolher um ponto específico para o qual a vítima será atraída antes de tropeçar. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Offendo de forma não-verbal. Quando conjura Offendo em sua forma não-verbal, o seu dado de dano vira 1d6. Nessa variação avançada, o feitiço pode ser executado sem a necessidade de pronunciar palavras, tornando-o mais difícil de ser detectado e evitado pelo alvo."
+            "description": "Você pode lançar Offendo de forma não-verbal. Quando conjura Offendo em sua forma não-verbal, o seu dado de dano vira 1d6. Nessa variação avançada, o feitiço pode ser executado sem a necessidade de pronunciar palavras, tornando-o mais difícil de ser detectado e evitado pelo alvo. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Offendo Tria. Nessa variação, você conjura três lampejos que são projetados contra três alvos diferentes em uma única conjuração. Cada alvo não pode estar a mais de 5 metros de distância um do outro, ou atrás/nas laterais do conjurador."
+            "description": "Você pode lançar Offendo Tria. Nessa variação, você conjura três lampejos que são projetados contra três alvos diferentes em uma única conjuração. Cada alvo não pode estar a mais de 5 metros de distância um do outro, ou atrás/nas laterais do conjurador. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Offendo Maxima. Nessa variação, você emite um pulso esverdeado a partir da ponta da varinha que ainda é considerado um lampejo. Qualquer número de criaturas à sua escolha que estejam a 6 metros de distância de você levam 2d4 + Sucessos de dano de queda e são consideradas Caídas  . Esse feitiço não funciona em criaturas que já estejam Caídas  . | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Offendo Maxima. Nessa variação, você emite um pulso esverdeado a partir da ponta da varinha que ainda é considerado um lampejo. Qualquer número de criaturas à sua escolha que estejam a 6 metros de distância de você levam 2d4 + Sucessos de dano de queda e são consideradas Caídas . Esse feitiço não funciona em criaturas que já estejam Caídas . | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "b89e3532-1e96-4c43-a1ad-16f1baebe5a2"
+    "identifier": "b89e3532-1e96-4c43-a1ad-16f1baebe5a2",
+    "updatedAt": "2023-10-10T21:09:12.759474"
 }

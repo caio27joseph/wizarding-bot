@@ -5,8 +5,6 @@
         "Necromancia"
     ],
     "difficulty": "Médio",
-    "description": "Densaugeo é um feitiço que afeta os dentes dianteiros do alvo, fazendo com que eles cresçam exponencialmente até atingirem até 50 cm. Embora não imponha penalidades à criatura afetada, o feitiço causa um grande desconforto e pontadas de dor. ",
-    "updatedAt": "2023-09-02T20:00:18.477057",
     "title": "Azaração do Dente que Cresce",
     "level": 1,
     "actionType": "Padrão",
@@ -18,32 +16,34 @@
     "cd": "Feitiçaria + Metade da Força.",
     "requirements": "Necromancia 2 e Transfigurações 1",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Densaugeo é um feitiço que afeta os dentes dianteiros do alvo, fazendo com que eles cresçam exponencialmente até atingirem até 50 cm. Embora não imponha penalidades à criatura afetada, o feitiço causa um grande desconforto e pontadas de dor.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Densaugeo, fazendo com que os dentes dianteiros do alvo cresçam exponencialmente."
+            "description": "Você pode lançar Densaugeo, fazendo com que os dentes dianteiros do alvo cresçam exponencialmente. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Com domínio intermediário, você pode lançar Densaugeo de forma focada, aumentando a precisão do feitiço e a chance de sucesso."
+            "description": "Com domínio intermediário, você pode lançar Densaugeo de forma focada, aumentando a precisão do feitiço e a chance de sucesso. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Nessa variação, você pode lançar Densaugeo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta."
+            "description": "Nessa variação, você pode lançar Densaugeo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Agora você pode lançar Densaugeo como um feitiço de \"Maldição\", tornando-o permanente. Essa versão não pode ser desfeita por Finite Incantatem ou outros meios convencionais de dissipar maldições. (pode ser defeita com poções, rituais ou runas."
+            "description": "Agora você pode lançar Densaugeo como um feitiço de \"Maldição\", tornando-o permanente. Essa versão não pode ser desfeita por Finite Incantatem ou outros meios convencionais de dissipar maldições. (pode ser defeita com poções, rituais ou runas. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre de Densaugeo, ao lançar a azaração de forma silenciosa, você pode executá-la sem fazer nenhum som.| Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Como mestre de Densaugeo, ao lançar a azaração de forma silenciosa, você pode executá-la sem fazer nenhum som.| Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "a9c8bf09-df4a-42ff-b113-deeee3378c20"
+    "identifier": "a9c8bf09-df4a-42ff-b113-deeee3378c20",
+    "updatedAt": "2023-10-10T21:09:12.657861"
 }

@@ -1,11 +1,9 @@
 {
-    "name": "Slugulus eructo",
+    "name": "Slugulus Eructo",
     "category": [
         "Necromancia"
     ],
     "difficulty": "Médio",
-    "description": "Ao ser lançada, a Necromancia da Cara-de-Lesma (Slugulus Eructo) aflige a vítima, fazendo-a regurgitar lesmas a cada 30 segundos durante a duração do feitiço. Além disso, a pessoa atingida permanece no estado de Enjoo pela duração do efeito. Enquanto estiver vomitando lesmas, a vítima fica extremamente vulnerável e, portanto, Desprevenida. ",
-    "updatedAt": "2023-09-02T20:00:19.059043",
     "title": "Maldição da Cara-de-Lesma",
     "level": 1,
     "actionType": "Padrão",
@@ -16,32 +14,34 @@
     "resistence": "Salvaguarda Fisica Anula",
     "cd": "Feitiçaria + Metade da Força",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Ao ser lançada, a Necromancia da Cara-de-Lesma (Slugulus Eructo) aflige a vítima, fazendo-a regurgitar lesmas a cada 30 segundos durante a duração do feitiço. Além disso, a pessoa atingida permanece no estado de Enjoo pela duração do efeito. Enquanto estiver vomitando lesmas, a vítima fica extremamente vulnerável e, portanto, Desprevenida.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Slugulus Eructo, provocando esse efeito nas vítimas."
+            "description": "Você pode lançar Slugulus Eructo, provocando esse efeito nas vítimas. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Slugulus Eructo de forma focada, aumentando a precisão e o controle sobre o feitiço."
+            "description": "Você pode lançar Slugulus Eructo de forma focada, aumentando a precisão e o controle sobre o feitiço. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Slugulus Eructo de forma não-verbal, executando a maldição sem a necessidade de pronunciar palavras em voz alta."
+            "description": "Você pode lançar Slugulus Eructo de forma não-verbal, executando a maldição sem a necessidade de pronunciar palavras em voz alta. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Slugulus Eructo como um feitiço de \"Duração: 4 horas\", prolongando o tormento da vítima."
+            "description": "Você pode lançar Slugulus Eructo como um feitiço de \"Duração: 4 horas\", prolongando o tormento da vítima. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Slugulus Eructo como um feitiço de \"Duração: 8 horas\". Essa variação é especialmente poderosa, não podendo ser desfeita por meios convencionais, como o feitiço Finite Incantatem. A vítima fica presa na maldição até que a duração se esgote, causando grande aflição e desconforto durante esse período. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Slugulus Eructo como um feitiço de \"Duração: 8 horas\". Essa variação é especialmente poderosa, não podendo ser desfeita por meios convencionais, como o feitiço Finite Incantatem. A vítima fica presa na maldição até que a duração se esgote, causando grande aflição e desconforto durante esse período. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "8302833f-5047-445b-80fb-c1ec8f7110ed"
+    "identifier": "8302833f-5047-445b-80fb-c1ec8f7110ed",
+    "updatedAt": "2023-10-10T21:09:12.795444"
 }

@@ -4,8 +4,6 @@
         "Conjuração"
     ],
     "difficulty": "Muito Difícil",
-    "description": "O Feitiço Araniasortia é um encantamento de conjuração que permite ao bruxo convocar aracnídeos para seu auxílio. A espécie e o tamanho do aracnídeo que pode ser conjurado evolui conforme o conhecimento e a habilidade do bruxo em conjuração. No primeiro ano, o bruxo pode conjurar apenas aranhas pequenas, como a aranha de jardim, enquanto em anos mais avançados, ele pode convocar aracnídeos maiores e mais poderosos, como caranguejeiras ou aranhas venenosas.  Ao conjurar o feitiço, o bruxo deve fazer um teste de conjuração para determinar a qualidade e a efetividade da conjuração. Caso o teste seja bem-sucedido, o aracnídeo é invocado para ajudar o bruxo por 1 hora, atuando de acordo com os comandos verbais ou mentais do conjurador. O aracnídeo é completamente leal ao bruxo enquanto sob efeito do feitiço.  A efetividade do aracnídeo conjurado dependerá dos conhecimentos e habilidades do bruxo em conjuração, bem como do contexto da situação. Por exemplo, um aracnídeo bem conjurado pode ser ágil, obediente e útil no combate, enquanto um aracnídeo mal conjurado pode ser lento, desobediente e pouco eficiente.  A complexidade da conjuração e a capacidade do aracnídeo conjurado aumentam coham o tempo de estudo e prática do bruxo em conjuração. À medida que o bruxo avança em seus estudos, ele poderá conjurar aracnídeos maiores, mais poderosos e com habilidades especiais.  Obs: Consegue manter apenas 1 aranha por vez ",
-    "updatedAt": "2023-08-20T17:59:25.353499",
     "title": "Feitiço Araniasortia",
     "level": 3,
     "actionType": "Padrão",
@@ -14,32 +12,34 @@
     "duration": "1 hora - 10 rodadas (Conjurado)",
     "requirements": "Conjuração 3 e Magizoologia 2",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
+    "description": "Efeito: O Feitiço Araniasortia é um encantamento de conjuração que permite ao bruxo convocar aracnídeos para seu auxílio. A espécie e o tamanho do aracnídeo que pode ser conjurado evolui conforme o conhecimento e a habilidade do bruxo em conjuração. No primeiro ano, o bruxo pode conjurar apenas aranhas pequenas, como a aranha de jardim, enquanto em anos mais avançados, ele pode convocar aracnídeos maiores e mais poderosos, como caranguejeiras ou aranhas venenosas.\n\nAo conjurar o feitiço, o bruxo deve fazer um teste de conjuração para determinar a qualidade e a efetividade da conjuração. Caso o teste seja bem-sucedido, o aracnídeo é invocado para ajudar o bruxo por 1 hora, atuando de acordo com os comandos verbais ou mentais do conjurador. O aracnídeo é completamente leal ao bruxo enquanto sob efeito do feitiço.\n\nA efetividade do aracnídeo conjurado dependerá dos conhecimentos e habilidades do bruxo em conjuração, bem como do contexto da situação. Por exemplo, um aracnídeo bem conjurado pode ser ágil, obediente e útil no combate, enquanto um aracnídeo mal conjurado pode ser lento, desobediente e pouco eficiente.\n\nA complexidade da conjuração e a capacidade do aracnídeo conjurado aumentam coham o tempo de estudo e prática do bruxo em conjuração. À medida que o bruxo avança em seus estudos, ele poderá conjurar aracnídeos maiores, mais poderosos e com habilidades especiais.\n\nObs: Consegue manter apenas 1 aranha por vez",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aranhas de jardim e aracnídeos pequenos. (Pequeno)"
+            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aranhas de jardim e aracnídeos pequenos. (Pequeno) "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aranhas médias e aracnídeos de tamanho moderado. (Médio)"
+            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aranhas médias e aracnídeos de tamanho moderado. (Médio) "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aranhas grandes e aracnídeos de porte considerável. (Grande) | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aranhas grandes e aracnídeos de porte considerável. (Grande) | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aracnídeos venenosos e com habilidades especiais. Além disso neste nivel você pode conjurar Controle de aranhas ao mesmo tempo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "name": "Experiente",
+            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aracnídeos venenosos e com habilidades especiais. Além disso neste nivel você pode conjurar Controle de aranhas ao mesmo tempo. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aranhas raras e poderosas, com habilidades únicas e excepcionais. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode conjurar o Feitiço Araniasortia e convocar aranhas raras e poderosas, com habilidades únicas e excepcionais. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "01c89cfa-5261-4897-9ed9-75d003a53b93"
+    "identifier": "01c89cfa-5261-4897-9ed9-75d003a53b93",
+    "updatedAt": "2023-10-10T21:20:05.549682"
 }

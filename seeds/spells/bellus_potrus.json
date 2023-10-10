@@ -1,11 +1,9 @@
 {
-    "name": "Bellus potrus",
+    "name": "Bellus Potrus",
     "category": [
         "Necromancia"
     ],
     "difficulty": "Médio",
-    "description": "Bellus Potrus é uma maldição poderosa que afeta o alvo, fazendo com que seu umbigo se torne uma fonte repugnante de bolas de pelo e cera nauseantes. A maldição é conjurada através de um ritual sombrio e só pode ser quebrada por magia avançada de contra-maldição ou um feitiço específico para remover essa maldição. Ou quando o tempo acabar.  Ao ser atingido pela maldição, o umbigo do alvo começa a tremer e a expelir bolas de pelo e cera malcheirosas a cada cinco minutos. Essas bolas de pelo e cera são asquerosas e podem causar desconforto e repulsa ao alvo e a todos ao seu redor. A condição permanece até que a maldição seja desfeita ou  o tempo acabe. ",
-    "updatedAt": "2023-08-13T15:57:48.519906",
     "title": "Feitiço Bacillum Fulgor",
     "level": 3,
     "actionType": "Padrão",
@@ -14,32 +12,34 @@
     "requirements": "Necromancia 2",
     "resistence": "LSalvaguarda Fisica Anula.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Bellus Potrus é uma maldição poderosa que afeta o alvo, fazendo com que seu umbigo se torne uma fonte repugnante de bolas de pelo e cera nauseantes. A maldição é conjurada através de um ritual sombrio e só pode ser quebrada por magia avançada de contra-maldição ou um feitiço específico para remover essa maldição. Ou quando o tempo acabar.\n\nAo ser atingido pela maldição, o umbigo do alvo começa a tremer e a expelir bolas de pelo e cera malcheirosas a cada cinco minutos. Essas bolas de pelo e cera são asquerosas e podem causar desconforto e repulsa ao alvo e a todos ao seu redor. A condição permanece até que a maldição seja desfeita ou  o tempo acabe.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Bellus Potrus."
+            "description": "Você pode lançar Bellus Potrus. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "A maldição se torna mais intensa, causando um efeito mais duradouro e incômodo no alvo. Causando 3d4 de dano a cada 10 minutos. (Em combate a cada rodada)"
+            "description": "A maldição se torna mais intensa, causando um efeito mais duradouro e incômodo no alvo. Causando 3d4 de dano a cada 10 minutos. (Em combate a cada rodada) "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "O número de bolas de pelo e cera expelidas pelo umbigo aumenta, tornando o desconforto e o fedor ainda piores. Perde 2 dados em testes sociais."
+            "description": "O número de bolas de pelo e cera expelidas pelo umbigo aumenta, tornando o desconforto e o fedor ainda piores. Perde 2 dados em testes sociais. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O alcance da maldição pode se estender a outras áreas do corpo do alvo, tornando-o ainda mais afetado pela condição repulsiva. O dano vira d6."
+            "name": "Experiente",
+            "description": "O alcance da maldição pode se estender a outras áreas do corpo do alvo, tornando-o ainda mais afetado pela condição repulsiva. O dano vira d6. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "A maldição se torna quase impossível de ser quebrada sem a ajuda de magia muito poderosa. O umbigo do alvo pode começar a exalar um veneno fraco que causa fraqueza e lentidão. Além disso, as bolas de pelo e cera expelidas podem se transformar em pequenos seres asquerosos que agem contra o alvo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "A maldição se torna quase impossível de ser quebrada sem a ajuda de magia muito poderosa. O umbigo do alvo pode começar a exalar um veneno fraco que causa fraqueza e lentidão. Além disso, as bolas de pelo e cera expelidas podem se transformar em pequenos seres asquerosos que agem contra o alvo. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "46d4f9b9-b74f-4935-8155-31180568bf18"
+    "identifier": "46d4f9b9-b74f-4935-8155-31180568bf18",
+    "updatedAt": "2023-10-10T21:20:05.628006"
 }

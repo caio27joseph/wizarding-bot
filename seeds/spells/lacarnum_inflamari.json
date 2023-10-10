@@ -1,11 +1,9 @@
 {
-    "name": "Lacarnum inflamari",
+    "name": "Lacarnum Inflamari",
     "category": [
         "Evocação"
     ],
     "difficulty": "Médio",
-    "description": "O feitiço Lacarnum Inflamari conjura uma chama que atinge um alvo ao alcance do toque ou adjacente. Essa chama se alastra como fogo normal, deixando o alvo em chamas e causando o efeito \"Queimando\" e Causando 2d4 + 2 de dano. Essa magia é frequentemente utilizada para acender archotes, lamparinas ou incinerar pequenos objetos. ",
-    "updatedAt": "2023-09-02T20:00:18.791941",
     "title": "Feitiço de Ignição",
     "level": 1,
     "actionType": "Padrão",
@@ -14,32 +12,34 @@
     "resistence": "Salvaguarda Físico Reduz a metade.",
     "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O feitiço Lacarnum Inflamari conjura uma chama que atinge um alvo ao alcance do toque ou adjacente. Essa chama se alastra como fogo normal, deixando o alvo em chamas e causando o efeito \"Queimando\" e Causando 2d4 + 2 de dano. Essa magia é frequentemente utilizada para acender archotes, lamparinas ou incinerar pequenos objetos.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Lacarnum Inflamari, acendendo a chama no toque ou próximo ao alvo."
+            "description": "Você pode lançar Lacarnum Inflamari, acendendo a chama no toque ou próximo ao alvo. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Lacarnum Inflamari de forma focada, o que possibilita maior precisão e controle sobre a chama."
+            "description": "Você pode lançar Lacarnum Inflamari de forma focada, o que possibilita maior precisão e controle sobre a chama. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Lacarnum Inflamari de forma não-verbal, tornando o processo de conjuração mais discreto e ágil. Ganha +1d4 de dano."
+            "description": "Você pode lançar Lacarnum Inflamari de forma não-verbal, tornando o processo de conjuração mais discreto e ágil. Ganha +1d4 de dano. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Lacarnum Inflamari como um feitiço de \"Lampejo: Laranja\". Nessa variação, você pode atingir um alvo à distância, possibilitando acender chamas em objetos ou alvos mais distantes."
+            "description": "Você pode lançar Lacarnum Inflamari como um feitiço de \"Lampejo: Laranja\". Nessa variação, você pode atingir um alvo à distância, possibilitando acender chamas em objetos ou alvos mais distantes. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Lacarnum Ignotus (Chamas de Combate) como um feitiço de \"Lampejo: Laranja\". Nessa variação, você conjura dois lampejos de chamas que são projetados contra dois alvos diferentes em uma única conjuração. Se o feitiço acertar um alvo, ele sofrerá 2d6 + 4 de dano de queimadura e ficará em chamas com o efeito \"Queimando\". Cada alvo não pode estar a mais de 5"
+            "description": "Você pode lançar Lacarnum Ignotus (Chamas de Combate) como um feitiço de \"Lampejo: Laranja\". Nessa variação, você conjura dois lampejos de chamas que são projetados contra dois alvos diferentes em uma única conjuração. Se o feitiço acertar um alvo, ele sofrerá 2d6 + 4 de dano de queimadura e ficará em chamas com o efeito \"Queimando\". Cada alvo não pode estar a mais de 5 metros de distância um do outro ou atrás/nas laterais do conjurador. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "e3ae127b-7470-4450-9ecd-08e65c0c16f9"
+    "identifier": "e3ae127b-7470-4450-9ecd-08e65c0c16f9",
+    "updatedAt": "2023-10-10T21:09:12.734338"
 }

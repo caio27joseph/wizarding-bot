@@ -1,0 +1,42 @@
+{
+  "name": "Asclepio",
+  "category": ["Evocação"],
+  "difficulty": "Médio",
+  "title": "Feitiço da Cicatrização",
+  "level": 1,
+  "actionType": "Padrão",
+  "duration": "Instantânea",
+  "requirements": "Evocação 1 e Competência Medibruxo 1",
+  "distance": "Toque",
+  "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+  "description": "Efeito: Ao conjurar o Asclépio, o bruxo consegue fazer com que pequenos ferimentos desapareçam instantaneamente, ajudando o paciente a recuperar-se mais rapidamente. O número de Pontos de Vitalidade (PVs) recuperados pelo alvo é determinado por 1d4 + Medibruxaria + o número de Sucessos obtidos no teste da magia. Para realizar o feitiço com eficácia, o alvo deve possuir metade de seus PVs ou mais.",
+  "maestry": [
+    {
+      "level": 1,
+      "name": "Inicial",
+      "description": "Você pode lançar o Asclépio, realizando a cura com a varinha em contato direto com a pele do paciente. "
+    },
+    {
+      "level": 2,
+      "name": "Intermediário",
+      "description": "Você pode lançar o Asclépio de forma focada, aprimorando sua habilidade em curar ferimentos menores. "
+    },
+    {
+      "level": 3,
+      "name": "Avançado",
+      "description": "Com o Asclépio não-verbal, seu poder de cura é ampliado, e o dado de cura passa a ser 2d4 em vez de 1d4. "
+    },
+    {
+      "level": 4,
+      "name": "Experiente",
+      "description": "Com o Asclépio na forma de \"Lampejo: Transparente\", você pode atingir alvos à distância, proporcionando cura àqueles que não podem ser tocados fisicamente. "
+    },
+    {
+      "level": 5,
+      "name": "Mestre",
+      "description": "Quando lança o Asclépio não-verbalmente, seu poder de cura atinge o auge, e o dado de cura aumenta para 4d4, permitindo que você cure ferimentos de forma ainda mais eficiente. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
+    }
+  ],
+  "identifier": "b2f7ef09-c94c-4f9c-8b08-a6e6b785ccbe",
+  "updatedAt": "2023-10-10T21:09:12.620726"
+}

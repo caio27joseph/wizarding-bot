@@ -4,8 +4,6 @@
         "Abjuração"
     ],
     "difficulty": "Fácil",
-    "description": "Ao tocar com a ponta da varinha na garganta do alvo, você é capaz de fazer desaparecer qualquer objeto ou substância que esteja asfixiando ou engasgando-o. ",
-    "updatedAt": "2023-08-10T18:10:57.206072",
     "title": "Feitiço do Desengasgo",
     "level": 2,
     "actionType": "Padrão",
@@ -13,26 +11,27 @@
     "requirements": "abjuração 1, e Medibruxaria 2",
     "distance": "Toque",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ao tocar com a ponta da varinha na garganta do alvo, você é capaz de fazer desaparecer qualquer objeto ou substância que esteja asfixiando ou engasgando-o.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Anapneo."
+            "description": "Você pode lançar Anapneo. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Anapneo de forma focada, aumentando a precisão e a eficácia do feitiço."
+            "description": "Você pode lançar Anapneo de forma focada, aumentando a precisão e a eficácia do feitiço. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Anapneo como um feitiço de \"Lampejo: Ciano\". Com essa variação, você pode atingir um alvo à distância (Alcance curto), sendo útil para situações em que o alvo está fora do alcance físico do toque."
+            "description": "Você pode lançar Anapneo como um feitiço de \"Lampejo: Ciano\". Com essa variação, você pode atingir um alvo à distância (Alcance curto), sendo útil para situações em que o alvo está fora do alcance físico do toque. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Anapneo de forma não-verbal, o que permite executar o feitiço sem a necessidade de proferir palavras, tornando-o mais discreto e ágil."
+            "name": "Experiente",
+            "description": "Você pode lançar Anapneo de forma não-verbal, o que permite executar o feitiço sem a necessidade de proferir palavras, tornando-o mais discreto e ágil. "
         },
         {
             "level": 5,
@@ -40,5 +39,6 @@
             "description": "Você pode lançar Anapneo Inebriatus (Feitiço da Sobriedade). Nessa variação especial, além de desengasgar o alvo, você também faz desaparecer qualquer vestígio de substâncias químicas que alterem sua percepção, como drogas lícitas, ilícitas ou poções. Isso desfaz as condições Alucinando, Inebriado ou Enjoado, desde que esses efeitos sejam provenientes de alguma substância ou feitiço. Essa versão do feitiço é especialmente útil para ajudar pessoas que estão sob o efeito de substâncias indesejadas. Além disso casa a pessoa tenha sofrido dano nestas situações recuperam 1d4+Medibruxaria de pontos de vida."
         }
     ],
-    "identifier": "a96ca763-056b-4d99-961e-e626ee0b5581"
+    "identifier": "a96ca763-056b-4d99-961e-e626ee0b5581",
+    "updatedAt": "2023-10-10T21:14:57.935038"
 }

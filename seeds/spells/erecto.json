@@ -4,40 +4,40 @@
         "Transmutação"
     ],
     "difficulty": "Fácil",
-    "description": "Erecto é um feitiço poderoso que permite ao conjurador montar objetos ou estruturas através de magia, desde que os materiais de construção estejam previamente reunidos no local. Esse feitiço abrange desde coisas simples, como tendas, até mecanismos complexos como relógios, contanto que o conjurador compreenda como funcionam. A velocidade em que o objeto ou estrutura é montada depende de seu volume total e complexidade, variando de segundos até horas de concentração. ",
-    "updatedAt": "2023-08-10T18:01:57.790361",
     "title": "Feitiço de Construção Instantânea",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Concentração",
     "distance": "Médio",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Erecto é um feitiço poderoso que permite ao conjurador montar objetos ou estruturas através de magia, desde que os materiais de construção estejam previamente reunidos no local. Esse feitiço abrange desde coisas simples, como tendas, até mecanismos complexos como relógios, contanto que o conjurador compreenda como funcionam. A velocidade em que o objeto ou estrutura é montada depende de seu volume total e complexidade, variando de segundos até horas de concentração.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Erecto com o efeito básico descrito acima."
+            "description": "Você pode lançar Erecto com o efeito básico descrito acima. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Erecto de forma focada."
+            "description": "Você pode lançar Erecto de forma focada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Erecto de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta."
+            "description": "Você pode lançar Erecto de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Erecto como um feitiço de \"Execução: Ação livre\". Embora ainda precise manter a concentração, esta variação permite que você execute outras ações enquanto continua a construção."
+            "description": "Você pode lançar Erecto como um feitiço de \"Execução: Ação livre\". Embora ainda precise manter a concentração, esta variação permite que você execute outras ações enquanto continua a construção. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Seu domínio sobre o Erecto atinge seu ápice. Você pode lançar Erecto Animus (Feitiço da Construção Automatizada) como um feitiço de \"Execução: Ação padrão\" e \"Duração: Especial\". Nesta variação, a magia se estende para os materiais de construção, permitindo que se auto-construam. Após lançar o feitiço, você não precisa mais manter a concentração, pois os materiais serão encantados para se auto-construir, e a magia se dissipará somente quando a estrutura ou obra ficar completa. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Seu domínio sobre o Erecto atinge seu ápice. Você pode lançar Erecto Animus (Feitiço da Construção Automatizada) como um feitiço de \"Execução: Ação padrão\" e \"Duração: Especial\". Nesta variação, a magia se estende para os materiais de construção, permitindo que se auto-construam. Após lançar o feitiço, você não precisa mais manter a concentração, pois os materiais serão encantados para se auto-construir, e a magia se dissipará somente quando a estrutura ou obra ficar completa. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "58f72b8e-dcb0-48e3-bdc6-dc9e3e81be66"
+    "identifier": "58f72b8e-dcb0-48e3-bdc6-dc9e3e81be66",
+    "updatedAt": "2023-10-10T21:09:12.671649"
 }

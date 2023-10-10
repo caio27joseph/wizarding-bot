@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Médio",
-    "description": "O Brachiabindo é um poderoso feitiço de Encantamento utilizado para prender o adversário por cordas invisíveis. Ao conjurar esse feitiço, o bruxo aponta sua varinha em direção ao alvo desejado e, com destreza, entoa as palavras mágicas \"Brachiabindo\". Imediatamente, cordas etéreas e luminosas surgem do ar e envolvem o oponente, prendendo-o em um emaranhado de amarras invisíveis. ",
-    "updatedAt": "2023-08-20T17:59:25.508308",
     "title": "Brachiabindo",
     "level": 3,
     "actionType": "Padrão",
@@ -14,32 +12,34 @@
     "resistence": "Salvaguarda Fisica Anula.",
     "duration": "Concentração (até 1 minuto | 3 Rodadas)",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O Brachiabindo é um poderoso feitiço de Encantamento utilizado para prender o adversário por cordas invisíveis. Ao conjurar esse feitiço, o bruxo aponta sua varinha em direção ao alvo desejado e, com destreza, entoa as palavras mágicas \"Brachiabindo\". Imediatamente, cordas etéreas e luminosas surgem do ar e envolvem o oponente, prendendo-o em um emaranhado de amarras invisíveis.\n\nAo ser bem-sucedido no lançamento do Brachiabindo, o alvo fica temporariamente imobilizado pelas cordas invisíveis. O efeito da imobilização varia de acordo com o nível de domínio do bruxo no feitiço:",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "O alvo fica momentaneamente preso em suas ações, podendo ser incapaz de se movimentar ou realizar ações, mas ainda podendo tentar se libertar nas próximas rodadas."
+            "description": "O alvo fica momentaneamente preso em suas ações, podendo ser incapaz de se movimentar ou realizar ações, mas ainda podendo tentar se libertar nas próximas rodadas. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "As cordas do Brachiabindo se apertam e mantêm o alvo firmemente imobilizado por um número de rodadas igual ao número de Sucessos obtidos no teste de conjuração. O alvo não pode realizar ações durante esse período e precisa fazer um teste de Resistência a cada rodada para tentar se libertar."
+            "description": "As cordas do Brachiabindo se apertam e mantêm o alvo firmemente imobilizado por um número de rodadas igual ao número de Sucessos obtidos no teste de conjuração. O alvo não pode realizar ações durante esse período e precisa fazer um teste de Resistência a cada rodada para tentar se libertar. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "O Brachiabindo atinge um nível avançado de precisão e força. O alvo fica imobilizado e incapaz de se libertar por um número de rodadas igual ao dobro do número de Sucessos obtidos no teste de conjuração."
+            "description": "O Brachiabindo atinge um nível avançado de precisão e força. O alvo fica imobilizado e incapaz de se libertar por um número de rodadas igual ao dobro do número de Sucessos obtidos no teste de conjuração. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O bruxo alcança um controle excepcional sobre o Brachiabindo, podendo direcionar as cordas invisíveis para envolver mais de um alvo simultaneamente (Numero de Controle de pessoas)."
+            "name": "Experiente",
+            "description": "O bruxo alcança um controle excepcional sobre o Brachiabindo, podendo direcionar as cordas invisíveis para envolver mais de um alvo simultaneamente (Numero de Controle de pessoas). "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "O Brachiabindo atinge seu ápice de poder. O bruxo pode conjurar uma variante avançada chamada \"Brachiabindo Maxima\". Nessa forma, as cordas se tornam ainda mais fortes e resistentes, tornando quase impossível para o alvo se libertar. O efeito é similar ao Domínio Especialista, mas o número de rodadas de imobilização é dobrado. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "O Brachiabindo atinge seu ápice de poder. O bruxo pode conjurar uma variante avançada chamada \"Brachiabindo Maxima\". Nessa forma, as cordas se tornam ainda mais fortes e resistentes, tornando quase impossível para o alvo se libertar. O efeito é similar ao "
         }
     ],
-    "identifier": "e40cde1f-042a-4d52-8a5a-b26680f2305a"
+    "identifier": "e40cde1f-042a-4d52-8a5a-b26680f2305a",
+    "updatedAt": "2023-10-10T21:20:05.636869"
 }

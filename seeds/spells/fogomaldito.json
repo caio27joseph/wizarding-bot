@@ -4,8 +4,6 @@
         "Universal"
     ],
     "difficulty": "Difícil",
-    "description": "Você aponta sua varinha na direção desejada e convoca chamas negras de energia necrótica que se espalham em um cone de 45 graus a partir de você, engolfando tudo em chamas.  Todas as criaturas dentro da área de efeito devem fazer um teste de resistência de Salvaguarda Física Reduz a metade. Em uma falha, a criatura sofre Arte das trevas (Valor)d10 + Controle de dano necrótico. Em um sucesso, a criatura sofre metade desse dano. Além disso, qualquer criatura que sofrer dano total devido a este feitiço também tem uma dificuldade em se curar por 2 rodadas, curando apenas metade, enquanto luta para apagar as chamas sobrenaturais.  Este feitiço é conhecido por sua incrível destrutividade e é usado apenas por bruxos extremamente habilidosos, dada a dificuldade de controlar o fogo maldito. O lampejo negro e as chamas necróticas são um sinal do poder sinistro do feitiço um poder das trevas. ",
-    "updatedAt": "2023-09-02T20:01:04.361438",
     "title": "Feitiço do Fogo Negro",
     "level": 3,
     "actionType": "Padrão",
@@ -16,26 +14,27 @@
     "resistence": "Salvaguarda Fisica Reduz a Metade",
     "requirements": "Arte das Trevas 3 e 1 ponto em afinidade das trevas.",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Você aponta sua varinha na direção desejada e convoca chamas negras de energia necrótica que se espalham em um cone de 45 graus a partir de você, engolfando tudo em chamas.\n\nTodas as criaturas dentro da área de efeito devem fazer um teste de resistência de Salvaguarda Física Reduz a metade. Em uma falha, a criatura sofre Arte das trevas (Valor)d10 + Controle de dano necrótico. Em um sucesso, a criatura sofre metade desse dano. Além disso, qualquer criatura que sofrer dano total devido a este feitiço também tem uma dificuldade em se curar por 2 rodadas, curando apenas metade, enquanto luta para apagar as chamas sobrenaturais.\n\nEste feitiço é conhecido por sua incrível destrutividade e é usado apenas por bruxos extremamente habilidosos, dada a dificuldade de controlar o fogo maldito. O lampejo negro e as chamas necróticas são um sinal do poder sinistro do feitiço um poder das trevas.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Fogomaldito."
+            "description": "Você pode lançar Fogomaldito. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Fogomaldito de forma focada. O fogo fica na area por 1d4 Rodadas e causa 3d8+2 de dano aos inimigos que ficarem na area."
+            "description": "Você pode lançar Fogomaldito de forma focada. O fogo fica na area por 1d4 Rodadas e causa 3d8+2 de dano aos inimigos que ficarem na area. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Fogomaldito de forma não-verbal. O Alcance muda para Médio Diminui a Dif de sucesso necessario em 1."
+            "description": "Você pode lançar Fogomaldito de forma não-verbal. O Alcance muda para Médio Diminui a Dif de sucesso necessario em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Seu fogo maldito forma um circulo de proteção em volta de você que impede os inimigos de se aproximar de você, Criaturas pequenas são incineradas ao tocarem no fogomaldito além de curar 1d4+2 por criatura incinerada ou 1d2+2 de cura por criatura ferida por você na proxima rodada."
+            "name": "Experiente",
+            "description": "Seu fogo maldito forma um circulo de proteção em volta de você que impede os inimigos de se aproximar de você, Criaturas pequenas são incineradas ao tocarem no fogomaldito além de curar 1d4+2 por criatura incinerada ou 1d2+2 de cura por criatura ferida por você na proxima rodada. "
         },
         {
             "level": 5,
@@ -43,5 +42,6 @@
             "description": "Você pode lançar Fogomaldito Aprimorado, mudando o dano para Controle (Valor)d10 + Arte das Trevas + Necromancia. Diminui a Dif de sucesso necessario em 1."
         }
     ],
-    "identifier": "43a1f033-ec23-478f-853a-04fc187a0928"
+    "identifier": "43a1f033-ec23-478f-853a-04fc187a0928",
+    "updatedAt": "2023-10-10T21:22:33.671655"
 }

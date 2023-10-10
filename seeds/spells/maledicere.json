@@ -4,8 +4,6 @@
         "Necromancia"
     ],
     "difficulty": "Difícil",
-    "description": "Ao lançar o Feitiço de Conceder Maldição, você toca uma criatura e a amaldiçoa durante a duração do feitiço. Ao conjurá-lo, você pode escolher entre as seguintes opções para a natureza da maldição:  Primeira opção: O alvo tem desvantagem em testes de atributo perde um dado Segunda opção: O alvo tem desvantagem nas jogadas de ataque contra você perde 1 dado Terceira opção: O alvo perde +1 de sua reação quando a utiliza.  Durante a duração do feitiço, o alvo fica sob o efeito da maldição escolhida, que afeta suas ações e habilidades de combate de acordo com a opção selecionada. ",
-    "updatedAt": "2023-08-10T18:01:58.098361",
     "title": "Feitiço de Conceder Maldição",
     "level": 1,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "distance": "Toque",
     "antiSpell": "Aufero Maledictionem",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar o Feitiço de Conceder Maldição, você toca uma criatura e a amaldiçoa durante a duração do feitiço. Ao conjurá-lo, você pode escolher entre as seguintes opções para a natureza da maldição:\n\nPrimeira opção: O alvo tem desvantagem em testes de atributo perde um dado\nSegunda opção: O alvo tem desvantagem nas jogadas de ataque contra você perde 1 dado\nTerceira opção: O alvo perde +1 de sua reação quando a utiliza.\n\nDurante a duração do feitiço, o alvo fica sob o efeito da maldição escolhida, que afeta suas ações e habilidades de combate de acordo com a opção selecionada.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Maledicere."
+            "description": "Você pode lançar Maledicere. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Conceder Maldição de forma focada, diminuindo em  1 dado no teste de Atributo e em -1 o dano causado pelo alvo. Além disso o feitiço passa a ter alcance Curto."
+            "description": "Você pode lançar Conceder Maldição de forma focada, diminuindo em 1 dado no teste de Atributo e em -1 o dano causado pelo alvo. Além disso o feitiço passa a ter alcance Curto. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "O alvo fica sob efeito da maldição escolhida por um tempo adicional, +2 Rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "O alvo fica sob efeito da maldição escolhida por um tempo adicional, +2 Rodadas. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Conceder Maldição de forma não-verbal."
+            "description": "Você pode lançar Conceder Maldição de forma não-verbal. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Ao atingir o Domínio Mestre, você aperfeiçoa a arte da maldição. O alvo agora sofre os efeitos de duas opções de maldição simultaneamente, sendo possível escolher duas diferentes ou repetir a mesma opção para aumentar ainda mais a penalidade. As penalidades somam-se caso a mesma habilidade seja escolhida mais de uma vez, mas o efeito de redução de dano não é cumulativo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Ao atingir o "
         }
     ],
-    "identifier": "453e60d4-7c5d-4a09-9d47-a00e7462685c"
+    "identifier": "453e60d4-7c5d-4a09-9d47-a00e7462685c",
+    "updatedAt": "2023-10-10T21:09:12.752580"
 }

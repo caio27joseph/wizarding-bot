@@ -4,8 +4,6 @@
         "Conjuração"
     ],
     "difficulty": "Médio",
-    "description": "Colloshoo é um feitiço que tem como objetivo imobilizar o alvo, fazendo com que seus pés grudem no chão. Quando lançado com sucesso, o Colloshoo deixa os pés da criatura afetada completamente presos ao solo, tornando-a incapaz de se mover e a deixando vulnerável a ataques. ",
-    "updatedAt": "2023-09-02T20:00:18.420539",
     "title": "Azaração dos Pés Grudentos",
     "level": 1,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Físico Anula",
     "cd": "Feitiçaria + Metade da Força.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Colloshoo é um feitiço que tem como objetivo imobilizar o alvo, fazendo com que seus pés grudem no chão. Quando lançado com sucesso, o Colloshoo deixa os pés da criatura afetada completamente presos ao solo, tornando-a incapaz de se mover e a deixando vulnerável a ataques.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Colloshoo, fazendo com que os pés do alvo grudem no chão e o imobilizando."
+            "description": "Você pode lançar Colloshoo, fazendo com que os pés do alvo grudem no chão e o imobilizando. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Com domínio intermediário, você pode lançar Colloshoo de forma focada, aumentando a precisão do feitiço e a chance de sucesso."
+            "description": "Com domínio intermediário, você pode lançar Colloshoo de forma focada, aumentando a precisão do feitiço e a chance de sucesso. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Nessa variação, você pode lançar Colloshoo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta para imobilizar o alvo."
+            "description": "Nessa variação, você pode lançar Colloshoo de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta para imobilizar o alvo. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Agora você pode lançar Colloshoo de forma silenciosa, permitindo que a magia seja executada sem fazer nenhum som."
+            "description": "Agora você pode lançar Colloshoo de forma silenciosa, permitindo que a magia seja executada sem fazer nenhum som. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre de Colloshoo, ao lançar a azaração de forma silenciosa, você pode escolher aprimorá-la para fazer o alvo tropeçar ao ser atingido. Além de ficar Enredada, a criatura também é considerada Caída, ficando vulnerável e deitada no chão. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Como mestre de Colloshoo, ao lançar a azaração de forma silenciosa, você pode escolher aprimorá-la para fazer o alvo tropeçar ao ser atingido. Além de ficar Enredada, a criatura também é considerada Caída, ficando vulnerável e deitada no chão. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "659f149d-0c41-466a-9e7f-54e8fc9fade0"
+    "identifier": "659f149d-0c41-466a-9e7f-54e8fc9fade0",
+    "updatedAt": "2023-10-10T21:09:12.653922"
 }

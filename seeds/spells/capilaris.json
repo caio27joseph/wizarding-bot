@@ -4,8 +4,6 @@
         "Transmutação"
     ],
     "difficulty": "Difícil",
-    "description": "O Feitiço Capilaris permite controlar e acelerar o crescimento dos cabelos de um bruxo de forma direcionada e temporária. Ao executar o Feitiço Capilaris, você assume o comando sobre o crescimento dos cabelos, podendo determinar o comprimento desejado de forma precisa e controlada. Os fios se alongam gradualmente, obedecendo ao seu desejo. Uma suave tonalidade amarela envolve o alvo durante a aplicação do feitiço, indicando a transformação em andamento. ",
-    "updatedAt": "2023-08-10T18:10:57.317072",
     "title": "Azaração que faz o cabelo crescer.",
     "level": 2,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "distance": "Curto",
     "requirements": "Transmutação 2",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: O Feitiço Capilaris permite controlar e acelerar o crescimento dos cabelos de um bruxo de forma direcionada e temporária. Ao executar o Feitiço Capilaris, você assume o comando sobre o crescimento dos cabelos, podendo determinar o comprimento desejado de forma precisa e controlada. Os fios se alongam gradualmente, obedecendo ao seu desejo. Uma suave tonalidade amarela envolve o alvo durante a aplicação do feitiço, indicando a transformação em andamento.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Capilaris."
+            "description": "Você pode lançar Capilaris. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Capilaris de forma focada, tornando o crescimento do cabelo mais controlado e uniforme."
+            "description": "Você pode lançar Capilaris de forma focada, tornando o crescimento do cabelo mais controlado e uniforme. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Capilaris como um feitiço de \"Duração: Instantânea\". Nessa variação, o cabelo cresce rapidamente até o comprimento desejado. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Capilaris como um feitiço de \"Duração: Instantânea\". Nessa variação, o cabelo cresce rapidamente até o comprimento desejado. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Capilaris de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. Além disso, com esse controle, você pode escolher afetar todos os pelos do corpo simultaneamente, incluindo sobrancelhas, barba, etc."
+            "name": "Experiente",
+            "description": "Você pode lançar Capilaris de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. Além disso, com esse controle, você pode escolher afetar todos os pelos do corpo simultaneamente, incluindo sobrancelhas, barba, etc. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Capilaris Collore, que além de fazer o cabelo crescer, também permite alterar a cor dos pelos, cabelos ou qualquer outra parte do corpo para a cor ou forma desejada. Esse efeito de mudança de cor é temporário e dura a mesma duração do feitiço original. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Capilaris Collore, que além de fazer o cabelo crescer, também permite alterar a cor dos pelos, cabelos ou qualquer outra parte do corpo para a cor ou forma desejada. Esse efeito de mudança de cor é temporário e dura a mesma duração do feitiço original. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "c75c3a6b-70bd-45f7-8bb7-e7c3947ace21"
+    "identifier": "c75c3a6b-70bd-45f7-8bb7-e7c3947ace21",
+    "updatedAt": "2023-10-10T21:14:58.026093"
 }

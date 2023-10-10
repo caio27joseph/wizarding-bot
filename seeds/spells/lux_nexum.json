@@ -1,11 +1,9 @@
 {
-    "name": "Lux nexum",
+    "name": "Lux Nexum",
     "category": [
         "Evocação"
     ],
     "difficulty": "Difícil",
-    "description": "O Feitiço da Conexão da Luz, também conhecido como Lux Nexum, permite que o bruxo lance um projetil de luz da ponta de sua varinha. Quando esse projetil atinge um inimigo, causa dano e o deixa momentaneamente paralisado em uma espécie de redoma de luz por 2 rodadas. Caso o projetil atinja um inimigo e haja outro atrás dele, o projetil continua e também o acerta,  causando dano. O dano e de 2d6 + 2 + Sucessos . Não causa aprisionamento na outra pessoa so dano.  Obs: Fantasmas e outros seres deste gênero ou das trevas levam o dobro de dano. ",
-    "updatedAt": "2023-09-02T20:00:18.841475",
     "title": "Feitiço da conexão da luz",
     "level": 1,
     "actionType": "Padrão",
@@ -17,32 +15,34 @@
     "resistence": "Salvaguarda Físico Reduz a Metade..",
     "cd": "Feitiçaria + Metade da Força",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: O Feitiço da Conexão da Luz, também conhecido como Lux Nexum, permite que o bruxo lance um projetil de luz da ponta de sua varinha. Quando esse projetil atinge um inimigo, causa dano e o deixa momentaneamente paralisado em uma espécie de redoma de luz por 2 rodadas. Caso o projetil atinja um inimigo e haja outro atrás dele, o projetil continua e também o acerta,  causando dano. O dano e de 2d6 + 2 + Sucessos . Não causa aprisionamento na outra pessoa so dano.\n\nObs: Fantasmas e outros seres deste gênero ou das trevas levam o dobro de dano.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Lux Nexum na sua forma padrão."
+            "description": "Você pode lançar Lux Nexum na sua forma padrão. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Lux Nexum de forma focada, tornando seu lançamento mais preciso e controlado."
+            "description": "Você pode lançar Lux Nexum de forma focada, tornando seu lançamento mais preciso e controlado. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Lux Nexum de forma não-verbal, como um feitiço de \"Duração: 4 rodadas\". Nessa variação, o feitiço causa +4 de dano ao acertar o alvo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Lux Nexum de forma não-verbal, como um feitiço de \"Duração: 4 rodadas\". Nessa variação, o feitiço causa +4 de dano ao acertar o alvo. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Lux Nexum mais potente, produzindo um feixe de luz tão intenso que é capaz de Ofuscar seu alvo até o fim da cena. O alvo tem a opção de gastar uma reação e fazer um teste disputado usando Raciocínio + Percepção para evitar ficar Ofuscado. Além disso os inimigos afetados por este feitiço levam 1d4 de dano de todas as fontes na proxima rodada."
+            "description": "Você pode lançar Lux Nexum mais potente, produzindo um feixe de luz tão intenso que é capaz de Ofuscar seu alvo até o fim da cena. O alvo tem a opção de gastar uma reação e fazer um teste disputado usando Raciocínio + Percepção para evitar ficar Ofuscado. Além disso os inimigos afetados por este feitiço levam 1d4 de dano de todas as fontes na proxima rodada. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Nesta variação poderosa de Lux Nexum, quando o feitiço atinge um segundo inimigo, ele também fica paralisado, mas apenas por 2 rodada. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Nesta variação poderosa de Lux Nexum, quando o feitiço atinge um segundo inimigo, ele também fica paralisado, mas apenas por 2 rodada. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "ad79b087-951d-49fc-9789-5763d55c2b7f"
+    "identifier": "ad79b087-951d-49fc-9789-5763d55c2b7f",
+    "updatedAt": "2023-10-10T21:09:12.748641"
 }

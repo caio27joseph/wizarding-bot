@@ -4,8 +4,6 @@
         "Necromancia"
     ],
     "difficulty": "Médio",
-    "description": "O Feitiço Infligir Feridas faz com que ferimentos surjam no alvo quando toca a varinha nele, o alvo sofre 2d10+2 de dano necrótico. ",
-    "updatedAt": "2023-08-20T17:59:26.762308",
     "title": "Feitiço Infligir Feridas",
     "level": 3,
     "actionType": "Padrão",
@@ -14,26 +12,27 @@
     "light": "Roxo",
     "antiSpell": "Protego",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O Feitiço Infligir Feridas faz com que ferimentos surjam no alvo quando toca a varinha nele, o alvo sofre 2d10+2 de dano necrótico.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "O dano causado pelo feitiço é 2d10+2."
+            "description": "O dano causado pelo feitiço é 2d10+2. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "O dano causado pelo feitiço é aumentado para +4 de dano."
+            "description": "O dano causado pelo feitiço é aumentado para +4 de dano. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Feitiço Infligir Feridas de forma não-verbal. Seu feitiço agora recebe alcance curto."
+            "description": "Você pode lançar Feitiço Infligir Feridas de forma não-verbal. Seu feitiço agora recebe alcance curto. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O dano causado pelo feitiço é aumentado para 4d10+Artes das Trevas."
+            "name": "Experiente",
+            "description": "O dano causado pelo feitiço é aumentado para 4d10+Artes das Trevas. "
         },
         {
             "level": 5,
@@ -41,5 +40,6 @@
             "description": "Quando você acerta um ataque com o Feitiço Infligir Feridas, o alvo também fica enfraquecido por 2 Rodadas. Enquanto enfraquecido, o alvo sofre uma penalidade de -1d10 em seus ataques e testes de Salvaguarda. Diminui a Dif de sucesso necessario em 1."
         }
     ],
-    "identifier": "93eb097a-2a44-463f-addb-6d1a8d4e5b49"
+    "identifier": "93eb097a-2a44-463f-addb-6d1a8d4e5b49",
+    "updatedAt": "2023-10-10T21:20:05.943774"
 }

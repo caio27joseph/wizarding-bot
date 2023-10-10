@@ -4,40 +4,40 @@
         "Evocação"
     ],
     "difficulty": "Fácil",
-    "description": "Ao lançar o Bublio, você conjura pequenas bolhas translúcidas que saem da ponta da sua varinha. Essas bolhas podem ter diversos usos: decoração, diversão ou até mesmo para prender criaturas miúdas. Caso sejam usadas para decoração, as bolhas permanecem indefinidamente até serem intencionalmente estouradas. Por outro lado, caso sejam utilizadas para prender uma criatura miúda, a bolha durará até 1 hora. Criaturas miúdas com 16cm ou mais podem facilmente estourar a bolha através de suas armas naturais, enquanto pequenas criaturas e insetos com 20cm ou menos ficam paralisados caso sejam capturados. ",
-    "updatedAt": "2023-08-10T18:01:57.562361",
     "title": "Feitiço da Bolha",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Permanente; até 1 hora (D)",
     "distance": "Curto",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar o Bublio, você conjura pequenas bolhas translúcidas que saem da ponta da sua varinha. Essas bolhas podem ter diversos usos: decoração, diversão ou até mesmo para prender criaturas miúdas. Caso sejam usadas para decoração, as bolhas permanecem indefinidamente até serem intencionalmente estouradas. Por outro lado, caso sejam utilizadas para prender uma criatura miúda, a bolha durará até 1 hora. Criaturas miúdas com 16cm ou mais podem facilmente estourar a bolha através de suas armas naturais, enquanto pequenas criaturas e insetos com 20cm ou menos ficam paralisados caso sejam capturados.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar o Bublio, conjurando as pequenas bolhas translúcidas."
+            "description": "Você pode lançar o Bublio, conjurando as pequenas bolhas translúcidas. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Com o domínio intermediário, você pode lançar o Bublio Collore, alterando a cor das bolhas conjuradas para qualquer cor de sua escolha."
+            "description": "Com o domínio intermediário, você pode lançar o Bublio Collore, alterando a cor das bolhas conjuradas para qualquer cor de sua escolha. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Com o Bublio não-verbal, você pode conjurar o feitiço sem a necessidade de pronunciar as palavras mágicas em voz alta."
+            "description": "Com o Bublio não-verbal, você pode conjurar o feitiço sem a necessidade de pronunciar as palavras mágicas em voz alta. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O Ebublio é uma variação poderosa do Bublio, que permite criar uma bolha ao redor de um alvo atingido, deixando-o paralisado. Essa bolha não pode ser estourada por dentro, mas se receber 10 ou mais pontos de dano, ela se desfaz. - Duração 1d4+2 Rodadas."
+            "name": "Experiente",
+            "description": "O Ebublio é uma variação poderosa do Bublio, que permite lançar uma pequena bolha conjurada que ao tocar o alvo, expande e o envolve, deixando-o paralisado. Essa bolha não pode ser estourada por dentro, mas se receber 10 ou mais pontos de dano, ela se desfaz. - Duração 1d4+2 Rodadas. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre do Bublio, você tem controle total sobre o tamanho da bolha, podendo criar uma esfera do tamanho de um pequeno cômodo. Essa bolha flutua a até 9 metros do chão e pode acomodar até três pessoas sem perder altitude. Você pode direcionar a bolha para qualquer direção, desde que não ultrapasse sua altitude máxima. Porém, ela flutua lentamente, como uma bolha gigante, e estoura se receber 15 ou mais pontos de dano de qualquer fonte. - Duração 1d4+2 Rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Como mestre do Bublio, você tem controle total sobre o tamanho da bolha, podendo criar uma esfera do tamanho de um pequeno cômodo. Essa bolha flutua a até 9 metros do chão e pode acomodar até três pessoas sem perder altitude. Você pode direcionar a bolha para qualquer direção, desde que não ultrapasse sua altitude máxima. Porém, ela flutua lentamente, como uma bolha gigante, e estoura se receber 15 ou mais pontos de dano de qualquer fonte. - Duração 1d4+2 Rodadas. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "5883e3ea-cd94-4dd7-97d8-c8306e94a832"
+    "identifier": "5883e3ea-cd94-4dd7-97d8-c8306e94a832",
+    "updatedAt": "2023-10-10T21:09:12.632545"
 }

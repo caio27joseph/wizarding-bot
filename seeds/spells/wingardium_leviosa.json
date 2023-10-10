@@ -1,43 +1,43 @@
 {
-    "name": "Wingardium leviosa",
+    "name": "Wingardium Leviosa",
     "category": [
         "Universal"
     ],
     "difficulty": "Médio",
-    "description": "Ao lançar o feitiço Wingardium Leviosa, você pode escolher um objeto de até 5 kg que esteja ao seu alcance visual e que não esteja sendo vestido ou carregado por uma criatura. Com sua magia, você é capaz de levitar e movimentar telecineticamente esse objeto em qualquer direção, porém, a levitação é feita de forma lenta e controlada.  Se o objeto estiver sendo segurado por uma criatura, você pode realizar um teste resistido desse feitiço contra Força + Esportes do alvo. Caso você seja bem-sucedido nesse teste, seu feitiço é forte o suficiente para arrancar à força o objeto das mãos do personagem. ",
-    "updatedAt": "2023-08-10T18:01:58.427767",
     "title": "Feitiço de Levitação",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Concentração",
     "distance": "Médio",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar o feitiço Wingardium Leviosa, você pode escolher um objeto de até 5 kg que esteja ao seu alcance visual e que não esteja sendo vestido ou carregado por uma criatura. Com sua magia, você é capaz de levitar e movimentar telecineticamente esse objeto em qualquer direção, porém, a levitação é feita de forma lenta e controlada.\n\nSe o objeto estiver sendo segurado por uma criatura, você pode realizar um teste resistido desse feitiço contra Força + Esportes do alvo. Caso você seja bem-sucedido nesse teste, seu feitiço é forte o suficiente para arrancar à força o objeto das mãos do personagem.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Wingardium Leviosa."
+            "description": "Você pode lançar Wingardium Leviosa. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Wingardium Leviosa de forma focada, aumentando sua precisão e controle sobre o objeto levitado."
+            "description": "Você pode lançar Wingardium Leviosa de forma focada, aumentando sua precisão e controle sobre o objeto levitado. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Levioso (Feitiço de Flutuação) como um feitiço de \"Duração: Permanente\". Com essa variação, você pode tocar com a ponta da varinha em um objeto de até 20 kg, permitindo que ele flutue apenas para cima (e não para os lados) e permaneça suspenso pela duração do feitiço."
+            "description": "Você pode lançar Levioso (Feitiço de Flutuação) como um feitiço de \"Duração: Permanente\". Com essa variação, você pode tocar com a ponta da varinha em um objeto de até 20 kg, permitindo que ele flutue apenas para cima (e não para os lados) e permaneça suspenso pela duração do feitiço. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Wingardium Leviosa de forma não-verbal, o que torna o processo mais sutil e menos perceptível aos olhos de outros. Além disso, em sua forma não-verbal, você pode escolher levitar (1 + Controle) números de objetos em sua linha de visão simultaneamente."
+            "description": "Você pode lançar Wingardium Leviosa de forma não-verbal, o que torna o processo mais sutil e menos perceptível aos olhos de outros. Além disso, em sua forma não-verbal, você pode escolher levitar (1 + Controle) números de objetos em sua linha de visão simultaneamente. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Wingardium Leviosa para levitar qualquer objeto, independente de seu peso, o que inclui até mesmo veículos e outros objetos pesados. Essa versão avançada amplia consideravelmente as possibilidades de uso desse feitiço e permite que você manipule objetos maiores e mais pesados com facilidade. Agora Levioso pode levantar pessoas por 4 Rodadas, deixando elas de protegidas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Wingardium Leviosa para levitar qualquer objeto, independente de seu peso, o que inclui até mesmo veículos e outros objetos pesados. Essa versão avançada amplia consideravelmente as possibilidades de uso desse feitiço e permite que você manipule objetos maiores e mais pesados com facilidade. Agora Levioso pode levantar pessoas por 4 Rodadas, deixando elas de protegidas. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "2c6d3881-48b6-4ef0-829b-352c7e52e434"
+    "identifier": "2c6d3881-48b6-4ef0-829b-352c7e52e434",
+    "updatedAt": "2023-10-10T21:09:12.809795"
 }

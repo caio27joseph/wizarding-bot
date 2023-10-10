@@ -1,0 +1,43 @@
+{
+  "name": "Prestidigitacao",
+  "category": ["Transmutação", "Ilusão"],
+  "difficulty": "Fácil",
+  "title": "Feitiço da Prestidigitação",
+  "level": 3,
+  "actionType": "Padrão",
+  "distance": "Curto",
+  "duration": "Concentração - 2 Rodadas.",
+  "resistence": "Teste para Dessacreditar",
+  "antiSpell": "Revelio",
+  "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+  "description": "Efeito: Prestidigitação é um truque mágico menor que permite ao conjurador criar diversos efeitos sensoriais ou físicos dentro do alcance:\n\nVocê cria um efeito sensorial instantâneo e inofensivo, como uma chuva de faíscas, uma lufada de vento, notas musicais fracas ou um odor estranho.\nVocê instantaneamente acende ou apaga uma vela, uma tocha ou uma pequena fogueira.\nVocê limpa ou suja instantaneamente um objeto não maior que 3 pé cúbico.\nVocê resfria, aquece ou tempera até 3 pé cúbico de material inanimado por 1 hora.\nVocê faz uma cor, uma pequena marca ou um símbolo aparecer em um objeto ou superfície por 1 hora.\nVocê cria um berloque não mágico ou uma imagem ilusória que cabe em sua mão e que dura pela cena.\n\nVocê pode ter até três efeitos não instantâneos desta magia ativos por vez. Você pode também descartar qualquer desses efeitos como uma ação. Prestidigitação é frequentemente usada para fins criativos, práticos ou de entretenimento, como truques de mágica, ajustes em cenários ou para criar pequenas distrações.",
+  "maestry": [
+    {
+      "level": 1,
+      "name": "Inicial",
+      "description": "Você pode lançar Prestidigitação. "
+    },
+    {
+      "level": 2,
+      "name": "Intermediário",
+      "description": "Você pode ter até quatro efeitos não instantâneos desta magia ativos por vez. "
+    },
+    {
+      "level": 3,
+      "name": "Avançado",
+      "description": "Você pode conjurar Prestidigitação como uma Ação Livre. Além disso podem inventar agora novas formas de uso para prestidigitação deste de que caso afete algum objeto ou outro afetem coisas pequenas. "
+    },
+    {
+      "level": 4,
+      "name": "Experiente",
+      "description": "A duração dos efeitos não instantâneos desta magia é estendida para 8 horas. "
+    },
+    {
+      "level": 5,
+      "name": "Mestre",
+      "description": "Você pode criar até cinco efeitos não instantâneos desta magia ativos por vez. Além disso, você pode combinar efeitos para criar truques mais complexos e ilusões criativas. Podendo agora afetar objetos ou outros de tamanho médio."
+    }
+  ],
+  "updatedAt": "2023-10-10T21:20:05.893190",
+  "identifier": "05dd75b7-2988-49bd-86ee-d3a047b03b31"
+}

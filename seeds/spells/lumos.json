@@ -4,34 +4,33 @@
         "Evocação"
     ],
     "difficulty": "Fácil",
-    "description": "O Feitiço de Iluminação da Varinha, conhecido como Lumos, encanta a varinha do bruxo para emitir uma luz radial de sua ponta, funcionando como uma lanterna. A luz permanece acesa enquanto o bruxo estiver consciente e segurando a varinha. No entanto, se o bruxo ficar inconsciente, a luz se apaga automaticamente. Esse feitiço é muito útil em situações de escuridão, ajudando a iluminar o caminho e revelar áreas obscuras.  Além disso, seres etéreos, como fantasmas e gytrashes, precisam fazer um teste de Coragem (dificuldade 6 Sucessos) ou serão repelidos pela luz do Lumos. Esse efeito não afeta não-seres. ",
-    "updatedAt": "2023-08-10T18:01:58.079361",
     "title": "Feitiço de Iluminação da Varinha",
     "level": 1,
     "actionType": "Livre",
     "duration": "Permanente",
     "antiSpell": "Nox",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: O Feitiço de Iluminação da Varinha, conhecido como Lumos, encanta a varinha do bruxo para emitir uma luz radial de sua ponta, funcionando como uma lanterna. A luz permanece acesa enquanto o bruxo estiver consciente e segurando a varinha. No entanto, se o bruxo ficar inconsciente, a luz se apaga automaticamente. Esse feitiço é muito útil em situações de escuridão, ajudando a iluminar o caminho e revelar áreas obscuras.\n\nAlém disso, seres etéreos, como fantasmas e gytrashes, precisam fazer um teste de Coragem (dificuldade 6 Sucessos) ou serão repelidos pela luz do Lumos. Esse efeito não afeta não-seres.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Lumos, ativando a luz em sua varinha e iluminando o ambiente."
+            "description": "Você pode lançar Lumos, ativando a luz em sua varinha e iluminando o ambiente. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Lumos Collore, permitindo que a luz criada por Lumos tenha qualquer cor à sua escolha."
+            "description": "Você pode lançar Lumos Collore, permitindo que a luz criada por Lumos tenha qualquer cor à sua escolha. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Lumos de forma não-verbal, criando uma pequena esfera de luz flutuante que pode ser controlada à vontade."
+            "description": "Você pode lançar Lumos de forma não-verbal, criando uma pequena esfera de luz flutuante que pode ser controlada à vontade. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Lumos Solem (Feitiço do Raio Solar), um feitiço de \"Execução: Ação padrão\" e \"Duração: Instantânea\". Essa variação de Lumos produz um feixe de luz tão intenso que é capaz de Ofuscar seu alvo até o fim da cena. Seres etéreos e/ou plantas sensíveis à luz precisam ser bem-sucedidos em um teste de Coragem (dificuldade 7) ou serão repelidos pela luz do Lumos. O alvo pode gastar uma reação para evitar ficar Ofuscado caso seja bem-sucedido em um teste disputado de Raciocínio + Intuição/Prontidão contra o Lumos Solem."
+            "description": "Você pode lançar Lumos Solem (Feitiço do Raio Solar), um feitiço de \"Execução: Ação padrão\" e \"Duração: Instantânea\". Essa variação de Lumos produz um feixe de luz tão intenso que é capaz de Ofuscar seu alvo até o fim da cena. Seres etéreos e/ou plantas sensíveis à luz precisam ser bem-sucedidos em um teste de Coragem (dificuldade 7) ou serão repelidos pela luz do Lumos. O alvo pode gastar uma reação para evitar ficar Ofuscado caso seja bem-sucedido em um teste disputado de Raciocínio + Intuição/Prontidão contra o Lumos Solem. "
         },
         {
             "level": 5,
@@ -39,5 +38,6 @@
             "description": "Você pode lançar Lumos Maxima (Feitiço de Criação de Luz) como um feitiço de \"Execução: Ação padrão\". Nessa variação, a luz emitida de sua varinha ou orbe é forte o suficiente para iluminar uma grande caverna ou salão. Assim como em Lumos Solem, seres etéreos e/ou plantas sensíveis à luz precisam ser bem-sucedidos em um teste de Coragem (dificuldade 8) ou serão repelidos pela luz do Lumos. O feitiço não afeta não-seres. Causa 2 + Evocação de dano a cada 2 rodadas nestas criaturas caso não se afastem ou fiquem no ambiente iluminado."
         }
     ],
-    "identifier": "3284fd1b-aa94-4ed6-a898-b13685dfb317"
+    "identifier": "3284fd1b-aa94-4ed6-a898-b13685dfb317",
+    "updatedAt": "2023-10-10T21:09:12.740763"
 }

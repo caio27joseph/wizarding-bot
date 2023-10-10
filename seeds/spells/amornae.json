@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Difícil",
-    "description": "Com o toque de sua varinha, você infunde o coração do alvo com um sentimento intenso de amor e afeição. O alvo se torna encantado por você, tornando-se carinhoso e dedicado ao conjurador. Durante a duração do feitiço, o alvo tratará o conjurador com admiração e buscará agradá-lo de todas as maneiras possíveis.  No entanto, é importante notar que o feitiço não controla a mente do alvo e não cria um amor verdadeiro. Em vez disso, ele cria uma afeição intensa, quase uma obsessão temporária. O alvo ainda mantém sua personalidade e pode ter sua capacidade de julgamento comprometida em relação ao conjurador, o que pode levá-lo a agir de maneira irracional em favor do conjurador.  O Amornae é eficaz em humanos e seres humanóides, mas criaturas não inteligentes e seres imunes a encantamentos são imunes aos efeitos deste feitiço. ",
-    "updatedAt": "2023-08-13T15:57:48.384917",
     "title": "Amornae",
     "level": 3,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Mental",
     "requirements": "Encantamento 4",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Com o toque de sua varinha, você infunde o coração do alvo com um sentimento intenso de amor e afeição. O alvo se torna encantado por você, tornando-se carinhoso e dedicado ao conjurador. Durante a duração do feitiço, o alvo tratará o conjurador com admiração e buscará agradá-lo de todas as maneiras possíveis.\n\nNo entanto, é importante notar que o feitiço não controla a mente do alvo e não cria um amor verdadeiro. Em vez disso, ele cria uma afeição intensa, quase uma obsessão temporária. O alvo ainda mantém sua personalidade e pode ter sua capacidade de julgamento comprometida em relação ao conjurador, o que pode levá-lo a agir de maneira irracional em favor do conjurador.\n\nO Amornae é eficaz em humanos e seres humanóides, mas criaturas não inteligentes e seres imunes a encantamentos são imunes aos efeitos deste feitiço.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Amornae."
+            "description": "Você pode lançar Amornae. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Amornae de forma focada, aumentando a intensidade do sentimento de afeição e tornando mais difícil para o alvo resistir ao encantamento. Aumenta a dif de sucesso do alvo em +1 sucesso necessario."
+            "description": "Você pode lançar Amornae de forma focada, aumentando a intensidade do sentimento de afeição e tornando mais difícil para o alvo resistir ao encantamento. Aumenta a dif de sucesso do alvo em +1 sucesso necessario. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Amornae de forma não-verbal. Nes nivel consegue afetar Controle (Valor) de pessoas ao mesmo tempo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Amornae de forma não-verbal. Nes nivel consegue afetar Controle (Valor) de pessoas ao mesmo tempo. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Quando conjura Amornae, você pode estender a duração do feitiço para até 3 hora depois de finalizar a concentração, caso obtenha 5 ou mais Sucessos em um teste de conjuração."
+            "name": "Experiente",
+            "description": "Quando conjura Amornae, você pode estender a duração do feitiço para até 3 hora depois de finalizar a concentração, caso obtenha 5 ou mais Sucessos em um teste de conjuração. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Amornae Avançado como um feitiço de \"Execução: Ação padrão\", \"Alcance: Curto\" e \"Duração: Concentração\". Nesta versão aprimorada, você pode encantar várias criaturas (Aumenta em +2 pessoas) ao mesmo tempo, todas se sentindo atraídas por você durante a concentração do feitiço. Cada alvo deve ser tocado individualmente. No entanto, ainda é importante lembrar que o feitiço não controla a mente dos alvos e que os sentimentos criados são temporários. Além disso a dif para os inimigos aumenta em +1 sucesso. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Amornae Avançado como um feitiço de \"Execução: Ação padrão\", \"Alcance: Curto\" e \"Duração: Concentração\". Nesta versão aprimorada, você pode encantar várias criaturas (Aumenta em +2 pessoas) ao mesmo tempo, todas se sentindo atraídas por você durante a concentração do feitiço. Cada alvo deve ser tocado individualmente. No entanto, ainda é importante lembrar que o feitiço não controla a mente dos alvos e que os sentimentos criados são temporários. Além disso a dif para os inimigos aumenta em +1 sucesso. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "42e794df-52ed-4ee1-a41e-b406cd5ce2e8"
+    "identifier": "42e794df-52ed-4ee1-a41e-b406cd5ce2e8",
+    "updatedAt": "2023-10-10T21:20:05.527690"
 }

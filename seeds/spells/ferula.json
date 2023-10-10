@@ -4,8 +4,6 @@
         "Conjuração"
     ],
     "difficulty": "Fácil",
-    "description": "Ferula é um poderoso feitiço de cura que conjura ataduras esterilizadas que se materializam da ponta da varinha e cobrem um ferimento, recuperando automaticamente 2 Ponto de Vitalidade do alvo. Essas ataduras são mágicas e irão limpar e fechar uma ferida assim que enfaixá-la. Além disso, o paciente pode jogar 1d4 + Medibruxaria uma vez a cada 4 horas que permanecer enfaixado por uma bandagem conjurada pelo Ferula, curando esse valor em Pontos de Vitalidade.  Obs: Tira a condição de sangramento não-magico. ",
-    "updatedAt": "2023-08-20T17:59:26.066308",
     "title": "Feitiço de Bandagem",
     "level": 1,
     "actionType": "Completa",
@@ -13,32 +11,34 @@
     "requirements": "Convocação 1 e Medibruxaria 1",
     "distance": "Curto",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ferula é um poderoso feitiço de cura que conjura ataduras esterilizadas que se materializam da ponta da varinha e cobrem um ferimento, recuperando automaticamente 2 Ponto de Vitalidade do alvo. Essas ataduras são mágicas e irão limpar e fechar uma ferida assim que enfaixá-la. Além disso, o paciente pode jogar 1d4 + Medibruxaria uma vez a cada 4 horas que permanecer enfaixado por uma bandagem conjurada pelo Ferula, curando esse valor em Pontos de Vitalidade.\n\nObs: Tira a condição de sangramento não-magico.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Ferula, realizando o efeito básico descrito acima."
+            "description": "Você pode lançar Ferula, realizando o efeito básico descrito acima. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "A rolagem de cura diária do seu Ferula aumenta para 2d4+2, proporcionando uma cura mais substancial."
+            "description": "A rolagem de cura diária do seu Ferula aumenta para 2d4+2, proporcionando uma cura mais substancial. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "A rolagem de cura diária do seu Ferula aumenta ainda mais para 3d4+4, tornando-o ainda mais eficiente em curar ferimentos."
+            "description": "A rolagem de cura diária do seu Ferula aumenta ainda mais para 3d4+4, tornando-o ainda mais eficiente em curar ferimentos. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Ferula de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso, quando conjura Ferula em sua forma não-verbal, você encerra efeitos de Sangramento mágicos, quebrado e queimado, auxiliando na recuperação do alvo. - Passa a ter alcanc"
+            "description": "Você pode lançar Ferula de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta. Além disso, quando conjura Ferula em sua forma não-verbal, você encerra efeitos de Sangramento mágicos, quebrado e queimado, auxiliando na recuperação do alvo. - Passa a ter alcanc "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "A rolagem de cura diária do seu Ferula alcança seu ápice, aumentando para 4d4+6, oferecendo uma cura ainda mais robusta. Além disso quando em combate a cada 2 rodadas recupera 1d4 de vida,. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "A rolagem de cura diária do seu Ferula alcança seu ápice, aumentando para 4d4+6, oferecendo uma cura ainda mais robusta. Além disso quando em combate a cada 2 rodadas recupera 1d4 de vida,. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "27334f1a-0518-45e8-989a-8c65cffe7805"
+    "identifier": "27334f1a-0518-45e8-989a-8c65cffe7805",
+    "updatedAt": "2023-10-10T21:09:12.684453"
 }

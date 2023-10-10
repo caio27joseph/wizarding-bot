@@ -4,8 +4,6 @@
         "Transmutação"
     ],
     "difficulty": "Médio",
-    "description": "O Colovaria é um feitiço capaz de magicamente alterar a coloração de um item ou objeto, mas não funciona em seres vivos. ",
-    "updatedAt": "2023-08-10T18:10:57.378074",
     "title": "Feitiço da Mudança de Cor",
     "level": 2,
     "actionType": "Padrão",
@@ -14,32 +12,34 @@
     "requirements": "Transfigurações 2",
     "distance": "Curto",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O Colovaria é um feitiço capaz de magicamente alterar a coloração de um item ou objeto, mas não funciona em seres vivos.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Colovaria."
+            "description": "Você pode lançar Colovaria. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Colovaria de forma focada, aumentando sua precisão ao conjurá-lo."
+            "description": "Você pode lançar Colovaria de forma focada, aumentando sua precisão ao conjurá-lo. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Colovaria de forma não-verbal. Quando conjura Colovaria em sua forma não-verbal, você pode afetar simultaneamente qualquer número de objetos em sua linha de visão durante a realização do feitiço."
+            "description": "Você pode lançar Colovaria de forma não-verbal. Quando conjura Colovaria em sua forma não-verbal, você pode afetar simultaneamente qualquer número de objetos em sua linha de visão durante a realização do feitiço. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Crinus Muto (Feitiço da Mudança de Cabelo) como um feitiço de \"Duração: 1 hora\" e \"Lampejo: Cor desejada\". Nessa variação, o usuário pode escolher mudar a cor e estilo dos pelos e cabelos de seres vivos. Por exemplo, pode-se transformar um cabelo liso em crespo ou adicionar um topete ao penteado. No entanto, a cor e estilo do cabelo retornam ao normal após a duração do feitiço."
+            "name": "Experiente",
+            "description": "Você pode lançar Crinus Muto (Feitiço da Mudança de Cabelo) como um feitiço de \"Duração: 1 hora\" e \"Lampejo: Cor desejada\". Nessa variação, o usuário pode escolher mudar a cor e estilo dos pelos e cabelos de seres vivos. Por exemplo, pode-se transformar um cabelo liso em crespo ou adicionar um topete ao penteado. No entanto, a cor e estilo do cabelo retornam ao normal após a duração do feitiço. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Multicorfors (Feitiço da Mudança de Estilo). Nessa variação, além de alterar a cor do objeto, o bruxo é capaz de mudar o estilo, pintura ou estampa do alvo. O feitiço não altera a composição da superfície em si, mas pode criar uma textura desejada sobre um objeto, fazendo com que ele pareça um item completamente diferente do original, dependendo da criatividade do conjurador. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Multicorfors (Feitiço da Mudança de Estilo). Nessa variação, além de alterar a cor do objeto, o bruxo é capaz de mudar o estilo, pintura ou estampa do alvo. O feitiço não altera a composição da superfície em si, mas pode criar uma textura desejada sobre um objeto, fazendo com que ele pareça um item completamente diferente do original, dependendo da criatividade do conjurador. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "67087757-45ae-4f14-a68e-f994f602ecf1"
+    "identifier": "67087757-45ae-4f14-a68e-f994f602ecf1",
+    "updatedAt": "2023-10-10T21:14:58.065110"
 }

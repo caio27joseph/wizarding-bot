@@ -1,43 +1,43 @@
 {
-    "name": "Vera verto",
+    "name": "Vera Verto",
     "category": [
         "Transmutação"
     ],
     "difficulty": "Médio",
-    "description": "Ao executar o feitiço Vera Verto, você toca três vezes com a ponta da varinha no alvo, realizando a transfiguração de um animal de porte Pequeno (ou menor) em um objeto de massa similar. Os animais Pequenos incluem aves, serpentes, ratos, morcegos, corujas, gatos, entre outros. É importante notar que esse feitiço é considerado uma Transformação, o que implica em alterações permanentes e irreversíveis. ",
-    "updatedAt": "2023-08-10T18:01:58.397762",
     "title": "Transformação de Animal em Objeto",
     "level": 1,
     "actionType": "Completa",
     "duration": "Permanente",
     "distance": "Toque",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Ao executar o feitiço Vera Verto, você toca três vezes com a ponta da varinha no alvo, realizando a transfiguração de um animal de porte Pequeno (ou menor) em um objeto de massa similar. Os animais Pequenos incluem aves, serpentes, ratos, morcegos, corujas, gatos, entre outros. É importante notar que esse feitiço é considerado uma Transformação, o que implica em alterações permanentes e irreversíveis.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Vera Verto."
+            "description": "Você pode lançar Vera Verto. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Vera Verto de forma acelerada."
+            "description": "Você pode lançar Vera Verto de forma acelerada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Vera Verto como um feitiço de \"Execução: Ação padrão\" e \"Lampejo: Transparente\". Nessa variação, você não precisa tocar o alvo com a varinha, tornando o processo mais rápido e prático."
+            "description": "Você pode lançar Vera Verto como um feitiço de \"Execução: Ação padrão\" e \"Lampejo: Transparente\". Nessa variação, você não precisa tocar o alvo com a varinha, tornando o processo mais rápido e prático. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Seu Vera Verto pode transfigurar animais de porte Médio ou menor em objetos de massa similar. Isso abre um leque maior de possibilidades para a transformação de criaturas maiores."
+            "description": "Seu Vera Verto pode transfigurar animais de porte Médio ou menor em objetos de massa similar. Isso abre um leque maior de possibilidades para a transformação de criaturas maiores. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Vera Verto de forma não-verbal. Quando conjura Vera Verto em sua forma não-verbal, você pode transformar qualquer animal em qualquer objeto, independentemente da massa ser ou não similar. Essa habilidade avançada amplia ainda mais as possibilidades e os resultados das transfigurações. No entanto, é preciso ter cautela ao usar essa forma, pois mudanças radicais podem ter consequências imprevisíveis. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Vera Verto de forma não-verbal. Quando conjura Vera Verto em sua forma não-verbal, você pode transformar qualquer animal em qualquer objeto, independentemente da massa ser ou não similar. Essa habilidade avançada amplia ainda mais as possibilidades e os resultados das transfigurações. No entanto, é preciso ter cautela ao usar essa forma, pois mudanças radicais podem ter consequências imprevisíveis. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "c3337c45-f727-4222-9785-9a5d1803cb37"
+    "identifier": "c3337c45-f727-4222-9785-9a5d1803cb37",
+    "updatedAt": "2023-10-10T21:09:12.806276"
 }

@@ -1,11 +1,9 @@
 {
-    "name": "Cistem aperio",
+    "name": "Cistem Aperio",
     "category": [
         "Universal"
     ],
     "difficulty": "Médio",
-    "description": "O Cistem Aperio é um feitiço que permite ao bruxo arrombar uma fechadura de maneira rápida e eficiente. Ao ser conjurado, o feitiço faz com que a fechadura da tranca exploda, gerando um barulho alto e destravando o objeto. É uma habilidade útil para ganhar acesso a locais trancados ou para abrir portas com rapidez em situações de emergência. Porém, é importante ressaltar que o Cistem Aperio deixa sinais óbvios de arrombamento, sendo perceptível que a tranca foi forçada. ",
-    "updatedAt": "2023-08-10T18:01:57.639361",
     "title": "Feitiço de Arrombamento",
     "level": 1,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "light": "Branco",
     "distance": "Médio",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O Cistem Aperio é um feitiço que permite ao bruxo arrombar uma fechadura de maneira rápida e eficiente. Ao ser conjurado, o feitiço faz com que a fechadura da tranca exploda, gerando um barulho alto e destravando o objeto. É uma habilidade útil para ganhar acesso a locais trancados ou para abrir portas com rapidez em situações de emergência. Porém, é importante ressaltar que o Cistem Aperio deixa sinais óbvios de arrombamento, sendo perceptível que a tranca foi forçada.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Cistem Aperio, realizando o arrombamento da fechadura com eficácia."
+            "description": "Você pode lançar Cistem Aperio, realizando o arrombamento da fechadura com eficácia. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Com domínio intermediário, você pode lançar Cistem Aperio de forma focada, aumentando a precisão do feitiço e tornando-o menos suscetível a erros."
+            "description": "Com domínio intermediário, você pode lançar Cistem Aperio de forma focada, aumentando a precisão do feitiço e tornando-o menos suscetível a erros. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Nessa variação, você pode lançar Dunamis, também conhecido como o Feitiço da Rachadura. Com essa opção, você tem a habilidade de criar uma pequena rachadura na fechadura, sem gerar o barulho explosivo. É uma opção mais sutil para abrir a tranca sem chamar a atenção."
+            "description": "Nessa variação, você pode lançar Dunamis, também conhecido como o Feitiço da Rachadura. Com essa opção, você tem a habilidade de criar uma pequena rachadura na fechadura, sem gerar o barulho explosivo. É uma opção mais sutil para abrir a tranca sem chamar a atenção. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Com domínio experiente, você pode lançar Cistem Aperio de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta para realizar o arrombamento."
+            "name": "Experiente",
+            "description": "Com domínio experiente, você pode lançar Cistem Aperio de forma não-verbal, dispensando a necessidade de pronunciar as palavras mágicas em voz alta para realizar o arrombamento. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre de Cistem Aperio, você pode lançar a variação mais avançada do feitiço, conhecida como Annihilare, ou o Feitiço de Demolição. Nessa forma poderosa, você cria uma explosão com força suficiente para derrubar até mesmo uma porta de metal reforçado. Essa opção é ideal para situações que exijam um arrombamento extremamente rápido e efetivo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Como mestre de Cistem Aperio, você pode lançar a variação mais avançada do feitiço, conhecida como Annihilare, ou o Feitiço de Demolição. Nessa forma poderosa, você cria uma explosão com força suficiente para derrubar até mesmo uma porta de metal reforçado. Essa opção é ideal para situações que exijam um arrombamento extremamente rápido e efetivo. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "5054eb4a-4631-4d3d-a8d9-ee473b91a2d0"
+    "identifier": "5054eb4a-4631-4d3d-a8d9-ee473b91a2d0",
+    "updatedAt": "2023-10-10T21:09:12.647035"
 }

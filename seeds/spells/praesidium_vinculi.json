@@ -1,11 +1,9 @@
 {
-    "name": "Praesidium vinculi",
+    "name": "Praesidium Vinculi",
     "category": [
         "Abjuração"
     ],
     "difficulty": "Difícil",
-    "description": "Este feitiço protege uma criatura ou pessoa voluntária que você tocar com a varinha e cria uma conexão mística entre você e o alvo até que o feitiço termine. Enquanto o alvo estiver a até 18 metros de você, ele ganha um bônus de +1 dado em testes de salvaguarda e tem resistência a todos os danos (reduzindo 1d4+Modificador de Abjuração de dano).  A magia termina se você cair a 0 pontos de vida ou se você e o alvo ficarem separados por mais de 18 metros. Também termina se o feitiço for lançado novamente em qualquer uma das criaturas conectadas. ",
-    "updatedAt": "2023-09-02T20:01:05.361984",
     "title": "Encanto da Lâmina Guardiã",
     "level": 3,
     "actionType": "Padrão ou Reação",
@@ -13,26 +11,27 @@
     "distance": "Toque",
     "requirements": "Abjuração 3",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Este feitiço protege uma criatura ou pessoa voluntária que você tocar com a varinha e cria uma conexão mística entre você e o alvo até que o feitiço termine. Enquanto o alvo estiver a até 18 metros de você, ele ganha um bônus de +1 dado em testes de salvaguarda e tem resistência a todos os danos (reduzindo 1d4+Modificador de Abjuração de dano).\n\nA magia termina se você cair a 0 pontos de vida ou se você e o alvo ficarem separados por mais de 18 metros. Também termina se o feitiço for lançado novamente em qualquer uma das criaturas conectadas.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar o feitiço."
+            "description": "Você pode lançar o feitiço. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Vínculo de Proteção de forma focada. O bônus em testes de salvaguarda aumenta para +1 dado."
+            "description": "Você pode lançar Vínculo de Proteção de forma focada. O bônus em testes de salvaguarda aumenta para +1 dado. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Vínculo de Proteção de forma não-verbal. A duração aumenta em +2 rodadas. Diminui a Dif de sucesso necessario em 1."
+            "description": "Você pode lançar Vínculo de Proteção de forma não-verbal. A duração aumenta em +2 rodadas. Diminui a Dif de sucesso necessario em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O bônus em testes de salvaguarda aumenta para +1 dado. Além disso a reduzão de dano aumenta em +1d4."
+            "name": "Experiente",
+            "description": "O bônus em testes de salvaguarda aumenta para +1 dado. Além disso a reduzão de dano aumenta em +1d4. "
         },
         {
             "level": 5,
@@ -40,5 +39,6 @@
             "description": "O alcance da conexão aumenta para 30 metros, e o alvo também recebe resistência a condições de status (por exemplo, envenenado, amedrontado, atordoado) - (Observação o conjurador pode escoler valor de controle de condições que os vinculados vão poder resistir) enquanto o feitiço estiver ativo. Além disso agora pode se vincular a numero de controle de pessoas. Diminui a Dif de sucesso necessario em 1."
         }
     ],
-    "identifier": "a6a883f9-3919-44e2-b7ce-584c2f02e52f"
+    "identifier": "a6a883f9-3919-44e2-b7ce-584c2f02e52f",
+    "updatedAt": "2023-10-10T21:22:33.694313"
 }

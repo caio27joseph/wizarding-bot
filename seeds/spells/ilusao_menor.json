@@ -1,0 +1,43 @@
+{
+  "name": "Ilusao Menor",
+  "category": ["Ilusão"],
+  "difficulty": "Médio",
+  "title": "Ilusão Menor",
+  "level": 1,
+  "actionType": "Padrão",
+  "duration": "3 horas - 2 Rodadas",
+  "distance": "Curto",
+  "resistence": "Desacredita",
+  "cd": "Feitiçaria + Metade da Inteligência",
+  "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+  "description": "Efeito: Com o Feitiço de Ilusão Menor, você pode criar um som ou uma imagem de um objeto dentro do alcance que dura pela duração da sua concentração. A ilusão também termina se você a descartar com uma ação ou conjurar esta magia novamente. Se você optar por criar um som, seu volume pode variar de um sussurro a um grito, podendo ser sua voz, a voz de outra pessoa, o rugido de um leão, uma batida de tambores ou qualquer outro som de sua escolha. O som criado persiste durante toda a duração, ou você pode fazer sons discretos em momentos diferentes antes do fim da magia.\n\nSe preferir criar uma imagem de um objeto, como uma cadeira, pegadas enlameadas ou um baú pequeno, ela não deve ser maior que um cubo de 2 metros. A imagem não pode criar som, luz, cheiro ou qualquer outro efeito sensorial. A interação física com a imagem revela que ela é uma ilusão, pois as coisas podem passar por ela.",
+  "maestry": [
+    {
+      "level": 1,
+      "name": "Inicial",
+      "description": "Você pode criar sons simples ou imagens estáticas de objetos pequenos. "
+    },
+    {
+      "level": 2,
+      "name": "Intermediário",
+      "description": "O alcance da ilusão aumenta +5 metros e você pode criar sons mais complexos e imagens animadas de objetos médios. "
+    },
+    {
+      "level": 3,
+      "name": "Avançado",
+      "description": "A duração da ilusão é estendida para +1 hora - +1 rodada. Pode lançar o feitiço de forma não-verbal. "
+    },
+    {
+      "level": 4,
+      "name": "Especialista",
+      "description": "Você pode criar ilusões simultâneas em diferentes pontos dentro do alcance, podendo ser sons e imagens. (Consegue fazer 1 + Ilusão) "
+    },
+    {
+      "level": 5,
+      "name": "Mestre",
+      "description": "Suas ilusões ganham ainda mais veracidade. As imagens criadas podem agora interagir com o ambiente de forma limitada, como movendo-se lentamente ou emitindo sons leves ao serem tocadas a dificuldade para Desacreditar das suas ilusões aumentão em +3 sucessos.. Diminui a necessidade de sucessos em -1. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
+    }
+  ],
+  "identifier": "e74a28e0-f0a2-4bc8-95c0-4b66fd17f8c8",
+  "updatedAt": "2023-10-10T21:09:12.717609"
+}

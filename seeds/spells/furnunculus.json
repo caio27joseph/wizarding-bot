@@ -4,8 +4,6 @@
         "Necromancia"
     ],
     "difficulty": "Médio",
-    "description": "Furnunculus é um feitiço poderoso que causa diversas erupções no rosto e corpo do alvo. Essas espinhas constantemente explodem em pús, causando grande desconforto e deixando a vítima Enjoada pela duração do efeito. O Furúnculo é extremamente desagradável e pode ser bastante constrangedor para o afetado. ",
-    "updatedAt": "2023-09-02T20:00:18.692112",
     "title": "Azaração do Furúnculo",
     "level": 1,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Físico Anula.",
     "cd": "Feitiçaria + Metade da Força.",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Furnunculus é um feitiço poderoso que causa diversas erupções no rosto e corpo do alvo. Essas espinhas constantemente explodem em pús, causando grande desconforto e deixando a vítima Enjoada pela duração do efeito. O Furúnculo é extremamente desagradável e pode ser bastante constrangedor para o afetado.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Furnunculus, causando as erupções de furúnculos no alvo por 6 horas."
+            "description": "Você pode lançar Furnunculus, causando as erupções de furúnculos no alvo por 6 horas. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Furnunculus de forma focada, aumentando a precisão e eficácia do feitiço."
+            "description": "Você pode lançar Furnunculus de forma focada, aumentando a precisão e eficácia do feitiço. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Furnunculus de forma não-verbal, tornando o lançamento do feitiço mais discreto e rápido."
+            "description": "Você pode lançar Furnunculus de forma não-verbal, tornando o lançamento do feitiço mais discreto e rápido. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Furnunculus como uma \"Maldição\" com \"Duração: Permanente\". Essa variação aprimorada torna os furúnculos uma condição crônica e persistente no alvo, não podendo ser desfeita por Finite Incantatem."
+            "description": "Você pode lançar Furnunculus como uma \"Maldição\" com \"Duração: Permanente\". Essa variação aprimorada torna os furúnculos uma condição crônica e persistente no alvo, não podendo ser desfeita por Finite Incantatem. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Furnunculus de forma silenciosa, tornando o lançamento do feitiço ainda mais discreto e evitando que o alvo perceba facilmente a origem do feitiço. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Furnunculus de forma silenciosa, tornando o lançamento do feitiço ainda mais discreto e evitando que o alvo perceba facilmente a origem do feitiço. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "bd680e92-fdfe-41b6-8e78-144f9abddd5e"
+    "identifier": "bd680e92-fdfe-41b6-8e78-144f9abddd5e",
+    "updatedAt": "2023-10-10T21:09:12.702448"
 }

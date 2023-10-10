@@ -1,12 +1,10 @@
 {
-    "name": "Bacillum fulgo",
+    "name": "Bacillum Fulgo",
     "category": [
         "Conjuração",
         "Evocação"
     ],
     "difficulty": "Médio",
-    "description": "Bacillum Fulgor é uma evocação que conjura um bastão mágico brilhante, que emana luz intensa e eletricidade. O bastão pode ser arremessado contra um alvo visível dentro do alcance do feitiço ou usado como arma de combate corpo a corpo. Causa 2d6+Sucesso de dano. ",
-    "updatedAt": "2023-08-13T15:57:48.508907",
     "title": "Feitiço Bacillum Fulgor",
     "level": 3,
     "actionType": "Padrão",
@@ -14,32 +12,34 @@
     "requirements": "Conjuração 2 e Evocação 2",
     "distance": "Curto",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Bacillum Fulgor é uma evocação que conjura um bastão mágico brilhante, que emana luz intensa e eletricidade. O bastão pode ser arremessado contra um alvo visível dentro do alcance do feitiço ou usado como arma de combate corpo a corpo. Causa 2d6+Sucesso de dano.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Bacillum Fulgor."
+            "description": "Você pode lançar Bacillum Fulgor. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "O bastão conjurado ganha mais potência, causando um dano mágico considerável ao atingir o alvo. Controle de dano."
+            "description": "O bastão conjurado ganha mais potência, causando um dano mágico considerável ao atingir o alvo. Controle de dano. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "A luz brilhante do bastão pode temporariamente cegar os oponentes atingidos pelo feitiço, prejudicando sua precisão nos próximos ataques. Reduz em 2 dados de ataque dos inimigos a volta."
+            "description": "A luz brilhante do bastão pode temporariamente cegar os oponentes atingidos pelo feitiço, prejudicando sua precisão nos próximos ataques. Reduz em 2 dados de ataque dos inimigos a volta. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O bastão conjurado agora pode liberar uma explosão de eletricidade quando atinge um alvo, causando danos adicionais em uma área ao redor do impacto. Causa 5d4+6 de dano."
+            "name": "Experiente",
+            "description": "O bastão conjurado agora pode liberar uma explosão de eletricidade quando atinge um alvo, causando danos adicionais em uma área ao redor do impacto. Causa 5d4+6 de dano. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Bacillum Fulgor alcança seu potencial máximo. O bastão conjurado possui uma luz ofuscante que pode ser usada para iluminar grandes áreas ou cegar temporariamente os inimigos. Além disso, o bruxo pode controlar o bastão remotamente após lançá-lo, direcionando-o para atacar múltiplos alvos ou retornar a sua mão, o bastão neste nivel pode atacar sozinho. Além disso a duração do mesmo aumenta para 10 Rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Bacillum Fulgor alcança seu potencial máximo. O bastão conjurado possui uma luz ofuscante que pode ser usada para iluminar grandes áreas ou cegar temporariamente os inimigos. Além disso, o bruxo pode controlar o bastão remotamente após lançá-lo, direcionando-o para atacar múltiplos alvos ou retornar a sua mão, o bastão neste nivel pode atacar sozinho. Além disso a duração do mesmo aumenta para 10 Rodadas. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "88b49797-108a-442b-9a85-08bc87ba885a"
+    "identifier": "88b49797-108a-442b-9a85-08bc87ba885a",
+    "updatedAt": "2023-10-10T21:20:05.619141"
 }

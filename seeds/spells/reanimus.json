@@ -4,8 +4,6 @@
         "Necromancia"
     ],
     "difficulty": "Muito Difícil",
-    "description": "Com o Reanimus, o bruxo é capaz de trazer uma criatura à beira da morte de volta à vida. O feitiço faz com que o coração do alvo volte a bater e o corpo se recupere de ferimentos graves. O Reanimus cura uma criatura com PVs negativos, permitindo que ela recupere 1d8+2 PV, retirando a condição Inconsciente causada pela perda de Vitalidade. No entanto, é importante notar que o Reanimus não desperta alvos que foram induzidos à inconsciência magicamente, como através de outros feitiços que causem esse estado. ",
-    "updatedAt": "2023-08-10T18:10:57.957073",
     "title": "Feitiço de Reanimação",
     "level": 2,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "requirements": "Necromancia 2 e Medibruxaria 2",
     "distance": "Curto",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
+    "description": "Efeito: Com o Reanimus, o bruxo é capaz de trazer uma criatura à beira da morte de volta à vida. O feitiço faz com que o coração do alvo volte a bater e o corpo se recupere de ferimentos graves. O Reanimus cura uma criatura com PVs negativos, permitindo que ela recupere 1d8+2 PV, retirando a condição Inconsciente causada pela perda de Vitalidade. No entanto, é importante notar que o Reanimus não desperta alvos que foram induzidos à inconsciência magicamente, como através de outros feitiços que causem esse estado.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Reanimus."
+            "description": "Você pode lançar Reanimus. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Reanimus de forma focada."
+            "description": "Você pode lançar Reanimus de forma focada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Reanimus de forma não-verbal. Quando conjura Reanimus em sua forma não-verbal, você deixa o alvo com 2d6+4 PV, em vez de apenas 1d8+2 PV | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Reanimus de forma não-verbal. Quando conjura Reanimus em sua forma não-verbal, você deixa o alvo com 2d6+4 PV, em vez de apenas 1d8+2 PV | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Uma criatura atingida por seu Reanimus também tem as condições Enjoado, Fatigado e Exausto removidas, além de deixar de estar Inconsciente. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "name": "Experiente",
+            "description": "Uma criatura atingida por seu Reanimus também tem as condições Enjoado, Fatigado e Exausto removidas, além de deixar de estar Inconsciente. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode ajudar um indivíduo a se reorientar ainda mais. Seu Reanimus remove uma condição adicional dentre Abalado, Apavorado, Atordoado ou Pasmo, proporcionando uma recuperação mais completa após a reanimação. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode ajudar um indivíduo a se reorientar ainda mais. Seu Reanimus remove uma condição adicional dentre Abalado, Apavorado, Atordoado ou Pasmo, proporcionando uma recuperação mais completa após a reanimação. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "c359517b-45e5-4403-8b71-de75d2d43129"
+    "identifier": "c359517b-45e5-4403-8b71-de75d2d43129",
+    "updatedAt": "2023-10-10T21:14:58.264113"
 }

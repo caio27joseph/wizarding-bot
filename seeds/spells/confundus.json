@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Médio",
-    "description": "O Feitiço Confundus é usado para confundir e desorientar a vítima. Ao ser lançado, cria-se um lampejo amarelo direcionado à mente do alvo, perturbando temporariamente suas percepções e pensamentos. A vítima fica momentaneamente incerta e pode ter dificuldades em tomar decisões lógicas.  Durante a duração do efeito, que é de aproximadamente um minuto, a vítima pode experimentar:  - Desorientação: Dificuldade em entender sua localização ou situação atual. - Confusão mental: Dificuldade em lembrar fatos recentes ou tomar decisões racionais. - Distorção perceptual: Percepções sensoriais distorcidas, como visão turva ou sons distantes. - Dificuldade de concentração: Dificuldade em se concentrar em tarefas ou conversas.  O Confundus é uma ferramenta útil em situações de distração, quando o objetivo é afetar temporariamente o julgamento ou as ações de um adversário. No entanto, seu uso é limitado, pois não tem o poder de controlar a mente da vítima nem causar danos físicos. ",
-    "updatedAt": "2023-08-20T17:59:25.697309",
     "title": "Feitiço Confundus",
     "level": 3,
     "actionType": "Padrão",
@@ -14,32 +12,34 @@
     "distance": "Curto",
     "resistence": "Salvaguarda Mental Anula.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O Feitiço Confundus é usado para confundir e desorientar a vítima. Ao ser lançado, cria-se um lampejo amarelo direcionado à mente do alvo, perturbando temporariamente suas percepções e pensamentos. A vítima fica momentaneamente incerta e pode ter dificuldades em tomar decisões lógicas.\n\nDurante a duração do efeito, que é de aproximadamente um minuto, a vítima pode experimentar:\n\n- Desorientação: Dificuldade em entender sua localização ou situação atual.\n- Confusão mental: Dificuldade em lembrar fatos recentes ou tomar decisões racionais.\n- Distorção perceptual: Percepções sensoriais distorcidas, como visão turva ou sons distantes.\n- Dificuldade de concentração: Dificuldade em se concentrar em tarefas ou conversas.\n\nO Confundus é uma ferramenta útil em situações de distração, quando o objetivo é afetar temporariamente o julgamento ou as ações de um adversário. No entanto, seu uso é limitado, pois não tem o poder de controlar a mente da vítima nem causar danos físicos.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Confundus."
+            "description": "Você pode lançar Confundus. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Confundus de forma focada, aumentando a intensidade da confusão e tornando mais difícil para a vítima resistir aos efeitos."
+            "description": "Você pode lançar Confundus de forma focada, aumentando a intensidade da confusão e tornando mais difícil para a vítima resistir aos efeitos. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Confundus de forma não-verbal. Diminui a Dif de sucesso necessario em 1."
+            "description": "Você pode lançar Confundus de forma não-verbal. Diminui a Dif de sucesso necessario em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "A duração do efeito é estendida para 5 minutos, prolongando o período de desorientação da vítima."
+            "name": "Experiente",
+            "description": "A duração do efeito é estendida para 5 minutos, prolongando o período de desorientação da vítima. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Confundus Potentia (Confundus Poderoso), uma variação avançada deste feitiço que exige mais habilidade mágica. Confundus Potentia é um feitiço de \"Duração: Concentração\" e \"Pré-Requisitos: Encantamento 4\". Nessa variação, o feitiço confunde a vítima de forma mais intensa e persistente. A vítima terá dificuldade em lembrar fatos recentes e em distinguir entre realidade e ilusão, tornando-a vulnerável a sugestões e manipulações. A concentração do bruxo é necessária para manter o efeito ativo, e a vítima só se libertará completamente da confusão quando o bruxo encerrar a concentração. Diminui a Dif de sucesso necessario em 1."
+            "description": "Você pode lançar Confundus Potentia (Confundus Poderoso), uma variação avançada deste feitiço que exige mais habilidade mágica. Confundus Potentia é um feitiço de \"Duração: Concentração\" e \"Pré-Requisitos: Encantamento 4\". Nessa variação, o feitiço confunde a vítima de forma mais intensa e persistente. A vítima terá dificuldade em lembrar fatos recentes e em distinguir entre realidade e ilusão, tornando-a vulnerável a sugestões e manipulações. A concentração do bruxo é necessária para manter o efeito ativo, e a vítima só se libertará completamente da confusão quando o bruxo encerrar a concentração. Diminui a Dif de sucesso necessario em 1. -x-"
         }
     ],
-    "identifier": "e3067419-87c3-4197-a1b3-12a3be226264"
+    "identifier": "e3067419-87c3-4197-a1b3-12a3be226264",
+    "updatedAt": "2023-10-10T21:20:05.714080"
 }

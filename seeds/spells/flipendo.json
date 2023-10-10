@@ -4,8 +4,6 @@
         "Universal"
     ],
     "difficulty": "Médio",
-    "description": "Flipendo é um feitiço que empurra o alvo para longe do conjurador e o faz cair no chão. Ao ser atingido, o alvo é lançado a até (número de Sucessos x2) metros na direção contrária à do conjurador, sofrendo 1d6 + Força de dano contusivo para cada 3 metros arrastados por esse feitiço, com um mínimo de 1d6 + Força, Além disso, a vítima começa seu próximo turno caída. ",
-    "updatedAt": "2023-09-02T20:00:18.641112",
     "title": "Azaração do Empurrão",
     "level": 1,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Físico Reduz a metade. (Você não cai mais, mas leva metade do dano)",
     "cd": "Feitiçaria + Metade da Força.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Flipendo é um feitiço que empurra o alvo para longe do conjurador e o faz cair no chão. Ao ser atingido, o alvo é lançado a até (número de Sucessos x2) metros na direção contrária à do conjurador, sofrendo 1d6 + Força de dano contusivo para cada 3 metros arrastados por esse feitiço, com um mínimo de 1d6 + Força, Além disso, a vítima começa seu próximo turno caída.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Flipendo, empurrando um alvo para longe e causando dano contusivo moderado."
+            "description": "Você pode lançar Flipendo, empurrando um alvo para longe e causando dano contusivo moderado. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Flipendo de forma focada, aumentando a precisão do feitiço e tornando mais difícil para o alvo evitar o empurrão."
+            "description": "Você pode lançar Flipendo de forma focada, aumentando a precisão do feitiço e tornando mais difícil para o alvo evitar o empurrão. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Flipendo de forma não-verbal. Ao conjurar Flipendo sem a necessidade de proferir palavras, você aumenta o dano do feitiço para 2d4 + Força, tornando-o mais potente. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Flipendo de forma não-verbal. Ao conjurar Flipendo sem a necessidade de proferir palavras, você aumenta o dano do feitiço para 2d4 + Força, tornando-o mais potente. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Flipendo Duo (Azaração do Empurrão Duplo). Essa variação permite que você conjure dois lampejos de Flipendo em uma única conjuração, direcionando-os para dois alvos diferentes. Cada alvo deve estar a até 2 metros de distância um do outro e não pode estar atrás ou nas laterais do conjurador."
+            "description": "Você pode lançar Flipendo Duo (Azaração do Empurrão Duplo). Essa variação permite que você conjure dois lampejos de Flipendo em uma única conjuração, direcionando-os para dois alvos diferentes. Cada alvo deve estar a até 2 metros de distância um do outro e não pode estar atrás ou nas laterais do conjurador. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Flipendo Maxima (Azaração do Arremesso). Essa variação potencializa o feitiço, aumentando o dano para 2d6+Força quando conjurado de forma verbal e para 2d8+Força quando lançado de forma não-verbal. Com essa versão avançada do feitiço, seu poder destrutivo é notavelmente maior. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Flipendo Maxima (Azaração do Arremesso). Essa variação potencializa o feitiço, aumentando o dano para 2d6+Força quando conjurado de forma verbal e para 2d8+Força quando lançado de forma não-verbal. Com essa versão avançada do feitiço, seu poder destrutivo é notavelmente maior. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "af771dc9-4878-43c1-847b-e24b312a3c0a"
+    "identifier": "af771dc9-4878-43c1-847b-e24b312a3c0a",
+    "updatedAt": "2023-10-10T21:09:12.695285"
 }

@@ -1,11 +1,9 @@
 {
-    "name": "Frigus contracto",
+    "name": "Frigus Contracto",
     "category": [
         "Necromancia"
     ],
     "difficulty": "Fácil",
-    "description": "Ao lançar este feitiço, você cria uma mão esquelética fantasmagórica no espaço de uma criatura dentro do alcance. A mão agarrará o alvo, causando 1d6+3 de dano necrótico (Pela duração dos 2 rodadas). Além disso, o alvo não poderá recuperar pontos de vida durante as próximas 2 rodadas devido à natureza gélida da magia.  Se o alvo for um morto-vivo, ele também sofre as consequências da magia de forma diferente. A mão esquelética causa desconforto e interferência em sua ação, fazendo com que o morto-vivo tenha desvantagem nas jogadas de ataque contra você até o final do seu próximo turno. ",
-    "updatedAt": "2023-08-20T17:59:26.172308",
     "title": "Feitiço Toque Frio",
     "level": 3,
     "actionType": "Padrão",
@@ -14,26 +12,27 @@
     "requirements": "Necromancia 1",
     "resistence": "Salvaguarda Fisico Anula.",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar este feitiço, você cria uma mão esquelética fantasmagórica no espaço de uma criatura dentro do alcance. A mão agarrará o alvo, causando 1d6+3 de dano necrótico (Pela duração dos 2 rodadas). Além disso, o alvo não poderá recuperar pontos de vida durante as próximas 2 rodadas devido à natureza gélida da magia.\n\nSe o alvo for um morto-vivo, ele também sofre as consequências da magia de forma diferente. A mão esquelética causa desconforto e interferência em sua ação, fazendo com que o morto-vivo tenha desvantagem nas jogadas de ataque contra você até o final do seu próximo turno.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar o feitiço."
+            "description": "Você pode lançar o feitiço. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Toque Frio de forma focada. Causando +1d6+1 de dano."
+            "description": "Você pode lançar Toque Frio de forma focada. Causando +1d6+1 de dano. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Feitiço Raio da Doença de forma não-verbal. A duração aumenta em +2 rodadas."
+            "description": "Você pode lançar Feitiço Raio da Doença de forma não-verbal. A duração aumenta em +2 rodadas. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O dano necrótico aumenta para +1d6."
+            "name": "Experiente",
+            "description": "O dano necrótico aumenta para +1d6. "
         },
         {
             "level": 5,
@@ -41,5 +40,6 @@
             "description": "O alcance do feitiço aumenta para médio e o dano necrótico é aumentado para d8. Além disso, o alvo não poderá recuperar pontos de vida por 4 rodadas em vez de 2. Se o alvo for um morto-vivo, ele também sofre a desvantagem nas jogadas de ataque contra você por 2 rodadas em vez de 1."
         }
     ],
-    "identifier": "26d8024e-2165-4dbb-81ca-cf0b2d759618"
+    "identifier": "26d8024e-2165-4dbb-81ca-cf0b2d759618",
+    "updatedAt": "2023-10-10T21:22:33.675606"
 }

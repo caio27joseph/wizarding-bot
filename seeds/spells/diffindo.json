@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Médio",
-    "description": "O feitiço Diffindo é um poderoso encantamento de corte, permitindo que o bruxo corte uma ampla variedade de objetos, desde panos e cordas até materiais mais resistentes, como madeira e pedras. A eficiência do feitiço aumenta com a experiência do bruxo e seu conhecimento em Encantamentos.  Quando lançado, o bruxo aponta sua varinha para o objeto que deseja cortar e pronuncia o encantamento \"Diffindo\". A dificuldade e a rapidez do corte dependerão da resistência e do tamanho do objeto. Objetos mais simples e pequenos podem ser cortados com facilidade, enquanto materiais mais resistentes e volumosos podem exigir mais concentração e poder mágico.  O feitiço Diffindo possui uma eficiência particularmente maior em objetos de tendência cilíndrica, como cordas, correntes e tubos. A varinha do bruxo desliza facilmente através desses materiais, permitindo cortes precisos e rápidos.  Conforme o bruxo avança em seus estudos de Encantamentos e ganha mais experiência, a eficácia do Diffindo aumenta. Ele pode cortar materiais mais duros e maiores com menos esforço, tornando-se uma ferramenta versátil para várias situações. ",
-    "updatedAt": "2023-08-20T17:59:25.890308",
     "title": "Feitiço Diffindo",
     "level": 3,
     "actionType": "Padrão",
@@ -14,26 +12,27 @@
     "resistence": "Salvaguarda Fisica Reduz a metade.",
     "distance": "Curto",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O feitiço Diffindo é um poderoso encantamento de corte, permitindo que o bruxo corte uma ampla variedade de objetos, desde panos e cordas até materiais mais resistentes, como madeira e pedras. A eficiência do feitiço aumenta com a experiência do bruxo e seu conhecimento em Encantamentos.\n\nQuando lançado, o bruxo aponta sua varinha para o objeto que deseja cortar e pronuncia o encantamento \"Diffindo\". A dificuldade e a rapidez do corte dependerão da resistência e do tamanho do objeto. Objetos mais simples e pequenos podem ser cortados com facilidade, enquanto materiais mais resistentes e volumosos podem exigir mais concentração e poder mágico.\n\nO feitiço Diffindo possui uma eficiência particularmente maior em objetos de tendência cilíndrica, como cordas, correntes e tubos. A varinha do bruxo desliza facilmente através desses materiais, permitindo cortes precisos e rápidos.\n\nConforme o bruxo avança em seus estudos de Encantamentos e ganha mais experiência, a eficácia do Diffindo aumenta. Ele pode cortar materiais mais duros e maiores com menos esforço, tornando-se uma ferramenta versátil para várias situações.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Diffindo em objetos simples e pequenos, como panos e cordas."
+            "description": "Você pode lançar Diffindo em objetos simples e pequenos, como panos e cordas. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Com mais experiência em Encantamentos, você pode lançar Diffindo em objetos um pouco mais resistentes, como madeira fina. E pode usar o feitiço de forma focada."
+            "description": "Com mais experiência em Encantamentos, você pode lançar Diffindo em objetos um pouco mais resistentes, como madeira fina. E pode usar o feitiço de forma focada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "À medida que avança em seus estudos, você pode cortar objetos maiores e mais resistentes, como madeira mais espessa e pedras menores. Diminui a Dif de sucesso necessario em 1."
+            "description": "À medida que avança em seus estudos, você pode cortar objetos maiores e mais resistentes, como madeira mais espessa e pedras menores. Diminui a Dif de sucesso necessario em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Com grande domínio sobre Encantamentos, Diffindo pode ser utilizado em objetos de maior tamanho e resistência, incluindo pedras mais robustas e até mesmo metais leves."
+            "name": "Experiente",
+            "description": "Com grande domínio sobre Encantamentos, Diffindo pode ser utilizado em objetos de maior tamanho e resistência, incluindo pedras mais robustas e até mesmo metais leves. "
         },
         {
             "level": 5,
@@ -41,5 +40,6 @@
             "description": "O bruxo pode executar o Diffindo com habilidade excepcional, cortando objetos extremamente resistentes e de grande porte, como correntes grossas e pedras maciças. Nesse nível, a precisão e velocidade do corte são surpreendentes, tornando o Diffindo uma ferramenta de corte supremamente versátil e eficaz. Diminui a Dif de sucesso necessario em 1."
         }
     ],
-    "identifier": "bfc9bfa3-0186-4eba-9e10-1a9e35f2bca0"
+    "identifier": "bfc9bfa3-0186-4eba-9e10-1a9e35f2bca0",
+    "updatedAt": "2023-10-10T21:20:05.742640"
 }

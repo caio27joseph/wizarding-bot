@@ -4,8 +4,6 @@
         "Evocação"
     ],
     "difficulty": "Muito Difícil",
-    "description": "Ao conjurar Bombarda, uma explosão é projetada no alvo, podendo quebrar trancas, janelas e portas. Esse feitiço causa 5d6 + Evocação de dano em objetos inanimados, construtos e estruturas, mas apenas 2d6 + Evocação de dano caso utilizado em seres vivos. ",
-    "updatedAt": "2023-09-02T20:00:40.418274",
     "title": "Feitiço de Explosão",
     "level": 2,
     "actionType": "Padrão",
@@ -17,32 +15,34 @@
     "antiSpell": "Custodire",
     "cd": "Feitiçaria + Metade da Força",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
+    "description": "Efeito: Ao conjurar Bombarda, uma explosão é projetada no alvo, podendo quebrar trancas, janelas e portas. Esse feitiço causa 5d6 + Evocação de dano em objetos inanimados, construtos e estruturas, mas apenas 2d6 + Evocação de dano caso utilizado em seres vivos.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Bombarda."
+            "description": "Você pode lançar Bombarda. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Bombarda de forma focada, aumentando a precisão do feitiço."
+            "description": "Você pode lançar Bombarda de forma focada, aumentando a precisão do feitiço. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Expulso (Maldição Expulso) como um feitiço de \"Maldição\" e \"Lampejo: Azul\". Nessa variação, o feitiço causa 3d6 + Controle de dano em criaturas. Se a conjuração causar 12 ou mais de dano em um único ataque, o alvo ficará sob efeito da condição Agonizando, que permanecerá até ser tratada ou por 4 rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Expulso (Maldição Expulso) como um feitiço de \"Maldição\" e \"Lampejo: Azul\". Nessa variação, o feitiço causa 3d6 + Controle de dano em criaturas. Se a conjuração causar 12 ou mais de dano em um único ataque, o alvo ficará sob efeito da condição Agonizando, que permanecerá até ser tratada ou por 4 rodadas. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Bombarda de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "name": "Experiente",
+            "description": "Você pode lançar Bombarda de forma não-verbal, tornando a execução do feitiço mais rápida e discreta. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Bombarda Maxima (Feitiço da Grande Explosão) como um feitiço de \"Execução: Ação completa\". Nessa variação, quando o lampejo entra em contato com uma superfície, ocorre uma explosão com um raio de 5 metros e um diâmetro de 9 metros. Criaturas, objetos e estruturas no ponto de impacto recebem 8d6 de dano. Esse dado é reduzido para 4d6 em alvos adjacentes ao ponto de impacto e para 2d6 + Controle na borda do raio. Após utilizar Bombarda Maxima, o conjurador fica Fatigado até o fim da cena. Esse feitiço é capaz de abrir buracos significativos em paredes de pedra e madeira, bem como comprometer estruturas inteiras. No entanto, metal reforçado é capaz de resistir aos efeitos deste feitiço. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Bombarda Maxima (Feitiço da Grande Explosão) como um feitiço de \"Execução: Ação completa\". Nessa variação, quando o lampejo entra em contato com uma superfície, ocorre uma explosão com um raio de 5 metros e um diâmetro de 9 metros. Criaturas, objetos e estruturas no ponto de impacto recebem 8d6 de dano. Esse dado é reduzido para 4d6 em alvos adjacentes ao ponto de impacto e para 2d6 + Controle na borda do raio. Após utilizar Bombarda Maxima, o conjurador fica Fatigado até o fim da cena. Esse feitiço é capaz de abrir buracos significativos em paredes de pedra e madeira, bem como comprometer estruturas inteiras. No entanto, metal reforçado é capaz de resistir aos efeitos deste feitiço. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "077e7884-e0b0-4ec2-8938-f95ffd1846f6"
+    "identifier": "077e7884-e0b0-4ec2-8938-f95ffd1846f6",
+    "updatedAt": "2023-10-10T21:14:57.999503"
 }

@@ -1,11 +1,9 @@
 {
-    "name": "Ovile mortuorum",
+    "name": "Ovile Mortuorum",
     "category": [
         "Necromancia"
     ],
     "difficulty": "Médio",
-    "description": "Ao apontar sua varinha para uma criatura que possa ver dentro do alcance, o som de um sino doloroso preenche o ar ao redor por um momento. O alvo deve ser bem-sucedido em um teste de resistência de Salvaguarda Física ou sofrerá 2d6+2 de dano necrótico. ",
-    "updatedAt": "2023-08-20T17:59:26.428308",
     "title": "Feitiço Dobrado dos Mortos",
     "level": 3,
     "actionType": "Padrão",
@@ -15,26 +13,27 @@
     "requirements": "Necromancia 1",
     "resistence": "Salvaguarda Mental Anula.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Ao apontar sua varinha para uma criatura que possa ver dentro do alcance, o som de um sino doloroso preenche o ar ao redor por um momento. O alvo deve ser bem-sucedido em um teste de resistência de Salvaguarda Física ou sofrerá 2d6+2 de dano necrótico.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar o feitiço."
+            "description": "Você pode lançar o feitiço. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar o Feitiço Dobrado dos Mortos de forma focada.. Dano aumenta em +1d6."
+            "description": "Você pode lançar o Feitiço Dobrado dos Mortos de forma focada.. Dano aumenta em +1d6. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar o Feitiço Dobrado dos Mortos de forma não-verbal. Alcance aumenta para Médio"
+            "description": "Você pode lançar o Feitiço Dobrado dos Mortos de forma não-verbal. Alcance aumenta para Médio "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O dano necrótico aumenta para d8."
+            "name": "Experiente",
+            "description": "O dano necrótico aumenta para d8. "
         },
         {
             "level": 5,
@@ -42,5 +41,6 @@
             "description": "O dano necrótico muda para 4d8+Arte das Trevas e, se o alvo já estiver ferido, você lança um d20 adicional junto com o dano. Se o número obtido no d20 for maior que o valor atual dos pontos de vida do alvo, o dano necrótico é aumentado para 8d8. Se o número for igual ou menor, o dano permanece em 4d8. Isso representa a habilidade do feitiço de atingir alvos já enfraquecidos. Diminui a Dif de sucesso necessario em 1."
         }
     ],
-    "identifier": "f34740c8-ce81-430a-b46e-d8b0e260e47c"
+    "identifier": "f34740c8-ce81-430a-b46e-d8b0e260e47c",
+    "updatedAt": "2023-10-10T21:22:33.690374"
 }

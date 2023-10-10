@@ -4,8 +4,6 @@
         "Transmutação"
     ],
     "difficulty": "Médio",
-    "description": "Reverte os efeitos de uma Transformação incompleta ou parcial. Você deve ter em mente a forma original do alvo transfigurado para poder destransfigurá-lo. Caso não saiba (ou tenha apenas uma ideia geral de como ele era), deve obter 5 Sucessos ou mais na rolagem desse feitiço, ou falhará na destransfiguração. ",
-    "updatedAt": "2023-08-10T18:01:58.279761",
     "title": "Destransfiguração Geral",
     "level": 1,
     "actionType": "Completa",
@@ -13,32 +11,34 @@
     "light": "Branco",
     "distance": "Curto",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: Reverte os efeitos de uma Transformação incompleta ou parcial. Você deve ter em mente a forma original do alvo transfigurado para poder destransfigurá-lo. Caso não saiba (ou tenha apenas uma ideia geral de como ele era), deve obter 5 Sucessos ou mais na rolagem desse feitiço, ou falhará na destransfiguração.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Reparifarge para desfazer Transformações incompletas ou parciais."
+            "description": "Você pode lançar Reparifarge para desfazer Transformações incompletas ou parciais. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Reparifarge de forma acelerada, reduzindo o tempo necessário para realizar a destransfiguração."
+            "description": "Você pode lançar Reparifarge de forma acelerada, reduzindo o tempo necessário para realizar a destransfiguração. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Reparifarge para desfazer qualquer tipo de Transformação, mesmo que ela tenha sido completa, desde que envolva apenas objetos sendo transformados em outros objetos."
+            "description": "Você pode lançar Reparifarge para desfazer qualquer tipo de Transformação, mesmo que ela tenha sido completa, desde que envolva apenas objetos sendo transformados em outros objetos. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Reparifarge para desfazer Transformações que envolvam animais sendo transformados em objetos ou objetos sendo transformados em animais, mesmo que a Transformação tenha sido completa."
+            "description": "Você pode lançar Reparifarge para desfazer Transformações que envolvam animais sendo transformados em objetos ou objetos sendo transformados em animais, mesmo que a Transformação tenha sido completa. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Reparifarge de forma não-verbal, o que lhe permite desfazer qualquer tipo de Transformação, exceto Transformação Humana, sem precisar recitar palavras. Esse alto nível de domínio do feitiço torna o bruxo extremamente habilidoso em desfazer transfigurações complexas e é um sinal de seu conhecimento e experiência avançados em Transfiguração. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Reparifarge de forma não-verbal, o que lhe permite desfazer qualquer tipo de Transformação, exceto Transformação Humana, sem precisar recitar palavras. Esse alto nível de domínio do feitiço torna o bruxo extremamente habilidoso em desfazer transfigurações complexas e é um sinal de seu conhecimento e experiência avançados em Transfiguração. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "3523fa52-55dc-41b0-a333-7996255027dd"
+    "identifier": "3523fa52-55dc-41b0-a333-7996255027dd",
+    "updatedAt": "2023-10-10T21:09:12.782640"
 }

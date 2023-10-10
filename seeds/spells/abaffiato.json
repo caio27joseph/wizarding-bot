@@ -4,40 +4,40 @@
         "Abjuração"
     ],
     "difficulty": "Difícil",
-    "description": "O feitiço Abaffiato, permitindo ao bruxo criar uma esfera de silêncio em torno de uma área específica. Ao lançar o feitiço, o bruxo cria uma esfera com um raio de 2x2 quadrados (totalizando 4 quadrados dentro da esfera) que isola acusticamente o ambiente, tornando-o mudo para qualquer pessoa que esteja fora dela.  Essa esfera de silêncio impede que qualquer som proveniente do interior seja ouvido do lado de fora e vice-versa. Portanto, conversas, ruídos e feitiços lançados dentro da área isolada não são percebidos por quem está do lado de fora, criando uma espécie de \"bolha\" de silêncio.  Para manter a esfera de silêncio ativa, o bruxo precisa se concentrar na magia e, portanto, a duração é limitada à concentração do conjurador mais 10 minutos adicionais após a concentração ser interrompida. ",
-    "updatedAt": "2023-08-13T15:57:48.341916",
     "title": "Feitiço Abaffiato",
     "level": 3,
     "actionType": "Padrão",
     "duration": "Concentração (Sucessos) + 10 minutos",
     "distance": "1 Metros",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: O feitiço Abaffiato, permitindo ao bruxo criar uma esfera de silêncio em torno de uma área específica. Ao lançar o feitiço, o bruxo cria uma esfera com um raio de 2x2 quadrados (totalizando 4 quadrados dentro da esfera) que isola acusticamente o ambiente, tornando-o mudo para qualquer pessoa que esteja fora dela.\n\nEssa esfera de silêncio impede que qualquer som proveniente do interior seja ouvido do lado de fora e vice-versa. Portanto, conversas, ruídos e feitiços lançados dentro da área isolada não são percebidos por quem está do lado de fora, criando uma espécie de \"bolha\" de silêncio.\n\nPara manter a esfera de silêncio ativa, o bruxo precisa se concentrar na magia e, portanto, a duração é limitada à concentração do conjurador mais 10 minutos adicionais após a concentração ser interrompida.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Abaffiato"
+            "description": "Você pode lançar Abaffiato "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Abaffiato de forma focada, aumentando a precisão e a extensão da área de silêncio."
+            "description": "Você pode lançar Abaffiato de forma focada, aumentando a precisão e a extensão da área de silêncio. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Abaffiato de forma não-verbal, demonstrando um controle mágico excepcional.. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Abaffiato de forma não-verbal, demonstrando um controle mágico excepcional.. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Com prática e habilidade aprimorada em Encantamentos, você pode estender a duração da esfera de silêncio, permitindo que ela permaneça ativa por mais tempo após a concentração ser interrompida. aumenta em +10 minutos."
+            "name": "Experiente",
+            "description": "Com prática e habilidade aprimorada em Encantamentos, você pode estender a duração da esfera de silêncio, permitindo que ela permaneça ativa por mais tempo após a concentração ser interrompida. aumenta em +10 minutos. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Abaffiato Maxima, uma versão ainda mais poderosa do feitiço que permite criar uma esfera de silêncio com um raio maior e uma duração mais longa (aumenta o quadrados para 8 quadrados dentro da esfera e a duração para 1 hora mais sucessos em minutos.). Abaffiato Maxima é considerado um feitiço avançado de isolamento acústico, e sua execução requer um controle mágico excepcional, bem como uma compreensão profunda dos encantamentos de silêncio. Esse feitiço é utilizado principalmente por bruxos especializados em espionagem e ocultação de informações. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Abaffiato Maxima, uma versão ainda mais poderosa do feitiço que permite criar uma esfera de silêncio com um raio maior e uma duração mais longa (aumenta o quadrados para 8 quadrados dentro da esfera e a duração para 1 hora mais sucessos em minutos.). Abaffiato Maxima é considerado um feitiço avançado de isolamento acústico, e sua execução requer um controle mágico excepcional, bem como uma compreensão profunda dos encantamentos de silêncio. Esse feitiço é utilizado principalmente por bruxos especializados em espionagem e ocultação de informações. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "55ca9fa8-e802-457a-9dd1-3e55a920f21c"
+    "identifier": "55ca9fa8-e802-457a-9dd1-3e55a920f21c",
+    "updatedAt": "2023-10-10T21:21:03.529003"
 }

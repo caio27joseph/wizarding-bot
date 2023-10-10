@@ -4,8 +4,6 @@
         "Ilusão"
     ],
     "difficulty": "Médio",
-    "description": "O Deletrius é um feitiço que tem o poder de desintegrar imagens ilusórias criadas por magia. Quando lançado, ilusões mágicas, como as criadas pelos feitiços Morsmordre, Ilusão Menor ou Prior Incantato, são instantaneamente desfeitas. Além disso, fantasmas e seres espectrais atingidos pelo feitiço ficam Atordoados por 1 rodada. ",
-    "updatedAt": "2023-08-10T18:10:57.415072",
     "title": "Feitiço de Erradicação",
     "level": 2,
     "actionType": "Completa",
@@ -14,32 +12,34 @@
     "requirements": "Ilusão 1",
     "distance": "Curto",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O Deletrius é um feitiço que tem o poder de desintegrar imagens ilusórias criadas por magia. Quando lançado, ilusões mágicas, como as criadas pelos feitiços Morsmordre, Ilusão Menor ou Prior Incantato, são instantaneamente desfeitas. Além disso, fantasmas e seres espectrais atingidos pelo feitiço ficam Atordoados por 1 rodada.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Deletrius."
+            "description": "Você pode lançar Deletrius. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Deletrius de forma acelerada."
+            "description": "Você pode lançar Deletrius de forma acelerada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Deletrius de forma silenciosa. Nessa variação, você faz um teste disputado contra o feitiço alvo e precisa manter uma margem de -1 Sucesso ou mais a cada turno para anular os efeitos da magia alvo. O Deletrius silencioso só pode ser usado para anular outros feitiços silenciosos."
+            "description": "Você pode lançar Deletrius de forma silenciosa. Nessa variação, você faz um teste disputado contra o feitiço alvo e precisa manter uma margem de -1 Sucesso ou mais a cada turno para anular os efeitos da magia alvo. O Deletrius silencioso só pode ser usado para anular outros feitiços silenciosos. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Deletrius de forma não-verbal. Quando conjura Deletrius de forma não-verbal, você é capaz de desmaterializar construtos de energia, incluindo seres elementais, como fogo ou água que foram animados por convocação ou evocação."
+            "name": "Experiente",
+            "description": "Você pode lançar Deletrius de forma não-verbal. Quando conjura Deletrius de forma não-verbal, você é capaz de desmaterializar construtos de energia, incluindo seres elementais, como fogo ou água que foram animados por convocação ou evocação. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Quando você atinge um fantasma ou ser espectral com Deletrius, em vez de ficar Atordoado, o alvo fica Apavorado. Além disso, a duração dessa condição é aumentada para 2 rodadas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Quando você atinge um fantasma ou ser espectral com Deletrius, em vez de ficar Atordoado, o alvo fica Apavorado. Além disso, a duração dessa condição é aumentada para 2 rodadas. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "f41d91a9-aaf3-4441-b14e-d445958cec8c"
+    "identifier": "f41d91a9-aaf3-4441-b14e-d445958cec8c",
+    "updatedAt": "2023-10-10T21:14:58.103599"
 }

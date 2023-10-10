@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Fácil",
-    "description": "Ao emitir um pulso transparente com 5 metros de raio e 10 metros de diâmetro a partir da ponta da varinha, você pode afetar uma criatura à sua escolha (exceto Espíritos) dentro desse raio com a condição Silenciado por uma quantidade de rodadas igual ao número de Sucessos obtidos no teste desse feitiço. Este pulso não é considerado um lampejo. ",
-    "updatedAt": "2023-08-20T17:59:26.672307",
     "title": "Feitiço Silenciador",
     "level": 2,
     "actionType": "Padrão",
@@ -15,26 +13,27 @@
     "antiSpell": "Dicere",
     "distance": "Curto",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ao emitir um pulso transparente com 5 metros de raio e 10 metros de diâmetro a partir da ponta da varinha, você pode afetar uma criatura à sua escolha (exceto Espíritos) dentro desse raio com a condição Silenciado por uma quantidade de rodadas igual ao número de Sucessos obtidos no teste desse feitiço. Este pulso não é considerado um lampejo.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Silencio."
+            "description": "Você pode lançar Silencio. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Silencio de forma focada."
+            "description": "Você pode lançar Silencio de forma focada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Travalíngua (Azaração de Travar a Língua) como um feitiço de \"Azaração\", \"Duração: 4 hora - 6 rodadas.\" e \"Lampejo: Vermelho\". Nessa variação, você lança um lampejo que aplica a condição Silenciado pela duração. Essa variação funciona em Espíritos e quadros."
+            "description": "Você pode lançar Travalíngua (Azaração de Travar a Língua) como um feitiço de \"Azaração\", \"Duração: 4 hora - 6 rodadas.\" e \"Lampejo: Vermelho\". Nessa variação, você lança um lampejo que aplica a condição Silenciado pela duração. Essa variação funciona em Espíritos e quadros. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Silencio de forma não-verbal. Quando conjura Silencio em sua forma não-verbal, o pulso emitido por sua varinha possui 10 metros de raio e 20 metros de diâmetro."
+            "name": "Experiente",
+            "description": "Você pode lançar Silencio de forma não-verbal. Quando conjura Silencio em sua forma não-verbal, o pulso emitido por sua varinha possui 10 metros de raio e 20 metros de diâmetro. "
         },
         {
             "level": 5,
@@ -42,5 +41,6 @@
             "description": "Você pode lançar Silencio como um feitiço de \"Duração: 1 mês\". Adicionalmente, você pode afetar qualquer número de criaturas à sua escolha pegas no pulso de seu Silêncio."
         }
     ],
-    "identifier": "2e509035-6119-4cb0-b8d6-1186e3f239cc"
+    "identifier": "2e509035-6119-4cb0-b8d6-1186e3f239cc",
+    "updatedAt": "2023-10-10T21:14:58.303040"
 }

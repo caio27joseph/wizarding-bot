@@ -4,8 +4,6 @@
         "Necromancia"
     ],
     "difficulty": "Fácil",
-    "description": "O Conjunctivitis é uma maldição que irrita severamente os olhos da vítima, ao ponto de forçá-la a fechá-los. Durante a duração desse feitiço, o alvo fica sob os efeitos das condições \"Cego\" e \"Desprevenido\". ",
-    "updatedAt": "2023-08-10T18:10:57.387072",
     "title": "Maldição da Conjuntivite",
     "level": 2,
     "actionType": "Padrão",
@@ -13,26 +11,27 @@
     "light": "Rosa",
     "distance": "Curto",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O Conjunctivitis é uma maldição que irrita severamente os olhos da vítima, ao ponto de forçá-la a fechá-los. Durante a duração desse feitiço, o alvo fica sob os efeitos das condições \"Cego\" e \"Desprevenido\".",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Conjunctivitis."
+            "description": "Você pode lançar Conjunctivitis. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Conjunctivitis de forma focada, aumentando sua precisão ao conjurá-lo."
+            "description": "Você pode lançar Conjunctivitis de forma focada, aumentando sua precisão ao conjurá-lo. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Conjunctivitis de forma não-verbal. Nesta forma o afetado recebe 1d4 + Controle de dano."
+            "description": "Você pode lançar Conjunctivitis de forma não-verbal. Nesta forma o afetado recebe 1d4 + Controle de dano. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O lampejo do seu Conjunctivitis sempre se redireciona em direção aos olhos da vítima, ignorando defesas naturais como Resistência na Pele."
+            "name": "Experiente",
+            "description": "O lampejo do seu Conjunctivitis sempre se redireciona em direção aos olhos da vítima, ignorando defesas naturais como Resistência na Pele. "
         },
         {
             "level": 5,
@@ -40,5 +39,6 @@
             "description": "Você pode lançar Conjunctivitis como um feitiço de \"Duração: Permanente\". Nessa variação, a maldição não pode ser desfeita por Finite Incantatem, tornando seus efeitos permanentes até que outro feitiço de contra-maldição adequado seja aplicado."
         }
     ],
-    "identifier": "28de7c67-0733-48dc-8dfc-d48ca22108a3"
+    "identifier": "28de7c67-0733-48dc-8dfc-d48ca22108a3",
+    "updatedAt": "2023-10-10T21:14:58.074958"
 }

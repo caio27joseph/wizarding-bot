@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Fácil",
-    "description": "Ao lançar a Cantis, você faz com que o alvo comece a cantar de forma descontrolada. Mesmo que a criatura seja habilidosa em música, ela não terá controle sobre sua performance e será compelida a cantar em uma situação humilhante. Durante a duração da azaração, o alvo não conseguirá parar de cantar, e todas as tentativas de interromper a melodia serão em vão. ",
-    "updatedAt": "2023-09-02T20:00:18.333542",
     "title": "Azaração do Canto Descontrolado",
     "level": 1,
     "actionType": "Padrão",
@@ -16,32 +14,34 @@
     "cd": "Feitiçaria + Metade da Inteligência.",
     "antiSpell": "Angularis",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar a Cantis, você faz com que o alvo comece a cantar de forma descontrolada. Mesmo que a criatura seja habilidosa em música, ela não terá controle sobre sua performance e será compelida a cantar em uma situação humilhante. Durante a duração da azaração, o alvo não conseguirá parar de cantar, e todas as tentativas de interromper a melodia serão em vão.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar a Cantis, afetando o alvo com a azaração do canto descontrolado."
+            "description": "Você pode lançar a Cantis, afetando o alvo com a azaração do canto descontrolado. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Com o domínio intermediário, você pode lançar a Cantis de forma focada, aumentando a precisão e eficácia da azaração."
+            "description": "Com o domínio intermediário, você pode lançar a Cantis de forma focada, aumentando a precisão e eficácia da azaração. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Com a Cantis não-verbal, você pode lançar o feitiço sem a necessidade de pronunciar as palavras mágicas em voz alta. Além disso, o alvo sofrerá os efeitos de estar Silenciado, mas, em vez de ficar mudo, ele cantará especificamente (e somente!) os versos que você escolher até o fim da duração."
+            "description": "Com a Cantis não-verbal, você pode lançar o feitiço sem a necessidade de pronunciar as palavras mágicas em voz alta. Além disso, o alvo sofrerá os efeitos de estar Silenciado, mas, em vez de ficar mudo, ele cantará especificamente (e somente!) os versos que você escolher até o fim da duração. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "A Cantis pode ser aprimorada para ter uma duração mais longa de 6 horas - 12 Rodadas, prolongando o período de afetação do alvo."
+            "name": "Experiente",
+            "description": "A Cantis pode ser aprimorada para ter uma duração mais longa de 6 horas - 12 Rodadas, prolongando o período de afetação do alvo. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Como mestre da Cantis, você pode lançá-la de forma silenciosa, sem fazer qualquer som ou gesto que denuncie o feitiço. Essa habilidade avançada torna o lançamento da Cantis ainda mais sutil e surpreendente para o alvo. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Como mestre da Cantis, você pode lançá-la de forma silenciosa, sem fazer qualquer som ou gesto que denuncie o feitiço. Essa habilidade avançada torna o lançamento da Cantis ainda mais sutil e surpreendente para o alvo. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "f4ca4756-5249-4074-8d7d-01cba3abc3fb"
+    "identifier": "f4ca4756-5249-4074-8d7d-01cba3abc3fb",
+    "updatedAt": "2023-10-10T21:09:12.635499"
 }

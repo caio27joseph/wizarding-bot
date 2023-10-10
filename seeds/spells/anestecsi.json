@@ -4,8 +4,6 @@
         "Evocação"
     ],
     "difficulty": "Difícil",
-    "description": "Com o Feitiço de Anestesia, você é capaz de aliviar temporariamente os efeitos debilitantes da dor em uma criatura viva a até 18 metros de distância. O feitiço não previne ou cura danos, mas permite que o alvo afetado funcione normalmente e suporte melhor a dor, anulando penalidades provenientes da condição Agonizando ou outros efeitos similares. ",
-    "updatedAt": "2023-08-10T18:10:57.215072",
     "title": "Feitiço Anestésico",
     "level": 2,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "distance": "Médio",
     "requirements": "Evocação 2 e Medibruxaria 2",
     "meta": "5 Sucessos Padrão | 6 Sucessos situações complicadas.",
+    "description": "Efeito: Com o Feitiço de Anestesia, você é capaz de aliviar temporariamente os efeitos debilitantes da dor em uma criatura viva a até 18 metros de distância. O feitiço não previne ou cura danos, mas permite que o alvo afetado funcione normalmente e suporte melhor a dor, anulando penalidades provenientes da condição Agonizando ou outros efeitos similares.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Anestecsi."
+            "description": "Você pode lançar Anestecsi. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "A sua habilidade com o Feitiço de Anestesia aumenta, permitindo que você o execute de forma mais focada e precisa, garantindo resultados mais eficazes. Tambem da uma absorvição de 2 de dano."
+            "description": "A sua habilidade com o Feitiço de Anestesia aumenta, permitindo que você o execute de forma mais focada e precisa, garantindo resultados mais eficazes. Tambem da uma absorvição de 2 de dano. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Anestecsi como um feitiço de \"Lampejo: Esmeralda\" e \"Duração: 2 rodadas\". Nessa variação, você atira um lampejo anestésico que, caso acerte uma criatura, aplica a condição Inconsciente pela duração. Essa versão do feitiço é mais útil para situações em que é necessário incapacitar temporariamente um alvo sem causar-lhe danos permanentes. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Anestecsi como um feitiço de \"Lampejo: Esmeralda\" e \"Duração: 2 rodadas\". Nessa variação, você atira um lampejo anestésico que, caso acerte uma criatura, aplica a condição Inconsciente pela duração. Essa versão do feitiço é mais útil para situações em que é necessário incapacitar temporariamente um alvo sem causar-lhe danos permanentes. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Enquanto se concentra em seu Anestecsi, você pode abrir mão de sua ação de movimento para curar 4xMedibruxaria Pontos de Vitalidade do alvo. Essa capacidade de cura adicional torna o feitiço ainda mais valioso para ajudar a aliviar a dor e tratar ferimentos."
+            "name": "Experiente",
+            "description": "Enquanto se concentra em seu Anestecsi, você pode abrir mão de sua ação de movimento para curar 4xMedibruxaria Pontos de Vitalidade do alvo. Essa capacidade de cura adicional torna o feitiço ainda mais valioso para ajudar a aliviar a dor e tratar ferimentos. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Anestecsi de forma não-verbal, executando o feitiço sem a necessidade de proferir palavras. Além disso, quando conjura Anestecsi em sua forma não-verbal, a cura aumenta para +1d6, proporcionando uma cura ainda mais significativa ao alvo. Essa é a forma mais avançada do feitiço, dominada apenas pelos bruxos mais experientes. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Anestecsi de forma não-verbal, executando o feitiço sem a necessidade de proferir palavras. Além disso, quando conjura Anestecsi em sua forma não-verbal, a cura aumenta para +1d6, proporcionando uma cura ainda mais significativa ao alvo. Essa é a forma mais avançada do feitiço, dominada apenas pelos bruxos mais experientes. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "aa724b76-7873-43f2-b8b6-079da6b1e351"
+    "identifier": "aa724b76-7873-43f2-b8b6-079da6b1e351",
+    "updatedAt": "2023-10-10T21:14:57.947451"
 }

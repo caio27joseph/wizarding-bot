@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Médio",
-    "description": "O feitiço Immobilus cria um pulso mágico com 5 metros de raio e 10 metros de diâmetro, emanando a partir da ponta da varinha. Todas as criaturas com tamanho mínimo (1 Metro - Pequenas) ou menor que estejam dentro desse pulso são instantaneamente paralisadas, como se tivessem sido congeladas em pleno movimento. Caso haja criaturas voando ou flutuando durante a execução do feitiço, elas permanecem nessa posição, deslizando lentamente pelo ar até o fim da duração do efeito. ",
-    "updatedAt": "2023-09-02T20:00:18.770994",
     "title": "Feitiço de Congelamento",
     "level": 1,
     "actionType": "Padrão",
@@ -15,32 +13,34 @@
     "resistence": "Salvaguarda Mental Anula.",
     "cd": "Feitiçaria + Metade da Inteligência",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O feitiço Immobilus cria um pulso mágico com 5 metros de raio e 10 metros de diâmetro, emanando a partir da ponta da varinha. Todas as criaturas com tamanho mínimo (1 Metro - Pequenas) ou menor que estejam dentro desse pulso são instantaneamente paralisadas, como se tivessem sido congeladas em pleno movimento. Caso haja criaturas voando ou flutuando durante a execução do feitiço, elas permanecem nessa posição, deslizando lentamente pelo ar até o fim da duração do efeito.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Immobilus, criando o pulso de congelamento com duração de 2 rodadas."
+            "description": "Você pode lançar Immobilus, criando o pulso de congelamento com duração de 2 rodadas. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Immobilus de forma focada, aumentando a precisão e a eficácia do feitiço. Criaturas afetadas levam +1d4 de dano."
+            "description": "Você pode lançar Immobilus de forma focada, aumentando a precisão e a eficácia do feitiço. Criaturas afetadas levam +1d4 de dano. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Immobilus de forma não-verbal. Quando conjura Immobilus em sua forma não-verbal, a duração do efeito é estendida para + 2 Rodadas."
+            "description": "Você pode lançar Immobilus de forma não-verbal. Quando conjura Immobilus em sua forma não-verbal, a duração do efeito é estendida para + 2 Rodadas. "
         },
         {
             "level": 4,
             "name": "Especialista",
-            "description": "Você pode lançar Immobilus como um feitiço de \"Lampejo: Branco\". Nessa variação, além de afetar criaturas, você também pode fazer com que objetos inanimados, como relógios ou alarmes, parem de funcionar durante a duração do efeito."
+            "description": "Você pode lançar Immobilus como um feitiço de \"Lampejo: Branco\". Nessa variação, além de afetar criaturas, você também pode fazer com que objetos inanimados, como relógios ou alarmes, parem de funcionar durante a duração do efeito. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Immobilus como um feitiço de \"Evocação\" e \"Lampejo: Branco\". Nessa variação, o feitiço é aprimorado para atingir qualquer ser vivo, independentemente do tamanho, incluindo bruxos, plantas e criaturas mágicas. O alvo fica completamente paralisado durante a duração do efeito. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Immobilus como um feitiço de \"Evocação\" e \"Lampejo: Branco\". Nessa variação, o feitiço é aprimorado para atingir qualquer ser vivo, independentemente do tamanho, incluindo bruxos, plantas e criaturas mágicas. O alvo fica completamente paralisado durante a duração do efeito. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "8f7f0f8c-b8a2-4732-b8c6-4f3762842ddb"
+    "identifier": "8f7f0f8c-b8a2-4732-b8c6-4f3762842ddb",
+    "updatedAt": "2023-10-10T21:09:12.721535"
 }

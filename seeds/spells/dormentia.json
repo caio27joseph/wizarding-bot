@@ -4,8 +4,6 @@
         "Necromancia"
     ],
     "difficulty": "Muito Difícil",
-    "description": "O feitiço Dormentia é uma maldição poderosa que causa uma sensação extremamente intensa de dor ao alvo. O bruxo deve apontar sua varinha diretamente para o alvo e, ao pronunciar o nome do feitiço, desencadeia a sensação de que um membro do corpo da vítima está sendo arrancado violentamente. Essa dor é puramente ilusória, mas a intensidade é tão real que pode levar a vítima a entrar em estado de choque e desmaiar.  O efeito do feitiço dura 1 minuto, durante o qual a vítima experimenta a ilusão terrível de ter um membro sendo arrancado. O sofrimento pode ser tão insuportável que a vítima fica incapaz de se mover ou reagir adequadamente a outras situações ao seu redor.  Para quebrar o efeito do Dormentia, outro bruxo deve lançar o contrafeitiço Fortitudo, que anula a sensação de dor e faz com que a vítima recupere sua lucidez.  Devido à natureza extremamente dolorosa do feitiço Dormentia, seu uso é considerado um ato de crueldade e é estritamente proibido em circunstâncias éticas ou em duelos regulamentados. ",
-    "updatedAt": "2023-08-20T17:59:25.901308",
     "title": "Feitiço Dormentia",
     "level": 3,
     "actionType": "Padrão",
@@ -16,26 +14,27 @@
     "requirements": "Necromancia 3",
     "resistence": "Salvaguarda Mental Anula.",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
+    "description": "Efeito: O feitiço Dormentia é uma maldição poderosa que causa uma sensação extremamente intensa de dor ao alvo. O bruxo deve apontar sua varinha diretamente para o alvo e, ao pronunciar o nome do feitiço, desencadeia a sensação de que um membro do corpo da vítima está sendo arrancado violentamente. Essa dor é puramente ilusória, mas a intensidade é tão real que pode levar a vítima a entrar em estado de choque e desmaiar.\n\nO efeito do feitiço dura 1 minuto, durante o qual a vítima experimenta a ilusão terrível de ter um membro sendo arrancado. O sofrimento pode ser tão insuportável que a vítima fica incapaz de se mover ou reagir adequadamente a outras situações ao seu redor.\n\nPara quebrar o efeito do Dormentia, outro bruxo deve lançar o contrafeitiço Fortitudo, que anula a sensação de dor e faz com que a vítima recupere sua lucidez.\n\nDevido à natureza extremamente dolorosa do feitiço Dormentia, seu uso é considerado um ato de crueldade e é estritamente proibido em circunstâncias éticas ou em duelos regulamentados.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "O feitiço Dormentia é difícil de dominar e requer grande habilidade em Feitiços Negruns. Nesse nível, o bruxo pode lançar a maldição para causar a ilusão de que um membro está sendo arrancado, mas a intensidade e a duração são relativamente baixas."
+            "description": "O feitiço Dormentia é difícil de dominar e requer grande habilidade em Feitiços Negruns. Nesse nível, o bruxo pode lançar a maldição para causar a ilusão de que um membro está sendo arrancado, mas a intensidade e a duração são relativamente baixas. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Com mais prática e habilidade com o feitiço, o bruxo pode aumentar a intensidade e a duração do efeito do Dormentia, tornando a ilusão de dor mais vívida e prolongada. Pode lançar ele de forma focada e a duração aumenta em +1 minuto."
+            "description": "Com mais prática e habilidade com o feitiço, o bruxo pode aumentar a intensidade e a duração do efeito do Dormentia, tornando a ilusão de dor mais vívida e prolongada. Pode lançar ele de forma focada e a duração aumenta em +1 minuto. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "À medida que avança em seus estudos em Feitiços, o bruxo pode aprimorar ainda mais o Dormentia, tornando a sensação de dor quase insuportável e aumentando o tempo de duração do feitiço. Aumenta a duração em +1 minuto e causa 2d4 de dano neste tempo. Diminui a Dif de sucesso necessario em 1."
+            "description": "À medida que avança em seus estudos em Feitiços, o bruxo pode aprimorar ainda mais o Dormentia, tornando a sensação de dor quase insuportável e aumentando o tempo de duração do feitiço. Aumenta a duração em +1 minuto e causa 2d4 de dano neste tempo. Diminui a Dif de sucesso necessario em 1. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Com grande domínio sobre o Feitiço, o bruxo pode causar uma sensação de dor extremamente intensa e prolongada, levando a vítima à beira do colapso emocional. Causa 4d4 + 4 de dano."
+            "name": "Experiente",
+            "description": "Com grande domínio sobre o Feitiço, o bruxo pode causar uma sensação de dor extremamente intensa e prolongada, levando a vítima à beira do colapso emocional. Causa 4d4 + 4 de dano. "
         },
         {
             "level": 5,
@@ -43,5 +42,6 @@
             "description": "Um bruxo é capaz de lançar o Dormentia com perfeição. A vítima experimenta uma dor tão avassaladora e realista que pode levar ao desmaio e à incapacidade de reagir ao mundo ao seu redor. Nesse nível, o contrafeitiço Fortitudo pode ser mais difícil de aplicar, pois o Dormentia atinge sua vítima com uma força quase inigualável. Portanto, a utilização desse feitiço é altamente perigosa e deve ser empregada com extrema cautela, se for usada de alguma forma. Diminui a Dif de sucesso necessario em 1."
         }
     ],
-    "identifier": "2bc0157d-8272-4be5-9b2e-4f09f4158da4"
+    "identifier": "2bc0157d-8272-4be5-9b2e-4f09f4158da4",
+    "updatedAt": "2023-10-10T21:20:05.749534"
 }

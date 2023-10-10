@@ -4,8 +4,6 @@
         "Encantamento"
     ],
     "difficulty": "Médio",
-    "description": "O feitiço Cocerus é usado para causar uma terrível sensação de coceira em um alvo específico. Ao lançar o feitiço, o bruxo aponta sua varinha para o local desejado no corpo da vítima e dispara um lampejo de energia azul claro. Assim que o lampejo atinge o alvo, ele começa a sentir uma coceira insuportável na área atingida.  A coceira é tão intensa que pode levar o alvo a ficar completamente distraído e incapaz de se concentrar em outras atividades. A sensação de coceira persiste pelo tempo de duração do feitiço, causando grande desconforto. ",
-    "updatedAt": "2023-08-20T17:59:25.646307",
     "title": "Feitiço da Coceira",
     "level": 3,
     "actionType": "Padrão",
@@ -13,32 +11,34 @@
     "light": "Azul claro.",
     "resistence": "Salvaguarda Fisica Anula.",
     "meta": "4 Sucessos Padrão | 5 Sucessos situações complicadas.",
+    "description": "Efeito: O feitiço Cocerus é usado para causar uma terrível sensação de coceira em um alvo específico. Ao lançar o feitiço, o bruxo aponta sua varinha para o local desejado no corpo da vítima e dispara um lampejo de energia azul claro. Assim que o lampejo atinge o alvo, ele começa a sentir uma coceira insuportável na área atingida.\n\nA coceira é tão intensa que pode levar o alvo a ficar completamente distraído e incapaz de se concentrar em outras atividades. A sensação de coceira persiste pelo tempo de duração do feitiço, causando grande desconforto.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Cocerus, causando uma coceira moderada no alvo."
+            "description": "Você pode lançar Cocerus, causando uma coceira moderada no alvo. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Pode lançar o feitiço de forma Focado."
+            "description": "Pode lançar o feitiço de forma Focado. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "O poder do feitiço aumenta, tornando a coceira ainda mais intensa e perturbadora para o alvo."
+            "description": "O poder do feitiço aumenta, tornando a coceira ainda mais intensa e perturbadora para o alvo. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "O tempo de duração do feitiço é prolongado, fazendo com que a coceira persista por um período mais longo. +1 minuto - em combate 2 rodadas"
+            "name": "Experiente",
+            "description": "O tempo de duração do feitiço é prolongado, fazendo com que a coceira persista por um período mais longo. +1 minuto - em combate 2 rodadas "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Neste nível de maestria, o bruxo pode usar o Cocerus para afetar múltiplos alvos ao mesmo tempo, espalhando a coceira entre diversas pessoas. Além disso, o bruxo pode ajustar a intensidade da coceira de acordo com sua vontade, variando desde uma irritação leve até uma coceira quase insuportável. Vale ressaltar que o feitiço Cocerus é considerado brincalhão e inofensivo em sua forma básica, mas é sempre importante lembrar de usar a magia com responsabilidade e respeito ao bem-estar dos outros. O uso indevido ou excessivo do feitiço pode ser considerado uma prática inadequada ou até mesmo ofensiva. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Neste nível de maestria, o bruxo pode usar o Cocerus para afetar múltiplos alvos ao mesmo tempo, espalhando a coceira entre diversas pessoas. Além disso, o bruxo pode ajustar a intensidade da coceira de acordo com sua vontade, variando desde uma irritação leve até uma coceira quase insuportável. Vale ressaltar que o feitiço Cocerus é considerado brincalhão e inofensivo em sua forma básica, mas é sempre importante lembrar de usar a magia com responsabilidade e respeito ao bem-estar dos outros. O uso indevido ou excessivo do feitiço pode ser considerado uma prática inadequada ou até mesmo ofensiva. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "e8fbf1ee-c1a2-4b60-b154-bd1627eae349"
+    "identifier": "e8fbf1ee-c1a2-4b60-b154-bd1627eae349",
+    "updatedAt": "2023-10-10T21:20:05.696366"
 }

@@ -4,8 +4,6 @@
         "Transmutação"
     ],
     "difficulty": "Médio",
-    "description": "O Reducio é um feitiço que reduz o tamanho do alvo afetado. Pode ser utilizado em objetos, formas de energia e animais sem grandes consequências. Porém, quando aplicado em humanos ou seres humanóides, pode causar desconforto e problemas se não for conjurado corretamente. Em objetos ou animais, o feitiço reduz o tamanho em até um quinto (1/5) sem problemas, embora o alvo possa se sentir nauseado por alguns segundos após a transformação.  Para encolher um humano ou ser humanóide, o bruxo deve obter pelo menos 5 Sucessos na conjuração desse feitiço. Caso contrário, o Reducio causa um efeito similar ao estrunchamento, danificando uma pequena área onde a varinha foi apontada, resultando em 2d6 de dano. No entanto, se o Reducio for bem-sucedido, pode diminuir proporcionalmente o tamanho do alvo até um máximo de um quinto (1/5) do seu tamanho original. No entanto, uma criatura reduzida corretamente fica Lenta devido ao encurtamento das pernas. ",
-    "updatedAt": "2023-09-02T20:00:41.112272",
     "title": "Feitiço de Encolhimento",
     "level": 2,
     "actionType": "Padrão",
@@ -17,32 +15,34 @@
     "resistence": "Salvaguarda Fisica Anula.",
     "cd": "Feitiçaria + Metade da Força.",
     "meta": "6 Sucessos Padrão | 7 Sucessos situações complicadas.",
+    "description": "Efeito: O Reducio é um feitiço que reduz o tamanho do alvo afetado. Pode ser utilizado em objetos, formas de energia e animais sem grandes consequências. Porém, quando aplicado em humanos ou seres humanóides, pode causar desconforto e problemas se não for conjurado corretamente. Em objetos ou animais, o feitiço reduz o tamanho em até um quinto (1/5) sem problemas, embora o alvo possa se sentir nauseado por alguns segundos após a transformação.\n\nPara encolher um humano ou ser humanóide, o bruxo deve obter pelo menos 5 Sucessos na conjuração desse feitiço. Caso contrário, o Reducio causa um efeito similar ao estrunchamento, danificando uma pequena área onde a varinha foi apontada, resultando em 2d6 de dano. No entanto, se o Reducio for bem-sucedido, pode diminuir proporcionalmente o tamanho do alvo até um máximo de um quinto (1/5) do seu tamanho original. No entanto, uma criatura reduzida corretamente fica Lenta devido ao encurtamento das pernas.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar Reducio."
+            "description": "Você pode lançar Reducio. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar Reducio de forma focada."
+            "description": "Você pode lançar Reducio de forma focada. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar Reducio de forma não-verbal."
+            "description": "Você pode lançar Reducio de forma não-verbal. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar Redactum Skullus (Feitiço de Encolhimento da Cabeça) como um feitiço de \"Maldição\", \"Duração: 1 hora\" e \"Contrafeitiço: Engorgio Skullus\". Nessa variação, você faz com que apenas a cabeça da vítima encolha, deixando-a ridiculamente desproporcional. Além do desconforto e da dor, o alvo desse feitiço é afligido pela condição Fatigado enquanto permanecer com a cabeça encolhida."
+            "name": "Experiente",
+            "description": "Você pode lançar Redactum Skullus (Feitiço de Encolhimento da Cabeça) como um feitiço de \"Maldição\", \"Duração: 1 hora\" e \"Contrafeitiço: Engorgio Skullus\". Nessa variação, você faz com que apenas a cabeça da vítima encolha, deixando-a ridiculamente desproporcional. Além do desconforto e da dor, o alvo desse feitiço é afligido pela condição Fatigado enquanto permanecer com a cabeça encolhida. "
         },
         {
             "level": 5,
             "name": "Mestre",
-            "description": "Você pode lançar Diminuendo (Feitiço para Diminuir) como um feitiço de \"Duração: Permanente\". Com o Diminuendo, você é capaz de reduzir permanentemente o tamanho de um objeto, animal ou criatura em até um quinto (1/5) de suas dimensões originais. Esse efeito não pode ser revertido, e a criatura reduzida permanentemente também fica Lenta devido ao encurtamento das pernas. | Neste Nivel a dificuldade de sucesso do feitiço  diminui em 1."
+            "description": "Você pode lançar Diminuendo (Feitiço para Diminuir) como um feitiço de \"Duração: Permanente\". Com o Diminuendo, você é capaz de reduzir permanentemente o tamanho de um objeto, animal ou criatura em até um quinto (1/5) de suas dimensões originais. Esse efeito não pode ser revertido, e a criatura reduzida permanentemente também fica Lenta devido ao encurtamento das pernas. | Neste Nivel a dificuldade de sucesso do feitiço diminui em 1."
         }
     ],
-    "identifier": "3e9e0e47-3fde-400b-aade-f6c67ce73f09"
+    "identifier": "3e9e0e47-3fde-400b-aade-f6c67ce73f09",
+    "updatedAt": "2023-10-10T21:14:58.274947"
 }

@@ -4,34 +4,33 @@
         "Encantamento"
     ],
     "difficulty": "Fácil",
-    "description": "Ao lançar o Actus em um objeto, ele ativará sua função principal instantaneamente. Para objetos com funções simples, o efeito será rápido e durará apenas um instante. Por exemplo, um archote se acenderá imediatamente após ser encantado. No entanto, para objetos com funções mais complexas ou que demandem um período maior de tempo, o feitiço pode ter uma duração de até 4 horas (D), durante as quais o objeto executará sua tarefa. Por exemplo, uma vassoura pode continuar varrendo até que toda a área esteja limpa ou até que a duração do feitiço expire.  Além disso, objetos que são ferramentas de ofício, como pincéis, martelos e agulhas de tricô, também podem ser encantados com o Actus, permitindo a mecanização temporária de suas funções, embora sem a capacidade de produzir obras-primas. ",
-    "updatedAt": "2023-08-10T18:01:57.379361",
     "title": "Feitiço da Função",
     "level": 1,
     "actionType": "Padrão",
     "duration": "Instantânea; até 4 horas (D)",
     "distance": "Curto",
     "meta": "3 Sucessos Padrão | 4 Sucessos situações complicadas.",
+    "description": "Efeito: Ao lançar o Actus em um objeto, ele ativará sua função principal instantaneamente. Para objetos com funções simples, o efeito será rápido e durará apenas um instante. Por exemplo, um archote se acenderá imediatamente após ser encantado. No entanto, para objetos com funções mais complexas ou que demandem um período maior de tempo, o feitiço pode ter uma duração de até 4 horas (D), durante as quais o objeto executará sua tarefa. Por exemplo, uma vassoura pode continuar varrendo até que toda a área esteja limpa ou até que a duração do feitiço expire.\n\nAlém disso, objetos que são ferramentas de ofício, como pincéis, martelos e agulhas de tricô, também podem ser encantados com o Actus, permitindo a mecanização temporária de suas funções, embora sem a capacidade de produzir obras-primas.",
     "maestry": [
         {
             "level": 1,
             "name": "Inicial",
-            "description": "Você pode lançar o Actus, ativando a função principal de um objeto."
+            "description": "Você pode lançar o Actus, ativando a função principal de um objeto. "
         },
         {
             "level": 2,
             "name": "Intermediário",
-            "description": "Você pode lançar o Actus de forma não-verbal, executando o feitiço com apenas gestos e expressões."
+            "description": "Você pode lançar o Actus de forma não-verbal, executando o feitiço com apenas gestos e expressões. "
         },
         {
             "level": 3,
             "name": "Avançado",
-            "description": "Você pode lançar o Actus com uma duração maior, estendendo o efeito do feitiço para até 8 horas."
+            "description": "Você pode lançar o Actus com uma duração maior, estendendo o efeito do feitiço para até 8 horas. "
         },
         {
             "level": 4,
-            "name": "Especialista",
-            "description": "Você pode lançar o Actus de forma silenciosa, executando a magia sem proferir palavras."
+            "name": "Experiente",
+            "description": "Você pode lançar o Actus de forma silenciosa, executando a magia sem proferir palavras. "
         },
         {
             "level": 5,
@@ -39,5 +38,6 @@
             "description": "Com a variação Actus Totalum (Feitiço Multi-Função), você pode realizar essa magia em qualquer número de objetos em um raio de até 30 metros de distância, tornando-se excepcionalmente eficiente em atividades que exigem o uso de vários objetos simultaneamente.- Passa a conseguir ativar a função de objetos de combate tambem. (Espadas, Arcos e Flechas e outros.) que lutam sozinhos por 1d4+2 rodadas."
         }
     ],
-    "identifier": "93f3acd6-dc7e-4858-b126-5e450647d128"
+    "identifier": "93f3acd6-dc7e-4858-b126-5e450647d128",
+    "updatedAt": "2023-10-10T21:09:12.595121"
 }
